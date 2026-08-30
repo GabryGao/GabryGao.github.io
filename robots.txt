@@ -1,0 +1,11 @@
+User-agent: archive.org_bot
+Disallow: /web-Li/team/
+
+User-agent: ia_archiver
+Disallow: /web-Li/team/
+
+User-agent: Archive-It
+Disallow: /web-Li/team/
+
+User-agent: *
+Allow: /
