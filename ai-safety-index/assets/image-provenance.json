@@ -1,0 +1,9 @@
+{
+  "asset": "agent-boundary.jpg",
+  "method": "built-in image_gen",
+  "type": "original conceptual illustration",
+  "notResearchEvidence": true,
+  "prompt": "Use case: illustration-story. Asset type: a sophisticated original science-magazine lead illustration for an AI safety research publication, image only, no webpage mockup. Landscape composition 4:3, rendered at high resolution. Primary idea: an untrusted instruction crossing a carefully constructed boundary in an agent's tool workflow. Build a tactile analog editorial collage photographed in a quiet studio: broad pale ivory paper planes, a precisely folded stepped labyrinth or architectural model cut from thick uncoated paper, a small deep forest-green route crossing several open rectangular paper gateways, and one single narrow burnt-vermilion silk ribbon threading unexpectedly through a side opening, bending the route. Strong composition with a large slate-green open plane in upper right, warm white sunlight, long precise soft shadows, subtle fibers, modest print grain and offset-print character. Palette restrained cream, warm grey, dark petrol green, one rust-red accent. The image should feel art-directed by a human editorial illustrator for an intelligent science magazine: graphic, sculptural, tactile, surprising, with meaningful negative space and a legible visual hierarchy, not shiny or futuristic. Camera oblique close-up, carefully balanced large and small forms, crop full bleed. This is a conceptual illustration, not a data visualization or research result. No words, letters, logos, numbers, UI panels, captions, labels, human faces, robots, brains, glowing orbs, shields, locks, neural-network stock art, electric blue, purple gradients or glassmorphism. One complete cohesive image, never a collection of alternatives.",
+  "originalFile": "exec-2ce7c46c-3a77-4416-a616-55808e8aabe5.png",
+  "conversion": "JPEG format conversion with macOS sips, quality 84; no content edits."
+}

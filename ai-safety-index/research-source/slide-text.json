@@ -1,0 +1,1032 @@
+[
+  {
+    "slide": "ppt/slides/slide3.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609600",
+        "y": "657860",
+        "text": "1. Data & Privacy Security ｜Benchmarks"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "按攻击目标与隐私机制分榜，避免用一个“隐私总分”掩盖不同风险。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Data Privacy"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "ConfAIde, PrivacyBench, PrivacyLens"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "不当披露率、情境完整性与隐私边界判断分别报告"
+      },
+      {
+        "x": "609600",
+        "y": "2895600",
+        "text": "Data Leakage"
+      },
+      {
+        "x": "5309600",
+        "y": "2895600",
+        "text": "ProPILE, PII-Bench / PLeak类数据集"
+      },
+      {
+        "x": "9009600",
+        "y": "2895600",
+        "text": "个人信息提取率、攻击条件、数据许可与暴露严重度"
+      },
+      {
+        "x": "609600",
+        "y": "3543300",
+        "text": "Membership Privacy"
+      },
+      {
+        "x": "5309600",
+        "y": "3543300",
+        "text": "Membership Inference 基准"
+      },
+      {
+        "x": "9009600",
+        "y": "3543300",
+        "text": "攻击成功率、查询成本、隐私预算与防御效果按协议建榜"
+      },
+      {
+        "x": "609600",
+        "y": "4191000",
+        "text": "Data Integrity"
+      },
+      {
+        "x": "5309600",
+        "y": "4191000",
+        "text": "BackdoorBench"
+      },
+      {
+        "x": "9009600",
+        "y": "4191000",
+        "text": "攻击成功率、干净样本性能、检测率与防御代价并列"
+      },
+      {
+        "x": "609600",
+        "y": "4838700",
+        "text": "Model Governance"
+      },
+      {
+        "x": "5309600",
+        "y": "4838700",
+        "text": "Model Extraction, Machine Unlearning 基准"
+      },
+      {
+        "x": "9009600",
+        "y": "4838700",
+        "text": "复制质量、查询效率、遗忘验证及保留任务能力"
+      },
+      {
+        "x": "609600",
+        "y": "5486400",
+        "text": "Data Governance"
+      },
+      {
+        "x": "5309600",
+        "y": "5486400",
+        "text": "DataComp, DataPerf"
+      },
+      {
+        "x": "9009600",
+        "y": "5486400",
+        "text": "用于数据选择和管线质量, 不直接视为隐私安全得分"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "必须分别展示：披露率、PII 提取率、成员推断成功率、查询成本、隐私预算、遗忘效果与保留能力。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, ConfAIde、ProPILE、BackdoorBench、DataComp、DataPerf等公开资源"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "30"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Federated Learning,  Privacy boundary inference,  contextual integrity,  disclosure control"
+      },
+      {
+        "x": "2809600",
+        "y": "2895600",
+        "text": "PII detection,  memorization analysis,  privacy-preserving generation"
+      },
+      {
+        "x": "2809600",
+        "y": "3543300",
+        "text": "Membership inference defense,  privacy leakage measurement"
+      },
+      {
+        "x": "2809600",
+        "y": "4191000",
+        "text": "Poisoning detection,  backdoor removal,  robust training"
+      },
+      {
+        "x": "2809600",
+        "y": "4838700",
+        "text": "Model theft defense,  machine unlearning,  retention testing"
+      },
+      {
+        "x": "2809600",
+        "y": "5486400",
+        "text": "Data provenance,  quality auditing,  privacy governance"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  },
+  {
+    "slide": "ppt/slides/slide4.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609599",
+        "y": "657860",
+        "text": "2. Foundation Model Safety & Security｜Benchmark 全景"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "直接安全结果优先建榜, 事实性、鲁棒性等安全相关能力单列。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Model Alignment"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "HELM Safety, AILuminate, TrustLLM, SafetyBench, SALAD-Bench"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "统一场景、危害类别与可信维度, 按版本和协议分别建榜"
+      },
+      {
+        "x": "609600",
+        "y": "2895600",
+        "text": "Harmful Assistance"
+      },
+      {
+        "x": "5309600",
+        "y": "2895600",
+        "text": "HarmBench, JailbreakBench, StrongREJECT, SORRY-Bench"
+      },
+      {
+        "x": "9009600",
+        "y": "2895600",
+        "text": "同时报告攻击成功率、危害程度及有害回答的可执行性"
+      },
+      {
+        "x": "609600",
+        "y": "3543300",
+        "text": "Refusal Calibration"
+      },
+      {
+        "x": "5309600",
+        "y": "3543300",
+        "text": "Do-Not-Answer, XSTest, OR-Bench, WildGuardTest"
+      },
+      {
+        "x": "9009600",
+        "y": "3543300",
+        "text": "安全拒答与无害请求误拒分开，避免“拒答越多越安全”"
+      },
+      {
+        "x": "609600",
+        "y": "4191000",
+        "text": "Factual Reliability"
+      },
+      {
+        "x": "5309600",
+        "y": "4191000",
+        "text": "TruthfulQA, SimpleQA, FActScore, HaluEval"
+      },
+      {
+        "x": "9009600",
+        "y": "4191000",
+        "text": "属于安全相关能力，不与直接有害行为分数混合"
+      },
+      {
+        "x": "609600",
+        "y": "4838700",
+        "text": "Bias Evaluation"
+      },
+      {
+        "x": "5309600",
+        "y": "4838700",
+        "text": "RealToxicityPrompts, ToxiGen, BBQ, BOLD, StereoSet"
+      },
+      {
+        "x": "9009600",
+        "y": "4838700",
+        "text": "按群体、语境和语言分层，保留能力与公平性权衡"
+      },
+      {
+        "x": "609600",
+        "y": "5486400",
+        "text": "Adversarial Robustness"
+      },
+      {
+        "x": "5309600",
+        "y": "5486400",
+        "text": "RobustBench, DecodingTrust, MM-SafetyBench, FigStep"
+      },
+      {
+        "x": "9009600",
+        "y": "5486400",
+        "text": "区分输入鲁棒性、视觉越狱与生成安全，声明攻击协议"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "首批建议：HarmBench、JailbreakBench、StrongREJECT、XSTest、TruthfulQA、BBQ、MM-SafetyBench。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, HELM、MLCommons及各 benchmark 官方论文/项目页（核验 2026-10-14）"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "27"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Safety alignment,  risk recognition,  multidimensional safety evaluation"
+      },
+      {
+        "x": "2809600",
+        "y": "2895600",
+        "text": "Jailbreak defense,  prompt injection protection,  harmful request detection"
+      },
+      {
+        "x": "2809600",
+        "y": "3543300",
+        "text": "Refusal calibration,  safe vs. benign request classification"
+      },
+      {
+        "x": "2809600",
+        "y": "4191000",
+        "text": "Fact verification,  hallucination detection,  knowledge reliability"
+      },
+      {
+        "x": "2809600",
+        "y": "4838700",
+        "text": "Toxicity detection,  fairness evaluation,  bias measurement"
+      },
+      {
+        "x": "2809600",
+        "y": "5486400",
+        "text": "Adversarial robustness,  multimodal safety,  visual jailbreak defense"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  },
+  {
+    "slide": "ppt/slides/slide5.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609600",
+        "y": "657860",
+        "text": "3. Agent & AI Software System Safety｜Benchmarks"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "评测对象是“模型＋框架＋防御＋权限”的完整配置，而非单一模型。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Prompt Injection"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "AgentDojo, InjecAgent, BIPIA, Tensor Trust"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "记录注入入口、工具权限、正常效用及攻击目标成功率"
+      },
+      {
+        "x": "609600",
+        "y": "2895600",
+        "text": "Agent Risk"
+      },
+      {
+        "x": "5309600",
+        "y": "2895600",
+        "text": "AgentHarm, Agent-SafetyBench, SafeToolBench, R-Judge"
+      },
+      {
+        "x": "9009600",
+        "y": "2895600",
+        "text": "测量多步骤违规动作、风险识别与防护后的任务完成率"
+      },
+      {
+        "x": "609600",
+        "y": "3543300",
+        "text": "Computer Use"
+      },
+      {
+        "x": "5309600",
+        "y": "3543300",
+        "text": "BrowserGym, WebArena, OSWorld"
+      },
+      {
+        "x": "9009600",
+        "y": "3543300",
+        "text": "增加越权点击、敏感数据外传、文件破坏与任务偏离指标"
+      },
+      {
+        "x": "609600",
+        "y": "4191000",
+        "text": "Tool Use"
+      },
+      {
+        "x": "5309600",
+        "y": "4191000",
+        "text": "τ-bench, ToolSandbox, ToolBench, AgentBench, GAIA"
+      },
+      {
+        "x": "9009600",
+        "y": "4191000",
+        "text": "能力环境需叠加授权边界、危险调用和策略遵守指标"
+      },
+      {
+        "x": "609600",
+        "y": "4838700",
+        "text": "Retrieval Reliability"
+      },
+      {
+        "x": "5309600",
+        "y": "4838700",
+        "text": "RAGTruth, RGB, ARES"
+      },
+      {
+        "x": "9009600",
+        "y": "4838700",
+        "text": "区分检索质量、证据忠实性、幻觉与低信任内容注入"
+      },
+      {
+        "x": "609600",
+        "y": "5486400",
+        "text": "Cybersecurity"
+      },
+      {
+        "x": "5309600",
+        "y": "5486400",
+        "text": "CyberSecEval 2/3, Cybench, MITRE ATLAS"
+      },
+      {
+        "x": "9009600",
+        "y": "5486400",
+        "text": "能力、实际攻击行为与威胁知识库分别呈现，不直接合榜"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "首版 Security Index：同任务、同预算成对测试正常条件与攻击条件, 效用、越权、泄露和成本分别展示。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, AgentDojo、WebArena、OSWorld、CyberSecEval等公开协议（核验 2026-10-14）"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "28"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Indirect prompt injection,  untrusted-input filtering,  secure tool use"
+      },
+      {
+        "x": "2809600",
+        "y": "2895600",
+        "text": "Agent behavior safety,  multi-step task constraints,  risk detection"
+      },
+      {
+        "x": "2809600",
+        "y": "3543300",
+        "text": "Browser and OS agent security,  permission control,  data exfiltration prevention"
+      },
+      {
+        "x": "2809600",
+        "y": "4191000",
+        "text": "Tool authorization,  policy adherence,  safe API execution"
+      },
+      {
+        "x": "2809600",
+        "y": "4838700",
+        "text": "RAG provenance,  evidence grounding,  retrieval integrity"
+      },
+      {
+        "x": "2809600",
+        "y": "5486400",
+        "text": "Secure code generation,  vulnerability detection,  cyber capability risk"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  },
+  {
+    "slide": "ppt/slides/slide6.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609600",
+        "y": "657860",
+        "text": "4. Physical AI Safety｜Benchmarks"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "任务成功不等于安全, 需要把碰撞、违规和人工接管作为独立结果。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Navigation"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "SafeAgentBench, Habitat / Habitat-Sim"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "安全约束、禁区进入、碰撞率与长时程任务偏离"
+      },
+      {
+        "x": "609600",
+        "y": "3025140",
+        "text": "Interaction"
+      },
+      {
+        "x": "5309600",
+        "y": "3025140",
+        "text": "AI2-THOR, BEHAVIOR-1K"
+      },
+      {
+        "x": "9009600",
+        "y": "3025140",
+        "text": "危险物体、人身风险、失败严重度与场景约束满足率"
+      },
+      {
+        "x": "609600",
+        "y": "3802380",
+        "text": "Manipulation"
+      },
+      {
+        "x": "5309600",
+        "y": "3802380",
+        "text": "RoboSuite, RLBench, ManiSkill"
+      },
+      {
+        "x": "9009600",
+        "y": "3802380",
+        "text": "叠加接触力、碰撞、危险动作和控制稳定性指标"
+      },
+      {
+        "x": "609600",
+        "y": "4579620",
+        "text": "Constrained Learning"
+      },
+      {
+        "x": "5309600",
+        "y": "4579620",
+        "text": "Safety-Gymnasium"
+      },
+      {
+        "x": "9009600",
+        "y": "4579620",
+        "text": "约束决策、安全探索、违规次数及奖励—安全权衡"
+      },
+      {
+        "x": "609600",
+        "y": "5356860",
+        "text": "Autonomous Driving"
+      },
+      {
+        "x": "5309600",
+        "y": "5356860",
+        "text": "CARLA, nuScenes, Waymo Open Dataset"
+      },
+      {
+        "x": "9009600",
+        "y": "5356860",
+        "text": "碰撞、近失、交通规则、长尾场景、OOD 与人工接管"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "建议指标：碰撞率｜近失率｜违规动作率｜约束满足率｜危险严重度｜OOD 表现｜人工接管次数。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, SafeAgentBench、Habitat、Safety-Gymnasium、CARLA 等官方资源"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "29"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Safe planning,  collision avoidance,  navigation constraints"
+      },
+      {
+        "x": "2809600",
+        "y": "3025140",
+        "text": "Scene understanding,  hazard avoidance,  human proximity safety"
+      },
+      {
+        "x": "2809600",
+        "y": "3802380",
+        "text": "Force and contact control,  safe manipulation,  motion stability"
+      },
+      {
+        "x": "2809600",
+        "y": "4579620",
+        "text": "Constrained policy learning,  safe exploration,  violation reduction"
+      },
+      {
+        "x": "2809600",
+        "y": "5356860",
+        "text": "Robust perception,  trajectory planning,  traffic-rule compliance"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  },
+  {
+    "slide": "ppt/slides/slide7.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609600",
+        "y": "657860",
+        "text": "5. Human-AI Interaction & Societal Safety｜Benchmarks"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "按群体、语言与场景报告社会风险，宏平均不能替代专项结论。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Fairness"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "BBQ,BOLD,CrowS-Pairs,StereoSet,HolisticBias"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "区分模糊/明确语境、开放生成与语言建模能力"
+      },
+      {
+        "x": "609600",
+        "y": "2895600",
+        "text": "Toxicity"
+      },
+      {
+        "x": "5309600",
+        "y": "2895600",
+        "text": "ToxiGen, HateCheck"
+      },
+      {
+        "x": "9009600",
+        "y": "2895600",
+        "text": "覆盖隐性仇恨、对抗样本和逐项功能诊断"
+      },
+      {
+        "x": "609600",
+        "y": "3543300",
+        "text": "Multilingual Safety"
+      },
+      {
+        "x": "5309600",
+        "y": "3543300",
+        "text": "XSafety, PolyGuard, FLAMES"
+      },
+      {
+        "x": "9009600",
+        "y": "3543300",
+        "text": "按语言单列，不用宏平均掩盖低资源语言安全差异"
+      },
+      {
+        "x": "609600",
+        "y": "4191000",
+        "text": "Ethics"
+      },
+      {
+        "x": "5309600",
+        "y": "4191000",
+        "text": "ETHICS, MACHIAVELLI, DeceptionBench"
+      },
+      {
+        "x": "9009600",
+        "y": "4191000",
+        "text": "测量伦理判断、欺骗、权力追逐与互动行为风险"
+      },
+      {
+        "x": "609600",
+        "y": "4838700",
+        "text": "Sycophancy"
+      },
+      {
+        "x": "5309600",
+        "y": "4838700",
+        "text": "Sycophancy tasks, SAD"
+      },
+      {
+        "x": "9009600",
+        "y": "4838700",
+        "text": "区分迎合用户观点、自我认知与评测情境识别"
+      },
+      {
+        "x": "609600",
+        "y": "5486400",
+        "text": "Governance"
+      },
+      {
+        "x": "5309600",
+        "y": "5486400",
+        "text": "AILuminate, NIST AI RMF / GenAI Profile"
+      },
+      {
+        "x": "9009600",
+        "y": "5486400",
+        "text": "行业测试与治理框架用于流程约束，不直接当作单一模型分数"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "儿童安全、心理健康、诈骗/操纵与无障碍需专项数据、专家标注和严重度分级, 通用毒性集不能替代。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, BBQ、XSafety、ETHICS、MACHIAVELLI、AILuminate、NIST AI RMF"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "32"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Fairness measurement,  demographic bias analysis,  inclusive evaluation"
+      },
+      {
+        "x": "2809600",
+        "y": "2895600",
+        "text": "Toxic-content detection,  hate-speech analysis,  harm severity classification"
+      },
+      {
+        "x": "2809600",
+        "y": "3543300",
+        "text": "Multilingual moderation,  cross-lingual robustness,  language-specific risk analysis"
+      },
+      {
+        "x": "2809600",
+        "y": "4191000",
+        "text": "Ethical reasoning,  deception detection,  harmful interaction analysis"
+      },
+      {
+        "x": "2809600",
+        "y": "4838700",
+        "text": "Sycophancy detection,  calibrated responses,  evaluation-context awareness"
+      },
+      {
+        "x": "2809600",
+        "y": "5486400",
+        "text": "Risk management,  standardized testing,  governance and audit workflows"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  },
+  {
+    "slide": "ppt/slides/slide8.xml",
+    "shapes": [
+      {
+        "x": "609600",
+        "y": "266700",
+        "text": "Benchmark Atlas | Research Survey"
+      },
+      {
+        "x": "609600",
+        "y": "657860",
+        "text": "6. AI+X ＆ AI4Science safety｜Benchmarks"
+      },
+      {
+        "x": "609600",
+        "y": "1308100",
+        "text": "危险知识、可执行有害协助与严重错误建议是三类不同风险。"
+      },
+      {
+        "x": "609600",
+        "y": "1816100",
+        "text": "Evaluation Subdomain"
+      },
+      {
+        "x": "2809600",
+        "y": "1816100",
+        "text": "Tech"
+      },
+      {
+        "x": "9009600",
+        "y": "1816100",
+        "text": "主要指标与使用边界"
+      },
+      {
+        "x": "609600",
+        "y": "2247900",
+        "text": "Knowledge Safety"
+      },
+      {
+        "x": "5309600",
+        "y": "2247900",
+        "text": "WMDP"
+      },
+      {
+        "x": "9009600",
+        "y": "2247900",
+        "text": "生物、化学与网络危险知识能力, 不能等同于有害协助"
+      },
+      {
+        "x": "609600",
+        "y": "2895600",
+        "text": "Biosafety"
+      },
+      {
+        "x": "5309600",
+        "y": "2895600",
+        "text": "LAB-Bench,ChemSafetyBench"
+      },
+      {
+        "x": "9009600",
+        "y": "2895600",
+        "text": "实验推理、回答准确性、安全建议与双重用途风险"
+      },
+      {
+        "x": "609600",
+        "y": "3543300",
+        "text": "Medical Safety"
+      },
+      {
+        "x": "5309600",
+        "y": "3543300",
+        "text": "MedSafetyBench,HealthBench ,MedQA ,PubMedQA"
+      },
+      {
+        "x": "9009600",
+        "y": "3543300",
+        "text": "伦理、事实性和严重错误需专家复核并标注目标地区"
+      },
+      {
+        "x": "609600",
+        "y": "4191000",
+        "text": "Blockchain"
+      },
+      {
+        "x": "5309600",
+        "y": "4191000",
+        "text": "SmartBugs,SolidiFI,Ethernaut"
+      },
+      {
+        "x": "9009600",
+        "y": "4191000",
+        "text": "合约漏洞、攻击成功率、资产损失、共识稳定性与链上隐私分别评估"
+      },
+      {
+        "x": "609600",
+        "y": "4838700",
+        "text": "Financial Safety"
+      },
+      {
+        "x": "5309600",
+        "y": "4838700",
+        "text": "FinSafetyBench"
+      },
+      {
+        "x": "9009600",
+        "y": "4838700",
+        "text": "中英文违法违规、不道德请求拒绝, 注明适用法规与地区"
+      },
+      {
+        "x": "609600",
+        "y": "5486400",
+        "text": "Scientific Reasoning"
+      },
+      {
+        "x": "5309600",
+        "y": "5486400",
+        "text": "SciBench,GPQA Diamond,MMLU-Pro"
+      },
+      {
+        "x": "9009600",
+        "y": "5486400",
+        "text": "仅作安全相关能力参考，不与直接领域安全结果混榜"
+      },
+      {
+        "x": "609600",
+        "y": "6223000",
+        "text": "医疗、金融、生物、化学：自动裁判只做初筛, 主结论需要专家复核、严重度分级和地域说明。"
+      },
+      {
+        "x": "609600",
+        "y": "6515100",
+        "text": "来源：AI_safety_benchmarks.md, WMDP、LAB-Bench、ChemSafetyBench、MedSafetyBench等公开论文"
+      },
+      {
+        "x": "10953750",
+        "y": "6487160",
+        "text": "31"
+      },
+      {
+        "x": "2809600",
+        "y": "2247900",
+        "text": "Dual-use risk assessment,  capability restriction,  knowledge elicitation"
+      },
+      {
+        "x": "2809600",
+        "y": "2895600",
+        "text": "Biosecurity screening,  chemical safety,  laboratory-risk assessment"
+      },
+      {
+        "x": "2809600",
+        "y": "3543300",
+        "text": "Clinical fact checking,  harmful-advice detection,  expert review"
+      },
+      {
+        "x": "2809600",
+        "y": "4191000",
+        "text": "Smart contract security,  decentralized application security,  consensus and wallet protection"
+      },
+      {
+        "x": "2809600",
+        "y": "4838700",
+        "text": "Fraud and misconduct detection,  compliant advice,  regional policy checks"
+      },
+      {
+        "x": "2809600",
+        "y": "5486400",
+        "text": "Scientific fact verification,  uncertainty estimation,  reproducibility"
+      },
+      {
+        "x": "5309600",
+        "y": "1816100",
+        "text": "Representative Benchmark"
+      }
+    ]
+  }
+]

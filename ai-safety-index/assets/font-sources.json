@@ -1,0 +1,9 @@
+{
+  "provider": "Google Fonts",
+  "families": [
+    "Newsreader",
+    "Noto Serif SC"
+  ],
+  "license": "SIL Open Font License",
+  "use": "Self-hosted display typography. Noto Serif SC is subset for editorial headings."
+}
