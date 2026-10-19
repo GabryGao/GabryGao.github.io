@@ -122,7 +122,7 @@ searchAll = function(q){
  $('#search-count').textContent=term?list.length+' 个相关示例':'推荐资料';
 };
 document.addEventListener('change',e=>{
- if(e.target.id==='direction-filter'){const p=Object.fromEntries(route().params);p.direction=e.target.value;delete p.benchmark;delete p.metric;state.selected.clear();go(route().path,p)}
+ if(e.target.id==='direction-filter'){const p=Object.fromEntries(route().params);p.direction=e.target.value;delete p.benchmark;delete p.metric;delete p.page;state.selected.clear();go(route().path,p)}
  if(e.target.id==='topic-picker'){state.selected.clear();go('directions',{pillar:e.target.value,view:route().params.get('view')||'overview'})}
  if(e.target.id==='news-type')replaceQuery('type',e.target.value);
 });

@@ -25,7 +25,7 @@ function libraryPanel(type,direction='') {
 }
 function libraryPage(type) {
  const d=selectedDirection(),title=type==='papers'?'论文资料':'数据与任务';
- return '<div class="wrap task-page">'+pageHead('',title,'按研究问题寻找资料，从原始来源继续阅读与使用。')+'<nav class="tabs" aria-label="资料类型"><a class="tab '+(type==='papers'?'active':'')+'" href="'+scopedLink('papers',d)+'">论文</a><a class="tab '+(type==='datasets'?'active':'')+'" href="'+scopedLink('datasets',d)+'">数据与任务</a><a class="tab" href="'+scopedLink('methods',d)+'">方法与工具</a></nav>'+scopeControl(d).replace('选择方向后，目录、结果和方法共用同一筛选范围。','按方向筛选资料，切换论文与数据时保留范围。')+libraryPanel(type,d)+'</div>';
+ return '<div class="wrap task-page library-page">'+pageHead('',title,'按研究问题寻找资料，从原始来源继续阅读与使用。')+'<nav class="tabs" aria-label="资料类型"><a class="tab '+(type==='papers'?'active':'')+'" href="'+scopedLink('papers',d)+'">论文</a><a class="tab '+(type==='datasets'?'active':'')+'" href="'+scopedLink('datasets',d)+'">数据与任务</a><a class="tab" href="'+scopedLink('methods',d)+'">方法与工具</a></nav>'+scopeControl(d).replace('选择方向后，目录、结果和方法共用同一筛选范围。','按方向筛选资料，切换论文与数据时保留范围。')+libraryPanel(type,d)+'</div>';
 }
 function homepageNews() {
  const feature=newsRecords.find(n=>n.id==='agent-project'),others=[newsRecords.find(n=>n.id==='helm-report'),newsRecords.find(n=>n.id==='unicef'),newsRecords.find(n=>n.id==='mm-paper')];
@@ -56,7 +56,7 @@ searchAll=function(q) {
  searchAllV4(q);
  const term=q.trim().toLowerCase();
  if(!term)return;
- const additional=[...paperRecords.map(r=>({...r,type:'论文'})),...dataRecords.map(r=>({...r,type:r.kind}))].filter(r=>(r.name+' '+r.description+' '+r.direction_ids.map(id=>getDirection(id)?.name||'').join(' ')).toLowerCase().includes(term));
+ const additional=[...paperRecords.map(r=>({...r,type:'论文'})),...dataRecords.map(r=>({...r,type:r.kind}))].filter(r=>(r.name+' '+r.description+' '+(r.authors||[]).join(' ')+' '+r.direction_ids.map(id=>getDirection(id)?.name||'').join(' ')).toLowerCase().includes(term));
  if(!additional.length)return;
  const empty=$('#global-results .empty');if(empty)empty.remove();
  $('#global-results').insertAdjacentHTML('beforeend',additional.map(r=>'<li><a href="'+r.url+'" target="_blank" rel="noopener noreferrer" data-search-result="true"><div><strong>'+esc(r.name)+' ↗</strong><p>'+esc(r.description)+'</p></div>'+badge(r.type,'blue')+'</a></li>').join(''));

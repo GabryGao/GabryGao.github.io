@@ -1,0 +1,30 @@
+{
+  "source_name": "OpenTAI",
+  "source_url": "https://github.com/OpenTAI/opentai.github.io/blob/8910c895c22f90f78205ad45ae0efb3461e63225/scripts/data/paper-library.json",
+  "source_commit": "8910c895c22f90f78205ad45ae0efb3461e63225",
+  "upstream_sha256": "089045f18f0800b5ef3e4fab985f0e97b75da00b86f97f5487cbce4bddeecf3c",
+  "imported_on": "2026-10-19",
+  "upstream_count": 772,
+  "imported_count": 487,
+  "excluded_count": 285,
+  "by_direction": {
+    "data-privacy": 91,
+    "foundation-model": 136,
+    "agent-software": 135,
+    "physical-ai": 250,
+    "human-societal": 5,
+    "ai-x-science": 1
+  },
+  "exclusion_counts": {
+    "title_not_exactly_matched_to_upstream_arxiv_cache": 30,
+    "no_title_matched_arxiv_record": 143,
+    "outside_direct_safety_scope": 111,
+    "no_supported_direction_mapping": 1
+  },
+  "year_correction_count": 7,
+  "metadata_source": "https://export.arxiv.org/api/query",
+  "metadata_snapshot_date": "2026-08-30T06:23:53.202598+00:00",
+  "scope": "Bibliographic facts and original-paper links only. No abstracts, full text, or artwork copied.",
+  "verification": "Normalized titles exactly match OpenTAI cached arXiv metadata; not an independent review of research claims.",
+  "classification": "This portal assigns overlapping direction tags using explicit title terms and source domain/section."
+}

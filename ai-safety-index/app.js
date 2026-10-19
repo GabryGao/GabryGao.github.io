@@ -24,7 +24,7 @@ const results=[
 const state={selected:new Set(),lastFocus:null};
 function route(){const [path,query='']=location.hash.slice(1).split('?');return {path:path||'home',params:new URLSearchParams(query)}}
 function go(path,params={}){const q=new URLSearchParams(Object.entries(params).filter(([,v])=>v));location.hash=path+(q.size?'?'+q:'')}
-function replaceQuery(name,value){const r=route();if(value)r.params.set(name,value);else r.params.delete(name);go(r.path,Object.fromEntries(r.params))}
+function replaceQuery(name,value){const r=route();if(name!=='page')r.params.delete('page');if(value)r.params.set(name,value);else r.params.delete(name);go(r.path,Object.fromEntries(r.params))}
 const arrow='<span aria-hidden="true">↗</span>';
 const searchIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>';
 function searchForm(id,placeholder,value='',global=false){return `<form class="search-form" data-search="${global?'global':'catalog'}"><label class="visually-hidden" for="${id}" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">搜索</label>${searchIcon}<input id="${id}" type="search" autocomplete="off" placeholder="${placeholder}" value="${esc(value)}"><button type="submit">搜索 <span aria-hidden="true">↗</span></button></form>`}
