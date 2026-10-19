@@ -5,7 +5,7 @@ function libraryModel(type,direction='',params=route().params){
  const list=all.filter(r=>(!kind||(r.kind||'research')===kind)&&[
   r.name,r.title,r.description,r.source,r.venue,r.year,...(r.authors||[]),
   ...(r.direction_ids||[]).map(id=>getDirection(id)?.name||'')
- ].filter(Boolean).join(' ').toLocaleLowerCase().includes(term));
+ ].filter(Boolean).map(value=>typeof SiteLocale==='undefined'?value:SiteLocale.searchText(value)).join(' ').toLocaleLowerCase().includes(term));
  const pageSize=20,pages=Math.max(1,Math.ceil(list.length/pageSize));
  const requested=Number(params.get('page')||1),page=Math.min(pages,Math.max(1,Number.isInteger(requested)?requested:1));
  return {q,kind,all,list,page,pages,pageSize,visible:list.slice((page-1)*pageSize,page*pageSize)};
@@ -27,8 +27,8 @@ function libraryRows(records,type){
  return records.map(r=>{
   const imported=r.import_source==='OpenTAI';
   const publication=type==='papers'?[r.year,r.venue==='arXiv'?'arXiv 预印本':r.venue,r.kind==='survey'?'综述':'研究论文'].filter(Boolean).join(' · '):r.kind;
-  const authors=imported?r.authors.slice(0,3).join('、')+(r.authors.length>3?' 等（共 '+r.authors.length+' 位作者）':''):'';
-  return '<article class="library-row"><div class="library-record"><div class="library-meta"><span>'+esc(imported?'OpenTAI 目录':r.source)+'</span><span>'+esc(publication)+'</span></div><h3><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+esc(r.name)+' ↗</a></h3>'+(authors?'<p class="paper-authors">'+esc(authors)+'</p>':'')+'<p class="paper-focus">'+esc(r.description)+'</p>'+topicTags(r.direction_ids)+(r.benchmark?'<a class="record-related" href="#benchmark/'+r.benchmark+'">查看关联基准 ↗</a>':'')+'</div><a class="record-source" href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+(type==='papers'?'论文原文':'数据与文档')+' ↗</a></article>';
+  const authors=imported?'<span data-keep-original>'+esc(r.authors.slice(0,3).join('、'))+'</span>'+(r.authors.length>3?' <span>等（共 '+r.authors.length+' 位作者）</span>':''):'';
+  return '<article class="library-row"><div class="library-record"><div class="library-meta"><span>'+esc(imported?'OpenTAI 目录':r.source)+'</span><span>'+esc(publication)+'</span></div><h3 data-keep-original lang="en"><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+esc(r.name)+' ↗</a></h3>'+(authors?'<p class="paper-authors">'+authors+'</p>':'')+'<p class="paper-focus">'+esc(r.description)+'</p>'+topicTags(r.direction_ids)+(r.benchmark?'<a class="record-related" href="#benchmark/'+r.benchmark+'">查看关联基准 ↗</a>':'')+'</div><a class="record-source" href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+(type==='papers'?'论文原文':'数据与文档')+' ↗</a></article>';
  }).join('');
 }
 function libraryPanel(type,direction=''){

@@ -20,7 +20,7 @@ function libraryRows(records,type) {
  return records.map(r=>'<article class="library-row"><div class="library-record"><div class="library-meta"><span>'+esc(r.source)+'</span><span>'+(type==='papers'?esc(r.year)+' · 论文':esc(r.kind))+'</span></div><h3><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+esc(r.name)+' ↗</a></h3><p>'+esc(r.description)+'</p>'+topicTags(r.direction_ids)+(r.benchmark?'<a class="record-related" href="#benchmark/'+r.benchmark+'">查看关联基准 ↗</a>':'')+'</div><a class="record-source" href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+(type==='papers'?'论文原文':'数据与文档')+' ↗</a></article>').join('');
 }
 function libraryPanel(type,direction='') {
- const q=(route().params.get('q')||'').trim(),all=recordListFor(type,direction),list=all.filter(r=>(r.name+' '+r.description+' '+r.source).toLowerCase().includes(q.toLowerCase()));
+ const q=(route().params.get('q')||'').trim(),all=recordListFor(type,direction),list=all.filter(r=>localeSearchText(r.name+' '+r.description+' '+r.source).toLowerCase().includes(q.toLowerCase()));
  return '<div class="panel-toolbar">'+searchForm('library-search',type==='papers'?'搜索论文名称、研究问题或作者机构':'搜索数据集、任务环境或资料库',q)+'</div><div class="count-row"><span>'+list.length+' 条'+(type==='papers'?'论文':'数据与资料')+'记录</span><span>原始来源 · 按研究方向关联</span></div>'+(list.length?'<div class="library-list">'+libraryRows(list,type)+'</div>':contentEmpty('当前范围暂无'+(type==='papers'?'论文':'数据')+'记录','该方向仍保留研究问题和候选资源清单，可在方向概览中查看；正式资料确认后补充。',direction?routeLink('directions',{pillar:direction}):'#'+type,direction?'返回方向概览':'查看完整列表'))+'<p class="section-footnote">'+(type==='papers'?'论文条目来自已有项目资料，年份按来源记录；此列表不代表最新论文排行。':'本页提供获取原始资料的入口，数据集、任务环境和风险资料库分别标注类型。下载、许可与使用条件以原始发布方为准。')+'</p>';
 }
 function libraryPage(type) {
@@ -56,7 +56,7 @@ searchAll=function(q) {
  searchAllV4(q);
  const term=q.trim().toLowerCase();
  if(!term)return;
- const additional=[...paperRecords.map(r=>({...r,type:'论文'})),...dataRecords.map(r=>({...r,type:r.kind}))].filter(r=>(r.name+' '+r.description+' '+(r.authors||[]).join(' ')+' '+r.direction_ids.map(id=>getDirection(id)?.name||'').join(' ')).toLowerCase().includes(term));
+ const additional=[...paperRecords.map(r=>({...r,type:'论文'})),...dataRecords.map(r=>({...r,type:r.kind}))].filter(r=>localeSearchText(r.name+' '+r.description+' '+(r.authors||[]).join(' ')+' '+r.direction_ids.map(id=>getDirection(id)?.name||'').join(' ')).toLowerCase().includes(term));
  if(!additional.length)return;
  const empty=$('#global-results .empty');if(empty)empty.remove();
  $('#global-results').insertAdjacentHTML('beforeend',additional.map(r=>'<li><a href="'+r.url+'" target="_blank" rel="noopener noreferrer" data-search-result="true"><div><strong>'+esc(r.name)+' ↗</strong><p>'+esc(r.description)+'</p></div>'+badge(r.type,'blue')+'</a></li>').join(''));

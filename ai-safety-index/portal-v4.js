@@ -45,7 +45,7 @@ function home(){
 }
 function benchmarkPanel(direction){
  const p=route().params,q=(p.get('q')||'').trim(),object=p.get('object')||'',sort=p.get('sort')||'name';
- let list=benchmarkListFor(direction).filter(b=>(!object||b.object===object)&&(b.name+' '+b.desc+' '+b.tags.join(' ')+' '+b.object).toLowerCase().includes(q.toLowerCase()));
+ let list=benchmarkListFor(direction).filter(b=>(!object||b.object===object)&&localeSearchText(b.name+' '+b.desc+' '+b.tags.join(' ')+' '+b.object).toLowerCase().includes(q.toLowerCase()));
  list.sort(sort==='year'?(a,b)=>b.year-a.year:(a,b)=>a.name.localeCompare(b.name));
  return '<div class="panel-toolbar">'+searchForm('catalog-search','搜索当前范围内的基准',q)+'<label>评测对象<select name="object">'+['','语言模型','多模态模型','Agent','物理系统'].map(v=>'<option value="'+v+'" '+(v===object?'selected':'')+'>'+(v||'全部对象')+'</option>').join('')+'</select></label><label>排序<select id="catalog-sort"><option value="name" '+(sort==='name'?'selected':'')+'>名称 A–Z</option><option value="year" '+(sort==='year'?'selected':'')+'>年份由新到旧</option></select></label></div><div class="count-row"><span>'+list.length+' 条基准示例</span><span>同一记录 · 方向标签筛选</span></div>'+(list.length?'<div class="index-list">'+list.map((b,i)=>scopedBenchmarkRow(b,i,direction)).join('')+'</div>':contentEmpty('当前范围暂无已录入基准','PPT 中的候选评测资源仍在专题概览中保留，核对类型、版本和来源后再加入目录。',direction?routeLink('directions',{pillar:direction}):'#benchmarks',direction?'查看拟议范围':'查看全部基准'));
 }
@@ -67,7 +67,7 @@ function methodsPage(){
 }
 function newsPanel(direction,embedded=false){
  const p=route().params,type=p.get('type')||'',q=p.get('q')||'',term=p.get('term')||'';
- const list=newsRecords.filter(n=>(!direction||n.direction_ids.includes(direction))&&(!type||n.type===type)&&(!term||n.terms.includes(term))&&(n.title+' '+n.description+' '+n.terms.join(' ')).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>b.order.localeCompare(a.order));
+ const list=newsRecords.filter(n=>(!direction||n.direction_ids.includes(direction))&&(!type||n.type===type)&&(!term||n.terms.includes(term))&&localeSearchText(n.title+' '+n.description+' '+n.terms.join(' ')).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>b.order.localeCompare(a.order));
  return '<div class="panel-toolbar news-toolbar">'+searchForm('news-search','搜索论文、项目或报告',q)+'<label>内容类型<select id="news-type"><option value="">全部内容</option><option value="projects" '+(type==='projects'?'selected':'')+'>论文与项目</option><option value="reports" '+(type==='reports'?'selected':'')+'>报告与指南</option></select></label></div><div class="keyword-row"><span>关键词</span>'+['提示注入','多模态','儿童安全','风险治理'].map(t=>'<button data-news-term="'+t+'" class="'+(term===t?'active':'')+'" aria-pressed="'+(term===t)+'">'+t+'</button>').join('')+(term?'<button data-news-term="" class="clear-keyword">清除关键词 ×</button>':'')+'</div><div class="count-row"><span>'+list.length+' 条精选与归档</span><span>按来源发布日期排序</span></div>'+(list.length?'<div class="news-list">'+newsRows(list)+'</div>':contentEmpty('当前筛选下暂无已录入动态','只展示有原始来源的内容，不使用无关联材料填补专题。',embedded?scopedLink('news',direction):'#news','打开动态列表'))+'<p class="section-footnote">人工精选，保留来源发布日期；较早内容作为资料归档。方向标签用于关联专题，不代表六份独立的热点列表。</p>';
 }
 function newsPage(){const d=selectedDirection();return '<div class="wrap reveal task-page">'+pageHead('','研究热点','人工精选值得关注的论文、项目与报告；按研究方向和关键词筛选。')+'<div class="news-scope">'+scopeControl(d).replace('选择方向后，目录、结果和方法共用同一筛选范围。','将论文、项目和报告限定在所选方向。')+'</div>'+newsPanel(d)+'</div>'}
@@ -117,7 +117,7 @@ function render(){
 searchAll = function(q){
  const term=q.trim().toLowerCase();
  const items=[...benchmarkData.map(b=>({name:b.name,desc:b.desc,search:b.tags.join(' '),type:'基准',href:'#benchmark/'+b.id})),...researchDirections.map(d=>({name:d.name,desc:d.description,search:d.en+' '+d.topics.map(t=>t.en+' '+t.name).join(' '),type:'方向专题',href:routeLink('directions',{pillar:d.id})})),...newsRecords.map(n=>({name:n.title,desc:n.description,search:n.terms.join(' '),type:n.label,href:n.url,external:true})),...methodResources.map(r=>({name:r.name,desc:r.desc,type:r.type,href:r.url,external:true}))];
- const list=term?items.filter(x=>(x.name+' '+x.desc+' '+x.type+' '+(x.search||'')).toLowerCase().includes(term)):items.slice(0,5);
+ const list=term?items.filter(x=>localeSearchText(x.name+' '+x.desc+' '+x.type+' '+(x.search||'')).toLowerCase().includes(term)):items.slice(0,5);
  $('#global-results').innerHTML=list.length?list.map(x=>'<li><a href="'+x.href+'" '+(x.external?'target="_blank" rel="noopener noreferrer"':'')+' data-search-result="true"><div><strong>'+x.name+' ↗</strong><p>'+x.desc+'</p></div>'+badge(x.type,'blue')+'</a></li>').join(''):'<li class="empty"><h2>没有找到“'+esc(q)+'”</h2><p>试试基准名称、研究方向或更简短的关键词。</p></li>';
  $('#search-count').textContent=term?list.length+' 个相关示例':'推荐资料';
 };

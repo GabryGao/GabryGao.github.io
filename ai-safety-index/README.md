@@ -17,3 +17,12 @@
 生成程序：tools/import-opentai-papers.py。输入为上述版本 scripts/data/paper-library.json 与 scripts/data/paper-author-metadata.json，使用 --source-dir 指定本地快照目录。检验：node tools/verify-paper-import.mjs。
 
 在线 arXiv 元数据接口本次超时，因此采用 OpenTAI 已保存的官方元数据快照做严格题名匹配；未将此标为独立全文审核或实验复现。
+
+
+## Four interface languages (2026-10-19)
+
+The header selector supports Chinese, English, Japanese and German. `locale.js` uses offline curated UI strings; no translation API is called. Language changes translate existing text nodes and accessible labels in place, without re-rendering the route, changing the hash, or resetting filters, pagination, comparison selections, or input drafts. The preference is stored locally under `ai-safety-index-language`; Chinese is the default if storage is unavailable.
+
+Original publication titles and author names are explicitly marked `data-keep-original`. Record IDs, URLs and option values remain unchanged. Topic names and research categories in all four languages are available to the existing search.
+
+Validation: run `node tools/verify-locales.mjs` and `node tools/verify-paper-import.mjs`. The locale fixture covers 820 source strings collected from routes, deep topic tabs, empty states and dialogs. When adding copy, update the offline dictionary and coverage fixture. Browser checks must cover four-way switching on a filtered non-home route and mobile layouts at 320px and 390px.
