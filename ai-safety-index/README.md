@@ -30,3 +30,5 @@ Validation: run `node tools/verify-locales.mjs` and `node tools/verify-paper-imp
 ## Block layout (2026-10-19)
 
 `portal-grid.css` is the final layout layer. Paper/data libraries, topic directories, benchmarks, highlights and tools use two-column desktop blocks and single-column mobile blocks. Paper covers are typographic and preserve full scientific titles; no paper images or evaluation claims are invented. Existing routes, source links, filters, pagination and in-place language switching are retained. See `DESIGN.md` for the current visual system.
+
+Validated the block catalogs at 1280px (two columns), 390px and 320px (one column), with no document overflow. Four-way language switching on a filtered second paper page preserves the hash, page and original paper URL.
