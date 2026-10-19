@@ -26,3 +26,7 @@ The header selector supports Chinese, English, Japanese and German. `locale.js` 
 Original publication titles and author names are explicitly marked `data-keep-original`. Record IDs, URLs and option values remain unchanged. Topic names and research categories in all four languages are available to the existing search.
 
 Validation: run `node tools/verify-locales.mjs` and `node tools/verify-paper-import.mjs`. The locale fixture covers 820 source strings collected from routes, deep topic tabs, empty states and dialogs. When adding copy, update the offline dictionary and coverage fixture. Browser checks must cover four-way switching on a filtered non-home route and mobile layouts at 320px and 390px.
+
+## Block layout (2026-10-19)
+
+`portal-grid.css` is the final layout layer. Paper/data libraries, topic directories, benchmarks, highlights and tools use two-column desktop blocks and single-column mobile blocks. Paper covers are typographic and preserve full scientific titles; no paper images or evaluation claims are invented. Existing routes, source links, filters, pagination and in-place language switching are retained. See `DESIGN.md` for the current visual system.
