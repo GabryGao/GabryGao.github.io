@@ -15,3 +15,10 @@ Homepage highlights remain independent from the topic taxonomy. One lead block r
 ## Existing behavior
 
 Preserve hash routes, direction and publication-type filters, pagination, original sources, provenance and the distinction between inclusion and reproduced results. Chinese, English, Japanese and German switch in place through `locale.js`, preserving page and input state. Original scientific titles and author names retain source wording. Keep keyboard focus visible and honor reduced motion.
+
+
+## Motion (2026-10-20)
+
+`portal-motion.css` and `portal-motion.js` enhance the block layout without changing data or navigation. The homepage illustration opens through a brief crop reveal. Newly visible resource blocks settle into place once, with a capped sibling delay. Page headings have a short arrival transition; card covers and link arrows provide pointer and keyboard feedback. No loops, paid services or animation libraries are added.
+
+Default content stays visible. Reduced-motion preferences bypass entrances and spatial feedback. Fast route replacement cancels old animations; language text changes do not restart entrances or touch page state. The module watches only direct main-child replacements and uses IntersectionObserver for one-time card arrivals.
