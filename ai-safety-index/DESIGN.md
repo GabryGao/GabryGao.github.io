@@ -326,3 +326,7 @@ The user requested three images per desktop row. Research directions, papers, da
 ### Opening-motion refinement · 2026-10-20
 
 The user requested a slower, more considered opening. The complete wipe now lasts about (1100ms), with a soft symmetric entry/exit curve. Brand, masked title and three lower color panels reveal in a bounded stagger during entry. Text remains a whole translatable node. Fast navigation cancels every supporting animation; reduced motion and same-route queries still bypass the curtain.
+
+### Confirmed team entries · 2026-10-20
+
+User-supplied names, roles and institutions appear first on the team page in a ruled two-column roster, stacking on phones. Names use (36px/1.25) DM Sans, (30px) on phones; roles use (16px), institutions (17px), with (36px) column gap and (70px) space before the cooperation gallery. Xinfeng Li is shown as Professor at The Hong Kong Polytechnic University; Xin Gao as contributing member at Tokyo University of Science. Cooperation covers remain explicitly conceptual and do not represent portraits.

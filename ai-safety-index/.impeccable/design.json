@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T11:53:15.158902+00:00",
+  "generatedAt": "2026-10-20T11:59:10.619762+00:00",
   "title": "Design System: AI Safety Index",
   "extensions": {
     "colorMeta": {
@@ -520,6 +520,17 @@
         "gridColumns": "repeat(2,minmax(0,1fr))",
         "columnGap": "36px",
         "rowGap": "62px"
+      },
+      "teamRoster": {
+        "desktopColumns": 2,
+        "mobileColumns": 1,
+        "columnGap": "36px",
+        "nameFont": "36px / 1.25 Index Display",
+        "mobileNameFont": "30px",
+        "roleFont": "16px",
+        "institutionFont": "17px",
+        "gallerySeparation": "70px",
+        "source": "User-supplied names, affiliations and roles, 2026-10-20"
       }
     },
     "scopePolicy": "portal-madeo rules apply to .madeo-subpage plus the native .md-menu-dialog; the accepted home retains portal-framework tokens. Tonal ramps are synthesized inspection aids, not additional approved fills. Shared navigation and fine pointer are enhanced by portal-interactions; home body remains unchanged.",

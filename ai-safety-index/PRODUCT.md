@@ -18,7 +18,7 @@ Research news combines manually selected/archived records with up to 30 keyword-
 
 ## Language and interaction contract
 
-Chinese, English, Japanese and German switch in place through `locale.js`, preserving the current route, filters, page, input drafts and comparison selections. Language changes must not navigate, replace the page or replay entrances. Scientific titles, author names, source URLs and identifiers retain original wording. Offline dictionaries support translated UI and multilingual topic/category search; the current locale fixture covers 966 strings. Keep keyboard focus visible and honor reduced motion.
+Chinese, English, Japanese and German switch in place through `locale.js`, preserving the current route, filters, page, input drafts and comparison selections. Language changes must not navigate, replace the page or replay entrances. Scientific titles, author names, source URLs and identifiers retain original wording. Offline dictionaries support translated UI and multilingual topic/category search; the current locale fixture covers 970 strings. Keep keyboard focus visible and honor reduced motion.
 
 ## Visual identity and assets
 
@@ -28,4 +28,4 @@ The unmodified AstroWind hero and Inter font have source records in `assets/fram
 
 ## Pending content and service boundaries
 
-Team identities, affiliations and roles await confirmation; the team page says so explicitly. The contact receiver is also pending. The form creates a local downloadable draft only, without sending or uploading it. Do not label that action as submission or invent a delivery address. Add no paid scraping, login or backend service without a request.
+The user supplied two team entries on 2026-10-20: Xinfeng Li, 香港理工大学, 教授; and Xin Gao, 东京理科大学, 参与成员. The site displays these names, affiliations and roles, with names preserved across locales. Additional biographies, portraits, personal links and responsibilities have not been supplied. The contact receiver is also pending. The form creates a local downloadable draft only, without sending or uploading it. Do not label that action as submission or invent a delivery address. Add no paid scraping, login or backend service without a request.

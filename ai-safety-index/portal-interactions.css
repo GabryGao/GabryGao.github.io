@@ -65,3 +65,12 @@
  .madeo-subpage .md-card-copy p,.madeo-subpage .topic-directory p,.madeo-subpage .news-list .news-row p,.madeo-subpage .resource-list .resource-row p,.madeo-subpage .index-list .bench-row p{font-size:14px;line-height:1.65}
  .madeo-subpage .md-news-grid .news-row:nth-child(even){top:0}.madeo-subpage .md-news-grid{padding-bottom:0}
 }
+
+/* User-confirmed team identities; conceptual cooperation covers remain separate. */
+.madeo-subpage .md-team-roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;margin:0 0 70px}
+.madeo-subpage .md-team-person{border-top:1px solid #c9c9c5;padding:26px 0 10px;min-width:0}
+.madeo-subpage .md-team-person h2{font:400 36px/1.25 'Index Display',var(--sans);letter-spacing:-.025em;margin:0;overflow-wrap:anywhere}
+.madeo-subpage .md-team-person-role{font-size:16px;color:#365052;margin:15px 0 8px;line-height:1.5}
+.madeo-subpage .md-team-person-institution{font-size:17px;color:#333;margin:0;line-height:1.6}
+.madeo-subpage .md-team-areas-title{font:400 28px/1.3 var(--sans);margin:0 0 26px}
+@media(max-width:767px){.madeo-subpage .md-team-roster{grid-template-columns:1fr;gap:24px;margin-bottom:48px}.madeo-subpage .md-team-person{padding-top:22px}.madeo-subpage .md-team-person h2{font-size:30px}.madeo-subpage .md-team-person-institution{font-size:16px}.madeo-subpage .md-team-areas-title{font-size:24px}}

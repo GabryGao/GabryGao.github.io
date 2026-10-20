@@ -676,6 +676,12 @@ addRows(`
 addRows(`
 展开子栏目|Expand subcategories|サブメニューを開く|Untermenü öffnen
 `);
+addRows(`
+教授|Professor|教授|Professor
+参与成员|Contributing member|参加メンバー|Mitwirkendes Mitglied
+香港理工大学|The Hong Kong Polytechnic University|香港理工大学|Hong Kong Polytechnic University
+东京理科大学|Tokyo University of Science|東京理科大学|Tokyo University of Science
+`);
 const ordered=()=>[...dictionary.keys()].sort((a,b)=>b.length-a.length);
 let keys,fragmentPattern;
 function translate(value,language){
