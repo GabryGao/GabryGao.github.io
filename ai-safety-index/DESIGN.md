@@ -44,7 +44,7 @@ typography:
     letterSpacing: "-.03em"
   page-title:
     fontFamily: "'Index Display', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "90px"
+    fontSize: "72px"
     fontWeight: 400
     lineHeight: 1.1
     letterSpacing: "-.035em"
@@ -122,10 +122,10 @@ spacing:
   section-block: "80px"
   subpage-side: "6vw"
   subpage-mobile-side: "5vw"
-  subpage-column: "50px"
-  subpage-row: "80px"
+  subpage-column: "36px"
+  subpage-row: "62px"
   subpage-copy: "30px"
-  subpage-opening: "150px"
+  subpage-opening: "90px"
   subpage-mobile-opening: "60px"
   subpage-mobile-grid: "42px"
   subpage-mobile-copy: "22px"
@@ -241,7 +241,7 @@ The homepage retains self-hosted **Index Inter** and the display, headline, intr
 
 Subpage display headings use **Index Display**, the self-hosted OFL-licensed DM Sans variable font, with CJK sans fallbacks. Body copy, collection titles and controls use Index Inter and the language-appropriate sans fallback stack. Japanese Inter fallback order remains Hiragino Kaku Gothic ProN, Yu Gothic, then sans-serif. Scientific wording stays in its original language.
 
-The page-title, resource-title, subpage-intro and mobile roles in the frontmatter are normative. At the compact-subpage breakpoint, page headings reduce to (76px). Topic detail titles use (72px, line-height 1.15) on desktop and (39px, line-height 1.25) on phones. Subpage introductions become (19px, line-height 1.55); resource copy remains (15px, line-height 1.7). Contact fields use (17px, line-height 1.6), reducing to (16px). Menu links reduce to (64px) at compact width, to the mobile display scale on phones, and grow to (90px) on wide displays. The narrowest page headings reduce to (35px).
+The page-title, resource-title, subpage-intro and mobile roles in the frontmatter are normative. Desktop page headings use (72px), with the phone scale unchanged. Topic detail titles use (72px, line-height 1.15) on desktop and (39px, line-height 1.25) on phones. Subpage introductions become (19px, line-height 1.55); resource copy remains (15px, line-height 1.7). Contact fields use (17px, line-height 1.6), reducing to (16px). Menu links reduce to (64px) at compact width, to the mobile display scale on phones, and grow to (90px) on wide displays. The narrowest page headings reduce to (35px).
 
 Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, topic links and record metadata occupy separate lines, generally (12–13px), reducing where explicitly defined on phones. Tabular numerals remain for dates and scores.
 
@@ -251,9 +251,9 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 **Homepage.** Preserve the current (70px) desktop header, (36px) announcement band, (1152px) hero container, (1024px) hero copy/artwork and original (16:9) raster. Homepage content caps at (1072px) including padding. Sections use (80px) vertical padding, reducing to (48px). Features and vision use two desktop columns; previews and reserved blogs use three. Phones stack them. The existing alternating timeline becomes a left rail. Home navigation collapses at its (1080px) breakpoint; phone header height remains (72px). The four-column footer becomes two columns with a full-width brand.
 
-**Subpage shell.** The sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y240) at a (1280px) viewport. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Wide screens cap the (88%) container at (1600px).
+**Subpage shell.** The sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
 
-**Collections.** Two equal columns use the subpage column and row spacing tokens. At (1280px), the container yields approximately (538px) covers and a (50px) gutter. Covers are square, followed by the copy interval; cards have no internal panel padding. News covers use aspect ratio (.92); even items shift down (89px) without changing chronological DOM order. Desktop direction/benchmark detail covers use aspect ratio (2.1), and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
+**Collections.** Two equal columns use the subpage column and row spacing tokens. At (1280px), the container yields approximately (545px) covers and a (36px) gutter. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
 
 **Phones.** At the phone breakpoint, the header is (65px), the container is (90%) with (5vw) margins, and page opening padding is the mobile token. Collections become one column with the mobile grid/copy intervals. News loses its vertical stagger. The search/filter disclosure occupies its own normal-flow row below the pill group; expanded controls stay in flow. Detail covers use aspect ratio (1.2), and detail/contact areas stack. Team cards use (83vw) with a (20px) gap to show continuation. Published score tables keep a (670px) minimum width inside their own horizontal scroll container.
 
@@ -261,7 +261,7 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 Subpage cards, fields, header and full-screen menu are flat. Media, white space, type and rules create hierarchy; the native blue dialog has no shadow. The existing homepage mobile navigation keeps its faint lower shadow, and unrelated legacy dialogs retain their functional overlay shadow. These do not establish a resource-card elevation style.
 
-Cover images zoom only for precise pointers. The transition and contact geometry timing live in the sidecar; reduced motion cancels both. Language changes update content in place without replaying entrances. Default content remains visible without animation.
+Cover images zoom only for precise pointers. The cover transition and contact geometry timing live in the sidecar; reduced motion cancels both. Language changes update content in place without replaying entrances. Route/topic changes use an interruptible curtain: (210ms) entry, (50ms) hold and (300ms) exit, with a (1000ms) fail-safe. A newer route cancels stale commits. Same-route filters/pagination do not play the curtain. Reduced motion bypasses the spatial sequence. Default content remains visible without animation.
 
 **The Flat Collection Rule.** Subpage cards remain transparent and unboxed; use the media-to-copy interval and row gap for separation.
 
@@ -285,7 +285,7 @@ Catalog search and selects use an unrounded bottom rule, white background and vi
 
 ### Navigation
 
-Home retains its existing module navigation and mobile disclosure controlling `primary-nav`. Subpages use the documented header navigation and circular button controlling native dialog `madeo-menu`. The full-screen blue dialog places its large white link column on the right on desktop and above utility links on phones; the peach close square sits at the upper right. The dialog supports Escape, focus return and body-scroll locking. Current links have a thin underline; long destinations wrap. The compact native language selector remains available.
+Home retains its existing module navigation and mobile disclosure controlling `primary-nav`. Subpages use the documented header navigation and circular button controlling native dialog `madeo-menu`. The full-screen blue dialog places its large white link column on the right on desktop and above utility links on phones; the peach close square sits at the upper right. The dialog supports Escape, focus return and body-scroll locking. Current links have a thin underline; long destinations wrap. The compact native language selector remains available. Shared header links reveal subcategory disclosures on fine-pointer hover and keyboard focus; ArrowDown enters the links and Escape closes them. Dropdowns are two columns within an (860px) cap. Full-screen menu groups use (42px) plus toggles, reduced to (36px) on phones, to reveal the same real destinations. A custom teal pointer is (18px), growing to (26px) over actions; it is hidden for touch, narrow screens, text inputs, keyboard use and reduced motion.
 
 ### Filter pills and news disclosure
 
@@ -314,3 +314,7 @@ The homepage retains the original AstroWind artwork and its license records. Six
 - **Don't** crop or clamp scientific titles to equalize rows.
 - **Don't** present conceptual images as paper figures, project documentation or team portraits.
 - **Don't** imply that the local contact draft sends a message or that historical results are current rankings.
+
+### Interaction refinement · 2026-10-20
+
+`portal-interactions.js` and `.css` load last. The user requested MADEO-style cursor and opening transitions, hover subcategories, and a smaller cover scale. Homepage body content stays unchanged; shared navigation gains disclosures. Mobile collection covers use aspect ratio (1.2). The dot uses (#00d9b7); curtain fills use mint, peach or pale blue by destination. No new content, paid services or scheduled jobs are introduced.

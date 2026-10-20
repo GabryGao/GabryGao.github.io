@@ -32,3 +32,7 @@ node tools/verify-framework.mjs
 node tools/verify-paper-import.mjs
 node tools/verify-locales.mjs
 node tools/verify-motion.mjs
+
+交互更新：绿色圆点鼠标、顶部悬停/键盘细分菜单、手机菜单分组展开、短开屏遮幕。语言与筛选不触发遮幕；减少动态效果时跳过。封面与桌面标题尺寸已缩小。
+portal-interactions.js / .css 为最终交互与尺寸覆盖。
+node tools/verify-navigation.mjs 验证快速切页、动画失败/超时恢复与减少动态效果。

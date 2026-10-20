@@ -1,0 +1,59 @@
+/* The accepted home body is unchanged; navigation is shared across both shells. */
+#primary-nav{overflow:visible;gap:16px}
+.md-nav-group{position:relative;display:flex;align-items:center;gap:3px;min-width:0}
+.site-header #primary-nav .md-nav-group>a{white-space:nowrap;font-size:16px;line-height:1.5}
+.md-nav-toggle{display:flex;align-items:center;justify-content:center;width:20px;height:32px;padding:0;border:0;background:transparent;color:#222}
+.md-nav-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;transition:transform .18s}
+.md-nav-group.is-open .md-nav-toggle svg{transform:rotate(180deg)}
+.md-nav-panel{position:fixed;left:50%;transform:translateX(-50%);width:min(860px,88vw);padding:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 24px;background:#fff;border:1px solid #c9c9c5;border-top:2px solid #5fc79f;z-index:70}
+.md-nav-panel[hidden]{display:none}
+.site-header #primary-nav .md-nav-panel>a{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 12px;color:#111;font:400 16px/1.5 var(--sans);letter-spacing:0;white-space:normal;border-bottom:1px solid #e6e9e6;min-height:58px}
+.site-header #primary-nav .md-nav-panel>a::after{display:none}
+.site-header #primary-nav .md-nav-panel>a:hover,.site-header #primary-nav .md-nav-panel>a:focus-visible{background:#eef7f1;color:#204c3b}
+.md-nav-panel>a svg{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none}
+.md-nav-panel a:focus-visible,.md-nav-toggle:focus-visible{outline:2px solid #2b4fa5;outline-offset:3px}
+.md-nav-group:has(>.md-nav-toggle:hover)>a,.md-nav-group.is-open>a{color:#2b4fa5!important}
+.md-menu-group-head{display:flex;align-items:center;gap:20px;justify-content:space-between}
+.md-menu-sub-toggle{width:42px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;background:transparent;border:0;padding:9px}
+.md-menu-sub-toggle svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.4}
+.md-menu-sub-toggle[aria-expanded="true"]{transform:rotate(45deg)}
+.md-menu-sub{padding:20px 0 28px;margin-bottom:12px;border-bottom:1px solid #ffffff66}
+.md-menu-sub[hidden]{display:none}
+.md-menu-dialog nav .md-menu-sub a{display:flex;align-items:center;justify-content:space-between;gap:20px;font:400 17px/1.6 var(--sans);letter-spacing:0;padding:9px 0;color:#fff}
+.md-menu-sub a svg{width:18px;height:18px;stroke:currentColor;fill:none;flex-shrink:0}
+.md-route-curtain{position:fixed;inset:0;z-index:1000;pointer-events:none;color:#102b25;overflow:hidden;will-change:transform;background:#5fc79f;display:flex;align-items:center;padding:6vw;transform:translateY(100%)}
+.md-route-curtain[hidden]{display:none}
+.md-curtain-brand{position:absolute;top:32px;left:6vw;font:700 19px/1.3 var(--sans);letter-spacing:.015em}
+.md-curtain-title{font:400 clamp(44px,8vw,110px)/1.1 'Index Display',var(--sans);letter-spacing:-.035em;max-width:85vw;overflow-wrap:anywhere}
+.md-curtain-bars{position:absolute;bottom:0;left:0;right:0;height:15vh;display:flex}
+.md-curtain-bars i{flex:1;background:#2b4fa5}.md-curtain-bars i:nth-child(2){background:#fff}.md-curtain-bars i:nth-child(3){background:#00d9b7}
+.md-pointer-dot{position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;z-index:2000;opacity:0;transition:opacity .1s}
+.md-pointer-dot::after{content:'';position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#00d9b7;transition:width .15s,height .15s}
+.md-pointer-dot.is-link::after{width:26px;height:26px}.md-pointer-dot.is-visible{opacity:1}
+@media(hover:hover) and (pointer:fine){html.md-dot-active,html.md-dot-active *{cursor:none!important}html.md-dot-active input,html.md-dot-active textarea,html.md-dot-active select,html.md-dot-active [contenteditable=true]{cursor:auto!important}}
+/* Scale the covers down without discarding the requested two-column MADEO structure. */
+@media(min-width:768px){
+ .madeo-subpage .wrap,.madeo-subpage footer .wrap{max-width:1160px}
+ .madeo-subpage .page-head,.madeo-subpage .library-page>.page-head{padding-top:90px;margin-bottom:42px}
+ .madeo-subpage .page-head:has(>p:not(:empty)){margin-bottom:32px}
+ .madeo-subpage .page-head h1,.madeo-subpage .library-page>.page-head h1,.madeo-subpage .detail-head h1{font-size:72px}
+ .madeo-subpage .page-head>p{font-size:22px;line-height:1.5;margin-top:24px}
+ .madeo-subpage .md-project-card .md-cover,.madeo-subpage .md-news-grid .md-cover,.madeo-subpage .md-contact-entry>.md-cover{aspect-ratio:1.35}
+ .madeo-subpage .library-list,.madeo-subpage .index-list,.madeo-subpage .news-list,.madeo-subpage .topic-directory,.madeo-subpage .resource-list{column-gap:36px;row-gap:62px;margin-top:38px}
+ .madeo-subpage .md-news-grid .news-row:nth-child(even){top:60px}.madeo-subpage .md-news-grid{padding-bottom:60px}
+ .madeo-subpage .md-card-copy,.madeo-subpage .library-card-details{padding-top:24px}
+ .madeo-subpage .md-topic-cover,.madeo-subpage .md-detail-cover{max-height:400px;overflow:hidden}
+}
+@media(min-width:1151px){.madeo-subpage .site-header #primary-nav,html:not([lang="zh-CN"]) .madeo-subpage .site-header #primary-nav{gap:16px}}
+@media(max-width:1150px){
+ body:not(.madeo-subpage) #primary-nav.open .md-nav-group{display:grid;grid-template-columns:1fr 40px;width:100%}
+ body:not(.madeo-subpage) #primary-nav .md-nav-panel{position:static;transform:none;width:100%;grid-column:1/-1;padding:8px;border:0;grid-template-columns:1fr}
+ body:not(.madeo-subpage) #primary-nav .md-nav-panel>a{font-size:15px;padding:12px}
+}
+@media(max-width:767px){
+ .md-pointer-dot{display:none}.md-menu-sub-toggle{width:36px;height:42px;padding:8px}.md-menu-group-head{gap:12px}
+ .md-menu-dialog nav .md-menu-sub a{font-size:15px;line-height:1.55;padding:10px 0}.md-menu-sub{padding:12px 0 18px}
+ .md-curtain-brand{font-size:16px;top:25px;left:5vw}.md-route-curtain{padding:5vw}
+ .madeo-subpage .md-project-card .md-cover,.madeo-subpage .md-news-grid .md-cover,.madeo-subpage .md-contact-entry>.md-cover{aspect-ratio:1.2}
+}
+@media(prefers-reduced-motion:reduce){.md-pointer-dot{display:none}.md-route-curtain{display:none}.md-nav-toggle svg,.md-pointer-dot::after{transition:none}}

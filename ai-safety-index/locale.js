@@ -673,6 +673,9 @@ addRows(`
 主题封面|Concept cover|コンセプト表紙|Konzepttitelbild
 筛选与搜索|Filter & search|絞り込み・検索|Filtern & suchen
 `);
+addRows(`
+展开子栏目|Expand subcategories|サブメニューを開く|Untermenü öffnen
+`);
 const ordered=()=>[...dictionary.keys()].sort((a,b)=>b.length-a.length);
 let keys,fragmentPattern;
 function translate(value,language){
