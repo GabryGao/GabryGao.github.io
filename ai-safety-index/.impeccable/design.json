@@ -350,16 +350,17 @@
       "cardPadding": "18px",
       "homeMainColumns": "2fr 1fr",
       "homePhoneColumns": 1,
-      "homePreview": "3 of 9 shared historical records, all values above y505 at 1366x768",
+      "homePreview": "3 of 9 shared historical records, last value below y576 at 1280x720",
       "evaluation": "filters → horizontal bars → same-record table → source/share",
-      "news": "curated picks plus compact 12-record pages; covers optional"
+      "news": "curated picks plus compact 12-record pages; covers optional",
+      "homeVisual": "Shared 30px/500 heading, stacked description, underline search, fine rules and compact resource-style recommendation cards"
     },
     "scopePolicy": "portal-compact.js/css are the final approved presentation. Images only in research news. ResourceSubmission remains unconfigured and disabled; no real upload completion claim.",
     "interactions": {
       "pointer": {
         "color": "#00d9b7",
-        "size": "18px",
-        "actionSize": "26px",
+        "size": "6px",
+        "actionSize": "9px",
         "requires": "fine mouse, width >=768px, no reduced motion",
         "fallback": "native text/touch/keyboard pointer"
       },

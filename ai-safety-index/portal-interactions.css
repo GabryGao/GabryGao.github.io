@@ -28,8 +28,8 @@
 .md-curtain-bars{position:absolute;bottom:0;left:0;right:0;height:12vh;display:flex;overflow:hidden}
 .md-curtain-bars i{flex:1;background:#2b4fa5}.md-curtain-bars i:nth-child(2){background:#fff}.md-curtain-bars i:nth-child(3){background:#00d9b7}
 .md-pointer-dot{position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;z-index:2000;opacity:0;transition:opacity .1s}
-.md-pointer-dot::after{content:'';position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#00d9b7;transition:width .15s,height .15s}
-.md-pointer-dot.is-link::after{width:26px;height:26px}.md-pointer-dot.is-visible{opacity:1}
+.md-pointer-dot::after{content:'';position:absolute;left:0;top:0;width:6px;height:6px;transform:translate(-50%,-50%);border-radius:50%;background:#00d9b7;transition:width .15s,height .15s}
+.md-pointer-dot.is-link::after{width:9px;height:9px}.md-pointer-dot.is-visible{opacity:1}
 @media(hover:hover) and (pointer:fine){html.md-dot-active,html.md-dot-active *{cursor:none!important}html.md-dot-active input,html.md-dot-active textarea,html.md-dot-active select,html.md-dot-active [contenteditable=true]{cursor:auto!important}}
 /* Compact editorial cover layout; desktop collections use the user-requested three columns. */
 @media(min-width:768px){
