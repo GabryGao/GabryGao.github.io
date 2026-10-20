@@ -1,0 +1,52 @@
+{
+  "privacy.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-18debb58-d4dd-44b0-9de3-0c67424b1614.png",
+    "prompt": "Photoreal editorial still life for an AI safety research portal topic cover. Square composition, full bleed, photographed real physical print design in the spirit of a socially focused contemporary design agency project portfolio. Close overhead view of a deep forest green book and a vivid yellow folded poster on a clean studio tabletop. The poster has bold black abstract redaction bars and a small precise typographic word PRIVACY, with a translucent frosted acrylic sheet partially covering the print. Tactile uncoated paper, hard afternoon sunlight and physically natural shadows, tightly art-directed professional campaign photograph. Flat vivid green, yellow and black palette, excellent graphic composition with large negative fields and cropped print edges. No people, no robots, no glowing circuitry, no charts, no interface screenshot, no logos or watermark. Conceptual cover photography; no claim to depict a real research artifact.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "alignment.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-2f8ca3ec-e9dc-4612-ac43-1be228f391b8.png",
+    "prompt": "Photoreal editorial still life for an AI safety research portal topic cover. Square full bleed, a professionally photographed physical graphic design campaign. A giant cobalt blue printed folded sheet rests across a coral orange art book on a tabletop, with a white circular cut-paper aperture precisely meeting a bold black vertical line, geometric alignment as physical print design. One small visible word ALIGNMENT on the paper in clean typography. Rich printed ink colors, tangible paper folds and slight paper fibers, camera close overhead but gently angled, strong honest studio sunlight and deep natural shadows. Composition cropped at edges like a design agency portfolio case study. No people, robots, brain imagery, glow, technology stock photo, data chart, UI, logos or watermark. This is an original conceptual editorial cover.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "agents.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-11a5fdec-3089-4179-94f2-f970b67fb181.png",
+    "prompt": "Photoreal editorial still life for an AI safety research portal topic cover. Square full bleed, photographed physical graphic-design campaign, visually crisp and print-led. An open black archival box on a saturated orange surface contains several oversized ivory cards connected by a single cobalt ribbon, with one card outside the box and a precise black arrow printed on its edge. Small bold typography AGENT on the top card. A vivid orange and cobalt blue physical-paper composition with strong crop, tactile uncoated cardboard, real ribbon, top-down studio photography, art-directed side light and natural shadows. Contemporary independent design studio project cover, no generic shiny 3D technology render. No people, robots, circuitry, glow, charts, interface or brands. Original conceptual still life about systems and boundaries.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "physical.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-ed1d5a70-3dbf-4236-9e29-d4599c53730f.png",
+    "prompt": "Photoreal editorial cover photography for an AI safety research portal, square full bleed. Close crop of a physical studio construction made from green printed wooden panels and one large aluminum hinge joint, arranged on a deep blue floor in a precise architectural composition; a slim bright yellow route line is painted across the surfaces and stops at the hinge. Small stencil typography CONTROL on one green panel. Concrete tangible world, polished design-agency campaign photograph, crisp natural sunlight, strong cast shadows, substantial scale, vibrant green cobalt and yellow ink colors, camera angled from above. Original artistic concept about interaction and control in physical systems. No people, humanoid robots, glowing technology, circuits, charts, UI screenshots, logos or watermark.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "human.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-26a425e4-6db7-4b8c-98f9-66f37d9bfa72.png",
+    "prompt": "Photoreal editorial still life for an AI safety research portal topic cover. Square full bleed, contemporary social-impact design campaign photography. Three very large offset-printed sheets with overlapping profiles constructed as simple black paper-cut silhouettes are pinned to a saturated violet display board; a warm orange sheet is folded outward, revealing a cobalt oval underneath. The only small text is HUMAN in bold simple typography. Rich tactile screenprinted paper and physical clips, candid but beautifully composed real studio photo, angled close crop, daylight and natural shadows. Graphic, sculptural, human-centered without showing any real or invented identifiable person. Not a flat illustration or shiny 3D render. No computer brains, robots, glow, UI, data plots, brands or watermark. Original concept cover.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "science.webp": {
+    "tool": "image_gen built-in",
+    "source": "/Users/fara./.codex/generated_images/01a144e2-17ce-7902-8756-671e1415ffe6/exec-768d5ce0-b8d1-4d78-b199-dd7489009d9b.png",
+    "prompt": "Photoreal editorial still life for an AI safety research portal topic cover. Square full bleed, design-agency portfolio campaign photograph with exceptional graphic composition. An oversized acid-yellow printed research folio lies half-open on a cobalt blue desk; transparent glass laboratory prisms rest across the folio, projecting subtle physically realistic bands of light. One coral orange paper strip crosses the page and a small black word SCIENCE appears near an edge. Real paper texture and real optical glass, strong studio sunlight, high visual contrast, tightly cropped editorial photograph rather than generic laboratory stock. No fabricated scientific figures or data, no numbers, no people, no logos, robots, glowing neural networks or watermark. An original conceptual cover for research across scientific fields.",
+    "role": "Original conceptual editorial cover; not a research figure or actual project photograph",
+    "created_on": "2026-10-20"
+  },
+  "font": {
+    "family": "DM Sans",
+    "file": "dm-sans.ttf",
+    "source": "https://github.com/google/fonts/tree/main/ofl/dmsans",
+    "license": "SIL Open Font License 1.1",
+    "license_file": "DM-Sans-OFL.txt",
+    "role": "Openly licensed display substitute for MADEO source typography; no proprietary font copied"
+  }
+}

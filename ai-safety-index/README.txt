@@ -1,30 +1,34 @@
-AI Safety Index · Editorial v6
-更新：2026-10-18
+AI Safety Index · 2026-10-20
 
-打开 index.html 使用，也可在本目录运行 python3 -m http.server 8765。
-无需安装依赖或配置 API Key；字体和配图保存在 assets/，不需要访问第三方字体服务。
+在本目录运行 python3 -m http.server 8765 后访问本地网址。
+这是无需构建的静态网站，正式地址为 https://gabrygao.github.io/ai-safety-index/ 。
+无需 API Key；字体、概念封面和首页插画均保存在 assets/。
 
-本轮设计
-参考 ElevenLabs 中文对话式 AI 页和 Quanta Magazine 的黑白控件、编辑式字体、留白、主次内容比例。
-用暖白纸面、深墨色、少量棕色替换蓝色模板。首屏为重点研究及原创概念插画，随后是搜索、研究动态、六方向目录和基准。
-动态与方向独立，共享方向关联；论文 / 数据 / 基准 / 结果仍使用已有记录与筛选。
+当前设计
+首页保留已确认的 AstroWind 框架与白色背景。
+内容页按照 MADEO Work / News / About / Contact 的实际布局重新制作：大标题、宽留白、两列大封面、封面下方标题、绿色圆形菜单按钮、蓝色全屏菜单。手机端使用单列。
+六张研究主题封面为生成的概念配图，不是论文图、研究结果或团队照片。精确提示词及来源记录在 assets/madeo/provenance.json，DM Sans 字体许可证为同目录 DM-Sans-OFL.txt。未复制 MADEO 客户图片、身份或联系方式。
+
+功能与资料
+六大研究方向与论文、数据、基准、结果关联；热点独立并带方向标签。
+490 条论文记录，其中 487 条来自已记录版本的 OpenTAI 目录；来源说明在论文列表底部。
+6 条基准记录；3 条 HELM Safety 2024 年历史结果用于展示协议与比较边界，不代表实时榜单。
+热点保留精选与归档记录，并包含 OpenAI / Google DeepMind 公开 RSS 的自动采集元数据快照，自动条目标注待复核。仅收集元数据、保留来源日期，不复制正文。
+每日自动更新工作流未安装，仍待授权；页面中显示的采集时间用于判断快照时效。
+中、英、日、德四种语言在当前页面切换，保留路由、筛选、分页、比较选择和表单草稿。论文原始标题与作者保留原文。
+团队成员资料待确认。联系接收渠道待配置，表单仅在本地生成可下载草稿，不上传或发送。
 
 主要文件
-index.html：入口、导航、页脚与脚本加载。
-portal-editorial.js / .css：本轮页面表达与全站视觉覆盖；最终渲染在该脚本完成。
-portal-v5.js：论文与数据记录、专题资料视图、搜索扩展。
-portal-v4.js：共享目录、结果、方向、动态和关于页面。
-app.js：原始样例记录、弹窗和通用事件。
-research-data.js：六方向及子方向。
-assets/：自托管开源字体、许可证、概念插画及来源说明。
-DESIGN.md / .impeccable/design.json：当前设计系统。
-previews/：本轮桌面与手机截图。
+index.html：入口、共享导航和页脚。
+portal-framework.js / .css：首页框架和共享功能。
+portal-madeo.js / .css：最终内容页渲染与独立样式；由 body.madeo-subpage 隔离首页。
+portal-motion.js / .css：渐进动画与减少动态效果支持。
+locale.js：四语言原地翻译与多语搜索。
+research-data.js、app.js、portal-v5.js、opentai-papers.js、news-feed.js：方向、原始记录及快照。
+DESIGN.md、.impeccable/design.json：当前首页和内容页的独立设计规则。
 
-资料边界
-原有历史资料继续用于演示；不代表实时榜单。模型成绩为 2024 年 HELM Safety 报告示例。
-未接入付费 API、实时爬虫、后台审核或实际提交服务。
-首屏配图为概念插画，不是论文图或实验结果。图像生成提示词及处理记录在 assets/image-provenance.json。
-参考网站的品牌、照片、用户数字和资料库未复制。
-
-2026-10-20 更新：
-首页按 AstroWind 参考框架重排；资料页使用 Madeo 风格多列区块。新增独立团队页和联系页，团队名单和接收渠道待确认。联系表单仅生成本地草稿。热点加入 OpenAI / Google DeepMind 公开 RSS 的自动采集元数据，标注待复核并保留来源日期。
+验证
+node tools/verify-framework.mjs
+node tools/verify-paper-import.mjs
+node tools/verify-locales.mjs
+node tools/verify-motion.mjs

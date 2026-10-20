@@ -668,6 +668,11 @@ AI 安全横跨数据、模型、系统、人与专业领域。我们希望让�
 addRows(`
 AI Safety Index · 研究与评测门户|AI Safety Index · Research & evaluation|AI Safety Index · 研究・評価ポータル|AI Safety Index · Forschung & Evaluation
 `);
+addRows(`
+研究主题概念封面|Conceptual research cover|研究テーマのコンセプト表紙|Konzeptionelles Forschungstitelbild
+主题封面|Concept cover|コンセプト表紙|Konzepttitelbild
+筛选与搜索|Filter & search|絞り込み・検索|Filtern & suchen
+`);
 const ordered=()=>[...dictionary.keys()].sort((a,b)=>b.length-a.length);
 let keys,fragmentPattern;
 function translate(value,language){

@@ -54,4 +54,4 @@ async function refreshPublicNews(){
 }
 document.addEventListener('click',e=>{if(e.target.closest('[data-refresh-news]'))render()});
 refreshPublicNews();
-render();
+
