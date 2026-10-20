@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-10-20T12:19:40.908030+00:00",
-  "title": "Design System: AI Safety Index",
+  "title": "AI Safety Index — compact evidence portal",
   "extensions": {
     "colorMeta": {
       "primary": {
@@ -244,21 +244,17 @@
       }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Homepage editorial hero",
-        "purpose": "Practical DM Sans headline: 52px/1.25 normal tracking; tablet 44px, phone 34px/1.3."
-      },
       "page-title": {
-        "displayName": "Subpage display",
-        "purpose": "Shared readable 52px/1.25 headline with normal tracking; phone 34px/1.3."
+        "purpose": "Inter 500 30px/1.35; 25px phone; normal tracking"
       },
-      "resource-title": {
-        "displayName": "Original title below cover",
-        "purpose": "Inter full scientific titles on white, with no clamping."
+      "body": {
+        "purpose": "14px/1.65 Inter and CJK sans"
       },
-      "menu-link": {
-        "displayName": "Full-screen navigation",
-        "purpose": "Large light white links on Portfolio Blue."
+      "card": {
+        "purpose": "16px/1.5 weight 500"
+      },
+      "metadata": {
+        "purpose": "11–12px source labels; 13px chart names and 14px tabular values"
       }
     },
     "shadows": [
@@ -334,99 +330,31 @@
       "portal-home.js",
       "portal-practical.css",
       "portal-results.js",
-      "research-source/helm-safety-results-provenance.json"
+      "research-source/helm-safety-results-provenance.json",
+      "portal-compact.js",
+      "portal-compact.css",
+      "portal-search.js",
+      "resource-submission.js"
     ],
     "layout": {
-      "subpage": {
-        "container": "88%",
-        "wideMax": "1160px",
-        "header": "90px",
-        "opening": "64px",
-        "gridColumns": "repeat(3,minmax(0,1fr))",
-        "columnGap": "28px",
-        "rowGap": "44px",
-        "coverAspectRatio": "1.35",
-        "copyPadding": "24px 0 0",
-        "newsAspectRatio": "1.35",
-        "newsEvenOffset": "0px",
-        "detailAspectRatio": "2.1",
-        "pageTitle": "72px",
-        "detailMaxHeight": "400px",
-        "threeColumnMinWidth": "1024px",
-        "resourceTitle": "22px / 1.45",
-        "resourceDescription": "14px / 1.65",
-        "intro": "22px / 1.5"
+      "container": "90%",
+      "maxWidth": "1240px",
+      "header": "68px",
+      "phoneHeader": "60px",
+      "resourceColumns": {
+        "desktop": 3,
+        "tablet": 2,
+        "phone": 1
       },
-      "mobile": {
-        "maxWidth": "767px",
-        "container": "90%",
-        "header": "65px",
-        "opening": "60px",
-        "gridColumns": "minmax(0,1fr)",
-        "gridGap": "42px",
-        "copyPadding": "22px 0 0",
-        "menuControl": "45px",
-        "detailAspectRatio": "1.2",
-        "newsDisclosurePosition": "static",
-        "newsDisclosureMarginTop": "16px",
-        "coverAspectRatio": "1.2"
-      },
-      "tablet": {
-        "minWidth": "768px",
-        "maxWidth": "1023px",
-        "gridColumns": "repeat(2,minmax(0,1fr))",
-        "columnGap": "36px",
-        "rowGap": "62px"
-      },
-      "teamRoster": {
-        "desktopColumns": 2,
-        "mobileColumns": 1,
-        "columnGap": "36px",
-        "nameFont": "36px / 1.25 Index Display",
-        "mobileNameFont": "30px",
-        "roleFont": "16px",
-        "institutionFont": "17px",
-        "gallerySeparation": "70px",
-        "source": "User-supplied names, affiliations and roles, 2026-10-20"
-      },
-      "home": {
-        "container": "88%",
-        "maxWidth": "1160px",
-        "opening": "64px",
-        "introColumns": "minmax(0,1.1fr) minmax(0,1fr)",
-        "introColumnGap": "60px",
-        "heroDisplay": "52px / 1.25",
-        "coverColumns": 3,
-        "coverGap": "28px",
-        "coverAspectRatio": "1.65",
-        "sectionPadding": "70px 0",
-        "timelineColumns": "150px minmax(0,1fr)",
-        "mobile": {
-          "container": "90%",
-          "opening": "40px",
-          "heroDisplay": "34px / 1.3",
-          "narrowHeroDisplay": "34px",
-          "coverColumns": 1,
-          "coverGap": "32px",
-          "coverAspectRatio": "1.65",
-          "blogColumns": 1,
-          "sectionPadding": "48px 0"
-        },
-        "coverRole": "source-linked research recommendations",
-        "search": "global resource search plus five quick destinations"
-      },
-      "results": {
-        "mode": "Operate",
-        "plotHeightDesktop": "444px",
-        "barAreaDesktop": "300px",
-        "phoneLabels": "110px",
-        "phoneBars": "36px",
-        "phoneChart": "all records, no horizontal clipping",
-        "tableMinWidth": "870px",
-        "tableOwnScroll": true
-      }
+      "cardGap": "14px",
+      "cardPadding": "18px",
+      "homeMainColumns": "2fr 1fr",
+      "homePhoneColumns": 1,
+      "homePreview": "3 of 9 shared historical records, all values above y505 at 1366x768",
+      "evaluation": "filters → horizontal bars → same-record table → source/share",
+      "news": "curated picks plus compact 12-record pages; covers optional"
     },
-    "scopePolicy": "portal-madeo applies the shared shell through .madeo-subpage on every route and styles the native .md-menu-dialog. Home additionally uses .madeo-home and final portal-home.css overrides. portal-home.js wraps the supplied home content after framework and before MADEO. Tonal ramps are inspection aids, not approved extra fills. portal-interactions enhances shared navigation, fine pointer and the existing route curtain. Final practical refinements live in portal-practical.css; portal-results.js owns source-backed result exploration.",
+    "scopePolicy": "portal-compact.js/css are the final approved presentation. Images only in research news. ResourceSubmission remains unconfigured and disabled; no real upload completion claim.",
     "interactions": {
       "pointer": {
         "color": "#00d9b7",
@@ -457,138 +385,64 @@
   },
   "components": [
     {
-      "name": "Homepage primary action",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Shared Portfolio Blue pill, with home desktop and phone dimensions.",
-      "html": "<a class=\"ds-primary\" href=\"#directions\">Explore research →</a>",
-      "css": ".ds-primary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border:1px solid #2b4fa5;border-radius:999px;font-size:15px;line-height:22px;font-weight:400;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#2b4fa5;color:#fff}.ds-primary:hover{background:#213f88;border-color:#213f88}.ds-primary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-primary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important;transform:none!important}}@media(max-width:767px){.ds-primary{min-height:44px;padding:10px 18px;font-size:14px}}"
-    },
-    {
-      "name": "Homepage secondary action",
-      "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "White outlined home pill using the shared blue hover accent.",
-      "html": "<a class=\"ds-secondary\" href=\"#benchmarks\">Find benchmarks →</a>",
-      "css": ".ds-secondary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border:1px solid #2b4fa5;border-radius:999px;font-size:15px;line-height:22px;font-weight:400;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#fff;color:#111;border-color:#a8a8a3}.ds-secondary:hover{background:#fff;border-color:#2b4fa5;color:#2b4fa5}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-secondary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none!important;transform:none!important}}@media(max-width:767px){.ds-secondary{min-height:44px;padding:10px 18px;font-size:14px}}"
-    },
-    {
-      "name": "Homepage editorial introduction",
-      "kind": "custom",
-      "description": "Practical heading with normal tracking, followed by direct resource search and recommendations.",
-      "html": "<div class=\"ds-home-intro\"><h1>AI safety research, connected</h1><p>A source-linked research index.</p></div>",
-      "css": ".ds-home-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 60px;color:#000}.ds-home-intro h1{font:400 clamp(52px,5vw,72px)/1.12 var(--md-display,'Index Display',sans-serif);letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}.ds-home-intro p{font:400 19px/1.65 var(--sans,'Index Inter',sans-serif);max-width:46ch;margin:8px 0 0;color:#333}@media(max-width:767px){.ds-home-intro{grid-template-columns:minmax(0,1fr);gap:22px}.ds-home-intro h1{font-size:42px;line-height:1.14}.ds-home-intro p{font-size:17px;margin:0}}@media(max-width:360px){.ds-home-intro h1{font-size:38px}}",
-      "preview": ""
-    },
-    {
-      "name": "Ruled contact field",
-      "kind": "input",
-      "refersTo": "contact-field",
-      "description": "Visible label and editable local-draft field.",
-      "html": "<label class=\"ds-field\">Your name<input autocomplete=\"name\" placeholder=\"Name\"></label>",
-      "css": ".ds-field{display:grid;gap:10px;font:400 13px/1.65 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);color:#000}.ds-field input{min-width:0;padding:10px 0;border:0;border-bottom:1px solid #777;border-radius:0;background:transparent;color:#000;font:400 17px/1.6 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif)}.ds-field input:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}"
-    },
-    {
-      "name": "Shared module navigation",
-      "kind": "nav",
-      "refersTo": "navigation",
-      "description": "Flat Inter links in the shared 90px header; compact screens use the native menu.",
-      "html": "<nav class=\"ds-modules\" aria-label=\"Research\"><a href=\"#directions\" aria-current=\"page\">Directions</a><a href=\"#news\">News</a><a href=\"#benchmarks\">Benchmarks</a></nav>",
-      "css": ".ds-modules{display:flex;align-items:center;flex-wrap:wrap;gap:24px;min-height:90px;background:#fff}.ds-modules a{font:400 17px/1.5 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.02em;color:#000;text-decoration:none}.ds-modules a:hover,.ds-modules a[aria-current]{color:var(--md-blue,#2b4fa5)}.ds-modules a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}"
-    },
-    {
-      "name": "Circular menu trigger",
-      "kind": "button",
-      "refersTo": "menu-trigger",
-      "description": "Shared native-dialog trigger on home and research routes; the application manages expanded state.",
-      "html": "<button class=\"ds-menu-trigger\" aria-label=\"Open menu\" aria-controls=\"madeo-menu\" aria-expanded=\"false\"><svg viewBox=\"0 0 26 26\" aria-hidden=\"true\"><path d=\"M4 9h18M4 17h18\"/></svg></button>",
-      "css": ".ds-menu-trigger{display:flex;align-items:center;justify-content:center;width:60px;height:60px;padding:17px;border:0;border-radius:50%;background:var(--md-mint,#5fc79f);color:#102a25;cursor:pointer}.ds-menu-trigger svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.3;fill:none}.ds-menu-trigger:hover{cursor:pointer}.ds-menu-trigger:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(max-width:767px){.ds-menu-trigger{width:45px;height:45px;padding:11px}.ds-menu-trigger svg{width:23px;height:23px}}"
-    },
-    {
-      "name": "Peach close square",
-      "kind": "button",
-      "refersTo": "menu-close",
-      "description": "Square close control on the blue menu surface.",
-      "html": "<div class=\"ds-close-surface\"><button class=\"ds-menu-close\" aria-label=\"Close menu\"><svg viewBox=\"0 0 26 26\" aria-hidden=\"true\"><path d=\"m5 5 16 16M21 5 5 21\"/></svg></button></div>",
-      "css": ".ds-close-surface{background:var(--md-blue,#2b4fa5);padding:12px}.ds-menu-close{display:flex;align-items:center;justify-content:center;width:60px;height:60px;padding:17px;border:0;border-radius:0;background:var(--md-peach,#f1a56f);color:#151515;cursor:pointer}.ds-menu-close svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.5;fill:none}.ds-menu-close:hover{cursor:pointer}.ds-menu-close:focus-visible{outline:2px solid #fff;outline-offset:5px}@media(max-width:767px){.ds-menu-close{width:45px;height:45px;padding:10px}}"
-    },
-    {
-      "name": "Blue menu link field",
-      "kind": "nav",
-      "refersTo": "menu-dialog",
-      "description": "Self-contained preview of the actual full-screen dialog link typography.",
-      "html": "<nav class=\"ds-blue-menu\" aria-label=\"Menu\"><a href=\"#directions\" aria-current=\"page\">Research directions</a><a href=\"#news\">Research news</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-blue-menu{display:flex;flex-direction:column;padding:28px;background:var(--md-blue,#2b4fa5);color:#fff}.ds-blue-menu a{font:400 78px/1.1 var(--md-display,'Index Display','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.035em;color:#fff;text-decoration:none;overflow-wrap:anywhere;hyphens:auto}.ds-blue-menu a:hover,.ds-blue-menu a[aria-current]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.12em}.ds-blue-menu a:focus-visible{outline:2px solid #fff;outline-offset:5px}@media(max-width:1150px){.ds-blue-menu a{font-size:64px}}@media(max-width:767px){.ds-blue-menu a{font-size:39px;line-height:1.154;letter-spacing:-.025em}}"
-    },
-    {
-      "name": "Type filter pills",
-      "kind": "chip",
-      "refersTo": "filter-pill",
-      "description": "Wrapped outlined pills with a filled selected state.",
-      "html": "<div class=\"ds-filters\"><button aria-pressed=\"true\">All content</button><button aria-pressed=\"false\">Papers &amp; projects</button><button aria-pressed=\"false\">Reports</button></div>",
-      "css": ".ds-filters{display:flex;gap:7px;flex-wrap:wrap}.ds-filters button{font:400 16px/22px var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);color:var(--md-blue,#2b4fa5);background:#fff;border:1px solid #cccbd0;border-radius:999px;min-height:36px;padding:6px 20px;cursor:pointer}.ds-filters button[aria-pressed=\"true\"]{background:var(--md-blue,#2b4fa5);border-color:var(--md-blue,#2b4fa5);color:#fff}.ds-filters button:hover{border-color:var(--md-blue,#2b4fa5)}.ds-filters button:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(max-width:767px){.ds-filters button{font-size:14px;line-height:20px;padding:7px 17px}}"
-    },
-    {
-      "name": "Image-leading research card",
+      "name": "Compact resource card",
       "kind": "card",
-      "refersTo": "resource-card",
-      "description": "Actual cover/copy anatomy; inline vector is a structural preview, not an additional shipping asset.",
-      "html": "<article class=\"ds-project\"><a class=\"ds-cover\" href=\"#papers\" aria-label=\"Read original title\"><svg viewBox=\"0 0 400 400\" aria-hidden=\"true\"><path fill=\"#2b4fa5\" d=\"M0 0h400v400H0z\"/><circle fill=\"#5fc79f\" cx=\"200\" cy=\"200\" r=\"145\"/><path fill=\"#000\" d=\"M190 0h20v400h-20z\"/></svg><span>Research direction <small>Concept cover</small></span></a><div class=\"ds-copy\"><h3><a href=\"#papers\">Original scientific title retained in full</a></h3><p>Source-linked research metadata and topic context.</p><p class=\"ds-authors\">Original author names</p><a class=\"ds-source\" href=\"#papers\">Original source ↗</a></div></article>",
-      "css": ".ds-project{max-width:562px;padding:0;background:transparent;color:#000;font-family:var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif)}.ds-cover{display:block;position:relative;aspect-ratio:1.35;overflow:hidden;background:#f1f1ef;color:#000}.ds-cover>svg{display:block;width:100%;height:100%;transition:transform .65s cubic-bezier(.16,1,.3,1)}.ds-cover>span{position:absolute;bottom:-1px;left:0;background:#fff;padding:12px 15px 2px 0;font-size:15px;line-height:1.4}.ds-cover small{font-size:10px;color:#555;margin-left:10px}.ds-copy{padding:24px 0 0}.ds-copy h3{font:400 22px/1.45 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.025em;margin:0 0 12px;overflow-wrap:anywhere}.ds-copy h3 a{color:#000;text-decoration:none}.ds-copy h3 a:hover{color:var(--md-blue,#2b4fa5)}.ds-copy p{font-size:14px;line-height:1.65;color:#333;margin:0 0 14px}.ds-copy .ds-authors{font-size:13px;color:#444}.ds-source{display:inline-flex;margin-top:16px;padding-bottom:3px;border-bottom:1px solid var(--md-blue,#2b4fa5);color:var(--md-blue,#2b4fa5);font-size:13px;line-height:1.6;text-decoration:none}.ds-source:hover{text-decoration:underline}.ds-project a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-project:hover .ds-cover>svg{transform:scale(1.035)}}@media(max-width:767px){.ds-copy{padding-top:22px}.ds-copy h3{font-size:22px;line-height:1.45;letter-spacing:-.02em}}@media(prefers-reduced-motion:reduce){.ds-cover>svg{transition:none!important;transform:none!important}}@media(min-width:768px) and (max-width:1023px){.ds-copy h3{font-size:26px;line-height:1.462}.ds-copy p{font-size:15px;line-height:1.7}}@media(max-width:767px){.ds-copy p{font-size:15px;line-height:1.7}}"
+      "refersTo": "compact-resource",
+      "description": "Type mark, actual record title, description and metadata without image.",
+      "preview": "<article style=\"font:14px/1.65 sans-serif;border:1px solid #dce1e5;padding:18px;display:flex;gap:12px\"><span style=\"color:#2b4fa5;background:#edf2fa;padding:4px\">AI</span><div><strong>AgentDojo</strong><p>Prompt injection evaluation environment</p></div></article>"
+    },
+    {
+      "name": "Heading resource action",
+      "kind": "button",
+      "refersTo": "compact-action",
+      "preview": "<button style=\"background:#2b4fa5;color:white;border:0;border-radius:6px;padding:9px 16px\">Upload resource</button>"
+    },
+    {
+      "name": "Confirmed member initials",
+      "kind": "custom",
+      "refersTo": "compact-avatar",
+      "preview": "<span style=\"display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;border-radius:50%;background:#edf2fa;color:#2b4fa5;font:17px sans-serif\">XL</span>"
+    },
+    {
+      "name": "Historical result bar",
+      "kind": "custom",
+      "description": "Same record drives score, bar width and CSV; 98.1 equals source .981 ×100.",
+      "preview": "<div style=\"font:13px sans-serif;display:grid;grid-template-columns:160px 1fr 45px;gap:16px;align-items:center\"><span>Claude 3.5 Sonnet</span><div style=\"height:22px;background:#f0f3f5\"><span style=\"display:block;height:100%;width:98.1%;background:#aa513c\"></span></div><strong>98.1</strong></div>"
     }
   ],
   "narrative": {
-    "northStar": "An open editorial research portfolio",
-    "overview": "The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, direct search, quick links and three source-linked research picks and an inline count row. Its previous centered violet AstroWind presentation is superseded.\n\nResearch evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.",
+    "northStar": "Find the evidence quickly.",
+    "overview": "Practical research discovery through direct search, shared evaluation values and source-linked recommendations. Compact icon/text cards replace large non-news covers. Four navigation modules retain the white shell, green menu and four-language continuity.",
     "keyCharacteristics": [
-      "White canvas, fine rules and generous opening space.",
-      "Light DM Sans headings and Inter supporting copy across home and research routes.",
-      "Three research recommendations on home and three-column desktop research collections.",
-      "Two-column tablet collections, single-column phone collections and a single-column phone recommendations.",
-      "Shared native blue navigation, flat surfaces and reduced-motion alternatives."
+      "1366x768 home shows three real historical values without scrolling",
+      "Evaluation defaults to horizontal bars and matched table/CSV filters",
+      "Non-news resources use small icons and team initials",
+      "News alone may use conceptual covers",
+      "Actual submission remains disabled pending private review receiver"
     ],
     "rules": [
-      {
-        "name": "The White Canvas Rule",
-        "body": "Keep the page base white; let editorial images, content spacing and fine rules establish the collection.",
-        "section": "colors"
-      },
-      {
-        "name": "The Original Title Rule",
-        "body": "Scientific titles wrap in full below the media; preserve wording and let block height grow.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Collection Rule",
-        "body": "Subpage cards remain transparent and unboxed; use the media-to-copy interval and row gap for separation.",
-        "section": "elevation & depth"
-      }
+      "No fabricated scores, people, team work or submission success",
+      "Preserve source dates, versions and setting links",
+      "Share records between home, topics, search and evaluation",
+      "Show genuine empty states for unpublished content"
     ],
     "dos": [
-      "**Do** preserve home content, module order and source links while using the shared editorial identity.",
-      "**Do** use three desktop collection columns, two tablet columns and one phone column; keep the home phone triptych compact.",
-      "**Do** keep full original titles, independent topic/source links and evidence tables readable.",
-      "**Do** label conceptual covers and retain image/font provenance with shipped assets.",
-      "**Do** keep filters and expanded search controls in normal flow on phones.",
-      "**Do** retain visible focus and cancel cover/contact motion for reduced motion."
+      "Keep concise readable labels and explicit sources",
+      "Keep wide tables within their own scroll regions"
     ],
     "donts": [
-      "**Don't** restore the rejected compact three-column pastel resource cards or former small subpage heading scale.",
-      "**Don't** introduce rounded, shadowed research-card containers.",
-      "**Don't** restore the centered violet hero, cartoon artwork, announcement band or blue icon circles on home.",
-      "**Don't** crop or clamp scientific titles to equalize rows.",
-      "**Don't** present conceptual images as paper figures, project documentation or team portraits.",
-      "**Don't** imply that the local contact draft sends a message or that historical results are current rankings."
+      "Do not reintroduce decorative non-news covers",
+      "Do not show empty blogs or invent posts"
     ]
   },
   "resourceContribution": {
     "route": "#upload",
-    "placement": "fourth evaluation tab",
-    "primaryNavigationGroups": 4,
-    "formGapDesktop": "44px",
-    "formGapPhone": "32px",
-    "service": "receiver pending; local downloadable draft only",
-    "legacyContact": "renders resource form"
+    "placement": "heading-right action on three evaluation tabs",
+    "receiver": null,
+    "status": "not connected; official submit disabled; local JSON draft only",
+    "successContract": "pending_review and receipt_id from an actual backend",
+    "failure": "input retained",
+    "email": "optional; private; never published"
   },
   "resultExplorer": {
     "source": "research-source/helm-safety-results-provenance.json",
@@ -602,7 +456,7 @@
       "sort"
     ],
     "displayScale": "source × 100; 0–100",
-    "chartDesktop": "vertical bars",
+    "chartDesktop": "horizontal bars",
     "chartPhone": "horizontal bars",
     "table": "source-linked, own overflow region",
     "csv": "same filtered array, with original 0–1 values"

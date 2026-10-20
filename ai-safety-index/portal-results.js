@@ -2,7 +2,7 @@
 var ResultExplorer=(()=>{
  const source='https://crfm.stanford.edu/2024/11/08/helm-safety.html';
  const colors={'Anthropic':'#aa513c','OpenAI':'#26775f','Meta':'#356bb0','Mistral AI':'#956a21'};
- function select(params){const metric=params.get('metric')==='attack'?'attack':'score',creator=params.get('creator')||'',q=(params.get('model')||'').trim().toLowerCase(),asc=params.get('sort')==='asc';return {metric,list:results.filter(r=>(!creator||r.creator===creator)&&(!q||(r.name+' '+r.version).toLowerCase().includes(q))).sort((a,b)=>asc?a[metric]-b[metric]:b[metric]-a[metric])}}
+ function select(params){const shown=params.get('models')?.split(',');const metric=params.get('metric')==='attack'?'attack':'score',creator=params.get('creator')||'',q=(params.get('model')||'').trim().toLowerCase(),asc=params.get('sort')==='asc';return {metric,list:results.filter(r=>(!shown||shown.includes(r.id))&&(!creator||r.creator===creator)&&(!q||(r.name+' '+r.version).toLowerCase().includes(q))).sort((a,b)=>asc?a[metric]-b[metric]:b[metric]-a[metric])}}
  function display(value){return (value*100).toFixed(1)}
  function csv(list,metric){const rows=[['Model','Version','Creator','Benchmark','Configuration','Score (0-100)','Source score (0-1)','Report date','Source'],...list.map(r=>[r.name,r.version,r.creator,'HarmBench',metric==='attack'?'GCG-T':'Default',display(r[metric]),r[metric].toFixed(3),'2024-11-08',source])];return '\ufeff'+rows.map(row=>row.map(cell=>'"'+String(cell).replaceAll('"','""')+'"').join(',')).join('\r\n')}
  return {source,colors,select,display,csv};
@@ -26,4 +26,4 @@ document.addEventListener('click',e=>{
  const bar=e.target.closest('[data-result-model]');if(bar){const row=document.querySelector('#result-row-'+bar.dataset.resultModel);if(row){document.querySelectorAll('.result-highlight').forEach(x=>x.classList.remove('result-highlight'));row.classList.add('result-highlight');row.scrollIntoView({block:'center',behavior:'instant'});row.focus({preventScroll:true})}}
  if(e.target.closest('[data-result-export]')){const {list,metric}=ResultExplorer.select(route().params),url=URL.createObjectURL(new Blob([ResultExplorer.csv(list,metric)],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='helm-safety-2024-'+(metric==='score'?'default':'gcg-t')+'.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 });
-render();
+// Initial rendering is owned by resource-submission.js after final overrides load.

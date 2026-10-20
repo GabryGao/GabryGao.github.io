@@ -3,6 +3,68 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+研究资讯、解读与成果分享。|Research news, commentary and shared work.|研究ニュース・解説・成果共有。|Forschungsnachrichten, Beiträge und geteilte Ergebnisse.
+查看全部|View all|すべて見る|Alle ansehen
+评价指标|Evaluation metric|評価指標|Evaluationsmetrik
+2024 年历史结果示例|Historical results example · 2024|2024 年の過去の評価例|Historische Beispielergebnisse · 2024
+高效查找 AI 安全论文、数据、工具与评测结果。|Find AI safety papers, data, tools and evaluation results efficiently.|AI 安全性の論文・データ・ツール・評価結果を効率よく探す。|Publikationen, Daten, Tools und Evaluationen zur KI-Sicherheit schnell finden.
+精选评测|Selected evaluation|注目の評価|Ausgewählte Evaluation
+本期推荐|Featured research|今回のおすすめ|Aktuelle Empfehlungen
+展示 3 / 9 个模型 · 原报告分数 × 100|Showing 3 of 9 models · Source score × 100|9 モデル中 3 件を表示・原報告のスコア × 100|3 von 9 Modellen · Originalwert × 100
+查看完整评测|Open full evaluation|評価全体を見る|Vollständige Evaluation öffnen
+评测看板|Evaluation dashboard|評価ダッシュボード|Evaluationsdashboard
+评测栏目|Evaluation sections|評価メニュー|Evaluationsbereiche
+方法与说明|Methods & guidance|手法と説明|Methoden & Hinweise
+六大研究方向|Six research topics|6 つの研究分野|Sechs Forschungsthemen
+研究分享|Research sharing|研究の共有|Forschung teilen
+近期更新|Recent updates|最近の更新|Neueste Änderungen
+资源收录|Resource added|資料収録|Ressource aufgenommen
+新闻发布|News published|ニュース公開|Nachricht veröffentlicht
+关于平台|About the platform|プラットフォームについて|Über die Plattform
+平台更新记录|Platform changelog|プラットフォームの更新履歴|Änderungsprotokoll
+完整更新记录|Full changelog|更新履歴をすべて表示|Vollständiges Protokoll
+487 条论文元数据已收录，保留原始来源与方向标签。|487 bibliography records imported with original sources and topic tags.|原典と分野タグを保持し、487 件の論文書誌情報を収録。|487 Publikationseinträge mit Originalquellen und Themen-Tags aufgenommen.
+OpenTAI 论文目录|OpenTAI paper catalog|OpenTAI 論文目録|OpenTAI-Publikationsverzeichnis
+连接研究方向、论文、数据与评测依据，帮助研究者高效找到可追溯的资料，也让团队与社区的优秀研究更容易被发现。|Connect topics, papers, data and evaluation evidence so researchers can find traceable resources and discover work from teams and the wider community.|研究分野・論文・データ・評価の根拠をつなぎ、出典をたどれる資料とチームやコミュニティの研究を見つけやすくします。|Themen, Publikationen, Daten und Evaluationsbelege verbinden, um nachvollziehbare Ressourcen und Forschung aus Teams und der Community leichter zu finden.
+按主题查找论文、数据、工具、基准与研究解读。|Find papers, data, tools, benchmarks and research commentary by topic.|分野から論文・データ・ツール・ベンチマーク・研究解説を探す。|Publikationen, Daten, Tools, Benchmarks und Forschungsbeiträge nach Thema finden.
+全部主题|All subtopics|すべてのトピック|Alle Unterthemen
+数据与工具|Data & tools|データとツール|Daten & Tools
+基准与结果|Benchmarks & results|ベンチマークと結果|Benchmarks & Ergebnisse
+相关解读|Related commentary|関連する解説|Verwandte Beiträge
+方向定义与评价边界|Topic definitions & evaluation limits|分野の定義と評価の限界|Themendefinitionen & Evaluationsgrenzen
+已收录基准，暂无结果|Benchmark listed; no results recorded|ベンチマークは収録済み・結果は未登録|Benchmark aufgenommen; noch keine Ergebnisse
+选择展示模型|Choose displayed models|表示するモデルを選ぶ|Angezeigte Modelle auswählen
+复制筛选链接|Copy filtered link|絞り込みリンクをコピー|Gefilterten Link kopieren
+筛选链接已复制。|Filtered link copied.|絞り込みリンクをコピーしました。|Gefilterter Link kopiert.
+请复制浏览器地址栏中的链接。|Copy the link from your browser's address bar.|ブラウザーのアドレス欄のリンクをコピーしてください。|Bitte den Link aus der Adressleiste kopieren.
+平台创建、建设与维护成员。|People building and maintaining the platform.|プラットフォームの構築・運営メンバー。|Mitglieder, die die Plattform aufbauen und pflegen.
+成员研究方向、平台职责及个人主页，将在资料确认后补充。|Research interests, platform responsibilities and personal pages will be added once confirmed.|研究分野・担当・個人ページは確認後に追加します。|Forschungsgebiete, Aufgaben und persönliche Seiten werden nach Bestätigung ergänzt.
+最新资讯|Latest news|最新ニュース|Neueste Meldungen
+研究解读|Research commentary|研究解説|Forschungsbeiträge
+成果分享|Research showcases|研究成果の共有|Forschungsergebnisse teilen
+年份|Year|年|Jahr
+全部年份|All years|すべての年|Alle Jahre
+此栏目暂无已发布内容|No published content in this section|この項目にはまだ公開内容がありません|In diesem Bereich sind noch keine Inhalte veröffentlicht
+正式内容发布后会在这里显示。|Content will appear here after publication.|内容は公開後にここへ表示されます。|Inhalte erscheinen hier nach der Veröffentlichung.
+自动采集条目仅包含来源元数据，方向与内容仍待复核。|Automatically collected items contain source metadata only; their topics and content await review.|自動収集項目は出典のメタデータのみで、分野と内容は確認待ちです。|Automatisch erfasste Einträge enthalten nur Quellenmetadaten; Themen und Inhalte sind noch zu prüfen.
+没有找到匹配内容|No matching content found|一致する内容がありません|Keine passenden Inhalte gefunden
+试试更简短的关键词，或切换内容类型。|Try a shorter query or another content type.|短いキーワードか別の種類で検索してください。|Einen kürzeren Suchbegriff oder einen anderen Inhaltstyp versuchen.
+搜索论文、作者、主题、工具或成员|Search papers, authors, topics, tools or people|論文・著者・分野・ツール・メンバーを検索|Publikationen, Autoren, Themen, Tools oder Mitglieder suchen
+返回评测看板|Back to evaluation dashboard|評価ダッシュボードへ戻る|Zurück zum Evaluationsdashboard
+提交渠道未接通，目前只能下载草稿，尚不能正式提交。|Submission is not connected yet. You can download a draft, but cannot submit it for review.|受付先はまだ接続されていません。下書きは保存できますが、正式な提出はできません。|Der Empfangskanal ist noch nicht verbunden. Ein Entwurf kann heruntergeladen, aber noch nicht zur Prüfung eingereicht werden.
+提交类型|Contribution purpose|提出の目的|Zweck des Beitrags
+补充资源|Add a resource|資料の追加|Ressource ergänzen
+推荐成果|Recommend research|研究成果を推薦|Forschung vorschlagen
+资源或成果名称|Resource or research title|資料・研究成果の名称|Titel der Ressource oder Forschung
+作者或团队|Authors or team|著者・チーム|Autoren oder Team
+说明或推荐理由|Description or recommendation|説明・推薦理由|Beschreibung oder Empfehlungsgrund
+评测结果依据|Evaluation evidence|評価結果の根拠|Evaluationsbelege
+联系邮箱（选填，不公开）|Email (optional, kept private)|メール（任意・非公開）|E-Mail (optional, nicht öffentlich)
+接收渠道由项目负责人确认后开放。审核通过前不会公开内容或联系方式。|Submission opens after the project confirms its receiver. Content and contact information will not be published before review.|受付先の確認後に提出を受け付けます。審査前に内容や連絡先が公開されることはありません。|Die Einreichung wird nach Bestätigung des Empfangskanals freigeschaltet. Inhalte und Kontaktdaten werden vor der Prüfung nicht veröffentlicht.
+提交待审核|Submit for review|審査へ提出|Zur Prüfung einreichen
+正在提交…|Submitting…|送信中…|Wird eingereicht…
+已提交，待审核。|Submitted; awaiting review.|提出済み・審査待ちです。|Eingereicht; Prüfung ausstehend.
+提交失败，输入已保留，请稍后重试。|Submission failed. Your input is preserved; please try again.|送信に失敗しました。入力は保持されています。もう一度お試しください。|Einreichung fehlgeschlagen. Die Eingaben bleiben erhalten; bitte erneut versuchen.
 左右滑动查看完整表格。|Swipe sideways to see the full table.|横にスクロールして表全体を表示できます。|Seitlich scrollen, um die vollständige Tabelle zu sehen.
 2024 年公开历史结果，不代表当前模型排名。|Published historical results from 2024; not a current model ranking.|2024 年の公開結果です。現在のモデル順位を示すものではありません。|Veröffentlichte historische Ergebnisse von 2024; keine aktuelle Modellrangliste.
 找到需要的|Find the|必要な|Die passende
