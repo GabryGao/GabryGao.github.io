@@ -246,11 +246,11 @@
     "typographyMeta": {
       "display": {
         "displayName": "Homepage editorial hero",
-        "purpose": "Light black DM Sans, responsive clamp with 42px phone and 38px narrow-phone overrides."
+        "purpose": "Practical DM Sans headline: 52px/1.25 normal tracking; tablet 44px, phone 34px/1.3."
       },
       "page-title": {
         "displayName": "Subpage display",
-        "purpose": "DM Sans editorial heading, with compact and phone scales."
+        "purpose": "Shared readable 52px/1.25 headline with normal tracking; phone 34px/1.3."
       },
       "resource-title": {
         "displayName": "Original title below cover",
@@ -331,14 +331,17 @@
       "portal-interactions.js",
       "portal-interactions.css",
       "portal-home.css",
-      "portal-home.js"
+      "portal-home.js",
+      "portal-practical.css",
+      "portal-results.js",
+      "research-source/helm-safety-results-provenance.json"
     ],
     "layout": {
       "subpage": {
         "container": "88%",
         "wideMax": "1160px",
         "header": "90px",
-        "opening": "90px",
+        "opening": "64px",
         "gridColumns": "repeat(3,minmax(0,1fr))",
         "columnGap": "28px",
         "rowGap": "44px",
@@ -389,29 +392,41 @@
       "home": {
         "container": "88%",
         "maxWidth": "1160px",
-        "opening": "90px",
+        "opening": "64px",
         "introColumns": "minmax(0,1.1fr) minmax(0,1fr)",
         "introColumnGap": "60px",
-        "heroDisplay": "clamp(52px,5vw,72px) / 1.12",
+        "heroDisplay": "52px / 1.25",
         "coverColumns": 3,
         "coverGap": "28px",
-        "coverAspectRatio": "1.35",
+        "coverAspectRatio": "1.65",
         "sectionPadding": "70px 0",
         "timelineColumns": "150px minmax(0,1fr)",
         "mobile": {
           "container": "90%",
-          "opening": "54px",
-          "heroDisplay": "42px / 1.14",
-          "narrowHeroDisplay": "38px",
-          "coverColumns": 3,
-          "coverGap": "10px",
-          "coverAspectRatio": "1",
+          "opening": "40px",
+          "heroDisplay": "34px / 1.3",
+          "narrowHeroDisplay": "34px",
+          "coverColumns": 1,
+          "coverGap": "32px",
+          "coverAspectRatio": "1.65",
           "blogColumns": 1,
           "sectionPadding": "48px 0"
-        }
+        },
+        "coverRole": "source-linked research recommendations",
+        "search": "global resource search plus five quick destinations"
+      },
+      "results": {
+        "mode": "Operate",
+        "plotHeightDesktop": "444px",
+        "barAreaDesktop": "300px",
+        "phoneLabels": "110px",
+        "phoneBars": "36px",
+        "phoneChart": "all records, no horizontal clipping",
+        "tableMinWidth": "870px",
+        "tableOwnScroll": true
       }
     },
-    "scopePolicy": "portal-madeo applies the shared shell through .madeo-subpage on every route and styles the native .md-menu-dialog. Home additionally uses .madeo-home and final portal-home.css overrides. portal-home.js wraps the supplied home content after framework and before MADEO. Tonal ramps are inspection aids, not approved extra fills. portal-interactions enhances shared navigation, fine pointer and the existing route curtain.",
+    "scopePolicy": "portal-madeo applies the shared shell through .madeo-subpage on every route and styles the native .md-menu-dialog. Home additionally uses .madeo-home and final portal-home.css overrides. portal-home.js wraps the supplied home content after framework and before MADEO. Tonal ramps are inspection aids, not approved extra fills. portal-interactions enhances shared navigation, fine pointer and the existing route curtain. Final practical refinements live in portal-practical.css; portal-results.js owns source-backed result exploration.",
     "interactions": {
       "pointer": {
         "color": "#00d9b7",
@@ -460,9 +475,10 @@
     {
       "name": "Homepage editorial introduction",
       "kind": "custom",
-      "description": "Source-derived left display and right copy/actions; compact layouts stack.",
+      "description": "Practical heading with normal tracking, followed by direct resource search and recommendations.",
       "html": "<div class=\"ds-home-intro\"><h1>AI safety research, connected</h1><p>A source-linked research index.</p></div>",
-      "css": ".ds-home-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 60px;color:#000}.ds-home-intro h1{font:400 clamp(52px,5vw,72px)/1.12 var(--md-display,'Index Display',sans-serif);letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}.ds-home-intro p{font:400 19px/1.65 var(--sans,'Index Inter',sans-serif);max-width:46ch;margin:8px 0 0;color:#333}@media(max-width:767px){.ds-home-intro{grid-template-columns:minmax(0,1fr);gap:22px}.ds-home-intro h1{font-size:42px;line-height:1.14}.ds-home-intro p{font-size:17px;margin:0}}@media(max-width:360px){.ds-home-intro h1{font-size:38px}}"
+      "css": ".ds-home-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 60px;color:#000}.ds-home-intro h1{font:400 clamp(52px,5vw,72px)/1.12 var(--md-display,'Index Display',sans-serif);letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}.ds-home-intro p{font:400 19px/1.65 var(--sans,'Index Inter',sans-serif);max-width:46ch;margin:8px 0 0;color:#333}@media(max-width:767px){.ds-home-intro{grid-template-columns:minmax(0,1fr);gap:22px}.ds-home-intro h1{font-size:42px;line-height:1.14}.ds-home-intro p{font-size:17px;margin:0}}@media(max-width:360px){.ds-home-intro h1{font-size:38px}}",
+      "preview": ""
     },
     {
       "name": "Ruled contact field",
@@ -523,12 +539,12 @@
   ],
   "narrative": {
     "northStar": "An open editorial research portfolio",
-    "overview": "The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, three topic covers and an inline count row. Its previous centered violet AstroWind presentation is superseded.\n\nResearch evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.",
+    "overview": "The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, direct search, quick links and three source-linked research picks and an inline count row. Its previous centered violet AstroWind presentation is superseded.\n\nResearch evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.",
     "keyCharacteristics": [
       "White canvas, fine rules and generous opening space.",
       "Light DM Sans headings and Inter supporting copy across home and research routes.",
-      "Three topic covers on home and three-column desktop research collections.",
-      "Two-column tablet collections, single-column phone collections and a compact three-cover home triptych.",
+      "Three research recommendations on home and three-column desktop research collections.",
+      "Two-column tablet collections, single-column phone collections and a single-column phone recommendations.",
       "Shared native blue navigation, flat surfaces and reduced-motion alternatives."
     ],
     "rules": [
@@ -573,5 +589,22 @@
     "formGapPhone": "32px",
     "service": "receiver pending; local downloadable draft only",
     "legacyContact": "renders resource form"
+  },
+  "resultExplorer": {
+    "source": "research-source/helm-safety-results-provenance.json",
+    "records": 9,
+    "reportDate": "2024-11-08",
+    "controls": [
+      "benchmark",
+      "model",
+      "developer",
+      "configuration",
+      "sort"
+    ],
+    "displayScale": "source × 100; 0–100",
+    "chartDesktop": "vertical bars",
+    "chartPhone": "horizontal bars",
+    "table": "source-linked, own overflow region",
+    "csv": "same filtered array, with original 0–1 values"
   }
 }

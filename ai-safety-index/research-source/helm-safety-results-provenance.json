@@ -1,0 +1,95 @@
+{
+  "source_url": "https://crfm.stanford.edu/2024/11/08/helm-safety.html",
+  "publisher": "Stanford CRFM",
+  "published": "2024-11-08",
+  "verified_on": "2026-10-20",
+  "source_section": "Table: Model / HarmBench / HarmBench GCG-T / % Diff",
+  "metrics": {
+    "score": "HarmBench",
+    "attack": "HarmBench GCG-T"
+  },
+  "source_scale": [
+    0,
+    1
+  ],
+  "display_scale": [
+    0,
+    100
+  ],
+  "display_transform": "value × 100; not attack success rate or a current overall model ranking",
+  "version_policy": "Only versions specified in the source table are shown; no release dates inferred for Llama or Mixtral.",
+  "records": [
+    {
+      "id": "claude",
+      "name": "Claude 3.5 Sonnet",
+      "version": "2024-06-20",
+      "creator": "Anthropic",
+      "score": 0.981,
+      "attack": 0.879
+    },
+    {
+      "id": "haiku",
+      "name": "Claude 3 Haiku",
+      "version": "2024-03-07",
+      "creator": "Anthropic",
+      "score": 0.913,
+      "attack": 0.625
+    },
+    {
+      "id": "gpt4turbo",
+      "name": "GPT-4 Turbo",
+      "version": "2024-04-09",
+      "creator": "OpenAI",
+      "score": 0.898,
+      "attack": 0.602
+    },
+    {
+      "id": "mini",
+      "name": "GPT-4o mini",
+      "version": "2024-07-18",
+      "creator": "OpenAI",
+      "score": 0.849,
+      "attack": 0.765
+    },
+    {
+      "id": "gpt4o",
+      "name": "GPT-4o",
+      "version": "2024-05-13",
+      "creator": "OpenAI",
+      "score": 0.829,
+      "attack": 0.622
+    },
+    {
+      "id": "llama8",
+      "name": "Llama 3 Instruct (8B)",
+      "version": "Llama 3 Instruct (8B)",
+      "creator": "Meta",
+      "score": 0.727,
+      "attack": 0.63
+    },
+    {
+      "id": "llama70",
+      "name": "Llama 3 Instruct (70B)",
+      "version": "Llama 3 Instruct (70B)",
+      "creator": "Meta",
+      "score": 0.64,
+      "attack": 0.483
+    },
+    {
+      "id": "gpt35",
+      "name": "GPT-3.5 Turbo",
+      "version": "0125",
+      "creator": "OpenAI",
+      "score": 0.633,
+      "attack": 0.281
+    },
+    {
+      "id": "mixtral",
+      "name": "Mixtral Instruct (8x7B)",
+      "version": "Mixtral Instruct (8x7B)",
+      "creator": "Mistral AI",
+      "score": 0.451,
+      "attack": 0.314
+    }
+  ]
+}

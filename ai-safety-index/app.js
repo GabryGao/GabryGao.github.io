@@ -18,9 +18,78 @@ const resources=[
  {id:'repository',name:'The AI Risk Repository',type:'数据与工具',org:'MIT AI Risk Initiative',year:'动态资源',desc:'可追溯到原始材料的风险资料库入口。',url:'https://airisk.mit.edu/risks'}
 ];
 const results=[
- {id:'claude',name:'Claude 3.5 Sonnet',version:'2024-06-20',score:.981,attack:.879},
- {id:'mini',name:'GPT-4o mini',version:'2024-07-18',score:.849,attack:.765},
- {id:'gpt4o',name:'GPT-4o',version:'2024-05-13',score:.829,attack:.622}
+ {
+  "id": "claude",
+  "name": "Claude 3.5 Sonnet",
+  "version": "2024-06-20",
+  "creator": "Anthropic",
+  "score": 0.981,
+  "attack": 0.879
+ },
+ {
+  "id": "haiku",
+  "name": "Claude 3 Haiku",
+  "version": "2024-03-07",
+  "creator": "Anthropic",
+  "score": 0.913,
+  "attack": 0.625
+ },
+ {
+  "id": "gpt4turbo",
+  "name": "GPT-4 Turbo",
+  "version": "2024-04-09",
+  "creator": "OpenAI",
+  "score": 0.898,
+  "attack": 0.602
+ },
+ {
+  "id": "mini",
+  "name": "GPT-4o mini",
+  "version": "2024-07-18",
+  "creator": "OpenAI",
+  "score": 0.849,
+  "attack": 0.765
+ },
+ {
+  "id": "gpt4o",
+  "name": "GPT-4o",
+  "version": "2024-05-13",
+  "creator": "OpenAI",
+  "score": 0.829,
+  "attack": 0.622
+ },
+ {
+  "id": "llama8",
+  "name": "Llama 3 Instruct (8B)",
+  "version": "Llama 3 Instruct (8B)",
+  "creator": "Meta",
+  "score": 0.727,
+  "attack": 0.63
+ },
+ {
+  "id": "llama70",
+  "name": "Llama 3 Instruct (70B)",
+  "version": "Llama 3 Instruct (70B)",
+  "creator": "Meta",
+  "score": 0.64,
+  "attack": 0.483
+ },
+ {
+  "id": "gpt35",
+  "name": "GPT-3.5 Turbo",
+  "version": "0125",
+  "creator": "OpenAI",
+  "score": 0.633,
+  "attack": 0.281
+ },
+ {
+  "id": "mixtral",
+  "name": "Mixtral Instruct (8x7B)",
+  "version": "Mixtral Instruct (8x7B)",
+  "creator": "Mistral AI",
+  "score": 0.451,
+  "attack": 0.314
+ }
 ];
 const state={selected:new Set(),lastFocus:null};
 function route(){const [path,query='']=location.hash.slice(1).split('?');return {path:path||'home',params:new URLSearchParams(query)}}

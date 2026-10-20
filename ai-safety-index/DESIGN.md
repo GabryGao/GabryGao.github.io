@@ -22,10 +22,10 @@ colors:
 typography:
   display:
     fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
-    fontSize: clamp(52px,5vw,72px)
+    fontSize: 52px
     fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: -.035em
+    lineHeight: 1.25
+    letterSpacing: 0
   headline:
     fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
     fontSize: 44px
@@ -34,10 +34,10 @@ typography:
     letterSpacing: -.03em
   page-title:
     fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
-    fontSize: 72px
+    fontSize: 52px
     fontWeight: 400
-    lineHeight: 1.1
-    letterSpacing: -.035em
+    lineHeight: 1.25
+    letterSpacing: 0
   resource-title:
     fontFamily: '''Index Inter'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
     fontSize: 22px
@@ -66,12 +66,12 @@ typography:
     fontSize: 78px
     fontWeight: 400
     lineHeight: 1.1
-    letterSpacing: -.035em
+    letterSpacing: 0
   mobile-page-title:
     fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
-    fontSize: 39px
+    fontSize: 34px
     fontWeight: 400
-    lineHeight: 1.154
+    lineHeight: 1.3
     letterSpacing: -.025em
   mobile-resource-title:
     fontSize: 22px
@@ -94,10 +94,10 @@ typography:
     fontSize: 13px
   mobile-home-display:
     fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
-    fontSize: 42px
+    fontSize: 34px
     fontWeight: 400
-    lineHeight: 1.14
-    letterSpacing: -.035em
+    lineHeight: 1.3
+    letterSpacing: 0
 rounded:
   flat: '0'
   pill: 999px
@@ -109,12 +109,12 @@ spacing:
   subpage-column: 28px
   subpage-row: 44px
   subpage-copy: 24px
-  subpage-opening: 90px
+  subpage-opening: 64px
   subpage-mobile-opening: 60px
   subpage-mobile-grid: 42px
   subpage-mobile-copy: 22px
-  home-opening: 90px
-  home-mobile-opening: 54px
+  home-opening: 64px
+  home-mobile-opening: 40px
   home-section: 70px
   home-mobile-section: 48px
   home-intro-column: 60px
@@ -190,7 +190,7 @@ components:
 
 **Creative North Star: "An open editorial research portfolio"**
 
-The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, three topic covers and an inline count row. Its previous centered violet AstroWind presentation is superseded.
+The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, direct search, quick resource links, three source-linked research picks and an inline count row. Its previous centered violet AstroWind presentation is superseded.
 
 Research evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.
 
@@ -198,8 +198,8 @@ Research evidence remains readable beside the visual system. Original titles, me
 
 - White canvas, fine rules and generous opening space.
 - Light DM Sans headings and Inter supporting copy across home and research routes.
-- Three topic covers on home and three-column desktop research collections.
-- Two-column tablet collections, single-column phone collections and a compact three-cover home triptych.
+- Three recommended research works on home and three-column desktop research collections.
+- Two-column tablet collections, single-column phone collections and single-column phone recommendations.
 - Shared native blue navigation, flat surfaces and reduced-motion alternatives.
 
 ## Colors
@@ -208,12 +208,12 @@ The frontmatter records the active shared palette and the homepage action varian
 
 ### Primary
 
-- **Portfolio Blue** (`madeo-blue`) fills the full-screen menu, primary home actions, selected pills and contact geometry; it marks source links and navigation states. **Deep Portfolio Blue** (`home-action-hover`) is the home primary hover fill.
+- **Portfolio Blue** (`madeo-blue`) fills the full-screen menu, primary home actions, selected pills; it marks source links and navigation states. **Deep Portfolio Blue** (`home-action-hover`) is the home primary hover fill.
 - **Focus Blue** (`primary`) remains the root visible-focus token; it is distinct from Portfolio Blue.
 
 ### Secondary
 
-- **Menu Mint** (`madeo-mint`) fills the circular shared menu trigger and contact geometry. **Close Peach** (`madeo-peach`) fills the square dialog close control. Pale blue remains a route-curtain destination color.
+- **Menu Mint** (`madeo-mint`) fills the circular shared menu trigger. **Close Peach** (`madeo-peach`) fills the square dialog close control. Pale blue remains a route-curtain destination color.
 
 ### Neutral
 
@@ -223,21 +223,17 @@ White is the base and copy surface. Black carries headings; charcoal carries bod
 
 ## Typography
 
-Home display headings use the self-hosted **Index Display** DM Sans family at the frontmatter clamp, black and regular weight. The home hero becomes (52px) at widths (768–1050px), (42px/1.14) on phones and (38px) at widths up to (360px). Home section headings use the headline token, reducing to (32px/1.25) on phones. The introduction uses (19px/1.65), reducing to (17px); action labels use the button token, reducing to (14px). Home body copy remains Inter.
+Home and collection page headings use the self-hosted Index Display DM Sans at 52px/1.25 with normal letter and word spacing, 44px on tablet and 34px/1.3 on phone. Topic detail titles use the same scale. This supersedes the earlier tight 72px treatment. Primary page opening is 64px (40px phone); topic headings open at 48px (32px phone) after breadcrumbs. Controls, charts, table values and resource titles use Inter. The blue full-screen menu keeps its established display scale. Lower home sections retain their 44px/32px heading scale.
 
-Subpage display headings use **Index Display**, the self-hosted OFL-licensed DM Sans variable font, with CJK sans fallbacks. Body copy, collection titles and controls use Index Inter and the language-appropriate sans fallback stack. Japanese Inter fallback order remains Hiragino Kaku Gothic ProN, Yu Gothic, then sans-serif. Scientific wording stays in its original language.
+The homepage prioritizes a visible global search field, five direct resource-type destinations and three source-linked research recommendations. Concept covers remain illustrations, not paper figures. The recommendation records are external papers; no team authorship is claimed. Phone recommendations use one column.
 
-The page-title, resource-title, subpage-intro and mobile roles in the frontmatter are normative. Desktop page headings use (72px), with the phone scale unchanged. Topic detail titles use (72px, line-height 1.15) on desktop and (39px, line-height 1.25) on phones. Subpage introductions become (19px, line-height 1.55) on phones. Desktop collection copy uses (14px/1.65); tablet and phone copy uses (15px/1.7). Tablet resource titles retain (26px/1.462). Contact fields use (17px, line-height 1.6), reducing to (16px). Menu links reduce to (64px) at compact width, to the mobile display scale on phones, and grow to (90px) on wide displays. The narrowest page headings reduce to (35px).
-
-Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, topic links and record metadata occupy separate lines, generally (12–13px), reducing where explicitly defined on phones. Tabular numerals remain for dates and scores.
-
-**The Original Title Rule.** Scientific titles wrap in full below the media; preserve wording and let block height grow.
+Results use a source-backed Operate layout: three protocol controls, explicit report date, model search and developer filters, a bar chart and a matching table. Desktop bars are vertical, keyed by four developer colors; phone bars are horizontal and display every filtered model without horizontal chart clipping. The table has its own horizontally scrollable region and visible phone hint. Chart, table and CSV use the same filtered array, with visible 0–100 scaling and links to the original 2024 report.
 
 ## Layout
 
-**Homepage.** The original introduction, four value propositions, source-linked news, vision and six topic links, four milestones, planned blog categories and contact action retain their order. Main home containers use (88%) width capped at (1160px), changing to (90%) on phones. The hero opens with (90px) top padding, reduced to (54px) on phones. Its text grid uses (1.1fr/1fr) columns with a (60px) gap; phone content stacks. Three equal cover links use (28px) gutters and (1.35) images; phones keep all three, with (10px) gutters, square images and (12px) captions. Counts sit inline between rules, with (24px) vertical inset. Sections use (70px) vertical padding, reducing to (48px). Feature icons are plain blue strokes beside ruled copy. Vision and planned blogs stay white with square covers. The timeline is a ruled date-and-copy list, stacking its date above copy on phones. Planned blog previews become one column on phones.
+**Homepage.** The introduction opens with 64px top padding (40px phone). Its left headline/right explanation grid retains 1.1fr/1fr columns and a 60px gap; phone content stacks. A full-width search field and five resource shortcuts precede three research recommendations. The 28px-gutter recommendation cards use 1.65 concept images, full descriptions, topic tags and original-source links. They stack into one column with 32px gaps on phones. Existing inline counts, value propositions, news, vision, six direction links, real milestones and planned blogs remain below. The closing resource action invites research sharing without implying an active receiving service. Main containers remain 88%/1160px, 90% on phone; sections retain 70px/48px rhythm.
 
-**Shared shell.** Every route uses a sticky white header of (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
+**Shared shell.** Every route uses a sticky white header of (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y154) at a desktop viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
 
 **Collections.** At widths of (1024px) and above, three equal columns use (28px) gutters and (44px) row gaps. Six research directions form two rows. At (1280px), covers are approximately (357px) wide. Tablet widths of (768–1023px) retain two columns and phones retain one. Desktop collection titles use (22px/1.45), with (14px/1.65) descriptions. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); items align in straight rows on desktop; tablet even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
 
@@ -285,14 +281,14 @@ The confirmed two-person roster uses two ruled columns, stacking on phones. Name
 
 ### Editorial assets
 
-Home reuses the existing privacy, physical and human concept covers for its three topic links, and alignment, agents and human covers for planned blogs. No raster was generated or edited for this refinement. The original AstroWind artwork and license remain historical provenance, not the active home hero. Six generated covers in `assets/madeo/` form a reusable concept system with exact prompts, generation records and roles in `provenance.json`. DM Sans retains its OFL record there. Covers are topic imagery, never research figures or team identities; the geometric contact panel is a separate blue/mint signature.
+Home reuses the agents, alignment and human concept covers for its three research recommendations, and alignment, agents and human covers for planned blogs. No raster was generated or edited for this refinement. The original AstroWind artwork and license remain historical provenance, not the active home hero. Six generated covers in `assets/madeo/` form a reusable concept system with exact prompts, generation records and roles in `provenance.json`. DM Sans retains its OFL record there. Covers are topic imagery, never research figures or team identities.
 
 ## Do's and Don'ts
 
 ### Do:
 
 - **Do** preserve home content, module order and source links while using the shared editorial identity.
-- **Do** use three desktop collection columns, two tablet columns and one phone column; keep the home phone triptych compact.
+- **Do** use three desktop collection columns, two tablet columns and one phone column; stack home recommendations on phones.
 - **Do** keep full original titles, independent topic/source links and evidence tables readable.
 - **Do** label conceptual covers and retain image/font provenance with shipped assets.
 - **Do** keep filters and expanded search controls in normal flow on phones.
@@ -310,3 +306,5 @@ Home reuses the existing privacy, physical and human concept covers for its thre
 
 
 Resource contribution lives in the fourth evaluation pill tab, following catalog, results and methods. It reuses the existing white ruled two-column form, with a 44px gap after tabs (32px on phone), and stacks on phone. Four primary navigation groups remain; Contact has no visible destination. The receiver-pending state and local resource-draft action remain explicit.
+
+Final override: `portal-practical.css`; results implementation: `portal-results.js`; evidence: `research-source/helm-safety-results-provenance.json`. This user-requested practical refinement supersedes the earlier home topic-triptych and 72px/tight-tracking display specifications wherever historical prose remains.

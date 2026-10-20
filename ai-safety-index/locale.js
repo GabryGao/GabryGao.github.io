@@ -3,6 +3,33 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+左右滑动查看完整表格。|Swipe sideways to see the full table.|横にスクロールして表全体を表示できます。|Seitlich scrollen, um die vollständige Tabelle zu sehen.
+2024 年公开历史结果，不代表当前模型排名。|Published historical results from 2024; not a current model ranking.|2024 年の公開結果です。現在のモデル順位を示すものではありません。|Veröffentlichte historische Ergebnisse von 2024; keine aktuelle Modellrangliste.
+找到需要的|Find the|必要な|Die passende
+AI 安全研究。|AI safety research you need.|AI 安全性の研究を見つける。|KI-Sicherheitsforschung finden.
+论文、数据、基准与评测，一站查找。|One place to find papers, data, benchmarks and results.|論文・データ・ベンチマーク・評価結果をまとめて探す。|Publikationen, Daten, Benchmarks und Ergebnisse an einem Ort finden.
+搜索论文、基准、数据或工具|Search papers, benchmarks, data or tools|論文・ベンチマーク・データ・ツールを検索|Publikationen, Benchmarks, Daten oder Tools suchen
+常用入口|Quick access|よく使う項目|Schnellzugriff
+研究推荐|Research picks|注目の研究|Forschungsempfehlungen
+浏览全部论文|Browse all papers|すべての論文を見る|Alle Publikationen ansehen
+项目与代码|Project & code|プロジェクト・コード|Projekt & Code
+让更多人看到你的研究。|Help your research reach more people.|あなたの研究を、より多くの人へ。|Mehr Menschen für Ihre Forschung erreichen.
+提供论文、项目或数据的公开链接与研究简介，供推荐栏目整理。|Share a public link and a short introduction to your paper, project or dataset for consideration in research picks.|論文・プロジェクト・データの公開リンクと紹介文を、研究紹介の候補として共有してください。|Öffentlichen Link und Kurzbeschreibung zu Publikation, Projekt oder Datensatz für die Forschungsempfehlungen vorschlagen.
+模型表现|Model performance|モデルの評価結果|Modellleistung
+无害性分数（0–100）· 越高越好|Harmlessness score (0–100) · Higher is better|無害性スコア（0–100）・高いほど良い|Unschädlichkeitswert (0–100) · Höher ist besser
+模型结果柱状图|Model results bar chart|モデル評価の棒グラフ|Balkendiagramm der Modellergebnisse
+模型结果明细|Model result details|モデル評価の詳細|Modellergebnisse im Detail
+图表将原报告的 0–1 分数乘以 100；不表示模型总体安全程度。|Chart values equal the source's 0–1 scores multiplied by 100; they do not measure overall model safety.|原報告の 0–1 スコアを 100 倍して表示しています。モデル全体の安全性を示すものではありません。|Die Werte entsprechen den Originalwerten von 0–1 mal 100; sie messen nicht die Gesamtsicherheit eines Modells.
+分数（0–100）|Score (0–100)|スコア（0–100）|Wert (0–100)
+导出 CSV|Export CSV|CSV を出力|CSV exportieren
+筛选模型|Filter models|モデルを絞り込む|Modelle filtern
+搜索模型名称或版本|Search model name or version|モデル名・バージョンを検索|Modellname oder Version suchen
+研发机构|Model developer|開発組織|Modellentwickler
+全部机构|All developers|すべての開発組織|Alle Entwickler
+查看结果|View result|結果を見る|Ergebnis ansehen
+没有匹配的模型|No matching models|一致するモデルがありません|Keine passenden Modelle
+调整模型名称或研发机构，查看已收录结果。|Change the model search or developer filter to see recorded results.|モデル名や開発組織の条件を変更して、登録済みの結果をご覧ください。|Modellsuche oder Entwicklerfilter ändern, um erfasste Ergebnisse anzuzeigen.
+清除筛选|Clear filters|絞り込みを解除|Filter zurücksetzen
 资源信息|Resource details|資料情報|Angaben zur Ressource
 下载资源草稿|Download resource draft|資料の下書きをダウンロード|Ressourcenentwurf herunterladen
 资源草稿已生成，请保存文件。内容尚未发送。|Your resource draft is ready. Save the file; it has not been sent.|資料の下書きを作成しました。保存してください。内容はまだ送信されていません。|Ihr Ressourcenentwurf ist fertig. Bitte speichern Sie die Datei; der Inhalt wurde noch nicht gesendet.
