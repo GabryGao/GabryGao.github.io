@@ -25,7 +25,7 @@ function scopeControl(direction){
 }
 function evalTabs(active){
  const d=selectedDirection();
- return '<div class="tabs task-tabs">'+[['catalog','benchmarks','基准目录'],['results','results','评测结果'],['methods','methods','方法与工具']].map(t=>'<a class="tab '+(active===t[0]?'active':'')+'" href="'+scopedLink(t[1],d)+'">'+t[2]+'</a>').join('')+'</div>';
+ return '<div class="tabs task-tabs">'+[['catalog','benchmarks','基准目录'],['results','results','评测结果'],['methods','methods','方法与工具'],['upload','upload','上传资源']].map(t=>'<a class="tab '+(active===t[0]?'active':'')+'" href="'+scopedLink(t[1],d)+'">'+t[2]+'</a>').join('')+'</div>';
 }
 function topicTags(ids){return '<div class="topic-tags">'+ids.map(id=>{const d=getDirection(id);return d?'<a href="'+routeLink('directions',{pillar:id})+'">'+d.name+'</a>':''}).join('')+'</div>'}
 function scopedBenchmarkRow(b,i,d){return benchmarkRow(b,i).replaceAll('#benchmark/'+b.id,routeLink('benchmark/'+b.id,{direction:d}))}

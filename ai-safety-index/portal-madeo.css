@@ -25,3 +25,6 @@ body.madeo-menu-open{overflow:hidden}.md-menu-dialog{width:100vw;height:100dvh;m
 .md-menu-dialog a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.12em}
 
 @media(max-width:767px){.madeo-subpage .md-search-disclosure{margin-top:16px}.madeo-subpage .md-search-disclosure>summary{position:static;max-width:max-content;margin-left:auto}.madeo-subpage .md-search-controls{margin-top:20px}}
+
+.madeo-subpage .md-upload-page .md-contact-draft{margin-top:44px}.madeo-subpage .md-upload-page .contact-form{max-width:680px}
+@media(max-width:767px){.madeo-subpage .md-upload-page .md-contact-draft{margin-top:32px}}

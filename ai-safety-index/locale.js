@@ -3,6 +3,9 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+资源信息|Resource details|資料情報|Angaben zur Ressource
+下载资源草稿|Download resource draft|資料の下書きをダウンロード|Ressourcenentwurf herunterladen
+资源草稿已生成，请保存文件。内容尚未发送。|Your resource draft is ready. Save the file; it has not been sent.|資料の下書きを作成しました。保存してください。内容はまだ送信されていません。|Ihr Ressourcenentwurf ist fertig. Bitte speichern Sie die Datei; der Inhalt wurde noch nicht gesendet.
 论文资料|Papers|論文資料|Publikationen
 研究方向|Research topics|研究分野|Themen
 基准与评测|Benchmarks & results|ベンチマークと評価|Benchmarks & Ergebnisse

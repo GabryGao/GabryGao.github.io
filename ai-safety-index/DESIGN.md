@@ -307,3 +307,6 @@ Home reuses the existing privacy, physical and human concept covers for its thre
 - **Don't** present conceptual images as paper figures, project documentation or team portraits.
 - **Don't** imply that the local contact draft sends a message or that historical results are current rankings.
 
+
+
+Resource contribution lives in the fourth evaluation pill tab, following catalog, results and methods. It reuses the existing white ruled two-column form, with a 44px gap after tabs (32px on phone), and stacks on phone. Four primary navigation groups remain; Contact has no visible destination. The receiver-pending state and local resource-draft action remain explicit.

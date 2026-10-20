@@ -564,5 +564,14 @@
       "**Don't** present conceptual images as paper figures, project documentation or team portraits.",
       "**Don't** imply that the local contact draft sends a message or that historical results are current rankings."
     ]
+  },
+  "resourceContribution": {
+    "route": "#upload",
+    "placement": "fourth evaluation tab",
+    "primaryNavigationGroups": 4,
+    "formGapDesktop": "44px",
+    "formGapPhone": "32px",
+    "service": "receiver pending; local downloadable draft only",
+    "legacyContact": "renders resource form"
   }
 }

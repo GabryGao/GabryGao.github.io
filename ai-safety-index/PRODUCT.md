@@ -4,7 +4,7 @@ A public, buildless static portal connecting AI safety research directions, pape
 
 ## Structure and audience paths
 
-The homepage introduces the platform, explains user value, states its vision, records real construction milestones and reserves space for a future blog. Blog categories are explicitly marked as planned; no articles are implied. Recent manually curated news appears within the value section. The shared header exposes five modules: research directions, research news, benchmarks/results, team and contact. Paper, data/task and method catalogs remain reachable through shared research directions and footer links.
+The homepage introduces the platform, explains user value, states its vision, records real construction milestones and reserves space for a future blog. Blog categories are explicitly marked as planned; no articles are implied. Recent manually curated news appears within the value section. The shared header exposes four modules: research directions, research news, benchmarks/results and team. Paper, data/task and method catalogs remain reachable through shared research directions and footer links.
 
 Six overlapping research topics connect shared resources: data/privacy, foundation models, agents/software, physical AI, human/societal safety and AI+X/science. Entries can belong to multiple topics. Homepage editorial selections remain independent of the topic taxonomy.
 
@@ -18,7 +18,7 @@ Research news combines manually selected/archived records with up to 30 keyword-
 
 ## Language and interaction contract
 
-Chinese, English, Japanese and German switch in place through `locale.js`, preserving the current route, filters, page, input drafts and comparison selections. Language changes must not navigate, replace the page or replay entrances. Scientific titles, author names, source URLs and identifiers retain original wording. Offline dictionaries support translated UI and multilingual topic/category search; the current locale fixture covers 970 strings. Keep keyboard focus visible and honor reduced motion.
+Chinese, English, Japanese and German switch in place through `locale.js`, preserving the current route, filters, page, input drafts and comparison selections. Language changes must not navigate, replace the page or replay entrances. Scientific titles, author names, source URLs and identifiers retain original wording. Offline dictionaries support translated UI and multilingual topic/category search; the current locale fixture covers 973 strings. Keep keyboard focus visible and honor reduced motion.
 
 ## Visual identity and assets
 
@@ -28,4 +28,4 @@ The unmodified AstroWind hero and Inter font have source records in `assets/fram
 
 ## Pending content and service boundaries
 
-The user supplied two team entries on 2026-10-20: Xinfeng Li, 香港理工大学, 教授; and Xin Gao, 东京理科大学, 参与成员. The site displays these names, affiliations and roles, with names preserved across locales. Additional biographies, portraits, personal links and responsibilities have not been supplied. The contact receiver is also pending. The form creates a local downloadable draft only, without sending or uploading it. Do not label that action as submission or invent a delivery address. Add no paid scraping, login or backend service without a request.
+The user supplied two team entries on 2026-10-20: Xinfeng Li, 香港理工大学, 教授; and Xin Gao, 东京理科大学, 参与成员. The site displays these names, affiliations and roles, with names preserved across locales. Additional biographies, portraits, personal links and responsibilities have not been supplied. Resource contribution is the fourth tab under benchmarks/results, after catalog, results and methods; the shared header, menu, footer and homepage no longer expose Contact. Legacy #contact links render the resource form. The resource receiver is pending. The form creates a local downloadable resource draft only, without sending or uploading it. Do not label that action as submission or invent a delivery address. Add no paid scraping, login or backend service without a request.

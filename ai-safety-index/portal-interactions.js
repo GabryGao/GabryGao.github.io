@@ -20,11 +20,10 @@ var PortalInteractions=(()=>{
  const definitions={
   directions:researchDirections.map(d=>({label:d.name,href:'#directions?pillar='+d.id})),
   news:[{label:'全部热点',href:'#news'},{label:'论文与项目',href:'#news?type=projects'},{label:'报告与指南',href:'#news?type=reports'},{label:'人工精选与归档',href:'#news?origin=curated'}],
-  benchmarks:[{label:'基准目录',href:'#benchmarks'},{label:'公开结果',href:'#results'},{label:'方法与工具',href:'#methods'}],
-  teams:[{label:'研究团队',href:'#teams'},{label:'加入我们',href:'#contact?intent=join'}],
-  contact:[{label:'加入我们',href:'#contact?intent=join'},{label:'上传资源',href:'#contact?intent=resource'}]
+  benchmarks:[{label:'基准目录',href:'#benchmarks'},{label:'公开结果',href:'#results'},{label:'方法与工具',href:'#methods'},{label:'上传资源',href:'#upload'}],
+  teams:[{label:'研究团队',href:'#teams'}]
  };
- const names={home:'AI Safety Index',directions:'研究方向',papers:'论文资料',datasets:'数据与任务',methods:'方法与工具',news:'研究热点',benchmarks:'基准与评测',benchmark:'基准与评测',results:'公开结果',teams:'研究团队',about:'研究团队',contact:'联系我们'};
+ const names={home:'AI Safety Index',directions:'研究方向',papers:'论文资料',datasets:'数据与任务',methods:'方法与工具',news:'研究热点',benchmarks:'基准与评测',benchmark:'基准与评测',results:'公开结果',teams:'研究团队',about:'研究团队',upload:'上传资源',contact:'上传资源'};
  let openGroup=null,leaveTimer,suppressFocus=false;
  function closeSubnav(){clearTimeout(leaveTimer);if(!openGroup)return;openGroup.querySelector('.md-nav-panel').hidden=true;openGroup.querySelectorAll('[aria-expanded]').forEach(e=>e.setAttribute('aria-expanded','false'));openGroup.classList.remove('is-open');openGroup=null}
  function openSubnav(group){
