@@ -2,11 +2,11 @@ AI Safety Index · 2026-10-20
 
 在本目录运行 python3 -m http.server 8765 后访问本地网址。
 这是无需构建的静态网站，正式地址为 https://gabrygao.github.io/ai-safety-index/ 。
-无需 API Key；字体、概念封面和首页插画均保存在 assets/。
+无需 API Key；字体与概念封面均保存在 assets/。
 
 当前设计
-首页保留已确认的 AstroWind 框架与白色背景。
-内容页按照 MADEO Work / News / About / Contact 的实际布局重新制作：大标题、宽留白、两列大封面、封面下方标题、绿色圆形菜单按钮、蓝色全屏菜单。手机端使用单列。
+首页与内容页共用 MADEO 风格的黑色字标、轻字重标题、白色背景、细分隔线和绿色菜单。首页保留平台介绍、价值、愿景、进展和博客预留区；首屏使用三张主题概念封面。
+内容页按照 MADEO Work / News / About / Contact 的布局制作：大标题、宽留白、三列封面、封面下方标题、绿色圆形菜单按钮、蓝色全屏菜单。平板两列，手机单列。
 六张研究主题封面为生成的概念配图，不是论文图、研究结果或团队照片。精确提示词及来源记录在 assets/madeo/provenance.json，DM Sans 字体许可证为同目录 DM-Sans-OFL.txt。未复制 MADEO 客户图片、身份或联系方式。
 
 功能与资料
@@ -21,11 +21,12 @@ AI Safety Index · 2026-10-20
 主要文件
 index.html：入口、共享导航和页脚。
 portal-framework.js / .css：首页框架和共享功能。
-portal-madeo.js / .css：最终内容页渲染与独立样式；由 body.madeo-subpage 隔离首页。
+portal-home.js / .css：首页概念封面与统一视觉，使用 body.madeo-home 限定首页组合。
+portal-madeo.js / .css：共享页头、菜单和页脚，以及内容页的最终渲染。
 portal-motion.js / .css：渐进动画与减少动态效果支持。
 locale.js：四语言原地翻译与多语搜索。
 research-data.js、app.js、portal-v5.js、opentai-papers.js、news-feed.js：方向、原始记录及快照。
-DESIGN.md、.impeccable/design.json：当前首页和内容页的独立设计规则。
+DESIGN.md、.impeccable/design.json：共享视觉与各页面的设计规则。
 
 验证
 node tools/verify-framework.mjs

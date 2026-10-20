@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T11:59:10.619762+00:00",
+  "generatedAt": "2026-10-20T12:19:40.908030+00:00",
   "title": "Design System: AI Safety Index",
   "extensions": {
     "colorMeta": {
       "primary": {
         "role": "primary",
-        "displayName": "Action Blue",
+        "displayName": "Focus Blue",
         "tonalRamp": [
           "oklch(15% 0.18 262)",
           "oklch(27% 0.18 262)",
@@ -16,62 +16,6 @@
           "oklch(75% 0.18 262)",
           "oklch(87% 0.18 262)",
           "oklch(95% 0.18 262)"
-        ]
-      },
-      "button-blue": {
-        "role": "primary",
-        "displayName": "Pill Blue",
-        "tonalRamp": [
-          "oklch(15% 0.18 264)",
-          "oklch(27% 0.18 264)",
-          "oklch(39% 0.18 264)",
-          "oklch(51% 0.18 264)",
-          "oklch(63% 0.18 264)",
-          "oklch(75% 0.18 264)",
-          "oklch(87% 0.18 264)",
-          "oklch(95% 0.18 264)"
-        ]
-      },
-      "blue-hover": {
-        "role": "primary",
-        "displayName": "Deep Action Blue",
-        "tonalRamp": [
-          "oklch(15% 0.18 264)",
-          "oklch(27% 0.18 264)",
-          "oklch(39% 0.18 264)",
-          "oklch(51% 0.18 264)",
-          "oklch(63% 0.18 264)",
-          "oklch(75% 0.18 264)",
-          "oklch(87% 0.18 264)",
-          "oklch(95% 0.18 264)"
-        ]
-      },
-      "link-blue": {
-        "role": "primary",
-        "displayName": "Research Link Blue",
-        "tonalRamp": [
-          "oklch(15% 0.12 258)",
-          "oklch(27% 0.12 258)",
-          "oklch(39% 0.12 258)",
-          "oklch(51% 0.12 258)",
-          "oklch(63% 0.12 258)",
-          "oklch(75% 0.12 258)",
-          "oklch(87% 0.12 258)",
-          "oklch(95% 0.12 258)"
-        ]
-      },
-      "hero-violet": {
-        "role": "secondary",
-        "displayName": "Hero Violet",
-        "tonalRamp": [
-          "oklch(15% 0.2 296)",
-          "oklch(27% 0.2 296)",
-          "oklch(39% 0.2 296)",
-          "oklch(51% 0.2 296)",
-          "oklch(63% 0.2 296)",
-          "oklch(75% 0.2 296)",
-          "oklch(87% 0.2 296)",
-          "oklch(95% 0.2 296)"
         ]
       },
       "white": {
@@ -88,62 +32,6 @@
           "oklch(95% 0 0)"
         ]
       },
-      "ink": {
-        "role": "neutral",
-        "displayName": "Ink",
-        "tonalRamp": [
-          "oklch(15% 0 0)",
-          "oklch(27% 0 0)",
-          "oklch(39% 0 0)",
-          "oklch(51% 0 0)",
-          "oklch(63% 0 0)",
-          "oklch(75% 0 0)",
-          "oklch(87% 0 0)",
-          "oklch(95% 0 0)"
-        ]
-      },
-      "slate-ink": {
-        "role": "neutral",
-        "displayName": "Slate Ink",
-        "tonalRamp": [
-          "oklch(15% 0.015 260)",
-          "oklch(27% 0.015 260)",
-          "oklch(39% 0.015 260)",
-          "oklch(51% 0.015 260)",
-          "oklch(63% 0.015 260)",
-          "oklch(75% 0.015 260)",
-          "oklch(87% 0.015 260)",
-          "oklch(95% 0.015 260)"
-        ]
-      },
-      "muted": {
-        "role": "neutral",
-        "displayName": "Muted Slate",
-        "tonalRamp": [
-          "oklch(15% 0.025 258)",
-          "oklch(27% 0.025 258)",
-          "oklch(39% 0.025 258)",
-          "oklch(51% 0.025 258)",
-          "oklch(63% 0.025 258)",
-          "oklch(75% 0.025 258)",
-          "oklch(87% 0.025 258)",
-          "oklch(95% 0.025 258)"
-        ]
-      },
-      "line": {
-        "role": "neutral",
-        "displayName": "Light Divider",
-        "tonalRamp": [
-          "oklch(15% 0.012 255)",
-          "oklch(27% 0.012 255)",
-          "oklch(39% 0.012 255)",
-          "oklch(51% 0.012 255)",
-          "oklch(63% 0.012 255)",
-          "oklch(75% 0.012 255)",
-          "oklch(87% 0.012 255)",
-          "oklch(95% 0.012 255)"
-        ]
-      },
       "pale-blue": {
         "role": "neutral",
         "displayName": "Pale Blue",
@@ -156,76 +44,6 @@
           "oklch(75% 0.025 255)",
           "oklch(87% 0.025 255)",
           "oklch(95% 0.025 255)"
-        ]
-      },
-      "soft-surface": {
-        "role": "neutral",
-        "displayName": "Soft Surface",
-        "tonalRamp": [
-          "oklch(15% 0.006 250)",
-          "oklch(27% 0.006 250)",
-          "oklch(39% 0.006 250)",
-          "oklch(51% 0.006 250)",
-          "oklch(63% 0.006 250)",
-          "oklch(75% 0.006 250)",
-          "oklch(87% 0.006 250)",
-          "oklch(95% 0.006 250)"
-        ]
-      },
-      "announcement": {
-        "role": "neutral",
-        "displayName": "Announcement Slate",
-        "tonalRamp": [
-          "oklch(15% 0.025 265)",
-          "oklch(27% 0.025 265)",
-          "oklch(39% 0.025 265)",
-          "oklch(51% 0.025 265)",
-          "oklch(63% 0.025 265)",
-          "oklch(75% 0.025 265)",
-          "oklch(87% 0.025 265)",
-          "oklch(95% 0.025 265)"
-        ]
-      },
-      "mint": {
-        "role": "secondary",
-        "displayName": "Data Mint",
-        "tonalRamp": [
-          "oklch(15% 0.025 157)",
-          "oklch(27% 0.025 157)",
-          "oklch(39% 0.025 157)",
-          "oklch(51% 0.025 157)",
-          "oklch(63% 0.025 157)",
-          "oklch(75% 0.025 157)",
-          "oklch(87% 0.025 157)",
-          "oklch(95% 0.025 157)"
-        ]
-      },
-      "lilac": {
-        "role": "secondary",
-        "displayName": "Foundation Lilac",
-        "tonalRamp": [
-          "oklch(15% 0.025 300)",
-          "oklch(27% 0.025 300)",
-          "oklch(39% 0.025 300)",
-          "oklch(51% 0.025 300)",
-          "oklch(63% 0.025 300)",
-          "oklch(75% 0.025 300)",
-          "oklch(87% 0.025 300)",
-          "oklch(95% 0.025 300)"
-        ]
-      },
-      "topic-blue": {
-        "role": "secondary",
-        "displayName": "Agent Blue",
-        "tonalRamp": [
-          "oklch(15% 0.025 245)",
-          "oklch(27% 0.025 245)",
-          "oklch(39% 0.025 245)",
-          "oklch(51% 0.025 245)",
-          "oklch(63% 0.025 245)",
-          "oklch(75% 0.025 245)",
-          "oklch(87% 0.025 245)",
-          "oklch(95% 0.025 245)"
         ]
       },
       "madeo-blue": {
@@ -381,12 +199,54 @@
           "oklch(87% 0.025 190)",
           "oklch(95% 0.025 190)"
         ]
+      },
+      "home-action-hover": {
+        "role": "primary",
+        "displayName": "Deep Portfolio Blue",
+        "tonalRamp": [
+          "oklch(15% 0.13 264)",
+          "oklch(27% 0.13 264)",
+          "oklch(39% 0.13 264)",
+          "oklch(51% 0.13 264)",
+          "oklch(63% 0.13 264)",
+          "oklch(75% 0.13 264)",
+          "oklch(87% 0.13 264)",
+          "oklch(95% 0.13 264)"
+        ]
+      },
+      "home-action-rule": {
+        "role": "neutral",
+        "displayName": "Home Action Rule",
+        "tonalRamp": [
+          "oklch(15% 0.004 110)",
+          "oklch(27% 0.004 110)",
+          "oklch(39% 0.004 110)",
+          "oklch(51% 0.004 110)",
+          "oklch(63% 0.004 110)",
+          "oklch(75% 0.004 110)",
+          "oklch(87% 0.004 110)",
+          "oklch(95% 0.004 110)"
+        ]
+      },
+      "home-secondary-ink": {
+        "role": "neutral",
+        "displayName": "Home Secondary Ink",
+        "tonalRamp": [
+          "oklch(15% 0.004 110)",
+          "oklch(27% 0.004 110)",
+          "oklch(39% 0.004 110)",
+          "oklch(51% 0.004 110)",
+          "oklch(63% 0.004 110)",
+          "oklch(75% 0.004 110)",
+          "oklch(87% 0.004 110)",
+          "oklch(95% 0.004 110)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Homepage hero",
-        "purpose": "Accepted AstroWind Inter headline."
+        "displayName": "Homepage editorial hero",
+        "purpose": "Light black DM Sans, responsive clamp with 42px phone and 38px narrow-phone overrides."
       },
       "page-title": {
         "displayName": "Subpage display",
@@ -399,18 +259,9 @@
       "menu-link": {
         "displayName": "Full-screen navigation",
         "purpose": "Large light white links on Portfolio Blue."
-      },
-      "footer-brand": {
-        "displayName": "Homepage footer wordmark",
-        "purpose": "Accepted home footer; subpages override to 20px uppercase."
       }
     },
     "shadows": [
-      {
-        "name": "home-mobile-navigation",
-        "value": "0 12px 24px #0f172a0a",
-        "purpose": "Existing accepted-home mobile navigation only."
-      },
       {
         "name": "legacy-dialog",
         "value": "0 24px 100px #102f3a40",
@@ -419,7 +270,7 @@
       {
         "name": "madeo-flat",
         "value": "none",
-        "purpose": "Subpage cards and full-screen menu."
+        "purpose": "Home and research surfaces, shared header and full-screen menu."
       }
     ],
     "motion": [
@@ -446,7 +297,7 @@
       {
         "name": "home-action-state",
         "value": ".2s",
-        "purpose": "Accepted homepage action transition."
+        "purpose": "Homepage action transition inherited from the framework."
       }
     ],
     "breakpoints": [
@@ -459,16 +310,16 @@
         "value": "1150px"
       },
       {
-        "name": "home-navigation",
-        "value": "1080px"
-      },
-      {
         "name": "phone",
         "value": "767px"
       },
       {
         "name": "narrow-phone",
         "value": "360px"
+      },
+      {
+        "name": "home-compact-intro",
+        "value": "1050px"
       }
     ],
     "tonalRampPolicy": "Ramps are synthesized OKLCH inspection aids, not additional implementation tokens or approved component fills.",
@@ -478,7 +329,9 @@
       "portal-madeo.js",
       "assets/madeo/provenance.json",
       "portal-interactions.js",
-      "portal-interactions.css"
+      "portal-interactions.css",
+      "portal-home.css",
+      "portal-home.js"
     ],
     "layout": {
       "subpage": {
@@ -531,9 +384,33 @@
         "institutionFont": "17px",
         "gallerySeparation": "70px",
         "source": "User-supplied names, affiliations and roles, 2026-10-20"
+      },
+      "home": {
+        "container": "88%",
+        "maxWidth": "1160px",
+        "opening": "90px",
+        "introColumns": "minmax(0,1.1fr) minmax(0,1fr)",
+        "introColumnGap": "60px",
+        "heroDisplay": "clamp(52px,5vw,72px) / 1.12",
+        "coverColumns": 3,
+        "coverGap": "28px",
+        "coverAspectRatio": "1.35",
+        "sectionPadding": "70px 0",
+        "timelineColumns": "150px minmax(0,1fr)",
+        "mobile": {
+          "container": "90%",
+          "opening": "54px",
+          "heroDisplay": "42px / 1.14",
+          "narrowHeroDisplay": "38px",
+          "coverColumns": 3,
+          "coverGap": "10px",
+          "coverAspectRatio": "1",
+          "blogColumns": 1,
+          "sectionPadding": "48px 0"
+        }
       }
     },
-    "scopePolicy": "portal-madeo rules apply to .madeo-subpage plus the native .md-menu-dialog; the accepted home retains portal-framework tokens. Tonal ramps are synthesized inspection aids, not additional approved fills. Shared navigation and fine pointer are enhanced by portal-interactions; home body remains unchanged.",
+    "scopePolicy": "portal-madeo applies the shared shell through .madeo-subpage on every route and styles the native .md-menu-dialog. Home additionally uses .madeo-home and final portal-home.css overrides. portal-home.js wraps the supplied home content after framework and before MADEO. Tonal ramps are inspection aids, not approved extra fills. portal-interactions enhances shared navigation, fine pointer and the existing route curtain.",
     "interactions": {
       "pointer": {
         "color": "#00d9b7",
@@ -567,25 +444,24 @@
       "name": "Homepage primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Accepted AstroWind home primary pill.",
+      "description": "Shared Portfolio Blue pill, with home desktop and phone dimensions.",
       "html": "<a class=\"ds-primary\" href=\"#directions\">Explore research →</a>",
-      "css": ".ds-primary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 32px;border:1px solid #285de5;border-radius:999px;font-size:16px;line-height:22px;font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#285de5;color:#fff}.ds-primary:hover{background:#1d4ed8;border-color:#1d4ed8}.ds-primary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-primary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important;transform:none!important}}"
+      "css": ".ds-primary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border:1px solid #2b4fa5;border-radius:999px;font-size:15px;line-height:22px;font-weight:400;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#2b4fa5;color:#fff}.ds-primary:hover{background:#213f88;border-color:#213f88}.ds-primary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-primary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important;transform:none!important}}@media(max-width:767px){.ds-primary{min-height:44px;padding:10px 18px;font-size:14px}}"
     },
     {
       "name": "Homepage secondary action",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Accepted AstroWind home secondary pill.",
+      "description": "White outlined home pill using the shared blue hover accent.",
       "html": "<a class=\"ds-secondary\" href=\"#benchmarks\">Find benchmarks →</a>",
-      "css": ".ds-secondary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 32px;border:1px solid #285de5;border-radius:999px;font-size:16px;line-height:22px;font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#fff;color:#111;border-color:#9ca3af}.ds-secondary:hover{background:#f8fafc;border-color:#475569}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-secondary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none!important;transform:none!important}}"
+      "css": ".ds-secondary{font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border:1px solid #2b4fa5;border-radius:999px;font-size:15px;line-height:22px;font-weight:400;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,transform .2s;background:#fff;color:#111;border-color:#a8a8a3}.ds-secondary:hover{background:#fff;border-color:#2b4fa5;color:#2b4fa5}.ds-secondary:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-secondary:hover{transform:translateY(-1px)}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none!important;transform:none!important}}@media(max-width:767px){.ds-secondary{min-height:44px;padding:10px 18px;font-size:14px}}"
     },
     {
-      "name": "Homepage module navigation",
-      "kind": "nav",
-      "refersTo": "navigation",
-      "description": "Accepted home navigation; the subpage shell has its own dimensions.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#directions\" aria-current=\"page\">Directions</a><a href=\"#news\">News</a><a href=\"#benchmarks\">Benchmarks</a><a href=\"#teams\">Team</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:24px;background:#fff;font-family:var(--sans, 'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif)}.ds-nav a{position:relative;font-size:14px;line-height:70px;font-weight:500;color:#111827;text-decoration:none;white-space:nowrap}.ds-nav a:hover,.ds-nav a[aria-current]{color:#1d4ed8}.ds-nav a[aria-current]:after{content:\"\";position:absolute;left:0;right:0;bottom:12px;height:2px;background:#2563eb}.ds-nav a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}"
+      "name": "Homepage editorial introduction",
+      "kind": "custom",
+      "description": "Source-derived left display and right copy/actions; compact layouts stack.",
+      "html": "<div class=\"ds-home-intro\"><h1>AI safety research, connected</h1><p>A source-linked research index.</p></div>",
+      "css": ".ds-home-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 60px;color:#000}.ds-home-intro h1{font:400 clamp(52px,5vw,72px)/1.12 var(--md-display,'Index Display',sans-serif);letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}.ds-home-intro p{font:400 19px/1.65 var(--sans,'Index Inter',sans-serif);max-width:46ch;margin:8px 0 0;color:#333}@media(max-width:767px){.ds-home-intro{grid-template-columns:minmax(0,1fr);gap:22px}.ds-home-intro h1{font-size:42px;line-height:1.14}.ds-home-intro p{font-size:17px;margin:0}}@media(max-width:360px){.ds-home-intro h1{font-size:38px}}"
     },
     {
       "name": "Ruled contact field",
@@ -596,10 +472,10 @@
       "css": ".ds-field{display:grid;gap:10px;font:400 13px/1.65 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);color:#000}.ds-field input{min-width:0;padding:10px 0;border:0;border-bottom:1px solid #777;border-radius:0;background:transparent;color:#000;font:400 17px/1.6 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif)}.ds-field input:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}"
     },
     {
-      "name": "Subpage module navigation",
+      "name": "Shared module navigation",
       "kind": "nav",
-      "refersTo": "subpage-navigation",
-      "description": "Flat Inter links inside the 90px header.",
+      "refersTo": "navigation",
+      "description": "Flat Inter links in the shared 90px header; compact screens use the native menu.",
       "html": "<nav class=\"ds-modules\" aria-label=\"Research\"><a href=\"#directions\" aria-current=\"page\">Directions</a><a href=\"#news\">News</a><a href=\"#benchmarks\">Benchmarks</a></nav>",
       "css": ".ds-modules{display:flex;align-items:center;flex-wrap:wrap;gap:24px;min-height:90px;background:#fff}.ds-modules a{font:400 17px/1.5 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.02em;color:#000;text-decoration:none}.ds-modules a:hover,.ds-modules a[aria-current]{color:var(--md-blue,#2b4fa5)}.ds-modules a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}"
     },
@@ -607,7 +483,7 @@
       "name": "Circular menu trigger",
       "kind": "button",
       "refersTo": "menu-trigger",
-      "description": "Subpage native-dialog trigger; actual application manages expanded state.",
+      "description": "Shared native-dialog trigger on home and research routes; the application manages expanded state.",
       "html": "<button class=\"ds-menu-trigger\" aria-label=\"Open menu\" aria-controls=\"madeo-menu\" aria-expanded=\"false\"><svg viewBox=\"0 0 26 26\" aria-hidden=\"true\"><path d=\"M4 9h18M4 17h18\"/></svg></button>",
       "css": ".ds-menu-trigger{display:flex;align-items:center;justify-content:center;width:60px;height:60px;padding:17px;border:0;border-radius:50%;background:var(--md-mint,#5fc79f);color:#102a25;cursor:pointer}.ds-menu-trigger svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.3;fill:none}.ds-menu-trigger:hover{cursor:pointer}.ds-menu-trigger:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(max-width:767px){.ds-menu-trigger{width:45px;height:45px;padding:11px}.ds-menu-trigger svg{width:23px;height:23px}}"
     },
@@ -641,23 +517,23 @@
       "refersTo": "resource-card",
       "description": "Actual cover/copy anatomy; inline vector is a structural preview, not an additional shipping asset.",
       "html": "<article class=\"ds-project\"><a class=\"ds-cover\" href=\"#papers\" aria-label=\"Read original title\"><svg viewBox=\"0 0 400 400\" aria-hidden=\"true\"><path fill=\"#2b4fa5\" d=\"M0 0h400v400H0z\"/><circle fill=\"#5fc79f\" cx=\"200\" cy=\"200\" r=\"145\"/><path fill=\"#000\" d=\"M190 0h20v400h-20z\"/></svg><span>Research direction <small>Concept cover</small></span></a><div class=\"ds-copy\"><h3><a href=\"#papers\">Original scientific title retained in full</a></h3><p>Source-linked research metadata and topic context.</p><p class=\"ds-authors\">Original author names</p><a class=\"ds-source\" href=\"#papers\">Original source ↗</a></div></article>",
-      "css": ".ds-project{max-width:562px;padding:0;background:transparent;color:#000;font-family:var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif)}.ds-cover{display:block;position:relative;aspect-ratio:1.35;overflow:hidden;background:#f1f1ef;color:#000}.ds-cover>svg{display:block;width:100%;height:100%;transition:transform .65s cubic-bezier(.16,1,.3,1)}.ds-cover>span{position:absolute;bottom:-1px;left:0;background:#fff;padding:12px 15px 2px 0;font-size:15px;line-height:1.4}.ds-cover small{font-size:10px;color:#555;margin-left:10px}.ds-copy{padding:24px 0 0}.ds-copy h3{font:400 26px/1.462 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.025em;margin:0 0 12px;overflow-wrap:anywhere}.ds-copy h3 a{color:#000;text-decoration:none}.ds-copy h3 a:hover{color:var(--md-blue,#2b4fa5)}.ds-copy p{font-size:15px;line-height:1.7;color:#333;margin:0 0 14px}.ds-copy .ds-authors{font-size:13px;color:#444}.ds-source{display:inline-flex;margin-top:16px;padding-bottom:3px;border-bottom:1px solid var(--md-blue,#2b4fa5);color:var(--md-blue,#2b4fa5);font-size:13px;line-height:1.6;text-decoration:none}.ds-source:hover{text-decoration:underline}.ds-project a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-project:hover .ds-cover>svg{transform:scale(1.035)}}@media(max-width:767px){.ds-copy{padding-top:22px}.ds-copy h3{font-size:22px;line-height:1.45;letter-spacing:-.02em}}@media(prefers-reduced-motion:reduce){.ds-cover>svg{transition:none!important;transform:none!important}}"
+      "css": ".ds-project{max-width:562px;padding:0;background:transparent;color:#000;font-family:var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif)}.ds-cover{display:block;position:relative;aspect-ratio:1.35;overflow:hidden;background:#f1f1ef;color:#000}.ds-cover>svg{display:block;width:100%;height:100%;transition:transform .65s cubic-bezier(.16,1,.3,1)}.ds-cover>span{position:absolute;bottom:-1px;left:0;background:#fff;padding:12px 15px 2px 0;font-size:15px;line-height:1.4}.ds-cover small{font-size:10px;color:#555;margin-left:10px}.ds-copy{padding:24px 0 0}.ds-copy h3{font:400 22px/1.45 var(--sans,'Index Inter','PingFang SC','Hiragino Kaku Gothic ProN','Microsoft YaHei',sans-serif);letter-spacing:-.025em;margin:0 0 12px;overflow-wrap:anywhere}.ds-copy h3 a{color:#000;text-decoration:none}.ds-copy h3 a:hover{color:var(--md-blue,#2b4fa5)}.ds-copy p{font-size:14px;line-height:1.65;color:#333;margin:0 0 14px}.ds-copy .ds-authors{font-size:13px;color:#444}.ds-source{display:inline-flex;margin-top:16px;padding-bottom:3px;border-bottom:1px solid var(--md-blue,#2b4fa5);color:var(--md-blue,#2b4fa5);font-size:13px;line-height:1.6;text-decoration:none}.ds-source:hover{text-decoration:underline}.ds-project a:focus-visible{outline:2px solid var(--blue,#2563eb);outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-project:hover .ds-cover>svg{transform:scale(1.035)}}@media(max-width:767px){.ds-copy{padding-top:22px}.ds-copy h3{font-size:22px;line-height:1.45;letter-spacing:-.02em}}@media(prefers-reduced-motion:reduce){.ds-cover>svg{transition:none!important;transform:none!important}}"
     }
   ],
   "narrative": {
     "northStar": "An open editorial research portfolio",
-    "overview": "The white canvas joins two explicitly chosen references. The accepted AstroWind homepage is a centered, confident public entrance. Non-home routes follow MADEO's measured Work, News, About and Contact compositions: large light headings, broad margins, image-leading collections and factual copy below the media. The subpage layer loads after the framework layer and is scoped away from home.\n\nResearch evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The green menu circle and full-screen blue field make the reference's navigation recognizable without borrowing agency clients, people or contact details. The rejected compact three-column pastel resource layout is superseded on subpages.",
+    "overview": "The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, three topic covers and an inline count row. Its previous centered violet AstroWind presentation is superseded.\n\nResearch evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.",
     "keyCharacteristics": [
       "White canvas, fine rules and generous opening space.",
-      "Accepted AstroWind home with its existing Inter hierarchy and violet emphasis.",
-      "Large light DM Sans subpage headings and full original titles below image covers.",
-      "Two-column editorial collections, single-column phone layouts and full-screen blue navigation.",
-      "Flat surfaces, restrained cover zoom and reduced-motion alternatives."
+      "Light DM Sans headings and Inter supporting copy across home and research routes.",
+      "Three topic covers on home and three-column desktop research collections.",
+      "Two-column tablet collections, single-column phone collections and a compact three-cover home triptych.",
+      "Shared native blue navigation, flat surfaces and reduced-motion alternatives."
     ],
     "rules": [
       {
         "name": "The White Canvas Rule",
-        "body": "Keep the page base white; let editorial images, content spacing and fine rules establish the subpage collection.",
+        "body": "Keep the page base white; let editorial images, content spacing and fine rules establish the collection.",
         "section": "colors"
       },
       {
@@ -668,12 +544,12 @@
       {
         "name": "The Flat Collection Rule",
         "body": "Subpage cards remain transparent and unboxed; use the media-to-copy interval and row gap for separation.",
-        "section": "elevation"
+        "section": "elevation & depth"
       }
     ],
     "dos": [
-      "**Do** preserve the accepted homepage's composition and token values.",
-      "**Do** use the actual two-column cover/title anatomy and mobile single-column scale on subpages.",
+      "**Do** preserve home content, module order and source links while using the shared editorial identity.",
+      "**Do** use three desktop collection columns, two tablet columns and one phone column; keep the home phone triptych compact.",
       "**Do** keep full original titles, independent topic/source links and evidence tables readable.",
       "**Do** label conceptual covers and retain image/font provenance with shipped assets.",
       "**Do** keep filters and expanded search controls in normal flow on phones.",
@@ -682,7 +558,7 @@
     "donts": [
       "**Don't** restore the rejected compact three-column pastel resource cards or former small subpage heading scale.",
       "**Don't** introduce rounded, shadowed research-card containers.",
-      "**Don't** replace the white page base or turn the homepage's solid violet emphasis into a gradient.",
+      "**Don't** restore the centered violet hero, cartoon artwork, announcement band or blue icon circles on home.",
       "**Don't** crop or clamp scientific titles to equalize rows.",
       "**Don't** present conceptual images as paper figures, project documentation or team portraits.",
       "**Don't** imply that the local contact draft sends a message or that historical results are current rankings."

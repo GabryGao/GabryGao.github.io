@@ -1,200 +1,190 @@
 ---
 name: AI Safety Index
-description: Accepted AstroWind homepage and MADEO-referenced editorial research subpages on white.
+description: Unified MADEO-referenced editorial research site with a white canvas, light display type and conceptual covers.
 colors:
-  primary: "#2563eb"
-  button-blue: "#285de5"
-  blue-hover: "#1d4ed8"
-  link-blue: "#24549e"
-  hero-violet: "#6d28d9"
-  white: "#fff"
-  ink: "#101010"
-  slate-ink: "#111827"
-  muted: "#475569"
-  line: "#e2e8f0"
-  pale-blue: "#eff6ff"
-  soft-surface: "#f8fafc"
-  announcement: "#0f172a"
-  mint: "#dceee6"
-  lilac: "#e9e4f5"
-  topic-blue: "#e0eaf4"
-  madeo-blue: "#2b4fa5"
-  madeo-mint: "#5fc79f"
-  madeo-peach: "#f1a56f"
-  madeo-black: "#000"
-  madeo-copy: "#333"
-  madeo-muted: "#555"
-  madeo-rule: "#c9c9c5"
-  madeo-field-rule: "#777"
-  madeo-pill-rule: "#cccbd0"
-  madeo-cover-placeholder: "#f1f1ef"
-  madeo-topic-link: "#365052"
+  primary: '#2563eb'
+  white: '#fff'
+  pale-blue: '#eff6ff'
+  madeo-blue: '#2b4fa5'
+  madeo-mint: '#5fc79f'
+  madeo-peach: '#f1a56f'
+  madeo-black: '#000'
+  madeo-copy: '#333'
+  madeo-muted: '#555'
+  madeo-rule: '#c9c9c5'
+  madeo-field-rule: '#777'
+  madeo-pill-rule: '#cccbd0'
+  madeo-cover-placeholder: '#f1f1ef'
+  madeo-topic-link: '#365052'
+  home-action-hover: '#213f88'
+  home-action-rule: '#a8a8a3'
+  home-secondary-ink: '#111'
 typography:
   display:
-    fontFamily: "'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "60px"
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "-.04em"
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: clamp(52px,5vw,72px)
+    fontWeight: 400
+    lineHeight: 1.12
+    letterSpacing: -.035em
   headline:
-    fontFamily: "'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "36px"
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-.03em"
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 44px
+    fontWeight: 400
+    lineHeight: 1.2
+    letterSpacing: -.03em
   page-title:
-    fontFamily: "'Index Display', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "72px"
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 72px
     fontWeight: 400
     lineHeight: 1.1
-    letterSpacing: "-.035em"
+    letterSpacing: -.035em
   resource-title:
-    fontFamily: "'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "26px"
+    fontFamily: '''Index Inter'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 26px
     fontWeight: 400
     lineHeight: 1.462
-    letterSpacing: "-.025em"
+    letterSpacing: -.025em
   subpage-intro:
-    fontSize: "26px"
+    fontSize: 26px
     fontWeight: 400
     lineHeight: 1.462
-    letterSpacing: "-.02em"
+    letterSpacing: -.02em
   subpage-body:
-    fontSize: "15px"
+    fontSize: 15px
     fontWeight: 400
     lineHeight: 1.7
   subpage-label:
-    fontSize: "12px"
+    fontSize: 12px
     lineHeight: 1.7
   subpage-nav:
-    fontSize: "17px"
+    fontSize: 17px
     fontWeight: 400
     lineHeight: 1.5
-    letterSpacing: "-.02em"
+    letterSpacing: -.02em
   menu-link:
-    fontFamily: "'Index Display', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "78px"
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 78px
     fontWeight: 400
     lineHeight: 1.1
-    letterSpacing: "-.035em"
+    letterSpacing: -.035em
   mobile-page-title:
-    fontFamily: "'Index Display', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "39px"
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 39px
     fontWeight: 400
     lineHeight: 1.154
-    letterSpacing: "-.025em"
+    letterSpacing: -.025em
   mobile-resource-title:
-    fontSize: "22px"
+    fontSize: 22px
     fontWeight: 400
     lineHeight: 1.45
-    letterSpacing: "-.02em"
+    letterSpacing: -.02em
   body:
-    fontFamily: "'Index Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif"
-    fontSize: "16px"
+    fontFamily: '''Index Inter'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 16px
     fontWeight: 400
     lineHeight: 1.65
   intro:
-    fontSize: "20px"
-    lineHeight: 1.5
+    fontSize: 19px
+    lineHeight: 1.65
   button:
-    fontSize: "16px"
-    fontWeight: 500
-    lineHeight: "22px"
+    fontSize: 15px
+    fontWeight: 400
+    lineHeight: 22px
   label:
-    fontSize: "13px"
-  footer-brand:
-    fontSize: "22px"
-    fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: "-.035em"
+    fontSize: 13px
+  mobile-home-display:
+    fontFamily: '''Index Display'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
+    fontSize: 42px
+    fontWeight: 400
+    lineHeight: 1.14
+    letterSpacing: -.035em
 rounded:
-  flat: "0"
-  field: "6px"
-  blog-cover: "8px"
-  topic-panel: "12px"
-  pill: "999px"
+  flat: '0'
+  pill: 999px
 spacing:
-  small: "8px"
-  action-gap: "16px"
-  card-padding: "24px"
-  grid-gap: "28px"
-  section-gap: "48px"
-  section-block: "80px"
-  subpage-side: "6vw"
-  subpage-mobile-side: "5vw"
-  subpage-column: "28px"
-  subpage-row: "44px"
-  subpage-copy: "30px"
-  subpage-opening: "90px"
-  subpage-mobile-opening: "60px"
-  subpage-mobile-grid: "42px"
-  subpage-mobile-copy: "22px"
+  small: 8px
+  grid-gap: 28px
+  subpage-side: 6vw
+  subpage-mobile-side: 5vw
+  subpage-column: 28px
+  subpage-row: 44px
+  subpage-copy: 30px
+  subpage-opening: 90px
+  subpage-mobile-opening: 60px
+  subpage-mobile-grid: 42px
+  subpage-mobile-copy: 22px
+  home-opening: 90px
+  home-mobile-opening: 54px
+  home-section: 70px
+  home-mobile-section: 48px
+  home-intro-column: 60px
+  home-hero-copy-bottom: 50px
+  home-count-inset: 24px
 components:
   button-primary:
-    backgroundColor: "{colors.button-blue}"
-    textColor: "{colors.white}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    padding: "14px 32px"
+    backgroundColor: '{colors.madeo-blue}'
+    textColor: '{colors.white}'
+    typography: '{typography.button}'
+    rounded: '{rounded.pill}'
+    padding: 12px 24px
+    height: 48px
   button-primary-hover:
-    backgroundColor: "{colors.blue-hover}"
+    backgroundColor: '{colors.home-action-hover}'
   button-secondary:
-    backgroundColor: "{colors.white}"
-    textColor: "#111"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    padding: "14px 32px"
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.home-secondary-ink}'
+    typography: '{typography.button}'
+    rounded: '{rounded.pill}'
+    padding: 12px 24px
+    height: 48px
   contact-field:
-    textColor: "{colors.madeo-black}"
-    rounded: "{rounded.flat}"
-    padding: "10px 0"
+    textColor: '{colors.madeo-black}'
+    rounded: '{rounded.flat}'
+    padding: 10px 0
   resource-card:
-    textColor: "{colors.madeo-black}"
-    typography: "{typography.resource-title}"
-    rounded: "{rounded.flat}"
-    padding: "0"
+    textColor: '{colors.madeo-black}'
+    typography: '{typography.resource-title}'
+    rounded: '{rounded.flat}'
+    padding: '0'
   navigation:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.slate-ink}"
-    height: "70px"
-  subpage-navigation:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.madeo-black}"
-    typography: "{typography.subpage-nav}"
-    height: "90px"
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.madeo-black}'
+    height: 90px
+    typography: '{typography.subpage-nav}'
   menu-trigger:
-    backgroundColor: "{colors.madeo-mint}"
-    rounded: "50%"
-    padding: "17px"
-    width: "60px"
-    height: "60px"
+    backgroundColor: '{colors.madeo-mint}'
+    rounded: 50%
+    padding: 17px
+    width: 60px
+    height: 60px
   menu-close:
-    backgroundColor: "{colors.madeo-peach}"
-    rounded: "{rounded.flat}"
-    padding: "17px"
-    width: "60px"
-    height: "60px"
+    backgroundColor: '{colors.madeo-peach}'
+    rounded: '{rounded.flat}'
+    padding: 17px
+    width: 60px
+    height: 60px
   menu-dialog:
-    backgroundColor: "{colors.madeo-blue}"
-    textColor: "{colors.white}"
-    rounded: "{rounded.flat}"
-    width: "100vw"
-    height: "100dvh"
+    backgroundColor: '{colors.madeo-blue}'
+    textColor: '{colors.white}'
+    rounded: '{rounded.flat}'
+    width: 100vw
+    height: 100dvh
   filter-pill:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.madeo-blue}"
-    rounded: "{rounded.pill}"
-    padding: "6px 20px"
+    backgroundColor: '{colors.white}'
+    textColor: '{colors.madeo-blue}'
+    rounded: '{rounded.pill}'
+    padding: 6px 20px
   filter-pill-active:
-    backgroundColor: "{colors.madeo-blue}"
-    textColor: "{colors.white}"
+    backgroundColor: '{colors.madeo-blue}'
+    textColor: '{colors.white}'
   topic-link:
-    textColor: "{colors.madeo-topic-link}"
-    size: "12px"
+    textColor: '{colors.madeo-topic-link}'
+    size: 12px
   source-link:
-    textColor: "{colors.madeo-blue}"
-    padding: "0 0 3px"
+    textColor: '{colors.madeo-blue}'
+    padding: 0 0 3px
 ---
+
 
 # Design System: AI Safety Index
 
@@ -202,42 +192,40 @@ components:
 
 **Creative North Star: "An open editorial research portfolio"**
 
-The white canvas joins two explicitly chosen references. The accepted AstroWind homepage is a centered, confident public entrance. Non-home routes follow MADEO's measured Work, News, About and Contact compositions: large light headings, broad margins, image-leading collections and factual copy below the media. The subpage layer loads after the framework layer and is scoped away from home.
+The homepage and research routes share one MADEO-referenced editorial identity: open white space, light DM Sans headings, Inter copy, conceptual covers, fine rules and restrained blue actions. Home retains its supplied content and module order, now expressed with a left headline, right introduction and actions, three topic covers and an inline count row. Its previous centered violet AstroWind presentation is superseded.
 
-Research evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The green menu circle and full-screen blue field make the reference's navigation recognizable without borrowing agency clients, people or contact details. The rejected compact three-column pastel resource layout is superseded on subpages.
+Research evidence remains readable beside the visual system. Original titles, metadata and source links form the copy hierarchy; conceptual covers provide editorial topic cues. The shared black wordmark, green menu circle and full-screen blue native dialog connect every route without borrowing agency clients, people or contact details.
 
 **Key Characteristics:**
 
 - White canvas, fine rules and generous opening space.
-- Accepted AstroWind home with its existing Inter hierarchy and violet emphasis.
-- Large light DM Sans subpage headings and full original titles below image covers.
-- Three-column desktop editorial collections, two-column tablet and single-column phone layouts and full-screen blue navigation.
-- Flat surfaces, restrained cover zoom and reduced-motion alternatives.
+- Light DM Sans headings and Inter supporting copy across home and research routes.
+- Three topic covers on home and three-column desktop research collections.
+- Two-column tablet collections, single-column phone collections and a compact three-cover home triptych.
+- Shared native blue navigation, flat surfaces and reduced-motion alternatives.
 
 ## Colors
 
-The frontmatter records both scopes; homepage action colors and subpage navigation colors have distinct jobs.
+The frontmatter records the active shared palette and the homepage action variants.
 
 ### Primary
 
-- **Action Blue**, **Pill Blue** and **Deep Action Blue** retain the homepage's focus, button and hover roles. **Research Link Blue** remains its text-link accent.
-- **Portfolio Blue** (`madeo-blue`) fills the subpage menu, selected pills and contact geometry; it also marks source links, selected controls and navigation states.
+- **Portfolio Blue** (`madeo-blue`) fills the full-screen menu, primary home actions, selected pills and contact geometry; it marks source links and navigation states. **Deep Portfolio Blue** (`home-action-hover`) is the home primary hover fill.
+- **Focus Blue** (`primary`) remains the root visible-focus token; it is distinct from Portfolio Blue.
 
 ### Secondary
 
-- **Hero Violet** remains the solid homepage headline emphasis.
-- **Menu Mint** (`madeo-mint`) fills the circular subpage menu trigger and contact geometry. **Close Peach** (`madeo-peach`) fills the square dialog close control.
-- The existing mint, lilac and topic-blue tokens remain homepage reserved-blog fields. They do not define the subpage card surface.
+- **Menu Mint** (`madeo-mint`) fills the circular shared menu trigger and contact geometry. **Close Peach** (`madeo-peach`) fills the square dialog close control. Pale blue remains a route-curtain destination color.
 
 ### Neutral
 
-White is the base and copy surface. Homepage ink, slate, muted copy, separators, pale blue and soft surface retain their existing roles. On subpages, black carries headings; charcoal carries body copy; medium gray carries metadata. The subpage rule separates the header; darker field and pill rules define controls. The cover placeholder is a loading surface, not finished artwork.
+White is the base and copy surface. Black carries headings; charcoal carries body copy; medium gray carries metadata. Fine gray rules separate the header, home modules and counts. Darker field and pill rules define controls. The cover placeholder is a loading surface. The home secondary action uses its own gray border and near-black text.
 
-**The White Canvas Rule.** Keep the page base white; let editorial images, content spacing and fine rules establish the subpage collection.
+**The White Canvas Rule.** Keep the page base white; let editorial images, content spacing and fine rules establish the collection.
 
 ## Typography
 
-The homepage retains self-hosted **Index Inter** and the display, headline, intro, button and footer-brand tokens. Its hero becomes (48px, line-height 1) on phones and (43px) at the narrow-phone breakpoint; Japanese uses (1.15) line-height. Homepage section headings become (30px) on phones.
+Home display headings use the self-hosted **Index Display** DM Sans family at the frontmatter clamp, black and regular weight. The home hero becomes (52px) at widths (768–1050px), (42px/1.14) on phones and (38px) at widths up to (360px). Home section headings use the headline token, reducing to (32px/1.25) on phones. The introduction uses (19px/1.65), reducing to (17px); action labels use the button token, reducing to (14px). Home body copy remains Inter.
 
 Subpage display headings use **Index Display**, the self-hosted OFL-licensed DM Sans variable font, with CJK sans fallbacks. Body copy, collection titles and controls use Index Inter and the language-appropriate sans fallback stack. Japanese Inter fallback order remains Hiragino Kaku Gothic ProN, Yu Gothic, then sans-serif. Scientific wording stays in its original language.
 
@@ -249,9 +237,9 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 ## Layout
 
-**Homepage.** Preserve the current (70px) desktop header, (36px) announcement band, (1152px) hero container, (1024px) hero copy/artwork and original (16:9) raster. Homepage content caps at (1072px) including padding. Sections use (80px) vertical padding, reducing to (48px). Features and vision use two desktop columns; previews and reserved blogs use three. Phones stack them. The existing alternating timeline becomes a left rail. Home navigation collapses at its (1080px) breakpoint; phone header height remains (72px). The four-column footer becomes two columns with a full-width brand.
+**Homepage.** The original introduction, four value propositions, source-linked news, vision and six topic links, four milestones, planned blog categories and contact action retain their order. Main home containers use (88%) width capped at (1160px), changing to (90%) on phones. The hero opens with (90px) top padding, reduced to (54px) on phones. Its text grid uses (1.1fr/1fr) columns with a (60px) gap; phone content stacks. Three equal cover links use (28px) gutters and (1.35) images; phones keep all three, with (10px) gutters, square images and (12px) captions. Counts sit inline between rules, with (24px) vertical inset. Sections use (70px) vertical padding, reducing to (48px). Feature icons are plain blue strokes beside ruled copy. Vision and planned blogs stay white with square covers. The timeline is a ruled date-and-copy list, stacking its date above copy on phones. Planned blog previews become one column on phones.
 
-**Subpage shell.** The sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
+**Shared shell.** Every route uses the sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
 
 **Collections.** At widths of (1024px) and above, three equal columns use (28px) gutters and (44px) row gaps. Six research directions form two rows. At (1280px), covers are approximately (357px) wide. Tablet widths of (768–1023px) retain two columns and phones retain one. Desktop collection titles use (22px/1.45), with (14px/1.65) descriptions. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); items align in straight rows on desktop; tablet even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
 
@@ -259,7 +247,7 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 ## Elevation & Depth
 
-Subpage cards, fields, header and full-screen menu are flat. Media, white space, type and rules create hierarchy; the native blue dialog has no shadow. The existing homepage mobile navigation keeps its faint lower shadow, and unrelated legacy dialogs retain their functional overlay shadow. These do not establish a resource-card elevation style.
+Subpage cards, fields, header and full-screen menu are flat. Media, white space, type and rules create hierarchy; the native blue dialog has no shadow. Home actions and shared navigation are flat too. Unrelated legacy dialogs retain their functional overlay shadow; it does not establish a resource-card elevation style.
 
 Cover images zoom only for precise pointers. The cover transition and contact geometry timing live in the sidecar; reduced motion cancels both. Language changes update content in place without replaying entrances. Route/topic changes use an interruptible curtain: (480ms) entry, (200ms) hold and (420ms) exit, with a (2400ms) fail-safe. A newer route cancels stale commits. Same-route filters/pagination do not play the curtain. Reduced motion bypasses the spatial sequence. Default content remains visible without animation.
 
@@ -267,13 +255,15 @@ Cover images zoom only for precise pointers. The cover transition and contact ge
 
 ## Shapes
 
-Subpage covers, cards, fields and the blue dialog have square corners. The green trigger is circular; the peach close control is square. Filters are outlined pills, filling blue when selected. Contact and catalog controls use a single bottom rule. Homepage pills, gently rounded topic panel, reserved-blog covers and existing field radius retain their accepted scopes.
+Subpage covers, cards, fields and the blue dialog have square corners. The green trigger is circular; the peach close control is square. Filters are outlined pills, filling blue when selected. Contact and catalog controls use a single bottom rule. Homepage action pills share the rounded control language; home topic lists, feature areas and blog covers are square and unboxed.
 
 ## Components
 
+`portal-home.js` wraps the original home renderer after the framework script and before MADEO. `portal-madeo` applies the shared shell through `madeo-subpage` on every route; home additionally receives `madeo-home`. `portal-home.css` loads last and owns home composition overrides.
+
 ### Buttons
 
-Homepage primary and secondary pills retain their existing fills, padding, minimum (52px) height and brief pointer feedback. The subpage menu trigger uses its own circular mint component, with a dark thin-line icon. Its native dialog close button uses the peach square variant; both become (45px) on phones. Subpage draft/source actions are restrained text actions with a blue bottom rule. Focus remains visibly outlined; menu focus uses white against blue.
+Homepage primary and secondary pills use the frontmatter blue/white variants, minimum (48px) height and brief pointer feedback; phones reduce to (44px). The shared menu trigger uses its circular mint component, with a dark thin-line icon. Its native dialog close button uses the peach square variant; both become (45px) on phones. Subpage draft/source actions are restrained text actions with a blue bottom rule. Focus remains visibly outlined; menu focus uses white against blue.
 
 ### Cards / Containers
 
@@ -285,22 +275,26 @@ Catalog search and selects use an unrounded bottom rule, white background and vi
 
 ### Navigation
 
-Home retains its existing module navigation and mobile disclosure controlling `primary-nav`. Subpages use the documented header navigation and circular button controlling native dialog `madeo-menu`. The full-screen blue dialog places its large white link column on the right on desktop and above utility links on phones; the peach close square sits at the upper right. The dialog supports Escape, focus return and body-scroll locking. Current links have a thin underline; long destinations wrap. The compact native language selector remains available. Shared header links reveal subcategory disclosures on fine-pointer hover and keyboard focus; ArrowDown enters the links and Escape closes them. Dropdowns are two columns within an (860px) cap. Full-screen menu groups use (42px) plus toggles, reduced to (36px) on phones, to reveal the same real destinations. A custom teal pointer is (18px), growing to (26px) over actions; it is hidden for touch, narrow screens, text inputs, keyboard use and reduced motion.
+Every route uses the shared header navigation and circular button controlling native dialog `madeo-menu`. The home mobile wordmark reads “AI Safety Index”; other routes expose their page label. The full-screen blue dialog places its large white link column on the right on desktop and above utility links on phones; the peach close square sits at the upper right. The dialog supports Escape, focus return and body-scroll locking. Current links have a thin underline; long destinations wrap. The compact native language selector remains available. Shared header links reveal subcategory disclosures on fine-pointer hover and keyboard focus; ArrowDown enters the links and Escape closes them. Dropdowns are two columns within an (860px) cap. Full-screen menu groups use (42px) plus toggles, reduced to (36px) on phones, to reveal the same real destinations. A custom teal pointer is (18px), growing to (26px) over actions; it is hidden for touch, narrow screens, text inputs, keyboard use and reduced motion.
 
 ### Filter pills and news disclosure
 
 Type/topic pills wrap, use the selected blue fill and retain readable labels. Phone pills use (14px) text, (7px 17px) padding and (36px) minimum height. News search/filter options open below them in normal flow on phones. Search, sort, pagination and language changes preserve route state and local drafts.
 
+### Team roster
+
+The confirmed two-person roster uses two ruled columns, stacking on phones. Names use (36px/1.25) DM Sans, (30px) on phones; roles use (16px), institutions (17px), with a (36px) column gap and (70px) gap before the cooperation gallery. User-specified names, roles and affiliations remain product facts; cooperation images remain conceptual.
+
 ### Editorial assets
 
-The homepage retains the original AstroWind artwork and its license records. Six generated covers in `assets/madeo/` form a reusable concept system with exact prompts, generation records and roles in `provenance.json`. DM Sans retains its OFL record there. Covers are topic imagery, never research figures or team identities; the geometric contact panel is a separate blue/mint signature.
+Home reuses the existing privacy, physical and human concept covers for its three topic links, and alignment, agents and human covers for planned blogs. No raster was generated or edited for this refinement. The original AstroWind artwork and license remain historical provenance, not the active home hero. Six generated covers in `assets/madeo/` form a reusable concept system with exact prompts, generation records and roles in `provenance.json`. DM Sans retains its OFL record there. Covers are topic imagery, never research figures or team identities; the geometric contact panel is a separate blue/mint signature.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** preserve the accepted homepage's composition and token values.
-- **Do** use the actual two-column cover/title anatomy and mobile single-column scale on subpages.
+- **Do** preserve home content, module order and source links while using the shared editorial identity.
+- **Do** use three desktop collection columns, two tablet columns and one phone column; keep the home phone triptych compact.
 - **Do** keep full original titles, independent topic/source links and evidence tables readable.
 - **Do** label conceptual covers and retain image/font provenance with shipped assets.
 - **Do** keep filters and expanded search controls in normal flow on phones.
@@ -310,23 +304,8 @@ The homepage retains the original AstroWind artwork and its license records. Six
 
 - **Don't** restore the rejected compact three-column pastel resource cards or former small subpage heading scale.
 - **Don't** introduce rounded, shadowed research-card containers.
-- **Don't** replace the white page base or turn the homepage's solid violet emphasis into a gradient.
+- **Don't** restore the centered violet hero, cartoon artwork, announcement band or blue icon circles on home.
 - **Don't** crop or clamp scientific titles to equalize rows.
 - **Don't** present conceptual images as paper figures, project documentation or team portraits.
 - **Don't** imply that the local contact draft sends a message or that historical results are current rankings.
 
-### Interaction refinement · 2026-10-20
-
-`portal-interactions.js` and `.css` load last. The user requested MADEO-style cursor and opening transitions, hover subcategories, and a smaller cover scale. Homepage body content stays unchanged; shared navigation gains disclosures. Mobile collection covers use aspect ratio (1.2). The dot uses (#00d9b7); curtain fills use mint, peach or pale blue by destination. No new content, paid services or scheduled jobs are introduced.
-
-### Three-column refinement · 2026-10-20
-
-The user requested three images per desktop row. Research directions, papers, datasets, methods and benchmark/news catalogs now use three columns from (1024px). Original cover/title/source structure remains; contact purposes and detail images retain their own layouts. No content or navigation changes.
-
-### Opening-motion refinement · 2026-10-20
-
-The user requested a slower, more considered opening. The complete wipe now lasts about (1100ms), with a soft symmetric entry/exit curve. Brand, masked title and three lower color panels reveal in a bounded stagger during entry. Text remains a whole translatable node. Fast navigation cancels every supporting animation; reduced motion and same-route queries still bypass the curtain.
-
-### Confirmed team entries · 2026-10-20
-
-User-supplied names, roles and institutions appear first on the team page in a ruled two-column roster, stacking on phones. Names use (36px/1.25) DM Sans, (30px) on phones; roles use (16px), institutions (17px), with (36px) column gap and (70px) space before the cooperation gallery. Xinfeng Li is shown as Professor at The Hong Kong Polytechnic University; Xin Gao as contributing member at Tokyo University of Science. Cooperation covers remain explicitly conceptual and do not represent portraits.
