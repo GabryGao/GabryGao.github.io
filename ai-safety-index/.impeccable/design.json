@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T11:40:55.820365+00:00",
+  "generatedAt": "2026-10-20T11:48:35.338663+00:00",
   "title": "Design System: AI Safety Index",
   "extensions": {
     "colorMeta": {
@@ -486,16 +486,19 @@
         "wideMax": "1160px",
         "header": "90px",
         "opening": "90px",
-        "gridColumns": "repeat(2,minmax(0,1fr))",
-        "columnGap": "36px",
-        "rowGap": "62px",
+        "gridColumns": "repeat(3,minmax(0,1fr))",
+        "columnGap": "28px",
+        "rowGap": "44px",
         "coverAspectRatio": "1.35",
         "copyPadding": "24px 0 0",
         "newsAspectRatio": "1.35",
-        "newsEvenOffset": "60px",
+        "newsEvenOffset": "0px",
         "detailAspectRatio": "2.1",
         "pageTitle": "72px",
-        "detailMaxHeight": "400px"
+        "detailMaxHeight": "400px",
+        "threeColumnMinWidth": "1024px",
+        "resourceTitle": "22px / 1.45",
+        "resourceDescription": "14px / 1.65"
       },
       "mobile": {
         "maxWidth": "767px",
@@ -510,6 +513,13 @@
         "newsDisclosurePosition": "static",
         "newsDisclosureMarginTop": "16px",
         "coverAspectRatio": "1.2"
+      },
+      "tablet": {
+        "minWidth": "768px",
+        "maxWidth": "1023px",
+        "gridColumns": "repeat(2,minmax(0,1fr))",
+        "columnGap": "36px",
+        "rowGap": "62px"
       }
     },
     "scopePolicy": "portal-madeo rules apply to .madeo-subpage plus the native .md-menu-dialog; the accepted home retains portal-framework tokens. Tonal ramps are synthesized inspection aids, not additional approved fills. Shared navigation and fine pointer are enhanced by portal-interactions; home body remains unchanged.",

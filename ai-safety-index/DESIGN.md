@@ -122,8 +122,8 @@ spacing:
   section-block: "80px"
   subpage-side: "6vw"
   subpage-mobile-side: "5vw"
-  subpage-column: "36px"
-  subpage-row: "62px"
+  subpage-column: "28px"
+  subpage-row: "44px"
   subpage-copy: "30px"
   subpage-opening: "90px"
   subpage-mobile-opening: "60px"
@@ -211,7 +211,7 @@ Research evidence remains readable beside the visual system. Original titles, me
 - White canvas, fine rules and generous opening space.
 - Accepted AstroWind home with its existing Inter hierarchy and violet emphasis.
 - Large light DM Sans subpage headings and full original titles below image covers.
-- Two-column editorial collections, single-column phone layouts and full-screen blue navigation.
+- Three-column desktop editorial collections, two-column tablet and single-column phone layouts and full-screen blue navigation.
 - Flat surfaces, restrained cover zoom and reduced-motion alternatives.
 
 ## Colors
@@ -253,7 +253,7 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 **Subpage shell.** The sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
 
-**Collections.** Two equal columns use the subpage column and row spacing tokens. At (1280px), the container yields approximately (545px) covers and a (36px) gutter. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
+**Collections.** At widths of (1024px) and above, three equal columns use (28px) gutters and (44px) row gaps. Six research directions form two rows. At (1280px), covers are approximately (357px) wide. Tablet widths of (768–1023px) retain two columns and phones retain one. Desktop collection titles use (22px/1.45), with (14px/1.65) descriptions. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); items align in straight rows on desktop; tablet even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
 
 **Phones.** At the phone breakpoint, the header is (65px), the container is (90%) with (5vw) margins, and page opening padding is the mobile token. Collections become one column with the mobile grid/copy intervals. News loses its vertical stagger. The search/filter disclosure occupies its own normal-flow row below the pill group; expanded controls stay in flow. Detail covers use aspect ratio (1.2), and detail/contact areas stack. Team cards use (83vw) with a (20px) gap to show continuation. Published score tables keep a (670px) minimum width inside their own horizontal scroll container.
 
@@ -318,3 +318,7 @@ The homepage retains the original AstroWind artwork and its license records. Six
 ### Interaction refinement · 2026-10-20
 
 `portal-interactions.js` and `.css` load last. The user requested MADEO-style cursor and opening transitions, hover subcategories, and a smaller cover scale. Homepage body content stays unchanged; shared navigation gains disclosures. Mobile collection covers use aspect ratio (1.2). The dot uses (#00d9b7); curtain fills use mint, peach or pale blue by destination. No new content, paid services or scheduled jobs are introduced.
+
+### Three-column refinement · 2026-10-20
+
+The user requested three images per desktop row. Research directions, papers, datasets, methods and benchmark/news catalogs now use three columns from (1024px). Original cover/title/source structure remains; contact purposes and detail images retain their own layouts. No content or navigation changes.

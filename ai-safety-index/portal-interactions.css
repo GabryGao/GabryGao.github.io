@@ -31,7 +31,7 @@
 .md-pointer-dot::after{content:'';position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#00d9b7;transition:width .15s,height .15s}
 .md-pointer-dot.is-link::after{width:26px;height:26px}.md-pointer-dot.is-visible{opacity:1}
 @media(hover:hover) and (pointer:fine){html.md-dot-active,html.md-dot-active *{cursor:none!important}html.md-dot-active input,html.md-dot-active textarea,html.md-dot-active select,html.md-dot-active [contenteditable=true]{cursor:auto!important}}
-/* Scale the covers down without discarding the requested two-column MADEO structure. */
+/* Compact editorial cover layout; desktop collections use the user-requested three columns. */
 @media(min-width:768px){
  .madeo-subpage .wrap,.madeo-subpage footer .wrap{max-width:1160px}
  .madeo-subpage .page-head,.madeo-subpage .library-page>.page-head{padding-top:90px;margin-bottom:42px}
@@ -57,3 +57,11 @@
  .madeo-subpage .md-project-card .md-cover,.madeo-subpage .md-news-grid .md-cover,.madeo-subpage .md-contact-entry>.md-cover{aspect-ratio:1.2}
 }
 @media(prefers-reduced-motion:reduce){.md-pointer-dot{display:none}.md-route-curtain{display:none}.md-nav-toggle svg,.md-pointer-dot::after{transition:none}}
+
+/* Three images per desktop row; six directions form two rows. */
+@media(min-width:1024px){
+ .madeo-subpage .library-list,.madeo-subpage .index-list,.madeo-subpage .news-list,.madeo-subpage .topic-directory,.madeo-subpage .resource-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px;row-gap:44px}
+ .madeo-subpage .md-card-copy h2,.madeo-subpage .md-card-copy h3,.madeo-subpage .library-row.library-card h3,.madeo-subpage .index-list .bench-row h3,.madeo-subpage .news-list .news-row h3,.madeo-subpage .resource-list .resource-row h2,.madeo-subpage .topic-directory h2{font-size:22px;line-height:1.45}
+ .madeo-subpage .md-card-copy p,.madeo-subpage .topic-directory p,.madeo-subpage .news-list .news-row p,.madeo-subpage .resource-list .resource-row p,.madeo-subpage .index-list .bench-row p{font-size:14px;line-height:1.65}
+ .madeo-subpage .md-news-grid .news-row:nth-child(even){top:0}.madeo-subpage .md-news-grid{padding-bottom:0}
+}
