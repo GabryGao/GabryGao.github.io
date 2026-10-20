@@ -24,8 +24,8 @@
 .md-route-curtain{position:fixed;inset:0;z-index:1000;pointer-events:none;color:#102b25;overflow:hidden;will-change:transform;background:#5fc79f;display:flex;align-items:center;padding:6vw;transform:translateY(100%)}
 .md-route-curtain[hidden]{display:none}
 .md-curtain-brand{position:absolute;top:32px;left:6vw;font:700 19px/1.3 var(--sans);letter-spacing:.015em}
-.md-curtain-title{font:400 clamp(44px,8vw,110px)/1.1 'Index Display',var(--sans);letter-spacing:-.035em;max-width:85vw;overflow-wrap:anywhere}
-.md-curtain-bars{position:absolute;bottom:0;left:0;right:0;height:15vh;display:flex}
+.md-curtain-title-clip{overflow:hidden;padding:.1em 0;max-width:88vw}.md-curtain-title{font:400 clamp(44px,8vw,110px)/1.1 'Index Display',var(--sans);letter-spacing:-.035em;max-width:85vw;overflow-wrap:anywhere}
+.md-curtain-bars{position:absolute;bottom:0;left:0;right:0;height:12vh;display:flex;overflow:hidden}
 .md-curtain-bars i{flex:1;background:#2b4fa5}.md-curtain-bars i:nth-child(2){background:#fff}.md-curtain-bars i:nth-child(3){background:#00d9b7}
 .md-pointer-dot{position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;z-index:2000;opacity:0;transition:opacity .1s}
 .md-pointer-dot::after{content:'';position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#00d9b7;transition:width .15s,height .15s}

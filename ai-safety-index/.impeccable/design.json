@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T11:48:35.338663+00:00",
+  "generatedAt": "2026-10-20T11:53:15.158902+00:00",
   "title": "Design System: AI Safety Index",
   "extensions": {
     "colorMeta": {
@@ -538,13 +538,16 @@
         "mobile": "plus disclosure in full-screen menu"
       },
       "routeCurtain": {
-        "enter": "210ms",
-        "hold": "50ms",
-        "exit": "300ms",
-        "failsafe": "1000ms",
-        "entryEase": "cubic-bezier(.16,1,.3,1)",
-        "exitEase": "cubic-bezier(.76,0,.24,1)",
-        "scope": "route/topic changes only; queries and locale changes retain continuity"
+        "enter": "480ms",
+        "hold": "200ms",
+        "exit": "420ms",
+        "failsafe": "2400ms",
+        "entryEase": "cubic-bezier(.65,0,.35,1)",
+        "exitEase": "cubic-bezier(.65,0,.35,1)",
+        "scope": "route/topic changes only; queries and locale changes retain continuity",
+        "titleReveal": "520ms,100ms delay, masked vertical reveal",
+        "brandReveal": "420ms,80ms delay",
+        "lowerPanels": "440ms,60ms delay +70ms per panel"
       }
     }
   },

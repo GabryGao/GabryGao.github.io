@@ -2,7 +2,8 @@
 var PortalInteractions=(()=>{
  'use strict';
  function routeKey(hash){const [path='home',query='']=String(hash).replace(/^#/,'').split('?');return (path||'home')+(path==='directions'?':'+new URLSearchParams(query).get('pillar'):'' )}
- function createTransitionGate(effect,timeout=1000){
+ const transitionTiming=Object.freeze({enter:480,hold:200,exit:420,failSafe:2400});
+ function createTransitionGate(effect,timeout=transitionTiming.failSafe){
   let generation=0,timer;
   return {run(commit,animated=true){
    const token=++generation;clearTimeout(timer);effect.reset();let applied=false;
@@ -12,7 +13,7 @@ var PortalInteractions=(()=>{
    return Promise.resolve().then(()=>token===generation?effect.cover():undefined).catch(()=>{}).then(()=>{if(token!==generation)return;apply();return effect.reveal()}).catch(()=>{}).finally(()=>{if(token===generation){clearTimeout(timer);effect.reset()}});
   }};
  }
- const api={routeKey,createTransitionGate};
+ const api={routeKey,createTransitionGate,transitionTiming};
  if(typeof document==='undefined'||!document.body)return api;
  const fine=window.matchMedia('(hover: hover) and (pointer: fine)'),reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const nav=document.querySelector('#primary-nav');
@@ -60,12 +61,22 @@ var PortalInteractions=(()=>{
 
  // A short, interruptible panel wipe marks a new collection, never a filter or locale update.
  const curtain=document.createElement('div');curtain.className='md-route-curtain';curtain.hidden=true;curtain.setAttribute('aria-hidden','true');
- curtain.innerHTML='<div class="md-curtain-brand" data-keep-original>AI SAFETY INDEX</div><div class="md-curtain-title"></div><div class="md-curtain-bars"><i></i><i></i><i></i></div>';document.body.append(curtain);
+ curtain.innerHTML='<div class="md-curtain-brand" data-keep-original>AI SAFETY INDEX</div><div class="md-curtain-title-clip"><div class="md-curtain-title"></div></div><div class="md-curtain-bars"><i></i><i></i><i></i></div>';document.body.append(curtain);
  let animations=[],nextTitle='',nextColor='#5fc79f';
+ function animateCurtainPart(element,frames,timing){const a=element.animate(frames,{fill:'both',...timing});animations.push(a);a.finished.catch(()=>{});return a}
  const gate=createTransitionGate({
   reset(){for(const a of animations)a.cancel();animations=[];curtain.hidden=true;curtain.dataset.phase='idle'},
-  cover(){curtain.hidden=false;curtain.dataset.phase='cover';curtain.style.background=nextColor;curtain.querySelector('.md-curtain-title').textContent=typeof SiteLocale==='undefined'?nextTitle:SiteLocale.translate(nextTitle,SiteLocale.current());const a=curtain.animate([{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:210,easing:'cubic-bezier(.16,1,.3,1)',fill:'forwards'});animations.push(a);return a.finished},
-  reveal(){curtain.dataset.phase='reveal';const a=curtain.animate([{transform:'translateY(0)'},{transform:'translateY(-100%)'}],{duration:300,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards',delay:50});animations.push(a);return a.finished}
+  cover(){
+   curtain.hidden=false;curtain.dataset.phase='cover';curtain.style.background=nextColor;
+   curtain.querySelector('.md-curtain-title').textContent=typeof SiteLocale==='undefined'?nextTitle:SiteLocale.translate(nextTitle,SiteLocale.current());
+   const ease='cubic-bezier(.16,1,.3,1)';
+   animateCurtainPart(curtain.querySelector('.md-curtain-brand'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:80,easing:ease});
+   animateCurtainPart(curtain.querySelector('.md-curtain-title'),[{opacity:0,transform:'translateY(75%)',clipPath:'inset(0 0 100% 0)'},{opacity:1,transform:'translateY(0)',clipPath:'inset(0 0 0 0)'}],{duration:520,delay:100,easing:ease});
+   curtain.querySelectorAll('.md-curtain-bars i').forEach((bar,i)=>animateCurtainPart(bar,[{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:440,delay:60+i*70,easing:ease}));
+   const a=animateCurtainPart(curtain,[{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:transitionTiming.enter,easing:'cubic-bezier(.65,0,.35,1)'});return a.finished;
+  },
+  reveal(){curtain.dataset.phase='reveal';const a=animateCurtainPart(curtain,[{transform:'translateY(0)'},{transform:'translateY(-100%)'}],{duration:transitionTiming.exit,easing:'cubic-bezier(.65,0,.35,1)',delay:transitionTiming.hold});return a.finished}
+
  });
  const priorRender=render;let previousKey=routeKey(location.hash);
  render=function(){

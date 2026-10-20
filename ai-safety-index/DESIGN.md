@@ -261,7 +261,7 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 Subpage cards, fields, header and full-screen menu are flat. Media, white space, type and rules create hierarchy; the native blue dialog has no shadow. The existing homepage mobile navigation keeps its faint lower shadow, and unrelated legacy dialogs retain their functional overlay shadow. These do not establish a resource-card elevation style.
 
-Cover images zoom only for precise pointers. The cover transition and contact geometry timing live in the sidecar; reduced motion cancels both. Language changes update content in place without replaying entrances. Route/topic changes use an interruptible curtain: (210ms) entry, (50ms) hold and (300ms) exit, with a (1000ms) fail-safe. A newer route cancels stale commits. Same-route filters/pagination do not play the curtain. Reduced motion bypasses the spatial sequence. Default content remains visible without animation.
+Cover images zoom only for precise pointers. The cover transition and contact geometry timing live in the sidecar; reduced motion cancels both. Language changes update content in place without replaying entrances. Route/topic changes use an interruptible curtain: (480ms) entry, (200ms) hold and (420ms) exit, with a (2400ms) fail-safe. A newer route cancels stale commits. Same-route filters/pagination do not play the curtain. Reduced motion bypasses the spatial sequence. Default content remains visible without animation.
 
 **The Flat Collection Rule.** Subpage cards remain transparent and unboxed; use the media-to-copy interval and row gap for separation.
 
@@ -322,3 +322,7 @@ The homepage retains the original AstroWind artwork and its license records. Six
 ### Three-column refinement · 2026-10-20
 
 The user requested three images per desktop row. Research directions, papers, datasets, methods and benchmark/news catalogs now use three columns from (1024px). Original cover/title/source structure remains; contact purposes and detail images retain their own layouts. No content or navigation changes.
+
+### Opening-motion refinement · 2026-10-20
+
+The user requested a slower, more considered opening. The complete wipe now lasts about (1100ms), with a soft symmetric entry/exit curve. Brand, masked title and three lower color panels reveal in a bounded stagger during entry. Text remains a whole translatable node. Fast navigation cancels every supporting animation; reduced motion and same-route queries still bypass the curtain.
