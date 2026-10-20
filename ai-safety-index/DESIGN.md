@@ -40,14 +40,14 @@ typography:
     letterSpacing: -.035em
   resource-title:
     fontFamily: '''Index Inter'', ''PingFang SC'', ''Hiragino Kaku Gothic ProN'', ''Microsoft YaHei'', sans-serif'
-    fontSize: 26px
+    fontSize: 22px
     fontWeight: 400
-    lineHeight: 1.462
+    lineHeight: 1.45
     letterSpacing: -.025em
   subpage-intro:
-    fontSize: 26px
+    fontSize: 22px
     fontWeight: 400
-    lineHeight: 1.462
+    lineHeight: 1.5
     letterSpacing: -.02em
   subpage-body:
     fontSize: 15px
@@ -108,7 +108,7 @@ spacing:
   subpage-mobile-side: 5vw
   subpage-column: 28px
   subpage-row: 44px
-  subpage-copy: 30px
+  subpage-copy: 24px
   subpage-opening: 90px
   subpage-mobile-opening: 60px
   subpage-mobile-grid: 42px
@@ -184,8 +184,6 @@ components:
     textColor: '{colors.madeo-blue}'
     padding: 0 0 3px
 ---
-
-
 # Design System: AI Safety Index
 
 ## Overview
@@ -229,7 +227,7 @@ Home display headings use the self-hosted **Index Display** DM Sans family at th
 
 Subpage display headings use **Index Display**, the self-hosted OFL-licensed DM Sans variable font, with CJK sans fallbacks. Body copy, collection titles and controls use Index Inter and the language-appropriate sans fallback stack. Japanese Inter fallback order remains Hiragino Kaku Gothic ProN, Yu Gothic, then sans-serif. Scientific wording stays in its original language.
 
-The page-title, resource-title, subpage-intro and mobile roles in the frontmatter are normative. Desktop page headings use (72px), with the phone scale unchanged. Topic detail titles use (72px, line-height 1.15) on desktop and (39px, line-height 1.25) on phones. Subpage introductions become (19px, line-height 1.55); resource copy remains (15px, line-height 1.7). Contact fields use (17px, line-height 1.6), reducing to (16px). Menu links reduce to (64px) at compact width, to the mobile display scale on phones, and grow to (90px) on wide displays. The narrowest page headings reduce to (35px).
+The page-title, resource-title, subpage-intro and mobile roles in the frontmatter are normative. Desktop page headings use (72px), with the phone scale unchanged. Topic detail titles use (72px, line-height 1.15) on desktop and (39px, line-height 1.25) on phones. Subpage introductions become (19px, line-height 1.55) on phones. Desktop collection copy uses (14px/1.65); tablet and phone copy uses (15px/1.7). Tablet resource titles retain (26px/1.462). Contact fields use (17px, line-height 1.6), reducing to (16px). Menu links reduce to (64px) at compact width, to the mobile display scale on phones, and grow to (90px) on wide displays. The narrowest page headings reduce to (35px).
 
 Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, topic links and record metadata occupy separate lines, generally (12–13px), reducing where explicitly defined on phones. Tabular numerals remain for dates and scores.
 
@@ -239,7 +237,7 @@ Supporting descriptions cap at (65ch), page introductions at (72ch). Authors, to
 
 **Homepage.** The original introduction, four value propositions, source-linked news, vision and six topic links, four milestones, planned blog categories and contact action retain their order. Main home containers use (88%) width capped at (1160px), changing to (90%) on phones. The hero opens with (90px) top padding, reduced to (54px) on phones. Its text grid uses (1.1fr/1fr) columns with a (60px) gap; phone content stacks. Three equal cover links use (28px) gutters and (1.35) images; phones keep all three, with (10px) gutters, square images and (12px) captions. Counts sit inline between rules, with (24px) vertical inset. Sections use (70px) vertical padding, reducing to (48px). Feature icons are plain blue strokes beside ruled copy. Vision and planned blogs stay white with square covers. The timeline is a ruled date-and-copy list, stacking its date above copy on phones. Planned blog previews become one column on phones.
 
-**Shared shell.** Every route uses the sticky white header is (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
+**Shared shell.** Every route uses a sticky white header of (90px), with a rule inside an (88%) container: (6vw) side margins. The first heading begins after the documented opening padding, approximately (y180) at a (1280px) viewport. The user requested a smaller overall scale after the first reference rebuild. Header navigation hides at compact-subpage width while the green menu remains available at all widths. Research content caps the (88%) container at (1160px); the shared header retains its wider reference rule.
 
 **Collections.** At widths of (1024px) and above, three equal columns use (28px) gutters and (44px) row gaps. Six research directions form two rows. At (1280px), covers are approximately (357px) wide. Tablet widths of (768–1023px) retain two columns and phones retain one. Desktop collection titles use (22px/1.45), with (14px/1.65) descriptions. Collection covers use aspect ratio (1.35), followed by a (24px) copy interval; cards have no internal panel padding. News covers also use aspect ratio (1.35); items align in straight rows on desktop; tablet even items shift down (60px) without changing chronological DOM order. Desktop direction/benchmark detail covers retain aspect ratio (2.1), capped at (400px) height, and the detail copy uses asymmetric columns. Team cooperation cards form a horizontal gallery with (35.2vw) items and a (30px) gap; these are not person profiles. Contact begins with two equal entry panels and a separate two-column draft area.
 
