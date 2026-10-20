@@ -14,4 +14,4 @@ function home(){
  return '<div class="wrap editorial-home"><div class="publication-line"><p>AI 安全领域的研究与评测资料索引</p><nav aria-label="资料入口"><a href="#papers">论文</a><a href="#datasets">数据</a><a href="#benchmarks">基准</a><a href="#results">公开结果</a></nav></div>'+homepageNews()+'<section class="search-rail" aria-label="查找资料"><div><h2>带着问题，查找资料。</h2><p>研究方向、论文、基准与数据。</p></div>'+searchForm('hero-search','输入名称或关键词…','',true)+'</section>'+compactDirections()+'<section class="benchmark-editorial">'+pageSection('从问题走向评测','三项基准，三种不同的测量对象。','#benchmarks','浏览基准目录')+'<div class="benchmark-columns">'+[benchmarkData[0],benchmarkData[1],benchmarkData[5]].map(b=>'<article><div class="benchmark-kind">'+esc(b.object)+'</div><h3><a href="#benchmark/'+b.id+'">'+b.name+'</a></h3><p>'+b.desc+'</p><div class="benchmark-bottom"><span>'+b.year+' · '+b.modality+'</span>'+editorialLink('#benchmark/'+b.id,'查看基准')+'</div></article>').join('')+'</div><div class="results-reading-link"><p>已经找到基准？查看对应模型版本与测试条件下的公开结果。</p>'+editorialLink('#results','阅读评测结果','underlined-link')+'</div></section></div>';
 }
 // One initial render, after both shared data and this presentation have loaded.
-render();
+

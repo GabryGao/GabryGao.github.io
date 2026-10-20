@@ -29,4 +29,4 @@ assert.ok(!/location\.(?:hash|href)\s*=|location\.(?:assign|replace|reload)\(/.t
 const coverage=JSON.parse(fs.readFileSync(path.join(root,'tools/locale-ui-coverage.json'),'utf8'));
 for(const source of coverage)for(const lang of ['en','de'])assert.ok(!/[\u3400-\u9fff]/u.test(api.translate(source,lang)),`${lang}: untranslated UI: ${source}`);
 for(const source of coverage)assert.ok(api.translate(source,'ja').trim());
-console.log('Locale checks passed: four locales, dynamic counts, fallback, original titles, multilingual search, in-place switch contract, 820 UI strings across collected routes and dialogs.');
+console.log(`Locale checks passed: four locales, dynamic counts, fallback, original titles, multilingual search, in-place switch contract, ${coverage.length} UI strings across collected routes and dialogs.`);

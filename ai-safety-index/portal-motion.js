@@ -42,7 +42,7 @@ var PortalMotion=(()=>{
   const nodes=[...main.querySelectorAll(cards)];
   if(reduced.matches||document.hidden){for(const node of nodes)node.dataset.motionState='shown';return}
   // The lead illustration opens like an editorial cover, once per route visit.
-  const image=main.querySelector('.hotspot-art img');
+  const image=main.querySelector('.hotspot-art img,.aw-hero-image');
   if(image)play(image,[
    {clipPath:'inset(0 0 100% 0)',transform:'scale(1.045)'},
    {clipPath:'inset(0 0 0 0)',transform:'scale(1)'}

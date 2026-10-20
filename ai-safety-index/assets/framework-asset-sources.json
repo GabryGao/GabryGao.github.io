@@ -1,0 +1,14 @@
+{
+  "astrowind-hero.webp": {
+    "origin": "https://astrowind.vercel.app/_astro/hero-image.DwIC_L_T_1xrKIH.webp",
+    "reference": "https://astrowind.vercel.app/",
+    "license_file": "AstroWind-LICENSE.md",
+    "source_repository": "https://github.com/arthelokyo/astrowind",
+    "use": "Reference homepage illustration, unmodified"
+  },
+  "inter-latin.woff2": {
+    "origin": "https://astrowind.vercel.app/_astro/fonts/2640269fc0017342.woff2",
+    "family": "Inter",
+    "license_file": "Inter-OFL.txt"
+  }
+}

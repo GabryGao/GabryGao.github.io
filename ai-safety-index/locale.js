@@ -558,6 +558,116 @@ addRows(`
 这个方向的论文资料正在整理。|Papers for this topic are being organized.|この分野の論文資料を整理中です。|Publikationen für dieses Thema werden aufbereitet.
 AI Safety Index 门户交互设计原型：基准、评测结果、研究热点与来源。|AI Safety Index: benchmarks, evaluation results, research highlights and sources.|AI Safety Index：ベンチマーク・評価結果・研究トピックス・出典。|AI Safety Index: Benchmarks, Evaluationsergebnisse, Forschungshighlights und Quellen.
 `);
+addRows(`
+AI Safety Index · 开放的研究与评测门户|AI Safety Index · An open research & evaluation portal|AI Safety Index · 開かれた研究・評価ポータル|AI Safety Index · Offenes Portal für Forschung & Evaluation
+AI 安全横跨数据、模型、系统、人与专业领域。我们希望让不同背景的人找到共同的问题和可追溯的依据。|AI safety spans data, models, systems, people and specialized fields. We help people from different backgrounds find shared questions and traceable evidence.|AI の安全性はデータ、モデル、システム、人、専門分野にまたがります。さまざまな背景を持つ人が、共通の問いと出典をたどれる根拠を見つけられる場を目指します。|KI-Sicherheit betrifft Daten, Modelle, Systeme, Menschen und Fachgebiete. Menschen mit unterschiedlichem Hintergrund sollen hier gemeinsame Fragen und nachvollziehbare Belege finden.
+一个长期维护的安全研究入口|A lasting resource for AI safety research|継続的に整備する AI 安全性研究の入口|Ein dauerhaft gepflegter Zugang zur KI-Sicherheitsforschung
+一步一步，把平台建起来。|Building the platform, step by step.|一歩ずつ、プラットフォームを育てる。|Schritt für Schritt zur gemeinsamen Plattform.
+一起完善 AI 安全的研究入口。|Help build a better resource for AI safety research.|AI 安全性研究の入口を、一緒に充実させる。|Gemeinsam den Zugang zur KI-Sicherheitsforschung verbessern.
+上传资源|Upload a resource|資料をアップロード|Ressource hochladen
+下载联系草稿|Download contact draft|連絡文の下書きをダウンロード|Kontaktentwurf herunterladen
+不止于收集链接，也帮助理解问题、方法与证据之间的关系。|Beyond collecting links, we connect research questions, methods and evidence.|リンクの収集に加え、研究の問い・手法・根拠のつながりを伝えます。|Wir sammeln Links und machen die Beziehungen zwischen Forschungsfragen, Methoden und Belegen verständlich.
+不用在分散的论文、项目与榜单之间反复寻找。这里把相关资料连在一起。|Find related resources together, without searching across scattered papers, projects and rankings.|分散した論文・プロジェクト・ランキングを行き来せず、関連資料をまとめて探せます。|Zusammengehörige Quellen an einem Ort finden, ohne verstreute Arbeiten, Projekte und Ranglisten einzeln zu durchsuchen.
+为研究者、开发者和关注 AI 安全的人，|For researchers, developers and everyone interested in AI safety,|研究者、開発者、AI の安全性に関心を持つすべての人へ、|Für Forschende, Entwickelnde und alle, die sich für KI-Sicherheit interessieren,
+了解建设团队|Meet the team|運営チームについて|Das Team kennenlernen
+人工精选|Editorial selection|手動選定|Redaktionelle Auswahl
+人工精选与归档|Editorial picks & archive|手動選定とアーカイブ|Redaktionelle Auswahl & Archiv
+介绍你的背景，或说明资源为什么值得收录。|Describe your background or explain why this resource should be included.|ご自身の背景、または資料を収録すべき理由をお書きください。|Beschreiben Sie Ihren Hintergrund oder warum die Ressource aufgenommen werden sollte.
+从你关心的方向进入|Start with a topic that matters to you|関心のある分野から探す|Mit einem Thema Ihres Interesses beginnen
+从六大研究方向出发，串起相关论文、数据、任务与评测。|Explore six research topics and their related papers, data, tasks and evaluations.|6 つの研究分野から、関連する論文・データ・タスク・評価をたどれます。|Sechs Forschungsthemen verbinden relevante Arbeiten, Daten, Aufgaben und Evaluationen.
+从研究问题，找到可靠依据。|From research questions to reliable evidence.|研究の問いから、確かな根拠へ。|Von Forschungsfragen zu verlässlichen Belegen.
+你的姓名|Your name|お名前|Ihr Name
+保留来源、版本和测试条件，让结论可以被核对。|Preserve sources, versions and test conditions so conclusions can be checked.|結論を検証できるよう、出典・版・テスト条件を残します。|Quellen, Versionen und Testbedingungen erhalten, damit sich Schlussfolgerungen prüfen lassen.
+全部方式|All methods|すべての収集方法|Alle Verfahren
+内容筹备中|Content in preparation|コンテンツを準備中|Inhalte in Vorbereitung
+准备联系草稿|Prepare a contact draft|連絡文の下書きを作成|Kontaktentwurf vorbereiten
+分享团队对 AI 安全研究与实践的思考。|The team's perspectives on AI safety research and practice.|AI の安全性に関する研究と実践について、チームの考えを共有します。|Gedanken des Teams zu Forschung und Praxis der KI-Sicherheit.
+加入中文、英文、日文和德文，切换语言时保留当前页面和筛选。|Added Chinese, English, Japanese and German, with language switching that preserves the current page and filters.|中国語・英語・日本語・ドイツ語に対応し、言語を切り替えても現在のページと絞り込み条件を維持します。|Chinesisch, Englisch, Japanisch und Deutsch ergänzt; beim Sprachwechsel bleiben die aktuelle Seite und die Filter erhalten.
+加入我们|Join us|参加する|Mitmachen
+协作方向|Ways to contribute|協力できる分野|Möglichkeiten zur Mitarbeit
+协助完善研究方向框架，核对专业资料与重要结论。|Help refine the research framework and verify specialist sources and key findings.|研究分野の枠組みを整え、専門資料や重要な結論の確認にご協力ください。|Den Forschungsrahmen weiterentwickeln sowie Fachquellen und zentrale Ergebnisse prüfen.
+博客暂未发布文章，以上为计划中的内容栏目。|No blog posts have been published yet. The sections above are planned.|ブログ記事はまだ公開していません。上記は予定している記事の区分です。|Bisher wurden keine Blogbeiträge veröffentlicht. Die oben genannten Rubriken sind geplant.
+原始来源发布的 AI 安全相关资讯；请进入原文核对内容。|AI safety updates from original publishers. Open the source to verify the content.|公開元からの AI 安全性に関する情報です。内容は原文でご確認ください。|Meldungen zur KI-Sicherheit von den Originalherausgebern. Bitte den Inhalt in der Originalquelle prüfen.
+参与平台建设，或分享值得收录的公开资源。|Help build the platform or share public resources worth including.|プラットフォームの整備や、収録すべき公開資料の共有にご参加ください。|Am Aufbau der Plattform mitwirken oder geeignete öffentliche Quellen vorschlagen.
+参与平台建设，或推荐值得收录的 AI 安全资源。|Help build the platform or suggest AI safety resources worth including.|プラットフォームの整備や、収録すべき AI 安全性資料の推薦にご参加ください。|Am Aufbau der Plattform mitwirken oder geeignete Quellen zur KI-Sicherheit empfehlen.
+参与教授与成员的姓名、机构、研究背景和平台职责将在确认后发布。|Participating professors' and members' names, affiliations, research backgrounds and platform roles will be published after confirmation.|参加する教員・メンバーの氏名、所属、研究背景、担当は確認後に公開します。|Namen, Institutionen, Forschungshintergründe und Aufgaben der beteiligten Professorinnen, Professoren und Mitglieder werden nach Bestätigung veröffentlicht.
+名单待确认|Membership pending confirmation|参加者は確認待ち|Mitgliederliste noch zu bestätigen
+四种语言切换|Four-language switching|4 言語の切り替え|Wechsel zwischen vier Sprachen
+团队成员资料正在确认|Team profiles are being confirmed|チームメンバーの情報を確認中|Teamprofile werden geprüft
+在联系我们页面了解加入方式和需要准备的信息。|Visit the contact page for ways to join and the information to prepare.|参加方法や必要な情報は、お問い合わせページをご覧ください。|Auf der Kontaktseite erfahren Sie, wie Sie mitmachen und welche Angaben benötigt werden.
+学术与研究|Academic research|学術・研究|Wissenschaft & Forschung
+希望参与平台建设？|Want to help build the platform?|プラットフォームの整備に参加しませんか？|Möchten Sie am Aufbau der Plattform mitwirken?
+平台博客|Platform blog|プラットフォームのブログ|Plattform-Blog
+平台需要哪些协作|Where your help is needed|協力をお願いしたいこと|Wo Unterstützung gebraucht wird
+建立研究方向、基准目录、评测结果与研究动态的首版页面。|Built the first pages for research topics, benchmarks, evaluation results and research updates.|研究分野、ベンチマーク目録、評価結果、研究トピックスの初版ページを作成しました。|Erste Seiten für Forschungsthemen, Benchmarks, Evaluationsergebnisse und Forschungsneuigkeiten erstellt.
+开始探索|Start exploring|探し始める|Jetzt entdecken
+开放公开访问|Opened to the public|一般公開|Öffentlich zugänglich
+开放的 AI 安全研究与评测资料|Open resources for AI safety research & evaluation|開かれた AI 安全性の研究・評価資料|Offene Quellen für Forschung & Evaluation zur KI-Sicherheit
+彩色漂浮人物插画|Illustration of colorful floating figures|色とりどりの人物が浮かぶイラスト|Illustration mit schwebenden, farbigen Figuren
+找到合适的基准|Find the right benchmark|適切なベンチマークを探す|Den passenden Benchmark finden
+按方向浏览精选动态和自动采集的原始资讯，回到发布方阅读。|Browse selected updates and automatically collected source feeds by topic, then read them on the publisher's site.|選定したトピックスや自動収集した公開元の情報を分野別に探し、公開元で原文を読めます。|Ausgewählte Meldungen und automatisch erfasste Quellen nach Thema durchsuchen und beim Herausgeber lesen.
+按研究问题组织资料，允许一个条目关联多个方向。|Organize resources by research question, allowing each entry to link to several topics.|研究の問いに沿って資料を整理し、一つの項目を複数の分野に関連付けます。|Quellen nach Forschungsfragen ordnen; ein Eintrag kann mehreren Themen zugeordnet sein.
+探索研究方向|Explore research topics|研究分野を探す|Forschungsthemen entdecken
+探索论文资料|Explore papers|論文資料を探す|Publikationen entdecken
+接入 OpenAI 与 Google DeepMind 的公开 RSS，按标题和分类关键词筛选。仅收集元数据，方向标签待复核，不覆盖全部研究进展。|Uses public RSS feeds from OpenAI and Google DeepMind, filtered by title and category keywords. Only metadata is collected. Topic tags await review; coverage is not comprehensive.|OpenAI と Google DeepMind の公開 RSS を題名や分類のキーワードで絞り込みます。収集はメタデータのみで、分野タグは確認待ちです。研究動向を網羅するものではありません。|Öffentliche RSS-Feeds von OpenAI und Google DeepMind werden nach Titel- und Kategoriebegriffen gefiltert. Erfasst werden nur Metadaten. Themen-Tags sind noch zu prüfen; die Abdeckung ist nicht vollständig.
+接入 OpenTAI 公开目录中的论文元数据，并保留原始链接和来源记录。|Imported paper metadata from OpenTAI's public catalog, preserving original links and source records.|OpenTAI の公開目録から論文のメタデータを取り込み、原リンクと出典記録を保持しました。|Publikationsmetadaten aus dem öffentlichen OpenTAI-Verzeichnis importiert; Originallinks und Quellennachweise bleiben erhalten.
+接收渠道待配置|Contact channel not yet configured|連絡の受付先は準備中|Kontaktkanal noch einzurichten
+推荐论文、数据、基准或评测结果。请提供公开原始链接、研究方向和收录理由。|Suggest papers, data, benchmarks or evaluation results. Include a public original-source link, research topic and reason for inclusion.|論文・データ・ベンチマーク・評価結果をご推薦ください。公開されている原資料のリンク、研究分野、収録すべき理由を添えてください。|Arbeiten, Daten, Benchmarks oder Evaluationsergebnisse empfehlen. Bitte öffentlichen Originallink, Forschungsthema und Aufnahmegrund angeben.
+收录方式|Collection method|収集方法|Erfassungsverfahren
+改进检索、分类与多语言体验，维护平台和更新工具。|Improve search, classification and multilingual access, and maintain the platform and update tools.|検索・分類・多言語での使いやすさを改善し、プラットフォームと更新ツールを保守します。|Suche, Kategorisierung und mehrsprachige Nutzung verbessern sowie Plattform und Aktualisierungswerkzeuge pflegen.
+整理共享论文库|Built a shared paper library|共通の論文庫を整備|Gemeinsame Publikationssammlung aufgebaut
+整理来源、基准版本和实验条件，补充公开研究资源。|Organize sources, benchmark versions and experimental conditions, and add public research resources.|出典、ベンチマークの版、実験条件を整理し、公開研究資料を追加します。|Quellen, Benchmark-Versionen und Versuchsbedingungen ordnen und öffentliche Forschungsquellen ergänzen.
+有据可循。|grounded in evidence.|確かな根拠を。|mit nachvollziehbaren Belegen.
+让 AI 安全研究，|AI safety research,|AI 安全性の研究に、|KI-Sicherheitsforschung,
+条论文记录|paper records|件の論文記録|Publikationseinträge
+查找评测基准|Find evaluation benchmarks|評価ベンチマークを探す|Evaluationsbenchmarks finden
+查看研究热点|View research highlights|研究トピックスを見る|Forschungshighlights ansehen
+梳理重要论文中的方法、证据与适用边界。|Examine the methods, evidence and limits of key papers.|重要な論文の手法・根拠・適用範囲を整理します。|Methoden, Belege und Geltungsgrenzen wichtiger Arbeiten einordnen.
+检索评测对象、任务与指标，查看基准版本、代码和使用条件。|Search evaluation targets, tasks and metrics, and check benchmark versions, code and terms of use.|評価対象・タスク・指標から検索し、ベンチマークの版、コード、利用条件を確認できます。|Nach Evaluationsgegenständen, Aufgaben und Metriken suchen und Benchmark-Versionen, Code sowie Nutzungsbedingungen prüfen.
+欢迎参与研究框架、资料整理、评测与平台开发。请介绍你的背景、关注方向和希望参与的工作。|Contribute to the research framework, resource curation, evaluation or platform development. Tell us about your background, interests and the work you would like to do.|研究の枠組み、資料整理、評価、開発への参加を歓迎します。ご自身の背景、関心分野、希望する活動をお知らせください。|Beiträge zum Forschungsrahmen, zur Quellenpflege, Evaluation oder Plattformentwicklung sind willkommen. Stellen Sie Ihren Hintergrund, Ihre Interessen und die gewünschte Mitarbeit vor.
+浏览人工精选、归档资料与自动采集的公开资讯，按方向和类型筛选。|Browse editorial picks, archived resources and automatically collected public updates, filtered by topic and type.|手動選定・保存資料・自動収集した公開情報を、分野や種類で絞り込んで探せます。|Redaktionelle Auswahl, Archivquellen und automatisch erfasste öffentliche Meldungen nach Thema und Typ durchsuchen.
+理清研究版图|Map the research landscape|研究の全体像をつかむ|Die Forschungslandschaft verstehen
+留给更深入的解读、思考与讨论。|A space for deeper analysis, reflection and discussion.|より深い解説、考察、議論のための場です。|Raum für vertiefende Analysen, Gedanken und Diskussionen.
+研究团队|Research team|研究チーム|Forschungsteam
+研究解读|Research insights|研究の解説|Forschung erklärt
+精选与自动采集 · 评测保留来源版本|Editorial picks & automated feeds · Versioned evaluation sources|手動選定・自動収集／評価には出典と版を記載|Redaktionelle Auswahl & automatische Erfassung · Versionierte Evaluationsquellen
+结合模型版本和测试设置阅读已发布成绩，了解比较边界。|Read published results with their model versions and test settings to understand the limits of comparison.|公開結果をモデルの版やテスト設定と併せて読み、比較できる範囲を確認します。|Veröffentlichte Ergebnisse mit Modellversionen und Testbedingungen lesen, um Vergleichsgrenzen zu verstehen.
+联系我们|Contact us|お問い合わせ|Kontakt
+联系目的|Purpose of contact|お問い合わせの目的|Kontaktanliegen
+联系邮箱|Email address|メールアドレス|E-Mail-Adresse
+联系邮箱或表单地址确认后开放发送。目前可填写并下载草稿，内容不会上传。|Sending will be available once an email address or form is confirmed. For now, fill in and download a draft; nothing is uploaded.|連絡先のメールアドレスまたはフォームを確認後、送信を受け付けます。現在は入力して下書きをダウンロードでき、内容はアップロードされません。|Der Versand wird nach Bestätigung einer E-Mail-Adresse oder eines Formulars freigeschaltet. Bis dahin können Sie einen Entwurf ausfüllen und herunterladen; es wird nichts hochgeladen.
+背景或资源说明|Background or resource details|ご自身の背景・資料の説明|Hintergrund oder Angaben zur Ressource
+自动采集|Automated collection|自動収集|Automatische Erfassung
+自动采集 · 待复核|Automatically collected · Awaiting review|自動収集・確認待ち|Automatisch erfasst · Prüfung ausstehend
+自动采集范围|Automated collection scope|自動収集の範囲|Umfang der automatischen Erfassung
+草稿只在当前页面处理，不会发送到任何服务器。|Your draft is processed only on this page and is not sent to any server.|下書きはこのページ内でのみ処理し、サーバーには送信しません。|Der Entwurf wird nur auf dieser Seite verarbeitet und an keinen Server gesendet.
+观点与讨论|Perspectives & discussion|視点と議論|Perspektiven & Diskussion
+解释指标与实验条件，讨论结果意味着什么。|Explain metrics and experimental conditions, and discuss what the results mean.|指標や実験条件を説明し、結果の意味を考えます。|Metriken und Versuchsbedingungen erklären und die Bedeutung der Ergebnisse diskutieren.
+让分散的研究，形成共同的视野。|Connecting scattered research into a shared view.|分散した研究を、共通の視野へ。|Verstreute Forschung zu einem gemeinsamen Bild verbinden.
+记录已完成的建设节点，后续在这里持续更新。|A record of completed milestones, with further updates to follow.|完了した整備の節目を記録し、今後もここで更新します。|Abgeschlossene Meilensteine dokumentieren; weitere Fortschritte werden hier ergänzt.
+设计与开发|Design & development|デザイン・開発|Design & Entwicklung
+评测观察|Evaluation notes|評価を読み解く|Einblicke in Evaluationen
+请选择方向|Choose a topic|分野を選択してください|Thema auswählen
+读懂公开结果|Understand published results|公開結果を読み解く|Veröffentlichte Ergebnisse verstehen
+资料与评测|Resources & evaluation|資料と評価|Quellen & Evaluation
+资源或个人主页链接|Resource or personal website link|資料・個人サイトのリンク|Link zur Ressource oder persönlichen Website
+跟进研究进展|Follow research progress|研究の進展を追う|Forschungsfortschritte verfolgen
+近期研究动态|Recent research updates|最近の研究トピックス|Aktuelle Forschungsneuigkeiten
+连接不同研究方向，共同建设可追溯的 AI 安全资料平台。|Connect research topics and build a shared AI safety resource platform with traceable sources.|異なる研究分野をつなぎ、出典をたどれる AI 安全性資料の基盤を共に整えます。|Forschungsthemen verbinden und gemeinsam eine Plattform für KI-Sicherheitsquellen mit nachvollziehbaren Belegen aufbauen.
+连接研究方向、论文、数据与评测依据。|Connect research topics, papers, data and evaluation evidence.|研究分野・論文・データ・評価の根拠をつなぎます。|Forschungsthemen, Arbeiten, Daten und Evaluationsbelege verbinden.
+逐步完善收录与复核，持续补充研究中的空白。|Improve inclusion and review processes over time, and keep filling gaps in research coverage.|収録と確認の仕組みを少しずつ整え、資料の不足を継続的に補います。|Aufnahme und Prüfung schrittweise verbessern und Lücken in der Forschungsabdeckung laufend schließen.
+通过 GitHub Pages 发布，让访问者无需登录即可浏览资料。|Published on GitHub Pages so visitors can browse resources without signing in.|GitHub Pages で公開し、ログインなしで資料を閲覧できるようにしました。|Auf GitHub Pages veröffentlicht, damit Quellen ohne Anmeldung zugänglich sind.
+门户原型搭建|Portal prototype built|ポータルの試作版を構築|Portal-Prototyp erstellt
+项评测基准|evaluation benchmarks|件の評価ベンチマーク|Evaluationsbenchmarks
+数据采集时间：|Data collected:|データ収集日時：|Datenerfassung:
+热点资料有更新。|Research highlights have been updated.|研究トピックスが更新されました。|Die Forschungshighlights wurden aktualisiert.
+刷新列表|Refresh list|一覧を更新|Liste aktualisieren
+部分来源更新失败，保留上次数据。|Some sources could not be updated. Their previous data has been kept.|一部の出典を更新できませんでした。前回のデータを保持しています。|Einige Quellen konnten nicht aktualisiert werden. Die bisherigen Daten bleiben erhalten.
+联系草稿已生成，请保存文件。内容尚未发送。|Your contact draft is ready. Save the file; it has not been sent.|連絡文の下書きを作成しました。ファイルを保存してください。内容はまだ送信されていません。|Ihr Kontaktentwurf ist fertig. Bitte speichern Sie die Datei; der Inhalt wurde noch nicht gesendet.
+`);
+addRows(`
+AI Safety Index · 研究与评测门户|AI Safety Index · Research & evaluation|AI Safety Index · 研究・評価ポータル|AI Safety Index · Forschung & Evaluation
+`);
 const ordered=()=>[...dictionary.keys()].sort((a,b)=>b.length-a.length);
 let keys,fragmentPattern;
 function translate(value,language){

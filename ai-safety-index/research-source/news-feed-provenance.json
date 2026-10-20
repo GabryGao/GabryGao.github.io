@@ -1,0 +1,751 @@
+{
+  "info": {
+    "generated_on": "2026-10-20T09:51:20Z",
+    "sources": [
+      {
+        "id": "openai",
+        "name": "OpenAI News",
+        "url": "https://openai.com/news/rss.xml",
+        "home_url": "https://openai.com/news/",
+        "hosts": [
+          "openai.com",
+          "www.openai.com"
+        ],
+        "language": "en",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-20T09:51:20Z",
+        "feed_sha256": "14e7ccea6801c10b90aa5797679026db6ecef998e128184f3ae2bf98be7222c9",
+        "matched_records": 254
+      },
+      {
+        "id": "deepmind",
+        "name": "Google DeepMind",
+        "url": "https://deepmind.google/blog/rss.xml",
+        "home_url": "https://deepmind.google/blog/",
+        "hosts": [
+          "deepmind.google"
+        ],
+        "language": "en",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-20T09:51:20Z",
+        "feed_sha256": "42664993c24ad90a3a6349e6970f5b451016820816b4ccc84e60c7804fd6b67d",
+        "matched_records": 11
+      }
+    ],
+    "failed_sources": [],
+    "status": "current",
+    "record_count": 30,
+    "max_records": 30,
+    "classification": "Title/category keyword suggestions; not editorially reviewed",
+    "date_policy": "Publisher publication date in UTC; missing/invalid/future dates excluded",
+    "content_policy": "Original titles and metadata only; no article bodies or abstracts",
+    "coverage": "Two English-language primary-source RSS feeds; not comprehensive"
+  },
+  "records": [
+    {
+      "id": "auto-004cd593adabcd24",
+      "title": "SentinelOne cuts malware analysis from weeks to hours",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-14",
+      "order": "2026-10-14",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/sentinelone",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-94ee28b93f9d2d83",
+      "title": "How Block is building AI-powered security with OpenAI technology",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-14",
+      "order": "2026-10-14",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/block-ai-powered-security",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-b76b11a1199f73b7",
+      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-14",
+      "order": "2026-10-14",
+      "source": "Google DeepMind",
+      "source_id": "deepmind",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "社会与使用风险"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-1dc99b611b2499a3",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-13",
+      "order": "2026-10-13",
+      "source": "Google DeepMind",
+      "source_id": "deepmind",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-d9e485b409fe8517",
+      "title": "Disrupting AI-enabled “false front” operations",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-08",
+      "order": "2026-10-08",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-d2b5b29b4c815525",
+      "title": "Our approach to EU text provenance rules",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-10-05",
+      "order": "2026-10-05",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/eu-text-provenance",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-90249c2a3882c6d3",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-30",
+      "order": "2026-09-30",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    },
+    {
+      "id": "auto-2fc54b690d7b20a2",
+      "title": "Towards safety cases for frontier AI training",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-28",
+      "order": "2026-09-28",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-347b65ce144a221e",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-23",
+      "order": "2026-09-23",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Global Affairs"
+      ]
+    },
+    {
+      "id": "auto-9328fa400dd37e6b",
+      "title": "OpenAI extends cyber access to Ukraine for civilian defense",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-23",
+      "order": "2026-09-23",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Global Affairs"
+      ]
+    },
+    {
+      "id": "auto-60efaf744a4d6c2c",
+      "title": "Priorities and principles for effective third party assessments",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-22",
+      "order": "2026-09-22",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-a00923bf4ddda715",
+      "title": "Introducing the Australian Youth Safety Blueprint",
+      "type": "projects",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-18",
+      "order": "2026-09-18",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/australian-youth-safety-blueprint",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Company"
+      ]
+    },
+    {
+      "id": "auto-f3899afd4d6a0a2d",
+      "title": "Our framework for reporting model misalignment",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-16",
+      "order": "2026-09-16",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/model-misalignment-reporting-framework",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Research"
+      ]
+    },
+    {
+      "id": "auto-3802aa15c4b6ae22",
+      "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-10",
+      "order": "2026-09-10",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/expanding-ai-access-us-government",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Global Affairs"
+      ]
+    },
+    {
+      "id": "auto-7948c39493cbd65e",
+      "title": "Funding grants for new research into AI and teen development",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-08",
+      "order": "2026-09-08",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/teen-development-research-grants",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-e0f75446731d598c",
+      "title": "An Alien Mind",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-06",
+      "order": "2026-09-06",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/an-alien-mind",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-39210f987919e80e",
+      "title": "Safety overview: GPT-6 Astra",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-03",
+      "order": "2026-09-03",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/safety-overview-gpt-6-astra",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-fc40ddafdd41e0cc",
+      "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-03",
+      "order": "2026-09-03",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/daybreak-for-frontline-defenders",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    },
+    {
+      "id": "auto-bf94848b24bf5829",
+      "title": "Proactive cyber defense for governments and enterprises",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-02",
+      "order": "2026-09-02",
+      "source": "Google DeepMind",
+      "source_id": "deepmind",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises",
+      "language": "en",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-355be2cf6d2d139c",
+      "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "type": "projects",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-02",
+      "order": "2026-09-02",
+      "source": "Google DeepMind",
+      "source_id": "deepmind",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber",
+      "language": "en",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false
+    },
+    {
+      "id": "auto-f2694bfa96c49e91",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-09-01",
+      "order": "2026-09-01",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/path-to-astra",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全与对齐",
+        "社会与使用风险"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-4862f3d2c68fb1ad",
+      "title": "OpenAI supports California’s bill to advance youth AI safety",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-31",
+      "order": "2026-08-31",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Company"
+      ]
+    },
+    {
+      "id": "auto-34e62ff4c7cf4def",
+      "title": "The Hugging Face incident and the road ahead",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-26",
+      "order": "2026-08-26",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    },
+    {
+      "id": "auto-62003111f3b592c5",
+      "title": "Disrupting a new covert influence campaign from Russia",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-25",
+      "order": "2026-08-25",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
+      "language": "en-US",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "安全与对齐"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Safety"
+      ]
+    },
+    {
+      "id": "auto-f0aa91974e0ad6ca",
+      "title": "Strengthening democratic oversight in national security",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-18",
+      "order": "2026-08-18",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Global Affairs"
+      ]
+    },
+    {
+      "id": "auto-9c25f4ae7a186d68",
+      "title": "Pacing model development in an era of cyber-critical capabilities",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-18",
+      "order": "2026-08-18",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Company"
+      ]
+    },
+    {
+      "id": "auto-1380f7766171a5a6",
+      "title": "The Defender’s Window",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-17",
+      "order": "2026-08-17",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/the-defenders-window",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    },
+    {
+      "id": "auto-3d196224ab27a2df",
+      "title": "OpenAI’s letter to Governor Abbott on responsible AI infrastructure in Texas",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-10",
+      "order": "2026-08-10",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/responsible-ai-infrastructure-texas",
+      "language": "en-US",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "社会与使用风险"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Global Affairs"
+      ]
+    },
+    {
+      "id": "auto-29b0e61ec6cd1ed3",
+      "title": "Putting frontier cyber models in more trusted hands",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-10",
+      "order": "2026-08-10",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    },
+    {
+      "id": "auto-081601c279be28d3",
+      "title": "Expanding Daybreak as the Cyber Defense Window Narrows",
+      "type": "reports",
+      "label": "自动采集 · 待复核",
+      "date": "2026-08-10",
+      "order": "2026-08-10",
+      "source": "OpenAI News",
+      "source_id": "openai",
+      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
+      "language": "en-US",
+      "direction_ids": [
+        "agent-software"
+      ],
+      "terms": [
+        "网络与系统安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "original_categories": [
+        "Security"
+      ]
+    }
+  ]
+}
