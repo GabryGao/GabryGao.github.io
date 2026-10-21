@@ -179,7 +179,7 @@ Two existing conceptual covers appear in the featured home news tiles with publi
 
 Compact actions keep the existing blue fill, white text, control radius and padding. The home underline search emphasizes focus with its own blue bottom rule. Home links, selects and summaries have a 2px blue focus outline with 5px offset. The green menu trigger, blue native dialog, keyboard focus return and Escape behavior remain shared.
 
-The desktop mint pointer remains 6px and expands to 9px over links; native text, touch and keyboard behavior remain available. The existing interruptible route curtain remains. The home title (320ms) and featured image crop reveal (760ms) run only when the route path changes; locale, metric, query and pagination changes do not replay home entrances. News-cover hover uses scale(1.035) over 600ms. Reduced motion removes these enhancements, and content is visible without the motion module.
+Use the native system cursor, including the platform's link and text-input cursors. Do not create a custom pointer overlay. Opening animations, route curtains and content entrances are disabled; pages render immediately. News-cover hover uses scale(1.035) over 600ms and respects reduced motion.
 
 ### Resource contribution
 
@@ -199,4 +199,4 @@ The heading-right resource action opens a form distinguishing additional resourc
 - Don't use conceptual covers as paper figures, model evidence or member portraits.
 - Don't invent current rankings, overall-safety percentages, posts, team work or submission success.
 
-Implementation authority: `portal-showcase.css` for Home; `portal-compact.js` for shared-record home composition and compact resource routes; `portal-compact.css` for compact subpages; `portal-motion.js` for progressive entrances. The approved direction is recorded in `work/madeo-home-charts/direction.md` outside this project root. Final review captures are `.impeccable/review/desktop.png`, `mobile.png` and `user-555.png`. CLI context/detect was unavailable; no detector result is claimed.
+Implementation authority: `portal-showcase.css` for Home; `portal-compact.js` for shared-record home composition and compact resource routes; `portal-compact.css` for compact subpages; `portal-interactions.js` for immediate route rendering and accessible subnavigation. The entrance module is not loaded. The approved direction is recorded in `work/madeo-home-charts/direction.md` outside this project root. Final review captures are `.impeccable/review/desktop.png`, `mobile.png` and `user-555.png`. CLI context/detect was unavailable; no detector result is claimed.

@@ -350,11 +350,8 @@
     "scopePolicy": "Home uses portal-showcase.css and shared-record composition in portal-compact.js. Compact resource routes retain their existing 3/2/1 layouts and tokens. Rasters only in research news; real charts are HTML/CSS. ResourceSubmission is unconfigured, official submit disabled, local draft only.",
     "interactions": {
       "pointer": {
-        "color": "#00d9b7",
-        "size": "6px",
-        "actionSize": "9px",
-        "requires": "fine mouse, width >=768px, no reduced motion",
-        "fallback": "native text/touch/keyboard pointer"
+        "type": "native system cursor",
+        "customOverlay": false
       },
       "subnavigation": {
         "desktopWidth": "min(860px,88vw)",
@@ -363,23 +360,12 @@
         "mobile": "plus disclosure in full-screen menu"
       },
       "routeCurtain": {
-        "enter": "480ms",
-        "hold": "200ms",
-        "exit": "420ms",
-        "failsafe": "2400ms",
-        "entryEase": "cubic-bezier(.65,0,.35,1)",
-        "exitEase": "cubic-bezier(.65,0,.35,1)",
-        "scope": "route/topic changes only; queries and locale changes retain continuity",
-        "titleReveal": "520ms,100ms delay, masked vertical reveal",
-        "brandReveal": "420ms,80ms delay",
-        "lowerPanels": "440ms,60ms delay +70ms per panel"
+        "enabled": false,
+        "navigation": "immediate synchronous render"
       },
       "homeEntrances": {
-        "trigger": "route path changes only",
-        "localeReplay": false,
-        "metricReplay": false,
-        "progressive": true,
-        "reducedMotion": "no entrances or hover transitions"
+        "enabled": false,
+        "moduleLoaded": false
       }
     },
     "responsive": {

@@ -2,20 +2,10 @@
 var PortalInteractions=(()=>{
  'use strict';
  function routeKey(hash){const [path='home',query='']=String(hash).replace(/^#/,'').split('?');return (path||'home')+(path==='directions'?':'+new URLSearchParams(query).get('pillar'):'' )}
- const transitionTiming=Object.freeze({enter:480,hold:200,exit:420,failSafe:2400});
- function createTransitionGate(effect,timeout=transitionTiming.failSafe){
-  let generation=0,timer;
-  return {run(commit,animated=true){
-   const token=++generation;clearTimeout(timer);effect.reset();let applied=false;
-   const apply=()=>{if(token!==generation||applied)return;applied=true;commit()};
-   if(!animated){apply();return Promise.resolve()}
-   timer=setTimeout(()=>{if(token!==generation)return;apply();++generation;effect.reset()},timeout);
-   return Promise.resolve().then(()=>token===generation?effect.cover():undefined).catch(()=>{}).then(()=>{if(token!==generation)return;apply();return effect.reveal()}).catch(()=>{}).finally(()=>{if(token===generation){clearTimeout(timer);effect.reset()}});
-  }};
- }
- const api={routeKey,createTransitionGate,transitionTiming};
+ function renderImmediately(commit){commit()}
+ const api={routeKey,renderImmediately};
  if(typeof document==='undefined'||!document.body)return api;
- const fine=window.matchMedia('(hover: hover) and (pointer: fine)'),reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const fine=window.matchMedia('(hover: hover) and (pointer: fine)');
  const nav=document.querySelector('#primary-nav');
  const definitions={
   directions:researchDirections.map(d=>({label:d.name,href:'#directions?pillar='+d.id})),
@@ -24,7 +14,6 @@ var PortalInteractions=(()=>{
   benchmarks:[{label:'评测看板',href:'#results'},{label:'基准目录',href:'#benchmarks'},{label:'方法与说明',href:'#methods'}],
   teams:[{label:'研究团队',href:'#teams'}]
  };
- const names={home:'AI Safety Index',directions:'研究方向',papers:'论文资料',datasets:'数据与任务',methods:'方法与工具',news:'研究热点',benchmarks:'基准与评测',benchmark:'基准与评测',results:'公开结果',teams:'研究团队',about:'研究团队',upload:'上传资源',contact:'上传资源'};
  let openGroup=null,leaveTimer,suppressFocus=false;
  function closeSubnav(){clearTimeout(leaveTimer);if(!openGroup)return;openGroup.querySelector('.md-nav-panel').hidden=true;openGroup.querySelectorAll('[aria-expanded]').forEach(e=>e.setAttribute('aria-expanded','false'));openGroup.classList.remove('is-open');openGroup=null}
  function openSubnav(group){
@@ -59,50 +48,12 @@ var PortalInteractions=(()=>{
  document.addEventListener('click',e=>{if(!e.target.closest('.md-nav-group')||e.target.closest('.md-nav-panel a'))closeSubnav()},true);
  window.addEventListener('resize',closeSubnav);window.addEventListener('scroll',closeSubnav,{passive:true});
 
- // A short, interruptible panel wipe marks a new collection, never a filter or locale update.
- const curtain=document.createElement('div');curtain.className='md-route-curtain';curtain.hidden=true;curtain.setAttribute('aria-hidden','true');
- curtain.innerHTML='<div class="md-curtain-brand" data-keep-original>AI SAFETY INDEX</div><div class="md-curtain-title-clip"><div class="md-curtain-title"></div></div><div class="md-curtain-bars"><i></i><i></i><i></i></div>';document.body.append(curtain);
- let animations=[],nextTitle='',nextColor='#5fc79f';
- function animateCurtainPart(element,frames,timing){const a=element.animate(frames,{fill:'both',...timing});animations.push(a);a.finished.catch(()=>{});return a}
- const gate=createTransitionGate({
-  reset(){for(const a of animations)a.cancel();animations=[];curtain.hidden=true;curtain.dataset.phase='idle'},
-  cover(){
-   curtain.hidden=false;curtain.dataset.phase='cover';curtain.style.background=nextColor;
-   curtain.querySelector('.md-curtain-title').textContent=typeof SiteLocale==='undefined'?nextTitle:SiteLocale.translate(nextTitle,SiteLocale.current());
-   const ease='cubic-bezier(.16,1,.3,1)';
-   animateCurtainPart(curtain.querySelector('.md-curtain-brand'),[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,delay:80,easing:ease});
-   animateCurtainPart(curtain.querySelector('.md-curtain-title'),[{opacity:0,transform:'translateY(75%)',clipPath:'inset(0 0 100% 0)'},{opacity:1,transform:'translateY(0)',clipPath:'inset(0 0 0 0)'}],{duration:520,delay:100,easing:ease});
-   curtain.querySelectorAll('.md-curtain-bars i').forEach((bar,i)=>animateCurtainPart(bar,[{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:440,delay:60+i*70,easing:ease}));
-   const a=animateCurtainPart(curtain,[{transform:'translateY(100%)'},{transform:'translateY(0)'}],{duration:transitionTiming.enter,easing:'cubic-bezier(.65,0,.35,1)'});return a.finished;
-  },
-  reveal(){curtain.dataset.phase='reveal';const a=animateCurtainPart(curtain,[{transform:'translateY(0)'},{transform:'translateY(-100%)'}],{duration:transitionTiming.exit,easing:'cubic-bezier(.65,0,.35,1)',delay:transitionTiming.hold});return a.finished}
-
- });
+ // Pages render immediately; use the platform's native pointer.
  const priorRender=render;let previousKey=routeKey(location.hash);
  render=function(){
   const next=routeKey(location.hash),changed=next!==previousKey;previousKey=next;closeSubnav();
-  const p=route().path.split('/')[0];nextTitle=names[p]||'AI Safety Index';nextColor=p==='news'?'#f1a56f':p==='benchmarks'||p==='results'?'#b9c8f5':'#5fc79f';
-  const animate=changed&&!reduced.matches&&!document.hidden&&typeof curtain.animate==='function';
-  if(animate&&typeof closeMadeoMenu==='function')closeMadeoMenu(false);
-  gate.run(()=>{priorRender();if(changed)window.scrollTo({top:0,behavior:'instant'})},animate);
+  if(changed&&typeof closeMadeoMenu==='function')closeMadeoMenu(false);
+  renderImmediately(()=>{priorRender();if(changed)window.scrollTo({top:0,behavior:'instant'})});
  };
- reduced.addEventListener('change',()=>{if(reduced.matches&&!curtain.hidden)render()});
-
- // Fine mouse pointers get the reference's teal dot. Text inputs retain their text cursor.
- const dot=document.createElement('div');dot.className='md-pointer-dot';dot.setAttribute('aria-hidden','true');document.body.append(dot);
- let frame=0,x=0,y=0;
- function hideDot(){document.documentElement.classList.remove('md-dot-active');dot.classList.remove('is-visible')}
- function positionDot(){frame=0;dot.style.transform='translate3d('+x+'px,'+y+'px,0)'}
- document.addEventListener('pointermove',e=>{
-  if(innerWidth<768||!fine.matches||reduced.matches||e.pointerType!=='mouse'||e.target.closest('input,textarea,select,[contenteditable="true"],iframe')){hideDot();return}
-  const parent=e.target.closest('dialog[open]')||document.body;if(dot.parentElement!==parent)parent.append(dot);
-  x=e.clientX;y=e.clientY;if(!frame)frame=requestAnimationFrame(positionDot);
-  document.documentElement.classList.add('md-dot-active');dot.classList.add('is-visible');dot.classList.toggle('is-link',!!e.target.closest('a,button,summary'));
- },{passive:true});
- document.addEventListener('pointerout',e=>{if(!e.relatedTarget)hideDot()});
- document.addEventListener('keydown',hideDot);window.addEventListener('blur',hideDot);
- document.addEventListener('visibilitychange',()=>{if(document.hidden)hideDot()});
- document.addEventListener('close',()=>{if(dot.parentElement!==document.body)document.body.append(dot)},true);
- window.addEventListener('resize',hideDot);fine.addEventListener('change',hideDot);reduced.addEventListener('change',hideDot);
  return api;
 })();
