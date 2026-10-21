@@ -14,7 +14,7 @@ const runJson=js=>JSON.parse(run('JSON.stringify('+js+')'));
 assert.equal(run("PortalCompact.normalize({path:'contact',params:new URLSearchParams('intent=join')}).path"),'teams');
 assert.equal(run("PortalCompact.normalize({path:'contact',params:new URLSearchParams('intent=resource')}).path"),'upload');
 assert.equal(run("PortalCompact.normalize({path:'contact',params:new URLSearchParams()}).path"),'results');
-const home=run('home()');assert.ok(home.includes('98.1'));assert.ok(home.includes('84.9'));assert.ok(!home.includes('<img'));assert.ok(!home.includes('内容筹备中'));assert.ok(home.includes('2024 年历史结果示例'));
+const home=run('home()');assert.ok(home.includes('98.1'));assert.ok(home.includes('84.9'));assert.equal((home.match(/<img/g)||[]).length,2,'Only the two research picks have conceptual news covers');assert.ok(home.includes('mh-chart-canvas'));assert.ok(home.includes('mh-pair-canvas'));assert.ok(home.includes('2024-11-08'));for(const r of runJson('showcaseModels()')){assert.ok(home.includes('height:'+run('ResultExplorer.display('+r.score+')')+'%'));assert.ok(home.includes('GCG-T</span><b>'+run('ResultExplorer.display('+r.attack+')')),'Paired graph retains the exact source score');}assert.ok(!home.includes('内容筹备中'));assert.ok(home.includes('2024 年历史结果示例'));
 c.location.hash='#home?metric=attack';assert.ok(run('home()').includes('87.9'));assert.ok(run('home()').includes('metric=attack'));
 c.location.hash='#results?models=mini,gpt4o';assert.equal(run('ResultExplorer.select(route().params).list.length'),2);
 c.location.hash='#directions';assert.ok(!run('directionsPage()').includes('<img'));

@@ -22,5 +22,5 @@ const csv=api.csv(anthropic.list,anthropic.metric);assert.equal(csv.split('\r\n'
 c.location.hash='#results?benchmark=helm-safety&creator=Anthropic&metric=attack';const html=run("resultPanel('')");assert.equal((html.match(/data-result-model=/g)||[]).length,2);assert.equal((html.match(/class="compare-check"/g)||[]).length,2);assert.ok(html.includes('87.9'));assert.ok(html.includes('2024 年公开历史结果'));assert.ok(html.includes('data-result-export'));
 c.location.hash='#results?benchmark=helm-safety&model=missing';assert.ok(!run("resultPanel('')").includes('result-plot'));
 c.location.hash='#results?benchmark=agentdojo';assert.ok(!run("resultPanel('')").includes('result-plot'),'No chart may invent scores for a benchmark without recorded results');
-assert.ok(run('home()').includes('home-resource-search'));assert.ok(run('home()').includes('本期推荐'));assert.ok(!run('home()').includes('团队成果'));
+assert.ok(run('home()').includes('home-resource-search'));assert.ok(run('home()').includes('研究推荐'));assert.ok(!run('home()').includes('团队成果'));
 console.log('Results checks passed: source fidelity, 9 records, both settings, filtering, order, chart/table parity, CSV scope, honest empty states and homepage resource search.');

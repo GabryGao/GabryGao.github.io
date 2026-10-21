@@ -3,6 +3,12 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+同一模型，不同测试设置|One model, different test settings|同じモデル、異なるテスト設定|Ein Modell, verschiedene Testeinstellungen
+两种设置的分数对比|Score comparison across two settings|2 つの設定のスコア比較|Wertevergleich zwischen zwei Einstellungen
+测试设置如何影响结果|How test settings affect results|テスト設定が結果に与える影響|Wie Testeinstellungen die Ergebnisse beeinflussen
+相同模型版本与指标，对照两种设置下的分数。|The same model versions and metric, compared across two settings.|同じモデルのバージョンと指標で、2 つの設定のスコアを比較。|Gleiche Modellversionen und Metrik, verglichen unter zwei Einstellungen.
+查看数值|View values|数値を見る|Werte anzeigen
+精选评测与研究推荐|Selected evaluations and research picks|注目の評価と研究|Ausgewählte Evaluationen und Forschung
 研究资讯、解读与成果分享。|Research news, commentary and shared work.|研究ニュース・解説・成果共有。|Forschungsnachrichten, Beiträge und geteilte Ergebnisse.
 查看全部|View all|すべて見る|Alle ansehen
 评价指标|Evaluation metric|評価指標|Evaluationsmetrik

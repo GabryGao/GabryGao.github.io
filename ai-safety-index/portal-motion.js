@@ -8,7 +8,7 @@ var PortalMotion=(()=>{
  const easing='cubic-bezier(0.16, 1, 0.3, 1)';
  const seen=new WeakSet(),active=new Set();
  const cards='.library-card,.research-index-row,.topic-directory>a,.index-list>.bench-row,.news-list>.news-row,.resource-list>.resource-row,.hotspot-secondary>.hotspot-story';
- let page=null,intersection=null;
+ let page=null,intersection=null,lastRoute=null;
  function stop(){
   intersection?.disconnect();intersection=null;
   for(const animation of active)animation.cancel();active.clear();
@@ -39,15 +39,16 @@ var PortalMotion=(()=>{
  function refresh(){
   if(page===main.firstElementChild)return;
   page=main.firstElementChild;stop();
+  const routePath=location.hash.split('?')[0]||'#home',changedRoute=routePath!==lastRoute;lastRoute=routePath;
   const nodes=[...main.querySelectorAll(cards)];
   if(reduced.matches||document.hidden){for(const node of nodes)node.dataset.motionState='shown';return}
   // The lead illustration opens like an editorial cover, once per route visit.
-  const image=main.querySelector('.hotspot-art img,.aw-hero-image');
+  const image=main.querySelector('.hotspot-art img,.aw-hero-image'+(changedRoute?',.mh-story-cover img':''));
   if(image)play(image,[
    {clipPath:'inset(0 0 100% 0)',transform:'scale(1.045)'},
    {clipPath:'inset(0 0 0 0)',transform:'scale(1)'}
   ],{duration:760});
-  const title=main.querySelector('.page-head h1,.topic-heading h1,.hotspots-heading h1');
+  const title=main.querySelector('.page-head h1,.topic-heading h1,.hotspots-heading h1'+(changedRoute?',.mh-intro h1':''));
   if(title)play(title,[{opacity:.5,transform:'translateX(-14px)'},{opacity:1,transform:'translateX(0)'}],{duration:320});
   if(typeof IntersectionObserver==='undefined'){
    for(const node of nodes)node.dataset.motionState='shown';return;

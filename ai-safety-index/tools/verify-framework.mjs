@@ -11,7 +11,7 @@ for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','port
 }
 const run=js=>vm.runInContext(js,c);
 const home=run('home()');
-const sections=['cp-home-intro','cp-home-main','六大研究方向','研究分享','近期更新','关于平台','平台更新记录'];
+const sections=['mh-intro','mh-grid','六大研究方向','研究分享','近期更新','让更多人看到你的研究。','平台更新记录'];
 let pos=-1;for(const id of sections){const p=home.indexOf(id);assert.ok(p>pos,'Homepage order: '+id);pos=p;}
 for(const route of ['directions','news','benchmarks','teams','upload']){c.location.hash='#'+route;run('render()');assert.ok(el.innerHTML&&!el.innerHTML.includes('未找到这个页面'),route);}
 assert.equal(run('paperRecords.length'),490);
