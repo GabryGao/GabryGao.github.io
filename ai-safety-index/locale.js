@@ -174,6 +174,9 @@ OpenTAI 论文目录|OpenTAI paper catalog|OpenTAI 論文目録|OpenTAI-Publikat
 最新资讯|Latest news|最新ニュース|Neueste Meldungen
 研究解读|Research commentary|研究解説|Forschungsbeiträge
 成果分享|Research showcases|研究成果の共有|Forschungsergebnisse teilen
+目录核验|Catalog reviewed|カタログ確認|Katalog geprüft
+来源目录 · |Source catalog · |情報源カタログ・|Quellenkatalog ·
+成果条目来自人工整理与来源目录；结果状态表示资料可访问性，不代表可以跨基准比较。|Showcase entries come from editorial curation and the source catalog. Result availability describes access, not cross-benchmark comparability.|成果項目は編集整理と情報源カタログに基づきます。結果の状態はアクセス可能性を示し、ベンチマーク間の比較可能性を意味しません。|Die Einträge stammen aus redaktioneller Auswahl und dem Quellenkatalog. Der Ergebnisstatus beschreibt die Zugänglichkeit, nicht die Vergleichbarkeit zwischen Benchmarks.
 年份|Year|年|Jahr
 全部年份|All years|すべての年|Alle Jahre
 此栏目暂无已发布内容|No published content in this section|この項目にはまだ公開内容がありません|In diesem Bereich sind noch keine Inhalte veröffentlicht

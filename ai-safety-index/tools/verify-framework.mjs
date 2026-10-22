@@ -19,7 +19,8 @@ const automatic=run('allNews().filter(n=>n.automated)');assert.ok(automatic.leng
 assert.equal(new Set(run('allNews().map(n=>n.url)')).size,run('allNews().length'));
 assert.equal(run("PortalCompact.posts('','latest','','').length"),automatic.length);
 assert.equal(run("PortalCompact.posts('','analysis','','').length"),4);
-assert.equal(run("PortalCompact.posts('','share','','').length"),4);
+assert.equal(run('PortalCompact.catalogShowcases().length'),50);
+assert.equal(run("PortalCompact.posts('','share','','').length"),53);
 c.location.hash='#news?direction=physical-ai&q=unfindable-xz';assert.ok(run("newsPanel('physical-ai')").includes('此栏目暂无已发布内容'));
 c.location.hash='#news?origin=auto';assert.ok(!run("newsPanel('')").includes('历史资料'));
 const unsafe={id:'x',title:'<img src=x onerror=x>',label:'test',date:'2026-10-20',url:'https://example.com',source:'<script>',description:'<script>',direction_ids:[],automated:true};c.unsafe=unsafe;assert.ok(!run('newsRows([unsafe])').includes('<script>'));

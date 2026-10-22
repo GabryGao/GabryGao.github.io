@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const el={addEventListener(){},innerHTML:'',classList:{remove(){},toggle(){}},setAttribute(){},removeAttribute(){}};
 const c=vm.createContext({console,URL,URLSearchParams,location:{hash:'#home'},document:{querySelector:s=>s==='#main'?el:{...el},querySelectorAll:()=>[],addEventListener(){},title:''},window:{addEventListener(){},scrollTo(){}},setTimeout(){},clearTimeout(){},AbortController});
-for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js']){
+for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','source-catalog.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js']){
  vm.runInContext(fs.readFileSync(path.join(root,f),'utf8').replace(/\nrender\(\);\s*$/,'\n'),c,{filename:f});
 }
 const run=js=>vm.runInContext(js,c);
@@ -24,9 +24,10 @@ assert.ok(run('PortalSearch.search("Xinfeng").some(r=>r.category==="teams")'));a
 assert.ok(run('PortalSearch.search("AgentDojo","papers").every(r=>r.categories.has("papers"))'));
 assert.equal(run("PortalCompact.posts('','latest','','').length"),run('allNews().filter(n=>n.automated).length'));
 assert.equal(run("PortalCompact.posts('','analysis','','').length"),4);
-assert.equal(run("PortalCompact.posts('','share','','').length"),4);
+assert.equal(run('PortalCompact.catalogShowcases().length'),50);
+assert.equal(run("PortalCompact.posts('','share','','').length"),53);
 assert.ok(run("PortalCompact.posts('','share','','').every(n=>!n.automated&&n.type==='projects')"));
-c.location.hash='#news?content=share';assert.ok(run("newsPanel('')").includes('Model Spec Evals'));assert.ok(!run("newsPanel('')").includes('此栏目暂无已发布内容'));
+c.location.hash='#news?content=share';const showcases=run("newsPanel('')");assert.ok(showcases.includes('Model Spec Evals'));assert.ok(showcases.includes('TOFU'));assert.ok(showcases.includes('来源目录'));assert.ok(showcases.includes('1 / 5'));assert.ok(!showcases.includes('此栏目暂无已发布内容'));
 const submission=run('ResourceSubmission');await assert.rejects(()=>submission.send({}),/unconfigured/);submission.config.endpoint='https://example.invalid/test-only';await assert.rejects(()=>submission.send({},async()=>({ok:false})),/failed/);await assert.rejects(()=>submission.send({},async()=>({ok:true,json:async()=>({status:'ok'})})),/invalid_response/);assert.equal((await submission.send({},async()=>({ok:true,json:async()=>({status:'pending_review',receipt_id:'test'})}))).receipt_id,'test');submission.config.endpoint=null;
 assert.ok(run('uploadPage()').includes('hidden disabled'));assert.ok(run('uploadPage()').includes('提交渠道未接通'));assert.ok(run('uploadPage()').includes('name="authors"'));
 console.log('Compact portal checks passed: shared home scores, compact resource routes, legacy destinations, subtopic filtering, search deduplication, model subset, honest receiver state and validated failure/success responses.');
