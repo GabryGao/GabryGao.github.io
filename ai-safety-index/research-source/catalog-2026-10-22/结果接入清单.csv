@@ -1,0 +1,22 @@
+来源,关联编号,格式,内容,结果入口,本轮核验,接入要求,优先级
+TOFU,S013,CSV,6份CSV，132行方法/配置结果,https://huggingface.co/spaces/locuslab/tofu_leaderboard/tree/main/versions,已下载并解析,按模型与遗忘比例分组；Forget Quality/Utility 双指标,P1
+MUSE,S014,CSV,Books/News 各10行,https://huggingface.co/spaces/muse-bench/MUSE-Leaderboard/tree/main/submission,已下载并解析,privleak 接近零，不是越低越好；保留效用,P1
+HELM Safety / AIR-Bench,"S022,S028",GCS JSON/JSONL,官方公开桶，按版本/套件获取,https://crfm-helm.readthedocs.io/en/latest/downloading_raw_results/,已核实官方下载文档，未整桶下载,gs://crfm-helm-public/safety/benchmark_output 与 air-bench/benchmark_output；先取 release/summary 再按 suite 取汇总/必要运行，避免整桶下载,P1
+AI-Secure / DecodingTrust,S025,JSON,37份模型/配置文件，294条数值,https://huggingface.co/datasets/AI-Secure/llm-trustworthy-leaderboard-results,已下载并解析,原 aggregated-results 的归一化/方向待核；分量化配置；数据卡没标结果再分发许可,P1
+SALAD-Bench,S027,XLSX,13个工作表；按任务和层级分表,https://huggingface.co/spaces/OpenSafetyLab/Salad-Bench-Leaderboard/resolve/main/file/leaderboard.xlsx,已下载；另转13份CSV供查看,mcq_order 没有表头，不能直接套别的表结构；结果单位和方向按原协议核对,P1
+RobustBench,S043,JSON,236份模型/任务配置记录，508条指标值,https://github.com/RobustBench/robustbench,已下载并解析,model_info/<dataset>/<threat>/；保留 eps、架构、additional_data、unreliable/footnote,P1
+AgentDojo,S055,HTML表格+轨迹入口,28行配置结果，84条指标值,https://agentdojo.spylab.ai/results/,已下载并解析,Provider/Model/Defense/Attack；正常效用、攻击效用、Targeted ASR 三指标。原 Date 含异常旧值需核对,P1
+SafeBench（自动驾驶）,S087,HTML表格,9张表×11行，1089条分项指标值,https://safebench.github.io/leaderboard/index.html,已下载并解析,9张表包括 Overall 与8种场景；保留 State Space/算法，不将各场景当独立模型,P1
+SafeVLA-Bench,S149,HTML表格,两组共27行、108条指标值,https://safevla.org/leaderboard.html,已下载并解析,RoboCasa-365与LIBERO分组；Safety、SR、SBU、VSI分列；随机种子组在原文有说明,P1
+FLAMES,S118,README Markdown表格,17个模型标签，187条指标值,https://github.com/AI45Lab/Flames,已下载并解析,Harmless rate/score 分列；精确快照缺失时保留未知，不能叫当前排名,P1
+FinSafetyBench,S135,README表格+CSV题集,6模型×3攻击×4领域/语言分项，72条ASR,https://github.com/sustech-nlp/FinSafetyBench,已下载并解析结果表；题集路径已核实,data/FinsafetyBenchmark.csv；三攻击与中英分开，Average不重复算成新攻击,P1
+AILuminate,S023,网页评级/分项结果,按SUT、语言、基准/裁判版本,https://ailuminate.mlcommons.org/,公开结果页已读取，未完成自动提取,安全等级不是普通数值分；官方私有测试题与公开练习题分开,P1
+MLLMGuard,S049,JSON,2份结果JSON、10条分项,https://huggingface.co/spaces/Carol0110/MLLMGuardLeaderboard/tree/main/eval-results,已下载并解析,asd_*原定义需核；gpt-4v标签不代表精确API快照,P2
+R-Judge,S063,JSON原始输出,100个不安全案例及多模型分析输出,https://github.com/Lordog/R-Judge/tree/main/eval/results,已下载原始输出；未重新评分,不是现成F1/排名；需标签、风险识别评分协议和聚合。未运行付费模型调用,P2
+OpenUnlearning,S015,HTML表格嵌于Markdown,TOFU/MUSE基线表,https://github.com/locuslab/open-unlearning/blob/main/community/leaderboard.md,已下载；当前多为Finetuned/Retain基线,不当成包含所有论文方法的新榜；与原TOFU/MUSE版本区别,P2
+BBQ,S106,CSV/JSONL原始预测,API目录确认模型输出和16MB df_bbq.csv,https://github.com/nyu-mll/BBQ/tree/main/results,文件存在性/大小已确认，未整批下载/聚合,按官方analysis_scripts计算群体偏见和准确率；非现成模型总分,P2
+DPMLBench,S168,统计数据+脚本,原论文统计在 origin_data/,https://github.com/DmsKinson/DPMLBench,已核实README说明，未解析统计文件,要同时记录ε/δ、成员推断协议和任务效用,P2
+AgentDyn,S065,运行日志,论文结果在 runs/,https://github.com/SaFo-Lab/AgentDyn/tree/main/runs,已核实README说明，未下载完整runs,大目录，本轮递归列表超过读取上限；后续按单次运行/汇总文件取数,P2
+CyberAI Observatory,P003,CSV+完整JSON,CSV 282记录；含数值/非数值及配置,https://github.com/hongkun16/cyberai-observatory,已下载CSV与audit.json,公开报告二次整理，按每行 sourceUrl/section/pages 回原文；能力高不等于安全高；代码MIT不代表整理数据已获再分发许可,P2
+Artificial Analysis,P004,REST API / MCP,API需key；分Free/Pro/Commercial,https://artificialanalysis.ai/data-api/docs,官方接口与套餐说明已核实；未使用账户或密钥,页面与API数据有署名/外部再分发条款；公网站点接入前按官方许可取得相应权利,待权限
+Control Leaderboard,P021,Inspect .eval日志,公开轨迹可下载，部分未公开日志需登录,https://control-leaderboard.redwoodresearch.org/data,官方下载说明已读取；未下载轨迹,监控器/策略/攻击与诚实运行分开；各数据集和轨迹许可独立；部分结果有访问条件,P2

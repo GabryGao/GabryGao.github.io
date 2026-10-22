@@ -1,0 +1,16 @@
+.source-card dl,
+.source-card dl div,
+.source-card dt,
+.source-card dd {
+  min-width: 0;
+}
+
+.source-card dd {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .source-card dl div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

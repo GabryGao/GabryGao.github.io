@@ -37,6 +37,7 @@ jobs:
           node tools/verify-compact.mjs
           node tools/verify-locales.mjs
           node tools/verify-watch.mjs
+          node tools/verify-sources.mjs
           python3 -m unittest discover -s tools -p 'test_update_news.py'
       - name: Commit updated metadata
         run: |

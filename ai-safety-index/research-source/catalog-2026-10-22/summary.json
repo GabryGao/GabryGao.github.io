@@ -1,0 +1,31 @@
+{
+  "resources": 171,
+  "directions": {
+    "数据与隐私安全": 23,
+    "基础模型安全": 38,
+    "智能体与 AI 软件系统安全": 32,
+    "物理 AI 安全": 28,
+    "人机交互与社会安全": 28,
+    "AI+X 与 AI4Science 安全": 22
+  },
+  "by_priority": {
+    "P2 扩展": 105,
+    "P1 目录": 18,
+    "P3 辅助": 35,
+    "P1 看板": 13
+  },
+  "by_result_state": {
+    "论文/图表": 78,
+    "公开榜单": 29,
+    "待核验": 17,
+    "工具/环境": 26,
+    "已下载结果": 13,
+    "公开结果文件": 7,
+    "已下载原始输出": 1
+  },
+  "portals": 21,
+  "historical_candidates": 149,
+  "historical_candidates_with_related_ids": 41,
+  "result_files": 291,
+  "numeric_examples": 2696
+}

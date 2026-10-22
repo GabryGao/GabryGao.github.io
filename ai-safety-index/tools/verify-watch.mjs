@@ -11,7 +11,7 @@ function element(key){
  return elements.get(key);
 }
 const context=vm.createContext({console,URLSearchParams,URL:{createObjectURL(){return 'blob:test'},revokeObjectURL(){}},Blob:class{},FormData:class{constructor(){this.values=new Map()}get(){return ''}},location:{hash:'#watch'},document:{title:'',activeElement:element('active'),querySelector:element,querySelectorAll:()=>[],addEventListener(){},createElement:()=>element('created')},window:{addEventListener(){},scrollTo(){},innerWidth:1280},setTimeout:()=>0,clearTimeout(){}});
-for(const file of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js','portal-watch.js']){
+for(const file of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','source-catalog.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js','portal-watch.js','portal-sources.js']){
  const code=fs.readFileSync(path.join(root,file),'utf8').replace(/\nrender\(\);\s*$/,'\n');vm.runInContext(code,context,{filename:file});
 }
 vm.runInContext('render()',context);
@@ -28,4 +28,5 @@ const home=elements.get('#main').innerHTML;
 assert.match(home,/watch-home-strip/);
 assert.match(home,/最近发生了什么？/);
 assert.match(home,/href="#watch"/);
-console.log('Watch checks passed: homepage status strip, route, recent flow, topic signals, daily brief, source status and exports.');
+assert.match(home,/href="#sources"/);
+console.log('Watch checks passed: homepage status strip, source shortcut, route, recent flow, topic signals, daily brief, source status and exports.');

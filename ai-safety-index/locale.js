@@ -3,6 +3,80 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+来源目录|Source catalog|情報源カタログ|Quellenkatalog
+AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源カタログ|Quellenkatalog für KI-Sicherheitsdaten
+把基准、数据集、工具、环境、结果入口与核验证据分开记录，先回答资料从哪里来，再讨论能否比较。|Records benchmarks, datasets, tools, environments, result entry points and verification evidence separately. Establish provenance before comparing results.|ベンチマーク、データセット、ツール、環境、結果入口、検証証拠を分けて記録し、比較の前に出典を明確にします。|Erfasst Benchmarks, Datensätze, Tools, Umgebungen, Ergebniseinstiege und Prüfbelege getrennt. Vor Vergleichen wird zuerst die Herkunft geklärt.
+打开离线浏览器|Open offline browser|オフライン閲覧版を開く|Offline-Browser öffnen
+已核验资源|Reviewed resources|確認済み資料|Geprüfte Ressourcen
+参考入口|Reference portals|参照ポータル|Referenzportale
+历史候选|Historical candidates|過去の候補|Historische Kandidaten
+结果文件清单|Result-file manifest|結果ファイル一覧|Ergebnisdatei-Verzeichnis
+资源目录|Resource catalog|資料カタログ|Ressourcenkatalog
+公开数据包|Public data package|公開データパッケージ|Öffentliches Datenpaket
+来源目录栏目|Source catalog sections|情報源カタログの項目|Bereiche des Quellenkatalogs
+来源目录统计|Source catalog statistics|情報源カタログ統計|Statistik des Quellenkatalogs
+搜索来源|Search sources|情報源を検索|Quellen durchsuchen
+名称、主题、指标或备注|Name, topic, metric or note|名称・分野・指標・注記|Name, Thema, Metrik oder Notiz
+结果形态|Result availability|Ergebnisform|Ergebnisform
+全部形态|All result types|すべての結果形式|Alle Ergebnisformen
+目录优先级|Catalog priority|カタログ優先度|Katalogpriorität
+全部优先级|All priorities|すべての優先度|Alle Prioritäten
+项符合当前条件|match the current filters|件が現在の条件に一致|entsprechen den aktuellen Filtern
+评测或用途|Evaluation or purpose|評価または用途|Evaluation oder Zweck
+接入说明|Integration notes|接続メモ|Integrationshinweise
+结果入口|Result source|結果入口|Ergebnisquelle
+数据条件与许可|Data conditions and licensing|データ条件とライセンス|Datenbedingungen und Lizenzierung
+公开元数据|Public metadata|公開メタデータ|Öffentliche Metadaten
+受限访问|Restricted access|アクセス制限あり|Eingeschränkter Zugriff
+核验证据|Verification evidence|検証証拠|Prüfbeleg
+没有符合条件的来源|No sources match the filters|条件に一致する情報源はありません|Keine Quellen entsprechen den Filtern
+调整关键词或筛选条件后重试。|Adjust the query or filters and try again.|キーワードまたは絞り込み条件を変更してください。|Suchbegriff oder Filter anpassen und erneut versuchen.
+公开索引与研究接入文件|Public indexes and research integration files|公開索引と研究接続ファイル|Öffentliche Indizes und Forschungsdateien
+公开的是目录、摘要、结果接入样例和文件校验清单。许可未确认的网页证据与结果快照不在本站镜像，请从记录中的原始 URL 获取。|The site publishes catalogs, summaries, result-integration samples and checksum manifests. Web evidence and result snapshots with unconfirmed redistribution rights are not mirrored; use the original URLs in each record.|公開するのはカタログ、要約、結果接続サンプル、検証用一覧です。再配布権が未確認のウェブ証拠と結果スナップショットは複製せず、各記録の原 URL を使用してください。|Veröffentlicht werden Kataloge, Zusammenfassungen, Integrationsbeispiele und Prüfsummenlisten. Webbelege und Ergebnis-Snapshots mit ungeklärten Weitergaberechten werden nicht gespiegelt; bitte die Original-URLs verwenden.
+使用边界|Usage boundaries|利用上の境界|Nutzungsgrenzen
+171 项包含基准、数据集、工具、环境、报告与结果入口，不等于 171 个正式安全基准。|The 171 items include benchmarks, datasets, tools, environments, reports and result entry points; they are not 171 formal safety benchmarks.|171 件にはベンチマーク、データセット、ツール、環境、報告、結果入口が含まれ、171 件の正式な安全ベンチマークを意味しません。|Die 171 Einträge umfassen Benchmarks, Datensätze, Tools, Umgebungen, Berichte und Ergebniseinstiege; sie sind keine 171 formalen Sicherheitsbenchmarks.
+2696 条指标是 10 个项目的接入样例，不提供跨基准总分或当前模型排名。|The 2,696 metrics are integration samples from 10 projects, not an overall cross-benchmark score or current model ranking.|2,696 件の指標は 10 プロジェクトの接続サンプルであり、ベンチマーク横断の総合点や現在のモデル順位ではありません。|Die 2.696 Metriken sind Integrationsbeispiele aus 10 Projekten und keine benchmarkübergreifende Gesamtwertung oder aktuelle Modellrangliste.
+历史候选来自已停止更新的目录，未逐项重新核验；正式收录前仍需检查版本、许可与原始证据。|Historical candidates come from a discontinued directory and were not rechecked item by item; verify versions, licenses and original evidence before formal inclusion.|過去の候補は更新停止済みのカタログに由来し、個別の再確認は行っていません。正式収録前に版、ライセンス、原証拠を確認してください。|Historische Kandidaten stammen aus einem eingestellten Verzeichnis und wurden nicht einzeln erneut geprüft. Vor formaler Aufnahme sind Version, Lizenz und Originalbelege zu prüfen.
+结果比较必须保留基准版本、任务、模型快照、框架、防护、预算与评分器。|Result comparisons must preserve benchmark version, task, model snapshot, framework, safeguards, budget and evaluator.|結果比較では、ベンチマーク版、タスク、モデルスナップショット、フレームワーク、防護、予算、評価器を保持する必要があります。|Ergebnisvergleiche müssen Benchmark-Version, Aufgabe, Modell-Snapshot, Framework, Schutzmaßnahmen, Budget und Bewerter beibehalten.
+目录核验日期：|Catalog review date:\u00a0|カタログ確認日：|Prüfdatum des Katalogs:\u00a0
+未知值保持为空，抓取日期不视为测试日期，历史成绩不标记为最新排名。|Unknown values remain blank. Retrieval dates are not test dates, and historical results are not labeled as current rankings.|不明値は空欄のままにします。取得日はテスト日ではなく、過去の成績を最新順位として表示しません。|Unbekannte Werte bleiben leer. Abrufdaten sind keine Testdaten, und historische Ergebnisse werden nicht als aktuelle Rangliste bezeichnet.
+论文/图表|Paper or figure|論文・図表|Publikation oder Abbildung
+公开榜单|Public leaderboard|公開リーダーボード|Öffentliche Rangliste
+待核验|Pending verification|確認待ち|Prüfung ausstehend
+工具/环境|Tool or environment|ツール・環境|Tool oder Umgebung
+已下载结果|Downloaded results|取得済み結果|Heruntergeladene Ergebnisse
+公开结果文件|Public result file|公開結果ファイル|Öffentliche Ergebnisdatei
+已下载原始输出|Downloaded raw output|取得済み生出力|Heruntergeladene Rohausgabe
+P1 看板|P1 dashboard|P1 ダッシュボード|P1 Dashboard
+P1 目录|P1 catalog|P1 カタログ|P1 Katalog
+P2 扩展|P2 expansion|P2 拡張|P2 Erweiterung
+P3 辅助|P3 supporting|P3 補助|P3 Ergänzend
+离线来源浏览器|Offline source browser|オフライン情報源ブラウザー|Offline-Quellenbrowser
+包含资源、入口与历史候选的独立筛选页面|Standalone filtering page for resources, portals and historical candidates|資料・入口・過去候補を検索できる独立ページ|Eigenständige Filterseite für Ressourcen, Portale und historische Kandidaten
+六大方向来源清单 CSV|Six-topic source list CSV|6 分野の情報源一覧 CSV|Quellenliste der sechs Themen als CSV
+171 项资源的表格版本|Tabular version of the 171 resources|171 件の資料の表形式版|Tabellarische Fassung der 171 Ressourcen
+结构化来源目录 JSON|Structured source catalog JSON|構造化情報源カタログ JSON|Strukturierter Quellenkatalog als JSON
+资源、数据入口、许可备注与核验记录|Resources, data entry points, license notes and review records|資料・データ入口・ライセンス注記・確認記録|Ressourcen, Dateneinstiege, Lizenzhinweise und Prüfprotokolle
+入口与参考网站 CSV|Portals and reference sites CSV|入口・参考サイト CSV|Portale und Referenzseiten als CSV
+21 个聚合入口、知识库与参考站|21 aggregators, knowledge bases and reference sites|21 件の集約入口・知識ベース・参考サイト|21 Aggregatoren, Wissensbasen und Referenzseiten
+历史候选线索 CSV|Historical candidate leads CSV|過去候補の手掛かり CSV|Historische Kandidatenhinweise als CSV
+149 项未逐项重核的历史目录线索|149 historical directory leads not rechecked item by item|個別再確認していない 149 件の過去カタログ候補|149 historische Verzeichnishinweise ohne Einzelprüfung
+结果接入清单 CSV|Result integration list CSV|結果接続一覧 CSV|Liste der Ergebnisintegration als CSV
+21 个结果获取路径与访问状态|21 result retrieval paths and access states|21 件の結果取得経路とアクセス状態|21 Abrufpfade und Zugriffsstatus für Ergebnisse
+评测结果样例 CSV|Evaluation result samples CSV|評価結果サンプル CSV|Beispiele für Evaluationsergebnisse als CSV
+2696 条接入样例；不是跨基准排名|2,696 integration samples; not a cross-benchmark ranking|2,696 件の接続サンプル。ベンチマーク横断順位ではありません|2.696 Integrationsbeispiele; keine benchmarkübergreifende Rangliste
+评测结果样例 JSON|Evaluation result samples JSON|評価結果サンプル JSON|Beispiele für Evaluationsergebnisse als JSON
+与 CSV 对应的结构化接入样例|Structured integration samples matching the CSV|CSV に対応する構造化接続サンプル|Strukturierte Integrationsbeispiele passend zur CSV
+评测结果汇总 JSON|Evaluation result summary JSON|評価結果要約 JSON|Zusammenfassung der Evaluationsergebnisse als JSON
+按项目与结果形态整理的汇总信息|Summary grouped by project and result form|プロジェクトと結果形式別の要約|Nach Projekt und Ergebnisform gruppierte Zusammenfassung
+结果文件清单 JSON|Result-file manifest JSON|結果ファイル一覧 JSON|Ergebnisdatei-Verzeichnis als JSON
+291 份研究快照的原始 URL 与 SHA-256|Original URLs and SHA-256 hashes for 291 research snapshots|291 件の研究スナップショットの原 URL と SHA-256|Original-URLs und SHA-256 für 291 Forschungs-Snapshots
+汇总统计 JSON|Summary statistics JSON|集計統計 JSON|Zusammenfassende Statistik als JSON
+资源、方向、状态与文件数量|Counts by resource, topic, state and file|資料・分野・状態・ファイル数|Anzahl nach Ressource, Thema, Status und Datei
+原始资料包说明|Original package notes|元資料パッケージ説明|Hinweise zum Originalpaket
+资料包内容、使用要点与核验边界|Package contents, usage notes and review boundaries|パッケージ内容、利用要点、確認範囲|Paketinhalt, Nutzungshinweise und Prüfgrenzen
+公开包说明|Public package notes|公開パッケージ説明|Hinweise zum öffentlichen Paket
+已发布文件与未镜像快照的边界说明|Boundary between published files and snapshots not mirrored here|公開ファイルと未複製スナップショットの境界説明|Abgrenzung zwischen veröffentlichten Dateien und nicht gespiegelten Snapshots
 动态观察台|Research observatory|研究観測台|Forschungsbeobachtung
 最近发生了什么？|What happened recently?|最近の動き|Was ist zuletzt passiert?
 从公开来源、研究方向和复核状态进入最新 AI 安全动态。|Enter the latest AI safety updates through public sources, research topics and review status.|公開情報源、研究分野、確認状況から最新の AI 安全動向を確認できます。|Aktuelle Entwicklungen zur KI-Sicherheit nach öffentlichen Quellen, Forschungsthemen und Prüfstatus erkunden.
@@ -102,6 +176,7 @@ OpenTAI 论文目录|OpenTAI paper catalog|OpenTAI 論文目録|OpenTAI-Publikat
 没有找到匹配内容|No matching content found|一致する内容がありません|Keine passenden Inhalte gefunden
 试试更简短的关键词，或切换内容类型。|Try a shorter query or another content type.|短いキーワードか別の種類で検索してください。|Einen kürzeren Suchbegriff oder einen anderen Inhaltstyp versuchen.
 搜索论文、作者、主题、工具或成员|Search papers, authors, topics, tools or people|論文・著者・分野・ツール・メンバーを検索|Publikationen, Autoren, Themen, Tools oder Mitglieder suchen
+搜索论文、作者、主题、工具、来源或成员|Search papers, authors, topics, tools, sources or people|論文・著者・分野・ツール・情報源・メンバーを検索|Publikationen, Autoren, Themen, Tools, Quellen oder Mitglieder suchen
 返回评测看板|Back to evaluation dashboard|評価ダッシュボードへ戻る|Zurück zum Evaluationsdashboard
 提交渠道未接通，目前只能下载草稿，尚不能正式提交。|Submission is not connected yet. You can download a draft, but cannot submit it for review.|受付先はまだ接続されていません。下書きは保存できますが、正式な提出はできません。|Der Empfangskanal ist noch nicht verbunden. Ein Entwurf kann heruntergeladen, aber noch nicht zur Prüfung eingereicht werden.
 提交类型|Contribution purpose|提出の目的|Zweck des Beitrags

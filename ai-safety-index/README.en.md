@@ -6,11 +6,12 @@ Website: https://gabrygao.github.io/ai-safety-index/
 
 [简体中文](README.md) · English · [日本語](README.ja.md)
 
-Open: [Research Observatory](https://gabrygao.github.io/ai-safety-index/#watch) · [Papers](https://gabrygao.github.io/ai-safety-index/#papers) · [Evaluation Dashboard](https://gabrygao.github.io/ai-safety-index/#results) · [Research Topics](https://gabrygao.github.io/ai-safety-index/#directions)
+Open: [Research Observatory](https://gabrygao.github.io/ai-safety-index/#watch) · [Source Catalog](https://gabrygao.github.io/ai-safety-index/#sources) · [Papers](https://gabrygao.github.io/ai-safety-index/#papers) · [Evaluation Dashboard](https://gabrygao.github.io/ai-safety-index/#results) · [Research Topics](https://gabrygao.github.io/ai-safety-index/#directions)
 
 ## What is included
 
 - A research observatory with a 72-hour update flow, 30-day topic signals, a daily brief, source health and JSON/CSV exports.
+- A reviewed catalog of 171 resources, 21 reference portals, 149 historical candidates and a checksum manifest for 291 result files.
 - 490 paper records organized across six overlapping research topics, plus data, tools and multilingual search.
 - Six benchmark records and source-linked HELM Safety 2024 historical results with model versions and test settings.
 - Chinese, English, Japanese and German interfaces that switch in place without resetting the current route or filters.
@@ -36,11 +37,12 @@ node tools/verify-results.mjs
 node tools/verify-compact.mjs
 node tools/verify-locales.mjs
 node tools/verify-watch.mjs
+node tools/verify-sources.mjs
 python3 -m unittest discover -s tools -p 'test_update_news.py'
 ```
 
-The workflow template for the parent GitHub Pages repository is in `deployment/github-pages-update-news.yml`. It expects this site at `ai-safety-index/` and should be copied to the repository root under `.github/workflows/` only after scheduled write access is approved.
+The active repository workflow is `.github/workflows/update-ai-safety-index.yml`. The matching site-local template remains in `deployment/github-pages-update-news.yml`.
 
 ## Data boundaries
 
-The observatory currently covers configured public feeds and editorial records; it is not comprehensive news monitoring. Evaluation records preserve source versions and conditions and must not be interpreted as a current overall safety ranking.
+The observatory currently covers configured public feeds and editorial records; it is not comprehensive news monitoring. The 171 source records include benchmarks, datasets, tools, environments, reports and result entry points; they are not 171 formal benchmarks. The 2,696 result rows are integration samples from 10 projects, not a cross-benchmark ranking. Evidence and result snapshots with unconfirmed redistribution rights are not mirrored.

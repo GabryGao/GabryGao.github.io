@@ -1,0 +1,22 @@
+编号,入口,用途,地址,当前状态,说明,核验日期
+P001,现有 AI Safety Index,当前站点基线,https://gabrygao.github.io/ai-safety-index/,当前可读取,当前基准目录6条示例；看板默认展示2024 HELM Safety/HarmBench的9条历史结果，可切换两种设置。以本轮浏览为准，未更改线上网站。,2026-10-22
+P002,Caption,文件与网页阅读工具,https://caption-purple.web.app/,当前可读取,本轮浏览显示为文章/文件阅读工具，有3篇示例阅读。可参考资料整理交互，不列作AI安全分数源。,2026-10-22
+P003,CyberAI Observatory,网络能力评测聚合,https://github.com/hongkun16/cyberai-observatory,当前可读取,公开报告与结构化成绩聚合；已取得结果CSV/JSON。没有独立重跑原评测；使用每行原始证据。,2026-10-22
+P004,Artificial Analysis,模型比较与数据接口,https://artificialanalysis.ai/data-api/docs,当前可读取,已核实API v2文档：需要key，Free/Pro/Commercial数据范围及再分发权益不同。未登录、未开通或付费。,2026-10-22
+P005,OpenTAI VisionSafety,视觉安全评测入口源码,https://github.com/OpenTAI/VisionSafety,本轮404/读取失败；暂不接入,Exa能找到历史仓库线索，但本轮GitHub/README为404；OpenTAI网页本轮浏览超时。暂不视作可接入数据。,2026-10-22
+P006,OpenTAI taiadv,视觉对抗攻击防御工具与基准,https://github.com/OpenTAI/taiadv,本轮404/读取失败；暂不接入,本轮GitHub/README为404；仅保留历史线索，暂不接入。,2026-10-22
+P007,OpenTAI taibackdoor,视觉后门攻击防御工具与基准,https://github.com/OpenTAI/taibackdoor,本轮404/读取失败；暂不接入,本轮GitHub/README为404；仅保留历史线索，暂不接入。,2026-10-22
+P008,OpenTAI wild-deepfake,野外人脸伪造检测数据,https://github.com/OpenTAI/wild-deepfake,当前可读取,仓库可读、重定向到当前仓库，官方HF数据入口可读；用于伪造检测专题，数据与代码许可分别检查。,2026-10-22
+P009,SafetyPrompts.com,安全数据集目录,https://safetyprompts.com/,当前可读取,149项历史安全数据目录与原始Google Sheet CSV已取得；网站明确2025年5月停止更新。适合扩展发现，附表未逐项重核，不并入171项计数。,2026-10-22
+P010,Inspect Evals,评测任务实现目录,https://github.com/UKGovernmentBEIS/inspect_evals,当前可读取,官方任务实现集合，有助于寻找原始数据与评分协议；实现可运行不等于已有公开模型成绩。,2026-10-22
+P011,OpenCompass,评测配置与榜单来源,https://github.com/open-compass/opencompass,当前可读取,评测配置/数据来源/结果发现入口；取具体数据与任务版本，勿把总能力榜当安全榜。,2026-10-22
+P012,Hugging Face 数据集 API,结构化数据读取方法,https://huggingface.co/docs/dataset-viewer/en/index,当前可读取,按官方文档用公开数据读取接口；gated、私有或禁用的数据需遵守相应访问条件。,2026-10-22
+P013,MIT AI Risk Repository,风险分类与原始研究,https://airisk.mit.edu/,当前可读取,风险分类与研究来源库，适合研究方向与热点标签；不是模型评测排行榜。,2026-10-22
+P014,AI Incident Database,真实事件与风险案例,https://incidentdatabase.ai/research/snapshots/,当前可读取,官方提供事件数据库历史快照和Excel导出；可补真实风险案例，不是基准成绩。,2026-10-22
+P015,AVID,AI 漏洞与风险事件,https://github.com/avidml/avid-db,当前可读取,GitHub仓库可访问但README极少，本轮未核实数据结构；后续确认实际数据文件再收录。,2026-10-22
+P016,HELM 结果下载文档,官方结果与预测下载说明,https://crfm-helm.readthedocs.io/en/latest/reproducing_leaderboards/,当前可读取,此页主要讲重跑榜单；实际下载请看Downloading Raw Results（结果接入清单已给链接）。,2026-10-22
+P017,AILuminate 官方结果,危害类别分项评级,https://ailuminate.mlcommons.org/,当前可读取,官方公开分项评级，private official test与public practice分开，不按首页列出的语言推断所有语言都可下载。,2026-10-22
+P018,TrustLLM 官方结果,可信维度分项结果,https://trustllmbenchmark.github.io/TrustLLM-Website/leaderboard.html,当前可读取,官方多维结果页可读；分项表可能需前端数据解析，未将其宣称为已取得CSV。,2026-10-22
+P019,AI-Secure HF 结果数据,安全榜单结构化结果,https://huggingface.co/datasets/AI-Secure/llm-trustworthy-leaderboard-results,当前可读取,已取得37份config/results JSON；元数据当前未标许可；历史、量化/精度设置及原指标定义需保留。,2026-10-22
+P020,AI Alliance Evals,可信安全评测入口目录,https://the-ai-alliance.github.io/trust-safety-evals/leaderboards/leaderboards/,当前可读取,可信安全评测入口目录，用来继续发现项目；不是统一数据许可证。,2026-10-22
+P021,Control Leaderboard,智能体监督轨迹结果,https://control-leaderboard.redwoodresearch.org/data,当前可读取,公开轨迹结果下载页；部分文件待发布须登录，不绕过限制。许可与可访问性逐数据集记录。,2026-10-22

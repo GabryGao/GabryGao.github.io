@@ -15,6 +15,7 @@ for(const lang of ['en','ja','de']){
   const t=api.translate(s,lang);assert.ok(t!==s,`${lang}: ${s}`);assert.ok(!/[\u3400-\u9fff]/u.test(t)||lang==='ja',`${lang} left source text: ${t}`);
  }
  for(const s of ['动态观察台','最近发生了什么？','近 72 小时记录','当前主要信号','打开动态观察台','近 72 小时信息流','近期主题信号','每日研究简报','来源与数据状态'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated observatory UI: ${s}`);
+ for(const s of ['来源目录','AI 安全数据来源目录','已核验资源','参考入口','历史候选','结果文件清单','资源目录','公开数据包','使用边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated source catalog UI: ${s}`);
  assert.equal(api.translate('HELM Safety v1.0',lang),'HELM Safety v1.0');
  assert.equal(api.translate('A Study of Agent Safety',lang),'A Study of Agent Safety');
  assert.equal(api.translate('   论文资料 ↗ ',lang),'   '+api.translate('论文资料',lang)+' ↗ ');

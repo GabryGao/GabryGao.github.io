@@ -1,11 +1,15 @@
 {
-  "generated_on": "2026-10-22T05:50:01.184Z",
+  "generated_on": "2026-10-22T09:46:35.654Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
     "papers": 490,
     "benchmarks": 6,
-    "automated_news": 30
+    "automated_news": 30,
+    "source_catalog": 171,
+    "reference_portals": 21,
+    "historical_candidates": 149,
+    "result_file_manifest": 291
   },
   "feeds": {
     "generated_on": "2026-10-22T05:20:35Z",
