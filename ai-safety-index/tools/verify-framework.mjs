@@ -6,14 +6,14 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const el={addEventListener(){},innerHTML:'',classList:{remove(){},toggle(){}},setAttribute(){},removeAttribute(){}};
 const c=vm.createContext({console,URL,URLSearchParams,location:{hash:'#home'},document:{querySelector:s=>s==='#main'?el:{...el},querySelectorAll:()=>[],addEventListener(){},title:''},window:{addEventListener(){},scrollTo(){}},setTimeout(){},clearTimeout(){},AbortController});
-for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js']){
+for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js','portal-watch.js']){
  vm.runInContext(fs.readFileSync(path.join(root,f),'utf8').replace(/\nrender\(\);\s*$/,'\n'),c,{filename:f});
 }
 const run=js=>vm.runInContext(js,c);
 const home=run('home()');
 const sections=['mh-intro','mh-grid','六大研究方向','研究分享','近期更新','让更多人看到你的研究。','平台更新记录'];
 let pos=-1;for(const id of sections){const p=home.indexOf(id);assert.ok(p>pos,'Homepage order: '+id);pos=p;}
-for(const route of ['directions','news','benchmarks','teams','upload']){c.location.hash='#'+route;run('render()');assert.ok(el.innerHTML&&!el.innerHTML.includes('未找到这个页面'),route);}
+for(const route of ['directions','watch','news','benchmarks','teams','upload']){c.location.hash='#'+route;run('render()');assert.ok(el.innerHTML&&!el.innerHTML.includes('未找到这个页面'),route);}
 assert.equal(run('paperRecords.length'),490);
 const automatic=run('allNews().filter(n=>n.automated)');assert.ok(automatic.length>0);
 assert.equal(new Set(run('allNews().map(n=>n.url)')).size,run('allNews().length'));
@@ -27,9 +27,10 @@ const locale=fs.readFileSync(path.join(root,'locale.js'),'utf8');assert.ok(!/loc
 const bundled=run('JSON.parse(JSON.stringify({info:liveNewsInfo,records:liveAutomatedNews}))');
 c.location.hash='#upload';
 const countBefore=run('allNews().length');
-c.fetch=async()=>({ok:true,json:async()=>({info:{...bundled.info,generated_on:'2026-10-21T01:00:00Z'},records:[{...bundled.records[0],url:'javascript:alert(1)'}]})});
+const newer=new Date(Date.parse(bundled.info.generated_on)+60000).toISOString();
+c.fetch=async()=>({ok:true,json:async()=>({info:{...bundled.info,generated_on:newer},records:[{...bundled.records[0],url:'javascript:alert(1)'}]})});
 await run('refreshPublicNews()');assert.equal(run('allNews().length'),countBefore);assert.equal(run('liveNewsInfo.generated_on'),bundled.info.generated_on);
-c.fetch=async()=>({ok:true,json:async()=>({info:{...bundled.info,generated_on:'2026-10-21T01:00:00Z'},records:bundled.records})});
-const contentBefore=el.innerHTML;await run('refreshPublicNews()');assert.equal(el.innerHTML,contentBefore,'Background news updates must not rerender a resource draft');assert.equal(run('liveNewsInfo.generated_on'),'2026-10-21T01:00:00Z');
+c.fetch=async()=>({ok:true,json:async()=>({info:{...bundled.info,generated_on:newer},records:bundled.records})});
+const contentBefore=el.innerHTML;await run('refreshPublicNews()');assert.equal(el.innerHTML,contentBefore,'Background news updates must not rerender a resource draft');assert.equal(run('liveNewsInfo.generated_on'),newer);
 c.fetch=async()=>{throw Error('offline')};await run('refreshPublicNews()');assert.equal(run('allNews().length'),countBefore,'Offline updates retain usable records');
-console.log('Framework checks passed: homepage sequence, five routes, shared papers, merged news, empty filters, escaped metadata, honest resource submission state, stable locale contract.');
+console.log('Framework checks passed: homepage sequence, six routes, shared papers, merged news, empty filters, escaped metadata, honest resource submission state, stable locale contract.');

@@ -12,6 +12,7 @@ AI Safety Index · 2026-10-21
 
 数据与功能
 490 条书目源记录，其中 487 条来自固定版本的 OpenTAI；搜索合并相同公开来源及匹配题名的别名，并保留跨方向标签。书目收录不代表复现论文结论。
+动态观察台提供近 72 小时信息流、近 30 日主题信号、每日简报、来源健康状态和 JSON/CSV 导出。全部由现有公开记录生成，不伪造热点或结论。
 6 条基准记录；9 个模型的 HELM Safety 2024 历史结果有明确来源与两种设置。显示分数为原报告 0–1 数值乘以100，不代表当前总体安全排名。
 评测主入口默认打开看板：方向/基准/版本/指标/设置/机构/模型/排序，横条图、明细表、CSV 和筛选分享链接使用同一批记录。
 三个评测标签：评测看板、基准目录、方法与说明。上传资源位于标题右侧。
@@ -31,6 +32,7 @@ resource-submission.js 提供接收端契约：HTTPS JSON POST；成功必须返
 portal-compact.js / .css：最终页面、共用图表记录与紧凑资源子页。
 portal-showcase.css：首页的 Madeo 式错落图表布局。
 portal-search.js：去重的共享搜索。
+portal-watch.js / .css：动态观察台、筛选、来源状态与公开数据导出。
 portal-results.js：历史结果选择、CSV 与底层交互。
 resource-submission.js：资源/成果表单及接收端状态。
 locale.js：四语言；research-source/：书目、新闻、评测来源。
@@ -43,5 +45,7 @@ node tools/verify-results.mjs
 node tools/verify-compact.mjs
 node tools/verify-locales.mjs
 node tools/verify-navigation.mjs
+node tools/verify-watch.mjs
+node tools/build-status.mjs
 
 素材的原始来源、生成记录与字体许可证均保留在 assets/。

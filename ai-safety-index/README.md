@@ -4,6 +4,19 @@
 
 访问：https://gabrygao.github.io/ai-safety-index/
 
+简体中文 · [English](README.en.md) · [日本語](README.ja.md)
+
+快速入口：[动态观察台](https://gabrygao.github.io/ai-safety-index/#watch) · [论文资料](https://gabrygao.github.io/ai-safety-index/#papers) · [评测看板](https://gabrygao.github.io/ai-safety-index/#results) · [研究方向](https://gabrygao.github.io/ai-safety-index/#directions)
+
+## 当前能力
+
+- 动态观察台：近 72 小时信息流、近 30 日主题信号、每日简报、来源健康状态和 JSON/CSV 导出。
+- 研究资料：490 条论文记录、六大研究方向、数据与工具、全站检索和四语界面。
+- 评测证据：6 项基准，HELM Safety 2024 历史结果保留模型版本、任务设置、来源和 CSV 导出。
+- 可维护配置：`status.json`、来源 provenance、更新脚本、验证脚本和 GitHub Actions 模板。
+
+观察台只聚合已配置的公开来源与人工精选记录。自动条目明确标记待复核，收录不表示认可相关主张。
+
 本目录为纯静态网站，无需登录；使用相对资源路径与 hash 导航。GitHub Pages 从 GabryGao/GabryGao.github.io 仓库 main 分支根目录发布，本网站位于 ai-safety-index 子目录。
 
 热点人工精选，保留方向标签、来源与发布日期。评测记录保留模型版本、指标和测试条件。字体许可证、图片来源随 assets 保存。
@@ -41,6 +54,6 @@ The team page intentionally awaits confirmed identities. Contact channels are no
 
 News combines editorial records with up to 30 keyword-matched metadata entries from OpenAI and Google DeepMind public RSS. Automated titles remain in their original language, with translated UI labels marking them as unreviewed. Collection dates, publisher dates and source health are retained in `research-source/news-feed-provenance.json`. This is limited publisher coverage, not a complete or editorially approved news stream.
 
-Run `python3 tools/update-news.py` to update. Transport uses TLS-validating curl with fixed public URLs, a 20-second request deadline, 25-second process cap and 4 MiB cap. No paid APIs or article bodies are used. A failed source retains its previous metadata. A proposed repository workflow would schedule collection once daily. It is not installed: enabling a persistent task with repository write permissions awaits explicit user approval. Until then, refresh metadata manually with the command above. The browser can read the public raw JSON, with bundled metadata as its offline fallback. Background updates never rerender a draft or reset filters; an open news view offers an explicit refresh.
+Run `python3 tools/update-news.py` to update. Transport uses TLS-validating curl with fixed public URLs, a 20-second request deadline, 25-second process cap and 4 MiB cap. No paid APIs or article bodies are used. A failed source retains its previous metadata. The repository workflow at `.github/workflows/update-ai-safety-index.yml` refreshes the feed and `status.json` daily, runs the static checks, and commits metadata only when it changes. `deployment/github-pages-update-news.yml` is the matching site-local template. The browser can read the public raw JSON, with bundled metadata as its offline fallback. Background updates never rerender a draft or reset filters; an open news view offers an explicit refresh.
 
-Checks: `node tools/verify-framework.mjs`, `node tools/verify-locales.mjs`, `node tools/verify-paper-import.mjs`, `node tools/verify-motion.mjs`, and `python3 -m unittest discover -s tools -p 'test_update_news.py'`. The expanded fixture covers 949 UI strings. Keep original titles, URLs and in-place locale behavior intact.
+Checks: `node tools/verify-framework.mjs`, `node tools/verify-locales.mjs`, `node tools/verify-watch.mjs`, `node tools/verify-paper-import.mjs`, `node tools/verify-motion.mjs`, and `python3 -m unittest discover -s tools -p 'test_update_news.py'`. Run `node tools/build-status.mjs` after data updates. Keep original titles, URLs and in-place locale behavior intact.

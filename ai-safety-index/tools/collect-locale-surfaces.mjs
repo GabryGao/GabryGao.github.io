@@ -9,11 +9,11 @@ function element(key){
  return elements.get(key);
 }
 const context=vm.createContext({console,URLSearchParams,location:{hash:''},document:{title:'',activeElement:element('active'),querySelector:element,querySelectorAll:()=>[],addEventListener(){}},window:{addEventListener(){},scrollTo(){},innerWidth:1280},setTimeout:()=>0,clearTimeout(){}});
-for(const file of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js']){
+for(const file of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','portal-results.js','portal-compact.js','portal-search.js','resource-submission.js','portal-watch.js']){
  const code=fs.readFileSync(path.join(root,file),'utf8').replace(/\nrender\(\);\s*$/,'\n');vm.runInContext(code,context,{filename:file});
 }
 const directions=vm.runInContext('researchDirections',context),benchmarks=vm.runInContext('benchmarkData',context);
-const routes=['home','directions','papers','papers?page=25','papers?q=notfound','datasets','datasets?direction=data-privacy','benchmarks','benchmarks?q=notfound','results','methods','news','news?direction=data-privacy','news?q=notfound','about','teams','contact','upload','upload?direction=physical-ai','news?origin=auto','news?content=analysis','news?content=share','news?year=2026','results?models=mini,gpt4o','results?creator=OpenAI&metric=attack','contact?intent=join','contact?intent=resource','unknown'];
+const routes=['home','watch','watch?direction=agent-software','watch?origin=auto','watch?q=security','directions','papers','papers?page=25','papers?q=notfound','datasets','datasets?direction=data-privacy','benchmarks','benchmarks?q=notfound','results','methods','news','news?direction=data-privacy','news?q=notfound','about','teams','contact','upload','upload?direction=physical-ai','news?origin=auto','news?content=analysis','news?content=share','news?year=2026','results?models=mini,gpt4o','results?creator=OpenAI&metric=attack','contact?intent=join','contact?intent=resource','unknown'];
 for(let i=1;i<=25;i++)routes.push('papers?page='+i);
 for(const d of directions)for(const view of ['overview','papers','datasets','benchmarks','results'])routes.push('directions?pillar='+d.id+'&view='+view);
 for(const b of benchmarks)routes.push('benchmark/'+b.id,'results?benchmark='+b.id,'results?benchmark='+b.id+'&metric=attack');

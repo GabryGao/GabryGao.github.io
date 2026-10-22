@@ -1,0 +1,47 @@
+name: Update AI Safety Index feeds
+
+on:
+  schedule:
+    - cron: "20 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-safety-index-feed-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Refresh public feed metadata
+        working-directory: ai-safety-index
+        run: python3 tools/update-news.py
+      - name: Build public status
+        working-directory: ai-safety-index
+        run: node tools/build-status.mjs
+      - name: Verify the static portal
+        working-directory: ai-safety-index
+        run: |
+          node tools/verify-framework.mjs
+          node tools/verify-results.mjs
+          node tools/verify-compact.mjs
+          node tools/verify-locales.mjs
+          node tools/verify-watch.mjs
+          python3 -m unittest discover -s tools -p 'test_update_news.py'
+      - name: Commit updated metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ai-safety-index/news-feed.js ai-safety-index/research-source/news-feed-provenance.json ai-safety-index/status.json
+          git diff --cached --quiet || git commit -m "chore: refresh AI safety index feeds"
+          git push

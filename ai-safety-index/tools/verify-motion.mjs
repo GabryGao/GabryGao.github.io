@@ -14,7 +14,7 @@ function setup({reduced=false,intersection=true}={}){
  const document={querySelector:()=>main,activeElement:null,hidden:false,addEventListener(type,fn){listeners[type]=fn}};
  class IO{constructor(fn){this.fn=fn;this.watched=new Set();observers.push(this)}observe(e){this.watched.add(e)}unobserve(e){this.watched.delete(e)}disconnect(){this.watched.clear()}}
  class MO{constructor(fn){this.fn=fn;mutations.push(this)}observe(target,opts){this.opts=opts;this.target=target}}
- const c=vm.createContext({document,window:{matchMedia:()=>preference},MutationObserver:MO,...(intersection?{IntersectionObserver:IO}:{}),console});
+ const c=vm.createContext({document,location:{hash:'#home'},window:{matchMedia:()=>preference},MutationObserver:MO,...(intersection?{IntersectionObserver:IO}:{}),console});
  vm.runInContext(source,c);
  return {calls,observers,mutations,listeners,first,second,preference,main,document,next(){page={};cards=[el()];mutations[0].fn([{type:'childList',target:main}]);return cards[0]}};
 }

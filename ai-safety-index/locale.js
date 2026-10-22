@@ -3,6 +3,52 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+动态观察台|Research observatory|研究観測台|Forschungsbeobachtung
+最近发生了什么？|What happened recently?|最近の動き|Was ist zuletzt passiert?
+从公开来源、研究方向和复核状态进入最新 AI 安全动态。|Enter the latest AI safety updates through public sources, research topics and review status.|公開情報源、研究分野、確認状況から最新の AI 安全動向を確認できます。|Aktuelle Entwicklungen zur KI-Sicherheit nach öffentlichen Quellen, Forschungsthemen und Prüfstatus erkunden.
+近 72 小时记录|Records in the last 72 hours|過去 72 時間の資料|Einträge der letzten 72 Stunden
+当前主要信号|Leading current signal|現在の主要シグナル|Aktuell stärkstes Signal
+打开动态观察台|Open research observatory|研究観測台を開く|Forschungsbeobachtung öffnen
+暂无主题信号|No topic signal yet|分野シグナルはまだありません|Noch kein Themensignal
+AI 安全动态观察台|AI safety research observatory|AI 安全性リサーチ観測台|Beobachtungsstelle für KI-Sicherheit
+把公开资讯、研究方向与来源状态放在同一视图中，快速判断最近发生了什么，并回到原文核对。|See public updates, research topics and source health in one view, understand recent activity, and verify it at the original source.|公開情報・研究分野・情報源の状態を一つの画面で確認し、最近の動きを把握して原文で検証できます。|Öffentliche Meldungen, Forschungsthemen und Quellenstatus in einer Ansicht erfassen und an der Originalquelle prüfen.
+当前记录|Current records|現在の資料|Aktuelle Einträge
+近 72 小时|Last 72 hours|過去 72 時間|Letzte 72 Stunden
+人工精选|Editorial picks|編集部選定|Redaktionell ausgewählt
+待复核采集|Collected, pending review|収集済み・確認待ち|Erfasst, Prüfung ausstehend
+搜索动态|Search updates|動向を検索|Aktualisierungen suchen
+搜索标题、来源或安全议题|Search titles, sources or safety topics|題名・情報源・安全分野を検索|Titel, Quellen oder Sicherheitsthemen suchen
+收录方式|Collection method|収録方法|Erfassungsart
+全部记录|All records|すべての資料|Alle Einträge
+自动采集|Automated collection|自動収集|Automatisch erfasst
+筛选|Filter|絞り込む|Filtern
+资料更新流程|Resource update workflow|資料更新フロー|Aktualisierungsablauf
+公开来源|Public sources|公開情報源|Öffentliche Quellen
+元数据筛选|Metadata filtering|メタデータ選別|Metadatenfilterung
+研究方向关联|Topic linking|研究分野との関連付け|Themenzuordnung
+人工复核|Human review|人による確認|Manuelle Prüfung
+来源更新正常|Sources updated successfully|情報源の更新は正常です|Quellen erfolgreich aktualisiert
+部分来源更新失败|Some sources failed to update|一部の情報源を更新できませんでした|Einige Quellen konnten nicht aktualisiert werden
+使用最近一次成功快照|Using the latest successful snapshot|直近の成功スナップショットを使用|Letzten erfolgreichen Datenstand verwenden
+近 72 小时信息流|Updates from the last 72 hours|過去 72 時間の情報フロー|Meldungen der letzten 72 Stunden
+按公开来源发布日期排列；自动条目仍需人工复核。|Ordered by publisher date; automated records still require human review.|公開元の発表日順です。自動収集項目は引き続き確認が必要です。|Nach Veröffentlichungsdatum sortiert; automatisch erfasste Einträge müssen noch geprüft werden.
+查看全部|View all|すべて見る|Alle ansehen
+近期主题信号|Recent topic signals|最近の分野シグナル|Aktuelle Themensignale
+按近 30 日记录的研究方向聚合，不代表风险排名。|Grouped by research topic across the last 30 days; this is not a risk ranking.|過去 30 日の研究分野別の集計であり、リスク順位ではありません。|Nach Forschungsthemen der letzten 30 Tage gruppiert; keine Risikorangliste.
+每日研究简报|Daily research brief|デイリー研究ブリーフ|Tägliches Forschungsbriefing
+同一天的最新记录放在一起，保留原始标题与来源。|Groups the latest records from the same day while preserving original titles and sources.|同日の最新資料をまとめ、原題と情報源を保持します。|Fasst die neuesten Einträge eines Tages zusammen und bewahrt Originaltitel und Quellen.
+最新发布日期|Latest publication date|最新の発表日|Letztes Veröffentlichungsdatum
+来源与数据状态|Source and data status|情報源とデータの状態|Quellen- und Datenstatus
+抓取失败时保留上一次成功快照，不把缺失误写为零。|Keeps the last successful snapshot after a fetch failure instead of reporting missing data as zero.|取得に失敗した場合は直近の成功スナップショットを保持し、欠落をゼロとして扱いません。|Behält bei Abruffehlern den letzten erfolgreichen Datenstand, statt fehlende Daten als null auszugeben.
+最近抓取成功|Latest fetch succeeded|直近の取得に成功|Letzter Abruf erfolgreich
+抓取失败，保留旧记录|Fetch failed; previous records retained|取得失敗・以前の資料を保持|Abruf fehlgeschlagen; vorherige Einträge beibehalten
+导出 JSON|Export JSON|JSON を出力|JSON exportieren
+查看来源记录|View provenance|出典記録を見る|Quellennachweis ansehen
+当前筛选没有可用记录。|No records match the current filters.|現在の条件に一致する資料はありません。|Keine Einträge entsprechen den aktuellen Filtern.
+当前筛选在近 72 小时内没有记录。|No records match the current filters in the last 72 hours.|現在の条件では過去 72 時間の資料がありません。|Keine passenden Einträge in den letzten 72 Stunden.
+当前筛选没有主题信号。|No topic signals match the current filters.|現在の条件に一致する分野シグナルはありません。|Keine Themensignale entsprechen den aktuellen Filtern.
+其他安全议题|Other safety topics|その他の安全分野|Weitere Sicherheitsthemen
+当前仅覆盖已配置的公开来源和人工精选记录，不构成完整新闻监测，也不代表平台认可相关主张。|Coverage is limited to configured public sources and editorial picks. It is not comprehensive news monitoring and does not imply endorsement.|対象は設定済みの公開情報源と編集部選定資料に限られます。網羅的なニュース監視ではなく、内容への支持を意味しません。|Die Abdeckung ist auf konfigurierte öffentliche Quellen und redaktionelle Auswahl begrenzt; sie ist weder vollständig noch eine Billigung der Aussagen.
 同一模型，不同测试设置|One model, different test settings|同じモデル、異なるテスト設定|Ein Modell, verschiedene Testeinstellungen
 两种设置的分数对比|Score comparison across two settings|2 つの設定のスコア比較|Wertevergleich zwischen zwei Einstellungen
 测试设置如何影响结果|How test settings affect results|テスト設定が結果に与える影響|Wie Testeinstellungen die Ergebnisse beeinflussen
@@ -811,6 +857,8 @@ function translate(value,language){
  out=out.replace(/当前范围：/g,at('Current scope: ','現在の範囲：','Aktueller Bereich: '));
  out=out.replace(/这个方向还没有收录 (.+?) 的正式条目。/g,(_,n)=>at(`No confirmed ${n} entries in this topic yet.`,`この分野には ${n} の正式な項目がまだありません。`,`Für ${n} liegen in diesem Thema noch keine bestätigten Einträge vor.`));
  out=out.replace(/(\d+) 个相关(?:记录|示例)/g,(_,n)=>at(`${n} related records`,`${n} 件の関連資料`,`${n} verwandte Einträge`));
+ out=out.replace(/(\d+) 条近 30 日记录/g,(_,n)=>at(`${n} records in the last 30 days`,`過去 30 日の資料 ${n} 件`,`${n} Einträge in den letzten 30 Tagen`));
+ out=out.replace(/(\d+) 条记录，来自 (\d+) 个公开来源。以下为元数据索引，不代替原文核对。/g,(_,records,sources)=>at(`${records} records from ${sources} public sources. This metadata index does not replace checking the originals.`,`公開情報源 ${sources} 件から ${records} 件。メタデータ索引であり、原文確認の代わりにはなりません。`,`${records} Einträge aus ${sources} öffentlichen Quellen. Dieser Metadatenindex ersetzt nicht die Prüfung der Originale.`));
  // One pass over source fragments: never re-translate translated output.
  keys ||= ordered();
  fragmentPattern ||= new RegExp(keys.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
