@@ -42,7 +42,7 @@ var PortalWatch=(()=>{
  }
  function flowRow(row){
   const primary=row.direction_ids[0];
-  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer" data-keep-original>'+esc(row.title)+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'自动采集 · 待复核':'人工精选')+'</p></div></article>';
+  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer" data-keep-original>'+esc(row.title)+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'AI Safety HOT · 自动同步':'人工精选')+'</p></div></article>';
  }
  function signalRows(list){
   const cutoff=generatedAt().getTime()-30*24*60*60*1000,counts=new Map();

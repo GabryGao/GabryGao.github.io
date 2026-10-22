@@ -22,12 +22,12 @@ c.location.hash='#directions?pillar=agent-software&subtopic='+encodeURIComponent
 assert.ok(run('compactUniquePapers().length<=paperRecords.length'));assert.equal(run('compactUniquePapers().filter(r=>r.url.includes("2311.17600")).length'),1);assert.ok(!run('teamsPage()').includes('<img'));assert.ok(run('teamsPage()').includes('Xinfeng Li'));
 assert.ok(run('PortalSearch.search("Xinfeng").some(r=>r.category==="teams")'));assert.ok(run('PortalSearch.search("AgentDojo").length>0'));const search=runJson('PortalSearch.records().filter(r=>!["articles","teams"].includes(r.category)).map(r=>r.href)');assert.equal(new Set(search).size,search.length,'Each canonical resource occurs once');
 assert.ok(run('PortalSearch.search("AgentDojo","papers").every(r=>r.categories.has("papers"))'));
-assert.equal(run("PortalCompact.posts('','latest','','').length"),run('allNews().filter(n=>n.automated).length'));
-assert.equal(run("PortalCompact.posts('','analysis','','').length"),4);
-assert.equal(run('PortalCompact.catalogShowcases().length'),50);
-assert.equal(run("PortalCompact.posts('','share','','').length"),53);
-assert.ok(run("PortalCompact.posts('','share','','').every(n=>!n.automated&&n.type==='projects')"));
-c.location.hash='#news?content=share';const showcases=run("newsPanel('')");assert.ok(showcases.includes('Model Spec Evals'));assert.ok(showcases.includes('TOFU'));assert.ok(showcases.includes('来源目录'));assert.ok(showcases.includes('1 / 5'));assert.ok(!showcases.includes('此栏目暂无已发布内容'));
+assert.equal(run('PortalCompact.stories().length'),run('allNews().filter(n=>n.automated).length'));
+assert.ok(run("PortalCompact.posts('','latest','','').length")>0);
+assert.ok(run("PortalCompact.posts('','analysis','','').length")>0);
+assert.equal(run("PortalCompact.posts('','share','','').length"),5);
+assert.ok(run("PortalCompact.posts('','share','','').every(n=>n.automated&&n.type==='projects'&&n.source_id==='aisafetyhot'&&n.paper_pick)"));
+c.location.hash='#news?content=share';const showcases=run("newsPanel('')");assert.ok(showcases.includes('AI Safety HOT'));assert.ok(showcases.includes('原始来源'));assert.ok(showcases.includes('evaluating refusal transfer'));assert.ok(!showcases.includes('来源目录'));assert.ok(!showcases.includes('此栏目暂无已发布内容'));
 const submission=run('ResourceSubmission');await assert.rejects(()=>submission.send({}),/unconfigured/);submission.config.endpoint='https://example.invalid/test-only';await assert.rejects(()=>submission.send({},async()=>({ok:false})),/failed/);await assert.rejects(()=>submission.send({},async()=>({ok:true,json:async()=>({status:'ok'})})),/invalid_response/);assert.equal((await submission.send({},async()=>({ok:true,json:async()=>({status:'pending_review',receipt_id:'test'})}))).receipt_id,'test');submission.config.endpoint=null;
 assert.ok(run('uploadPage()').includes('hidden disabled'));assert.ok(run('uploadPage()').includes('提交渠道未接通'));assert.ok(run('uploadPage()').includes('name="authors"'));
 console.log('Compact portal checks passed: shared home scores, compact resource routes, legacy destinations, subtopic filtering, search deduplication, model subset, honest receiver state and validated failure/success responses.');

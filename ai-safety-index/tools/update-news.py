@@ -1,52 +1,69 @@
 #!/usr/bin/env python3
-"""Refresh bounded, unreviewed news metadata from public primary-source feeds.
-
-Run from any directory: python3 tools/update-news.py
-No API keys, dependencies, article crawling, translation, or copied abstracts.
-The source publication date is distinct from the collection timestamp. Topic
-and type assignments are keyword suggestions, never editorial verification.
-"""
+"""Refresh the public AI Safety HOT snapshot used by the static portal."""
 import argparse
 from datetime import date, datetime, timezone
-from email.utils import parsedate_to_datetime
 from hashlib import sha256
 from html import unescape
 from html.parser import HTMLParser
+import ipaddress
 import json
 from pathlib import Path
 import re
 import subprocess
 import tempfile
 import urllib.parse
-import xml.etree.ElementTree as ET
 
-MAX_BYTES = 4 * 1024 * 1024
-MAX_RECORDS = 30
+API_URL = 'https://aisafetyhot.com/api/v1/items'
+HOME_URL = 'https://aisafetyhot.com/en'
+SOURCE = {
+    'id': 'aisafetyhot',
+    'name': 'AI Safety HOT',
+    'url': HOME_URL,
+    'api_url': API_URL,
+    'hosts': ['aisafetyhot.com'],
+    'language': 'en',
+}
+MAX_BYTES = 2 * 1024 * 1024
+MAX_PAGES = 5
+PAGE_LIMIT = 20
+MAX_ARTICLES = MAX_PAGES * PAGE_LIMIT
+MAX_PAPER_PICKS = 5
+MAX_RECORDS = MAX_ARTICLES + MAX_PAPER_PICKS
 TIMEOUT = 20
-SOURCES = [
-    {'id': 'openai', 'name': 'OpenAI News', 'url': 'https://openai.com/news/rss.xml',
-     'home_url': 'https://openai.com/news/', 'hosts': ['openai.com', 'www.openai.com'], 'language': 'en'},
-    {'id': 'deepmind', 'name': 'Google DeepMind', 'url': 'https://deepmind.google/blog/rss.xml',
-     'home_url': 'https://deepmind.google/blog/', 'hosts': ['deepmind.google'], 'language': 'en'},
-]
-# Match title + publisher category only. Bodies/abstracts are neither retained
-# nor used as evidence: incidental mentions there produce too many false hits.
-TOPICS = [
-    ('隐私与数据保护', 'data-privacy', r'privacy|private data|data leakage|data protection|membership inference|unlearning|data poisoning|backdoor'),
-    ('安全与对齐', 'foundation-model', r'safety|safely|safe[- ]completions?|alignment|misalignment|misaligned|aligned|aligning|jailbreak\w*|robustness|hallucinat\w*|interpretability|scheming|system card|preparedness|frontier risks?|red[- ]team\w*'),
-    ('网络与系统安全', 'agent-software', r'security|cybersecurity|cyber|prompt injections?|vulnerabilit\w*|malware'),
-    ('社会与使用风险', 'human-societal', r'child safety|teen safety|harmful manipulation|scam\w*|disinformation|misinformation|fairness|bias|responsible ai|ai governance|ai risks?|safeguard\w*'),
-]
-CONTEXTS = [
-    ('agent-software', r'agent\w*|tool use|tool[- ]using|software'),
-    ('physical-ai', r'robot\w*|physical ai|autonomous vehicles?|embodied'),
-    ('human-societal', r'child\w*|teen\w*|human|social|societ\w*|manipulat\w*'),
-    ('ai-x-science', r'biolog\w*|biosecurity|chemical|chemistry|scientific|science|health|medical'),
-]
 
-
-def matches(pattern, text):
-    return re.search(r'(?<!\w)(?:' + pattern + r')(?!\w)', text, re.I) is not None
+CATEGORY_LABELS = {
+    'ai_news': 'AI 资讯',
+    'alignment': '对齐',
+    'attack': '攻击与越狱',
+    'defense': '防御与护栏',
+    'eval': '评测',
+    'incident': '安全事件',
+    'industry': '产业动态',
+    'policy': '政策与治理',
+    'research': '研究进展',
+    'tip': '安全实践',
+}
+ANALYSIS_CATEGORIES = {'alignment', 'defense', 'eval', 'opinion', 'policy', 'research', 'tip'}
+KEYWORD_DIRECTIONS = [
+    ('data-privacy', r'privacy|personal data|data leak|data protection|membership|training data|poison|backdoor|unlearn'),
+    ('physical-ai', r'robot|robotic|embodied|autonomous vehicle|self-driving|drone|physical ai'),
+    ('ai-x-science', r'biosecurity|biolog|medical|healthcare|clinical|chemical|chemistry|drug discovery|scientific'),
+    ('agent-software', r'\bagents?\b|agentic|tool use|\bmcp\b|prompt injection|software|code execution|cyber|vulnerabilit|malware|browser|computer use|supply chain'),
+    ('human-societal', r'\bpolicy\b|regulat|governance|\blaw\b|\belections?\b|misinformation|disinformation|scam|fraud|child|teen|labor|surveillance|military|societ'),
+    ('foundation-model', r'alignment|jailbreak|refusal|reward hack|hallucinat|interpretability|benchmark|evaluat|\bllm\b|language model|foundation model|reasoning|model safety'),
+]
+CATEGORY_DIRECTIONS = {
+    'ai_news': ['human-societal'],
+    'alignment': ['foundation-model'],
+    'attack': ['foundation-model', 'agent-software'],
+    'defense': ['foundation-model'],
+    'eval': ['foundation-model'],
+    'incident': ['agent-software', 'human-societal'],
+    'industry': ['human-societal'],
+    'policy': ['human-societal'],
+    'research': ['foundation-model'],
+    'tip': ['agent-software'],
+}
 
 
 class PlainText(HTMLParser):
@@ -58,175 +75,209 @@ class PlainText(HTMLParser):
         self.parts.append(data)
 
 
-def plain_text(value):
+def plain_text(value, limit=500):
     parser = PlainText()
     parser.feed(unescape(value or ''))
-    return re.sub(r'\s+', ' ', ''.join(parser.parts)).strip()[:500]
+    return re.sub(r'\s+', ' ', ''.join(parser.parts)).strip()[:limit]
 
 
-def safe_url(value, source):
-    if not value or re.search(r'[\x00-\x20\x7f<>"\\]', value):
+def safe_url(value, required_host=None):
+    if not isinstance(value, str) or re.search(r'[\x00-\x20\x7f<>"\\]', value):
         return None
     try:
         parsed = urllib.parse.urlsplit(value)
-        if (parsed.scheme != 'https' or parsed.hostname not in source['hosts']
-                or parsed.username or parsed.password or parsed.port not in (None, 443)):
+        if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
             return None
+        if parsed.port not in (None, 443):
+            return None
+        host = parsed.hostname.lower().rstrip('.')
+        if required_host and host != required_host:
+            return None
+        if host in {'localhost', 'localhost.localdomain'} or host.endswith('.local'):
+            return None
+        try:
+            address = ipaddress.ip_address(host)
+            if not address.is_global:
+                return None
+        except ValueError:
+            pass
     except ValueError:
         return None
     query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
-    query = [(k, v) for k, v in query if not k.lower().startswith('utm_')
-             and k.lower() not in ('fbclid', 'gclid')]
-    return urllib.parse.urlunsplit(('https', parsed.hostname,
-                                   parsed.path.rstrip('/') or '/',
-                                   urllib.parse.urlencode(query), ''))
+    query = [(key, item) for key, item in query
+             if not key.lower().startswith('utm_') and key.lower() not in ('fbclid', 'gclid')]
+    return urllib.parse.urlunsplit(('https', host, parsed.path or '/', urllib.parse.urlencode(query), ''))
 
 
-def source_date(value, today):
-    try:
-        value = value.strip()
-        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
-            result = date.fromisoformat(value)
-        else:
-            try:
-                parsed = parsedate_to_datetime(value)
-            except (ValueError, TypeError):
-                parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
+def source_date(*values, today):
+    for value in values:
+        if not isinstance(value, str) or not value.strip():
+            continue
+        try:
+            parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
             if parsed.tzinfo is None:
-                return None
+                continue
             result = parsed.astimezone(timezone.utc).date()
-        if result > date.fromisoformat(today) or result.year < 2000:
-            return None
-        return result.isoformat()
-    except (ValueError, TypeError, OverflowError, AttributeError):
+            if date(2000, 1, 1) <= result <= date.fromisoformat(today):
+                return result.isoformat()
+        except (ValueError, TypeError, OverflowError):
+            continue
+    return None
+
+
+def directions_for(title, summary='', tags=None, category=''):
+    text = ' '.join([title or '', summary or '', category or '', *(tags or [])]).lower()
+    directions = [direction for direction, pattern in KEYWORD_DIRECTIONS
+                  if re.search(pattern, text, re.I)]
+    for direction in CATEGORY_DIRECTIONS.get(category, ['foundation-model']):
+        if direction not in directions:
+            directions.append(direction)
+    return directions[:3]
+
+
+def article_record(item, today):
+    if not isinstance(item, dict) or not isinstance(item.get('id'), str):
         return None
+    title = plain_text(item.get('title') or item.get('originalTitle'), 300)
+    summary = plain_text(item.get('summary'), 240)
+    links = item.get('links') if isinstance(item.get('links'), dict) else {}
+    aihot_url = safe_url(links.get('aihot'), 'aisafetyhot.com')
+    original_url = safe_url(links.get('original'))
+    published = source_date(item.get('publishedAt'), item.get('discoveredAt'), today=today)
+    if not title or not aihot_url or not published:
+        return None
+    category = plain_text(item.get('category'), 50).lower() or 'research'
+    tags = [plain_text(tag, 80) for tag in item.get('tags', []) if plain_text(tag, 80)][:12]
+    source = item.get('source') if isinstance(item.get('source'), dict) else {}
+    source_name = plain_text(source.get('name'), 120) or 'AI Safety HOT'
+    label = CATEGORY_LABELS.get(category, category.replace('_', ' ').title())
+    return {
+        'id': 'aihot-' + item['id'],
+        'title': title,
+        'type': 'reports',
+        'label': 'AI Safety HOT · ' + label,
+        'date': published,
+        'order': published,
+        'source': source_name,
+        'source_id': SOURCE['id'],
+        'description': summary or 'AI Safety HOT 公开条目；请进入条目页和原始来源核对内容。',
+        'url': aihot_url,
+        'original_url': original_url,
+        'language': 'en',
+        'direction_ids': directions_for(title, summary, tags, category),
+        'terms': [label, *tags],
+        'automated': True,
+        'verified': False,
+        'content_kind': 'analysis' if category in ANALYSIS_CATEGORIES else 'latest',
+        'aihot_category': category,
+        'aihot_score': item.get('score') if isinstance(item.get('score'), (int, float)) else None,
+        'aihot_selected': item.get('selected') is True,
+    }
 
 
-def child_text(node, name):
-    child = next((c for c in node if c.tag.rsplit('}', 1)[-1] == name), None)
-    return ''.join(child.itertext()).strip() if child is not None else ''
+def paper_record(item, today):
+    if not isinstance(item, dict) or not isinstance(item.get('id'), str):
+        return None
+    title = plain_text(item.get('title') or item.get('originalTitle'), 300)
+    links = item.get('links') if isinstance(item.get('links'), dict) else {}
+    aihot_url = safe_url(links.get('aihot'), 'aisafetyhot.com')
+    original_url = safe_url(links.get('original'))
+    published = source_date(item.get('publishedAt'), item.get('publishedDate'), today=today)
+    if not title or not aihot_url or not published:
+        return None
+    return {
+        'id': 'aihot-paper-' + item['id'],
+        'title': title,
+        'type': 'projects',
+        'label': 'AI Safety HOT · 精选论文',
+        'date': published,
+        'order': published,
+        'source': 'AI Safety HOT',
+        'source_id': SOURCE['id'],
+        'description': 'AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。',
+        'url': aihot_url,
+        'original_url': original_url,
+        'language': 'en',
+        'direction_ids': directions_for(title),
+        'terms': ['精选论文', 'AI Safety HOT'],
+        'automated': True,
+        'verified': False,
+        'content_kind': 'share',
+        'paper_pick': True,
+    }
 
 
-def parse_feed(payload, source, today):
+def parse_page(payload, today):
     if len(payload) > MAX_BYTES:
-        raise ValueError('Feed exceeds size limit')
-    # Expat does not fetch external entities, but reject all DTD/entity syntax
-    # explicitly before parsing, including UTF-16/32 encodings with null bytes.
-    if re.search(br'<!\s*(?:DOCTYPE|ENTITY)\b', payload.replace(b'\x00', b''), re.I):
-        raise ValueError('DTD and entity declarations are forbidden')
+        raise ValueError('API response exceeds size limit')
     try:
-        root = ET.fromstring(payload)
-    except ET.ParseError as error:
-        raise ValueError('Malformed feed XML') from error
-    if root.tag.rsplit('}', 1)[-1] not in ('rss', 'feed', 'RDF'):
-        raise ValueError('Unsupported feed document')
-    nodes = [node for node in root.iter() if node.tag.rsplit('}', 1)[-1] in ('item', 'entry')]
-    if not nodes:
-        raise ValueError('Feed has no entries; keeping previous source data')
-    language = next((plain_text(node.text) for node in root.iter()
-                     if node.tag.rsplit('}', 1)[-1] == 'language'), source['language'])
-    rows = []
-    for node in nodes:
-        title = plain_text(child_text(node, 'title'))
-        categories = [plain_text(c.text or c.get('term', '')) for c in node
-                      if c.tag.rsplit('}', 1)[-1] == 'category']
-        text = title + ' ' + ' '.join(categories)
-        hits = [(label, direction) for label, direction, pattern in TOPICS if matches(pattern, text)]
-        if not hits:
-            continue
-        directions = list(dict.fromkeys(direction for _, direction in hits))
-        directions.extend(direction for direction, pattern in CONTEXTS
-                          if direction not in directions and matches(pattern, text))
-        link = child_text(node, 'link')
-        if not link:
-            link = next((c.get('href', '') for c in node
-                         if c.tag.rsplit('}', 1)[-1] == 'link'
-                         and c.get('rel', 'alternate') == 'alternate'), '')
-        url = safe_url(link, source)
-        published = source_date(child_text(node, 'pubDate') or child_text(node, 'published')
-                                or child_text(node, 'date'), today)
-        if not title or not url or not published:
-            continue
-        terms = [label for label, _ in hits]
-        rows.append({
-            'id': 'auto-' + sha256(url.encode()).hexdigest()[:16],
-            'title': title,
-            'type': 'projects' if matches(r'benchmark\w*|dataset\w*|open[- ]source|tool\w*|introducing|releasing|release|eval\w*', text) else 'reports',
-            'label': '自动采集 · 待复核', 'date': published, 'order': published,
-            'source': source['name'], 'source_id': source['id'],
-            'description': '原始来源发布的 AI 安全相关资讯；请进入原文核对内容。',
-            'url': url, 'language': language, 'direction_ids': directions, 'terms': terms,
-            'automated': True, 'verified': False,
-            **({'original_categories': categories[:5]} if categories else {}),
-        })
-    return rows
+        data = json.loads(payload)
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        raise ValueError('API response is not valid JSON') from error
+    if not isinstance(data, dict) or data.get('schemaVersion') != 1:
+        raise ValueError('Unsupported API schema')
+    items = data.get('items')
+    papers = data.get('paperPicks', [])
+    page = data.get('page')
+    if not isinstance(items, list) or not isinstance(papers, list) or not isinstance(page, dict):
+        raise ValueError('API response shape is invalid')
+    articles = [record for item in items if (record := article_record(item, today))]
+    paper_records = [record for item in papers if (record := paper_record(item, today))]
+    next_cursor = page.get('nextCursor') if page.get('hasMore') is True else None
+    if next_cursor is not None and (not isinstance(next_cursor, str) or len(next_cursor) > 1000):
+        raise ValueError('Invalid pagination cursor')
+    return articles, paper_records, next_cursor, data.get('access')
 
 
-def fetch_feed(source):
-    # curl ships with macOS and GitHub's Ubuntu runner and uses their certificate
-    # stores. No shell, credentials, insecure flags, or redirected hosts. A
-    # publisher URL change is reviewed explicitly rather than following it.
-    if source not in SOURCES or not safe_url(source['url'], source):
-        raise ValueError('Unknown feed source')
-    with tempfile.TemporaryDirectory(prefix='safety-news-') as directory:
-        output = Path(directory) / 'feed.xml'
+def fetch_url(url):
+    with tempfile.TemporaryDirectory(prefix='ai-safety-hot-') as directory:
+        output = Path(directory) / 'response.json'
         subprocess.run([
             'curl', '--fail', '--silent', '--show-error', '--proto', '=https',
             '--connect-timeout', '10', '--max-time', str(TIMEOUT),
             '--max-filesize', str(MAX_BYTES), '--max-redirs', '0',
-            '--user-agent', 'AI-Safety-Index-Public-Feed/1.0',
-            '--output', str(output), source['url'],
+            '--user-agent', 'AI-Safety-Index-Public-Feed/2.0',
+            '--output', str(output), url,
         ], check=True, capture_output=True, timeout=TIMEOUT + 5)
         with output.open('rb') as handle:
             payload = handle.read(MAX_BYTES + 1)
     if len(payload) > MAX_BYTES:
-        raise ValueError('Feed exceeds size limit')
+        raise ValueError('API response exceeds size limit')
     return payload
 
 
-def merge_records(new, previous):
+def collect_pages(fetch, timestamp):
+    cursor = None
+    pages = []
+    articles = []
+    papers = []
+    access = None
+    seen_cursors = set()
+    for _ in range(MAX_PAGES):
+        query = {'mode': 'selected', 'window': '7d', 'lang': 'en', 'limit': PAGE_LIMIT}
+        if cursor:
+            query['cursor'] = cursor
+        url = API_URL + '?' + urllib.parse.urlencode(query)
+        payload = fetch(url)
+        page_articles, page_papers, next_cursor, page_access = parse_page(payload, timestamp[:10])
+        pages.append(payload)
+        articles.extend(page_articles)
+        papers.extend(page_papers)
+        access = access or page_access
+        if not next_cursor:
+            break
+        if next_cursor in seen_cursors:
+            raise ValueError('Pagination cursor repeated')
+        seen_cursors.add(next_cursor)
+        cursor = next_cursor
     unique = {}
-    for row in [*new, *previous]:
-        unique.setdefault(row['url'], row)
-    return sorted(unique.values(), key=lambda row: (row['date'], row['url']), reverse=True)[:MAX_RECORDS]
-
-
-def collect(sources, previous_info, previous_rows, fetch, timestamp):
-    prior = {source['id']: source for source in previous_info.get('sources', [])}
-    rows, retained, statuses, failures = [], [], [], []
-    for source in sources:
-        status = dict(source)
-        try:
-            payload = fetch(source)
-            parsed = parse_feed(payload, source, timestamp[:10])
-            rows.extend(parsed)
-            status.update(status='ok', last_successful_fetch=timestamp,
-                          feed_sha256=sha256(payload).hexdigest(), matched_records=len(parsed))
-        except (OSError, ValueError, subprocess.SubprocessError) as error:
-            # Keep the last publication dates and last successful retrieval time.
-            old = prior.get(source['id'], {})
-            status.update({key: old[key] for key in ('last_successful_fetch', 'feed_sha256') if key in old})
-            status.update(status='failed', error=type(error).__name__)
-            failures.append({'id': source['id'], 'name': source['name'], 'error': type(error).__name__})
-            retained.extend(row for row in previous_rows if row.get('source_id') == source['id'])
-        statuses.append(status)
-    records = merge_records(rows, retained)
-    info = {'generated_on': timestamp, 'sources': statuses, 'failed_sources': failures,
-            'status': 'stale' if len(failures) == len(sources) else 'partial' if failures else 'current',
-            'record_count': len(records), 'max_records': MAX_RECORDS,
-            'classification': 'Title/category keyword suggestions; not editorially reviewed',
-            'date_policy': 'Publisher publication date in UTC; missing/invalid/future dates excluded',
-            'content_policy': 'Original titles and metadata only; no article bodies or abstracts',
-            'coverage': 'Two English-language primary-source RSS feeds; not comprehensive'}
-    return info, records
-
-
-def render_js(info, records):
-    def encoded(value):
-        return json.dumps(value, ensure_ascii=False, indent=2).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
-    return ('// Generated by tools/update-news.py. Keyword matches require human review.\n'
-            + 'const automatedNewsInfo = ' + encoded(info) + ';\n'
-            + 'const automatedNewsRecords = ' + encoded(records) + ';\n')
+    for record in [*articles[:MAX_ARTICLES], *papers[:MAX_PAPER_PICKS]]:
+        unique.setdefault(record['id'], record)
+    records = sorted(unique.values(), key=lambda row: (row['order'], row['id']), reverse=True)
+    if not records:
+        raise ValueError('API returned no usable records')
+    digest = sha256(b''.join(pages)).hexdigest()
+    return records, len(pages), len(articles), len({row['id'] for row in papers}), digest, access
 
 
 def load_previous(root):
@@ -241,11 +292,61 @@ def load_previous(root):
     return data['info'], data['records']
 
 
+def collect(previous_info, previous_rows, fetch, timestamp):
+    previous_source = next((item for item in previous_info.get('sources', [])
+                            if item.get('id') == SOURCE['id']), {})
+    try:
+        records, pages, articles, papers, digest, access = collect_pages(fetch, timestamp)
+        source = dict(SOURCE, status='ok', last_successful_fetch=timestamp,
+                      response_sha256=digest, pages_fetched=pages,
+                      article_records=articles, paper_picks=papers,
+                      matched_records=len(records))
+        failures = []
+        status = 'current'
+    except (OSError, ValueError, subprocess.SubprocessError) as error:
+        if not previous_rows:
+            raise
+        records = previous_rows
+        source = dict(SOURCE, **{key: previous_source[key]
+                                for key in ('last_successful_fetch', 'response_sha256',
+                                            'pages_fetched', 'article_records', 'paper_picks',
+                                            'matched_records') if key in previous_source},
+                      status='failed', error=type(error).__name__)
+        failures = [{'id': SOURCE['id'], 'name': SOURCE['name'], 'error': type(error).__name__}]
+        status = 'stale'
+        access = previous_info.get('access')
+    info = {
+        'generated_on': timestamp,
+        'sources': [source],
+        'failed_sources': failures,
+        'status': status,
+        'record_count': len(records),
+        'max_records': MAX_RECORDS,
+        'classification': 'AI Safety HOT categories drive content sections; portal directions are keyword suggestions',
+        'date_policy': 'Publisher publication date in UTC, falling back to discovery date; invalid or future dates excluded',
+        'content_policy': 'Public AI Safety HOT titles, short summaries, metadata and paper links; no full article copying',
+        'coverage': 'Recent selected/hot AI safety news and public paper picks from AI Safety HOT',
+        'attribution': {'name': 'AI Safety HOT', 'url': HOME_URL},
+        'access': access,
+    }
+    return info, records
+
+
+def render_js(info, records):
+    def encoded(value):
+        return json.dumps(value, ensure_ascii=False, indent=2).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026').replace('\u2028', '\\u2028').replace('\u2029', '\\u2029')
+    return ('// Generated by tools/update-news.py from the AI Safety HOT public API.\n'
+            + 'const automatedNewsInfo = ' + encoded(info) + ';\n'
+            + 'const automatedNewsRecords = ' + encoded(records) + ';\n')
+
+
 def write_artifacts(root, info, records):
     path = root / 'research-source/news-feed-provenance.json'
     path.parent.mkdir(parents=True, exist_ok=True)
-    artifacts = [(path, json.dumps({'info': info, 'records': records}, ensure_ascii=False, indent=2) + '\n'),
-                 (root / 'news-feed.js', render_js(info, records))]
+    artifacts = [
+        (path, json.dumps({'info': info, 'records': records}, ensure_ascii=False, indent=2) + '\n'),
+        (root / 'news-feed.js', render_js(info, records)),
+    ]
     for target, content in artifacts:
         temporary = target.with_suffix(target.suffix + '.tmp')
         temporary.write_text(content, encoding='utf-8')
@@ -255,22 +356,19 @@ def write_artifacts(root, info, records):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument('--source-file', action='append', default=[], metavar='SOURCE_ID=XML_PATH',
-                        help='Use a previously fetched XML file for this source (local verification)')
+    parser.add_argument('--source-file', type=Path,
+                        help='Use one saved API response instead of network access')
     args = parser.parse_args()
-    fixtures = dict(item.split('=', 1) for item in args.source_file)
-    if set(fixtures) - {s['id'] for s in SOURCES}:
-        parser.error('Unknown source id')
-    def fetch(source):
-        if source['id'] in fixtures:
-            with Path(fixtures[source['id']]).open('rb') as handle:
-                return handle.read(MAX_BYTES + 1)
-        return fetch_feed(source)
+    if args.source_file:
+        payload = args.source_file.read_bytes()
+        fetch = lambda _url: payload
+    else:
+        fetch = fetch_url
     previous_info, previous_rows = load_previous(args.root)
     timestamp = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
-    info, records = collect(SOURCES, previous_info, previous_rows, fetch, timestamp)
+    info, records = collect(previous_info, previous_rows, fetch, timestamp)
     write_artifacts(args.root, info, records)
-    print(f"News: {len(records)} records; status={info['status']}; failed={len(info['failed_sources'])}")
+    print(f"AI Safety HOT: {len(records)} records; status={info['status']}; failed={len(info['failed_sources'])}")
 
 
 if __name__ == '__main__':

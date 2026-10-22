@@ -1,32 +1,26 @@
 {
-  "generated_on": "2026-10-22T09:46:35.654Z",
+  "generated_on": "2026-10-22T22:48:57.634Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
     "papers": 490,
     "benchmarks": 6,
-    "automated_news": 30,
+    "automated_news": 105,
     "source_catalog": 171,
     "reference_portals": 21,
     "historical_candidates": 149,
     "result_file_manifest": 291
   },
   "feeds": {
-    "generated_on": "2026-10-22T05:20:35Z",
+    "generated_on": "2026-10-22T22:48:53Z",
     "status": "current",
-    "record_count": 30,
+    "record_count": 105,
     "sources": [
       {
-        "id": "openai",
-        "name": "OpenAI News",
+        "id": "aisafetyhot",
+        "name": "AI Safety HOT",
         "status": "ok",
-        "last_successful_fetch": "2026-10-22T05:20:35Z"
-      },
-      {
-        "id": "deepmind",
-        "name": "Google DeepMind",
-        "status": "ok",
-        "last_successful_fetch": "2026-10-22T05:20:35Z"
+        "last_successful_fetch": "2026-10-22T22:48:53Z"
       }
     ]
   }

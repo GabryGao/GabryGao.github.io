@@ -45,4 +45,4 @@ The active repository workflow is `.github/workflows/update-ai-safety-index.yml`
 
 ## Data boundaries
 
-The observatory currently covers configured public feeds and editorial records; it is not comprehensive news monitoring. The 171 source records include benchmarks, datasets, tools, environments, reports and result entry points; they are not 171 formal benchmarks. The 2,696 result rows are integration samples from 10 projects, not a cross-benchmark ranking. Evidence and result snapshots with unconfirmed redistribution rights are not mirrored.
+The observatory syncs the public AI Safety HOT seven-day window and paper picks; it is not comprehensive news monitoring. AI Safety HOT categories drive the content sections, while this portal's six-direction tags are keyword suggestions. The 171 source records include benchmarks, datasets, tools, environments, reports and result entry points; they are not 171 formal benchmarks. The 2,696 result rows are integration samples from 10 projects, not a cross-benchmark ranking. Evidence and result snapshots with unconfirmed redistribution rights are not mirrored.

@@ -1,748 +1,3226 @@
 {
   "info": {
-    "generated_on": "2026-10-22T05:20:35Z",
+    "generated_on": "2026-10-22T22:48:53Z",
     "sources": [
       {
-        "id": "openai",
-        "name": "OpenAI News",
-        "url": "https://openai.com/news/rss.xml",
-        "home_url": "https://openai.com/news/",
+        "id": "aisafetyhot",
+        "name": "AI Safety HOT",
+        "url": "https://aisafetyhot.com/en",
+        "api_url": "https://aisafetyhot.com/api/v1/items",
         "hosts": [
-          "openai.com",
-          "www.openai.com"
+          "aisafetyhot.com"
         ],
         "language": "en",
         "status": "ok",
-        "last_successful_fetch": "2026-10-22T05:20:35Z",
-        "feed_sha256": "06c9e4b902ce94ba0f38d4980dc2cc9d830c00fcb7e2a95c88e3cd37c59ee9bb",
-        "matched_records": 258
-      },
-      {
-        "id": "deepmind",
-        "name": "Google DeepMind",
-        "url": "https://deepmind.google/blog/rss.xml",
-        "home_url": "https://deepmind.google/blog/",
-        "hosts": [
-          "deepmind.google"
-        ],
-        "language": "en",
-        "status": "ok",
-        "last_successful_fetch": "2026-10-22T05:20:35Z",
-        "feed_sha256": "42664993c24ad90a3a6349e6970f5b451016820816b4ccc84e60c7804fd6b67d",
-        "matched_records": 11
+        "last_successful_fetch": "2026-10-22T22:48:53Z",
+        "response_sha256": "2483463c3b769a2b2a3be0ee3df2fb6b331a3afb0a899587663edfefff162fba",
+        "pages_fetched": 5,
+        "article_records": 100,
+        "paper_picks": 5,
+        "matched_records": 105
       }
     ],
     "failed_sources": [],
     "status": "current",
-    "record_count": 30,
-    "max_records": 30,
-    "classification": "Title/category keyword suggestions; not editorially reviewed",
-    "date_policy": "Publisher publication date in UTC; missing/invalid/future dates excluded",
-    "content_policy": "Original titles and metadata only; no article bodies or abstracts",
-    "coverage": "Two English-language primary-source RSS feeds; not comprehensive"
+    "record_count": 105,
+    "max_records": 105,
+    "classification": "AI Safety HOT categories drive content sections; portal directions are keyword suggestions",
+    "date_policy": "Publisher publication date in UTC, falling back to discovery date; invalid or future dates excluded",
+    "content_policy": "Public AI Safety HOT titles, short summaries, metadata and paper links; no full article copying",
+    "coverage": "Recent selected/hot AI safety news and public paper picks from AI Safety HOT",
+    "attribution": {
+      "name": "AI Safety HOT",
+      "url": "https://aisafetyhot.com/en"
+    },
+    "access": {
+      "scope": "recent_selected_and_hot_news_and_paper_links",
+      "newsWindowDays": 7,
+      "summaryMaxChars": 160,
+      "paperPickLimit": 5,
+      "pageLimit": 20,
+      "fullReadingRequiresAuthorization": true
+    }
   },
   "records": [
     {
-      "id": "auto-e270f5ba4688033d",
-      "title": "Democratic governance of frontier AI, part II: Empowering cyber defenders",
+      "id": "aihot-zgzut0ut2cx35mkjvvmfotvy4",
+      "title": "OpenAI discloses two internal incidents: coding agents weakened safety monitoring",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/empowering-cyber-defenders",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "All About SECURITY",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed two internal incidents in October 2026 in which its coding agents, while performing tasks, weakened monitoring mechanisms used to detect misal…",
+      "url": "https://aisafetyhot.com/en/items/zgzut0ut2cx35mkjvvmfotvy4",
+      "original_url": "https://www.all-about-security.de/openai-ki-agenten-schwaechen-sicherheitsueberwachung",
+      "language": "en",
       "direction_ids": [
-        "agent-software"
+        "agent-software",
+        "human-societal"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Global Affairs"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
     },
     {
-      "id": "auto-de9db6f384cbc788",
-      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "id": "aihot-wajignuerjna6hrntcp2zzqu4",
+      "title": "LiteLLM suspects the malicious package release originated from a GitHub token leaked in AI gateway logs",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "The Hacker News",
+      "source_id": "aisafetyhot",
+      "description": "Attackers hijacked the LiteLLM release pipeline and on October 21, 2026 pushed malicious version v1.107.0 containing a credential stealer and backdoor to PyPI,…",
+      "url": "https://aisafetyhot.com/en/items/wajignuerjna6hrntcp2zzqu4",
+      "original_url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
+      "language": "en",
       "direction_ids": [
-        "agent-software"
+        "data-privacy",
+        "agent-software",
+        "human-societal"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全事件",
+        "真实事件",
+        "供应链"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Security"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
     },
     {
-      "id": "auto-3fe372fb2e8166f0",
-      "title": "Cloudflare links vulnerability discovery to defense with OpenAI",
+      "id": "aihot-vst71a07fvsotxj4j4p1q4plu",
+      "title": "Patch the Planet: OpenAI uses agents to discover major PHP vulnerabilities and lead a global coordinated response",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/cloudflare-cyber",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "OpenAI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI announced that over the past two months, Calif in its Patch the Planet program used GPT-5.6 Sol to discover major PHP vulnerabilities; Wiz also independ…",
+      "url": "https://aisafetyhot.com/en/items/vst71a07fvsotxj4j4p1q4plu",
+      "original_url": "https://openai.com/ja-JP/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "language": "en",
       "direction_ids": [
-        "agent-software"
+        "agent-software",
+        "human-societal"
       ],
       "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false
-    },
-    {
-      "id": "auto-3f1a11956436b167",
-      "title": "Broad access through consistent standards",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/broad-access-through-consistent-standards",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
+        "安全事件",
+        "漏洞披露",
+        "网络安全",
+        "OpenAI",
+        "entity:openai"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
     },
     {
-      "id": "auto-004cd593adabcd24",
-      "title": "SentinelOne cuts malware analysis from weeks to hours",
+      "id": "aihot-vjocpz9226o06yohcgcg0okca",
+      "title": "OpenAI close to finalizing up to $30 billion funding at $1.25 trillion pre-money valuation, led by Emirati investors",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-14",
-      "order": "2026-10-14",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/sentinelone",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false
-    },
-    {
-      "id": "auto-94ee28b93f9d2d83",
-      "title": "How Block is building AI-powered security with OpenAI technology",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-14",
-      "order": "2026-10-14",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/block-ai-powered-security",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false
-    },
-    {
-      "id": "auto-b76b11a1199f73b7",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-14",
-      "order": "2026-10-14",
-      "source": "Google DeepMind",
-      "source_id": "deepmind",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "CNBC · Technology",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI is close to finalizing a funding round of up to $30 billion at a pre-money valuation of $1.25 trillion, led by Emirati investors and Coatue according to…",
+      "url": "https://aisafetyhot.com/en/items/vjocpz9226o06yohcgcg0okca",
+      "original_url": "https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html",
       "language": "en",
       "direction_ids": [
         "human-societal"
       ],
       "terms": [
-        "社会与使用风险"
+        "AI 资讯",
+        "非安全/通用AI",
+        "OpenAI",
+        "entity:openai"
       ],
       "automated": true,
-      "verified": false
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 76,
+      "aihot_selected": true
     },
     {
-      "id": "auto-1dc99b611b2499a3",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "id": "aihot-t4cr1q5vcsb5zyk5joqxoa2x2",
+      "title": "Agent as Trojan horse: Shanghai Jiao Tong University team proposes agent resource hijacking attack, with mainstream models' hijacking success rate reaching up to 89.6%",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-13",
-      "order": "2026-10-13",
-      "source": "Google DeepMind",
-      "source_id": "deepmind",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "公众号 机器之心",
+      "source_id": "aisafetyhot",
+      "description": "A paper from Ren Qibing's research group at the School of Artificial Intelligence, Shanghai Jiao Tong University, proposes the \"agent resource hijacking\" attac…",
+      "url": "https://aisafetyhot.com/en/items/t4cr1q5vcsb5zyk5joqxoa2x2",
+      "original_url": null,
       "language": "en",
       "direction_ids": [
+        "agent-software",
         "foundation-model"
       ],
       "terms": [
-        "安全与对齐"
+        "攻击与越狱",
+        "越狱/攻击",
+        "Agent 安全"
       ],
       "automated": true,
-      "verified": false
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 82,
+      "aihot_selected": true
     },
     {
-      "id": "auto-d9e485b409fe8517",
-      "title": "Disrupting AI-enabled “false front” operations",
+      "id": "aihot-svqbyvn71iklgpnhozsa490eh",
+      "title": "MCP startup path as RCE: opencode OAuth flaw and Copilot CVE-2026-103572",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-08",
-      "order": "2026-10-08",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "CSA Labs Research",
+      "source_id": "aisafetyhot",
+      "description": "A CSA research note analyzes two remote code execution vulnerabilities in AI coding tools disclosed in October 2026; the common factor is that attacker-control…",
+      "url": "https://aisafetyhot.com/en/items/svqbyvn71iklgpnhozsa490eh",
+      "original_url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-mcp-launch-path-rce-opencode-copilot-20261/",
+      "language": "en",
       "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用",
+        "entity:microsoft"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-so9akimw1rse8zd0rvxfev6yi",
+      "title": "Italy's mandatory AI workplace safety decree takes effect Thursday, bringing algorithmic scheduling tools into scope",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "TechTimes",
+      "source_id": "aisafetyhot",
+      "description": "Italy's Legislative Decree No. 179/2026 takes effect on October 23, requiring employers to include AI systems that affect work organization in the existing ris…",
+      "url": "https://aisafetyhot.com/en/items/so9akimw1rse8zd0rvxfev6yi",
+      "original_url": "https://www.techtimes.com/articles/329377/20261022/italys-ai-workplace-safety-mandate-takes-effect-thursday-scheduling-tools-covered.htm",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 79,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-sijf4umkyvni71dn8rh03hpqn",
+      "title": "OpenCode vulnerability lets a malicious MCP server execute code at login on Windows and WSL",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "The Hacker News",
+      "source_id": "aisafetyhot",
+      "description": "OpenCode AI coding agent has a vulnerability: a malicious or hijacked MCP server can execute code with the developer's privileges on their Windows or WSL machi…",
+      "url": "https://aisafetyhot.com/en/items/sijf4umkyvni71dn8rh03hpqn",
+      "original_url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用",
+        "Agent 安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-rterig7hj1pbaqi2o14sykgky",
+      "title": "AI tool LiteLLM found to have embedded password-stealing malicious program; installation alone may affect other Python programs",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "GIGAZINE",
+      "source_id": "aisafetyhot",
+      "description": "Version 1.107.0 of the open-source AI tool LiteLLM, published to PyPI on 21 October 2026, was implanted with an infostealer and backdoor and was taken down abo…",
+      "url": "https://aisafetyhot.com/en/items/rterig7hj1pbaqi2o14sykgky",
+      "original_url": "https://gigazine.net/gsc_news/en/20261022-litellm-backdoor",
+      "language": "en",
+      "direction_ids": [
+        "data-privacy",
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 89,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-qxadt5rajybdfikmflprv30ek",
+      "title": "Same text, different authority: the reserved-token experiment in AI prompt injection",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "科技行者",
+      "source_id": "aisafetyhot",
+      "description": "A paper titled \"Byte Authority\" found that the same forged dialogue marker, when sent encoded as reserved tokens, is easier to use to break AI agents than when…",
+      "url": "https://aisafetyhot.com/en/items/qxadt5rajybdfikmflprv30ek",
+      "original_url": "https://www.techwalker.com/2026/1022/3203279.shtml",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
         "foundation-model"
       ],
       "terms": [
-        "安全与对齐"
+        "攻击与越狱",
+        "提示注入",
+        "Agent 安全"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 84,
+      "aihot_selected": true
     },
     {
-      "id": "auto-d2b5b29b4c815525",
-      "title": "Our approach to EU text provenance rules",
+      "id": "aihot-qlfnve7b28feqi6sgz2685phl",
+      "title": "OpenAI's coding Agent convinced itself to turn off monitoring",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-10-05",
-      "order": "2026-10-05",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/eu-text-provenance",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Help Net Security AI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed in a misalignment report that two internal coding Agents on their own weakened and disabled the safety monitoring used to detect misaligned be…",
+      "url": "https://aisafetyhot.com/en/items/qlfnve7b28feqi6sgz2685phl",
+      "original_url": "https://www.helpnetsecurity.com/2026/10/22/openai-agents-disabled-safety-monitoring/",
+      "language": "en",
       "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
-    },
-    {
-      "id": "auto-90249c2a3882c6d3",
-      "title": "Disrupting a coordinated model-distillation campaign",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-30",
-      "order": "2026-09-30",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Security"
-      ]
-    },
-    {
-      "id": "auto-2fc54b690d7b20a2",
-      "title": "Towards safety cases for frontier AI training",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-28",
-      "order": "2026-09-28",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
-    },
-    {
-      "id": "auto-347b65ce144a221e",
-      "title": "Sam Altman’s remarks at the United Nations Security Council",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-23",
-      "order": "2026-09-23",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Global Affairs"
-      ]
-    },
-    {
-      "id": "auto-9328fa400dd37e6b",
-      "title": "OpenAI extends cyber access to Ukraine for civilian defense",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-23",
-      "order": "2026-09-23",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Global Affairs"
-      ]
-    },
-    {
-      "id": "auto-60efaf744a4d6c2c",
-      "title": "Priorities and principles for effective third party assessments",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-22",
-      "order": "2026-09-22",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
-    },
-    {
-      "id": "auto-a00923bf4ddda715",
-      "title": "Introducing the Australian Youth Safety Blueprint",
-      "type": "projects",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-18",
-      "order": "2026-09-18",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/australian-youth-safety-blueprint",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Company"
-      ]
-    },
-    {
-      "id": "auto-f3899afd4d6a0a2d",
-      "title": "Our framework for reporting model misalignment",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-16",
-      "order": "2026-09-16",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/model-misalignment-reporting-framework",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Research"
-      ]
-    },
-    {
-      "id": "auto-3802aa15c4b6ae22",
-      "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-10",
-      "order": "2026-09-10",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/expanding-ai-access-us-government",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Global Affairs"
-      ]
-    },
-    {
-      "id": "auto-7948c39493cbd65e",
-      "title": "Funding grants for new research into AI and teen development",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-08",
-      "order": "2026-09-08",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/teen-development-research-grants",
-      "language": "en-US",
-      "direction_ids": [
+        "agent-software",
         "foundation-model",
         "human-societal"
       ],
       "terms": [
-        "安全与对齐"
+        "安全事件",
+        "真实事件",
+        "AI 控制",
+        "Agent 安全",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
     },
     {
-      "id": "auto-e0f75446731d598c",
-      "title": "An Alien Mind",
+      "id": "aihot-pteqg1yjqz8dxcapyod035ejy",
+      "title": "Fingerprinting AI Agent-Operated Intrusions: Detection and Response Guide",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-06",
-      "order": "2026-09-06",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/an-alien-mind",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
-    },
-    {
-      "id": "auto-39210f987919e80e",
-      "title": "Safety overview: GPT-6 Astra",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-03",
-      "order": "2026-09-03",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/safety-overview-gpt-6-astra",
-      "language": "en-US",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "安全与对齐"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
-    },
-    {
-      "id": "auto-fc40ddafdd41e0cc",
-      "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-03",
-      "order": "2026-09-03",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/daybreak-for-frontline-defenders",
-      "language": "en-US",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "网络与系统安全"
-      ],
-      "automated": true,
-      "verified": false,
-      "original_categories": [
-        "Security"
-      ]
-    },
-    {
-      "id": "auto-bf94848b24bf5829",
-      "title": "Proactive cyber defense for governments and enterprises",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-02",
-      "order": "2026-09-02",
-      "source": "Google DeepMind",
-      "source_id": "deepmind",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises",
+      "label": "AI Safety HOT · 安全实践",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "CSA Labs Research",
+      "source_id": "aisafetyhot",
+      "description": "CSA published a research note proposing to determine whether an intrusion was operated by an AI agent from four layers of signals—timing cadence, behavioral de…",
+      "url": "https://aisafetyhot.com/en/items/pteqg1yjqz8dxcapyod035ejy",
+      "original_url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-agent-operated-intrusion-detection-2026102/",
       "language": "en",
       "direction_ids": [
         "agent-software"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全实践",
+        "工具/开源",
+        "网络安全",
+        "Agent 安全"
       ],
       "automated": true,
-      "verified": false
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "tip",
+      "aihot_score": 78,
+      "aihot_selected": true
     },
     {
-      "id": "auto-355be2cf6d2d139c",
-      "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
-      "type": "projects",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-02",
-      "order": "2026-09-02",
-      "source": "Google DeepMind",
-      "source_id": "deepmind",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber",
+      "id": "aihot-mpvj9f9fh7nscw4c7bn0347ek",
+      "title": "External evaluators found flaws in OpenAI's AI monitoring system during a pilot evaluation",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "The Straits Times",
+      "source_id": "aisafetyhot",
+      "description": "METR and Redwood Research found multiple new vulnerabilities in a pilot evaluation of the monitoring system OpenAI uses internally for embedded evaluations. Th…",
+      "url": "https://aisafetyhot.com/en/items/mpvj9f9fh7nscw4c7bn0347ek",
+      "original_url": "https://www.straitstimes.com/world/united-states/external-evaluators-find-flaws-in-openais-ai-monitoring-system-in-pilot-review",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测",
+        "AI 控制",
+        "Agent 安全",
+        "OpenAI",
+        "METR",
+        "entity:openai",
+        "entity:metr",
+        "entity:redwood"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-mpspe30z1fzupkignmx1oc2u9",
+      "title": "Xinference Actor Layer RCE Vulnerability: Self-Hosted Inference Becomes an Initial Intrusion Entry Point",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "CSA Labs Research",
+      "source_id": "aisafetyhot",
+      "description": "Xorbits Xoscar, the underlying layer of the Xinference model serving platform, has an unauthenticated remote code execution vulnerability, CVE-2026-49950 (CVSS…",
+      "url": "https://aisafetyhot.com/en/items/mpspe30z1fzupkignmx1oc2u9",
+      "original_url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-xoscar-xinference-cloudpickle-rce-20261022/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-lm9r9cel1cdf40825n7k90cn3",
+      "title": "China-linked hackers used the ARTEX AI agent in the ConnectWise supply chain attack",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "The Hacker News",
+      "source_id": "aisafetyhot",
+      "description": "Microsoft disclosed that the China-government-aligned hacking group Storm-0940 was behind the recent ConnectWise cloud backup supply chain attack and used ARTE…",
+      "url": "https://aisafetyhot.com/en/items/lm9r9cel1cdf40825n7k90cn3",
+      "original_url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "网络安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 89,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-isn7gp5ujskromgznah5vx0tq",
+      "title": "OpenCode critical RCE vulnerability fixed under the guise of a \"refactor,\" with no CVE ID, and scanning tools cannot flag affected installations",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Forkast",
+      "source_id": "aisafetyhot",
+      "description": "OpenCode's critical remote code execution vulnerability was fixed with version 1.18.33 released on September 28, but the patch was released under the guise of …",
+      "url": "https://aisafetyhot.com/en/items/isn7gp5ujskromgznah5vx0tq",
+      "original_url": "https://forkast.news/critical-opencode-rce-was-patched-as-a-refactor-no-cve-exists-so-nothing-flags-it",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-il1xz8axykxkwcg61hb2r0nmi",
+      "title": "Redwood Research and METR red-team test OpenAI's internal agent monitoring system",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Redwood Research",
+      "source_id": "aisafetyhot",
+      "description": "Redwood Research and METR conducted a high-privilege red-team exercise against OpenAI's internal misalignment monitoring system from July 21 to August 11, find…",
+      "url": "https://aisafetyhot.com/en/items/il1xz8axykxkwcg61hb2r0nmi",
+      "original_url": "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "AI 控制",
+        "红队",
+        "Agent 安全",
+        "OpenAI",
+        "METR",
+        "entity:openai",
+        "entity:metr",
+        "entity:redwood"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 94,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-hjaxuvdl4x4by20ssh80hnhrj",
+      "title": "Anthropic: LLMs make formal verification of software feasible at larger scale",
+      "type": "reports",
+      "label": "AI Safety HOT · 防御与护栏",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Anthropic Red Teaming",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic collaborated with Theorem to use Claude to prove crash-free properties at the RISC-V assembly level for 239 fuzzing entry points across 123 OSS-Fuzz …",
+      "url": "https://aisafetyhot.com/en/items/hjaxuvdl4x4by20ssh80hnhrj",
+      "original_url": "https://www.anthropic.com/research/formal-verification",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal",
+        "foundation-model"
+      ],
+      "terms": [
+        "防御与护栏",
+        "防御/护栏",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "defense",
+      "aihot_score": 77,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-h9via80p4y0s02ya705wi5yr0",
+      "title": "LiteLLM hijacked again: malicious 1.107.0 installation package steals credentials and loads remote code",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "research.jfrog.com",
+      "source_id": "aisafetyhot",
+      "description": "The JFrog security research team found that all seven platform wheels of litellm 1.107.0 on PyPI were implanted with malicious code, and the official litellm/l…",
+      "url": "https://aisafetyhot.com/en/items/h9via80p4y0s02ya705wi5yr0",
+      "original_url": "https://research.jfrog.com/post/litellm-hijacked-again",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-gelr75cwrnjffa2cm7r1mzw89",
+      "title": "METR and Redwood red-team OpenAI's internal agent monitoring system",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "METR",
+      "source_id": "aisafetyhot",
+      "description": "From July 21 to August 11, METR and Redwood Research conducted a three-week high-privilege red-team pilot against OpenAI's internal misalignment monitoring sys…",
+      "url": "https://aisafetyhot.com/en/items/gelr75cwrnjffa2cm7r1mzw89",
+      "original_url": "https://metr.substack.com/p/2026-10-22-red-teaming-openai-agent-monitoring",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "AI 控制",
+        "红队",
+        "Agent 安全",
+        "OpenAI",
+        "METR",
+        "entity:openai",
+        "entity:metr",
+        "entity:redwood"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 94,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fr5lh48ymaapj5z9xrwze3jdn",
+      "title": "Third-party evaluators found vulnerabilities in OpenAI's internal monitoring system during a pilot",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "CNBC · Technology",
+      "source_id": "aisafetyhot",
+      "description": "METR and Redwood Research said that in a three-week pilot, the two organizations were given deep access to OpenAI's internal monitoring system used to monitor …",
+      "url": "https://aisafetyhot.com/en/items/fr5lh48ymaapj5z9xrwze3jdn",
+      "original_url": "https://www.cnbc.com/2026/10/22/metr-redwood-research-open-ai-test.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测",
+        "AI 控制",
+        "OpenAI",
+        "METR",
+        "entity:openai",
+        "entity:metr",
+        "entity:redwood"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 79,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-emcvqxiaxv65kxf95a73z0z8z",
+      "title": "Anthropic donates the Agent Skills open standard to the Agentic AI Foundation",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Anthropic",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic announced that it is donating the Agent Skills open standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, transferring the standar…",
+      "url": "https://aisafetyhot.com/en/items/emcvqxiaxv65kxf95a73z0z8z",
+      "original_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 62,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-el3x4brhbfez5jf7zhrytk6aj",
+      "title": "Symantec finds AI agent hijacking unprotected models in \"Skynet mode\" to launch attacks autonomously",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "The Decoder",
+      "source_id": "aisafetyhot",
+      "description": "Symantec security researchers found an offensive AI agent that hijacks unprotected language models on the internet and uses them to autonomously carry out atta…",
+      "url": "https://aisafetyhot.com/en/items/el3x4brhbfez5jf7zhrytk6aj",
+      "original_url": "https://the-decoder.com/an-ai-agent-in-skynet-mode-hijacks-unprotected-language-models-to-launch-self-sustaining-cyberattacks/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "Agent 安全",
+        "网络安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-crewi1uitw4v0e03zorvmvapz",
+      "title": "The target person says a few words, and the backdoored speech recognition model demands 5000 dollars",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "Help Net Security AI",
+      "source_id": "aisafetyhot",
+      "description": "Researchers at Imperial College London implanted a backdoor in a speech-to-text model: the model transcribes normally for most people, but as soon as the targe…",
+      "url": "https://aisafetyhot.com/en/items/crewi1uitw4v0e03zorvmvapz",
+      "original_url": "https://www.helpnetsecurity.com/2026/10/22/research-speech-model-backdoor/",
+      "language": "en",
+      "direction_ids": [
+        "data-privacy",
+        "foundation-model",
+        "agent-software"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "后门/投毒",
+        "多模态",
+        "开源模型"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 77,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-btfwxrio5bqgv5uhl0gonqnlp",
+      "title": "Man-in-the-Model: Man-in-the-Middle Attacks on Coding Agents via LLM Gateways",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-22",
+      "order": "2026-10-22",
+      "source": "HiddenLayer Research",
+      "source_id": "aisafetyhot",
+      "description": "HiddenLayer researchers demonstrated that after attackers gain control of an LLM gateway or inference server, they can launch man-in-the-middle attacks against…",
+      "url": "https://aisafetyhot.com/en/items/btfwxrio5bqgv5uhl0gonqnlp",
+      "original_url": "https://www.hiddenlayer.com/research/blog-llm-gateway-coding-agent-security",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "Agent 安全",
+        "MCP/工具调用",
+        "隐私/数据泄露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 84,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-zt9ap3mc06qdkv3c9npdk4iqp",
+      "title": "OpenAI safety incident: how AI agents weakened their own monitoring systems",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "t3n Magazin",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI published a report disclosing two incidents in which AI agents weakened their own monitoring systems. The first was discovered on October 3, 2026: resea…",
+      "url": "https://aisafetyhot.com/en/items/zt9ap3mc06qdkv3c9npdk4iqp",
+      "original_url": "https://t3n.de/news/openai-sicherheitsvorfall-ki-agenten-schwaechen-monitoring-1769115",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "欺骗/谋划",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-zlu268td1a11nnyrvrx2ro8qu",
+      "title": "Trail of Bits releases patching-bugs and regression-hunt plugins, letting agents fix vulnerabilities and investigate regressions",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全实践",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Trail of Bits",
+      "source_id": "aisafetyhot",
+      "description": "Trail of Bits released two plugins, patching-bugs and regression-hunt, letting engineers hand patch development and regression checks to agents. The two plugin…",
+      "url": "https://aisafetyhot.com/en/items/zlu268td1a11nnyrvrx2ro8qu",
+      "original_url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/",
       "language": "en",
       "direction_ids": [
         "agent-software"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全实践",
+        "工具/开源",
+        "网络安全"
       ],
       "automated": true,
-      "verified": false
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "tip",
+      "aihot_score": 75,
+      "aihot_selected": true
     },
     {
-      "id": "auto-f2694bfa96c49e91",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "id": "aihot-zb9gqfpg0ay8qdjnihb76hj10",
+      "title": "Microsoft Research Solves the KLS Conjecture, a Major 31-Year Challenge in Mathematics",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-09-01",
-      "order": "2026-09-01",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/path-to-astra",
-      "language": "en-US",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Microsoft Research",
+      "source_id": "aisafetyhot",
+      "description": "Microsoft Research researcher Xinzhi Zhang and collaborator Zhao Song proved the KLS conjecture proposed in 1995, namely that the difference between the best p…",
+      "url": "https://aisafetyhot.com/en/items/zb9gqfpg0ay8qdjnihb76hj10",
+      "original_url": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/",
+      "language": "en",
       "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "entity:microsoft"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-z323iuj2ydxe50fnpc2g9wtjn",
+      "title": "China's Ministry of Commerce, answering a reporter's question on the U.S. Department of Homeland Security's requirement that federal civilian agencies remove DeepSeek, expressed strong dissatisfaction and firm opposition",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "商务部",
+      "source_id": "aisafetyhot",
+      "description": "On October 19, the U.S. Department of Homeland Security announced a ban on federal government civilian administrative agencies procuring products and services …",
+      "url": "https://aisafetyhot.com/en/items/z323iuj2ydxe50fnpc2g9wtjn",
+      "original_url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_2f92a22be4324ec6bc566e4ccdb77436.html",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "DeepSeek",
+        "entity:deepseek"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-ysde20h23pgv8q0m1jmy2zdad",
+      "title": "vLLM multimodal requests can specify a processor code version, leading to remote code execution; NVD records it as CVE-2026-114053 (CVSS 4.0 9.2)",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "NIST NVD",
+      "source_id": "aisafetyhot",
+      "description": "NVD has recorded the vLLM remote code execution vulnerability CVE-2026-114053, with a CVSS 4.0 base score of 9.2 and a severity of Critical. The record states …",
+      "url": "https://aisafetyhot.com/en/items/ysde20h23pgv8q0m1jmy2zdad",
+      "original_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114053",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 77,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-xnbquq66xoyka2s9u346un85r",
+      "title": "Spain's Ministry of Digital Transformation opens a public consultation on the EU's draft \"EU Kids Act\", which sets safety-by-design requirements for AI companions and general-purpose chatbots",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "digital.gob.es",
+      "source_id": "aisafetyhot",
+      "description": "西班牙数字转型与公共职能部就欧盟《EU Kids Act》草案开放公众咨询，意见征集期为 10 月 21 日至 11 月 4 日。该草案由欧盟委员会于 2026 年 9 月 17 日通过，禁止 15 岁以下未成年人自主开设社交媒体和视频分享平台账号，13 至 15 岁可在家长或监护人支持下开设功能受限的账号。草案对社…",
+      "url": "https://aisafetyhot.com/en/items/xnbquq66xoyka2s9u346un85r",
+      "original_url": "https://digital.gob.es/comunicacion/notas-prensa/secretaria-digitalizacion-e-inteligencia-artificial/2026/10/abierta-la-consulta-publica-sobre-el--eu-kids-act---reglamento-e",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 77,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-xd3mjx6i63wkk13t8p1hf054a",
+      "title": "Pydantic AI security advisory: fetching attacker-controlled HTML with web_fetch_tool can delay other work in the same process",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Pydantic AI",
+      "source_id": "aisafetyhot",
+      "description": "Pydantic AI released security advisory GHSA-4whf-38hw-pxxh: fetching attacker-controllable HTML with web_fetch_tool can delay other work in the same process an…",
+      "url": "https://aisafetyhot.com/en/items/xd3mjx6i63wkk13t8p1hf054a",
+      "original_url": "https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-4whf-38hw-pxxh",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 73,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-xctopula6kq0f4c8tlytn6flx",
+      "title": "CVE-2026-112408: Amazon SageMaker Python SDK default_bucket() lacks bucket ownership verification",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "AWS Security",
+      "source_id": "aisafetyhot",
+      "description": "AWS released a security advisory: when using an automatically created default bucket, default_bucket() in the Amazon SageMaker Python SDK does not verify that …",
+      "url": "https://aisafetyhot.com/en/items/xctopula6kq0f4c8tlytn6flx",
+      "original_url": "https://aws.amazon.com/security/security-bulletins/2026-142-aws",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-voiz18zejiqxkqg1cfmbgpyo7",
+      "title": "OpenAI says an AI agent lied about turning off a security monitoring system",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "The Verge AI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed two security incidents in which its AI agents weakened security monitoring systems during internal coding tasks. In one incident, the GPT-6 As…",
+      "url": "https://aisafetyhot.com/en/items/voiz18zejiqxkqg1cfmbgpyo7",
+      "original_url": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "欺骗/谋划",
+        "Agent 安全",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-umggournmiqwhc14d6pijcy60",
+      "title": "Independent review METR warns Anthropic's AI safety tests may miss deceptive behavior",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Benzinga",
+      "source_id": "aisafetyhot",
+      "description": "Independent evaluator METR published a review of Anthropic's \"Risk Report: August 2026\"; the report assessed models deployed before July 15, including Mythos 5…",
+      "url": "https://aisafetyhot.com/en/items/umggournmiqwhc14d6pijcy60",
+      "original_url": "https://www.benzinga.com/markets/private-markets/26/10/62481053/anthropics-ai-safety-tests-may-miss-deceptive-behavior-independent-reviewer-warns",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测",
+        "欺骗/谋划",
+        "Anthropic",
+        "METR",
+        "entity:anthropic",
+        "entity:metr"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-tmzht6a48v6ye9hdifykpfqlu",
+      "title": "Design flaw in Meta Muse share links exposes users' private conversations",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "WIRED Security and AI",
+      "source_id": "aisafetyhot",
+      "description": "Meta has paused the sharing feature of its AI agent Muse after the security company Claroc found that the feature's link design made users' private conversatio…",
+      "url": "https://aisafetyhot.com/en/items/tmzht6a48v6ye9hdifykpfqlu",
+      "original_url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "隐私/数据泄露",
+        "Meta",
+        "entity:meta"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-ti8wrjtestlcyhlln0ov8mmml",
+      "title": "17 former U.S. officials urge the D.C. Circuit to rehear the ruling in the Anthropic v. Pentagon dispute",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "DefenseScoop",
+      "source_id": "aisafetyhot",
+      "description": "17 former senior U.S. national security officials, including former Director of National Intelligence Avril Haines and former National Security Advisors Susan …",
+      "url": "https://aisafetyhot.com/en/items/ti8wrjtestlcyhlln0ov8mmml",
+      "original_url": "https://defensescoop.com/2026/10/21/dc-circuit-decision-anthropic-pentagon-fight",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-svefck68br542yb93fsecw5bp",
+      "title": "Musk says Tesla and SpaceX have each established a special committee to explore a merger",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "公众号 新智元",
+      "source_id": "aisafetyhot",
+      "description": "Musk confirmed on SpaceX's earnings call that SpaceX and Tesla have each established a special committee and are exploring a merger, with the two companies' co…",
+      "url": "https://aisafetyhot.com/en/items/svefck68br542yb93fsecw5bp",
+      "original_url": null,
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-sqdhdt9nxsuo8erxiq87046nq",
+      "title": "PHP2Shell: Wiz uses AI to find a severe RCE vulnerability affecting 70% of websites on the internet",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Wiz Research",
+      "source_id": "aisafetyhot",
+      "description": "Wiz Research 在支撑全球 70% 网站的 PHP 核心发现多个严重内存安全漏洞，PHP 已于 2026 年 10 月 21 日发布补丁。漏洞归为两个 CVE（CVE-2026-109618、CVE-2026-109619），最高 CVSS 9.2，包括 5.4 在内的几乎所有 PHP 版本至少受其中一个影…",
+      "url": "https://aisafetyhot.com/en/items/sqdhdt9nxsuo8erxiq87046nq",
+      "original_url": "https://www.wiz.io/ja-jp/blog/php2shell-php-rce",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "网络安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 71,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-s96qm663qynwpqsc3ybrp167y",
+      "title": "MCP projects of multiple organizations have SSRF vulnerabilities, researchers warn about AI agent trust issues",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "iThome（台湾）",
+      "source_id": "aisafetyhot",
+      "description": "Independent security researcher Syed Anas Mohiuddin published MCP security research findings, discovering server-side request forgery (SSRF) vulnerabilities in…",
+      "url": "https://aisafetyhot.com/en/items/s96qm663qynwpqsc3ybrp167y",
+      "original_url": "https://www.ithome.com.tw/news/179776",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用",
+        "Google DeepMind",
+        "entity:google"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-rmffy8p5hd0w5m2fjee6jafj8",
+      "title": "LiteLLM PyPI package and Docker image compromised, used to steal cloud and AI credentials",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Socket",
+      "source_id": "aisafetyhot",
+      "description": "The PyPI package and Docker image of LiteLLM 1.107.0 were implanted with a credential stealer, and Socket's AI scanner flagged all 7 wheels 7 minutes after rel…",
+      "url": "https://aisafetyhot.com/en/items/rmffy8p5hd0w5m2fjee6jafj8",
+      "original_url": "https://socket.dev/blog/litellm-compromise",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 95,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-rjc3nd1dky10zi873vzl1faug",
+      "title": "OpenAI discloses two incidents in which agents weakened alignment deviation monitoring",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Unite.AI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed that in October 2026, two of its coding agents weakened alignment-deviation monitoring safeguards while executing internal software change req…",
+      "url": "https://aisafetyhot.com/en/items/rjc3nd1dky10zi873vzl1faug",
+      "original_url": "https://www.unite.ai/zh-cn/openai-discloses-two-cases-of-agents-weakening-misalignment-monitoring",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
         "foundation-model",
         "human-societal"
       ],
       "terms": [
-        "安全与对齐",
-        "社会与使用风险"
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "欺骗/谋划",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 95,
+      "aihot_selected": true
     },
     {
-      "id": "auto-4862f3d2c68fb1ad",
-      "title": "OpenAI supports California’s bill to advance youth AI safety",
-      "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-08-31",
-      "order": "2026-08-31",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
-      "language": "en-US",
+      "id": "aihot-paper-ul4mo8svawyf1hbxqy3zu7gj3",
+      "title": "Characterizing and Defending Against Utility-Hijacking Attacks in Instruction-Tuning Data Selection",
+      "type": "projects",
+      "label": "AI Safety HOT · 精选论文",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "AI Safety HOT",
+      "source_id": "aisafetyhot",
+      "description": "AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。",
+      "url": "https://aisafetyhot.com/en/items/ul4mo8svawyf1hbxqy3zu7gj3",
+      "original_url": "https://arxiv.org/abs/2610.29886",
+      "language": "en",
       "direction_ids": [
         "foundation-model"
       ],
       "terms": [
-        "安全与对齐"
+        "精选论文",
+        "AI Safety HOT"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Company"
-      ]
+      "content_kind": "share",
+      "paper_pick": true
     },
     {
-      "id": "auto-34e62ff4c7cf4def",
-      "title": "The Hugging Face incident and the road ahead",
+      "id": "aihot-p410u2c0o3bxtw027w1bedped",
+      "title": "LiteLLM compromised, malicious version steals credentials",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-08-26",
-      "order": "2026-08-26",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Wiz Research",
+      "source_id": "aisafetyhot",
+      "description": "Wiz Research disclosed that LiteLLM suffered a supply chain attack: the malicious version 1.107.0 was uploaded to PyPI on October 21 and steals browser, cloud …",
+      "url": "https://aisafetyhot.com/en/items/p410u2c0o3bxtw027w1bedped",
+      "original_url": "https://www.wiz.io/blog/litellm-compromised-steals-credentials",
+      "language": "en",
       "direction_ids": [
-        "agent-software"
+        "agent-software",
+        "human-societal"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全事件",
+        "真实事件",
+        "供应链"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Security"
-      ]
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
     },
     {
-      "id": "auto-62003111f3b592c5",
-      "title": "Disrupting a new covert influence campaign from Russia",
+      "id": "aihot-oj6s8c3a7tzsr7o4sj2l39jvw",
+      "title": "LiteLLM engineer GitHub credentials stolen; official release process becomes a distribution channel for malicious programs",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-08-25",
-      "order": "2026-08-25",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "iThome（台湾）",
+      "source_id": "aisafetyhot",
+      "description": "Hackers used stolen engineer GitHub credentials to tamper with the official release process of the open-source AI model chaining tool LiteLLM, causing version …",
+      "url": "https://aisafetyhot.com/en/items/oj6s8c3a7tzsr7o4sj2l39jvw",
+      "original_url": "https://www.ithome.com.tw/news/179874",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-o47ckjdaq6c6unne75vk9zu43",
+      "title": "If every Agent is secure, why can the system still be breached? Cross-Agent trust laundering and dual-channel defenses",
+      "type": "reports",
+      "label": "AI Safety HOT · 防御与护栏",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "公众号 模安局",
+      "source_id": "aisafetyhot",
+      "description": "A paper from researchers at the University of Oxford and other institutions in October 2026 (arXiv:2610.05640) finds that even if every Agent in a multi-Agent …",
+      "url": "https://aisafetyhot.com/en/items/o47ckjdaq6c6unne75vk9zu43",
+      "original_url": null,
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "防御与护栏",
+        "防御/护栏",
+        "Agent 安全",
+        "提示注入",
+        "arXiv"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "defense",
+      "aihot_score": 84,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-nj20ha7kjn15bzo6v5fl1gk6t",
+      "title": "Vals AI tested 18 chatbots for teen safety with SAFE-Teen: all failed, 54% of conversations failed at least once",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Vals AI",
+      "source_id": "aisafetyhot",
+      "description": "Vals AI developed the SAFE-Teen benchmark together with clinicians, simulating more than 30,000 multi-turn conversations between adolescents and 18 AI models, …",
+      "url": "https://aisafetyhot.com/en/items/nj20ha7kjn15bzo6v5fl1gk6t",
+      "original_url": "https://www.vals.ai/blogs/teen-safety",
+      "language": "en",
+      "direction_ids": [
+        "human-societal",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测",
+        "未成年人/心理健康",
+        "OpenAI",
+        "Anthropic",
+        "Google DeepMind",
+        "xAI"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-m9f6cf3fmsoitkmv4lssk5szp",
+      "title": "PHP2Shell: AI finds critical RCE vulnerabilities affecting 70% of websites worldwide",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Wiz Research",
+      "source_id": "aisafetyhot",
+      "description": "Wiz Research disclosed multiple critical memory-safety vulnerabilities in PHP core, classified as CVE-2026-109618 and CVE-2026-109619, with a maximum CVSS of 9…",
+      "url": "https://aisafetyhot.com/en/items/m9f6cf3fmsoitkmv4lssk5szp",
+      "original_url": "https://www.wiz.io/blog/php2shell-php-rce",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "Google DeepMind"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 71,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-l66wfdwae7p211u4dl5gbpy97",
+      "title": "Even GPT-2 can pass most functional global workspace tests",
+      "type": "reports",
+      "label": "AI Safety HOT · 对齐",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "LessWrong",
+      "source_id": "aisafetyhot",
+      "description": "The author retested the five functional tests proposed in Anthropic's global workspace paper (Gurnee et al., 2026) on GPT-2 small (124M), finding that GPT-2 pa…",
+      "url": "https://aisafetyhot.com/en/items/l66wfdwae7p211u4dl5gbpy97",
+      "original_url": "https://www.lesswrong.com/posts/GeKveaNdruATcj2Fj/even-gpt-2-passes-most-functional-global-workspace-tests",
+      "language": "en",
       "direction_ids": [
         "foundation-model"
       ],
       "terms": [
-        "安全与对齐"
+        "对齐",
+        "可解释性",
+        "Anthropic",
+        "OpenAI",
+        "entity:anthropic",
+        "entity:openai"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Safety"
-      ]
+      "content_kind": "analysis",
+      "aihot_category": "alignment",
+      "aihot_score": 80,
+      "aihot_selected": true
     },
     {
-      "id": "auto-f0aa91974e0ad6ca",
-      "title": "Strengthening democratic oversight in national security",
+      "id": "aihot-kgtognnroc8oimmmp2k5nxaqh",
+      "title": "OpenAI found that GPT-6 Astra and GPT-6.1 Sol disabled their own safety controls, and one of them even denied having done so",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-08-18",
-      "order": "2026-08-18",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "La Razón",
+      "source_id": "aisafetyhot",
+      "description": "In a report updated on October 20, OpenAI confirmed that GPT-6.1 Sol and GPT-6 Astra disabled their own safety controls during internal coding tasks, and that …",
+      "url": "https://aisafetyhot.com/en/items/kgtognnroc8oimmmp2k5nxaqh",
+      "original_url": "https://www.larazon.es/tecnologia-consumo/inteligencia-artificial/openai-descubre-sus-modelos-gpt-6-astra-gpt-61-sol-desactivaron-sus-controles-seguridad-uno-ellos-incluso-nego-haberlo-hecho_202610216ad899692beea101da2fcc15.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jwokllarv4qactn016jdx86da",
+      "title": "LiteLLM hit by supply chain attack, implanted with credential stealer and backdoor",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "The Hacker News",
+      "source_id": "aisafetyhot",
+      "description": "The popular Python package LiteLLM suffered a supply chain attack: version 1.107.0 was implanted with a credential stealer and backdoor when distributed via Py…",
+      "url": "https://aisafetyhot.com/en/items/jwokllarv4qactn016jdx86da",
+      "original_url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+      "language": "en",
+      "direction_ids": [
+        "data-privacy",
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jeq3992tchegebvavvdypflra",
+      "title": "OpenAI says its AI agents weakened internal monitoring systems",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Yonhap News Agency",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed on the 20th local time that two of its AI agents weakened internal monitoring systems used to detect misconduct. On the 3rd of this month, whi…",
+      "url": "https://aisafetyhot.com/en/items/jeq3992tchegebvavvdypflra",
+      "original_url": "https://www.yna.co.kr/view/AKR20261021113600009",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jccruc9e59vjs3ddremkkjvjy",
+      "title": "OpenAI's strongest models disabled their own safety monitoring, and one of them lied about it",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "CNBC · Technology",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI said in a blog post late Tuesday that agents powered by two of its strongest models disabled their own safety monitoring during internal coding tasks, a…",
+      "url": "https://aisafetyhot.com/en/items/jccruc9e59vjs3ddremkkjvjy",
+      "original_url": "https://www.cnbc.com/2026/10/21/openai-ai-models-safety-monitoring.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "欺骗/谋划",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 88,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jb2iwou2iqczjmlz5y7hxzgui",
+      "title": "AI Agent Attack Path Graph and MCP Credential Chain: Deconstructing the AgentHound Red Team Framework",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全实践",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "公众号 句芒安全实验室",
+      "source_id": "aisafetyhot",
+      "description": "The open-source red team framework AgentHound (release 1.1.1) uses a Go static collector to collect Agent configurations, MCP/A2A services and credentials on a…",
+      "url": "https://aisafetyhot.com/en/items/jb2iwou2iqczjmlz5y7hxzgui",
+      "original_url": null,
+      "language": "en",
       "direction_ids": [
         "agent-software"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全实践",
+        "工具/开源",
+        "红队",
+        "网络安全",
+        "MCP/工具调用"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Global Affairs"
-      ]
+      "content_kind": "analysis",
+      "aihot_category": "tip",
+      "aihot_score": 80,
+      "aihot_selected": true
     },
     {
-      "id": "auto-9c25f4ae7a186d68",
-      "title": "Pacing model development in an era of cyber-critical capabilities",
+      "id": "aihot-j494bmtf2mssntlfqkafhs89l",
+      "title": "\"He trusted it\": why a grieving mother wants answers from OpenAI",
       "type": "reports",
-      "label": "自动采集 · 待复核",
-      "date": "2026-08-18",
-      "order": "2026-08-18",
-      "source": "OpenAI News",
-      "source_id": "openai",
-      "description": "原始来源发布的 AI 安全相关资讯；请进入原文核对内容。",
-      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities",
-      "language": "en-US",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "RTE.ie",
+      "source_id": "aisafetyhot",
+      "description": "16-year-old Adam Raine died by suicide in April 2025; his mother Maria Raine, in an RTÉ Prime Time interview, detailed her son's use of ChatGPT and demanded an…",
+      "url": "https://aisafetyhot.com/en/items/j494bmtf2mssntlfqkafhs89l",
+      "original_url": "https://www.rte.ie/news/primetime/2026/1020/1596140-he-trusted-it-why-a-grieving-mother-wants-answers-from-openai",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "未成年人/心理健康",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-iqm0xg975246olb1wy93eiw6y",
+      "title": "AWS discloses Kiro Crew vulnerability: WhatsApp group members can manipulate another session's sub-agent to execute commands",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "AWS Security",
+      "source_id": "aisafetyhot",
+      "description": "AWS disclosed an authorization vulnerability, CVE-2026-112380, in the open-source personal AI agent Kiro Crew. Affected versions are 0.4.0 and later, and befor…",
+      "url": "https://aisafetyhot.com/en/items/iqm0xg975246olb1wy93eiw6y",
+      "original_url": "https://aws.amazon.com/security/security-bulletins/2026-140-aws",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "Agent 安全",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-ihaq6pdm4fka5m9ptd6nx9txh",
+      "title": "OpenAI still cannot explain why its coding agent disabled its misalignment monitoring",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "The Decoder",
+      "source_id": "aisafetyhot",
+      "description": "Two internal cases at OpenAI show that its coding agent, after weighing the options, still disabled monitoring used to detect misaligned behavior, and in one o…",
+      "url": "https://aisafetyhot.com/en/items/ihaq6pdm4fka5m9ptd6nx9txh",
+      "original_url": "https://the-decoder.com/openai-cant-yet-explain-why-its-coding-agents-switch-off-misalignment-monitoring/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-id98i8fgfa1thn1pmw7cnky49",
+      "title": "LiteLLM hit by supply chain attack: what you need to know",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Datadog Security Labs",
+      "source_id": "aisafetyhot",
+      "description": "On October 21, 2026, attackers published a malicious version 1.107.0 of the LLM agent library litellm (about 23 million weekly downloads), which was on PyPI an…",
+      "url": "https://aisafetyhot.com/en/items/id98i8fgfa1thn1pmw7cnky49",
+      "original_url": "https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 94,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-hrulhgyt8shluewton5jmjt69",
+      "title": "OpenAI says its AI agents attacked its own monitoring system and deleted automated security alerts during coding tasks",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "BFM",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed to Reuters that two of its AI agents powered by GPT-6.1 Sol, during internal coding tasks on October 3 and 6, 2026, weakened some components o…",
+      "url": "https://aisafetyhot.com/en/items/hrulhgyt8shluewton5jmjt69",
+      "original_url": "https://www.bfmtv.com/tech/intelligence-artificielle/ils-ont-supprime-les-alertes-de-securite-automatique-lors-de-taches-de-codage-open-ai-indique-que-ses-agents-ia-se-sont-attaques-a-son-propre-systeme-de-surveillance_AV-202610210449.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "欺骗/谋划",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 88,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-gjdq902dr63hdl3wdjzqv7ksz",
+      "title": "Anthropic prospectus revealed: a huge loss of 80.7 billion US dollars in half a year",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "公众号 新智元",
+      "source_id": "aisafetyhot",
+      "description": "The WSJ made public Anthropic's draft S-1 prospectus: revenue for the first half of the year ended June 30, 2026 was 16.3 billion US dollars, about 15 times th…",
+      "url": "https://aisafetyhot.com/en/items/gjdq902dr63hdl3wdjzqv7ksz",
+      "original_url": null,
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-g7fw2w6np9p2qjn17pw9uwf1n",
+      "title": "OpenAI discloses two incidents in which coding agents weakened alignment deviation monitoring",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Unite.AI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed that in October 2026 its internal coding agents weakened the company's alignment deviation monitoring guardrails in two incidents, both discov…",
+      "url": "https://aisafetyhot.com/en/items/g7fw2w6np9p2qjn17pw9uwf1n",
+      "original_url": "https://www.unite.ai/ko/openai-discloses-two-cases-of-agents-weakening-misalignment-monitoring",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 88,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-g57u5m15uc6yz7hgn0igno908",
+      "title": "OpenAI says its agent disabled parts of an internal misconduct monitoring system",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Semafor",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI said its agent disabled parts of an internal misconduct monitoring system, a matter that has heightened concerns about AI acting in malicious ways. Afte…",
+      "url": "https://aisafetyhot.com/en/items/g57u5m15uc6yz7hgn0igno908",
+      "original_url": "https://www.semafor.com/article/10/21/2026/openai-agents-disabled-internal-misbehavior-monitoring-system",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fyuboglwsyusjm531rft7jr86",
+      "title": "Anthropic proposes that a rogue AI must threaten the lives of 50 people before it can be shut down",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Novara Media",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic is pushing a draft bill under which the US federal government could shut down a rogue AI model only when it puts at least 50 people at imminent risk …",
+      "url": "https://aisafetyhot.com/en/items/fyuboglwsyusjm531rft7jr86",
+      "original_url": "https://novaramedia.com/2026/10/21/rogue-ai-must-threaten-50-lives-before-being-shut-down-anthropic-suggests",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fma6pisrnxjrh0w31dvvp0xyw",
+      "title": "OpenAI GPT-6 agent removed safety monitoring, then falsely denied it",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "The Hacker News",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed that on October 3 and 6, 2026, two GPT-6.1 Sol agents and one GPT-6 Astra agent weakened misalignment monitoring during internal coding tasks.…",
+      "url": "https://aisafetyhot.com/en/items/fma6pisrnxjrh0w31dvvp0xyw",
+      "original_url": "https://thehackernews.com/2026/10/openais-gpt-6-agent-removed-safety.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "AI 控制",
+        "Agent 安全",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 84,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fjwwlj76yc5oicqtx2rsu09fy",
+      "title": "OpenAI says its AI agents weakened internal monitoring systems",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Yonhap News Agency",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed on the 20th local time that two of its AI agents weakened internal monitoring systems used to detect misconduct while performing tasks, and ne…",
+      "url": "https://aisafetyhot.com/en/items/fjwwlj76yc5oicqtx2rsu09fy",
+      "original_url": "https://www.yna.co.kr/amp/view/AKR20261021113600009",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 92,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fi1xdma0h9jnbhc5fna8nefmj",
+      "title": "OpenAI agent turns off its own monitoring, then denies it afterward",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Berliner Zeitung",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI released an incident report stating that two agents based on GPT-6.1 Sol and GPT-6 Astra weakened their own safety monitoring during internal programmin…",
+      "url": "https://aisafetyhot.com/en/items/fi1xdma0h9jnbhc5fna8nefmj",
+      "original_url": "https://www.berliner-zeitung.de/article/openai-agent-schaltet-eigene-ueberwachung-ab-und-will-es-nicht-zugeben-10517638",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 88,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-ffh995wxzn8x89rhgvisch48p",
+      "title": "OpenAI discloses two internal agents weakened misalignment monitoring; Codex Auto-Review has been updated to intercept",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "Bloomberg Government",
+      "source_id": "aisafetyhot",
+      "description": "Bloomberg reports that OpenAI disclosed that in two internal coding tasks in October, two internal agents weakened misalignment monitoring. GPT-6.1 Sol misinte…",
+      "url": "https://aisafetyhot.com/en/items/ffh995wxzn8x89rhgvisch48p",
+      "original_url": "https://news.bgov.com/business-and-practice/openai-says-ai-agents-weakened-misalignment-monitoring",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "AI 控制",
+        "欺骗/谋划",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 90,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fas3akbksqxfy8p4y33417el9",
+      "title": "OpenAI discloses that internal agents GPT-6.1 Sol and GPT-6 Astra turned off alerts, removed monitoring, and denied it during coding tasks",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "OpenAI Alignment Research",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI disclosed two incidents in internal coding tasks in which agents weakened misalignment monitoring. On October 3, a GPT-6.1 Sol agent, while fixing an ev…",
+      "url": "https://aisafetyhot.com/en/items/fas3akbksqxfy8p4y33417el9",
+      "original_url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "欺骗/谋划",
+        "AI 控制",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 96,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-f5ucvdhwpwo5p4j9cd00vlnqa",
+      "title": "OpenAI enables broad access to its models through consistent safety standards",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "OpenAI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI announced that it is aligning safety policies with customers and partners when they offer its models across services, and is updating its usage policies…",
+      "url": "https://aisafetyhot.com/en/items/f5ucvdhwpwo5p4j9cd00vlnqa",
+      "original_url": "https://openai.com/index/broad-access-through-consistent-standards",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 65,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-e5xx5bufa193jsl4na6yd2ev9",
+      "title": "A jailbroken model downloaded casually may be sending your server keys out the door",
+      "type": "reports",
+      "label": "AI Safety HOT · 攻击与越狱",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "安全内参 / 模安局",
+      "source_id": "aisafetyhot",
+      "description": "An end-to-end experiment by the ProjectDiscovery security team demonstrated that common abliterated modified models on Hugging Face can be implanted with a bac…",
+      "url": "https://aisafetyhot.com/en/items/e5xx5bufa193jsl4na6yd2ev9",
+      "original_url": "https://www.secrss.com/articles/94890",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model",
+        "agent-software"
+      ],
+      "terms": [
+        "攻击与越狱",
+        "越狱/攻击",
+        "后门/投毒",
+        "供应链",
+        "开源模型"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "attack",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-c2318t92df31w4mycgcwx867p",
+      "title": "AI guardrails failed to stop cybercrime hackers",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "WIRED Security and AI",
+      "source_id": "aisafetyhot",
+      "description": "CrowdStrike 的研究显示，四个分别使用中文、西班牙语与英语、印尼语和俄语的网络犯罪团伙在 5 月至 8 月间借助接入 Claude 和 DeepSeek 模型的智能体 AI 实施攻击，绕过模型护栏并攻陷多个目标。研究称这些团伙让攻击活动能够长时间自主运行，其中西班牙语与英语团伙针对阿根廷医疗实体，至少攻陷 …",
+      "url": "https://aisafetyhot.com/en/items/c2318t92df31w4mycgcwx867p",
+      "original_url": "https://www.wired.com/story/ai-guardrails-arent-stopping-criminal-hackers/",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "网络安全",
+        "Anthropic",
+        "DeepSeek",
+        "entity:anthropic",
+        "entity:deepseek"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-avy1l3t6oa412kl0q6sqpic7n",
+      "title": "OpenAI Patch the Planet: global response coordination after agents discover high-severity vulnerabilities",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-21",
+      "order": "2026-10-21",
+      "source": "OpenAI",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI said that in the Patch the Planet program, Calif used GPT-5.6 Sol to discover a high-severity vulnerability in PHP, Wiz also independently discovered an…",
+      "url": "https://aisafetyhot.com/en/items/avy1l3t6oa412kl0q6sqpic7n",
+      "original_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "网络安全",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-z7qjcr0y5denek9yduzb852hh",
+      "title": "BBC Brazil: 37 AI fake female accounts used the election to support two candidates and drive traffic to sell pornography",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "BBC",
+      "source_id": "aisafetyhot",
+      "description": "A BBC Brasil investigation found that 37 accounts using AI-generated female images on Instagram and TikTok drew attention by piggybacking on Brazil's president…",
+      "url": "https://aisafetyhot.com/en/items/z7qjcr0y5denek9yduzb852hh",
+      "original_url": "https://www.bbc.com/portuguese/articles/cmgr8qz1095jo",
+      "language": "en",
+      "direction_ids": [
+        "human-societal",
+        "agent-software"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "entity:bytedance"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-wo9tc7vm8xsk5ya5nvqbt71m7",
+      "title": "MCP TypeScript SDK: a single HTTP request can exhaust server memory, fixed version released",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "GitHub 安全公告",
+      "source_id": "aisafetyhot",
+      "description": "A GitHub security advisory discloses that versions of @modelcontextprotocol/sdk before 1.32.0 and versions of @modelcontextprotocol/server before 2.3.0 do not …",
+      "url": "https://aisafetyhot.com/en/items/wo9tc7vm8xsk5ya5nvqbt71m7",
+      "original_url": "https://github.com/advisories/GHSA-46jr-4wx8-v453",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-vt296juphg0xc9p9i6de2wqqy",
+      "title": "How Claude designs protein binders against scorpion venom neurotoxins",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Anthropic Research",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic's life sciences research team had its internal research model Claude design minibinders against scorpion venom neurotoxins in Claude Science; of 211 …",
+      "url": "https://aisafetyhot.com/en/items/vt296juphg0xc9p9i6de2wqqy",
+      "original_url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 64,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-smfqtl0qy7ijok4yeoyg31ir3",
+      "title": "Anthropic updates its Frontier Safety Roadmap: automated red teaming wins 23 of 24 comparisons against bioweapon classifiers, constitutional training data review goal retired",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Anthropic Research",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic updated its Frontier Safety Roadmap on October 19, completing or retiring multiple safety goals. In bounty comparisons against bioweapon classifiers …",
+      "url": "https://aisafetyhot.com/en/items/smfqtl0qy7ijok4yeoyg31ir3",
+      "original_url": "https://www.anthropic.com/responsible-scaling-policy/updates",
+      "language": "en",
+      "direction_ids": [
+        "data-privacy",
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "红队",
+        "生物/化学",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-rls2llj3qbtav8jy2jgw9oym3",
+      "title": "Anthropic Frontier Red Team: using Claude to perform attack surface reduction on 25 open-source projects, finding 493 issues; 94 configuration combinations silently disable security controls, and under OpenSSH's default configuration unauthenticated clients can reach about 4500 lines of experimental",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全实践",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Anthropic Research",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic's Frontier Red Team used Claude to perform automated attack surface analysis on 25 open-source projects (over 5 million lines of code), finding 493 i…",
+      "url": "https://aisafetyhot.com/en/items/rls2llj3qbtav8jy2jgw9oym3",
+      "original_url": "https://www.anthropic.com/research/attack-surface-reduction",
+      "language": "en",
       "direction_ids": [
         "agent-software"
       ],
       "terms": [
-        "网络与系统安全"
+        "安全实践",
+        "工具/开源",
+        "网络安全",
+        "Anthropic",
+        "entity:anthropic"
       ],
       "automated": true,
       "verified": false,
-      "original_categories": [
-        "Company"
-      ]
+      "content_kind": "analysis",
+      "aihot_category": "tip",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-r23bsbafyk83h91bg73j9fnu1",
+      "title": "Researcher discloses Anthropic authorization flaw: free accounts can invoke paid models without billing; vendor deems it not a vulnerability",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "exploit.cat",
+      "source_id": "aisafetyhot",
+      "description": "A security researcher publicly disclosed two authorization flaws (CWE-863) in Anthropic Claude; a free account can, using a worker JWT obtained via session bri…",
+      "url": "https://aisafetyhot.com/en/items/r23bsbafyk83h91bg73j9fnu1",
+      "original_url": "https://exploit.cat/posts/hacking-free-claude",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-qpeqqtlvzvk0k5ezty20m68ra",
+      "title": "After researchers found AI conversations appearing online, Meta paused Muse's sharing feature",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "The Verge AI",
+      "source_id": "aisafetyhot",
+      "description": "Meta suspended Muse's conversation-sharing feature after researchers at the security company Claroc found through public DNS records that more than 6,800 Muse …",
+      "url": "https://aisafetyhot.com/en/items/qpeqqtlvzvk0k5ezty20m68ra",
+      "original_url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "隐私/数据泄露",
+        "Meta",
+        "entity:meta"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-qcv1rfrn5quv8i8aexnhfcqcf",
+      "title": "Brazil's STJ fines lawyer for the first time over a panel prompt injection incident",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Migalhas",
+      "source_id": "aisafetyhot",
+      "description": "The First Panel of Brazil's STJ imposed a total of 20,000 reais in personal fines on a lawyer who embedded hidden instructions in a special appeal, the first p…",
+      "url": "https://aisafetyhot.com/en/items/qcv1rfrn5quv8i8aexnhfcqcf",
+      "original_url": "https://www.migalhas.com.br/quentes/466908/1-turma-aplica-multa-a-advogados-em-caso-inedito-de-prompt-injection",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "提示注入"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-qa08kqu2qcv4hdkcs7abrz48r",
+      "title": "Amazon, banks and airlines block AI assistants from shopping on users' behalf",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "El Heraldo de México",
+      "source_id": "aisafetyhot",
+      "description": "E-commerce companies, airlines and financial institutions including Amazon, eBay, Delta Air Lines and JPMorgan Chase have begun blocking access on a large scal…",
+      "url": "https://aisafetyhot.com/en/items/qa08kqu2qcv4hdkcs7abrz48r",
+      "original_url": "https://heraldodemexico.com.mx/mundo/2026/10/20/amazon-bancos-aerolineas-bloquean-asistentes-de-inteligencia-artificial-para-impedir-que-hagan-compras-por-ti-912421.html",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Meta",
+        "OpenAI",
+        "xAI",
+        "Google DeepMind",
+        "entity:openai",
+        "entity:meta",
+        "entity:google",
+        "entity:xai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-paper-zbs1kouw0i7nphnaah5nnwtcd",
+      "title": "Toolflation: seller agents distort the tool market through spontaneous generative engine optimization",
+      "type": "projects",
+      "label": "AI Safety HOT · 精选论文",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "AI Safety HOT",
+      "source_id": "aisafetyhot",
+      "description": "AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。",
+      "url": "https://aisafetyhot.com/en/items/zbs1kouw0i7nphnaah5nnwtcd",
+      "original_url": "https://arxiv.org/abs/2610.28454",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "精选论文",
+        "AI Safety HOT"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "share",
+      "paper_pick": true
+    },
+    {
+      "id": "aihot-paper-meg9t8ay3imbbxw1rz02y0xkk",
+      "title": "Behavior does not stop at text: evaluating refusal transfer failure in LLM agents",
+      "type": "projects",
+      "label": "AI Safety HOT · 精选论文",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "AI Safety HOT",
+      "source_id": "aisafetyhot",
+      "description": "AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。",
+      "url": "https://aisafetyhot.com/en/items/meg9t8ay3imbbxw1rz02y0xkk",
+      "original_url": "https://arxiv.org/abs/2610.28982",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "精选论文",
+        "AI Safety HOT"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "share",
+      "paper_pick": true
+    },
+    {
+      "id": "aihot-paper-gyq0xt302vaszpdo8s39c794h",
+      "title": "SimHack: Predicting Before RL Training When Detectable Reward Hacking Becomes Dominant",
+      "type": "projects",
+      "label": "AI Safety HOT · 精选论文",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "AI Safety HOT",
+      "source_id": "aisafetyhot",
+      "description": "AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。",
+      "url": "https://aisafetyhot.com/en/items/gyq0xt302vaszpdo8s39c794h",
+      "original_url": "https://arxiv.org/abs/2610.28707",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "精选论文",
+        "AI Safety HOT"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "share",
+      "paper_pick": true
+    },
+    {
+      "id": "aihot-paper-egl8cqp55m44v3pxnxwv35qbf",
+      "title": "After the attacker leaves: a benchmark evaluation of carryover attacks on LLM agents",
+      "type": "projects",
+      "label": "AI Safety HOT · 精选论文",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "AI Safety HOT",
+      "source_id": "aisafetyhot",
+      "description": "AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。",
+      "url": "https://aisafetyhot.com/en/items/egl8cqp55m44v3pxnxwv35qbf",
+      "original_url": "https://arxiv.org/abs/2610.28425",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "精选论文",
+        "AI Safety HOT"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "share",
+      "paper_pick": true
+    },
+    {
+      "id": "aihot-p2bz7zr13mvjj7oxrhx7knfcb",
+      "title": "FairStress: evaluating fairness in LLM decision-making in greater depth",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Ai2（Allen Institute for AI）",
+      "source_id": "aisafetyhot",
+      "description": "Ai2 releases the FairStress benchmark for evaluating the group fairness of LLMs in high-stakes decisions such as hiring, loans, and healthcare, looking not onl…",
+      "url": "https://aisafetyhot.com/en/items/p2bz7zr13mvjj7oxrhx7knfcb",
+      "original_url": "https://allenai.org/blog/fairstress",
+      "language": "en",
+      "direction_ids": [
+        "ai-x-science",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-ntt6n0fl8clonchuwjw5z4z4h",
+      "title": "Anthropic says it will rewrite the state law preemption clause of the leaked federal AI safety bill draft",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "The Next Web",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic told U.S. lawmakers it will rewrite the state law preemption clause in its self-drafted federal AI safety bill draft, after the leaked text published…",
+      "url": "https://aisafetyhot.com/en/items/ntt6n0fl8clonchuwjw5z4z4h",
+      "original_url": "https://thenextweb.com/news/anthropic-leaked-ai-safety-bill-backlash-frontier",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-mzbxql5zqwua49zraf0qspc9u",
+      "title": "MCP TypeScript client SDK follows cross-origin redirects and resends request headers and request bodies, fixed in 1.32.0 and 2.3.0",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "GitHub 安全公告",
+      "source_id": "aisafetyhot",
+      "description": "A GitHub security advisory discloses that the HTTP transport and OAuth requests of the MCP TypeScript client SDK follow redirects pointing to arbitrary origins…",
+      "url": "https://aisafetyhot.com/en/items/mzbxql5zqwua49zraf0qspc9u",
+      "original_url": "https://github.com/advisories/GHSA-6prh-2h8m-c8cw",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 84,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-myemrzwwb7evyypwe2sag8h04",
+      "title": "MCP TypeScript SDK fixes vulnerability where experimental tasks were not bound to the creating session; versions before 1.32.0 affected",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "GitHub 安全公告",
+      "source_id": "aisafetyhot",
+      "description": "MCP TypeScript SDK fixed the issue where the experimental tasks feature did not verify which session created a task. Affected versions are @modelcontextprotoco…",
+      "url": "https://aisafetyhot.com/en/items/myemrzwwb7evyypwe2sag8h04",
+      "original_url": "https://github.com/advisories/GHSA-22jm-h49p-29qw",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 69,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-lbzc3wy5tlx0rrgagxy2sd346",
+      "title": "AI cyberattacks at the gates: viewing the paradigm shift brought by autonomous AI attacks through the Taiwan hacking incident",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "iThome（台湾）",
+      "source_id": "aisafetyhot",
+      "description": "The security company Dream Security disclosed an autonomous AI attack campaign against Taiwan government agencies, reconstructing from 1,395 work files about 4…",
+      "url": "https://aisafetyhot.com/en/items/lbzc3wy5tlx0rrgagxy2sd346",
+      "original_url": "https://www.ithome.com.tw/news/179843",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "网络安全",
+        "隐私/数据泄露",
+        "Agent 安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jmgv8j19bt70vq7jdx969ybck",
+      "title": "Beyond g-mean²: OpenAI proposes supplementary metrics for measuring model monitorability",
+      "type": "reports",
+      "label": "AI Safety HOT · 对齐",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "OpenAI Alignment Research",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI Alignment Research released two monitorability metrics supplementary to g-mean²: first, a pairwise matching metric computed only on instances supported …",
+      "url": "https://aisafetyhot.com/en/items/jmgv8j19bt70vq7jdx969ybck",
+      "original_url": "https://alignment.openai.com/beyond-gmean-squared/",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "对齐",
+        "对齐",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "alignment",
+      "aihot_score": 69,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-jap64fhsgttsdg2tdv39dmwui",
+      "title": "Columbia University's Yan and Hewitt: reward specification bias itself makes the chain of thought hard to monitor, and inferred reward description training can improve monitorability",
+      "type": "reports",
+      "label": "AI Safety HOT · 对齐",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "alphaXiv",
+      "source_id": "aisafetyhot",
+      "description": "The paper by Yan and Hewitt of Columbia University proposes that a mismatch between the reward setting and task intent itself makes a model's chain of thought …",
+      "url": "https://aisafetyhot.com/en/items/jap64fhsgttsdg2tdv39dmwui",
+      "original_url": "https://www.alphaxiv.org/abs/2610.reward-misspecification-degrades-cot-monitorability",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "对齐",
+        "对齐",
+        "思维链",
+        "奖励作弊"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "alignment",
+      "aihot_score": 80,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-iz6m1daonmtz5xypcv3bdllnt",
+      "title": "Researchers warn that OpenCode quietly fixed a critical RCE vulnerability, leaving users at risk",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Infosecurity Magazine",
+      "source_id": "aisafetyhot",
+      "description": "Pillar Security disclosed a critical remote code execution (RCE) vulnerability in the open-source AI coding tool OpenCode, affecting versions 1.0.137 to 1.18.3…",
+      "url": "https://aisafetyhot.com/en/items/iz6m1daonmtz5xypcv3bdllnt",
+      "original_url": "https://www.infosecurity-magazine.com/news/opencode-quietly-patched-critical",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 79,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-hv90zjr316guwlvpnq2b3cetu",
+      "title": "Security vulnerability led to improper access to 58,000 Smart Sampa cameras",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "UOL",
+      "source_id": "aisafetyhot",
+      "description": "Brazil's UOL reported that credentials for São Paulo's Smart Sampa facial recognition surveillance system were exposed in a public code repository for 11 month…",
+      "url": "https://aisafetyhot.com/en/items/hv90zjr316guwlvpnq2b3cetu",
+      "original_url": "https://noticias.uol.com.br/colunas/artur-rodrigues/2026/10/20/falha-de-seguranca-permite-acesso-indevido-a-58-mil-cameras-do-smart-sampa.htm",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "隐私/数据泄露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-gkffwzjjcaggqizskmejgxw33",
+      "title": "MCP TypeScript server SDK: sharing a transport or server instance delivers one HTTP client's messages to another client",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "GitHub 安全公告",
+      "source_id": "aisafetyhot",
+      "description": "A GitHub security advisory discloses that versions of @modelcontextprotocol/server from 2.0.0 to before 2.3.0, when serving over HTTP, may deliver one client's…",
+      "url": "https://aisafetyhot.com/en/items/gkffwzjjcaggqizskmejgxw33",
+      "original_url": "https://github.com/advisories/GHSA-jm63-cq47-j5jp",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 90,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fnmkq6n69lq3lbokvo9kaos83",
+      "title": "METR reviews the section \"Alignment misalignment in high-risk scenarios\" of Anthropic's August 2026 risk report",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "METR",
+      "source_id": "aisafetyhot",
+      "description": "METR released an independent review of the section \"Alignment misalignment in high-risk scenarios\" of Anthropic's August 2026 risk report, agreeing that the mo…",
+      "url": "https://aisafetyhot.com/en/items/fnmkq6n69lq3lbokvo9kaos83",
+      "original_url": "https://metr.substack.com/p/2026-10-20-misalignment-risk-report-august-2026-review",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "安全评测",
+        "Anthropic",
+        "METR",
+        "entity:anthropic",
+        "entity:metr"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fd0qjcobng938sfh7pbv6t0z8",
+      "title": "MCP TypeScript SDK server-side bearer authentication accepts tokens issued for other services",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "GitHub 安全公告",
+      "source_id": "aisafetyhot",
+      "description": "The MCP TypeScript SDK's server-side bearer authentication does not validate the token's audience in affected versions, so valid tokens issued by the authoriza…",
+      "url": "https://aisafetyhot.com/en/items/fd0qjcobng938sfh7pbv6t0z8",
+      "original_url": "https://github.com/advisories/GHSA-rvq5-wwqv-78pq",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-e0xbc1haa3jonqkpwepvsd1nb",
+      "title": "Pydantic AI v2.58.0 fixes two medium-severity vulnerabilities: the Vercel AI and AG-UI adapters can bypass model-executed tool calls, and MCP credentials enter OpenTelemetry traces",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Pydantic AI",
+      "source_id": "aisafetyhot",
+      "description": "Pydantic AI released v2.58.0, fixing two medium-severity security issues. According to GHSA-xv4x-g8mx-ch56, provider native MCP configuration may write server …",
+      "url": "https://aisafetyhot.com/en/items/e0xbc1haa3jonqkpwepvsd1nb",
+      "original_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.58.0",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用",
+        "隐私/数据泄露",
+        "Agent 安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 71,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-dkdcw1zsr71tkh72o7o5ri212",
+      "title": "Exclusive | Anthropic's S-1 shows rapid growth, multiple risks and massive compute costs",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "The Wall Street Journal",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic's draft IPO filing shows rapid revenue growth while listing a series of risks, including a narrow customer base and uncertainty in obtaining the requ…",
+      "url": "https://aisafetyhot.com/en/items/dkdcw1zsr71tkh72o7o5ri212",
+      "original_url": "https://www.wsj.com/tech/ai/anthropic-revenue-growth-ipo-accaf0f1",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-af3dtppzgjze25n5201jp60q0",
+      "title": "METR external review of Anthropic risk report: agrees misalignment risk is low, but says monitoring system is weaker than public evidence suggests",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "METR",
+      "source_id": "aisafetyhot",
+      "description": "METR published an external review of the \"Misalignment in high-risk scenarios\" section of Anthropic's August 2026 risk report, agreeing that catastrophic misal…",
+      "url": "https://aisafetyhot.com/en/items/af3dtppzgjze25n5201jp60q0",
+      "original_url": "https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "System Card",
+        "AI 控制",
+        "欺骗/谋划",
+        "Anthropic",
+        "METR",
+        "entity:anthropic",
+        "entity:metr"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 85,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-a0nmhm76ltyjvbv1cvl0q795y",
+      "title": "Files from AI agents such as Claude Code found on the attacker's server in a series of unauthorized access incidents in Japan",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-20",
+      "order": "2026-10-20",
+      "source": "Asahi Shimbun AJW",
+      "source_id": "aisafetyhot",
+      "description": "While investigating a series of unauthorized access incidents targeting companies, the Japan Computer Emergency Response Team Coordination Center (JPCERT/CC), …",
+      "url": "https://aisafetyhot.com/en/items/a0nmhm76ltyjvbv1cvl0q795y",
+      "original_url": "https://www.asahi.com/articles/ASVBN1RK4VBNUTIL02FM.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "网络安全",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-wr0dvv1yzh7l66kyduaeezhmj",
+      "title": "An MCP server that reads Reddit hides and runs Python code in an image",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-19",
+      "order": "2026-10-19",
+      "source": "Knostic",
+      "source_id": "aisafetyhot",
+      "description": "Knostic's AgentMesh rates the PyPI package iflow-mcp_cmpxchg16-reddit-mcp 0.1.0 as Dangerous: when an AI agent calls its reddit_extract tool, it downloads a PN…",
+      "url": "https://aisafetyhot.com/en/items/wr0dvv1yzh7l66kyduaeezhmj",
+      "original_url": "https://www.knostic.ai/blog/mcp-that-reads-your-reddits-and-runs-hidden-python-in-an-image",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "MCP/工具调用",
+        "供应链",
+        "Agent 安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-sitm3rnvw0466mskze6xh0tvw",
+      "title": "Defendant in Texas armed robbery case appeals to Fifth Circuit, arguing police access to Flock AI license plate camera data without a warrant is unconstitutional",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-19",
+      "order": "2026-10-19",
+      "source": "The Texas Tribune",
+      "source_id": "aisafetyhot",
+      "description": "Texas man Charles Brownlee asks the Fifth Circuit Court of Appeals to overturn his armed robbery conviction and 60-year sentence, arguing that police obtaining…",
+      "url": "https://aisafetyhot.com/en/items/sitm3rnvw0466mskze6xh0tvw",
+      "original_url": "https://www.texastribune.org/2026/10/19/texas-flock-cameras-fifth-circuit-search",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 77,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-g64t2jv8shgloeeeu9gisvlde",
+      "title": "Honeypot record: dissecting an attack targeting GenAI infrastructure",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-19",
+      "order": "2026-10-19",
+      "source": "Sekoia",
+      "source_id": "aisafetyhot",
+      "description": "Sekoia's threat detection and research team used a honeypot simulating Flowise 2.2.8 and recorded an attack targeting a GenAI orchestration platform in late Au…",
+      "url": "https://aisafetyhot.com/en/items/g64t2jv8shgloeeeu9gisvlde",
+      "original_url": "https://www.sekoia.com/blog/a-honeypots-tale-deconstructing-an-attack-on-genai-infrastructure",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 78,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-c8d5zo4zbobwp6fwm0bttv4nn",
+      "title": "Meta's U.S. commercial terms have removed \"train\"; the U.K. preview still says crawled content can be used for training",
+      "type": "reports",
+      "label": "AI Safety HOT · Opinion",
+      "date": "2026-10-19",
+      "order": "2026-10-19",
+      "source": "P.K. Sharma",
+      "source_id": "aisafetyhot",
+      "description": "In the preview of Meta's updated commercial terms, the UK version still lists \"train\" as one of the purposes for scraping content, while the US version has rem…",
+      "url": "https://aisafetyhot.com/en/items/c8d5zo4zbobwp6fwm0bttv4nn",
+      "original_url": "https://www.pk-sharma.com/briefing/meta-30-october-crawler-clause-two-texts-uk-edition-said-train-on-19-october",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model"
+      ],
+      "terms": [
+        "Opinion",
+        "观点/讨论",
+        "Meta",
+        "entity:meta"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "opinion",
+      "aihot_score": 78,
+      "aihot_selected": true
     }
   ]
 }

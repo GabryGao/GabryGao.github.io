@@ -17,12 +17,13 @@ for(const route of ['directions','watch','sources','news','benchmarks','teams','
 assert.equal(run('paperRecords.length'),490);
 const automatic=run('allNews().filter(n=>n.automated)');assert.ok(automatic.length>0);
 assert.equal(new Set(run('allNews().map(n=>n.url)')).size,run('allNews().length'));
-assert.equal(run("PortalCompact.posts('','latest','','').length"),automatic.length);
-assert.equal(run("PortalCompact.posts('','analysis','','').length"),4);
-assert.equal(run('PortalCompact.catalogShowcases().length'),50);
-assert.equal(run("PortalCompact.posts('','share','','').length"),53);
+assert.equal(run('PortalCompact.stories().length'),automatic.length);
+assert.equal(run("PortalCompact.posts('','latest','','').length+PortalCompact.posts('','analysis','','').length+PortalCompact.posts('','share','','').length"),automatic.length);
+assert.ok(run("PortalCompact.posts('','analysis','','').length")>0);
+assert.equal(run("PortalCompact.posts('','share','','').length"),5);
+assert.ok(run("PortalCompact.posts('','share','','').every(n=>n.source_id==='aisafetyhot'&&n.paper_pick&&n.original_url)"));
 c.location.hash='#news?direction=physical-ai&q=unfindable-xz';assert.ok(run("newsPanel('physical-ai')").includes('此栏目暂无已发布内容'));
-c.location.hash='#news?origin=auto';assert.ok(!run("newsPanel('')").includes('历史资料'));
+c.location.hash='#news?origin=auto';assert.ok(run("newsPanel('')").includes('来源：AI Safety HOT'));
 const unsafe={id:'x',title:'<img src=x onerror=x>',label:'test',date:'2026-10-20',url:'https://example.com',source:'<script>',description:'<script>',direction_ids:[],automated:true};c.unsafe=unsafe;assert.ok(!run('newsRows([unsafe])').includes('<script>'));
 c.location.hash='#upload?direction=physical-ai';const upload=run('uploadPage()');assert.ok(upload.includes('name="type"'));assert.ok(upload.includes('提交渠道未接通'));assert.ok(upload.includes('value="physical-ai" selected'));assert.ok(!upload.includes('mailto:'));assert.ok(upload.includes('#results?direction=physical-ai'));assert.ok(!run('teamsPage()').includes('#contact'));assert.ok(!run('home()').includes('#contact'));c.location.hash='#contact';run('render()');assert.ok(el.innerHTML.includes('cp-evaluation'),'Legacy contact root goes to the evaluation dashboard');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const nav of ['directions','news','benchmarks','teams'])assert.ok(html.includes(`data-nav="${nav}"`));
