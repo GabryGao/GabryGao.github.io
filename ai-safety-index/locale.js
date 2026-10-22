@@ -21,6 +21,12 @@ AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源
 全部形态|All result types|すべての結果形式|Alle Ergebnisformen
 目录优先级|Catalog priority|カタログ優先度|Katalogpriorität
 全部优先级|All priorities|すべての優先度|Alle Prioritäten
+搜索当前范围内的评测资源|Search evaluation resources in this scope|この範囲の評価資料を検索|Evaluationsressourcen in diesem Bereich durchsuchen
+按目录优先级|Catalog priority|カタログ優先度順|Nach Katalogpriorität
+来源目录 · 按研究方向筛选|Source catalog · Filtered by research topic|情報源カタログ・研究分野で絞り込み|Quellenkatalog · Nach Forschungsbereich gefiltert
+目录记录|Catalog record|カタログ記録|Katalogeintrag
+没有符合条件的评测资源|No evaluation resources match the filters|条件に一致する評価資料はありません|Keine Evaluationsressourcen entsprechen den Filtern
+调整关键词、结果形态或子方向后重试。|Adjust the query, result availability or subtopic and try again.|キーワード、結果形式、下位分野を変更してください。|Suchbegriff, Ergebnisform oder Unterthema anpassen und erneut versuchen.
 项符合当前条件|match the current filters|件が現在の条件に一致|entsprechen den aktuellen Filtern
 评测或用途|Evaluation or purpose|評価または用途|Evaluation oder Zweck
 接入说明|Integration notes|接続メモ|Integrationshinweise
@@ -918,6 +924,7 @@ function translate(value,language){
  out=out.replace(/(\d+) 条论文记录/g,(_,n)=>at(`${n} paper records`,`${n} 件の論文`,`${n} Publikationseinträge`));
  out=out.replace(/(\d+) 条数据与资料记录/g,(_,n)=>at(`${n} data & resource records`,`${n} 件のデータ・資料`,`${n} Daten- & Ressourceneinträge`));
  out=out.replace(/(\d+) 条基准示例/g,(_,n)=>at(`${n} benchmark examples`,`${n} 件のベンチマーク例`,`${n} Benchmark-Beispiele`));
+ out=out.replace(/(\d+) 条已核验评测资源/g,(_,n)=>at(`${n} reviewed evaluation resources`,`${n} 件の確認済み評価資料`,`${n} geprüfte Evaluationsressourcen`));
  out=out.replace(/(\d+) 条精选与归档/g,(_,n)=>at(`${n} curated & archived items`,`${n} 件の選定・保存資料`,`${n} ausgewählte & archivierte Beiträge`));
  out=out.replace(/(\d+) 条记录/g,(_,n)=>at(`${n} records`,`${n} 件の記録`,`${n} Einträge`));
  out=out.replace(/(\d+) 篇论文/g,(_,n)=>at(`${n} papers`,`${n} 本の論文`,`${n} Publikationen`));

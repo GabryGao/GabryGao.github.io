@@ -41,8 +41,15 @@ context.location.hash='#sources?view=downloads';vm.runInContext('render()',conte
 assert.match(html,/评测结果样例 CSV/);
 assert.match(html,/不是跨基准排名/);
 assert.match(html,/result-file-manifest\.json/);
+context.location.hash='#directions?pillar=data-privacy&view=benchmarks';vm.runInContext('render()',context);html=elements.get('#main').innerHTML;
+assert.equal((html.match(/source-benchmark-row/g)||[]).length,23);
+assert.match(html,/23 条已核验评测资源/);
+assert.match(html,/PrivacyLens/);
+assert.doesNotMatch(html,/当前范围暂无已录入基准/);
+context.location.hash='#directions?pillar=data-privacy&view=benchmarks&object=已下载结果';vm.runInContext('render()',context);html=elements.get('#main').innerHTML;
+assert.equal((html.match(/source-benchmark-row/g)||[]).length,3);
 const publicRoot=path.join(root,'research-source','catalog-2026-10-22');
 for(const file of ['AI_Safety_Index_数据来源汇总.html','六大方向来源清单.csv','source-catalog.json','入口与参考网站.csv','扩展候选线索_149项.csv','结果接入清单.csv','评测结果样例.csv','result-samples.json','result-summary.json','result-file-manifest.json','summary.json','README.txt','WEB_README.txt'])assert.ok(fs.existsSync(path.join(publicRoot,file)),file);
 assert.ok(!fs.existsSync(path.join(publicRoot,'evidence')));
 assert.ok(!fs.existsSync(path.join(publicRoot,'result-files')));
-console.log('Source catalog checks passed: 171 reviewed resources, 21 portals, 149 historical candidates, public manifests, safe URLs and honest result boundaries.');
+console.log('Source catalog checks passed: 171 reviewed resources, populated direction benchmark panels, 21 portals, 149 historical candidates, public manifests, safe URLs and honest result boundaries.');

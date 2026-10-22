@@ -66,6 +66,32 @@ var PortalSources=(()=>{
  return {page};
 })();
 
+const sourceCatalogBaseBenchmarkPanel=benchmarkPanel;
+const sourceCatalogPriorityOrder={'P1 看板':0,'P1 目录':1,'P2 扩展':2,'P3 辅助':3};
+function sourceCatalogRecordsForDirection(direction){
+ if(!direction||typeof SourceCatalogData==='undefined')return [];
+ return SourceCatalogData.resources.filter(record=>record.direction_id===direction||record.related_direction_ids.includes(direction));
+}
+function sourceCatalogBenchmarkRow(record,index,direction){
+ const resultLink=record.result_url&&record.result_url!==record.url?'<a href="'+esc(record.result_url)+'" target="_blank" rel="noopener noreferrer">结果入口'+portalIcon('arrow')+'</a>':'';
+ const catalogLink=routeLink('sources',{direction,q:record.name});
+ return '<article class="bench-row source-benchmark-row"><span class="row-no">'+String(index+1).padStart(2,'0')+'</span><div><div class="source-benchmark-kicker"><span data-keep-original>'+esc(record.id)+'</span><span class="source-priority" data-priority="'+esc(record.priority)+'">'+esc(record.priority)+'</span></div><h3 data-keep-original><a href="'+esc(record.url)+'" target="_blank" rel="noopener noreferrer">'+esc(record.name)+'</a></h3><p data-keep-original>'+esc(record.metric)+'</p><div class="row-meta"><span class="label blue">'+esc(record.subdomain)+'</span><span>'+esc(record.result_state)+'</span><span>·</span><span>'+esc(record.relation)+'</span></div><div class="source-benchmark-links">'+resultLink+'<a href="'+catalogLink+'">目录记录'+portalIcon('arrow')+'</a></div></div><a class="row-arrow" href="'+esc(record.url)+'" target="_blank" rel="noopener noreferrer" aria-label="查看 '+esc(record.name)+' 原始资料">↗</a></article>';
+}
+benchmarkPanel=function(direction){
+ const sourceRecords=sourceCatalogRecordsForDirection(direction);
+ if(!sourceRecords.length)return sourceCatalogBaseBenchmarkPanel(direction);
+ const p=route().params,q=(p.get('q')||'').trim(),stateFilter=p.get('object')||'',sort=p.get('sort')||'priority',subtopic=p.get('subtopic')||'';
+ const states=[...new Set(sourceRecords.map(record=>record.result_state))].sort((a,b)=>a.localeCompare(b));
+ const needle=q.toLocaleLowerCase();
+ const list=sourceRecords.filter(record=>{
+  if(stateFilter&&record.result_state!==stateFilter)return false;
+  if(subtopic&&!PortalCompact.matches({...record,description:record.metric,tags:[record.subdomain,record.relation,record.result_state]},subtopic,direction))return false;
+  if(!needle)return true;
+  return localeSearchText([record.name,record.subdomain,record.relation,record.metric,record.result_state,record.priority,record.note].join(' ')).toLocaleLowerCase().includes(needle);
+ }).sort(sort==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>(sourceCatalogPriorityOrder[a.priority]??9)-(sourceCatalogPriorityOrder[b.priority]??9)||a.id.localeCompare(b.id));
+ return '<div class="panel-toolbar">'+searchForm('catalog-search','搜索当前范围内的评测资源',q)+'<label>结果形态<select name="object"><option value="">全部形态</option>'+states.map(value=>'<option value="'+esc(value)+'" '+(value===stateFilter?'selected':'')+'>'+esc(value)+'</option>').join('')+'</select></label><label>排序<select id="catalog-sort"><option value="priority" '+(sort!=='name'?'selected':'')+'>按目录优先级</option><option value="name" '+(sort==='name'?'selected':'')+'>名称 A–Z</option></select></label></div><div class="count-row"><span>'+list.length+' 条已核验评测资源</span><span>来源目录 · 按研究方向筛选</span></div>'+(list.length?'<div class="index-list source-benchmark-list">'+list.map((record,index)=>sourceCatalogBenchmarkRow(record,index,direction)).join('')+'</div>':contentEmpty('没有符合条件的评测资源','调整关键词、结果形态或子方向后重试。',routeLink('directions',{pillar:direction,view:'benchmarks'}),'清除筛选'));
+};
+
 const sourceBaseHome=home;
 home=function(){
  let html=sourceBaseHome();
