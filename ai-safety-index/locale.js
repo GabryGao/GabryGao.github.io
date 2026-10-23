@@ -421,6 +421,44 @@ arXiv 预印本|arXiv preprint|arXiv プレプリント|arXiv-Preprint
 可以返回首页，或打开评测基准目录。|Return home or browse the benchmark catalog.|ホームへ戻るか、ベンチマーク目録をご覧ください。|Zur Startseite oder zum Benchmark-Verzeichnis wechseln.
 返回首页|Back home|ホームへ戻る|Zur Startseite
 返回门户|Back to portal|ポータルへ戻る|Zurück zum Portal
+自动更新评测概览|Automatically updated evaluation overview|自動更新される評価概要|Automatisch aktualisierte Evaluationsübersicht
+已接入的公开评测结果|Integrated public evaluation results|収録済みの公開評価結果|Eingebundene öffentliche Evaluationsergebnisse
+条指标| metrics| 件の指標| Metriken
+个模型条目| model entries| 件のモデル項目| Modelleinträge
+个模型| models| モデル| Modelle
+不计算跨基准总分|No cross-benchmark aggregate score|ベンチマーク横断の総合点は算出しません|Keine benchmarkübergreifende Gesamtpunktzahl
+任务|Task|タスク|Aufgabe
+运行配置|Run configuration|実行設定|Laufkonfiguration
+评价指标|Metric|評価指標|Metrik
+结果顺序|Result order|結果の並び順|Ergebnisreihenfolge
+按指标表现|Best metric performance first|指標の成績順|Nach Metrikleistung
+反向排序|Reverse order|逆順|Umgekehrte Reihenfolge
+官方页面已同步|Official page synchronized|公式ページと同期済み|Offizielle Seite synchronisiert
+显示上次成功快照|Showing the last successful snapshot|前回成功時のスナップショットを表示|Letzten erfolgreichen Stand anzeigen
+查看官方项目|View official project|公式プロジェクトを見る|Offizielles Projekt öffnen
+筛选模型|Filter models|モデルを絞り込む|Modelle filtern
+搜索模型或提供方|Search models or providers|モデルまたは提供元を検索|Modelle oder Anbieter suchen
+条同协议记录| records under the same protocol| 件の同一プロトコル記録| Einträge mit gleichem Protokoll
+越高越好|Higher is better|高いほど良い|Höher ist besser
+越低越好|Lower is better|低いほど良い|Niedriger ist besser
+双指标对照|Paired metric comparison|2 指標の比較|Vergleich zweier Metriken
+分别读取两项指标，不合成为单一分数。|Read both metrics separately; they are not combined into one score.|2 つの指標を別々に読み、単一の点数には統合しません。|Beide Metriken werden getrennt gelesen und nicht zu einer Punktzahl kombiniert.
+任务表现矩阵|Task performance matrix|タスク別成績マトリクス|Leistungsmatrix nach Aufgabe
+结果明细|Result records|結果の詳細|Ergebnisdetails
+导出当前 CSV|Export current CSV|現在の CSV を書き出す|Aktuelle CSV exportieren
+每一行保留任务、配置、报告日期和官方来源。左右滑动查看完整表格。|Each row keeps the task, configuration, report date and official source. Scroll horizontally to view the full table.|各行にタスク・設定・報告日・公式情報源を保持します。横にスクロールして表全体を確認できます。|Jede Zeile enthält Aufgabe, Konfiguration, Berichtsdatum und offizielle Quelle. Horizontal scrollen, um die ganze Tabelle zu sehen.
+结果仅对应当前基准、任务和配置。不同基准的指标定义、数据分布与评判器不同，本站不生成跨基准“总安全分”。|Results apply only to the selected benchmark, task and configuration. Metric definitions, data distributions and judges differ across benchmarks; this site does not create an aggregate safety score.|結果は選択中のベンチマーク・タスク・設定にのみ対応します。指標定義・データ分布・評価器が異なるため、ベンチマーク横断の「総合安全点」は作りません。|Die Ergebnisse gelten nur für den gewählten Benchmark, die Aufgabe und Konfiguration. Metriken, Datenverteilungen und Bewerter unterscheiden sich; die Website bildet keine Gesamt-Sicherheitsnote.
+官方结果|Official results|公式結果|Offizielle Ergebnisse
+未标注|Not specified|未記載|Nicht angegeben
+官方结果页|Official results page|公式結果ページ|Offizielle Ergebnisseite
+官方排行榜|Official leaderboard|公式ランキング|Offizielle Rangliste
+官方 README 结果表|Official README results table|公式 README の結果表|Offizielle Ergebnistabelle im README
+机器人与视觉语言动作|Robotics and vision-language-action|ロボット・視覚言語行動|Robotik und Vision-Language-Action
+中英文文本|Chinese and English text|中国語・英語テキスト|Chinesischer und englischer Text
+Utility 与 Utility under attack 越高越好；Targeted ASR 越低越好。只比较相同攻击与防御配置。|Higher Utility and Utility under attack are better; lower Targeted ASR is better. Compare only identical attack and defense configurations.|Utility と攻撃下 Utility は高いほど良く、Targeted ASR は低いほど良い。同じ攻撃・防御設定だけを比較します。|Utility und Utility under attack sind höher besser; Targeted ASR ist niedriger besser. Nur identische Angriffs- und Abwehrkonfigurationen vergleichen.
+Safety 与 SR 越高越好；SBU 与 VSI 越低越好。不同套件分别比较。|Higher Safety and SR are better; lower SBU and VSI are better. Compare suites separately.|Safety と SR は高いほど良く、SBU と VSI は低いほど良い。スイートごとに比較します。|Safety und SR sind höher besser; SBU und VSI niedriger besser. Suiten getrennt vergleichen.
+Harmless rate 与 Harmless score 越高越好；按同一维度和同一指标比较。|Higher Harmless rate and Harmless score are better; compare the same dimension and metric.|Harmless rate と Harmless score は高いほど良く、同じ次元・指標で比較します。|Harmless rate und Harmless score sind höher besser; gleiche Dimension und Metrik vergleichen.
+ASR 越低越好；攻击方法、语言与风险领域必须保持一致。|Lower ASR is better; keep the attack method, language and risk domain identical.|ASR は低いほど良く、攻撃手法・言語・リスク領域をそろえます。|Niedriger ASR ist besser; Angriffsmethode, Sprache und Risikobereich müssen übereinstimmen.
 `;
 const dictionary=new Map();
 function addRows(table){for(const line of table.trim().split('\n')){const [zh,en,ja,de]=line.split('|');if(zh&&en&&ja&&de)dictionary.set(zh,{en,ja,de});else throw new Error('Invalid locale row: '+line)}}

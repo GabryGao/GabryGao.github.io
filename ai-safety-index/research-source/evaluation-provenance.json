@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-10-23T04:35:32Z",
+  "summary": {
+    "benchmarks": 4,
+    "records": 451,
+    "models": 67,
+    "sources_ok": 4
+  },
+  "sources": [
+    {
+      "id": "agentdojo",
+      "name": "AgentDojo",
+      "url": "https://agentdojo.spylab.ai/results/",
+      "fetch_url": "https://agentdojo.spylab.ai/results/",
+      "status": "ok",
+      "record_count": 84,
+      "model_count": 20,
+      "task_count": 5,
+      "metric_count": 3,
+      "last_successful_fetch": "2026-10-23T04:35:32Z",
+      "error": ""
+    },
+    {
+      "id": "safevla",
+      "name": "SafeVLA-Bench",
+      "url": "https://safevla.org/leaderboard.html",
+      "fetch_url": "https://safevla.org/leaderboard.html",
+      "status": "ok",
+      "record_count": 108,
+      "model_count": 24,
+      "task_count": 2,
+      "metric_count": 4,
+      "last_successful_fetch": "2026-10-23T04:35:32Z",
+      "error": ""
+    },
+    {
+      "id": "flames",
+      "name": "FLAMES",
+      "url": "https://github.com/AI45Lab/Flames",
+      "fetch_url": "https://raw.githubusercontent.com/AI45Lab/Flames/main/README.md",
+      "status": "ok",
+      "record_count": 187,
+      "model_count": 17,
+      "task_count": 6,
+      "metric_count": 2,
+      "last_successful_fetch": "2026-10-23T04:35:32Z",
+      "error": ""
+    },
+    {
+      "id": "finsafety",
+      "name": "FinSafetyBench",
+      "url": "https://github.com/sustech-nlp/FinSafetyBench",
+      "fetch_url": "https://raw.githubusercontent.com/sustech-nlp/FinSafetyBench/main/README.md",
+      "status": "ok",
+      "record_count": 72,
+      "model_count": 6,
+      "task_count": 4,
+      "metric_count": 1,
+      "last_successful_fetch": "2026-10-23T04:35:32Z",
+      "error": ""
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 {
-  "generated_on": "2026-10-22T22:48:57.634Z",
+  "generated_on": "2026-10-23T04:50:18.268Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
     "papers": 490,
-    "benchmarks": 6,
+    "benchmarks": 10,
+    "evaluation_benchmarks": 4,
+    "evaluation_records": 451,
+    "evaluation_models": 67,
     "automated_news": 105,
     "source_catalog": 171,
     "reference_portals": 21,
@@ -21,6 +24,41 @@
         "name": "AI Safety HOT",
         "status": "ok",
         "last_successful_fetch": "2026-10-22T22:48:53Z"
+      }
+    ]
+  },
+  "evaluations": {
+    "generated_on": "2026-10-23T04:35:32Z",
+    "status": "ok",
+    "record_count": 451,
+    "sources": [
+      {
+        "id": "agentdojo",
+        "name": "AgentDojo",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "record_count": 84
+      },
+      {
+        "id": "safevla",
+        "name": "SafeVLA-Bench",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "record_count": 108
+      },
+      {
+        "id": "flames",
+        "name": "FLAMES",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "record_count": 187
+      },
+      {
+        "id": "finsafety",
+        "name": "FinSafetyBench",
+        "status": "ok",
+        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "record_count": 72
       }
     ]
   }

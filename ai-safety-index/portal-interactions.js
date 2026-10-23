@@ -8,7 +8,7 @@ var PortalInteractions=(()=>{
  const fine=window.matchMedia('(hover: hover) and (pointer: fine)');
  const nav=document.querySelector('#primary-nav');
  const definitions={
-  directions:[...researchDirections.map(d=>({label:d.name,href:'#directions?pillar='+d.id})),{label:'来源目录',href:'#sources'}],
+  directions:researchDirections.map(d=>({label:d.name,href:'#directions?pillar='+d.id})),
   news:[{label:'动态观察台',href:'#watch'},{label:'最新资讯',href:'#news?content=latest'},{label:'研究解读',href:'#news?content=analysis'},{label:'成果分享',href:'#news?content=share'}],
   results:[{label:'评测看板',href:'#results'},{label:'基准目录',href:'#benchmarks'},{label:'方法与说明',href:'#methods'}],
   benchmarks:[{label:'评测看板',href:'#results'},{label:'基准目录',href:'#benchmarks'},{label:'方法与说明',href:'#methods'}],
