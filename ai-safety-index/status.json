@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-23T04:50:18.268Z",
+  "generated_on": "2026-10-23T06:03:48.784Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
@@ -15,7 +15,7 @@
     "result_file_manifest": 291
   },
   "feeds": {
-    "generated_on": "2026-10-22T22:48:53Z",
+    "generated_on": "2026-10-23T06:03:45Z",
     "status": "current",
     "record_count": 105,
     "sources": [
@@ -23,12 +23,12 @@
         "id": "aisafetyhot",
         "name": "AI Safety HOT",
         "status": "ok",
-        "last_successful_fetch": "2026-10-22T22:48:53Z"
+        "last_successful_fetch": "2026-10-23T06:03:45Z"
       }
     ]
   },
   "evaluations": {
-    "generated_on": "2026-10-23T04:35:32Z",
+    "generated_on": "2026-10-23T06:03:47Z",
     "status": "ok",
     "record_count": 451,
     "sources": [
@@ -36,28 +36,28 @@
         "id": "agentdojo",
         "name": "AgentDojo",
         "status": "ok",
-        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "last_successful_fetch": "2026-10-23T06:03:47Z",
         "record_count": 84
       },
       {
         "id": "safevla",
         "name": "SafeVLA-Bench",
         "status": "ok",
-        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "last_successful_fetch": "2026-10-23T06:03:47Z",
         "record_count": 108
       },
       {
         "id": "flames",
         "name": "FLAMES",
         "status": "ok",
-        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "last_successful_fetch": "2026-10-23T06:03:47Z",
         "record_count": 187
       },
       {
         "id": "finsafety",
         "name": "FinSafetyBench",
         "status": "ok",
-        "last_successful_fetch": "2026-10-23T04:35:32Z",
+        "last_successful_fetch": "2026-10-23T06:03:47Z",
         "record_count": 72
       }
     ]
