@@ -169,6 +169,8 @@ P3 辅助|P3 supporting|P3 補助|P3 Ergänzend
 公开包说明|Public package notes|公開パッケージ説明|Hinweise zum öffentlichen Paket
 已发布文件与未镜像快照的边界说明|Boundary between published files and snapshots not mirrored here|公開ファイルと未複製スナップショットの境界説明|Abgrenzung zwischen veröffentlichten Dateien und nicht gespiegelten Snapshots
 动态观察台|Research observatory|研究観測台|Forschungsbeobachtung
+AI 安全评测与研究资源|AI safety evaluations and research resources|AI 安全性評価と研究資料|Evaluationen und Forschungsressourcen zur KI-Sicherheit
+查找基准、比较公开结果、追踪研究进展。|Find benchmarks, compare public results and track research progress.|ベンチマークを探し、公開結果を比較し、研究の進展を追跡します。|Benchmarks finden, öffentliche Ergebnisse vergleichen und Forschungsfortschritte verfolgen.
 最近发生了什么？|What happened recently?|最近の動き|Was ist zuletzt passiert?
 从公开来源、研究方向和复核状态进入最新 AI 安全动态。|Enter the latest AI safety updates through public sources, research topics and review status.|公開情報源、研究分野、確認状況から最新の AI 安全動向を確認できます。|Aktuelle Entwicklungen zur KI-Sicherheit nach öffentlichen Quellen, Forschungsthemen und Prüfstatus erkunden.
 研究热点正在流动|Research hotspots in motion|研究トピックの動向|Forschungstrends im Fluss
@@ -176,11 +178,20 @@ P3 辅助|P3 supporting|P3 補助|P3 Ergänzend
 AI 安全每天都有新动态，|AI safety changes every day,|AI 安全性には毎日新しい動きがあり、|KI-Sicherheit entwickelt sich täglich weiter,
 值得追踪的，只有几条。|only a few signals deserve attention.|追うべきシグナルは、ほんの数件です。|nur wenige Signale verdienen Aufmerksamkeit.
 自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。|Public sources are collected automatically, deduplicated, classified and filtered into safety signals worth checking today.|公開情報源を自動収集し、重複排除・分類・選別を行い、今日確認すべき安全シグナルにまとめます。|Öffentliche Quellen werden automatisch erfasst, dedupliziert, eingeordnet und zu heute prüfenswerten Sicherheitssignalen gefiltert.
+研究热点流|Research signal flow|研究トピックのシグナルフロー|Signalfluss der Forschungstrends
+公开来源经过主题聚类与信号筛选，汇聚为当前焦点。|Public sources pass through topic clustering and signal filtering to form the current focus.|公開情報源をテーマ別に集約・選別し、現在の注目情報にまとめます。|Öffentliche Quellen werden thematisch gebündelt und gefiltert und bilden den aktuellen Schwerpunkt.
+平台获取：|Platform retrieved:|プラットフォーム取得：|Plattformabruf:
+观察台与采集说明|Observatory and collection notes|観測台と収集方法|Beobachtung und Erfassung
 查看动态观察台|View research observatory|研究観測台を見る|Forschungsbeobachtung öffnen
 动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。|Dynamic signal flow: public sources pass through topic clustering and signal filtering before converging into today's focus.|動的シグナルフロー：公開情報源をテーマ別に集約・選別し、今日の注目情報に絞り込みます。|Dynamischer Signalfluss: Öffentliche Quellen werden thematisch gebündelt und gefiltert, bevor sie zu den heutigen Schwerpunkten zusammenlaufen.
+动态信息流：公开来源经过主题聚类和信号筛选，汇聚为当前焦点。|Dynamic signal flow: public sources pass through topic clustering and signal filtering before converging into the current focus.|動的シグナルフロー：公開情報源をテーマ別に集約・選別し、現在の注目情報に絞り込みます。|Dynamischer Signalfluss: Öffentliche Quellen werden thematisch gebündelt und gefiltert, bevor sie zum aktuellen Schwerpunkt zusammenlaufen.
 主题聚类|Topic clustering|テーマ集約|Themenbündelung
 信号筛选|Signal filtering|シグナル選別|Signalfilterung
 今日焦点|Today's focus|今日の注目|Heutige Schwerpunkte
+当前焦点|Current focus|現在の注目|Aktueller Schwerpunkt
+新闻发布：|Published:|ニュース公開：|Veröffentlicht:
+来源：|Source:|情報源：|Quelle:
+展开摘要|Show summary|要約を表示|Zusammenfassung anzeigen
 上一条焦点|Previous focus|前の注目情報|Vorheriger Schwerpunkt
 下一条焦点|Next focus|次の注目情報|Nächster Schwerpunkt
 条公开动态|public updates|件の公開動向|öffentliche Meldungen
@@ -537,6 +548,12 @@ arXiv 预印本|arXiv preprint|arXiv プレプリント|arXiv-Preprint
 返回门户|Back to portal|ポータルへ戻る|Zurück zum Portal
 自动更新评测概览|Automatically updated evaluation overview|自動更新される評価概要|Automatisch aktualisierte Evaluationsübersicht
 已接入的公开评测结果|Integrated public evaluation results|収録済みの公開評価結果|Eingebundene öffentliche Evaluationsergebnisse
+公开评测结果对比|Public evaluation result comparison|公開評価結果の比較|Vergleich öffentlicher Evaluationsergebnisse
+当前基准|Current benchmark|現在のベンチマーク|Aktueller Benchmark
+任务：|Task:|タスク：|Aufgabe:
+设置：|Setting:|設定：|Einstellung:
+结果来源日期：|Result source date:|結果の出典日：|Datum der Ergebnisquelle:
+当前读数|Current reading|現在の読み取り|Aktueller Messwert
 一眼看懂|Understand at a glance|ひと目でわかる|Auf einen Blick verstehen
 AI 安全测评。|AI safety evaluations.|AI 安全性評価。|KI-Sicherheitsevaluationen.
 先看同一条件下的直观对比，再进入论文、数据与完整结果。|Start with a direct comparison under identical conditions, then open the papers, data and complete results.|同じ条件での直感的な比較を確認してから、論文・データ・全結果へ進みます。|Zuerst ein direkter Vergleich unter gleichen Bedingungen, danach Publikationen, Daten und vollständige Ergebnisse.
@@ -544,6 +561,10 @@ AI 安全测评。|AI safety evaluations.|AI 安全性評価。|KI-Sicherheitsev
 先看一张能读懂的测评图。|Start with an evaluation chart anyone can read.|まず、読みやすい評価グラフから。|Zuerst ein verständliches Evaluationsdiagramm.
 打开完整评测|Open full evaluation|全評価を開く|Vollständige Evaluation öffnen
 选择首页评测基准|Choose the homepage benchmark|トップページのベンチマークを選ぶ|Benchmark für die Startseite auswählen
+精选成果与最新收录|Featured work and latest additions|注目成果と最新収録|Ausgewählte Ergebnisse und neueste Einträge
+精选成果|Featured work|注目成果|Ausgewählte Ergebnisse
+最新收录|Latest additions|最新収録|Neueste Einträge
+成果收录：|Added:|成果収録：|Aufgenommen:
 个公开基准| public benchmarks| 件の公開ベンチマーク| öffentliche Benchmarks
 安全与任务成功要分开看|Read safety and task success separately|安全性とタスク成功率は分けて読む|Sicherheit und Aufgabenerfolg getrennt lesen
 攻击会怎样改变 Agent 表现|How attacks change agent performance|攻撃が Agent の性能をどう変えるか|Wie Angriffe die Agent-Leistung verändern

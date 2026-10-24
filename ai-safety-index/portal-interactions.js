@@ -53,7 +53,7 @@ var PortalInteractions=(()=>{
  render=function(){
   const next=routeKey(location.hash),changed=next!==previousKey;previousKey=next;closeSubnav();
   if(changed&&typeof closeMadeoMenu==='function')closeMadeoMenu(false);
-  renderImmediately(()=>{priorRender();if(changed)window.scrollTo({top:0,behavior:'instant'})});
+  renderImmediately(()=>priorRender());
  };
  return api;
 })();
