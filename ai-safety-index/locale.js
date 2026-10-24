@@ -31,6 +31,44 @@ AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源
 论文或图表|Paper or figure|論文・図表|Publikation oder Abbildung
 待核验候选|Candidate pending review|確認待ち候補|Noch zu prüfender Kandidat
 搜索当前范围内的基准、指标或主题|Search benchmarks, metrics or topics in this scope|この範囲のベンチマーク・指標・テーマを検索|Benchmarks, Metriken oder Themen in diesem Bereich durchsuchen
+测评专题目录|Evaluation topic directory|評価テーマ一覧|Verzeichnis der Evaluationsthemen
+按主题进入测评资料|Browse evaluation resources by topic|テーマから評価資料を探す|Evaluationsressourcen nach Thema durchsuchen
+研究方向切换后，主题数量、代表资料和证据形态会同步更新。|Changing the research topic updates the topic counts, representative resources and evidence types together.|研究分野を切り替えると、テーマ数・代表資料・証拠形式も連動して更新されます。|Beim Wechsel des Forschungsbereichs werden Themenzahlen, repräsentative Ressourcen und Belegformen gemeinsam aktualisiert.
+查看完整基准目录|View the full benchmark catalog|ベンチマーク目録をすべて見る|Vollständigen Benchmark-Katalog ansehen
+已核验评测资源|Reviewed evaluation resources|確認済み評価資料|Geprüfte Evaluationsressourcen
+可进入的评测主题|Available evaluation topics|閲覧できる評価テーマ|Verfügbare Evaluationsthemen
+站内可视化结果|Interactive results on this site|サイト内の可視化結果|Interaktive Ergebnisse auf dieser Seite
+六个方向共享同一批资料，并允许交叉关联。|The six research topics share one resource collection and support cross-linking.|6 つの研究分野は同じ資料群を共有し、相互に関連付けられます。|Die sechs Forschungsbereiche nutzen dieselbe Ressourcensammlung und können sich überschneiden.
+评测主题|Evaluation topic|評価テーマ|Evaluationsthema
+按风险问题与系统能力组织，可交叉筛选。|Organized by risk question and system capability, with overlapping filters.|リスク課題とシステム能力で整理し、重複して絞り込めます。|Nach Risikofragen und Systemfähigkeiten organisiert, mit überlappenden Filtern.
+当前范围细分|Subtopics in this scope|現在の範囲の下位分野|Unterthemen im aktuellen Bereich
+从现有记录的子领域中选出当前范围的高频与重点入口。|Highlights frequent and priority entry points from the recorded subdomains in this scope.|現在の範囲で、登録済み下位分野から頻出・重点の入口を表示します。|Hebt häufige und priorisierte Einstiege aus den erfassten Unterbereichen dieses Umfangs hervor.
+细分领域|Subtopic|下位分野|Unterthema
+证据形态|Evidence type|証拠形式|Belegform
+区分站内可视化、公开榜单、结果文件、论文证据和待核验候选。|Separates interactive site results, public leaderboards, result files, paper evidence and pending candidates.|サイト内可視化、公開ランキング、結果ファイル、論文根拠、確認待ち候補を分けて表示します。|Trennt interaktive Ergebnisse, öffentliche Ranglisten, Ergebnisdateien, Publikationsbelege und offene Kandidaten.
+代表资料|Representative resource|代表資料|Repräsentative Ressource
+进入方向|Open topic|分野を開く|Bereich öffnen
+查看同类资源|View related resources|同種の資料を見る|Ähnliche Ressourcen ansehen
+全部主题|All topics|すべてのテーマ|Alle Themen
+条资源|resources|件の資料|Ressourcen
+个入口|entries|件の入口|Einstiege
+综合安全与对齐|Holistic safety and alignment|総合安全性とアラインメント|Umfassende Sicherheit und Alignment
+越狱与有害协助|Jailbreaks and harmful assistance|脱獄と有害支援|Jailbreaks und schädliche Unterstützung
+拒答与校准|Refusal and calibration|拒否とキャリブレーション|Ablehnung und Kalibrierung
+事实性与幻觉|Factuality and hallucination|事実性とハルシネーション|Faktentreue und Halluzination
+公平、偏见与毒性|Fairness, bias and toxicity|公平性・バイアス・毒性|Fairness, Verzerrung und Toxizität
+隐私、泄露与遗忘|Privacy, leakage and unlearning|プライバシー・漏えい・忘却|Privatsphäre, Datenabfluss und Unlearning
+投毒、后门与完整性|Poisoning, backdoors and integrity|汚染・バックドア・完全性|Poisoning, Backdoors und Integrität
+智能体与工具调用|Agents and tool use|エージェントとツール利用|Agenten und Werkzeugnutzung
+提示注入与间接攻击|Prompt injection and indirect attacks|プロンプトインジェクションと間接攻撃|Prompt-Injection und indirekte Angriffe
+网络与代码安全|Cybersecurity and code safety|サイバー・コード安全|Cyber- und Codesicherheit
+多模态与生成安全|Multimodal and generative safety|マルチモーダル・生成安全|Multimodale und generative Sicherheit
+具身智能与自动驾驶|Embodied AI and autonomous driving|具身 AI と自動運転|Verkörperte KI und autonomes Fahren
+伦理与社会影响|Ethics and social impact|倫理と社会的影響|Ethik und gesellschaftliche Auswirkungen
+儿童与青少年安全|Child and youth safety|子ども・青少年の安全|Sicherheit von Kindern und Jugendlichen
+生物、医疗与科研安全|Biological, medical and research safety|生物・医療・研究安全|Bio-, Medizin- und Forschungssicherheit
+金融与专业领域|Finance and professional domains|金融・専門領域|Finanzen und Fachdomänen
+工业与关键基础设施|Industrial and critical infrastructure|産業・重要インフラ|Industrie und kritische Infrastruktur
 按证据状态|Evidence status|証拠状態順|Nach Belegstatus
 资料包核验于|Package reviewed on|資料パッケージ確認日|Datenpaket geprüft am
 原始项目|Original project|元プロジェクト|Originalprojekt

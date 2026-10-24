@@ -18,6 +18,7 @@ for(const lang of ['en','ja','de']){
  for(const s of ['来源目录','AI 安全数据来源目录','已核验资源','参考入口','历史候选','结果文件清单','资源目录','公开数据包','使用边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated source catalog UI: ${s}`);
  for(const s of ['当前范围的评测资源','站内已接入','公开结果入口','待核验候选','当前范围的方法与复现入口','运行工具与环境','重点评测协议','如何读一条测评','当前方向的比较边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation catalog UI: ${s}`);
  for(const s of ['当前筛选摘要','匹配模型','同任务、配置与指标','最佳表现','中位数','最大跨度','当前筛选内最高与最低之差','测评看板工具','比较工具','显示方式','结果显示方式','绝对值','相对差值','提供方','全部提供方','基线模型','图表显示','前 5 条','前 10 条','前 20 条','恢复默认视图','模型相对差值图','正值表示优于基线'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation dashboard UI: ${s}`);
+ for(const s of ['按主题进入测评资料','查看完整基准目录','可进入的评测主题','站内可视化结果','评测主题','当前范围细分','细分领域','证据形态','代表资料','进入方向','查看同类资源','综合安全与对齐','越狱与有害协助','智能体与工具调用','多模态与生成安全','工业与关键基础设施'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation directory UI: ${s}`);
  assert.notEqual(api.translate('图表显示前 5 条；完整记录见下方表格。',lang),'图表显示前 5 条；完整记录见下方表格。');
  assert.notEqual(api.translate('相对 GPT-4o 的差值',lang),'相对 GPT-4o 的差值');
  assert.equal(api.translate('HELM Safety v1.0',lang),'HELM Safety v1.0');
