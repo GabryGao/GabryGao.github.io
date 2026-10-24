@@ -2,8 +2,9 @@
 var PortalWatch=(()=>{
  'use strict';
  const hours=72;
+ function currentInfo(){if(typeof liveNewsInfo!=='undefined'&&liveNewsInfo)return liveNewsInfo;return typeof automatedNewsInfo!=='undefined'?automatedNewsInfo:null}
  function generatedAt(){
-  const value=typeof automatedNewsInfo!=='undefined'&&automatedNewsInfo.generated_on;
+  const value=currentInfo()?.generated_on;
   const parsed=value?new Date(value):new Date();
   return Number.isNaN(parsed.getTime())?new Date():parsed;
  }
@@ -33,12 +34,12 @@ var PortalWatch=(()=>{
  }
  function newestDate(list){return list.map(row=>dateValue(row.date)).filter(Boolean).sort((a,b)=>b-a)[0]}
  function statusLabel(){
-  const value=typeof automatedNewsInfo==='undefined'?'unknown':automatedNewsInfo.status;
+  const value=currentInfo()?.status||'unknown';
   return value==='current'?'来源更新正常':value==='partial'?'部分来源更新失败':'使用最近一次成功快照';
  }
  function sourceHealth(){
-  if(typeof automatedNewsInfo==='undefined')return '';
-  return automatedNewsInfo.sources.map(source=>'<li><span class="watch-health-dot '+esc(source.status)+'"></span><div><strong data-keep-original>'+esc(source.name)+'</strong><small>'+esc(source.status==='ok'?'最近抓取成功':'抓取失败，保留旧记录')+'</small></div><time>'+esc((source.last_successful_fetch||'').replace('T',' ').replace('Z',' UTC'))+'</time></li>').join('');
+  const info=currentInfo();if(!info)return '';
+  return info.sources.map(source=>'<li><span class="watch-health-dot '+esc(source.status)+'"></span><div><strong data-keep-original>'+esc(source.name)+'</strong><small>'+esc(source.status==='ok'?'最近抓取成功':'抓取失败，保留旧记录')+'</small></div><time>'+esc((source.last_successful_fetch||'').replace('T',' ').replace('Z',' UTC'))+'</time></li>').join('');
  }
  function flowRow(row){
   const primary=row.direction_ids[0];
@@ -73,10 +74,22 @@ var PortalWatch=(()=>{
   '<section class="watch-lower"><article class="watch-brief"><div class="watch-section-head"><div><span>03 / DAILY BRIEF</span><h2>每日研究简报</h2><p>同一天的最新记录放在一起，保留原始标题与来源。</p></div></div>'+brief(list)+'</article><aside class="watch-status"><div class="watch-section-head"><div><span>04 / SOURCE STATUS</span><h2>来源与数据状态</h2><p>抓取失败时保留上一次成功快照，不把缺失误写为零。</p></div></div><ul>'+sourceHealth()+'</ul><div class="watch-export"><button type="button" data-watch-export="json">导出 JSON</button><button type="button" data-watch-export="csv">导出 CSV</button><a href="research-source/news-feed-provenance.json" target="_blank" rel="noopener noreferrer">查看来源记录'+portalIcon('arrow')+'</a></div></aside></section>'+
   '<p class="watch-note">当前仅覆盖已配置的公开来源和人工精选记录，不构成完整新闻监测，也不代表平台认可相关主张。</p></div>';
  }
+ function daySeries(list){
+  const anchor=generatedAt(),base=new Date(Date.UTC(anchor.getUTCFullYear(),anchor.getUTCMonth(),anchor.getUTCDate()));
+  return Array.from({length:7},(_,index)=>{const date=new Date(base);date.setUTCDate(base.getUTCDate()-6+index);const key=date.toISOString().slice(0,10);return {date:key,count:list.filter(row=>row.date===key).length}});
+ }
+ function homeFlowCard(row,duplicate=false){
+  const primary=row.direction_ids?.[0]||'foundation-model',label=(row.label||'AI Safety HOT').replace(/^AI Safety HOT · /,''),tab=duplicate?' tabindex="-1"':'';
+  return '<article class="home-news-card" data-direction="'+esc(primary)+'"><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"'+tab+'><div class="home-news-card-meta"><time>'+esc(row.date)+'</time><span>'+esc(directionName(primary))+'</span></div><h3 data-keep-original>'+esc(row.title)+portalIcon('arrow')+'</h3><div class="home-news-card-foot"><span data-keep-original>'+esc(row.source)+'</span><span>'+esc(label)+'</span></div></a></article>';
+ }
+ function homeVolume(list){
+  const series=daySeries(list),max=Math.max(1,...series.map(item=>item.count)),total=series.reduce((sum,item)=>sum+item.count,0);
+  return '<figure class="home-news-volume"><figcaption><span>最近 7 日采集量</span><strong>'+total+'</strong></figcaption><div>'+series.map(item=>'<span title="'+item.date+' · '+item.count+'"><i style="height:'+Math.max(8,Math.round(item.count/max*100))+'%"></i><small>'+item.date.slice(8)+'</small></span>').join('')+'</div></figure>';
+ }
  function homePreview(){
-  const list=PortalCompact.stories(),windowRows=recent(list),signals=signalRows(list),top=signals[0],latest=newestDate(list);
-  const topName=top?directionName(top[0]):'暂无主题信号',latestDate=latest?latest.toISOString().slice(0,10):'—';
-  return '<section class="watch-home-strip" aria-labelledby="watch-home-title"><div class="watch-home-copy"><span data-keep-original>RESEARCH OBSERVATORY</span><h2 id="watch-home-title">最近发生了什么？</h2><p>从公开来源、研究方向和复核状态进入最新 AI 安全动态。</p></div><div class="watch-home-metrics"><span><strong>'+windowRows.length+'</strong>近 72 小时记录</span><span><strong>'+esc(topName)+'</strong>当前主要信号</span><span><strong>'+latestDate+'</strong>最新发布日期</span></div><a href="#watch">打开动态观察台'+portalIcon('arrow')+'</a></section>';
+  const list=PortalCompact.stories().filter(row=>!row.paper_pick),flow=list.slice(0,12);if(!flow.length)return '';
+  const info=currentInfo(),sources=new Set(list.map(row=>row.source)).size,updated=(info?.generated_on||'').replace('T',' ').replace(/:\d{2}Z$/,' UTC'),status=info?.status||'unknown',duration=Math.max(72,flow.length*7),cards=flow.map(row=>homeFlowCard(row)).join(''),clone=flow.map(row=>homeFlowCard(row,true)).join('');
+  return '<section class="home-news-flow" aria-labelledby="home-news-flow-title" style="--home-news-duration:'+duration+'s"><div class="home-news-head"><div><span data-keep-original>LIVE RESEARCH FLOW</span><h2 id="home-news-flow-title">研究热点正在流动</h2><p>从 AI Safety HOT 公共接口同步近期动态；标题和来源保持原样，点击可回到公开条目核对。</p></div><div class="home-news-actions"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>自动同步于 <time>'+esc(updated||'—')+'</time></span><button type="button" class="home-news-toggle" data-home-flow-toggle aria-label="暂停动态" aria-pressed="false" title="暂停动态">'+portalIcon('pause')+'</button><a href="#news">查看全部动态'+portalIcon('arrow')+'</a></div></div><div class="home-news-dashboard"><div class="home-news-numbers"><span><strong>'+list.length+'</strong>当前记录</span><span><strong>'+sources+'</strong>公开来源</span><span><strong>3h</strong>自动同步</span></div>'+homeVolume(list)+'</div><div class="home-news-viewport" tabindex="0" role="region" aria-label="最新 AI 安全研究热点横向信息流"><div class="home-news-track"><div class="home-news-sequence">'+cards+'</div><div class="home-news-sequence" aria-hidden="true">'+clone+'</div></div></div><div class="home-news-stages" aria-label="资料更新流程"><span><b>01</b>采集</span>'+portalIcon('arrow')+'<span><b>02</b>去重</span>'+portalIcon('arrow')+'<span><b>03</b>归类</span>'+portalIcon('arrow')+'<span><b>04</b>展示</span><a href="#watch">打开动态观察台'+portalIcon('arrow')+'</a></div></section>';
  }
  function exportRows(){return rows().map(row=>({title:row.title,date:row.date,source:row.source,url:row.url,directions:row.direction_ids,automated:!!row.automated,verified:!!row.verified}))}
  function download(format){
@@ -110,5 +123,6 @@ render=function(){
 };
 document.addEventListener('submit',event=>{if(event.target.id!=='watch-search')return;event.preventDefault();replaceQuery('q',new FormData(event.target).get('q').trim())});
 document.addEventListener('change',event=>{if(event.target.id==='watch-direction')replaceQuery('direction',event.target.value);if(event.target.id==='watch-origin')replaceQuery('origin',event.target.value)});
-document.addEventListener('click',event=>{if(event.target.closest('[data-watch-reset]'))go('watch');const button=event.target.closest('[data-watch-export]');if(button)PortalWatch.download(button.dataset.watchExport)});
+document.addEventListener('click',event=>{if(event.target.closest('[data-watch-reset]'))go('watch');const button=event.target.closest('[data-watch-export]');if(button)PortalWatch.download(button.dataset.watchExport);const toggle=event.target.closest('[data-home-flow-toggle]');if(toggle){const section=toggle.closest('.home-news-flow'),paused=section.classList.toggle('is-paused'),source=paused?'继续动态':'暂停动态',label=typeof SiteLocale==='undefined'?source:SiteLocale.translate(source,SiteLocale.current());toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',label);toggle.setAttribute('title',label);toggle.innerHTML=portalIcon(paused?'play':'pause')}});
+document.addEventListener('ai-safety-news-updated',()=>{if(route().path!=='home')return;const current=document.querySelector('.home-news-flow');if(current)current.outerHTML=PortalWatch.homePreview()});
 render();

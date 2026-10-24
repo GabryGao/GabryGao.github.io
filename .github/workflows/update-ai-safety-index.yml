@@ -2,7 +2,8 @@ name: Update AI Safety Index feeds
 
 on:
   schedule:
-    - cron: "20 1 * * *"
+    - cron: "20 */3 * * *"
+    - cron: "50 1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,11 +24,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Refresh public feed metadata
+      - name: Refresh public news metadata
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
         working-directory: ai-safety-index
-        run: |
-          python3 tools/update-news.py
-          python3 tools/update-evaluations.py
+        run: python3 tools/update-news.py
+      - name: Refresh public evaluation metadata
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '50 1 * * *'
+        working-directory: ai-safety-index
+        run: python3 tools/update-evaluations.py
       - name: Build public status
         working-directory: ai-safety-index
         run: node tools/build-status.mjs

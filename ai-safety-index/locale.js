@@ -121,6 +121,19 @@ P3 辅助|P3 supporting|P3 補助|P3 Ergänzend
 动态观察台|Research observatory|研究観測台|Forschungsbeobachtung
 最近发生了什么？|What happened recently?|最近の動き|Was ist zuletzt passiert?
 从公开来源、研究方向和复核状态进入最新 AI 安全动态。|Enter the latest AI safety updates through public sources, research topics and review status.|公開情報源、研究分野、確認状況から最新の AI 安全動向を確認できます。|Aktuelle Entwicklungen zur KI-Sicherheit nach öffentlichen Quellen, Forschungsthemen und Prüfstatus erkunden.
+研究热点正在流动|Research hotspots in motion|研究トピックの動向|Forschungstrends im Fluss
+从 AI Safety HOT 公共接口同步近期动态；标题和来源保持原样，点击可回到公开条目核对。|Recent updates are synced from the public AI Safety HOT API; titles and sources remain unchanged, and each item links back to its public record.|AI Safety HOT の公開 API から最近の動向を同期します。題名と情報源は原文のまま保持し、各項目から公開ページを確認できます。|Aktuelle Meldungen werden über die öffentliche AI-Safety-HOT-API synchronisiert. Titel und Quellen bleiben unverändert; jeder Eintrag führt zur öffentlichen Fundstelle.
+自动同步于|Last synced|最終同期|Zuletzt synchronisiert
+暂停动态|Pause motion|動きを一時停止|Bewegung pausieren
+继续动态|Resume motion|動きを再開|Bewegung fortsetzen
+查看全部动态|View all updates|すべての動向を見る|Alle Meldungen ansehen
+自动同步|Auto sync|自動同期|Automatische Synchronisierung
+最近 7 日采集量|Records collected over the last 7 days|過去 7 日間の収集件数|Erfasste Einträge der letzten 7 Tage
+最新 AI 安全研究热点横向信息流|Horizontal stream of recent AI safety research updates|最新の AI 安全研究動向を横に流す情報フィード|Horizontaler Strom aktueller Forschung zur KI-Sicherheit
+采集|Collect|収集|Erfassen
+去重|Deduplicate|重複排除|Deduplizieren
+归类|Classify|分類|Einordnen
+展示|Display|表示|Anzeigen
 近 72 小时记录|Records in the last 72 hours|過去 72 時間の資料|Einträge der letzten 72 Stunden
 当前主要信号|Leading current signal|現在の主要シグナル|Aktuell stärkstes Signal
 打开动态观察台|Open research observatory|研究観測台を開く|Forschungsbeobachtung öffnen

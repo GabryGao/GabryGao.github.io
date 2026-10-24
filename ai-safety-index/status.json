@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-24T05:56:35.178Z",
+  "generated_on": "2026-10-24T07:23:50.218Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
@@ -15,7 +15,7 @@
     "result_file_manifest": 291
   },
   "feeds": {
-    "generated_on": "2026-10-24T05:56:31Z",
+    "generated_on": "2026-10-24T07:23:45Z",
     "status": "current",
     "record_count": 105,
     "sources": [
@@ -23,7 +23,7 @@
         "id": "aisafetyhot",
         "name": "AI Safety HOT",
         "status": "ok",
-        "last_successful_fetch": "2026-10-24T05:56:31Z"
+        "last_successful_fetch": "2026-10-24T07:23:45Z"
       }
     ]
   },

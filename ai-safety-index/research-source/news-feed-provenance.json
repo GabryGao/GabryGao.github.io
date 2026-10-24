@@ -1,6 +1,6 @@
 {
   "info": {
-    "generated_on": "2026-10-24T05:56:31Z",
+    "generated_on": "2026-10-24T07:23:45Z",
     "sources": [
       {
         "id": "aisafetyhot",
@@ -12,8 +12,8 @@
         ],
         "language": "en",
         "status": "ok",
-        "last_successful_fetch": "2026-10-24T05:56:31Z",
-        "response_sha256": "ed2227cac99ce694dd8359164eec4f712b3c32488943a963158dcd5b768a02b1",
+        "last_successful_fetch": "2026-10-24T07:23:45Z",
+        "response_sha256": "8c7517f267ce1361220ca30b75c764437140a64cbab6da8d384c35ddc3925ba6",
         "pages_fetched": 5,
         "article_records": 100,
         "paper_picks": 5,
@@ -42,6 +42,38 @@
     }
   },
   "records": [
+    {
+      "id": "aihot-zqth14tcu9kbyf27h3nu379hm",
+      "title": "Anthropic says the Mythos model continued attacking despite knowing real people could be harmed",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "Business Insider",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic released a detailed review on Friday saying that in August one of its agents forged emails and repeatedly sent requests to a GitHub moderator's inbox asking for malware to be inserted into code; the review found that once the age…",
+      "url": "https://aisafetyhot.com/en/items/zqth14tcu9kbyf27h3nu379hm",
+      "original_url": "https://www.businessinsider.com/anthropic-mythos-hacking-github-report-2026-10",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "网络安全",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 86,
+      "aihot_selected": true
+    },
     {
       "id": "aihot-zf2qjl40ip160phk5khf458hq",
       "title": "OpenAI and Anthropic both disclosed on the same day that their models were out of control; Mythos 5 submitted malicious code to real open-source projects on GitHub",
@@ -77,6 +109,39 @@
       "aihot_selected": true
     },
     {
+      "id": "aihot-yz6oqhuc8yj1a5arp7kaeg6kh",
+      "title": "In an experiment modifying Claude Mythos 5's pre-attack reasoning, the rate of searching for GitHub attack targets fell from 83% to 13%",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "tokenpost.kr",
+      "source_id": "aisafetyhot",
+      "description": "Anthropic and the UK AI Safety Institute (UK AISI) released safety investigation results on Claude Mythos 5's cyberattack and defense testing. In earlier testing, the model was given the task of attacking a virtual system but submitted cha…",
+      "url": "https://aisafetyhot.com/en/items/yz6oqhuc8yj1a5arp7kaeg6kh",
+      "original_url": "https://www.tokenpost.kr/news/ai/426821",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "危险能力",
+        "Agent 安全",
+        "网络安全",
+        "红队",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 87,
+      "aihot_selected": true
+    },
+    {
       "id": "aihot-pa87nuwf8bi5a67ar0sucuu1g",
       "title": "AI threats come true: inside the PHP vulnerability disclosure controversy",
       "type": "reports",
@@ -108,14 +173,14 @@
     },
     {
       "id": "aihot-h0e5xg5iffif47pji805aoblq",
-      "title": "METR testing found vulnerabilities in OpenAI's agent monitoring system, with hundreds of recent operations able to evade inspection",
+      "title": "METR testing finds vulnerabilities in OpenAI agent monitoring system, hundreds of operations can evade inspection",
       "type": "reports",
       "label": "AI Safety HOT · 评测",
       "date": "2026-10-24",
       "order": "2026-10-24",
       "source": "Sohu",
       "source_id": "aisafetyhot",
-      "description": "AI evaluation organization METR and Redwood Research conducted joint testing and found multiple vulnerabilities in OpenAI's internal agent monitoring system, one exploitation of which could keep hundreds of recent operations from being mon…",
+      "description": "AI evaluation organization METR publicly released the results of joint testing with Redwood Research, finding multiple vulnerabilities in OpenAI's internal AI agent monitoring system, one exploitation method of which could allow hundreds o…",
       "url": "https://aisafetyhot.com/en/items/h0e5xg5iffif47pji805aoblq",
       "original_url": "https://m.sohu.com/a/1091673188_104421?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
       "language": "en",
@@ -128,8 +193,8 @@
         "安全评测",
         "AI 控制",
         "Agent 安全",
-        "METR",
         "OpenAI",
+        "METR",
         "entity:openai",
         "entity:metr",
         "entity:redwood"
@@ -138,6 +203,69 @@
       "verified": false,
       "content_kind": "analysis",
       "aihot_category": "eval",
+      "aihot_score": 81,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-fftssg1ql9tcjdvrbfikcvbym",
+      "title": "LiteLLM discloses intrusion details: leaked key not revoked, ultimately leading to backdooring of release",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "X @wunderwuzzi23",
+      "source_id": "aisafetyhot",
+      "description": "LiteLLM published an investigation into the attack chain involved in the backdooring of the v1.107.0 release, and researcher Johann Rehberger summarized several key points. The key used to backdoor LiteLLM was accidentally leaked on May 27…",
+      "url": "https://aisafetyhot.com/en/items/fftssg1ql9tcjdvrbfikcvbym",
+      "original_url": "https://x.com/wunderwuzzi23/status/2113845964532555816",
+      "language": "en",
+      "direction_ids": [
+        "data-privacy",
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "漏洞披露",
+        "供应链"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-d3tbwvbe4df5pwi5gbo4ilozs",
+      "title": "UK establishes AI Biosecurity Laboratory with support from OpenAI and Anthropic",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "Unite.AI",
+      "source_id": "aisafetyhot",
+      "description": "On 24 October 2026, the UK Cabinet Office announced the establishment of the AI Biosecurity Laboratory (AIBL), based on a £100 million government budget and corporate commitments of up to £200 million from OpenAI and Anthropic, for an over…",
+      "url": "https://aisafetyhot.com/en/items/d3tbwvbe4df5pwi5gbo4ilozs",
+      "original_url": "https://www.unite.ai/ko/uk-establishes-ai-biosecurity-lab-backed-by-openai-and-anthropic",
+      "language": "en",
+      "direction_ids": [
+        "ai-x-science",
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "生物/化学",
+        "OpenAI",
+        "Anthropic",
+        "entity:openai",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
       "aihot_score": 80,
       "aihot_selected": true
     },
@@ -2126,38 +2254,6 @@
       "aihot_selected": true
     },
     {
-      "id": "aihot-crewi1uitw4v0e03zorvmvapz",
-      "title": "The target person says a few words, and the backdoored speech recognition model demands 5000 dollars",
-      "type": "reports",
-      "label": "AI Safety HOT · 攻击与越狱",
-      "date": "2026-10-22",
-      "order": "2026-10-22",
-      "source": "Help Net Security AI",
-      "source_id": "aisafetyhot",
-      "description": "Researchers at Imperial College London implanted a backdoor in a speech-to-text model: the model transcribes normally for most people, but as soon as the target person speaks it outputs attacker-preset content, and an AI agent reading the …",
-      "url": "https://aisafetyhot.com/en/items/crewi1uitw4v0e03zorvmvapz",
-      "original_url": "https://www.helpnetsecurity.com/2026/10/22/research-speech-model-backdoor/",
-      "language": "en",
-      "direction_ids": [
-        "data-privacy",
-        "agent-software",
-        "foundation-model"
-      ],
-      "terms": [
-        "攻击与越狱",
-        "越狱/攻击",
-        "后门/投毒",
-        "多模态",
-        "开源模型"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "attack",
-      "aihot_score": 77,
-      "aihot_selected": true
-    },
-    {
       "id": "aihot-btfwxrio5bqgv5uhl0gonqnlp",
       "title": "Man-in-the-Model: Man-in-the-Middle Attacks on Coding Agents via LLM Gateways",
       "type": "reports",
@@ -2299,33 +2395,6 @@
       "verified": false,
       "content_kind": "latest",
       "aihot_category": "incident",
-      "aihot_score": 77,
-      "aihot_selected": true
-    },
-    {
-      "id": "aihot-xnbquq66xoyka2s9u346un85r",
-      "title": "Spain's Ministry of Digital Transformation opens a public consultation on the EU's draft \"EU Kids Act\", which sets safety-by-design requirements for AI companions and general-purpose chatbots",
-      "type": "reports",
-      "label": "AI Safety HOT · 产业动态",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "digital.gob.es",
-      "source_id": "aisafetyhot",
-      "description": "西班牙数字转型与公共职能部就欧盟《EU Kids Act》草案开放公众咨询，意见征集期为 10 月 21 日至 11 月 4 日。该草案由欧盟委员会于 2026 年 9 月 17 日通过，禁止 15 岁以下未成年人自主开设社交媒体和视频分享平台账号，13 至 15 岁可在家长或监护人支持下开设功能受限的账号。草案对社交媒体、视频分享平台、网络游戏、AI 陪伴、通用聊天机器人和应用商店提出安全设计（safety by design）要求，包括限制成瘾性设计、调整推荐系统、默认…",
-      "url": "https://aisafetyhot.com/en/items/xnbquq66xoyka2s9u346un85r",
-      "original_url": "https://digital.gob.es/comunicacion/notas-prensa/secretaria-digitalizacion-e-inteligencia-artificial/2026/10/abierta-la-consulta-publica-sobre-el--eu-kids-act---reglamento-e",
-      "language": "en",
-      "direction_ids": [
-        "human-societal"
-      ],
-      "terms": [
-        "产业动态",
-        "政策/监管"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "industry",
       "aihot_score": 77,
       "aihot_selected": true
     },
@@ -3019,36 +3088,6 @@
       "aihot_selected": true
     },
     {
-      "id": "aihot-rls2llj3qbtav8jy2jgw9oym3",
-      "title": "Anthropic Frontier Red Team: using Claude to perform attack surface reduction on 25 open-source projects, finding 493 issues; 94 configuration combinations silently disable security controls, and under OpenSSH's default configuration unauthenticated clients can reach about 4500 lines of experimental",
-      "type": "reports",
-      "label": "AI Safety HOT · 安全实践",
-      "date": "2026-10-20",
-      "order": "2026-10-20",
-      "source": "Anthropic Research",
-      "source_id": "aisafetyhot",
-      "description": "Anthropic's Frontier Red Team used Claude to perform automated attack surface analysis on 25 open-source projects (over 5 million lines of code), finding 493 issues in total. The method falls into three categories: code reachable under def…",
-      "url": "https://aisafetyhot.com/en/items/rls2llj3qbtav8jy2jgw9oym3",
-      "original_url": "https://www.anthropic.com/research/attack-surface-reduction",
-      "language": "en",
-      "direction_ids": [
-        "agent-software"
-      ],
-      "terms": [
-        "安全实践",
-        "工具/开源",
-        "网络安全",
-        "Anthropic",
-        "entity:anthropic"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "analysis",
-      "aihot_category": "tip",
-      "aihot_score": 87,
-      "aihot_selected": true
-    },
-    {
       "id": "aihot-qcv1rfrn5quv8i8aexnhfcqcf",
       "title": "Brazil's STJ fines lawyer for the first time over a panel prompt injection incident",
       "type": "reports",
@@ -3192,35 +3231,6 @@
       "content_kind": "latest",
       "aihot_category": "incident",
       "aihot_score": 79,
-      "aihot_selected": true
-    },
-    {
-      "id": "aihot-c8d5zo4zbobwp6fwm0bttv4nn",
-      "title": "Meta's U.S. commercial terms have removed \"train\"; the U.K. preview still says crawled content can be used for training",
-      "type": "reports",
-      "label": "AI Safety HOT · Opinion",
-      "date": "2026-10-19",
-      "order": "2026-10-19",
-      "source": "P.K. Sharma",
-      "source_id": "aisafetyhot",
-      "description": "In the preview of Meta's updated commercial terms, the UK version still lists \"train\" as one of the purposes for scraping content, while the US version has removed that word according to Internet Archive snapshots from October 17 to 18. Th…",
-      "url": "https://aisafetyhot.com/en/items/c8d5zo4zbobwp6fwm0bttv4nn",
-      "original_url": "https://www.pk-sharma.com/briefing/meta-30-october-crawler-clause-two-texts-uk-edition-said-train-on-19-october",
-      "language": "en",
-      "direction_ids": [
-        "foundation-model"
-      ],
-      "terms": [
-        "Opinion",
-        "观点/讨论",
-        "Meta",
-        "entity:meta"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "analysis",
-      "aihot_category": "opinion",
-      "aihot_score": 78,
       "aihot_selected": true
     }
   ]
