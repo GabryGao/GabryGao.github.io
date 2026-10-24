@@ -9,6 +9,18 @@
   border-bottom:1px solid var(--river-rule);
 }
 
+.mh-home>.home-signal-river:first-child{
+  margin-top:28px;
+  margin-bottom:56px;
+  padding-top:28px;
+}
+
+.mh-home>.home-signal-river:first-child .home-river-head h2{
+  max-width:880px;
+  font-size:58px;
+  line-height:1.08;
+}
+
 .home-river-head{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
@@ -309,7 +321,8 @@
 
 @media(max-width:1020px){
   .home-river-head{grid-template-columns:1fr}
-  .home-river-head h2{font-size:40px}
+  .home-river-head h2,
+  .mh-home>.home-signal-river:first-child .home-river-head h2{font-size:40px;line-height:1.16}
   .home-news-actions{max-width:none;justify-content:flex-start}
   .home-river-stage{grid-template-columns:minmax(0,1fr) 280px}
   .home-river-focus{margin-left:18px}
@@ -317,8 +330,10 @@
 
 @media(max-width:760px){
   .home-signal-river{margin:46px 0 8px;padding-top:25px}
+  .mh-home>.home-signal-river:first-child{margin:20px 0 42px;padding-top:22px}
   .home-river-head{gap:20px}
-  .home-river-head h2{font-size:31px;line-height:1.22}
+  .home-river-head h2,
+  .mh-home>.home-signal-river:first-child .home-river-head h2{font-size:31px;line-height:1.22}
   .home-river-head p{font-size:13px}
   .home-news-actions{display:grid;grid-template-columns:38px minmax(0,1fr);gap:9px}
   .home-news-update{grid-column:1/-1;white-space:normal}
@@ -340,7 +355,8 @@
 }
 
 @media(max-width:360px){
-  .home-river-head h2{font-size:28px}
+  .home-river-head h2,
+  .mh-home>.home-signal-river:first-child .home-river-head h2{font-size:28px}
   .home-river-canvas-panel{height:220px;min-height:220px}
   .home-river-axis{font-size:8px}
 }

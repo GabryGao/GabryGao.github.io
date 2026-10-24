@@ -27,6 +27,7 @@ context.location.hash='#home';vm.runInContext('render()',context);
 const home=elements.get('#main').innerHTML;
 assert.match(home,/home-news-flow/);
 assert.match(home,/home-signal-river/);
+assert.ok(home.indexOf('home-signal-river')<home.indexOf('mh-intro'),'Signal river must be the first homepage section');
 assert.match(home,/home-river-canvas/);
 assert.match(home,/AI 安全每天都有新动态/);
 assert.match(home,/home-river-focus/);

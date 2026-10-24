@@ -103,7 +103,7 @@ const watchBaseHome=home;
 home=function(){
  let html=watchBaseHome();
  html=html.replace('<nav class="home-quick-links" aria-label="常用入口">','<nav class="home-quick-links" aria-label="常用入口"><a href="#watch">动态观察台'+portalIcon('arrow')+'</a>');
- return html.replace('<section class="mh-section mh-directions"',PortalWatch.homePreview()+'<section class="mh-section mh-directions"');
+ return html.replace('<section class="mh-intro"',PortalWatch.homePreview()+'<section class="mh-intro"');
 };
 
 const watchBaseRender=render;
