@@ -24,6 +24,10 @@ def response(items=None, papers=None, more=False, cursor=None):
     }).encode()
 
 
+def detail(item):
+    return json.dumps({'schemaVersion': 1, 'item': item}).encode()
+
+
 def article(**updates):
     item = {
         'id': 'article-1',
@@ -115,6 +119,36 @@ class NewsTests(unittest.TestCase):
         self.assertEqual(articles, news.MAX_PAGES)
         self.assertEqual(papers, 1)
         self.assertEqual(len(records), 2)
+
+    def test_focus_records_receive_official_chinese_localization(self):
+        def fetch(url):
+            if '/api/v1/items/article-1?' in url:
+                return detail(article(
+                    title='智能体提示注入防御评测',
+                    summary='来自 AI Safety HOT 的官方中文摘要。',
+                    links={'aihot': 'https://aisafetyhot.com/zh/items/article-1',
+                           'original': 'https://example.org/research/article-1'},
+                ))
+            return response()
+
+        info, records = news.collect({}, [], fetch, '2026-10-23T02:00:00Z')
+        row = next(item for item in records if item['id'] == 'aihot-article-1')
+        source = info['sources'][0]
+        self.assertEqual(row['title'], 'Agent prompt injection defense evaluation')
+        self.assertEqual(row['title_zh'], '智能体提示注入防御评测')
+        self.assertEqual(row['description_zh'], '来自 AI Safety HOT 的官方中文摘要。')
+        self.assertEqual(source['localization_status'], 'ok')
+        self.assertEqual(source['localized_focus_records'], 1)
+        self.assertEqual(source['localization_requested'], 1)
+
+    def test_invalid_localized_detail_does_not_discard_base_record(self):
+        def fetch(url):
+            return b'[]' if '/api/v1/items/article-1?' in url else response()
+
+        info, records = news.collect({}, [], fetch, '2026-10-23T02:00:00Z')
+        row = next(item for item in records if item['id'] == 'aihot-article-1')
+        self.assertNotIn('title_zh', row)
+        self.assertEqual(info['sources'][0]['localization_status'], 'partial')
 
     def test_failure_keeps_previous_snapshot(self):
         previous_info = {'sources': [dict(news.SOURCE, last_successful_fetch='2026-10-22T00:00:00Z')]}

@@ -29,6 +29,8 @@ PAGE_LIMIT = 20
 MAX_ARTICLES = MAX_PAGES * PAGE_LIMIT
 MAX_PAPER_PICKS = 5
 MAX_RECORDS = MAX_ARTICLES + MAX_PAPER_PICKS
+FOCUS_LOCALIZATION_LIMIT = 6
+LOCALIZATION_LANGUAGE = 'zh'
 TIMEOUT = 20
 
 CATEGORY_LABELS = {
@@ -135,7 +137,7 @@ def directions_for(title, summary='', tags=None, category=''):
     return directions[:3]
 
 
-def article_record(item, today):
+def article_record(item, today, language='en'):
     if not isinstance(item, dict) or not isinstance(item.get('id'), str):
         return None
     title = plain_text(item.get('title') or item.get('originalTitle'), 300)
@@ -163,7 +165,7 @@ def article_record(item, today):
         'description': summary or 'AI Safety HOT 公开条目；请进入条目页和原始来源核对内容。',
         'url': aihot_url,
         'original_url': original_url,
-        'language': 'en',
+        'language': language,
         'direction_ids': directions_for(title, summary, tags, category),
         'terms': [label, *tags],
         'automated': True,
@@ -175,7 +177,7 @@ def article_record(item, today):
     }
 
 
-def paper_record(item, today):
+def paper_record(item, today, language='en'):
     if not isinstance(item, dict) or not isinstance(item.get('id'), str):
         return None
     title = plain_text(item.get('title') or item.get('originalTitle'), 300)
@@ -197,7 +199,7 @@ def paper_record(item, today):
         'description': 'AI Safety HOT 近期精选论文；前往条目页查看内容，并通过原始来源核对摘要与版本。',
         'url': aihot_url,
         'original_url': original_url,
-        'language': 'en',
+        'language': language,
         'direction_ids': directions_for(title),
         'terms': ['精选论文', 'AI Safety HOT'],
         'automated': True,
@@ -207,7 +209,7 @@ def paper_record(item, today):
     }
 
 
-def parse_page(payload, today):
+def parse_page(payload, today, language='en'):
     if len(payload) > MAX_BYTES:
         raise ValueError('API response exceeds size limit')
     try:
@@ -221,8 +223,8 @@ def parse_page(payload, today):
     page = data.get('page')
     if not isinstance(items, list) or not isinstance(papers, list) or not isinstance(page, dict):
         raise ValueError('API response shape is invalid')
-    articles = [record for item in items if (record := article_record(item, today))]
-    paper_records = [record for item in papers if (record := paper_record(item, today))]
+    articles = [record for item in items if (record := article_record(item, today, language))]
+    paper_records = [record for item in papers if (record := paper_record(item, today, language))]
     next_cursor = page.get('nextCursor') if page.get('hasMore') is True else None
     if next_cursor is not None and (not isinstance(next_cursor, str) or len(next_cursor) > 1000):
         raise ValueError('Invalid pagination cursor')
@@ -246,7 +248,7 @@ def fetch_url(url):
     return payload
 
 
-def collect_pages(fetch, timestamp):
+def collect_pages(fetch, timestamp, language='en'):
     cursor = None
     pages = []
     articles = []
@@ -254,12 +256,13 @@ def collect_pages(fetch, timestamp):
     access = None
     seen_cursors = set()
     for _ in range(MAX_PAGES):
-        query = {'mode': 'selected', 'window': '7d', 'lang': 'en', 'limit': PAGE_LIMIT}
+        query = {'mode': 'selected', 'window': '7d', 'lang': language, 'limit': PAGE_LIMIT}
         if cursor:
             query['cursor'] = cursor
         url = API_URL + '?' + urllib.parse.urlencode(query)
         payload = fetch(url)
-        page_articles, page_papers, next_cursor, page_access = parse_page(payload, timestamp[:10])
+        page_articles, page_papers, next_cursor, page_access = parse_page(
+            payload, timestamp[:10], language)
         pages.append(payload)
         articles.extend(page_articles)
         papers.extend(page_papers)
@@ -280,6 +283,72 @@ def collect_pages(fetch, timestamp):
     return records, len(pages), len(articles), len({row['id'] for row in papers}), digest, access
 
 
+def focus_records(records):
+    articles = [row for row in records if not row.get('paper_pick')]
+    if not articles:
+        return []
+    latest_date = articles[0]['date']
+
+    def score(row):
+        value = row.get('aihot_score')
+        return value if isinstance(value, (int, float)) else 0
+
+    latest = sorted((row for row in articles if row['date'] == latest_date),
+                    key=score, reverse=True)
+    older = sorted((row for row in articles if row['date'] != latest_date),
+                   key=score, reverse=True)
+    return [*latest, *older][:FOCUS_LOCALIZATION_LIMIT]
+
+
+def parse_localized_detail(payload, expected_id):
+    if len(payload) > MAX_BYTES:
+        raise ValueError('Localized API response exceeds size limit')
+    try:
+        data = json.loads(payload)
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        raise ValueError('Localized API response is not valid JSON') from error
+    if not isinstance(data, dict):
+        raise ValueError('Localized API response shape is invalid')
+    item = data.get('item')
+    if data.get('schemaVersion') != 1 or not isinstance(item, dict) or item.get('id') != expected_id:
+        raise ValueError('Localized API response shape is invalid')
+    title = plain_text(item.get('title') or item.get('originalTitle'), 300)
+    summary = plain_text(item.get('summary'), 240)
+    if not title:
+        raise ValueError('Localized API response has no title')
+    result = {'title_zh': title}
+    if summary:
+        result['description_zh'] = summary
+    return result
+
+
+def add_focus_localizations(records, previous_rows, fetch):
+    previous = {row.get('id'): row for row in previous_rows if isinstance(row, dict)}
+    for row in records:
+        old = previous.get(row['id'], {})
+        for field in ('title_zh', 'description_zh'):
+            if isinstance(old.get(field), str) and old[field]:
+                row[field] = old[field]
+
+    payloads = []
+    localized = 0
+    focus = focus_records(records)
+    for row in focus:
+        raw_id = row['id'].removeprefix('aihot-')
+        url = API_URL + '/' + urllib.parse.quote(raw_id, safe='') + '?' + urllib.parse.urlencode({
+            'lang': LOCALIZATION_LANGUAGE,
+        })
+        try:
+            payload = fetch(url)
+            row.update(parse_localized_detail(payload, raw_id))
+        except (OSError, ValueError, subprocess.SubprocessError):
+            continue
+        payloads.append(payload)
+        localized += 1
+    digest = sha256(b''.join(payloads)).hexdigest() if payloads else None
+    return localized, len(focus), digest
+
+
 def load_previous(root):
     path = root / 'research-source/news-feed-provenance.json'
     if not path.exists():
@@ -297,10 +366,17 @@ def collect(previous_info, previous_rows, fetch, timestamp):
                             if item.get('id') == SOURCE['id']), {})
     try:
         records, pages, articles, papers, digest, access = collect_pages(fetch, timestamp)
+        localized, localization_requested, localization_digest = add_focus_localizations(
+            records, previous_rows, fetch)
         source = dict(SOURCE, status='ok', last_successful_fetch=timestamp,
                       response_sha256=digest, pages_fetched=pages,
                       article_records=articles, paper_picks=papers,
-                      matched_records=len(records))
+                      matched_records=len(records),
+                      localization_language=LOCALIZATION_LANGUAGE,
+                      localization_status=('ok' if localized == localization_requested else 'partial'),
+                      localized_focus_records=localized,
+                      localization_requested=localization_requested,
+                      localization_response_sha256=localization_digest)
         failures = []
         status = 'current'
     except (OSError, ValueError, subprocess.SubprocessError) as error:
@@ -310,7 +386,10 @@ def collect(previous_info, previous_rows, fetch, timestamp):
         source = dict(SOURCE, **{key: previous_source[key]
                                 for key in ('last_successful_fetch', 'response_sha256',
                                             'pages_fetched', 'article_records', 'paper_picks',
-                                            'matched_records') if key in previous_source},
+                                            'matched_records', 'localization_language',
+                                            'localization_status', 'localized_focus_records',
+                                            'localization_requested',
+                                            'localization_response_sha256') if key in previous_source},
                       status='failed', error=type(error).__name__)
         failures = [{'id': SOURCE['id'], 'name': SOURCE['name'], 'error': type(error).__name__}]
         status = 'stale'
@@ -324,7 +403,7 @@ def collect(previous_info, previous_rows, fetch, timestamp):
         'max_records': MAX_RECORDS,
         'classification': 'AI Safety HOT categories drive content sections; portal directions are keyword suggestions',
         'date_policy': 'Publisher publication date in UTC, falling back to discovery date; invalid or future dates excluded',
-        'content_policy': 'Public AI Safety HOT titles, short summaries, metadata and paper links; no full article copying',
+        'content_policy': 'Public AI Safety HOT titles, short summaries, metadata and paper links; official Chinese localization for homepage focus records; no full article copying',
         'coverage': 'Recent selected/hot AI safety news and public paper picks from AI Safety HOT',
         'attribution': {'name': 'AI Safety HOT', 'url': HOME_URL},
         'access': access,

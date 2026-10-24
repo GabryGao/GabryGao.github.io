@@ -27,7 +27,7 @@ var PortalWatch=(()=>{
    if(active.direction&&!row.direction_ids.includes(active.direction))return false;
    if(active.origin==='auto'&&!row.automated)return false;
    if(active.origin==='curated'&&row.automated)return false;
-   const text=[row.title,row.description,row.source,...(row.terms||[])].join(' ');
+   const text=[row.title,row.title_zh,row.description,row.description_zh,row.source,...(row.terms||[])].filter(Boolean).join(' ');
    const searchable=typeof SiteLocale==='undefined'?text:SiteLocale.searchText(text);
    return !query||searchable.toLocaleLowerCase().includes(query);
   });
@@ -43,7 +43,7 @@ var PortalWatch=(()=>{
  }
  function flowRow(row){
   const primary=row.direction_ids[0];
-  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer" data-keep-original>'+esc(row.title)+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'AI Safety HOT · 自动同步':'人工精选')+'</p></div></article>';
+  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer">'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'AI Safety HOT · 自动同步':'人工精选')+'</p></div></article>';
  }
  function signalRows(list){
   const cutoff=generatedAt().getTime()-30*24*60*60*1000,counts=new Map();
@@ -61,7 +61,7 @@ var PortalWatch=(()=>{
   const latest=newestDate(list);if(!latest)return '<div class="watch-empty">当前筛选没有可用记录。</div>';
   const day=latest.toISOString().slice(0,10),items=list.filter(row=>row.date.startsWith(day)).slice(0,4);
   const sources=[...new Set(items.map(row=>row.source))];
-  return '<div class="watch-brief-head"><div><span>最新发布日期</span><strong>'+day+'</strong></div><p>'+items.length+' 条记录，来自 '+sources.length+' 个公开来源。以下为元数据索引，不代替原文核对。</p></div><ol class="watch-brief-list">'+items.map((row,index)=>'<li><span>'+String(index+1).padStart(2,'0')+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer" data-keep-original>'+esc(row.title)+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(directionName(row.direction_ids[0]))+'</p></div></li>').join('')+'</ol>';
+  return '<div class="watch-brief-head"><div><span>最新发布日期</span><strong>'+day+'</strong></div><p>'+items.length+' 条记录，来自 '+sources.length+' 个公开来源。以下为元数据索引，不代替原文核对。</p></div><ol class="watch-brief-list">'+items.map((row,index)=>'<li><span>'+String(index+1).padStart(2,'0')+'</span><div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer">'+localizedNewsCopy(row,'title')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(directionName(row.direction_ids[0]))+'</p></div></li>').join('')+'</ol>';
  }
  function options(selected){return '<option value="">全部方向</option>'+researchDirections.map(direction=>'<option value="'+direction.id+'" '+(selected===direction.id?'selected':'')+'>'+esc(direction.name)+'</option>').join('')}
  function page(){
@@ -80,19 +80,19 @@ var PortalWatch=(()=>{
  }
  function homeRiverStory(row,index){
   const primary=row.direction_ids?.[0]||'foundation-model',label=(row.label||'AI Safety HOT').replace(/^AI Safety HOT · /,'');
-  return '<article class="home-river-story" data-home-river-story data-direction="'+esc(primary)+'" '+(index?'hidden':'')+'><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"><div class="home-river-story-meta"><span>'+esc(directionName(primary))+'</span><time>'+esc(row.date)+'</time></div><h3 data-keep-original>'+esc(row.title)+portalIcon('arrow')+'</h3><p>'+esc(row.description)+'</p><footer><span data-keep-original>'+esc(row.source)+'</span><span>'+esc(label)+'</span></footer></a></article>';
+  return '<article class="home-river-story" data-home-river-story data-direction="'+esc(primary)+'" '+(index?'hidden':'')+'><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"><div class="home-river-story-meta"><span>'+esc(directionName(primary))+'</span><time>'+esc(row.date)+'</time></div><h3>'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</h3><p>'+localizedNewsCopy(row,'description')+'</p><footer><span data-keep-original>'+esc(row.source)+'</span><span>'+esc(label)+'</span></footer></a></article>';
  }
  function homePreview(){
   const list=PortalCompact.stories().filter(row=>!row.paper_pick);if(!list.length)return '';
   const focus=focusStories(list),info=currentInfo(),sources=new Set(list.map(row=>row.source)).size,updated=(info?.generated_on||'').replace('T',' ').replace(/:\d{2}Z$/,' UTC'),status=info?.status||'unknown',stories=focus.map(homeRiverStory).join('');
   return '<section class="home-news-flow home-signal-river" aria-labelledby="home-news-flow-title"><div class="home-river-head"><div><span data-keep-original>AI SAFETY SIGNAL RIVER</span><h2 id="home-news-flow-title"><span>AI 安全每天都有新动态，</span><span>值得追踪的，只有几条。</span></h2><p>自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。</p></div><div class="home-news-actions"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>自动同步于 <time>'+esc(updated||'—')+'</time></span><button type="button" class="home-news-toggle" data-home-flow-toggle aria-label="暂停动态" aria-pressed="false" title="暂停动态">'+portalIcon('pause')+'</button><a href="#watch">查看动态观察台'+portalIcon('arrow')+'</a></div></div><div class="home-river-stage"><div class="home-river-canvas-panel"><canvas class="home-river-canvas" data-record-count="'+list.length+'" aria-hidden="true"></canvas><p class="visually-hidden">动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。</p><div class="home-river-axis" aria-hidden="true"><span>公开来源</span><span>主题聚类</span><span>信号筛选</span><span>今日焦点</span></div></div><aside class="home-river-focus" aria-label="今日焦点"><div class="home-river-focus-head"><span>今日焦点</span><div><button type="button" class="home-river-prev" data-home-river-step="-1" aria-label="上一条焦点" title="上一条焦点">'+portalIcon('arrow')+'</button><strong data-home-river-counter>01 / '+String(focus.length).padStart(2,'0')+'</strong><button type="button" data-home-river-step="1" aria-label="下一条焦点" title="下一条焦点">'+portalIcon('arrow')+'</button></div></div><div class="home-river-story-stack">'+stories+'</div></aside></div><div class="home-river-metrics"><span><small>01 · 采集</small><strong>'+list.length+'</strong><p>条公开动态</p></span><span><small>02 · 来源</small><strong>'+sources+'</strong><p>个公开来源</p></span><span><small>03 · 精选</small><strong>'+focus.length+'</strong><p>条焦点信号</p></span><span><small>04 · 更新</small><strong>3h</strong><p>每 3 小时</p></span></div></section>';
  }
- function exportRows(){return rows().map(row=>({title:row.title,date:row.date,source:row.source,url:row.url,directions:row.direction_ids,automated:!!row.automated,verified:!!row.verified}))}
+ function exportRows(){return rows().map(row=>({title:row.title,title_zh:row.title_zh||'',description_zh:row.description_zh||'',date:row.date,source:row.source,url:row.url,directions:row.direction_ids,automated:!!row.automated,verified:!!row.verified}))}
  function download(format){
   const records=exportRows(),stamp=generatedAt().toISOString().slice(0,10);let content,type;
   if(format==='csv'){
    const quote=value=>'"'+String(value??'').replaceAll('"','""')+'"';
-   content=['title,date,source,url,directions,automated,verified',...records.map(row=>[row.title,row.date,row.source,row.url,row.directions.join('|'),row.automated,row.verified].map(quote).join(','))].join('\n');type='text/csv;charset=utf-8';
+   content=['title,title_zh,description_zh,date,source,url,directions,automated,verified',...records.map(row=>[row.title,row.title_zh,row.description_zh,row.date,row.source,row.url,row.directions.join('|'),row.automated,row.verified].map(quote).join(','))].join('\n');type='text/csv;charset=utf-8';
   }else{content=JSON.stringify({generated_on:generatedAt().toISOString(),filters:filters(),records},null,2);type='application/json;charset=utf-8'}
   const url=URL.createObjectURL(new Blob([content],{type})),anchor=document.createElement('a');anchor.href=url;anchor.download='ai-safety-index-watch-'+stamp+'.'+format;anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  }

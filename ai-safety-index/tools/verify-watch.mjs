@@ -31,6 +31,8 @@ assert.ok(home.indexOf('home-signal-river')<home.indexOf('mh-intro'),'Signal riv
 assert.match(home,/home-river-canvas/);
 assert.match(home,/AI 安全每天都有新动态/);
 assert.match(home,/home-river-focus/);
+assert.match(home,/news-copy-original/);
+assert.match(home,/news-copy-zh/);
 assert.match(home,/data-home-flow-toggle/);
 assert.match(home,/data-home-river-step="-1"/);
 assert.match(home,/data-home-river-step="1"/);
@@ -38,6 +40,7 @@ const homeRecordCount=vm.runInContext('PortalCompact.stories().filter(row=>!row.
 assert.match(home,new RegExp(`data-record-count="${homeRecordCount}"`));
 assert.match(home,/aria-hidden="true"/);
 assert.equal((home.match(/class="home-river-story"/g)||[]).length,Math.min(6,homeRecordCount));
+assert.equal(vm.runInContext('PortalCompact.stories().filter(row=>!row.paper_pick).slice(0,6).some(row=>Boolean(row.title_zh))',context),true);
 assert.doesNotMatch(home,/home-news-track/);
 assert.match(home,/href="#watch"/);
 assert.doesNotMatch(home,/href="#sources"/);

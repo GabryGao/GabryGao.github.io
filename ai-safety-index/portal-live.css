@@ -231,6 +231,9 @@
 
 .home-river-story-stack{min-height:210px}
 .home-river-story a{display:block}
+.news-copy-zh{display:none}
+html[lang="zh-CN"] .news-copy-original{display:none}
+html[lang="zh-CN"] .news-copy-zh{display:inline}
 
 .home-river-story-meta,
 .home-river-story footer{
