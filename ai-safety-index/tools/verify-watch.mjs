@@ -58,6 +58,7 @@ assert.match(river,/bundleWidth/);
 assert.match(river,/trunkWidth/);
 const page=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert.match(page,/portal-river\.js/);
+assert.match(page,/tapered-river-20261024b/);
 const workflow=fs.readFileSync(path.resolve(root,'../.github/workflows/update-ai-safety-index.yml'),'utf8');
 assert.match(workflow,/20 \*\/3 \* \* \*/);
 assert.match(workflow,/50 1 \* \* \*/);

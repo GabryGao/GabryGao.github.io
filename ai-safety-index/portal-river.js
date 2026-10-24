@@ -31,13 +31,13 @@ var PortalRiver=(()=>{
   context.stroke();
  }
  function strokeGrowingBundle(context,lane,start,end,segments,startWidth,endWidth,width,height,startAlpha,endAlpha){
-  const span=end-start;
+  const span=end-start,originalLineCap=context.lineCap;context.lineCap='butt';
   for(let segment=0;segment<segments;segment++){
    const progressStart=segment/segments,progressEnd=(segment+1)/segments,eased=smooth(progressEnd),overlap=segment?span*.004:0;
    context.lineWidth=startWidth+(endWidth-startWidth)*eased;context.globalAlpha=startAlpha+(endAlpha-startAlpha)*eased;
    strokeBundleRange(context,lane,start+span*progressStart-overlap,start+span*progressEnd,4,width,height);
   }
-  context.globalAlpha=1;
+  context.globalAlpha=1;context.lineCap=originalLineCap;
  }
  function drawCanvas(canvas,context,elapsed){
   const bounds=canvas.getBoundingClientRect(),width=Math.max(1,Math.round(bounds.width)),height=Math.max(1,Math.round(bounds.height)),pixelRatio=Math.min(2,window.devicePixelRatio||1),targetWidth=Math.round(width*pixelRatio),targetHeight=Math.round(height*pixelRatio);
@@ -54,13 +54,13 @@ var PortalRiver=(()=>{
   const laneCounts=[0,0,0];for(const strand of strands)laneCounts[strand.lane]++;
   for(let lane=0;lane<3;lane++){
    const bundleWidth=Math.min(22,8+laneCounts[lane]*.32),coreWidth=Math.max(6,bundleWidth*.48);
-   context.strokeStyle='#59686b';strokeGrowingBundle(context,lane,.5,.74,12,1.2,bundleWidth*.58,width,height,.04,.12);
-   context.strokeStyle=laneColors[lane];strokeGrowingBundle(context,lane,.6,.93,18,1.5,bundleWidth,width,height,.07,.18);
-   strokeGrowingBundle(context,lane,.68,.945,16,1.8,coreWidth,width,height,.3,.72);
+   context.strokeStyle='#59686b';strokeGrowingBundle(context,lane,.5,.74,20,1.2,bundleWidth*.58,width,height,.04,.12);
+   context.strokeStyle=laneColors[lane];strokeGrowingBundle(context,lane,.6,.93,30,1.5,bundleWidth,width,height,.07,.18);
+   strokeGrowingBundle(context,lane,.68,.945,28,1.8,coreWidth,width,height,.3,.72);
   }
   const trunkWidth=Math.min(17,11+recordCount*.055),centerY=height*.5;
   context.beginPath();context.moveTo(width*.9,centerY);context.bezierCurveTo(width*.945,centerY,width*.97,centerY,width,centerY);context.strokeStyle='#1f6b67';context.globalAlpha=.14;context.lineWidth=trunkWidth*1.2;context.stroke();context.globalAlpha=1;
-  context.strokeStyle='#1f6b67';strokeGrowingBundle(context,1,.9,1,10,4,trunkWidth,width,height,.78,.94);
+  context.strokeStyle='#1f6b67';strokeGrowingBundle(context,1,.9,1,18,4,trunkWidth,width,height,.78,.94);
   context.fillStyle='#1f5d58';context.fillRect(width-6,centerY-trunkWidth*.72,6,trunkWidth*1.44);
  }
  function mount(){
