@@ -20,6 +20,7 @@ function selectedDirection(){return route().path==='directions'?route().params.g
 function routeLink(path,params={}){const q=new URLSearchParams(Object.entries(params).filter(([,v])=>v!==''&&v!==undefined&&v!==null));return '#'+path+(q.size?'?'+q:'')}
 function scopedLink(path,direction,extra={}){return routeLink(path,{direction,...extra})}
 function benchmarkListFor(direction){return benchmarkData.filter(b=>!direction||(benchmarkDirections[b.id]||[]).includes(direction))}
+function benchmarkHasResults(benchmark){return benchmark?.id==='helm-safety'||(typeof EvaluationExplorer!=='undefined'&&EvaluationExplorer.has(benchmark?.id))}
 function scopeControl(direction){
  return '<div class="scope-control"><label for="direction-filter">研究方向<select id="direction-filter"><option value="">全部方向</option>'+researchDirections.map(d=>'<option value="'+d.id+'" '+(d.id===direction?'selected':'')+'>'+d.name+'</option>').join('')+'</select></label><p>选择方向后，目录、结果和方法共用同一筛选范围。</p>'+(direction?'<a href="'+routeLink('directions',{pillar:direction})+'">查看方向专题 ↗</a>':'')+'</div>';
 }
@@ -51,7 +52,7 @@ function benchmarkPanel(direction){
 }
 function catalog(){const d=selectedDirection();return '<div class="wrap reveal task-page">'+pageHead('FIND & EVALUATE','基准与评测','从基准目录选择工具，在相同协议下阅读结果。')+evalTabs('catalog')+scopeControl(d)+benchmarkPanel(d)+'</div>'}
 function resultSelection(direction){
- const allowed=benchmarkListFor(direction),requested=route().params.get('benchmark');
+ const allowed=benchmarkListFor(direction).filter(benchmarkHasResults),requested=route().params.get('benchmark');
  return {allowed,b:allowed.find(b=>b.id===requested)||allowed[0]};
 }
 function resultPanel(direction){

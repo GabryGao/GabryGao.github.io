@@ -24,6 +24,41 @@ AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源
 搜索当前范围内的评测资源|Search evaluation resources in this scope|この範囲の評価資料を検索|Evaluationsressourcen in diesem Bereich durchsuchen
 按目录优先级|Catalog priority|カタログ優先度順|Nach Katalogpriorität
 来源目录 · 按研究方向筛选|Source catalog · Filtered by research topic|情報源カタログ・研究分野で絞り込み|Quellenkatalog · Nach Forschungsbereich gefiltert
+当前范围的评测资源|Evaluation resources in this scope|現在の範囲の評価資料|Evaluationsressourcen im aktuellen Bereich
+目录中的站内结果、公开结果、论文证据与待核验候选分开显示。|Integrated results, public result sources, paper evidence and pending candidates are shown separately.|サイト収録結果、公開結果、論文の根拠、確認待ち候補を分けて表示します。|Eingebundene Ergebnisse, öffentliche Ergebnisquellen, Publikationsbelege und offene Kandidaten werden getrennt dargestellt.
+站内已接入|Integrated on this site|サイト収録済み|Auf dieser Seite eingebunden
+公开结果入口|Public result source|公開結果入口|Öffentliche Ergebnisquelle
+论文或图表|Paper or figure|論文・図表|Publikation oder Abbildung
+待核验候选|Candidate pending review|確認待ち候補|Noch zu prüfender Kandidat
+搜索当前范围内的基准、指标或主题|Search benchmarks, metrics or topics in this scope|この範囲のベンチマーク・指標・テーマを検索|Benchmarks, Metriken oder Themen in diesem Bereich durchsuchen
+按证据状态|Evidence status|証拠状態順|Nach Belegstatus
+资料包核验于|Package reviewed on|資料パッケージ確認日|Datenpaket geprüft am
+原始项目|Original project|元プロジェクト|Originalprojekt
+查看站内结果|View integrated results|サイト内結果を見る|Eingebundene Ergebnisse ansehen
+公开数据|Public data|公開データ|Öffentliche Daten
+当前范围的方法与复现入口|Methods and reproduction resources in this scope|現在の範囲の手法・再現資料|Methoden und Reproduktionsressourcen im aktuellen Bereich
+运行工具与环境|Tools and environments|ツール・実行環境|Tools und Umgebungen
+公开数据入口|Public data sources|公開データ入口|Öffentliche Datenquellen
+重点评测协议|Priority evaluation protocols|重点評価プロトコル|Priorisierte Evaluationsprotokolle
+公开数据与复现|Public data and reproduction|公開データ・再現|Öffentliche Daten und Reproduktion
+如何读一条测评|How to read an evaluation|評価結果の読み方|So liest man eine Evaluation
+测什么|What is measured|何を測るか|Was wird gemessen
+先确认风险问题、评测对象与任务边界。|First identify the risk question, evaluation target and task boundary.|まずリスク課題、評価対象、タスク境界を確認します。|Zuerst Risikofrage, Evaluationsobjekt und Aufgabengrenze klären.
+怎么测|How it is measured|どう測るか|Wie wird gemessen
+保留数据集、任务、攻击、防御与运行配置。|Preserve the dataset, task, attack, defense and runtime configuration.|データセット、タスク、攻撃、防御、実行設定を保持します。|Datensatz, Aufgabe, Angriff, Abwehr und Laufzeitkonfiguration festhalten.
+看什么指标|Which metrics matter|どの指標を見るか|Welche Metriken zählen
+分清越高越好、越低越好及安全—效用权衡。|Distinguish higher-is-better, lower-is-better and safety–utility trade-offs.|高いほど良い指標、低いほど良い指標、安全性と有用性のトレードオフを区別します。|Höher-ist-besser, Niedriger-ist-besser und Sicherheit-Nutzen-Abwägungen unterscheiden.
+能不能比较|Whether results are comparable|比較できるか|Sind Ergebnisse vergleichbar
+只比较同一协议、模型版本与评分器下的结果。|Compare only results produced with the same protocol, model version and evaluator.|同じプロトコル、モデル版、評価器で得た結果だけを比較します。|Nur Ergebnisse mit demselben Protokoll, derselben Modellversion und demselben Bewerter vergleichen.
+当前方向的比较边界|Comparison boundary for this topic|この分野の比較範囲|Vergleichsgrenze für diesen Bereich
+明确风险问题、评测对象、任务协议与评分方法，再判断结果能否比较。|Define the risk question, evaluation target, task protocol and scoring method before judging comparability.|リスク課題、評価対象、タスク手順、採点方法を明確にしてから比較可能性を判断します。|Risikofrage, Evaluationsobjekt, Aufgabenprotokoll und Bewertungsmethode klären, bevor die Vergleichbarkeit beurteilt wird.
+不同基准、模型版本、攻击配置与评分器的结果不合成为统一安全总分。|Results from different benchmarks, model versions, attack settings or evaluators are not combined into one safety score.|異なるベンチマーク、モデル版、攻撃設定、評価器の結果を単一の安全総合点にはまとめません。|Ergebnisse verschiedener Benchmarks, Modellversionen, Angriffskonfigurationen oder Bewerter werden nicht zu einem Gesamtsicherheitswert kombiniert.
+查看全部方法与复现入口|View all methods and reproduction resources|手法・再現資料をすべて見る|Alle Methoden und Reproduktionsressourcen ansehen
+搜索方法、数据或运行环境|Search methods, data or environments|手法・データ・実行環境を検索|Methoden, Daten oder Umgebungen durchsuchen
+全部类型|All resource types|すべての資料タイプ|Alle Ressourcentypen
+原始来源、数据入口与结果入口分别标注|Original sources, data sources and result sources are labeled separately|原典、データ入口、結果入口を分けて表示|Originalquellen, Datenquellen und Ergebnisquellen sind getrennt gekennzeichnet
+没有符合条件的方法资料|No method resources match the filters|条件に一致する手法資料はありません|Keine Methodenressourcen entsprechen den Filtern
+调整关键词或资源类型后重试。|Adjust the query or resource type and try again.|キーワードまたは資料タイプを変更してください。|Suchbegriff oder Ressourcentyp anpassen und erneut versuchen.
 目录记录|Catalog record|カタログ記録|Katalogeintrag
 没有符合条件的评测资源|No evaluation resources match the filters|条件に一致する評価資料はありません|Keine Evaluationsressourcen entsprechen den Filtern
 调整关键词、结果形态或子方向后重试。|Adjust the query, result availability or subtopic and try again.|キーワード、結果形式、下位分野を変更してください。|Suchbegriff, Ergebnisform oder Unterthema anpassen und erneut versuchen.

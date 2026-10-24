@@ -29,9 +29,11 @@ assert.ok(!fs.existsSync(path.join(publicRoot,'result-files')));
 const shell=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert.doesNotMatch(shell,/href="#sources"/);
 assert.doesNotMatch(shell,/portal-sources\.js/);
-assert.doesNotMatch(shell,/source-catalog\.js/);
+assert.match(shell,/source-catalog\.js/);
+assert.match(shell,/portal-catalog\.js/);
 assert.match(fs.readFileSync(path.join(root,'portal-compact.js'),'utf8'),/if\(path==='sources'\)path='results'/);
 assert.doesNotMatch(fs.readFileSync(path.join(root,'portal-madeo.js'),'utf8'),/href="#sources"/);
 assert.doesNotMatch(fs.readFileSync(path.join(root,'portal-interactions.js'),'utf8'),/href:'#sources'/);
+assert.match(fs.readFileSync(path.join(root,'portal-catalog.js'),'utf8'),/benchmarkRecords/);
 
-console.log('Source checks passed: the reviewed 171-record package remains intact for provenance, while the public source-directory route and navigation are removed.');
+console.log('Source checks passed: the reviewed 171-record package remains intact for provenance and now powers benchmark/method pages, while the public source-directory route stays removed.');

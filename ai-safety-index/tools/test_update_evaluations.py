@@ -48,6 +48,7 @@ class EvaluationParserTests(unittest.TestCase):
         self.assertEqual(rows[0]["model"], "LLaMA-3")
         self.assertEqual(rows[1]["configuration"], "ReNeLLM")
         self.assertEqual(rows[-1]["value"], 32.05)
+        self.assertIn("ai-x-science", evaluations.BENCHMARKS["finsafety"]["direction_ids"])
 
 
 if __name__ == "__main__":

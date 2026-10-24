@@ -90,7 +90,7 @@ BENCHMARKS = {
         "tags": ["金融安全", "越狱攻击", "双语评测"],
         "detail": "官方表格报告 PAIR、ReNeLLM 与 FlipAttack 在四个领域语言组合上的攻击成功率。",
         "measure": "ASR 越低越好；攻击方法、语言与风险领域必须保持一致。",
-        "direction_ids": ["foundation-model", "human-societal"],
+        "direction_ids": ["foundation-model", "human-societal", "ai-x-science"],
         "default_metric": "asr",
         "default_task": "Financial Crimes · En",
         "default_configuration": "PAIR",
