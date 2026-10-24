@@ -94,7 +94,7 @@ const watchBaseHome=home;
 home=function(){
  let html=watchBaseHome();
  html=html.replace('<nav class="home-quick-links" aria-label="常用入口">','<nav class="home-quick-links" aria-label="常用入口"><a href="#watch">动态观察台'+portalIcon('arrow')+'</a>');
- return html.replace('</section><section class="mh-grid"','</section>'+PortalWatch.homePreview()+'<section class="mh-grid"');
+ return html.replace('<section class="mh-section mh-directions"',PortalWatch.homePreview()+'<section class="mh-section mh-directions"');
 };
 
 const watchBaseRender=render;

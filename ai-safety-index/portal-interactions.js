@@ -8,11 +8,11 @@ var PortalInteractions=(()=>{
  const fine=window.matchMedia('(hover: hover) and (pointer: fine)');
  const nav=document.querySelector('#primary-nav');
  const definitions={
-  directions:researchDirections.map(d=>({label:d.name,href:'#directions?pillar='+d.id})),
-  news:[{label:'动态观察台',href:'#watch'},{label:'最新资讯',href:'#news?content=latest'},{label:'研究解读',href:'#news?content=analysis'},{label:'成果分享',href:'#news?content=share'}],
+  directions:[{label:'论文资料',href:'#papers'},{label:'数据与任务',href:'#datasets'}],
+  news:[{label:'动态观察台',href:'#watch'},{label:'最新资讯',href:'#news?content=latest'},{label:'研究解读',href:'#news?content=analysis'}],
   results:[{label:'评测看板',href:'#results'},{label:'基准目录',href:'#benchmarks'},{label:'方法与说明',href:'#methods'}],
   benchmarks:[{label:'评测看板',href:'#results'},{label:'基准目录',href:'#benchmarks'},{label:'方法与说明',href:'#methods'}],
-  teams:[{label:'研究团队',href:'#teams'}]
+  teams:[{label:'上传资源',href:'#upload'}]
  };
  let openGroup=null,leaveTimer,suppressFocus=false;
  function closeSubnav(){clearTimeout(leaveTimer);if(!openGroup)return;openGroup.querySelector('.md-nav-panel').hidden=true;openGroup.querySelectorAll('[aria-expanded]').forEach(e=>e.setAttribute('aria-expanded','false'));openGroup.classList.remove('is-open');openGroup=null}

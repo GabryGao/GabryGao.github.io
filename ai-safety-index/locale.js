@@ -423,6 +423,36 @@ arXiv 预印本|arXiv preprint|arXiv プレプリント|arXiv-Preprint
 返回门户|Back to portal|ポータルへ戻る|Zurück zum Portal
 自动更新评测概览|Automatically updated evaluation overview|自動更新される評価概要|Automatisch aktualisierte Evaluationsübersicht
 已接入的公开评测结果|Integrated public evaluation results|収録済みの公開評価結果|Eingebundene öffentliche Evaluationsergebnisse
+一眼看懂|Understand at a glance|ひと目でわかる|Auf einen Blick verstehen
+AI 安全测评。|AI safety evaluations.|AI 安全性評価。|KI-Sicherheitsevaluationen.
+先看同一条件下的直观对比，再进入论文、数据与完整结果。|Start with a direct comparison under identical conditions, then open the papers, data and complete results.|同じ条件での直感的な比較を確認してから、論文・データ・全結果へ進みます。|Zuerst ein direkter Vergleich unter gleichen Bedingungen, danach Publikationen, Daten und vollständige Ergebnisse.
+完整评测|Full evaluations|全評価|Vollständige Evaluationen
+先看一张能读懂的测评图。|Start with an evaluation chart anyone can read.|まず、読みやすい評価グラフから。|Zuerst ein verständliches Evaluationsdiagramm.
+打开完整评测|Open full evaluation|全評価を開く|Vollständige Evaluation öffnen
+选择首页评测基准|Choose the homepage benchmark|トップページのベンチマークを選ぶ|Benchmark für die Startseite auswählen
+个公开基准| public benchmarks| 件の公開ベンチマーク| öffentliche Benchmarks
+安全与任务成功要分开看|Read safety and task success separately|安全性とタスク成功率は分けて読む|Sicherheit und Aufgabenerfolg getrennt lesen
+攻击会怎样改变 Agent 表现|How attacks change agent performance|攻撃が Agent の性能をどう変えるか|Wie Angriffe die Agent-Leistung verändern
+无害回答比例与程度并不相同|Harmless response rate and degree are different|無害回答の割合と程度は同じではない|Anteil und Ausmaß harmloser Antworten sind verschieden
+金融越狱攻击成功率对比|Financial jailbreak attack success rates|金融ジェイルブレイク攻撃成功率の比較|Erfolgsraten finanzieller Jailbreak-Angriffe
+读图结论|What the chart shows|グラフの要点|Aussage des Diagramms
+成功率最高，不等于最安全。|The highest success rate is not necessarily the safest.|成功率が最高でも、最も安全とは限りません。|Die höchste Erfolgsrate bedeutet nicht die höchste Sicherheit.
+能完成任务，不代表能抵抗提示注入。|Completing tasks does not imply resistance to prompt injection.|タスクを完了できても、プロンプトインジェクションに強いとは限りません。|Aufgaben zu lösen bedeutet nicht, Prompt-Injection abzuwehren.
+两项无害性指标不能合成一个总分。|The two harmlessness metrics cannot be combined into one score.|2 つの無害性指標を 1 つの総合点にはできません。|Die beiden Unbedenklichkeitsmetriken lassen sich nicht zu einer Gesamtnote verbinden.
+攻击成功率越低，代表防护表现越好。|A lower attack success rate indicates better protection.|攻撃成功率が低いほど、防御性能が高いことを示します。|Eine niedrigere Angriffserfolgsrate zeigt besseren Schutz.
+安全率|Safety rate|安全率|Sicherheitsrate
+任务成功率|Task success rate|タスク成功率|Aufgabenerfolgsrate
+受攻击效用|Utility under attack|攻撃下の有用性|Nutzen unter Angriff
+定向攻击成功率|Targeted attack success rate|標的型攻撃成功率|Erfolgsrate gezielter Angriffe
+无害回答比例|Harmless response rate|無害回答率|Anteil harmloser Antworten
+无害程度|Harmlessness score|無害度|Unbedenklichkeitswert
+攻击成功率|Attack success rate|攻撃成功率|Angriffserfolgsrate
+查看官方来源|View official source|公式情報源を見る|Offizielle Quelle öffnen
+这里只比较同一基准、同一任务和同一配置。不同基准不能横向合成“总安全分”。|This view compares only the same benchmark, task and configuration. Different benchmarks cannot be combined into an overall safety score.|同じベンチマーク・タスク・設定だけを比較します。異なるベンチマークを横断した「総合安全スコア」にはできません。|Diese Ansicht vergleicht nur denselben Benchmark, dieselbe Aufgabe und Konfiguration. Verschiedene Benchmarks dürfen nicht zu einer Gesamtsicherheitsnote kombiniert werden.
+近期研究|Recent research|最近の研究|Aktuelle Forschung
+从结论回到证据。|Trace conclusions back to evidence.|結論から根拠へ戻る。|Von der Aussage zurück zum Beleg.
+每张图都保留基准、任务、配置、报告日期与官方来源。需要深入时，再进入完整表格、论文和数据资料。|Every chart keeps the benchmark, task, configuration, report date and official source. Open the full tables, papers and data when more detail is needed.|各グラフにはベンチマーク、タスク、設定、報告日、公式情報源を残しています。詳細が必要な場合は、全表・論文・データを確認できます。|Jedes Diagramm bewahrt Benchmark, Aufgabe, Konfiguration, Berichtsdatum und offizielle Quelle. Für Details stehen vollständige Tabellen, Publikationen und Daten bereit.
+先看测评结论，再按需要进入研究资料。|Start with evaluation findings, then open research materials as needed.|まず評価結果を確認し、必要に応じて研究資料へ進みます。|Zuerst Evaluationsergebnisse ansehen, dann bei Bedarf Forschungsmaterialien öffnen.
 条指标| metrics| 件の指標| Metriken
 个模型条目| model entries| 件のモデル項目| Modelleinträge
 个模型| models| モデル| Modelle
