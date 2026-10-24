@@ -14,10 +14,30 @@ var PortalRiver=(()=>{
   else{const blend=smooth((progress-.84)/.16);yPos=laneY+(endY-laneY)*blend+wave*(1-blend)*.15}
   return {xPos:progress*width,yPos};
  }
+ function bundlePoint(lane,progress,width,height){
+  const laneY=height*(.34+lane*.16),centerY=height*.5;
+  if(progress<=.64)return {xPos:progress*width,yPos:laneY};
+  const blend=smooth(Math.min(1,(progress-.64)/.29));
+  return {xPos:progress*width,yPos:laneY+(centerY-laneY)*blend};
+ }
  function strokeRange(context,strand,start,end,steps,width,height,elapsed){
   context.beginPath();
   for(let step=0;step<=steps;step++){const progress=start+(end-start)*(step/steps),point=strandPoint(strand,progress,width,height,elapsed);if(step===0)context.moveTo(point.xPos,point.yPos);else context.lineTo(point.xPos,point.yPos)}
   context.stroke();
+ }
+ function strokeBundleRange(context,lane,start,end,steps,width,height){
+  context.beginPath();
+  for(let step=0;step<=steps;step++){const progress=start+(end-start)*(step/steps),point=bundlePoint(lane,progress,width,height);if(step===0)context.moveTo(point.xPos,point.yPos);else context.lineTo(point.xPos,point.yPos)}
+  context.stroke();
+ }
+ function strokeGrowingBundle(context,lane,start,end,segments,startWidth,endWidth,width,height,startAlpha,endAlpha){
+  const span=end-start;
+  for(let segment=0;segment<segments;segment++){
+   const progressStart=segment/segments,progressEnd=(segment+1)/segments,eased=smooth(progressEnd),overlap=segment?span*.004:0;
+   context.lineWidth=startWidth+(endWidth-startWidth)*eased;context.globalAlpha=startAlpha+(endAlpha-startAlpha)*eased;
+   strokeBundleRange(context,lane,start+span*progressStart-overlap,start+span*progressEnd,4,width,height);
+  }
+  context.globalAlpha=1;
  }
  function drawCanvas(canvas,context,elapsed){
   const bounds=canvas.getBoundingClientRect(),width=Math.max(1,Math.round(bounds.width)),height=Math.max(1,Math.round(bounds.height)),pixelRatio=Math.min(2,window.devicePixelRatio||1),targetWidth=Math.round(width*pixelRatio),targetHeight=Math.round(height*pixelRatio);
@@ -28,10 +48,20 @@ var PortalRiver=(()=>{
   for(const progress of [.31,.62,.84]){context.beginPath();context.moveTo(width*progress,height*.04);context.lineTo(width*progress,height*.88);context.stroke()}
   const recordCount=Math.max(36,Math.min(100,Number(canvas.dataset.recordCount)||72)),strands=[];
   for(let index=0;index<recordCount;index++)strands.push({position:(index+.5)/recordCount,lane:index%3,phase:unit(index,1)*Math.PI*2,amplitude:2+unit(index,2)*8,frequency:8+unit(index,3)*10,speed:.22+unit(index,4)*.28,offset:unit(index,5)});
-  for(const strand of strands){context.strokeStyle='rgba(86,108,112,'+(0.12+strand.offset*.13)+')';context.lineWidth=.55+strand.offset*.35;strokeRange(context,strand,0,1,52,width,height,elapsed)}
-  for(const strand of strands.filter((item,index)=>index%4===0)){const segmentStart=(elapsed*.035*strand.speed*5+strand.offset*.72)%0.78,segmentEnd=Math.min(.86,segmentStart+.045);context.strokeStyle='rgba(64,83,88,.48)';context.lineWidth=1.1;strokeRange(context,strand,segmentStart,segmentEnd,8,width,height,elapsed)}
-  for(let lane=0;lane<3;lane++){const laneStartY=height*(.34+lane*.16),laneEndY=height*.5+(lane-1)*4;context.beginPath();context.moveTo(width*.63,laneStartY);context.bezierCurveTo(width*.78,laneStartY,width*.86,laneEndY,width,laneEndY);context.strokeStyle=laneColors[lane];context.globalAlpha=.58;context.lineWidth=5+lane;context.stroke();context.globalAlpha=1}
-  context.fillStyle='#1f5d58';context.fillRect(width-5,height*.5-10,5,20);
+  for(const strand of strands){context.strokeStyle='rgba(86,108,112,'+(0.12+strand.offset*.13)+')';context.lineWidth=.45+strand.offset*.3;strokeRange(context,strand,0,.7,42,width,height,elapsed)}
+  for(const strand of strands){context.strokeStyle='rgba(86,108,112,'+(0.045+strand.offset*.045)+')';context.lineWidth=1+strand.offset*.5;strokeRange(context,strand,.56,.83,18,width,height,elapsed)}
+  for(const strand of strands.filter((item,index)=>index%4===0)){const segmentStart=(elapsed*.035*strand.speed*5+strand.offset*.62)%0.68,segmentEnd=Math.min(.72,segmentStart+.045);context.strokeStyle='rgba(64,83,88,.48)';context.lineWidth=1.05;strokeRange(context,strand,segmentStart,segmentEnd,8,width,height,elapsed)}
+  const laneCounts=[0,0,0];for(const strand of strands)laneCounts[strand.lane]++;
+  for(let lane=0;lane<3;lane++){
+   const bundleWidth=Math.min(22,8+laneCounts[lane]*.32),coreWidth=Math.max(6,bundleWidth*.48);
+   context.strokeStyle='#59686b';strokeGrowingBundle(context,lane,.5,.74,12,1.2,bundleWidth*.58,width,height,.04,.12);
+   context.strokeStyle=laneColors[lane];strokeGrowingBundle(context,lane,.6,.93,18,1.5,bundleWidth,width,height,.07,.18);
+   strokeGrowingBundle(context,lane,.68,.945,16,1.8,coreWidth,width,height,.3,.72);
+  }
+  const trunkWidth=Math.min(17,11+recordCount*.055),centerY=height*.5;
+  context.beginPath();context.moveTo(width*.9,centerY);context.bezierCurveTo(width*.945,centerY,width*.97,centerY,width,centerY);context.strokeStyle='#1f6b67';context.globalAlpha=.14;context.lineWidth=trunkWidth*1.2;context.stroke();context.globalAlpha=1;
+  context.strokeStyle='#1f6b67';strokeGrowingBundle(context,1,.9,1,10,4,trunkWidth,width,height,.78,.94);
+  context.fillStyle='#1f5d58';context.fillRect(width-6,centerY-trunkWidth*.72,6,trunkWidth*1.44);
  }
  function mount(){
   activeController?.destroy();activeController=null;

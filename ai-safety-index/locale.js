@@ -533,6 +533,33 @@ AI 安全测评。|AI safety evaluations.|AI 安全性評価。|KI-Sicherheitsev
 筛选模型|Filter models|モデルを絞り込む|Modelle filtern
 搜索模型或提供方|Search models or providers|モデルまたは提供元を検索|Modelle oder Anbieter suchen
 条同协议记录| records under the same protocol| 件の同一プロトコル記録| Einträge mit gleichem Protokoll
+当前筛选摘要|Current filter summary|現在の絞り込み概要|Zusammenfassung der aktuellen Filter
+匹配模型|Matching models|一致するモデル|Passende Modelle
+同任务、配置与指标|Same task, configuration and metric|同じタスク・設定・指標|Gleiche Aufgabe, Konfiguration und Metrik
+最佳表现|Best result|最良の結果|Bestes Ergebnis
+中位数|Median|中央値|Median
+最大跨度|Largest spread|最大差|Größte Spanne
+当前筛选内最高与最低之差|Difference between the highest and lowest values in the current filter|現在の絞り込み内の最高値と最低値の差|Differenz zwischen höchstem und niedrigstem Wert im aktuellen Filter
+HELM Safety 同协议记录|HELM Safety records under one protocol|HELM Safety の同一プロトコル記録|HELM-Safety-Einträge mit gleichem Protokoll
+测评看板工具|Evaluation dashboard tools|評価ダッシュボードのツール|Werkzeuge des Evaluations-Dashboards
+比较工具|Comparison tools|比較ツール|Vergleichswerkzeuge
+切换绝对值或相对差值，并控制图表密度。|Switch between absolute values and relative differences, and control chart density.|絶対値と相対差を切り替え、グラフの表示件数を調整します。|Zwischen absoluten Werten und relativen Differenzen wechseln und die Diagrammdichte steuern.
+显示方式|Display mode|表示方法|Anzeigemodus
+结果显示方式|Result display mode|結果の表示方法|Ergebnisanzeige
+绝对值|Absolute values|絶対値|Absolute Werte
+相对差值|Relative difference|相対差|Relative Differenz
+提供方|Provider|提供元|Anbieter
+全部提供方|All providers|すべての提供元|Alle Anbieter
+基线模型|Baseline model|基準モデル|Basismodell
+图表显示|Chart rows|グラフ表示件数|Diagrammeinträge
+前 5 条|Top 5|上位 5 件|Top 5
+前 10 条|Top 10|上位 10 件|Top 10
+前 20 条|Top 20|上位 20 件|Top 20
+恢复默认视图|Reset view|標準表示に戻す|Ansicht zurücksetzen
+模型相对差值图|Relative model difference chart|モデル相対差グラフ|Diagramm relativer Modellunterschiede
+正值表示优于基线|Positive values outperform the baseline|正の値は基準モデルを上回る|Positive Werte sind besser als die Basis
+百分点|percentage points|パーセントポイント|Prozentpunkte
+差值按同一指标与同一设置计算；正值表示高于所选基线。|Differences use the same metric and configuration; positive values are above the selected baseline.|差は同じ指標と設定で算出し、正の値は選択した基準モデルを上回ります。|Differenzen werden mit derselben Metrik und Konfiguration berechnet; positive Werte liegen über dem gewählten Basismodell.
 越高越好|Higher is better|高いほど良い|Höher ist besser
 越低越好|Lower is better|低いほど良い|Niedriger ist besser
 双指标对照|Paired metric comparison|2 指標の比較|Vergleich zweier Metriken
@@ -1053,6 +1080,9 @@ function translate(value,language){
  out=out.replace(/来源：safety index\.pptx（2026-10-17 提供与整理）第 (\d+) 页；中文导读为网页整理，英文子方向保留原文。当前仍为拟议框架。/g,(_,n)=>at(`Source: safety index.pptx, slide ${n}, supplied and organized on 2026-10-17. Introductions are editorial; English subtopics retain the original wording. This remains a proposed framework.`,`出典：safety index.pptx 第 ${n} 頁（2026-10-17 提供・整理）。導入文はサイト編集、英語の下位分野は原文を保持。現在も提案段階の枠組みです。`,`Quelle: safety index.pptx, Folie ${n}, bereitgestellt und geordnet am 17.10.2026. Einleitungen sind redaktionell; englische Unterthemen bleiben im Original. Das Framework ist weiterhin ein Vorschlag.`));
  out=out.replace(/年份由新到旧 · /g,at('Newest year first · ','年の新しい順・','Neueste Jahre zuerst · '));
  out=out.replace(/显示 ([\d–]+) 条/g,(_,n)=>at(`Showing ${n}`,`${n} 件を表示`,`Einträge ${n}`));
+ out=out.replace(/图表显示前 (\d+) 条；完整记录见下方表格。/g,(_,n)=>at(`Chart shows the first ${n} records; the full table is below.`,`グラフは先頭 ${n} 件を表示しています。全件は下の表で確認できます。`,`Das Diagramm zeigt die ersten ${n} Einträge; die vollständige Tabelle steht darunter.`));
+ out=out.replace(/相对 (.+?) 的差值/g,(_,model)=>at(`Difference from ${model}`,`${model} との差`, `Differenz zu ${model}`));
+ out=out.replace(/(.+?) · 相对 (.+?) · ([+−\d.]+ pp)/g,(_,model,baseline,value)=>at(`${model} · vs ${baseline} · ${value}`,`${model}・${baseline} 比・${value}`,`${model} · gegenüber ${baseline} · ${value}`));
  out=out.replace(/第 (\d+) \/ (\d+) 页/g,(_,n,total)=>at(`Page ${n} of ${total}`,`${n} / ${total} ページ`,`Seite ${n} von ${total}`));
  out=out.replace(/第 (\d+) 页/g,(_,n)=>at(`Page ${n}`,`${n} ページ`,`Seite ${n}`));
  out=out.replace(/已选 (\d+) 条同协议记录/g,(_,n)=>at(`${n} records selected within one protocol`,`同一プロトコルの ${n} 件を選択`,`${n} Einträge im selben Protokoll ausgewählt`));

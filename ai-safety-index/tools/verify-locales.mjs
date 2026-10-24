@@ -17,6 +17,9 @@ for(const lang of ['en','ja','de']){
  for(const s of ['动态观察台','最近发生了什么？','研究热点正在流动','AI 安全每天都有新动态，','值得追踪的，只有几条。','自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。','查看动态观察台','动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。','主题聚类','信号筛选','今日焦点','上一条焦点','下一条焦点','条公开动态','个公开来源','条焦点信号','每 3 小时','精选','更新','自动同步于','暂停动态','继续动态','查看全部动态','自动同步','最近 7 日采集量','最新 AI 安全研究热点横向信息流','采集','去重','归类','展示','近 72 小时记录','当前主要信号','打开动态观察台','近 72 小时信息流','近期主题信号','每日研究简报','来源与数据状态'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated observatory UI: ${s}`);
  for(const s of ['来源目录','AI 安全数据来源目录','已核验资源','参考入口','历史候选','结果文件清单','资源目录','公开数据包','使用边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated source catalog UI: ${s}`);
  for(const s of ['当前范围的评测资源','站内已接入','公开结果入口','待核验候选','当前范围的方法与复现入口','运行工具与环境','重点评测协议','如何读一条测评','当前方向的比较边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation catalog UI: ${s}`);
+ for(const s of ['当前筛选摘要','匹配模型','同任务、配置与指标','最佳表现','中位数','最大跨度','当前筛选内最高与最低之差','测评看板工具','比较工具','显示方式','结果显示方式','绝对值','相对差值','提供方','全部提供方','基线模型','图表显示','前 5 条','前 10 条','前 20 条','恢复默认视图','模型相对差值图','正值表示优于基线'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation dashboard UI: ${s}`);
+ assert.notEqual(api.translate('图表显示前 5 条；完整记录见下方表格。',lang),'图表显示前 5 条；完整记录见下方表格。');
+ assert.notEqual(api.translate('相对 GPT-4o 的差值',lang),'相对 GPT-4o 的差值');
  assert.equal(api.translate('HELM Safety v1.0',lang),'HELM Safety v1.0');
  assert.equal(api.translate('A Study of Agent Safety',lang),'A Study of Agent Safety');
  assert.equal(api.translate('   论文资料 ↗ ',lang),'   '+api.translate('论文资料',lang)+' ↗ ');

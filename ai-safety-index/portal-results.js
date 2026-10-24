@@ -1,8 +1,12 @@
 /* Source-backed historical results. Table, chart and CSV use one filtered collection. */
+function evaluationLimit(value,fallback='20'){return ['5','10','20','all'].includes(value)?value:fallback}
+function evaluationLimited(list,limit){return limit==='all'?list:list.slice(0,Number(limit)||20)}
+function evaluationMedian(values){if(!values.length)return 0;const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);return sorted.length%2?sorted[middle]:(sorted[middle-1]+sorted[middle])/2}
+function evaluationDeltaDisplay(value,unit){const absolute=Math.abs(value),digits=unit==='index'?3:absolute>=10?1:2,number=absolute.toFixed(digits).replace(/\.?0+$/,'');return (value>0?'+':value<0?'−':'')+number+(unit==='percent'?' pp':'')}
 var ResultExplorer=(()=>{
  const source='https://crfm.stanford.edu/2024/11/08/helm-safety.html';
  const colors={'Anthropic':'#aa513c','OpenAI':'#26775f','Meta':'#356bb0','Mistral AI':'#956a21'};
- function select(params){const shown=params.get('models')?.split(',');const metric=params.get('metric')==='attack'?'attack':'score',creator=params.get('creator')||'',q=(params.get('model')||'').trim().toLowerCase(),asc=params.get('sort')==='asc';return {metric,list:results.filter(r=>(!shown||shown.includes(r.id))&&(!creator||r.creator===creator)&&(!q||(r.name+' '+r.version).toLowerCase().includes(q))).sort((a,b)=>asc?a[metric]-b[metric]:b[metric]-a[metric])}}
+ function select(params){const shown=params.get('models')?.split(','),metric=params.get('metric')==='attack'?'attack':'score',creator=params.get('creator')||'',q=(params.get('model')||'').trim().toLowerCase(),asc=params.get('sort')==='asc',view=params.get('view')==='delta'?'delta':'absolute',limit=evaluationLimit(params.get('limit'),'all');const list=results.filter(r=>(!shown||shown.includes(r.id))&&(!creator||r.creator===creator)&&(!q||(r.name+' '+r.version).toLowerCase().includes(q))).sort((a,b)=>asc?a[metric]-b[metric]:b[metric]-a[metric]),best=[...list].sort((a,b)=>b[metric]-a[metric])[0]||null,baseline=list.find(r=>r.id===params.get('baseline'))||best,values=list.map(r=>r[metric]);return {metric,list,visible:evaluationLimited(list,limit),view,limit,baseline,stats:list.length?{best,median:evaluationMedian(values),spread:Math.max(...values)-Math.min(...values)}:null}}
  function display(value){return (value*100).toFixed(1)}
  function csv(list,metric){const rows=[['Model','Version','Creator','Benchmark','Configuration','Score (0-100)','Source score (0-1)','Report date','Source'],...list.map(r=>[r.name,r.version,r.creator,'HarmBench',metric==='attack'?'GCG-T':'Default',display(r[metric]),r[metric].toFixed(3),'2024-11-08',source])];return '\ufeff'+rows.map(row=>row.map(cell=>'"'+String(cell).replaceAll('"','""')+'"').join(',')).join('\r\n')}
  return {source,colors,select,display,csv};
@@ -27,15 +31,25 @@ var EvaluationExplorer=(()=>{
  function selection(id,params){
   const meta=metaById.get(id),all=recordsFor(id),tasks=ordered(all.map(row=>row.task),meta.default_task),task=tasks.includes(params.get('task'))?params.get('task'):tasks[0];
   const taskRows=all.filter(row=>row.task===task),configurations=ordered(taskRows.map(row=>row.configuration),meta.default_configuration),configuration=configurations.includes(params.get('config'))?params.get('config'):configurations[0];
-  const configured=taskRows.filter(row=>row.configuration===configuration),metricIds=ordered(configured.map(row=>row.metric_id),meta.default_metric),metricId=metricIds.includes(params.get('metric'))?params.get('metric'):metricIds[0],metric=metricInfo(configured,metricId),query=(params.get('model')||'').trim().toLocaleLowerCase();
-  let list=configured.filter(row=>row.metric_id===metricId&&(!query||localeSearchText(row.model+' '+row.provider).toLocaleLowerCase().includes(query)));
+  const configured=taskRows.filter(row=>row.configuration===configuration),metricIds=ordered(configured.map(row=>row.metric_id),meta.default_metric),metricId=metricIds.includes(params.get('metric'))?params.get('metric'):metricIds[0],metric=metricInfo(configured,metricId),query=(params.get('model')||'').trim().toLocaleLowerCase(),metricRows=configured.filter(row=>row.metric_id===metricId),providers=ordered(metricRows.map(row=>row.provider)),provider=providers.includes(params.get('provider'))?params.get('provider'):'',view=params.get('view')==='delta'?'delta':'absolute',limit=evaluationLimit(params.get('limit'));
+  let list=metricRows.filter(row=>(!provider||row.provider===provider)&&(!query||localeSearchText(row.model+' '+row.provider).toLocaleLowerCase().includes(query)));
   const bestFirst=params.get('sort')!=='reverse',factor=(metric?.better==='lower'?-1:1)*(bestFirst?-1:1);list.sort((a,b)=>(a.value-b.value)*factor||a.model.localeCompare(b.model));
-  return {meta,all,tasks,task,configurations,configuration,metricIds,metricId,metric,list,bestFirst,query};
+  const performanceFactor=metric?.better==='lower'?1:-1,best=[...list].sort((a,b)=>(a.value-b.value)*performanceFactor||a.model.localeCompare(b.model))[0]||null,baseline=list.find(row=>row.model===params.get('baseline'))||best,values=list.map(row=>row.value);
+  return {meta,all,tasks,task,configurations,configuration,metricIds,metricId,metric,list,visible:evaluationLimited(list,limit),providers,provider,view,limit,baseline,bestFirst,query,stats:list.length?{best,median:evaluationMedian(values),spread:Math.max(...values)-Math.min(...values)}:null};
  }
  function display(rowOrValue,unit){const value=typeof rowOrValue==='object'?rowOrValue.value:rowOrValue,resolved=unit||(typeof rowOrValue==='object'?rowOrValue.unit:'');if(resolved==='index')return Number(value).toFixed(3).replace(/0+$/,'').replace(/\.$/,'');return Number(value).toFixed(2).replace(/\.00$/,'').replace(/(\.\d)0$/,'$1')+(resolved==='percent'?'%':'')}
  function benchmarkOptions(allowed,selected){return allowed.map(item=>'<option value="'+item.id+'" '+(item.id===selected?'selected':'')+'>'+esc(item.name)+'</option>').join('')}
  function selectOptions(values,selected,label=value=>value){return values.map(value=>'<option value="'+esc(value)+'" '+(value===selected?'selected':'')+'>'+esc(label(value))+'</option>').join('')}
  function metricLabel(state,id){return metricInfo(state.all.filter(row=>row.task===state.task&&row.configuration===state.configuration),id)?.metric||id}
+ function summary(state){
+  if(!state.stats)return '';
+  const spread=evaluationDeltaDisplay(state.stats.spread,state.metric.unit).replace(/^[+−]/,'');
+  return '<section class="evaluation-insights" aria-label="当前筛选摘要"><article><span>匹配模型</span><strong>'+state.list.length+'</strong><small>同任务、配置与指标</small></article><article><span>最佳表现</span><strong data-keep-original>'+esc(state.stats.best.model)+'</strong><small>'+display(state.stats.best)+'</small></article><article><span>中位数</span><strong>'+display(state.stats.median,state.metric.unit)+'</strong><small>'+esc(state.metric.metric)+'</small></article><article><span>最大跨度</span><strong>'+spread+'</strong><small>当前筛选内最高与最低之差</small></article></section>';
+ }
+ function analysisControls(state,params,direction){
+  const current=Object.fromEntries(params),baseline=state.baseline?.model||'',reset={direction,benchmark:state.meta.id,task:state.task,config:state.configuration,metric:state.metricId};
+  return '<section class="evaluation-functions" aria-label="测评看板工具"><div class="evaluation-functions-head"><div><span data-keep-original>ANALYSIS TOOLS</span><h2>比较工具</h2></div><p>切换绝对值或相对差值，并控制图表密度。</p></div><div class="evaluation-functions-grid"><div class="evaluation-view-control"><span>显示方式</span><nav aria-label="结果显示方式"><a class="'+(state.view==='absolute'?'active':'')+'" '+(state.view==='absolute'?'aria-current="true"':'')+' href="'+routeLink('results',{...current,view:''})+'">绝对值</a><a class="'+(state.view==='delta'?'active':'')+'" '+(state.view==='delta'?'aria-current="true"':'')+' href="'+routeLink('results',{...current,view:'delta',baseline})+'">相对差值</a></nav></div><label>提供方<select id="result-provider"><option value="">全部提供方</option>'+selectOptions(state.providers,state.provider)+'</select></label><label>基线模型<select id="result-baseline" '+(state.view==='delta'?'':'disabled')+'>'+state.list.map(row=>'<option value="'+esc(row.model)+'" '+(row.model===baseline?'selected':'')+'>'+esc(row.model)+'</option>').join('')+'</select></label><label>图表显示<select id="result-limit"><option value="5" '+(state.limit==='5'?'selected':'')+'>前 5 条</option><option value="10" '+(state.limit==='10'?'selected':'')+'>前 10 条</option><option value="20" '+(state.limit==='20'?'selected':'')+'>前 20 条</option><option value="all" '+(state.limit==='all'?'selected':'')+'>全部记录</option></select></label></div><div class="evaluation-function-actions"><a href="'+routeLink('results',reset)+'">恢复默认视图</a><button type="button" data-copy-results>复制筛选链接</button><p role="status" id="cp-share-status" aria-live="polite"></p></div></section>';
+ }
  function overview(active='',allowed=data.benchmarks,direction=''){
   const allowedIds=new Set((allowed||[]).map(item=>item.id)),items=data.benchmarks.filter(item=>allowedIds.has(item.id));
   if(!items.length)return '';
@@ -44,18 +58,23 @@ var EvaluationExplorer=(()=>{
  }
  function rankChart(state){
   if(!state.list.length)return contentEmpty('没有匹配的模型','调整模型关键词、任务或运行配置后重试。',routeLink('results',{benchmark:state.meta.id,task:state.task,config:state.configuration,metric:state.metricId}),'清除模型筛选');
-  const max=state.metric.unit==='percent'||state.metric.unit==='score'?100:Math.max(...state.list.map(row=>row.value),.001),visible=state.list.slice(0,20);
+  const visible=state.visible;
+  if(state.view==='delta'&&state.baseline){
+   const factor=state.metric.better==='lower'?-1:1,deltas=visible.map(row=>({row,value:(row.value-state.baseline.value)*factor})),maxDelta=Math.max(...deltas.map(item=>Math.abs(item.value)),.001);
+   return '<figure class="evaluation-rank evaluation-delta"><figcaption><div><span>01 / RELATIVE VIEW</span><h2>相对 '+esc(state.baseline.model)+' 的差值</h2></div><p>'+esc(state.metric.metric)+' · 正值表示优于基线</p></figcaption><div class="evaluation-bars">'+deltas.map((item,index)=>{const size=Math.max(1,Math.abs(item.value)/maxDelta*50),positive=item.value>=0;return '<button type="button" data-evaluation-model="'+esc(item.row.model)+'"><span class="evaluation-rank-no">'+String(index+1).padStart(2,'0')+'</span><strong data-keep-original>'+esc(item.row.model)+'</strong><i class="evaluation-delta-track"><b class="'+(positive?'positive':'negative')+'" style="width:'+size+'%"></b></i><em>'+evaluationDeltaDisplay(item.value,item.row.unit)+'</em></button>'}).join('')+'</div>'+(state.list.length>visible.length?'<p class="evaluation-chart-note">图表显示前 '+visible.length+' 条；完整记录见下方表格。</p>':'')+'</figure>';
+  }
+  const max=state.metric.unit==='percent'||state.metric.unit==='score'?100:Math.max(...state.list.map(row=>row.value),.001);
   return '<figure class="evaluation-rank"><figcaption><div><span>01 / RANKED VIEW</span><h2>'+esc(state.metric.metric)+'</h2></div><p>'+esc(state.task)+' · '+esc(state.configuration)+' · '+(state.metric.better==='lower'?'越低越好':'越高越好')+'</p></figcaption><div class="evaluation-bars">'+visible.map((row,index)=>'<button type="button" data-evaluation-model="'+esc(row.model)+'"><span class="evaluation-rank-no">'+String(index+1).padStart(2,'0')+'</span><strong data-keep-original>'+esc(row.model)+'</strong><i><b style="width:'+Math.max(1,Math.min(100,row.value/max*100))+'%;background:'+palette[index%palette.length]+'"></b></i><em>'+display(row)+'</em></button>').join('')+'</div>'+(state.list.length>visible.length?'<p class="evaluation-chart-note">图表显示前 '+visible.length+' 条；完整记录见下方表格。</p>':'')+'</figure>';
  }
  function pairChart(state){
   const pair=state.meta.pair_metrics||[];if(pair.length!==2)return '';
-  const rows=state.all.filter(row=>row.task===state.task&&row.configuration===state.configuration&&pair.includes(row.metric_id)),byModel=new Map();for(const row of rows){if(!byModel.has(row.model))byModel.set(row.model,{});byModel.get(row.model)[row.metric_id]=row}
+  const modelsInScope=new Set(state.list.map(row=>row.model)),rows=state.all.filter(row=>modelsInScope.has(row.model)&&row.task===state.task&&row.configuration===state.configuration&&pair.includes(row.metric_id)),byModel=new Map();for(const row of rows){if(!byModel.has(row.model))byModel.set(row.model,{});byModel.get(row.model)[row.metric_id]=row}
   const complete=[...byModel].filter(([,values])=>values[pair[0]]&&values[pair[1]]).slice(0,12);if(!complete.length)return '';
   const labels=pair.map(id=>metricInfo(rows,id));
   return '<section class="evaluation-pair"><header><div><span>02 / PAIRED METRICS</span><h2>双指标对照</h2></div><p>分别读取两项指标，不合成为单一分数。</p></header><div class="evaluation-pair-legend"><span><i></i>'+esc(labels[0].metric)+' · '+(labels[0].better==='lower'?'↓':'↑')+'</span><span><i></i>'+esc(labels[1].metric)+' · '+(labels[1].better==='lower'?'↓':'↑')+'</span></div><div class="evaluation-pair-rows">'+complete.map(([model,values])=>'<div><strong data-keep-original>'+esc(model)+'</strong><span><i style="width:'+Math.min(100,values[pair[0]].value)+'%"></i><b>'+display(values[pair[0]])+'</b></span><span><i style="width:'+Math.min(100,values[pair[1]].value)+'%"></i><b>'+display(values[pair[1]])+'</b></span></div>').join('')+'</div></section>';
  }
  function heatmap(state){
-  const rows=state.all.filter(row=>row.metric_id===state.metricId&&row.configuration===state.configuration),tasks=unique(rows.map(row=>row.task));if(tasks.length<2)return '';
+  const modelsInScope=new Set(state.list.map(row=>row.model)),rows=state.all.filter(row=>modelsInScope.has(row.model)&&row.metric_id===state.metricId&&row.configuration===state.configuration),tasks=unique(rows.map(row=>row.task));if(tasks.length<2)return '';
   const byModel=new Map();for(const row of rows){if(!byModel.has(row.model))byModel.set(row.model,new Map());byModel.get(row.model).set(row.task,row)}
   const score=values=>{const found=[...values.values()];return found.reduce((sum,row)=>sum+row.value,0)/found.length};
   const models=[...byModel].sort((a,b)=>(state.metric.better==='lower'?score(a[1])-score(b[1]):score(b[1])-score(a[1]))).slice(0,12),max=state.metric.unit==='percent'||state.metric.unit==='score'?100:Math.max(...rows.map(row=>row.value),.001);
@@ -78,7 +97,7 @@ var EvaluationExplorer=(()=>{
   const toolbar='<div class="result-toolbar evaluation-toolbar"><label>基准 / 报告<select id="result-benchmark">'+benchmarkOptions(allowed,b.id)+'</select></label><label>任务<select id="result-task">'+selectOptions(state.tasks,state.task)+'</select></label><label>运行配置<select id="result-config">'+selectOptions(state.configurations,state.configuration)+'</select></label><label>评价指标<select id="result-metric">'+selectOptions(state.metricIds,state.metricId,id=>metricLabel(state,id))+'</select></label><label>结果顺序<select id="result-sort"><option value="best" '+(state.bestFirst?'selected':'')+'>按指标表现</option><option value="reverse" '+(!state.bestFirst?'selected':'')+'>反向排序</option></select></label></div>';
   const context='<div class="evaluation-context"><div><span class="evaluation-health '+(fresh?'ok':'')+'"></span><strong>'+(fresh?'官方页面已同步':'显示上次成功快照')+'</strong><small>'+esc(source?.last_successful_fetch?.slice(0,10)||data.generated_on.slice(0,10))+' · '+state.meta.record_count+' 条指标</small></div><p>'+esc(state.meta.measure)+'</p><a href="'+esc(state.meta.url)+'" target="_blank" rel="noopener noreferrer">查看官方项目'+portalIcon('arrow')+'</a></div>';
   const filter='<form class="evaluation-search" id="evaluation-model-search"><label for="evaluation-model-query">筛选模型</label><div>'+portalIcon('search')+'<input id="evaluation-model-query" type="search" placeholder="搜索模型或提供方" value="'+esc(params.get('model')||'')+'"><button type="submit">搜索</button></div><span>'+state.list.length+' 条同协议记录</span></form>';
-  return overview(b.id,allowed,direction)+toolbar+context+filter+rankChart(state)+pairChart(state)+heatmap(state)+table(state);
+  return overview(b.id,allowed,direction)+toolbar+context+summary(state)+analysisControls(state,params,direction)+filter+rankChart(state)+pairChart(state)+heatmap(state)+table(state);
  }
  return {has,overview,panel,selection,csv,display,homeSnapshot,metrics:id=>unique(recordsFor(id).map(row=>row.metric_id))};
 })();
@@ -97,8 +116,13 @@ resultPanel=function(direction){
  return EvaluationExplorer.overview(b.id,allowed,direction)+toolbar+context+filters+chart+table;
 };
 document.addEventListener('change',e=>{if(e.target.id==='result-creator')replaceQuery('creator',e.target.value)});
+document.addEventListener('change',e=>{
+ if(e.target.id==='result-provider'){const p=new URLSearchParams(route().params);if(e.target.value)p.set('provider',e.target.value);else p.delete('provider');p.delete('baseline');go('results',Object.fromEntries(p))}
+ if(e.target.id==='result-baseline')replaceQuery('baseline',e.target.value);
+ if(e.target.id==='result-limit')replaceQuery('limit',e.target.value);
+});
 document.addEventListener('submit',e=>{if(e.target.id==='result-model-search'){e.preventDefault();replaceQuery('model',e.target.querySelector('input').value.trim())}});
-document.addEventListener('change',e=>{if(e.target.id==='result-task'){const p=new URLSearchParams(route().params);p.set('task',e.target.value);for(const key of ['config','metric','model'])p.delete(key);go('results',Object.fromEntries(p))}if(e.target.id==='result-config'){const p=new URLSearchParams(route().params);p.set('config',e.target.value);for(const key of ['metric','model'])p.delete(key);go('results',Object.fromEntries(p))}});
+document.addEventListener('change',e=>{if(e.target.id==='result-task'){const p=new URLSearchParams(route().params);p.set('task',e.target.value);for(const key of ['config','metric','model','provider','baseline','view'])p.delete(key);go('results',Object.fromEntries(p))}if(e.target.id==='result-config'){const p=new URLSearchParams(route().params);p.set('config',e.target.value);for(const key of ['metric','model','provider','baseline','view'])p.delete(key);go('results',Object.fromEntries(p))}});
 document.addEventListener('submit',e=>{if(e.target.id==='evaluation-model-search'){e.preventDefault();replaceQuery('model',e.target.querySelector('input').value.trim())}});
 document.addEventListener('click',e=>{
  const bar=e.target.closest('[data-result-model]');if(bar){const row=document.querySelector('#result-row-'+bar.dataset.resultModel);if(row){document.querySelectorAll('.result-highlight').forEach(x=>x.classList.remove('result-highlight'));row.classList.add('result-highlight');row.scrollIntoView({block:'center',behavior:'instant'});row.focus({preventScroll:true})}}
