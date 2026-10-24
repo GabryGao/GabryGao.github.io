@@ -123,6 +123,22 @@ P3 辅助|P3 supporting|P3 補助|P3 Ergänzend
 从公开来源、研究方向和复核状态进入最新 AI 安全动态。|Enter the latest AI safety updates through public sources, research topics and review status.|公開情報源、研究分野、確認状況から最新の AI 安全動向を確認できます。|Aktuelle Entwicklungen zur KI-Sicherheit nach öffentlichen Quellen, Forschungsthemen und Prüfstatus erkunden.
 研究热点正在流动|Research hotspots in motion|研究トピックの動向|Forschungstrends im Fluss
 从 AI Safety HOT 公共接口同步近期动态；标题和来源保持原样，点击可回到公开条目核对。|Recent updates are synced from the public AI Safety HOT API; titles and sources remain unchanged, and each item links back to its public record.|AI Safety HOT の公開 API から最近の動向を同期します。題名と情報源は原文のまま保持し、各項目から公開ページを確認できます。|Aktuelle Meldungen werden über die öffentliche AI-Safety-HOT-API synchronisiert. Titel und Quellen bleiben unverändert; jeder Eintrag führt zur öffentlichen Fundstelle.
+AI 安全每天都有新动态，|AI safety changes every day,|AI 安全性には毎日新しい動きがあり、|KI-Sicherheit entwickelt sich täglich weiter,
+值得追踪的，只有几条。|only a few signals deserve attention.|追うべきシグナルは、ほんの数件です。|nur wenige Signale verdienen Aufmerksamkeit.
+自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。|Public sources are collected automatically, deduplicated, classified and filtered into safety signals worth checking today.|公開情報源を自動収集し、重複排除・分類・選別を行い、今日確認すべき安全シグナルにまとめます。|Öffentliche Quellen werden automatisch erfasst, dedupliziert, eingeordnet und zu heute prüfenswerten Sicherheitssignalen gefiltert.
+查看动态观察台|View research observatory|研究観測台を見る|Forschungsbeobachtung öffnen
+动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。|Dynamic signal flow: public sources pass through topic clustering and signal filtering before converging into today's focus.|動的シグナルフロー：公開情報源をテーマ別に集約・選別し、今日の注目情報に絞り込みます。|Dynamischer Signalfluss: Öffentliche Quellen werden thematisch gebündelt und gefiltert, bevor sie zu den heutigen Schwerpunkten zusammenlaufen.
+主题聚类|Topic clustering|テーマ集約|Themenbündelung
+信号筛选|Signal filtering|シグナル選別|Signalfilterung
+今日焦点|Today's focus|今日の注目|Heutige Schwerpunkte
+上一条焦点|Previous focus|前の注目情報|Vorheriger Schwerpunkt
+下一条焦点|Next focus|次の注目情報|Nächster Schwerpunkt
+条公开动态|public updates|件の公開動向|öffentliche Meldungen
+个公开来源|public sources|件の公開情報源|öffentliche Quellen
+条焦点信号|focus signals|件の注目シグナル|Schwerpunktsignale
+每 3 小时|Every 3 hours|3 時間ごと|Alle 3 Stunden
+精选|Select|選別|Auswahl
+更新|Update|更新情報|Aktualisierung
 自动同步于|Last synced|最終同期|Zuletzt synchronisiert
 暂停动态|Pause motion|動きを一時停止|Bewegung pausieren
 继续动态|Resume motion|動きを再開|Bewegung fortsetzen

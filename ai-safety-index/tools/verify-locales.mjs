@@ -14,7 +14,7 @@ for(const lang of ['en','ja','de']){
  for(const s of ['490 条论文记录','年份由新到旧 · 显示 21–40 条 · 第 2 / 25 页','第 2 页','已选 2 条同协议记录','当前范围：物理 AI 安全','选择 GPT-4o 进行对比']){
   const t=api.translate(s,lang);assert.ok(t!==s,`${lang}: ${s}`);assert.ok(!/[\u3400-\u9fff]/u.test(t)||lang==='ja',`${lang} left source text: ${t}`);
  }
- for(const s of ['动态观察台','最近发生了什么？','研究热点正在流动','自动同步于','暂停动态','继续动态','查看全部动态','自动同步','最近 7 日采集量','最新 AI 安全研究热点横向信息流','采集','去重','归类','展示','近 72 小时记录','当前主要信号','打开动态观察台','近 72 小时信息流','近期主题信号','每日研究简报','来源与数据状态'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated observatory UI: ${s}`);
+ for(const s of ['动态观察台','最近发生了什么？','研究热点正在流动','AI 安全每天都有新动态，','值得追踪的，只有几条。','自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。','查看动态观察台','动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。','主题聚类','信号筛选','今日焦点','上一条焦点','下一条焦点','条公开动态','个公开来源','条焦点信号','每 3 小时','精选','更新','自动同步于','暂停动态','继续动态','查看全部动态','自动同步','最近 7 日采集量','最新 AI 安全研究热点横向信息流','采集','去重','归类','展示','近 72 小时记录','当前主要信号','打开动态观察台','近 72 小时信息流','近期主题信号','每日研究简报','来源与数据状态'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated observatory UI: ${s}`);
  for(const s of ['来源目录','AI 安全数据来源目录','已核验资源','参考入口','历史候选','结果文件清单','资源目录','公开数据包','使用边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated source catalog UI: ${s}`);
  for(const s of ['当前范围的评测资源','站内已接入','公开结果入口','待核验候选','当前范围的方法与复现入口','运行工具与环境','重点评测协议','如何读一条测评','当前方向的比较边界'])assert.notEqual(api.translate(s,lang),s,`${lang}: untranslated evaluation catalog UI: ${s}`);
  assert.equal(api.translate('HELM Safety v1.0',lang),'HELM Safety v1.0');
