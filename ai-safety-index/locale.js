@@ -26,6 +26,18 @@ AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源
 来源目录 · 按研究方向筛选|Source catalog · Filtered by research topic|情報源カタログ・研究分野で絞り込み|Quellenkatalog · Nach Forschungsbereich gefiltert
 当前范围的评测资源|Evaluation resources in this scope|現在の範囲の評価資料|Evaluationsressourcen im aktuellen Bereich
 目录中的站内结果、公开结果、论文证据与待核验候选分开显示。|Integrated results, public result sources, paper evidence and pending candidates are shown separately.|サイト収録結果、公開結果、論文の根拠、確認待ち候補を分けて表示します。|Eingebundene Ergebnisse, öffentliche Ergebnisquellen, Publikationsbelege und offene Kandidaten werden getrennt dargestellt.
+目录筛选概览|Catalog filter overview|カタログ絞り込み概要|Übersicht der Katalogfilter
+图表随研究方向、评测主题、结果形态和关键词同步更新。|Charts update with the research topic, evaluation topic, result type and keywords.|グラフは研究分野、評価テーマ、結果形式、キーワードに連動して更新されます。|Die Diagramme aktualisieren sich mit Forschungsbereich, Evaluationsthema, Ergebnisform und Suchbegriff.
+匹配资源|Matching resources|該当資料|Passende Ressourcen
+涉及主题|Topics represented|対象テーマ|Abgedeckte Themen
+站内结果|On-site results|サイト内結果|Ergebnisse auf dieser Seite
+高频评测主题|Most represented evaluation topics|頻出の評価テーマ|Häufige Evaluationsthemen
+主题可交叉重叠|Topics may overlap|テーマは重複する場合があります|Themen können sich überschneiden
+六大方向覆盖|Coverage across six research topics|6研究分野のカバレッジ|Abdeckung der sechs Forschungsbereiche
+一条资料可关联多个方向|A resource may link to multiple research topics|1件の資料が複数の研究分野に関連する場合があります|Eine Ressource kann mehreren Forschungsbereichen zugeordnet sein
+证据状态构成|Evidence status mix|証拠ステータスの構成|Zusammensetzung der Evidenzstatus
+状态互斥，合计为当前筛选|Statuses are mutually exclusive and sum to the current filter|状態は相互排他的で、合計は現在の絞り込み件数です|Die Statuswerte schließen sich gegenseitig aus und ergeben zusammen die aktuelle Auswahl
+暂无分布数据|No distribution data|分布データなし|Keine Verteilungsdaten
 站内已接入|Integrated on this site|サイト収録済み|Auf dieser Seite eingebunden
 公开结果入口|Public result source|公開結果入口|Öffentliche Ergebnisquelle
 论文或图表|Paper or figure|論文・図表|Publikation oder Abbildung
