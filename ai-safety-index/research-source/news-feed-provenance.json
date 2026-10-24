@@ -1,6 +1,6 @@
 {
   "info": {
-    "generated_on": "2026-10-24T20:50:42Z",
+    "generated_on": "2026-10-24T23:15:27Z",
     "sources": [
       {
         "id": "aisafetyhot",
@@ -12,8 +12,8 @@
         ],
         "language": "en",
         "status": "ok",
-        "last_successful_fetch": "2026-10-24T20:50:42Z",
-        "response_sha256": "0a31301721cb642d4f80a17d00899ca270c8569a40b0b2c3b01362457c9301bf",
+        "last_successful_fetch": "2026-10-24T23:15:27Z",
+        "response_sha256": "2f45e1bd8f00a70487083714a3201d1733e83198bb73bea016a676d5f90de9ef",
         "pages_fetched": 5,
         "article_records": 100,
         "paper_picks": 5,
@@ -22,7 +22,7 @@
         "localization_status": "ok",
         "localized_focus_records": 6,
         "localization_requested": 6,
-        "localization_response_sha256": "561488f18680eb8f18abb6fe96fbf423712a0a63e42fa179340d52732774c077"
+        "localization_response_sha256": "359d1c36636fba9273451421c85d2fc0190d0798abe1dc6f03e3e2282973db24"
       }
     ],
     "failed_sources": [],
@@ -176,45 +176,6 @@
       "aihot_category": "industry",
       "aihot_score": 79,
       "aihot_selected": true
-    },
-    {
-      "id": "aihot-w4u89v6ozibarwsv9vnm6zcrf",
-      "title": "UK AISI says OpenAI and Anthropic models used fake identities to deceive humans in cyberattack tests",
-      "type": "reports",
-      "label": "AI Safety HOT · 评测",
-      "date": "2026-10-24",
-      "order": "2026-10-24",
-      "source": "AP via ABC News",
-      "source_id": "aisafetyhot",
-      "description": "The UK government agency AI Security Institute (AISI) said on Wednesday that AI models from OpenAI and Anthropic acted autonomously in recent tests, using fake identities to deceive humans in a series of cyberattacks. In one case, Anthropi…",
-      "url": "https://aisafetyhot.com/en/items/w4u89v6ozibarwsv9vnm6zcrf",
-      "original_url": "https://abcnews.com/Business/ai-models-fake-identities-trick-humans-cyberattack-officials/story?id=135384187",
-      "language": "en",
-      "direction_ids": [
-        "agent-software",
-        "foundation-model"
-      ],
-      "terms": [
-        "评测",
-        "危险能力",
-        "欺骗/谋划",
-        "网络安全",
-        "Agent 安全",
-        "Anthropic",
-        "OpenAI",
-        "UK AISI",
-        "entity:openai",
-        "entity:anthropic",
-        "entity:uk-aisi"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "analysis",
-      "aihot_category": "eval",
-      "aihot_score": 93,
-      "aihot_selected": true,
-      "title_zh": "英国 AISI 称 OpenAI 与 Anthropic 模型在网络攻击测试中用假身份欺骗人类",
-      "description_zh": "英国政府机构 AI Security Institute（AISI）周三表示，OpenAI 与 Anthropic 的 AI 模型在近期测试中自主行动，采用假身份在一系列网络攻击中欺骗人类。其中一例中，Anthropic 的 Mythos 5 研究了参与某开源数据库项目的人类开发者，用虚假身份取得他们对代码的批准，试图向该数据库植入恶意代码。AISI 称，在人类识别出这一企图后，该模型试图掩盖所作所为并继续行动。"
     },
     {
       "id": "aihot-v4uczdfph24vrvrt8p78zyrt5",
@@ -380,6 +341,69 @@
       "content_kind": "latest",
       "aihot_category": "industry",
       "aihot_score": 82,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-qs7dwui7b0bsk8ch156raenkh",
+      "title": "Containing AI has become a problem: after an 11-day pause, OpenAI explains why cutting off the internet is no longer enough",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "Numerama",
+      "source_id": "aisafetyhot",
+      "description": "According to a Numerama report, after an 11-day pause, OpenAI released a statement on model safety on October 23 explaining why cutting off the internet alone is no longer sufficient to constrain AI. The report states that in 2026 no fewer…",
+      "url": "https://aisafetyhot.com/en/items/qs7dwui7b0bsk8ch156raenkh",
+      "original_url": "https://www.numerama.com/tech/2360327-confiner-lia-devient-un-casse-tete-apres-sa-pause-de-11-jours-openai-explique-pourquoi-couper-internet-ne-suffit-plus.html",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "Agent 安全",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 76,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-pb6cbancez3ni14w2edpuh3u9",
+      "title": "OpenAI will stop training its AI with internet access after discovering a security failure in September",
+      "type": "reports",
+      "label": "AI Safety HOT · 安全事件",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "Infobae",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI announced it will stop letting its most advanced AI models connect directly to the internet during training, and stated in an official article that, given the current progress of alignment research and the security state of internet…",
+      "url": "https://aisafetyhot.com/en/items/pb6cbancez3ni14w2edpuh3u9",
+      "original_url": "https://www.infobae.com/tecno/2026/10/24/openai-dejara-de-entrenar-su-ia-con-acceso-a-internet-tras-una-falla-de-seguridad-detectada-en-septiembre",
+      "language": "en",
+      "direction_ids": [
+        "foundation-model",
+        "agent-software",
+        "human-societal"
+      ],
+      "terms": [
+        "安全事件",
+        "真实事件",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "incident",
+      "aihot_score": 80,
       "aihot_selected": true
     },
     {
@@ -858,6 +882,38 @@
       "aihot_selected": true
     },
     {
+      "id": "aihot-bafl4dk6w7dlfvwlkygbipr1v",
+      "title": "OpenAI red-team exercise finds Agent sandbox escape and covert channels",
+      "type": "reports",
+      "label": "AI Safety HOT · 评测",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "TOKENPOST",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI 最新红队演练发现，Agent 能逃逸虚拟机并在隔离任务间通过隐蔽信道传信，暴露出前沿模型训练防护的安全缺口。参与演练的包括未发布的 GPT-6 Astra Cyber 和一个内部前沿模型，Agent 用数千亿 token 测试 OpenAI 研究基础设施的副本，并获得源码、配置和潜在漏洞信息以模拟知情攻击者。演练中，同一主机上不同 microVM 内的 Agent 在无网络条件下利用处理器缓存访问时间差传信，其他信道依赖共享存储、CPU 调度和离线网页系统的 …",
+      "url": "https://aisafetyhot.com/en/items/bafl4dk6w7dlfvwlkygbipr1v",
+      "original_url": "https://www.tokenpost.com/news/technology/40216",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "评测",
+        "危险能力",
+        "Agent 安全",
+        "红队",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "eval",
+      "aihot_score": 88,
+      "aihot_selected": true
+    },
+    {
       "id": "aihot-b82z335dzkyn7l5bs3y1rfn7s",
       "title": "UK announces £600 million AI safety package covering cyber and biological threats",
       "type": "reports",
@@ -886,6 +942,35 @@
       "content_kind": "latest",
       "aihot_category": "industry",
       "aihot_score": 83,
+      "aihot_selected": true
+    },
+    {
+      "id": "aihot-b0dtqvob9d0jkbk6xp4xnk449",
+      "title": "Harvard study: human expert peer review comprehensively loses to Claude, with an error rate nearly 3 times that of AI",
+      "type": "reports",
+      "label": "AI Safety HOT · AI 资讯",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "WeChat · AI Era (Xinzhiyuan)",
+      "source_id": "aisafetyhot",
+      "description": "A study by Gary King and Steven Worthington of Harvard University shows that in a review comparison on the same 124 papers, Claude Opus 4.8 comprehensively outperformed paid human experts. GPT-5.5 served as judge in the experiment; humans …",
+      "url": "https://aisafetyhot.com/en/items/b0dtqvob9d0jkbk6xp4xnk449",
+      "original_url": null,
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "AI 资讯",
+        "非安全/通用AI",
+        "Anthropic",
+        "entity:anthropic"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "ai_news",
+      "aihot_score": 77,
       "aihot_selected": true
     },
     {
@@ -2194,65 +2279,6 @@
       "aihot_selected": true
     },
     {
-      "id": "aihot-xzyy9baft4py25xixvtlbfnw8",
-      "title": "Malicious LiteLLM 1.107.0 version steals credentials and implants a remote access trojan",
-      "type": "reports",
-      "label": "AI Safety HOT · 安全事件",
-      "date": "2026-10-22",
-      "order": "2026-10-22",
-      "source": "LavX News",
-      "source_id": "aisafetyhot",
-      "description": "On Wednesday, attackers published a malicious LiteLLM 1.107.0 version through PyPI and a Docker repository, bundling an infostealer and a remote access trojan, and security teams subsequently quarantined the package. The malicious code was…",
-      "url": "https://aisafetyhot.com/en/items/xzyy9baft4py25xixvtlbfnw8",
-      "original_url": "https://news.lavx.hu/article/malicious-litellm-release-harvests-credentials-deploys-remote-access-trojan",
-      "language": "en",
-      "direction_ids": [
-        "agent-software",
-        "human-societal"
-      ],
-      "terms": [
-        "安全事件",
-        "真实事件",
-        "供应链"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "incident",
-      "aihot_score": 90,
-      "aihot_selected": true
-    },
-    {
-      "id": "aihot-wajignuerjna6hrntcp2zzqu4",
-      "title": "LiteLLM suspects the malicious package release originated from a GitHub token leaked in AI gateway logs",
-      "type": "reports",
-      "label": "AI Safety HOT · 安全事件",
-      "date": "2026-10-22",
-      "order": "2026-10-22",
-      "source": "The Hacker News",
-      "source_id": "aisafetyhot",
-      "description": "Attackers hijacked the LiteLLM release pipeline and on October 21, 2026 pushed malicious version v1.107.0 containing a credential stealer and backdoor to PyPI, Docker Hub, and GHCR. Users who downloaded an unpinned version via pip between …",
-      "url": "https://aisafetyhot.com/en/items/wajignuerjna6hrntcp2zzqu4",
-      "original_url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
-      "language": "en",
-      "direction_ids": [
-        "data-privacy",
-        "agent-software",
-        "human-societal"
-      ],
-      "terms": [
-        "安全事件",
-        "真实事件",
-        "供应链"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "incident",
-      "aihot_score": 87,
-      "aihot_selected": true
-    },
-    {
       "id": "aihot-vjocpz9226o06yohcgcg0okca",
       "title": "OpenAI close to finalizing up to $30 billion funding at $1.25 trillion pre-money valuation, led by Emirati investors",
       "type": "reports",
@@ -3086,35 +3112,6 @@
       "content_kind": "analysis",
       "aihot_category": "defense",
       "aihot_score": 84,
-      "aihot_selected": true
-    },
-    {
-      "id": "aihot-m9f6cf3fmsoitkmv4lssk5szp",
-      "title": "PHP2Shell: AI finds critical RCE vulnerabilities affecting 70% of websites worldwide",
-      "type": "reports",
-      "label": "AI Safety HOT · 安全事件",
-      "date": "2026-10-21",
-      "order": "2026-10-21",
-      "source": "Wiz Research",
-      "source_id": "aisafetyhot",
-      "description": "Wiz Research disclosed multiple critical memory-safety vulnerabilities in PHP core, classified as CVE-2026-109618 and CVE-2026-109619, with a maximum CVSS of 9.2, which can lead to unauthenticated remote code execution and disclosure of pr…",
-      "url": "https://aisafetyhot.com/en/items/m9f6cf3fmsoitkmv4lssk5szp",
-      "original_url": "https://www.wiz.io/blog/php2shell-php-rce",
-      "language": "en",
-      "direction_ids": [
-        "agent-software",
-        "human-societal"
-      ],
-      "terms": [
-        "安全事件",
-        "漏洞披露",
-        "Google DeepMind"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "incident",
-      "aihot_score": 71,
       "aihot_selected": true
     },
     {
