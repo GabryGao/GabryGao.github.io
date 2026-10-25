@@ -304,3 +304,89 @@
   .compact-portal .home-comparison figcaption h3{font-size:18px}
   .home-compare-legend{padding:8px 0}
 }
+
+/* Acceptance pass: keep the data story inside the desktop first viewport. */
+.home-evaluation-top{
+  display:grid;
+  grid-template-columns:minmax(270px,.72fr) minmax(560px,1.28fr);
+  gap:24px;
+  align-items:stretch;
+}
+.home-evaluation-top .home-evaluation-head{align-items:center}
+.home-evaluation-top .home-benchmark-tabs{margin:0}
+.cp-direction-grid-home{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:0;
+  border-top:1px solid #d5dbe0;
+  border-left:1px solid #d5dbe0;
+}
+.compact-portal .cp-direction-grid-home .cp-direction-card{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr) 14px;
+  gap:9px;
+  min-width:0;
+  min-height:70px;
+  padding:10px;
+  align-items:center;
+  border:0;
+  border-right:1px solid #d5dbe0;
+  border-bottom:1px solid #d5dbe0;
+  border-radius:0;
+  background:#fff;
+}
+.cp-direction-grid-home .cp-mark{width:28px;height:28px;border-radius:4px}
+.cp-direction-grid-home .cp-mark svg{width:16px;height:16px}
+.cp-direction-grid-home .cp-direction-card>span{min-width:0}
+.compact-portal .cp-direction-grid-home h3{margin:0;font-size:12px;line-height:1.35}
+.cp-direction-grid-home small{display:block;margin-top:3px;color:#6a7580;font-size:9px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp-direction-grid-home .cp-direction-card>svg{width:13px;height:13px;color:#496272}
+.mh-home-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:24px;padding-top:0;border:1px solid #d5dbe0}
+.mh-home-actions>a{display:grid;grid-template-columns:32px minmax(0,1fr) 15px;gap:12px;align-items:center;min-width:0;padding:15px 17px;color:#172631}
+.mh-home-actions>a:first-child{border-right:1px solid #d5dbe0}
+.mh-home-actions>a:hover{background:#f5f7f9}
+.mh-home-actions>a>span{min-width:0}
+.mh-home-actions strong,.mh-home-actions small{display:block}
+.mh-home-actions strong{font:500 14px/1.4 var(--sans)}
+.mh-home-actions small{margin-top:3px;color:#66727c;font-size:10px;line-height:1.45}
+.mh-home-actions>a>svg{width:14px;height:14px}
+
+@media(min-width:1051px){
+  .home-evaluation{margin-top:12px;padding:12px 0 17px}
+  .compact-portal .home-evaluation-head h2{margin:2px 0;font-size:22px}
+  .compact-portal .home-evaluation-head p{font-size:9px}
+  .home-evaluation-head>a{font-size:11px}
+  .home-benchmark-tabs a{min-height:44px;padding:6px 9px}
+  .home-benchmark-tabs small{font-size:9px}
+  .home-benchmark-tabs strong{font-size:11px}
+  .home-evaluation-layout{margin-top:8px}
+  .home-comparison figcaption{padding-bottom:6px}
+  .compact-portal .home-comparison figcaption h3{margin:1px 0;font-size:16px}
+  .home-comparison figcaption small,.compact-portal .home-comparison figcaption p{font-size:9px;line-height:1.35}
+  .home-compare-legend{padding:6px 0 5px}
+  .home-compare-rows{gap:6px}
+  .home-compare-row{grid-template-columns:minmax(110px,154px) minmax(0,1fr);gap:13px}
+  .home-metric-line{grid-template-columns:96px minmax(0,1fr) 46px;gap:8px}
+  .home-metric-line>i{height:8px}
+  .home-evaluation-readout{margin-top:13px;padding-top:12px}
+  .home-evaluation-actions{margin-top:12px}
+  .home-evaluation-boundary{margin-top:10px;padding-top:10px}
+  .mh-section{margin-top:28px;padding-top:17px}
+  .mh-section-head{margin-bottom:12px}
+  .compact-portal .mh-section-head h2{font-size:20px}
+}
+
+@media(min-width:768px) and (max-width:1050px){
+  .home-evaluation-top{grid-template-columns:1fr;gap:10px}
+  .cp-direction-grid-home{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media(max-width:767px){
+  .home-evaluation-top{display:block}
+  .cp-direction-grid-home{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compact-portal .cp-direction-grid-home .cp-direction-card{min-height:68px}
+  .mh-home-actions{grid-template-columns:1fr}
+  .mh-home-actions>a:first-child{border-right:0;border-bottom:1px solid #d5dbe0}
+}
+
+@media(max-width:420px){.cp-direction-grid-home{grid-template-columns:1fr}}

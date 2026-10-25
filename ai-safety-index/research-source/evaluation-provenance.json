@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
-  "generated_on": "2026-10-25T06:59:55Z",
+  "generated_on": "2026-10-25T07:48:05Z",
   "summary": {
     "benchmarks": 4,
     "records": 451,
     "models": 67,
-    "sources_ok": 4
+    "sources_ok": 4,
+    "legacy_helm_records": 18,
+    "total_historical_records": 469
   },
   "sources": [
     {
@@ -18,7 +20,7 @@
       "model_count": 20,
       "task_count": 5,
       "metric_count": 3,
-      "last_successful_fetch": "2026-10-25T06:59:55Z",
+      "last_successful_fetch": "2026-10-25T07:48:05Z",
       "error": ""
     },
     {
@@ -31,7 +33,7 @@
       "model_count": 24,
       "task_count": 2,
       "metric_count": 4,
-      "last_successful_fetch": "2026-10-25T06:59:55Z",
+      "last_successful_fetch": "2026-10-25T07:48:05Z",
       "error": ""
     },
     {
@@ -44,7 +46,7 @@
       "model_count": 17,
       "task_count": 6,
       "metric_count": 2,
-      "last_successful_fetch": "2026-10-25T06:59:55Z",
+      "last_successful_fetch": "2026-10-25T07:48:05Z",
       "error": ""
     },
     {
@@ -57,7 +59,7 @@
       "model_count": 6,
       "task_count": 4,
       "metric_count": 1,
-      "last_successful_fetch": "2026-10-25T06:59:55Z",
+      "last_successful_fetch": "2026-10-25T07:48:05Z",
       "error": ""
     }
   ]

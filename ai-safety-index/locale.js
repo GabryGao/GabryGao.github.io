@@ -687,6 +687,33 @@ ASR 越低越好；攻击方法、语言与风险领域必须保持一致。|Low
 比较图表、结果明细与筛选数据导出|Comparison charts, result records and filtered data export|比較グラフ、結果明細、絞り込みデータ出力|Vergleichsdiagramme, Ergebnisdetails und Export gefilterter Daten
 查看双指标与任务矩阵|View paired metrics and task matrix|2 指標とタスク行列を見る|Metrikpaar und Aufgabenmatrix anzeigen
 比较公开结果，并保留任务、设置、指标和来源。|Compare public results while preserving tasks, settings, metrics and sources.|タスク、設定、指標、出典を保持したまま公開結果を比較します。|Öffentliche Ergebnisse vergleichen und dabei Aufgaben, Einstellungen, Metriken und Quellen beibehalten.
+测试日期|Test date|テスト日|Testdatum
+测试日期未报告|Test date not reported|テスト日は未報告|Testdatum nicht angegeben
+页面更新日|Page update date|ページ更新日|Seitenaktualisierung
+来源表日期（含义未确认）|Source-table date (meaning unverified)|出典表の日付（意味未確認）|Datum der Quelltabelle (Bedeutung ungeprüft)
+日期含义未确认|Date meaning unverified|日付の意味は未確認|Bedeutung des Datums ungeprüft
+报告发布日期|Report publication date|報告公開日|Veröffentlichungsdatum des Berichts
+来源未报告|Not reported by source|出典で未報告|Von der Quelle nicht angegeben
+未报告|Not reported|未報告|Nicht angegeben
+可比性限制：|Comparability limits:|比較可能性の制限：|Grenzen der Vergleichbarkeit:
+这些数值来自作者公开结果表，不是本站独立复测。Date 仅标记为“来源表日期（含义未确认）”，测试日期未报告；未确认的基准版本、评判器与运行预算保持为空。|These values come from the authors' public result table, not an independent rerun by this site. Date is labeled only as “source-table date (meaning unverified)”; the test date is not reported, and unverified benchmark versions, judges and run budgets remain blank.|数値は著者公開の結果表に基づき、このサイトによる独立再評価ではありません。Date は「出典表の日付（意味未確認）」としてのみ扱い、テスト日は未報告です。未確認のベンチマーク版・評価器・実行予算は空欄のままです。|Die Werte stammen aus der öffentlichen Ergebnistabelle der Autoren und nicht aus einer unabhängigen Wiederholung dieser Website. Date wird nur als „Datum der Quelltabelle (Bedeutung ungeprüft)“ bezeichnet; das Testdatum ist nicht angegeben. Ungeprüfte Benchmark-Versionen, Bewerter und Laufzeitbudgets bleiben leer.
+原表同任务、配置与指标范围|Same task, configuration and metric within the source table|原表内の同じタスク・設定・指標|Gleiche Aufgabe, Konfiguration und Metrik innerhalb der Quelltabelle
+同榜单、任务、配置与指标|Same leaderboard, task, configuration and metric|同じランキング・タスク・設定・指標|Gleiche Rangliste, Aufgabe, Konfiguration und Metrik
+同原表维度、配置与指标|Same dimension, configuration and metric in the source table|原表内の同じ次元・設定・指標|Gleiche Dimension, Konfiguration und Metrik in der Quelltabelle
+每一行分别保留来源日期、日期类型、测试日期和平台获取时间。未知字段不补写。|Each row keeps the source date, date type, test date and platform retrieval time separately. Unknown fields are not inferred.|各行に出典日、日付種別、テスト日、プラットフォーム取得時刻を分けて保持します。不明な項目は補完しません。|Jede Zeile enthält Quelldatum, Datumstyp, Testdatum und Abrufzeit der Plattform getrennt. Unbekannte Felder werden nicht ergänzt.
+查看主题与证据分布|View topic and evidence distribution|テーマと証拠の分布を見る|Themen- und Evidenzverteilung ansehen
+继续查找与补充资源|Continue browsing and contributing resources|資料を探す・追加する|Ressourcen weiter durchsuchen und ergänzen
+上传与补充|Upload and contribute|アップロードと追加|Hochladen und ergänzen
+搜索、筛选并查看已核验的基准与公开结果入口。|Search and filter reviewed benchmarks and public result entry points.|確認済みベンチマークと公開結果への入口を検索・絞り込みできます。|Geprüfte Benchmarks und öffentliche Ergebniseinstiege suchen und filtern.
+提交论文、项目、数据或评测结果的公开链接。|Submit public links to papers, projects, data or evaluation results.|論文・プロジェクト・データ・評価結果の公開リンクを送信します。|Öffentliche Links zu Publikationen, Projekten, Daten oder Evaluationsergebnissen einreichen.
+Overall 无害回答比例对比|Overall harmless-response rate comparison|Overall の無害回答率比較|Vergleich der Overall-Rate harmloser Antworten
+无害回答比例与程度分别比较|Compare harmless-response rate and degree separately|無害回答率と程度を分けて比較|Rate und Grad harmloser Antworten getrennt vergleichen
+当前 Overall 仅展示原表已发布的 Harmless rate。|The current Overall view shows only the Harmless rate published in the source table.|現在の Overall では原表で公開された Harmless rate のみ表示します。|Die aktuelle Overall-Ansicht zeigt nur die in der Quelltabelle veröffentlichte Harmless rate.
+当前 Overall 仅展示原表发布的无害回答比例。|The current Overall view shows only the harmless-response rate published in the source table.|現在の Overall では原表で公開された無害回答率のみ表示します。|Die aktuelle Overall-Ansicht zeigt nur die in der Quelltabelle veröffentlichte Rate harmloser Antworten.
+不同无害性指标按原表分别读取。|Harmlessness metrics are read separately as published in the source table.|無害性指標は原表どおり個別に読みます。|Unbedenklichkeitsmetriken werden entsprechend der Quelltabelle getrennt gelesen.
+Overall 在原表中未发布 Harmless score；本站不补造第二项指标。|The source table does not publish a Harmless score for Overall; this site does not invent a second metric.|原表では Overall の Harmless score は公開されておらず、このサイトは第2指標を補いません。|Für Overall veröffentlicht die Quelltabelle keinen Harmless score; diese Website erfindet keine zweite Metrik.
+Overall 原表仅发布 Harmless rate；越高越好。未发布 Harmless score，本站不补造第二项指标。|The Overall source row publishes only Harmless rate, where higher is better. Harmless score is not published, and this site does not invent a second metric.|Overall の原表は Harmless rate のみを公開し、高いほど良い指標です。Harmless score は未公開で、このサイトは第2指標を補いません。|Die Overall-Zeile der Quelltabelle veröffentlicht nur die Harmless rate; höher ist besser. Ein Harmless score wird nicht veröffentlicht, und diese Website erfindet keine zweite Metrik.
+Overall 只报告无害回答比例；越高越好。|Overall reports only the harmless-response rate; higher is better.|Overall は無害回答率のみを報告し、高いほど良い指標です。|Overall berichtet nur die Rate harmloser Antworten; höher ist besser.
 前 6 条|Top 6|上位 6 件|Top 6
 `;
 const dictionary=new Map();

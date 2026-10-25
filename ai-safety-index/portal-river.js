@@ -1,7 +1,8 @@
 /* Animated homepage signal river. The underlying records remain source-linked HTML. */
 var PortalRiver=(()=>{
  'use strict';
- if(typeof document==='undefined'||typeof window==='undefined')return {mount(){}};
+ function isPaused(section,hidden){return Boolean(hidden)||section.classList.contains('is-paused')}
+ if(typeof document==='undefined'||typeof window==='undefined')return {mount(){},isPaused};
  let activeController=null;
  const directionIds=researchDirections.map(direction=>direction.id);
  const laneColors=['#287363','#315aa7','#a14f37','#af7c1f','#75527f','#367949'];
@@ -88,7 +89,7 @@ var PortalRiver=(()=>{
   function clickCanvas(event){const direction=directionAt(event);if(direction&&counts[direction])filter(activeDirection===direction?'':direction)}
   const resizeObserver=typeof ResizeObserver==='function'?new ResizeObserver(requestDraw):null;resizeObserver?.observe(canvas);window.addEventListener('resize',requestDraw,{passive:true});canvas.addEventListener('pointermove',moveTooltip);canvas.addEventListener('pointerleave',leaveCanvas);canvas.addEventListener('click',clickCanvas);
   function frame(timestamp){
-   if(destroyed)return;const delta=lastTimestamp?Math.min(50,timestamp-lastTimestamp):0;lastTimestamp=timestamp;const paused=section.classList.contains('is-paused')||document.hidden,reading=focus.matches(':hover')||focus.matches(':focus-within');
+   if(destroyed)return;const delta=lastTimestamp?Math.min(50,timestamp-lastTimestamp):0;lastTimestamp=timestamp;const paused=isPaused(section,document.hidden),reading=focus.matches(':hover')||focus.matches(':focus-within');
    if(!paused){elapsed+=delta/1000;if(!reading)storyElapsed+=delta}
    if(needsDraw||!paused){drawCanvas(canvas,context,records,elapsed,activeDirection);needsDraw=false}
    if(!paused&&!reading&&storyElapsed>=6500)showStory(storyIndex+1);
@@ -102,5 +103,5 @@ var PortalRiver=(()=>{
  document.addEventListener('ai-safety-news-updated',()=>window.requestAnimationFrame(mount));
  document.addEventListener('click',event=>{const step=event.target.closest('[data-home-river-step]');if(step&&activeController?.section.contains(step))activeController.step(Number(step.dataset.homeRiverStep)||1);const filter=event.target.closest('[data-home-river-filter]');if(filter&&activeController?.section.contains(filter))activeController.filter(filter.dataset.homeRiverFilter||'')});
  window.requestAnimationFrame(mount);
- return {mount};
+ return {mount,isPaused};
 })();

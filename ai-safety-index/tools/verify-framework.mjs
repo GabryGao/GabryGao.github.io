@@ -11,9 +11,11 @@ for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','port
 }
 const run=js=>vm.runInContext(js,c);
 const home=run('home()');
-const sections=['mh-intro','home-news-flow','home-evaluation','六大研究方向','精选成果与最新收录'];
+const sections=['mh-intro','home-news-flow','home-evaluation','六大研究方向','mh-home-actions'];
 let pos=-1;for(const id of sections){const p=home.indexOf(id);assert.ok(p>pos,'Homepage order: '+id);pos=p;}
-assert.ok(!home.includes('mh-grid'));assert.ok(!home.includes('平台更新记录'));assert.ok(!home.includes('近期研究'));
+assert.equal((home.match(/class="cp-direction-card"/g)||[]).length,6);
+assert.ok(home.includes('基准目录'));assert.ok(home.includes('上传与补充'));
+assert.ok(!home.includes('精选成果与最新收录'));assert.ok(!home.includes('mh-grid'));assert.ok(!home.includes('平台更新记录'));assert.ok(!home.includes('近期研究'));
 for(const route of ['directions','watch','sources','news','benchmarks','teams','upload']){c.location.hash='#'+route;run('render()');assert.ok(el.innerHTML&&!el.innerHTML.includes('未找到这个页面'),route);}
 assert.equal(run('paperRecords.length'),490);
 const automatic=run('allNews().filter(n=>n.automated)');assert.ok(automatic.length>0);

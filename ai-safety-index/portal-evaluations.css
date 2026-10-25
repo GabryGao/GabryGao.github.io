@@ -11,3 +11,65 @@
 .evaluation-secondary>summary{width:max-content;max-width:100%;padding:13px 0;cursor:pointer;color:#294fa1;font-size:12px}
 .evaluation-secondary>div{padding-bottom:4px}
 .evaluation-secondary .evaluation-pair,.evaluation-secondary .evaluation-heatmap{margin-top:0}
+
+/* Compact comparison controls and explicit provenance disclosure. */
+.evaluation-disclosure{margin:0!important;padding:9px 12px;border-bottom:1px solid #d7dde2;background:#f7f4ef;color:#5d4a3f!important;font-size:10px!important;line-height:1.55!important}
+.evaluation-disclosure strong{color:#8c3f31}
+.evaluation-table td small{display:block;margin-top:4px;color:#6d7882;font-size:9px;line-height:1.4}
+.evaluation-functions-compact{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:end;margin:12px 0 4px;padding:11px 13px}
+.evaluation-functions-compact .evaluation-functions-head{display:block;margin:0;align-self:center}
+.evaluation-functions-compact .evaluation-functions-head span,.evaluation-functions-compact .evaluation-functions-head p{display:none}
+.evaluation-functions-compact .evaluation-functions-head h2{margin:0;font-size:13px;white-space:nowrap}
+.evaluation-functions-compact .evaluation-functions-grid{gap:9px}
+.evaluation-functions-compact .evaluation-functions-grid label,.evaluation-functions-compact .evaluation-view-control>span{font-size:9px}
+.evaluation-functions-compact .evaluation-functions-grid select{min-height:32px;margin-top:3px;padding-top:4px;padding-bottom:4px;font-size:11px}
+.evaluation-functions-compact .evaluation-view-control nav{margin-top:3px}
+.evaluation-functions-compact .evaluation-view-control a{min-height:32px;padding:4px 7px;font-size:10px}
+.evaluation-functions-compact .evaluation-function-actions{display:grid;gap:4px;justify-items:start;margin:0}
+.evaluation-functions-compact .evaluation-function-actions a,.evaluation-functions-compact .evaluation-function-actions button{padding:0;border:0;background:none;font-size:10px;white-space:nowrap}
+
+@media(min-width:981px){
+  .compact-portal .cp-evaluation .cp-eval-head{padding-top:18px;margin-bottom:12px}
+  .compact-portal .cp-evaluation .cp-eval-head h1{font-size:27px}
+  .compact-portal .cp-evaluation .cp-eval-head p{margin-top:3px;font-size:12px}
+  .compact-portal .cp-evaluation>.tabs{margin-bottom:12px}
+  .compact-portal .cp-evaluation>.scope-control{margin:8px 0 13px}
+  .madeo-subpage .cp-evaluation .result-toolbar{grid-template-columns:1.25fr repeat(4,minmax(0,1fr));gap:10px;margin:0;padding:10px 12px}
+  .compact-portal .cp-evaluation .result-toolbar select{min-height:34px;padding-top:5px;padding-bottom:5px;font-size:11px}
+  .compact-portal .cp-evaluation .result-context{padding:8px 0}
+  .compact-portal .cp-evaluation .result-context p,.compact-portal .cp-evaluation .result-context a{font-size:10px!important}
+  .compact-portal .cp-evaluation .evaluation-search{padding:8px 0}
+  .compact-portal .cp-evaluation .evaluation-search input,.compact-portal .cp-evaluation .evaluation-search button{padding-top:7px;padding-bottom:7px}
+  .compact-portal .cp-evaluation .evaluation-rank{margin:12px 0 25px;padding-top:12px}
+  .compact-portal .cp-evaluation .evaluation-rank figcaption{margin-bottom:12px}
+  .compact-portal .cp-evaluation .evaluation-bars{gap:7px}
+}
+
+@media(max-width:1100px){
+  .evaluation-functions-compact{grid-template-columns:1fr}
+  .evaluation-functions-compact .evaluation-functions-head{display:none}
+  .evaluation-functions-compact .evaluation-function-actions{display:flex;gap:14px}
+}
+
+@media(max-width:640px){
+  .evaluation-functions-compact{padding:12px}
+  .evaluation-functions-compact .evaluation-functions-grid{grid-template-columns:1fr}
+  .evaluation-functions-compact .evaluation-function-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .evaluation-disclosure{font-size:11px!important}
+}
+
+@media(min-width:361px) and (max-width:640px){
+  .madeo-subpage .cp-evaluation .evaluation-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 12px;padding:12px}
+  .madeo-subpage .cp-evaluation .evaluation-toolbar label:first-child{grid-column:1/-1}
+  .madeo-subpage .cp-evaluation .evaluation-toolbar select{min-height:38px;padding-top:6px;padding-bottom:6px;font-size:12px}
+  .evaluation-context{grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;padding:10px 0}
+  .evaluation-context>div{grid-column:1;grid-row:1}
+  .evaluation-context>p{grid-column:1/-1}
+  .evaluation-context>a{grid-column:2;grid-row:1}
+  .evaluation-functions-compact{padding:10px 12px}
+  .evaluation-functions-compact .evaluation-functions-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 8px}
+  .evaluation-functions-compact .evaluation-view-control{grid-column:1/-1}
+  .evaluation-functions-compact .evaluation-functions-grid select{font-size:10px}
+  .evaluation-search{padding:10px 0}
+  .evaluation-search>label{display:none}
+}

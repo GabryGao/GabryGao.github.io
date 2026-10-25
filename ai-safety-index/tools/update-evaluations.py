@@ -98,6 +98,35 @@ BENCHMARKS = {
     },
 }
 
+RESOURCE_IDS = {
+    "agentdojo": "S055",
+    "safevla": "S149",
+    "flames": "S118",
+    "finsafety": "S135",
+}
+
+LEGACY_HELM_RECORDS = 18
+
+SOURCE_WARNINGS = {
+    "agentdojo": [
+        "原作者公开结果表；非本站独立复测",
+        "未确认的协议字段保留为空；结果只支持原表范围内比较",
+        "Date 是原表日期列，未确认是测试日期",
+    ],
+    "safevla": [
+        "原作者公开排行榜；非本站独立复测",
+        "页面日期按页面更新时间记录，不等同于测试日期",
+    ],
+    "flames": [
+        "原作者公开结果表；非本站独立复测",
+        "Overall 仅发布 Harmless rate，不补造 Harmless score",
+    ],
+    "finsafety": [
+        "原作者公开结果表；非本站独立复测",
+        "来源未报告测试日期与结果发布日期",
+    ],
+}
+
 
 class TableParser(HTMLParser):
     def __init__(self) -> None:
@@ -155,8 +184,10 @@ def number(value: str) -> float:
 
 def record(benchmark_id: str, model: str, task: str, configuration: str,
            metric_id: str, metric: str, value: float, unit: str, better: str,
-           source_url: str, reported_date: str = "", provider: str = "") -> dict:
+           source_url: str, reported_date: str = "", provider: str = "",
+           source_date_kind: str = "") -> dict:
     key = "|".join([benchmark_id, model, task, configuration, metric_id, reported_date])
+    date_kind = source_date_kind or ("report_published_on" if reported_date else "not_reported")
     return {
         "id": benchmark_id + "-" + hashlib.sha1(key.encode()).hexdigest()[:12],
         "benchmark_id": benchmark_id,
@@ -170,7 +201,43 @@ def record(benchmark_id: str, model: str, task: str, configuration: str,
         "unit": unit,
         "better": better,
         "reported_date": reported_date,
+        "source_date_raw": reported_date,
+        "source_date_kind": date_kind,
+        "tested_on": None,
         "source_url": source_url,
+    }
+
+
+def enrich_record(row: dict, retrieved_at: str) -> dict:
+    benchmark_id = row["benchmark_id"]
+    source_date = row.get("source_date_raw", row.get("reported_date", ""))
+    comparison_key = "|".join([
+        benchmark_id,
+        row["task"],
+        row["configuration"],
+        row["metric_id"],
+        source_date,
+    ])
+    snapshot_key = "|".join([benchmark_id, row["source_url"], source_date])
+    return {
+        **row,
+        "resource_id": RESOURCE_IDS[benchmark_id],
+        "evaluation_id": benchmark_id,
+        "model_label": row["model"],
+        "model_version": None,
+        "configuration_kind": "attack_or_defense" if benchmark_id in {"agentdojo", "finsafety"} else "official_configuration",
+        "metric_label": row["metric"],
+        "benchmark_version": None,
+        "evaluator_version": None,
+        "retrieved_at": retrieved_at,
+        "display_status": "source_table_history",
+        "allowed_view": "带来源与限制的原表比较",
+        "warnings": SOURCE_WARNINGS[benchmark_id],
+        "snapshot_id": "snap-" + hashlib.sha1(snapshot_key.encode()).hexdigest()[:16],
+        "comparison_group_id": "grp-" + hashlib.sha1(comparison_key.encode()).hexdigest()[:16],
+        "technical_status": "normalized_for_integration",
+        "release_review_status": "pending_provenance_and_usage_check",
+        "allow_auto_publish": False,
     }
 
 
@@ -193,7 +260,8 @@ def parse_agentdojo(text: str) -> list[dict]:
         for offset, (metric_id, metric, better) in enumerate(metrics, 4):
             rows.append(record("agentdojo", model, attack, "Defense: " + defense,
                                metric_id, metric, number(cells[offset]), "percent", better,
-                               BENCHMARKS["agentdojo"]["url"], cells[7], provider))
+                               BENCHMARKS["agentdojo"]["url"], cells[7], provider,
+                               "source_row_date_unverified"))
     return rows
 
 
@@ -221,7 +289,8 @@ def parse_safevla(text: str) -> list[dict]:
             ]:
                 rows.append(record("safevla", model, task, configuration, metric_id, metric,
                                    number(cells[indexes[column]]), unit, better,
-                                   BENCHMARKS["safevla"]["url"], reported))
+                                   BENCHMARKS["safevla"]["url"], reported,
+                                   source_date_kind="page_updated_on"))
     return rows
 
 
@@ -249,17 +318,20 @@ def parse_flames(text: str) -> list[dict]:
         model = cells[0]
         rows.append(record("flames", model, "Overall", "Official evaluation",
                            "harmless_rate", "Harmless rate", number(cells[1]), "percent", "higher",
-                           BENCHMARKS["flames"]["url"], "2023-12-11"))
+                           BENCHMARKS["flames"]["url"], "2023-12-11",
+                           source_date_kind="report_published_on"))
         for task, cell in zip(tasks, cells[2:]):
             values = [number(part) for part in cell.split("/")]
             if len(values) != 2:
                 raise ValueError(f"Unexpected FLAMES cell: {cell}")
             rows.append(record("flames", model, task, "Official evaluation",
                                "harmless_rate", "Harmless rate", values[0], "percent", "higher",
-                               BENCHMARKS["flames"]["url"], "2023-12-11"))
+                               BENCHMARKS["flames"]["url"], "2023-12-11",
+                               source_date_kind="report_published_on"))
             rows.append(record("flames", model, task, "Official evaluation",
                                "harmless_score", "Harmless score", values[1], "score", "higher",
-                               BENCHMARKS["flames"]["url"], "2023-12-11"))
+                               BENCHMARKS["flames"]["url"], "2023-12-11",
+                               source_date_kind="report_published_on"))
     return rows
 
 
@@ -361,16 +433,18 @@ def build(fetcher=fetch) -> dict:
             text = fetcher(spec.get("fetch_url", spec["url"]))
             rows = PARSERS[benchmark_id](text)
             validate(rows, benchmark_id)
+            retrieved_at = generated_on
             sources.append(source_summary(benchmark_id, rows, generated_on, "ok"))
         except Exception as exc:
             rows = [row for row in previous_records if row.get("benchmark_id") == benchmark_id]
             if not rows:
                 raise RuntimeError(f"{benchmark_id} refresh failed without fallback: {exc}") from exc
             previous_source = previous_sources.get(benchmark_id, {})
+            retrieved_at = previous_source.get("last_successful_fetch", "")
             sources.append(source_summary(
-                benchmark_id, rows, previous_source.get("last_successful_fetch", ""), "stale", str(exc)[:300]
+                benchmark_id, rows, retrieved_at, "stale", str(exc)[:300]
             ))
-        all_rows.extend(rows)
+        all_rows.extend(enrich_record(row, row.get("retrieved_at") or retrieved_at) for row in rows)
     all_rows.sort(key=lambda row: (row["benchmark_id"], row["task"], row["configuration"], row["model"], row["metric_id"]))
     benchmarks = []
     for benchmark_id, spec in BENCHMARKS.items():
@@ -380,6 +454,13 @@ def build(fetcher=fetch) -> dict:
         item["model_count"] = len({row["model"] for row in all_rows if row["benchmark_id"] == benchmark_id})
         item["task_count"] = len({row["task"] for row in all_rows if row["benchmark_id"] == benchmark_id})
         item["metric_count"] = len({row["metric_id"] for row in all_rows if row["benchmark_id"] == benchmark_id})
+        item["resource_id"] = RESOURCE_IDS[benchmark_id]
+        task_rows = [row for row in all_rows if row["benchmark_id"] == benchmark_id]
+        item["pair_metrics_by_task"] = {
+            task: [metric for metric in item.get("pair_metrics", []) if any(row["task"] == task and row["metric_id"] == metric for row in task_rows)]
+            for task in sorted({row["task"] for row in task_rows})
+        }
+        item["date_display_policy"] = "展示来源日期类型与获取日期，tested_on 为空时显示‘测试日期未报告’"
         benchmarks.append(item)
     return {
         "schema_version": 1,
@@ -389,6 +470,8 @@ def build(fetcher=fetch) -> dict:
             "records": len(all_rows),
             "models": len({(row["benchmark_id"], row["model"]) for row in all_rows}),
             "sources_ok": sum(source["status"] == "ok" for source in sources),
+            "legacy_helm_records": LEGACY_HELM_RECORDS,
+            "total_historical_records": len(all_rows) + LEGACY_HELM_RECORDS,
         },
         "benchmarks": benchmarks,
         "sources": sources,

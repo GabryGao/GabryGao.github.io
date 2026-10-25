@@ -27,7 +27,10 @@ assert.ok(menu.includes('先看测评结论，再按需要进入研究资料。'
 assert.ok(!menu.includes('<a href="#results" data-madeo-destination>评测看板</a>'));
 const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
 assert.ok(app.includes('samePage=previousPath===next.path'));
-assert.ok(app.includes('state.pendingRouteFocus=interactionFocusToken(event.target)'));
+assert.ok(app.includes('function captureInteractionRouteState'));
+assert.ok(app.includes('state.pendingRouteScroll={left:window.scrollX,top:window.scrollY}'));
+assert.ok(app.includes('scroll=state.pendingRouteScroll||'));
 assert.ok(app.includes('restoreInteractionFocus(focus)'));
 assert.ok(app.includes("window.scrollTo({...scroll,behavior:'instant'})"));
-console.log('Navigation checks passed: immediate rendering, query continuity, topic routing, no curtain or custom cursor, no entrance module.');
+assert.ok(css.includes('#main{overflow-anchor:none}'));
+console.log('Navigation checks passed: immediate rendering, query continuity, stable same-route scroll/focus, no curtain or custom cursor, no entrance module.');

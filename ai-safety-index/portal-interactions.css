@@ -48,6 +48,9 @@
 }
 @media(prefers-reduced-motion:reduce){.md-nav-toggle svg{transition:none}}
 
+/* Same-route controls restore an explicit scroll position after rerendering. */
+#main{overflow-anchor:none}
+
 /* Three images per desktop row; six directions form two rows. */
 @media(min-width:1024px){
  .madeo-subpage .library-list,.madeo-subpage .index-list,.madeo-subpage .news-list,.madeo-subpage .topic-directory,.madeo-subpage .resource-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px;row-gap:44px}
