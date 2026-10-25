@@ -1,10 +1,10 @@
 {
   "info": {
-    "generated_on": "2026-10-25T11:31:08Z",
+    "generated_on": "2026-10-25T16:20:59Z",
     "status": "current",
     "record_count": 15,
-    "response_sha256": "d33d663bbc711871fbad7bbb2eb559160439c8b1b19e04facac171771b6a6bf5",
-    "last_successful_fetch": "2026-10-25T11:31:08Z",
+    "response_sha256": "f19cd427a869f625ad3b6600ea6ce8aad271c20ff4601731fa0631212b29324c",
+    "last_successful_fetch": "2026-10-25T16:20:59Z",
     "source": {
       "id": "aihot-topics",
       "name": "AIHOT",
@@ -21,7 +21,7 @@
       "mark": "OA",
       "headline": "Ethan Mollick：OpenAI 红队测试显示前沿模型智能体真能越狱沙箱，实验室的 AI 安全警告值得重视",
       "published_at": "2026-10-24T14:48:46.184Z",
-      "count_30d": 110,
+      "count_30d": 109,
       "url": "https://aihot.news/topics/openai",
       "icon_path": "/model-providers/openai.svg"
     },
@@ -31,7 +31,7 @@
       "mark": "A",
       "headline": "Anthropic 介绍 Claude Duet 智能体的安全、隐私与凭证隔离设计",
       "published_at": "2026-10-23T19:41:33.084Z",
-      "count_30d": 101,
+      "count_30d": 98,
       "url": "https://aihot.news/topics/anthropic",
       "icon_path": "/model-providers/anthropic.svg"
     },
@@ -121,7 +121,7 @@
       "mark": "MS",
       "headline": "Microsoft AI 发布 SDBench 基准与 MAI-DxO 诊断系统，登 Science",
       "published_at": "2026-10-22T18:48:21.751Z",
-      "count_30d": 14,
+      "count_30d": 13,
       "url": "https://aihot.news/topics/microsoft",
       "icon_path": null
     },
