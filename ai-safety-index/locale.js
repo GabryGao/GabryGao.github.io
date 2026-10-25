@@ -625,7 +625,9 @@ HELM Safety 同协议记录|HELM Safety records under one protocol|HELM Safety �
 图表显示|Chart rows|グラフ表示件数|Diagrammeinträge
 前 5 条|Top 5|上位 5 件|Top 5
 前 10 条|Top 10|上位 10 件|Top 10
+前 10 条（默认）|Top 10 (default)|上位 10 件（標準）|Top 10 (Standard)
 前 20 条|Top 20|上位 20 件|Top 20
+仅比较当前基准、任务与设置|Only the current benchmark, task and configuration are compared|現在のベンチマーク・タスク・設定だけを比較|Nur aktueller Benchmark, Aufgabe und Konfiguration werden verglichen
 恢复默认视图|Reset view|標準表示に戻す|Ansicht zurücksetzen
 模型相对差值图|Relative model difference chart|モデル相対差グラフ|Diagramm relativer Modellunterschiede
 正值表示优于基线|Positive values outperform the baseline|正の値は基準モデルを上回る|Positive Werte sind besser als die Basis
@@ -1215,6 +1217,10 @@ function translate(value,language){
  out=out.replace(/来源：safety index\.pptx（2026-10-17 提供与整理）第 (\d+) 页；中文导读为网页整理，英文子方向保留原文。当前仍为拟议框架。/g,(_,n)=>at(`Source: safety index.pptx, slide ${n}, supplied and organized on 2026-10-17. Introductions are editorial; English subtopics retain the original wording. This remains a proposed framework.`,`出典：safety index.pptx 第 ${n} 頁（2026-10-17 提供・整理）。導入文はサイト編集、英語の下位分野は原文を保持。現在も提案段階の枠組みです。`,`Quelle: safety index.pptx, Folie ${n}, bereitgestellt und geordnet am 17.10.2026. Einleitungen sind redaktionell; englische Unterthemen bleiben im Original. Das Framework ist weiterhin ein Vorschlag.`));
  out=out.replace(/年份由新到旧 · /g,at('Newest year first · ','年の新しい順・','Neueste Jahre zuerst · '));
  out=out.replace(/显示 ([\d–]+) 条/g,(_,n)=>at(`Showing ${n}`,`${n} 件を表示`,`Einträge ${n}`));
+ out=out.replace(/当前显示 (\d+) \/ (\d+) 个可比模型/g,(_,shown,total)=>at(`Showing ${shown} of ${total} comparable models`,`比較可能な ${total} モデル中 ${shown} 件を表示`,`Zeigt ${shown} von ${total} vergleichbaren Modellen`));
+ out=out.replace(/显示全部 (\d+) 个模型/g,(_,n)=>at(`Show all ${n} models`,`全 ${n} モデルを表示`,`Alle ${n} Modelle anzeigen`));
+ out=out.replace(/显示前 (\d+) 个模型/g,(_,n)=>at(`Show the first ${n} models`,`上位 ${n} モデルを表示`,`Die ersten ${n} Modelle anzeigen`));
+ out=out.replace(/收起为前 (\d+) 个模型/g,(_,n)=>at(`Collapse to the first ${n} models`,`上位 ${n} モデルに戻す`,`Auf die ersten ${n} Modelle reduzieren`));
  out=out.replace(/图表显示前 (\d+) 条；完整记录见下方表格。/g,(_,n)=>at(`Chart shows the first ${n} records; the full table is below.`,`グラフは先頭 ${n} 件を表示しています。全件は下の表で確認できます。`,`Das Diagramm zeigt die ersten ${n} Einträge; die vollständige Tabelle steht darunter.`));
  out=out.replace(/图表默认显示前 (\d+) 个模型；数值表保留 6 个模型。这里只比较同一基准、同一任务和同一配置，不生成跨基准“总安全分”。/g,(_,n)=>at(`The chart shows the first ${n} models by default; the value table keeps 6. Only the same benchmark, task and configuration are compared, with no cross-benchmark aggregate safety score.`,`グラフは標準で上位 ${n} モデルを表示し、数値表には 6 モデルを残します。同じベンチマーク・タスク・設定だけを比較し、横断的な総合安全点は作りません。`,`Das Diagramm zeigt standardmäßig die ersten ${n} Modelle; die Wertetabelle enthält 6. Verglichen werden nur derselbe Benchmark, dieselbe Aufgabe und Konfiguration; es gibt keine benchmarkübergreifende Gesamtsicherheitsnote.`));
  out=out.replace(/(\d+) 条记录 · 点击筛选/g,(_,n)=>at(`${n} records · click to filter`,`${n} 件・クリックして絞り込み`,`${n} Einträge · zum Filtern klicken`));
