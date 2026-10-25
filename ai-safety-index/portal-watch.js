@@ -43,7 +43,7 @@ var PortalWatch=(()=>{
  }
  function flowRow(row){
   const primary=row.direction_ids[0];
-  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+storyHref(row)+'">'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'AI Safety HOT · 自动同步':'人工精选')+'</p></div></article>';
+  return '<article class="watch-flow-row"><time>'+esc(row.date)+'</time><span class="watch-flow-topic">'+esc(directionName(primary))+'</span><div><h3><a href="'+storyHref(row)+'">'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</a></h3><p><span data-keep-original>'+esc(row.source)+'</span> · '+esc(row.automated?'自动同步，待复核':'人工精选')+'</p></div></article>';
  }
  function signalRows(list){
   const cutoff=generatedAt().getTime()-30*24*60*60*1000,counts=new Map();
@@ -95,6 +95,38 @@ var PortalWatch=(()=>{
   if(namedShared>=2)return 1;
   let shared=0;for(const token of a)if(b.has(token))shared++;
   return shared/(a.size+b.size-shared);
+ }
+ function storyEntities(row){return new Set((row.terms||[]).filter(term=>term.startsWith('entity:')).map(term=>term.slice(7).toLocaleLowerCase()))}
+ function storyTerms(row){
+  const ignored=new Set(['安全事件','真实事件','产业动态','政策/监管','评测','安全评测','防御与护栏','防御/护栏','攻击与越狱','越狱/攻击','研究','论文']);
+  return new Set((row.terms||[]).filter(term=>!term.startsWith('entity:')&&!ignored.has(term)).map(term=>term.toLocaleLowerCase()));
+ }
+ function sharedCount(left,right){let count=0;for(const value of left)if(right.has(value))count++;return count}
+ function storyCluster(item){
+  const entities=storyEntities(item),terms=storyTerms(item),directions=new Set(item.direction_ids||[]),category=hotCategory(item);
+  const scored=PortalCompact.stories().filter(row=>row.id!==item.id&&!row.paper_pick).map(row=>{const entityOverlap=sharedCount(entities,storyEntities(row)),termOverlap=sharedCount(terms,storyTerms(row)),directionOverlap=sharedCount(directions,new Set(row.direction_ids||[])),similarity=hotTitleSimilarity(item,row),sameCategory=category===hotCategory(row);return {row,score:entityOverlap*5+termOverlap*2+directionOverlap+(sameCategory?4:0)+similarity*10+(row.date===item.date?.5:0)}}).filter(entry=>entry.score>=8).sort((left,right)=>right.score-left.score||String(right.row.date).localeCompare(String(left.row.date))||hotScore(right.row)-hotScore(left.row));
+  return [item,...scored.map(entry=>entry.row)].slice(0,24);
+ }
+ function storyDateBuckets(cluster){
+  const counts=new Map();for(const row of cluster)counts.set(row.date,(counts.get(row.date)||0)+1);
+  return [...counts].sort((left,right)=>left[0].localeCompare(right[0])).slice(-10);
+ }
+ function storyTabs(item,view){
+  return '<nav class="story-tabs" aria-label="事件详情视图"><a class="'+(view==='overview'?'active':'')+'" href="'+routeLink('news/'+encodeURIComponent(item.id))+'">事件概览</a><a class="'+(view==='timeline'?'active':'')+'" href="'+routeLink('news/'+encodeURIComponent(item.id),{view:'timeline'})+'">报道时间线</a><a class="'+(view==='trend'?'active':'')+'" href="'+routeLink('news/'+encodeURIComponent(item.id),{view:'trend'})+'">收录趋势</a></nav>';
+ }
+ function storyTimelineRows(cluster,limit=cluster.length){
+  return '<div class="story-timeline">'+[...cluster].sort((left,right)=>String(right.date).localeCompare(String(left.date))||hotScore(right)-hotScore(left)).slice(0,limit).map(row=>'<article><time>'+esc(row.date)+'</time><div><span data-keep-original>'+esc(row.source)+'</span><h3><a href="'+storyHref(row)+'">'+localizedNewsCopy(row,'title')+'</a></h3><p>'+localizedNewsCopy(row,'description')+'</p></div></article>').join('')+'</div>';
+ }
+ function storyOverview(item,cluster){
+  const sources=[...new Set(cluster.map(row=>row.source))],directions=(item.direction_ids||[]).map(id=>getDirection(id)).filter(Boolean),terms=(item.terms||[]).filter(term=>!term.startsWith('entity:')).slice(0,7);
+  return '<div class="story-overview-grid"><section class="story-overview-card"><header><span>AI 综述</span><h2>先了解这件事</h2></header><p class="story-lead">'+localizedNewsCopy(item,'description')+'</p><div class="story-keywords">'+terms.map(term=>'<span>'+esc(term)+'</span>').join('')+'</div><p class="story-byline">本站依据已收录的 '+cluster.length+' 条公开记录整理 · '+sources.length+' 个来源</p></section><aside class="story-why-card"><span>WHY IT MATTERS</span><h2>为什么值得关注</h2><p>这组记录关联 '+directions.map(direction=>direction.name).join('、')+'。不同来源对同一议题的描述被集中到站内时间线，方便核对事件进展、评测条件和后续回应。</p><dl><div><dt>'+cluster.length+'</dt><dd>相关记录</dd></div><div><dt>'+sources.length+'</dt><dd>公开来源</dd></div><div><dt>'+hotScore(item)+'</dt><dd>当前热度</dd></div></dl></aside></div><section class="story-progress"><header><div><span>LATEST COVERAGE</span><h2>最新进展</h2></div><a href="'+routeLink('news/'+encodeURIComponent(item.id),{view:'timeline'})+'">查看完整时间线'+portalIcon('arrow')+'</a></header>'+storyTimelineRows(cluster,Math.min(5,cluster.length))+'</section>';
+ }
+ function storyTrendView(item,cluster){
+  const buckets=storyDateBuckets(cluster),max=Math.max(1,...buckets.map(([,count])=>count)),sources=[...new Set(cluster.map(row=>row.source))],directionCounts=(item.direction_ids||[]).map(id=>({name:directionName(id),count:cluster.filter(row=>row.direction_ids?.includes(id)).length}));
+  return '<section class="story-trend-view"><header><span>COLLECTION TREND</span><h2>相关记录收录趋势</h2><p>按本站当前快照中的发布日期聚合，不代表社交讨论量或风险等级。</p></header><div class="story-trend-layout"><figure><div class="story-trend-bars">'+buckets.map(([date,count])=>'<span><i style="height:'+Math.max(8,count/max*100)+'%"></i><b>'+count+'</b><small>'+esc(date.slice(5))+'</small></span>').join('')+'</div><figcaption>'+cluster.length+' 条记录 · '+sources.length+' 个来源 · 最近 '+buckets.length+' 个有记录日期</figcaption></figure><aside><h3>方向覆盖</h3>'+directionCounts.map(item=>'<div><span>'+esc(item.name)+'</span><strong>'+item.count+'</strong></div>').join('')+'<h3>来源分布</h3>'+sources.slice(0,8).map(source=>'<div><span data-keep-original>'+esc(source)+'</span><strong>'+cluster.filter(row=>row.source===source).length+'</strong></div>').join('')+'</aside></div></section>';
+ }
+ function storySourceLedger(cluster){
+  return '<details class="story-source-ledger"><summary>来源与核验记录</summary><div>'+cluster.map(row=>'<article><div><time>'+esc(row.date)+'</time><strong data-keep-original>'+esc(row.source)+'</strong></div><p>'+localizedNewsCopy(row,'title')+'</p>'+(row.original_url?'<a href="'+esc(row.original_url)+'" target="_blank" rel="noopener noreferrer">核对原始资料'+portalIcon('arrow')+'</a>':'<span>原始链接未提供</span>')+'</article>').join('')+'</div><p>外部链接仅用于逐条核验。列表卡片、事件概览、时间线和相关内容均在本站打开。</p></details>';
  }
  function hotRanked(list){
   const windowRows=recent(list),pool=windowRows.length>=10?windowRows:list,localized=pool.filter(row=>/[\u3400-\u9fff]/u.test(row.title_zh||row.title||'')),source=localized.length>=10?localized:pool;
@@ -157,7 +189,7 @@ var PortalWatch=(()=>{
   const list=PortalCompact.stories().filter(row=>!row.paper_pick);if(!list.length)return '';
   const ranked=hotRanked(list);if(!ranked.length)return '';
   const info=currentInfo(),updated=(info?.generated_on||'').replace('T',' ').replace(/:\d{2}Z$/,' UTC'),status=info?.status||'unknown',secondary=ranked.slice(1,3).map((row,index)=>hotSecondary(row,index+1,list)).join(''),remaining=ranked.slice(3).map((row,index)=>hotListRow(row,index+3,list)).join('');
-  return '<section class="home-news-flow home-hotboard" aria-labelledby="watch-hotboard-title"><header class="home-hotboard-head"><div><span class="home-hot-live"><i></i>实时热度</span><h2 id="watch-hotboard-title">AI 安全热点榜</h2><p>过去 72 小时，按公开分数、发布时间与议题去重整理 10 条安全信号。</p></div><div class="home-hotboard-status"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>平台获取： <time>'+esc(updated||'—')+'</time></span><span>按公开分数、发布时间及议题去重排序</span><a href="#news">查看全部资讯'+portalIcon('arrow')+'</a></div></header><div class="home-hot-featured">'+hotPrimary(ranked[0],list)+'<div class="home-hot-secondary-stack">'+secondary+'</div></div>'+(remaining?'<div class="home-hot-list-head"><h3>继续看 <span data-keep-original>No.04–10</span></h3><span>来源 · 同类议题近 7 日收录趋势 · 热点指数</span></div><ol class="home-hot-list">'+remaining+'</ol>':'')+'<p class="home-hot-note">热点指数沿用 AI Safety HOT 公开字段；排序同时考虑发布时间并做标题近似去重。趋势线表示同类议题近 7 个完整自然日的收录量，不代表社交讨论量或风险等级。</p></section>';
+  return '<section class="home-news-flow home-hotboard" aria-labelledby="watch-hotboard-title"><header class="home-hotboard-head"><div><span class="home-hot-live"><i></i>实时热度</span><h2 id="watch-hotboard-title">AI 安全热点榜</h2><p>过去 72 小时，按公开分数、发布时间与议题去重整理 10 条安全信号。</p></div><div class="home-hotboard-status"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>平台获取： <time>'+esc(updated||'—')+'</time></span><span>按公开分数、发布时间及议题去重排序</span><a href="#news">查看全部资讯'+portalIcon('arrow')+'</a></div></header><div class="home-hot-featured">'+hotPrimary(ranked[0],list)+'<div class="home-hot-secondary-stack">'+secondary+'</div></div>'+(remaining?'<div class="home-hot-list-head"><h3>继续看 <span data-keep-original>No.04–10</span></h3><span>来源 · 同类议题近 7 日收录趋势 · 热点指数</span></div><ol class="home-hot-list">'+remaining+'</ol>':'')+'<p class="home-hot-note">热点指数来自公开接口字段；排序同时考虑发布时间并做标题近似去重。趋势线表示同类议题近 7 个完整自然日的收录量，不代表社交讨论量或风险等级。</p></section>';
  }
  function focusStories(list){
   const score=row=>Number(row.aihot_score||0),ranked=[...list].sort((left,right)=>String(right.date).localeCompare(String(left.date))||score(right)-score(left)),used=new Set(),picked=[];
@@ -166,7 +198,7 @@ var PortalWatch=(()=>{
   return picked.slice(0,6);
  }
  function homeRiverStory(item,index){
-  const {row,direction:primary}=item,label=(row.label||'AI Safety HOT').replace(/^AI Safety HOT · /,'');
+  const {row,direction:primary}=item,label=(row.label||'公开资讯').replace(/^AI Safety HOT · /,'');
   return '<article class="home-river-story" data-home-river-story data-direction="'+esc(primary)+'" '+(index?'hidden':'')+'><div class="home-river-story-main"><div class="home-river-story-meta"><span>'+esc(directionName(primary))+'</span><time>新闻发布： '+esc(row.date)+'</time></div><h3><a href="'+storyHref(row)+'">'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</a></h3><footer><span>来源： <b data-keep-original>'+esc(row.source)+'</b></span><span>'+esc(label)+'</span></footer></div><details class="home-river-summary"><summary>展开摘要</summary><p>'+localizedNewsCopy(row,'description')+'</p></details></article>';
  }
  function homePreview(){
@@ -177,9 +209,9 @@ var PortalWatch=(()=>{
  }
  function storyPage(id){
   const item=PortalCompact.stories().find(row=>row.id===id);if(!item)return notFound();
-  const kind=PortalCompact.newsKinds[item.content_kind]||'研究热点',directions=(item.direction_ids||[]).map(directionName),acquired=(currentInfo()?.generated_on||'').replace('T',' ').replace('Z',' UTC'),related=PortalCompact.stories().filter(row=>row.id!==item.id&&row.content_kind===item.content_kind&&(row.direction_ids||[]).some(direction=>item.direction_ids?.includes(direction))).slice(0,3),back=routeLink('news',{content:item.content_kind});
-  const original=item.original_url||item.url,sourceActions='<a class="button primary" href="'+esc(original)+'" target="_blank" rel="noopener noreferrer">查看原始发布页'+portalIcon('arrow')+'</a>'+(item.original_url?'<a class="button secondary" href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">查看 AI Safety HOT 条目'+portalIcon('arrow')+'</a>':'');
-  return '<div class="wrap task-page news-detail-page"><nav class="news-detail-breadcrumb" aria-label="面包屑"><a href="#news">研究热点</a><span>/</span><a href="'+back+'">'+esc(kind)+'</a></nav><article class="news-detail"><header><div><span class="news-detail-kind">'+esc(kind)+'</span><h1>'+localizedNewsCopy(item,'title')+'</h1><p class="news-detail-source"><span data-keep-original>'+esc(item.source)+'</span><time>新闻发布： '+esc(item.date)+'</time></p></div><div class="news-detail-score"><span>热点指数</span><strong>'+hotScore(item)+'</strong><small>AI Safety HOT 公开字段</small></div></header><div class="news-detail-layout"><div class="news-detail-main"><section><h2>内容摘要</h2><p class="news-detail-summary">'+localizedNewsCopy(item,'description')+'</p></section><section><h2>站内归类</h2>'+topicTags(item.direction_ids||[])+'<p>'+esc(directions.join('、')||'暂未归类')+'</p></section><div class="news-detail-actions">'+sourceActions+'</div><p class="news-detail-note">本站保留标题、短摘要、日期与来源用于研究索引，不替代原文；结论与事实请以原始发布页为准。</p></div><aside class="news-detail-meta"><h2>记录信息</h2><dl><div><dt>内容类型</dt><dd>'+esc(kind)+'</dd></div><div><dt>发布来源</dt><dd data-keep-original>'+esc(item.source)+'</dd></div><div><dt>新闻发布时间</dt><dd>'+esc(item.date)+'</dd></div><div><dt>平台获取时间</dt><dd>'+esc(acquired||'未报告')+'</dd></div><div><dt>收录方式</dt><dd>'+esc(item.automated?'自动同步，待人工复核':'人工精选')+'</dd></div><div><dt>原始语言</dt><dd>'+esc(item.language||'未报告')+'</dd></div></dl></aside></div></article>'+(related.length?'<section class="news-detail-related"><header><h2>同类内容</h2><a href="'+back+'">查看全部'+portalIcon('arrow')+'</a></header><div>'+related.map(row=>'<a href="'+storyHref(row)+'"><span>'+esc(directionName(row.direction_ids?.[0]))+'</span><strong>'+localizedNewsCopy(row,'title')+'</strong><small><time>'+esc(row.date)+'</time> · <span data-keep-original>'+esc(row.source)+'</span></small></a>').join('')+'</div></section>':'')+'</div>';
+  const kind=PortalCompact.newsKinds[item.content_kind]||'研究热点',acquired=(currentInfo()?.generated_on||'').replace('T',' ').replace('Z',' UTC'),cluster=storyCluster(item),sources=[...new Set(cluster.map(row=>row.source))],view=['timeline','trend'].includes(route().params.get('view'))?route().params.get('view'):'overview',back=routeLink('news',{content:item.content_kind}),label=(item.label||kind).replace(/^AI Safety HOT · /,'');
+  const body=view==='timeline'?'<section class="story-timeline-view"><header><span>REPORTING TIMELINE</span><h2>报道时间线</h2><p>同一议题下的公开记录按发布日期排列，点击标题仍进入本站详情。</p></header>'+storyTimelineRows(cluster)+'</section>':view==='trend'?storyTrendView(item,cluster):storyOverview(item,cluster);
+  return '<div class="wrap task-page news-detail-page story-page"><nav class="news-detail-breadcrumb" aria-label="面包屑"><a href="#news">研究热点</a><span>/</span><a href="'+back+'">'+esc(kind)+'</a><span>/</span><span>事件详情</span></nav><article class="story-detail"><header><div><span class="news-detail-kind">'+esc(label)+'</span><h1>'+localizedNewsCopy(item,'title')+'</h1><p class="news-detail-source"><span data-keep-original>'+esc(item.source)+'</span><time>新闻发布： '+esc(item.date)+'</time></p></div><dl><div><dt>'+cluster.length+'</dt><dd>相关记录</dd></div><div><dt>'+sources.length+'</dt><dd>公开来源</dd></div><div><dt>'+hotScore(item)+'</dt><dd>热点指数</dd></div></dl></header>'+storyTabs(item,view)+body+storySourceLedger(cluster)+'<footer><p>本站根据公开元数据整理事件概览、报道时间线与收录趋势，不替代原始资料；关键结论应按来源逐条核验。</p><dl><div><dt>平台获取</dt><dd>'+esc(acquired||'未报告')+'</dd></div><div><dt>收录方式</dt><dd>'+esc(item.automated?'自动同步，待人工复核':'人工精选')+'</dd></div><div><dt>原始语言</dt><dd>'+esc(item.language||'未报告')+'</dd></div></dl></footer></article></div>';
  }
  function exportRows(){return rows().map(row=>({title:row.title,title_zh:row.title_zh||'',description_zh:row.description_zh||'',date:row.date,source:row.source,url:row.url,directions:row.direction_ids,automated:!!row.automated,verified:!!row.verified}))}
  function download(format){
@@ -209,6 +241,15 @@ render=function(){
   $$('[data-nav]').forEach(link=>{const active=link.dataset.nav==='news';link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
   $('#primary-nav').classList.remove('open');$('#menu-button').setAttribute('aria-expanded','false');$('#menu-button').setAttribute('aria-label','打开导航');
   document.title='热点详情 · AI Safety Index';updateTray();return;
+ }
+ if(current.path.startsWith('resource/')){
+  if(document.body){document.body.classList.add('madeo-subpage');document.body.classList.remove('madeo-home');document.body.dataset.madeoRoute='resource-detail'}
+  const id=decodeURIComponent(current.path.slice(9)),record=EvaluationCatalog.record(id);
+  $('#main').innerHTML=resourceDetailPage(id);
+  const pageLabel=document.querySelector('.md-page-label');if(pageLabel)pageLabel.textContent='基准与评测';
+  $$('[data-nav]').forEach(link=>{const active=link.dataset.nav==='benchmarks';link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
+  $('#primary-nav').classList.remove('open');$('#menu-button').setAttribute('aria-expanded','false');$('#menu-button').setAttribute('aria-label','打开导航');
+  document.title=(record?.name||'资料档案')+' · AI Safety Index';updateTray();return;
  }
  if(current.path!=='watch'){watchBaseRender();return}
  if(document.body){document.body.classList.add('madeo-subpage');document.body.classList.remove('madeo-home');document.body.dataset.madeoRoute='watch'}
