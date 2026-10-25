@@ -11,3 +11,29 @@
 @media(max-width:1080px){.catalog-snapshot-head{grid-template-columns:1fr;gap:20px}.catalog-chart-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-topic-chart{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--cp-rule)}.catalog-direction-chart{border-right:1px solid var(--cp-rule)}}
 @media(max-width:700px){.catalog-snapshot{margin:18px 0 24px}.catalog-snapshot-head{padding:18px 0}.catalog-snapshot-metrics>div{padding:12px 10px}.catalog-snapshot-metrics dt{font-size:22px}.catalog-chart-grid{grid-template-columns:1fr}.catalog-topic-chart{grid-column:auto}.catalog-chart{padding:18px 0 20px;border-right:0;border-bottom:1px solid var(--cp-rule)}.catalog-chart:last-child{border-bottom:0}.catalog-chart figcaption{min-height:0;margin-bottom:16px}.catalog-bar-row{grid-template-columns:minmax(105px,.9fr) minmax(80px,1.1fr) 28px;min-height:30px}.catalog-bar-row>span{overflow:visible;text-overflow:clip;white-space:normal}.catalog-evidence-chart .catalog-status-legend{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.catalog-bar-row>i>b{transition:none}}
+
+.catalog-related-filter{display:flex!important;min-height:42px;align-items:center;gap:9px;align-self:end}
+.catalog-related-filter input{width:16px;height:16px;margin:0;accent-color:#294fa1}
+.catalog-related-filter span{color:#364754;font-size:11px}
+.method-resource-section{margin-top:24px;padding-top:22px;border-top:3px solid #28735d}
+.method-resource-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
+.method-resource-head span,.method-standards>header span,.method-pipeline>header span{display:block;color:#687482;font-size:10px;letter-spacing:.08em}
+.method-resource-head h2,.method-standards>header h2,.method-pipeline>header h2{margin:5px 0 0}
+.method-resource-head p{margin:0!important;color:#52606d;font-size:11px!important}
+.method-tools-toolbar{grid-template-columns:minmax(260px,1fr)!important}
+.method-standards{margin-top:38px;padding-top:24px;border-top:1px solid #aeb6bd}
+.method-standards>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:17px;border-top:1px solid var(--cp-rule);border-bottom:1px solid var(--cp-rule)}
+.method-standards article{min-width:0;min-height:150px;padding:18px;border-right:1px solid var(--cp-rule)}
+.method-standards article:last-child{border-right:0}
+.method-standards article h3{margin:0 0 9px;font-size:14px}
+.method-standards article p{margin:0!important;color:#52606d;font-size:11px!important;line-height:1.6}
+.method-pipeline{margin-top:34px;padding-top:24px;border-top:1px solid #aeb6bd}
+.method-pipeline>div{display:flex;align-items:stretch;margin-top:17px;border-top:1px solid var(--cp-rule);border-bottom:1px solid var(--cp-rule)}
+.method-pipeline article{min-width:0;flex:1;padding:17px 13px}
+.method-pipeline article b{color:#294fa1;font-size:10px}
+.method-pipeline article h3{margin:17px 0 7px;font-size:13px}
+.method-pipeline article p{margin:0!important;color:#52606d;font-size:10px!important;line-height:1.55}
+.method-pipeline>div>span{display:flex;width:24px;align-items:center;justify-content:center;color:#8a949c}
+.method-pipeline>div>span svg{width:13px;height:13px}
+@media(max-width:900px){.method-standards>div{grid-template-columns:repeat(2,minmax(0,1fr))}.method-standards article:nth-child(2){border-right:0}.method-standards article:nth-child(-n+2){border-bottom:1px solid var(--cp-rule)}.method-pipeline>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.method-pipeline>div>span{display:none}.method-pipeline article{border-right:1px solid var(--cp-rule);border-bottom:1px solid var(--cp-rule)}.method-pipeline article:nth-of-type(even){border-right:0}.method-pipeline article:last-of-type{border-bottom:0}}
+@media(max-width:767px){.method-resource-head{align-items:flex-start;flex-direction:column;gap:8px}.method-standards>div,.method-pipeline>div{grid-template-columns:1fr}.method-standards article,.method-pipeline article{min-height:0;border-right:0;border-bottom:1px solid var(--cp-rule)}.method-standards article:last-child,.method-pipeline article:last-of-type{border-bottom:0}.catalog-related-filter{align-self:stretch}.method-pipeline article h3{margin-top:9px}}

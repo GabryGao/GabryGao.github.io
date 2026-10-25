@@ -651,6 +651,43 @@ Utility 与 Utility under attack 越高越好；Targeted ASR 越低越好。只�
 Safety 与 SR 越高越好；SBU 与 VSI 越低越好。不同套件分别比较。|Higher Safety and SR are better; lower SBU and VSI are better. Compare suites separately.|Safety と SR は高いほど良く、SBU と VSI は低いほど良い。スイートごとに比較します。|Safety und SR sind höher besser; SBU und VSI niedriger besser. Suiten getrennt vergleichen.
 Harmless rate 与 Harmless score 越高越好；按同一维度和同一指标比较。|Higher Harmless rate and Harmless score are better; compare the same dimension and metric.|Harmless rate と Harmless score は高いほど良く、同じ次元・指標で比較します。|Harmless rate und Harmless score sind höher besser; gleiche Dimension und Metrik vergleichen.
 ASR 越低越好；攻击方法、语言与风险领域必须保持一致。|Lower ASR is better; keep the attack method, language and risk domain identical.|ASR は低いほど良く、攻撃手法・言語・リスク領域をそろえます。|Niedriger ASR ist besser; Angriffsmethode, Sprache und Risikobereich müssen übereinstimmen.
+筛选热点方向|Filter highlight topics|注目分野を絞り込む|Meldungen nach Thema filtern
+展开 6 个模型|Show 6 models|6 モデルを表示|6 Modelle anzeigen
+收起为 4 个模型|Collapse to 4 models|4 モデルに戻す|Auf 4 Modelle reduzieren
+查看 6 个模型的完整数值与日期|View full values and dates for 6 models|6 モデルの全数値と日付を見る|Vollständige Werte und Daten für 6 Modelle anzeigen
+包含相关能力|Include related capabilities|関連能力を含める|Verwandte Fähigkeiten einbeziehen
+直接或混合评测| direct or mixed evaluations| 件の直接・混合評価| direkte oder gemischte Evaluationen
+项相关能力可选| related-capability records available| 件の関連能力を追加可能| Einträge zu verwandten Fähigkeiten verfügbar
+工具与运行环境|Tools and runtime environments|ツールと実行環境|Werkzeuge und Laufzeitumgebungen
+搜索工具或运行环境|Search tools or runtime environments|ツールまたは実行環境を検索|Werkzeuge oder Laufzeitumgebungen suchen
+项匹配资源| matching resources| 件の該当資料| passende Ressourcen
+每页 6 项 · 原始资料与结果入口分别标注|6 per page · original resources and result links are labeled separately|1 ページ 6 件・原資料と結果リンクを分けて表示|6 pro Seite · Originalquellen und Ergebnislinks sind getrennt gekennzeichnet
+当前范围暂无工具或运行环境|No tools or runtime environments in this scope|この範囲にはツールや実行環境がありません|Keine Werkzeuge oder Laufzeitumgebungen in diesem Bereich
+调整关键词或研究方向后重试。|Change the keywords or research topic and try again.|キーワードまたは研究分野を変更して再試行してください。|Suchbegriff oder Forschungsthema ändern und erneut versuchen.
+浏览全部工具|Browse all tools|すべてのツールを見る|Alle Werkzeuge durchsuchen
+评测规范与数据记录|Evaluation standards and data records|評価基準とデータ記録|Evaluationsstandards und Datenaufzeichnung
+评测协议与适用范围|Evaluation protocol and scope|評価プロトコルと適用範囲|Evaluationsprotokoll und Geltungsbereich
+评测口径由基准版本、数据子集、任务、攻击与防御设置、运行预算和判分器共同确定。结果按协议分组，并关联模型版本与来源快照。|The benchmark version, data subset, task, attack and defense settings, runtime budget and judge jointly define the protocol. Results are grouped by protocol and linked to model versions and source snapshots.|ベンチマーク版、データ部分集合、タスク、攻撃・防御設定、実行予算、評価器で評価条件を定義します。結果はプロトコル別にまとめ、モデル版と出典スナップショットに関連付けます。|Benchmark-Version, Datenausschnitt, Aufgabe, Angriffs- und Abwehreinstellungen, Laufzeitbudget und Bewerter definieren gemeinsam das Protokoll. Ergebnisse werden danach gruppiert und mit Modellversionen sowie Quellständen verknüpft.
+指标定义与量纲|Metric definitions and units|指標定義と単位|Metrikdefinitionen und Einheiten
+每项指标记录定义、计量单位和优化方向。无害率、攻击成功率、任务成功率分别展示，不合成为平台总分。|Each metric records its definition, unit and optimization direction. Harmlessness, attack success and task success are shown separately and are not combined into a platform score.|各指標に定義・単位・最適化方向を記録します。無害率、攻撃成功率、タスク成功率は別々に表示し、総合点にはしません。|Für jede Metrik werden Definition, Einheit und Optimierungsrichtung erfasst. Unbedenklichkeit, Angriffserfolg und Aufgabenerfolg werden getrennt dargestellt und nicht zu einer Plattformnote kombiniert.
+版本与时间记录|Version and time records|バージョンと時刻の記録|Versions- und Zeitangaben
+测试时间、报告发布日期、页面更新时间和平台获取时间分别存储；未提供的字段明确标记为未报告。|Test time, report date, page update time and platform retrieval time are stored separately; missing fields are marked as not reported.|テスト時刻、報告公開日、ページ更新時刻、取得時刻を別々に保存し、未提供項目は未報告と明示します。|Testzeit, Berichtsdatum, Seitenaktualisierung und Abrufzeit werden getrennt gespeichert; fehlende Felder werden als nicht berichtet markiert.
+数据来源与收录流程|Data sources and ingestion process|データ出典と収録手順|Datenquellen und Aufnahmeprozess
+每条结果关联官方项目、论文或发布文件，经过格式转换、数值校验、协议核对和收录审核。|Every result links to an official project, paper or release file and passes format conversion, numeric validation, protocol review and ingestion review.|各結果は公式プロジェクト、論文、公開ファイルに関連付け、形式変換、数値検証、プロトコル確認、収録審査を行います。|Jedes Ergebnis ist mit einem offiziellen Projekt, einer Publikation oder einer Veröffentlichungsdatei verknüpft und durchläuft Formatkonvertierung, Zahlenprüfung, Protokollabgleich und Aufnahmeprüfung.
+结果数据处理流程|Result data pipeline|結果データ処理フロー|Verarbeitungspipeline für Ergebnisdaten
+结果采集|Result collection|結果収集|Ergebniserfassung
+官方表格、公开 CSV / JSON 与论文结果|Official tables, public CSV / JSON files and paper results|公式表、公開 CSV / JSON、論文結果|Offizielle Tabellen, öffentliche CSV-/JSON-Dateien und Publikationsergebnisse
+字段标准化|Field normalization|フィールド標準化|Feldstandardisierung
+模型、任务、配置、指标、单位与来源|Model, task, configuration, metric, unit and source|モデル、タスク、設定、指標、単位、出典|Modell, Aufgabe, Konfiguration, Metrik, Einheit und Quelle
+质量校验|Quality validation|品質検証|Qualitätsprüfung
+原始数值、指标定义、协议与使用条件|Raw values, metric definitions, protocols and usage conditions|元の数値、指標定義、プロトコル、利用条件|Rohwerte, Metrikdefinitionen, Protokolle und Nutzungsbedingungen
+协议分组|Protocol grouping|プロトコル別分類|Protokollgruppierung
+基准版本、任务设置、来源快照与指标|Benchmark version, task setting, source snapshot and metric|ベンチマーク版、タスク設定、出典スナップショット、指標|Benchmark-Version, Aufgabeneinstellung, Quellstand und Metrik
+可视化发布|Visualization publishing|可視化公開|Visualisierte Veröffentlichung
+比较图表、结果明细与筛选数据导出|Comparison charts, result records and filtered data export|比較グラフ、結果明細、絞り込みデータ出力|Vergleichsdiagramme, Ergebnisdetails und Export gefilterter Daten
+查看双指标与任务矩阵|View paired metrics and task matrix|2 指標とタスク行列を見る|Metrikpaar und Aufgabenmatrix anzeigen
+比较公开结果，并保留任务、设置、指标和来源。|Compare public results while preserving tasks, settings, metrics and sources.|タスク、設定、指標、出典を保持したまま公開結果を比較します。|Öffentliche Ergebnisse vergleichen und dabei Aufgaben, Einstellungen, Metriken und Quellen beibehalten.
+前 6 条|Top 6|上位 6 件|Top 6
 `;
 const dictionary=new Map();
 function addRows(table){for(const line of table.trim().split('\n')){const [zh,en,ja,de]=line.split('|');if(zh&&en&&ja&&de)dictionary.set(zh,{en,ja,de});else throw new Error('Invalid locale row: '+line)}}
@@ -1152,6 +1189,8 @@ function translate(value,language){
  out=out.replace(/年份由新到旧 · /g,at('Newest year first · ','年の新しい順・','Neueste Jahre zuerst · '));
  out=out.replace(/显示 ([\d–]+) 条/g,(_,n)=>at(`Showing ${n}`,`${n} 件を表示`,`Einträge ${n}`));
  out=out.replace(/图表显示前 (\d+) 条；完整记录见下方表格。/g,(_,n)=>at(`Chart shows the first ${n} records; the full table is below.`,`グラフは先頭 ${n} 件を表示しています。全件は下の表で確認できます。`,`Das Diagramm zeigt die ersten ${n} Einträge; die vollständige Tabelle steht darunter.`));
+ out=out.replace(/图表默认显示前 (\d+) 个模型；数值表保留 6 个模型。这里只比较同一基准、同一任务和同一配置，不生成跨基准“总安全分”。/g,(_,n)=>at(`The chart shows the first ${n} models by default; the value table keeps 6. Only the same benchmark, task and configuration are compared, with no cross-benchmark aggregate safety score.`,`グラフは標準で上位 ${n} モデルを表示し、数値表には 6 モデルを残します。同じベンチマーク・タスク・設定だけを比較し、横断的な総合安全点は作りません。`,`Das Diagramm zeigt standardmäßig die ersten ${n} Modelle; die Wertetabelle enthält 6. Verglichen werden nur derselbe Benchmark, dieselbe Aufgabe und Konfiguration; es gibt keine benchmarkübergreifende Gesamtsicherheitsnote.`));
+ out=out.replace(/(\d+) 条记录 · 点击筛选/g,(_,n)=>at(`${n} records · click to filter`,`${n} 件・クリックして絞り込み`,`${n} Einträge · zum Filtern klicken`));
  out=out.replace(/相对 (.+?) 的差值/g,(_,model)=>at(`Difference from ${model}`,`${model} との差`, `Differenz zu ${model}`));
  out=out.replace(/(.+?) · 相对 (.+?) · ([+−\d.]+ pp)/g,(_,model,baseline,value)=>at(`${model} · vs ${baseline} · ${value}`,`${model}・${baseline} 比・${value}`,`${model} · gegenüber ${baseline} · ${value}`));
  out=out.replace(/第 (\d+) \/ (\d+) 页/g,(_,n,total)=>at(`Page ${n} of ${total}`,`${n} / ${total} ページ`,`Seite ${n} von ${total}`));

@@ -15,6 +15,11 @@ assert.equal(data.summary.historical_candidates,149);
 assert.equal(data.summary.result_files,291);
 assert.equal(data.summary.numeric_examples,2696);
 assert.equal(new Set(data.resources.map(item=>item.id)).size,171);
+const isTool=item=>item.result_state==='工具/环境'||item.relation==='工具'||item.relation==='环境';
+assert.equal(data.resources.filter(isTool).length,29);
+assert.equal(data.resources.filter(item=>!isTool(item)).length,142);
+assert.equal(data.resources.filter(item=>!isTool(item)&&item.relation==='相关能力').length,20);
+assert.equal(data.resources.filter(item=>!isTool(item)&&item.relation!=='相关能力').length,122);
 for(const item of data.resources){
  assert.ok(item.url.startsWith('https://'),item.id+' source URL');
  for(const field of ['result_url','evidence_url'])if(item[field])assert.ok(item[field].startsWith('https://'),item.id+' '+field);
