@@ -74,21 +74,89 @@ var PortalWatch=(()=>{
   '<section class="watch-lower"><article class="watch-brief"><div class="watch-section-head"><div><span>03 / DAILY BRIEF</span><h2>每日研究简报</h2><p>同一天的最新记录放在一起，保留原始标题与来源。</p></div></div>'+brief(list)+'</article><aside class="watch-status"><div class="watch-section-head"><div><span>04 / SOURCE STATUS</span><h2>来源与数据状态</h2><p>抓取失败时保留上一次成功快照，不把缺失误写为零。</p></div></div><ul>'+sourceHealth()+'</ul><div class="watch-export"><button type="button" data-watch-export="json">导出 JSON</button><button type="button" data-watch-export="csv">导出 CSV</button><a href="research-source/news-feed-provenance.json" target="_blank" rel="noopener noreferrer">查看来源记录'+portalIcon('arrow')+'</a></div></aside></section>'+
   '<p class="watch-note">当前仅覆盖已配置的公开来源和人工精选记录，不构成完整新闻监测，也不代表平台认可相关主张。</p></div>';
  }
- function focusStories(list){
-  const score=row=>Number(row.aihot_score||0),ranked=[...list].sort((left,right)=>String(right.date).localeCompare(String(left.date))||score(right)-score(left)),used=new Set(),picked=[];
-  for(const direction of researchDirections){const row=ranked.find(item=>!used.has(item.url)&&item.direction_ids?.includes(direction.id));if(row){picked.push({row,direction:direction.id});used.add(row.url)}}
-  for(const row of ranked){if(picked.length>=6)break;if(!used.has(row.url)){picked.push({row,direction:row.direction_ids?.[0]||'foundation-model'});used.add(row.url)}}
-  return picked.slice(0,6);
+ function hotCategory(row){return row.aihot_category||row.direction_ids?.[0]||'other'}
+ function hotScore(row){return Math.max(0,Math.min(100,Math.round(Number(row.aihot_score)||0)))}
+ function hotTitleTokens(row){
+  const value=String(row.title_zh||row.title||'').toLocaleLowerCase(),tokens=new Set(),stop=new Set(['about','after','against','from','into','model','models','safety','that','their','this','through','with','安全','模型','测试','研究','发布','发现','进行','公开','人工智能']);
+  for(const token of value.match(/[a-z0-9][a-z0-9.-]{2,}/g)||[])if(!stop.has(token))tokens.add(token);
+  for(const run of value.match(/[\u3400-\u9fff]{2,}/g)||[])for(let index=0;index<run.length-1;index++){const token=run.slice(index,index+2);if(!stop.has(token))tokens.add(token)}
+  return tokens;
  }
- function homeRiverStory(item,index){
-  const {row,direction:primary}=item,label=(row.label||'AI Safety HOT').replace(/^AI Safety HOT · /,'');
-  return '<article class="home-river-story" data-home-river-story data-direction="'+esc(primary)+'" '+(index?'hidden':'')+'><div class="home-river-story-main"><div class="home-river-story-meta"><span>'+esc(directionName(primary))+'</span><time>新闻发布： '+esc(row.date)+'</time></div><h3><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer">'+localizedNewsCopy(row,'title')+portalIcon('arrow')+'</a></h3><footer><span>来源： <b data-keep-original>'+esc(row.source)+'</b></span><span>'+esc(label)+'</span></footer></div><details class="home-river-summary"><summary>展开摘要</summary><p>'+localizedNewsCopy(row,'description')+'</p></details></article>';
+ function hotNamedTokens(row){
+  const value=[row.title,row.title_zh,row.description,row.description_zh].filter(Boolean).join(' '),tokens=new Set(),stop=new Set(['ai','safety','the','this','model','models','research']);
+  for(const token of value.match(/\b(?:[A-Z][A-Za-z0-9.-]{2,}|[A-Z]{2,})\b/g)||[]){const normalized=token.toLocaleLowerCase();if(!stop.has(normalized))tokens.add(normalized)}
+  for(const term of row.terms||[])if(term.startsWith('entity:'))tokens.add(term.slice(7).toLocaleLowerCase());
+  return tokens;
+ }
+ function hotTitleSimilarity(left,right){
+  const a=hotTitleTokens(left),b=hotTitleTokens(right);if(!a.size||!b.size)return 0;
+  const namedLeft=hotNamedTokens(left),namedRight=hotNamedTokens(right);let namedShared=0;for(const token of namedLeft)if(namedRight.has(token))namedShared++;
+  if(namedShared>=2)return 1;
+  let shared=0;for(const token of a)if(b.has(token))shared++;
+  return shared/(a.size+b.size-shared);
+ }
+ function hotRanked(list){
+  const windowRows=recent(list),pool=windowRows.length>=10?windowRows:list,localized=pool.filter(row=>/[\u3400-\u9fff]/u.test(row.title_zh||row.title||'')),source=localized.length>=10?localized:pool;
+  const ranked=[...source].sort((left,right)=>hotScore(right)-hotScore(left)||String(right.date).localeCompare(String(left.date))||String(left.title).localeCompare(String(right.title))),picked=[],categories=new Map();
+  const add=(row,limitSimilarity=true,categoryLimit=2)=>{
+   if(picked.some(item=>item.url===row.url))return false;
+   if(categoryLimit&&(categories.get(hotCategory(row))||0)>=categoryLimit)return false;
+   if(limitSimilarity&&picked.some(item=>hotTitleSimilarity(row,item)>.34))return false;
+   picked.push(row);categories.set(hotCategory(row),(categories.get(hotCategory(row))||0)+1);return true;
+  };
+  for(const row of ranked){add(row,true,1);if(picked.length>=10)break}
+  for(const row of ranked){if(picked.length>=10)break;add(row,true,2)}
+  for(const row of ranked){if(picked.length>=10)break;add(row,true,0)}
+  for(const row of ranked){if(picked.length>=10)break;add(row,false,0)}
+  return picked.slice(0,10);
+ }
+ function hotTrend(row,list){
+  const anchor=generatedAt(),base=new Date(Date.UTC(anchor.getUTCFullYear(),anchor.getUTCMonth(),anchor.getUTCDate())),category=hotCategory(row),days=[];
+  for(let offset=7;offset>=1;offset--){const day=new Date(base);day.setUTCDate(day.getUTCDate()-offset);days.push(day.toISOString().slice(0,10))}
+  const matching=list.filter(item=>hotCategory(item)===category&&days.includes(item.date)),values=days.map(day=>matching.filter(item=>item.date===day).length),previous=values.at(-2)||0,current=values.at(-1)||0,difference=current-previous;
+  let state='flat',label='持平';
+  if(difference>0){state='up';label=previous?'↑ '+Math.round(difference/previous*100)+'%':'新收录'}
+  if(difference<0){state='down';label='↓ '+Math.round(Math.abs(difference)/Math.max(1,previous)*100)+'%'}
+  return {values,state,label,sources:new Set(matching.map(item=>item.source)).size,records:matching.length};
+ }
+ function hotSparkline(trend){
+  const width=132,height=34,pad=3,max=Math.max(1,...trend.values),points=trend.values.map((value,index)=>[pad+index*(width-pad*2)/Math.max(1,trend.values.length-1),height-pad-value/max*(height-pad*2)]),path=points.map(([x,y],index)=>(index?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)).join(' '),last=points.at(-1)||[width-pad,height-pad];
+  return '<svg class="home-hot-spark home-hot-spark-'+trend.state+'" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="同类议题近 7 日收录趋势"><path class="home-hot-spark-area" d="'+path+' L '+(width-pad)+' '+(height-pad)+' L '+pad+' '+(height-pad)+' Z"></path><path class="home-hot-spark-line" d="'+path+'"></path><circle cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="2.6"></circle></svg>';
+ }
+ function hotInitials(value){
+  const latin=String(value||'').match(/[A-Za-z0-9]+/g);if(latin?.length)return latin.slice(0,2).map(word=>word[0]).join('').toUpperCase();
+  return (String(value||'').match(/[\u3400-\u9fff]/g)||['AI']).slice(0,2).join('');
+ }
+ function hotMarks(row){
+  const primary=row.direction_ids?.[0]||'foundation-model';
+  return '<span class="home-hot-marks" aria-hidden="true"><i>'+esc(hotInitials(row.source))+'</i><i>'+esc(directionName(primary).slice(0,1))+'</i></span>';
+ }
+ function hotMeta(row,trend){
+  const primary=row.direction_ids?.[0]||'foundation-model';
+  return '<div class="home-hot-meta">'+hotMarks(row)+'<span><b data-keep-original>'+esc(row.source)+'</b><small><time>'+esc(row.date)+'</time> · '+esc(directionName(primary))+'</small></span></div><div class="home-hot-trend"><span>'+trend.sources+' 个来源 · '+trend.records+' 条记录</span>'+hotSparkline(trend)+'<strong>'+hotScore(row)+'<small>热点指数</small></strong></div>';
+ }
+ function hotBadge(trend){return '<span class="home-hot-change home-hot-change-'+trend.state+'" title="同类议题收录变化">'+esc(trend.label)+'</span>'}
+ function hotCover(row){
+  const primary=row.direction_ids?.[0]||'foundation-model',key=typeof madeoCoverKey==='function'?madeoCoverKey(row):'alignment';
+  return '<figure class="home-hot-cover"><img src="assets/madeo/'+esc(key)+'.webp" width="1024" height="1024" loading="eager" decoding="async" alt="'+esc(directionName(primary)+' · 研究主题概念封面')+'"><figcaption>'+esc(directionName(primary))+'<small>主题封面</small></figcaption></figure>';
+ }
+ function hotPrimary(row,list){
+  const trend=hotTrend(row,list);
+  return '<article class="home-hot-primary" data-hot-rank="1"><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"><div class="home-hot-rank"><strong>NO.01</strong>'+hotBadge(trend)+'</div><div class="home-hot-primary-body"><div class="home-hot-copy"><h3>'+localizedNewsCopy(row,'title')+'</h3><p>'+localizedNewsCopy(row,'description')+'</p></div>'+hotCover(row)+'</div><footer>'+hotMeta(row,trend)+'</footer></a></article>';
+ }
+ function hotSecondary(row,index,list){
+  const trend=hotTrend(row,list);
+  return '<article class="home-hot-secondary" data-hot-rank="'+(index+1)+'"><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"><div class="home-hot-rank"><strong>NO.0'+(index+1)+'</strong>'+hotBadge(trend)+'</div><h3>'+localizedNewsCopy(row,'title')+'</h3><p>'+localizedNewsCopy(row,'description')+'</p><footer>'+hotMeta(row,trend)+'</footer></a></article>';
+ }
+ function hotListRow(row,index,list){
+  const trend=hotTrend(row,list),rank=String(index+1).padStart(2,'0'),primary=row.direction_ids?.[0]||'foundation-model';
+  return '<li data-hot-rank="'+(index+1)+'"><a href="'+esc(row.url)+'" target="_blank" rel="noopener noreferrer"><strong class="home-hot-list-rank">'+rank+'</strong><div class="home-hot-list-copy"><h3>'+localizedNewsCopy(row,'title')+'</h3><p>'+localizedNewsCopy(row,'description')+'</p><small><span data-keep-original>'+esc(row.source)+'</span> · <time>'+esc(row.date)+'</time> · '+esc(directionName(primary))+'</small></div><div class="home-hot-list-signal">'+hotSparkline(trend)+'<span><strong>'+hotScore(row)+'</strong>'+hotBadge(trend)+'</span></div></a></li>';
  }
  function homePreview(){
   const list=PortalCompact.stories().filter(row=>!row.paper_pick);if(!list.length)return '';
-  const focus=focusStories(list),info=currentInfo(),updated=(info?.generated_on||'').replace('T',' ').replace(/:\d{2}Z$/,' UTC'),status=info?.status||'unknown',stories=focus.map(homeRiverStory).join(''),counts=Object.fromEntries(researchDirections.map(direction=>[direction.id,list.filter(row=>row.direction_ids?.includes(direction.id)).length]));
-  const filters='<nav class="home-river-filters" aria-label="筛选热点方向"><button type="button" class="active" data-home-river-filter="" aria-pressed="true"><span>全部热点</span><small>'+list.length+'</small></button>'+researchDirections.map(direction=>'<button type="button" data-home-river-filter="'+esc(direction.id)+'" aria-pressed="false" '+(counts[direction.id]?'':'disabled')+'><span>'+esc(direction.name)+'</span><small>'+counts[direction.id]+'</small></button>').join('')+'</nav>';
-  return '<section class="home-news-flow home-signal-river" aria-labelledby="home-news-flow-title"><div class="home-river-head"><div><span data-keep-original>AI SAFETY SIGNAL RIVER</span><h2 id="home-news-flow-title">研究热点流</h2><p>公开来源经过主题聚类与信号筛选，汇聚为当前焦点。</p></div><div class="home-news-actions"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>平台获取： <time>'+esc(updated||'—')+'</time></span><button type="button" class="home-news-toggle" data-home-flow-toggle aria-label="暂停动态" aria-pressed="false" title="暂停动态">'+portalIcon('pause')+'</button><a href="#watch">观察台与采集说明'+portalIcon('arrow')+'</a></div></div>'+filters+'<div class="home-river-stage"><div class="home-river-canvas-panel"><canvas class="home-river-canvas" data-record-count="'+list.length+'" aria-hidden="true"></canvas><div class="home-river-tooltip" hidden></div><p class="visually-hidden">动态信息流：公开来源经过主题聚类和信号筛选，汇聚为当前焦点。</p><div class="home-river-axis" aria-hidden="true"><span>公开来源</span><span>主题聚类</span><span>信号筛选</span><span>当前焦点</span></div></div></div><aside class="home-river-focus" aria-label="当前焦点"><div class="home-river-focus-head"><span>当前焦点</span><div><button type="button" class="home-river-prev" data-home-river-step="-1" aria-label="上一条焦点" title="上一条焦点">'+portalIcon('arrow')+'</button><strong data-home-river-counter>01 / '+String(focus.length).padStart(2,'0')+'</strong><button type="button" data-home-river-step="1" aria-label="下一条焦点" title="下一条焦点">'+portalIcon('arrow')+'</button></div></div><div class="home-river-story-stack">'+stories+'</div></aside></section>';
+  const ranked=hotRanked(list);if(!ranked.length)return '';
+  const info=currentInfo(),updated=(info?.generated_on||'').replace('T',' ').replace(/:\d{2}Z$/,' UTC'),status=info?.status||'unknown',secondary=ranked.slice(1,3).map((row,index)=>hotSecondary(row,index+1,list)).join(''),remaining=ranked.slice(3).map((row,index)=>hotListRow(row,index+3,list)).join('');
+  return '<section class="home-news-flow home-hotboard" aria-labelledby="home-news-flow-title"><header class="home-hotboard-head"><div><span class="home-hot-live"><i></i>实时热度</span><h2 id="home-news-flow-title">AI 安全热点榜</h2><p>过去 72 小时，按公开分数、发布时间与议题去重整理 10 条安全信号。</p></div><div class="home-hotboard-status"><span class="home-news-update" data-status="'+esc(status)+'"><i></i>平台获取： <time>'+esc(updated||'—')+'</time></span><span>按公开分数、发布时间及议题去重排序</span><a href="#watch">观察台与采集说明'+portalIcon('arrow')+'</a></div></header><div class="home-hot-featured">'+hotPrimary(ranked[0],list)+'<div class="home-hot-secondary-stack">'+secondary+'</div></div>'+(remaining?'<div class="home-hot-list-head"><h3>继续看 <span data-keep-original>No.04–10</span></h3><span>来源 · 同类议题近 7 日收录趋势 · 热点指数</span></div><ol class="home-hot-list">'+remaining+'</ol>':'')+'<p class="home-hot-note">热点指数沿用 AI Safety HOT 公开字段；排序同时考虑发布时间并做标题近似去重。趋势线表示同类议题近 7 个完整自然日的收录量，不代表社交讨论量或风险等级。</p></section>';
  }
  function exportRows(){return rows().map(row=>({title:row.title,title_zh:row.title_zh||'',description_zh:row.description_zh||'',date:row.date,source:row.source,url:row.url,directions:row.direction_ids,automated:!!row.automated,verified:!!row.verified}))}
  function download(format){
@@ -121,6 +189,6 @@ render=function(){
 };
 document.addEventListener('submit',event=>{if(event.target.id!=='watch-search')return;event.preventDefault();replaceQuery('q',new FormData(event.target).get('q').trim())});
 document.addEventListener('change',event=>{if(event.target.id==='watch-direction')replaceQuery('direction',event.target.value);if(event.target.id==='watch-origin')replaceQuery('origin',event.target.value)});
-document.addEventListener('click',event=>{if(event.target.closest('[data-watch-reset]'))go('watch');const button=event.target.closest('[data-watch-export]');if(button)PortalWatch.download(button.dataset.watchExport);const toggle=event.target.closest('[data-home-flow-toggle]');if(toggle){const section=toggle.closest('.home-news-flow'),paused=section.classList.toggle('is-paused'),source=paused?'继续动态':'暂停动态',label=typeof SiteLocale==='undefined'?source:SiteLocale.translate(source,SiteLocale.current());toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',label);toggle.setAttribute('title',label);toggle.innerHTML=portalIcon(paused?'play':'pause')}});
+document.addEventListener('click',event=>{if(event.target.closest('[data-watch-reset]'))go('watch');const button=event.target.closest('[data-watch-export]');if(button)PortalWatch.download(button.dataset.watchExport)});
 document.addEventListener('ai-safety-news-updated',()=>{if(route().path!=='home')return;const current=document.querySelector('.home-news-flow');if(current)current.outerHTML=PortalWatch.homePreview()});
 render();

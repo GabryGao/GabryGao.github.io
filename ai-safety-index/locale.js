@@ -179,6 +179,18 @@ AI 安全每天都有新动态，|AI safety changes every day,|AI 安全性に�
 值得追踪的，只有几条。|only a few signals deserve attention.|追うべきシグナルは、ほんの数件です。|nur wenige Signale verdienen Aufmerksamkeit.
 自动抓取公开来源，去重、归类并筛出当天值得核对的安全信号。|Public sources are collected automatically, deduplicated, classified and filtered into safety signals worth checking today.|公開情報源を自動収集し、重複排除・分類・選別を行い、今日確認すべき安全シグナルにまとめます。|Öffentliche Quellen werden automatisch erfasst, dedupliziert, eingeordnet und zu heute prüfenswerten Sicherheitssignalen gefiltert.
 研究热点流|Research signal flow|研究トピックのシグナルフロー|Signalfluss der Forschungstrends
+实时热度|Live heat|リアルタイム注目度|Live-Trend
+AI 安全热点榜|AI safety hot list|AI 安全ホットリスト|Hotlist zur KI-Sicherheit
+过去 72 小时，按公开分数、发布时间与议题去重整理 10 条安全信号。|Ten safety signals from the last 72 hours, organized by public score, publication time and topic deduplication.|過去 72 時間の安全シグナル 10 件を、公開スコア、発表時刻、テーマの重複排除に基づいて整理しています。|Zehn Sicherheitssignale der letzten 72 Stunden, geordnet nach öffentlichem Wert, Veröffentlichungszeit und Themen-Deduplizierung.
+按公开分数、发布时间及议题去重排序|Ranked by public score, publication time and topic deduplication|公開スコア、発表時刻、テーマの重複排除で順位付け|Sortiert nach öffentlichem Wert, Veröffentlichungszeit und Themen-Deduplizierung
+继续看|Continue with|Weiter zu|Weiter mit
+来源 · 同类议题近 7 日收录趋势 · 热点指数|Source · 7-day collection trend for related topics · heat index|情報源・同種テーマの 7 日間収録推移・注目指数|Quelle · 7-Tage-Erfassungstrend ähnlicher Themen · Trendindex
+同类议题近 7 日收录趋势|7-day collection trend for related topics|同種テーマの 7 日間収録推移|7-Tage-Erfassungstrend ähnlicher Themen
+同类议题收录变化|Change in related-topic collection|同種テーマの収録変化|Veränderung bei der Erfassung ähnlicher Themen
+热点指数|Heat index|注目指数|Trendindex
+新收录|Newly collected|新規収録|Neu erfasst
+持平|Steady|横ばい|Unverändert
+热点指数沿用 AI Safety HOT 公开字段；排序同时考虑发布时间并做标题近似去重。趋势线表示同类议题近 7 个完整自然日的收录量，不代表社交讨论量或风险等级。|The heat index uses the public AI Safety HOT field. Ranking also considers publication time and near-duplicate titles. Trend lines show collection volume for related topics over the last seven complete calendar days; they do not represent social discussion volume or risk level.|注目指数は AI Safety HOT の公開フィールドを使用します。順位には発表時刻と題名の近似重複排除も反映します。推移線は同種テーマについて直近 7 完全暦日の収録件数を示し、SNS 上の議論量やリスク等級を表すものではありません。|Der Trendindex übernimmt das öffentliche Feld von AI Safety HOT. Die Rangfolge berücksichtigt zusätzlich Veröffentlichungszeit und ähnliche Titel. Die Trendlinie zeigt das Erfassungsvolumen ähnlicher Themen in den letzten sieben vollständigen Kalendertagen, nicht das Diskussionsvolumen in sozialen Medien oder eine Risikostufe.
 公开来源经过主题聚类与信号筛选，汇聚为当前焦点。|Public sources pass through topic clustering and signal filtering to form the current focus.|公開情報源をテーマ別に集約・選別し、現在の注目情報にまとめます。|Öffentliche Quellen werden thematisch gebündelt und gefiltert und bilden den aktuellen Schwerpunkt.
 平台获取：|Platform retrieved:|プラットフォーム取得：|Plattformabruf:
 观察台与采集说明|Observatory and collection notes|観測台と収集方法|Beobachtung und Erfassung
@@ -1247,6 +1259,7 @@ function translate(value,language){
  out=out.replace(/当前范围：/g,at('Current scope: ','現在の範囲：','Aktueller Bereich: '));
  out=out.replace(/这个方向还没有收录 (.+?) 的正式条目。/g,(_,n)=>at(`No confirmed ${n} entries in this topic yet.`,`この分野には ${n} の正式な項目がまだありません。`,`Für ${n} liegen in diesem Thema noch keine bestätigten Einträge vor.`));
  out=out.replace(/(\d+) 个相关(?:记录|示例)/g,(_,n)=>at(`${n} related records`,`${n} 件の関連資料`,`${n} verwandte Einträge`));
+  out=out.replace(/(\d+) 个来源/g,(_,n)=>at(`${n} sources`,`${n} 件の情報源`,`${n} Quellen`));
  out=out.replace(/(\d+) 条近 30 日记录/g,(_,n)=>at(`${n} records in the last 30 days`,`過去 30 日の資料 ${n} 件`,`${n} Einträge in den letzten 30 Tagen`));
  out=out.replace(/(\d+) 条记录，来自 (\d+) 个公开来源。以下为元数据索引，不代替原文核对。/g,(_,records,sources)=>at(`${records} records from ${sources} public sources. This metadata index does not replace checking the originals.`,`公開情報源 ${sources} 件から ${records} 件。メタデータ索引であり、原文確認の代わりにはなりません。`,`${records} Einträge aus ${sources} öffentlichen Quellen. Dieser Metadatenindex ersetzt nicht die Prüfung der Originale.`));
  // One pass over source fragments: never re-translate translated output.
