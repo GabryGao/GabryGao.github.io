@@ -28,7 +28,7 @@ AI Safety Index · 2026-10-22
 资源接收渠道和审核负责人未提供。当前禁止正式提交，只可下载本地草稿；不计为真实上传功能已上线。
 resource-submission.js 提供接收端契约：HTTPS JSON POST；成功必须返回 status=pending_review 和 receipt_id。未配置时禁止发送；失败保留输入。不能将私密邮箱或密钥放在公开前端。
 团队已确认 Xinfeng Li（香港理工大学，教授）、Xin Gao（东京理科大学，参与成员）。头像仅显示姓名缩写；个人主页、具体职责及团队成果链接待补充，未虚构。
-每日自动采集工作流已安装在 .github/workflows/update-ai-safety-index.yml。页面保留有采集时间的公开元数据快照。
+自动采集工作流已安装在 .github/workflows/update-ai-safety-index.yml。新闻与公司/模型主题每 3 小时更新，页面保留有采集时间的公开元数据快照。
 
 主要文件
 portal-compact.js / .css：最终页面、共用图表记录与紧凑资源子页。

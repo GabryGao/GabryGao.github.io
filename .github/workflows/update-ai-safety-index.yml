@@ -28,6 +28,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
         working-directory: ai-safety-index
         run: python3 tools/update-news.py
+      - name: Refresh public topic metadata
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
+        working-directory: ai-safety-index
+        run: python3 tools/update-topics.py
       - name: Refresh public evaluation metadata
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '50 1 * * *'
         working-directory: ai-safety-index
@@ -49,6 +53,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ai-safety-index/news-feed.js ai-safety-index/evaluation-data.js ai-safety-index/research-source/news-feed-provenance.json ai-safety-index/research-source/evaluation-provenance.json ai-safety-index/status.json
+          git add ai-safety-index/news-feed.js ai-safety-index/topic-feed.js ai-safety-index/evaluation-data.js ai-safety-index/research-source/news-feed-provenance.json ai-safety-index/research-source/topic-feed-provenance.json ai-safety-index/research-source/evaluation-provenance.json ai-safety-index/status.json
           git diff --cached --quiet || git commit -m "chore: refresh AI safety index feeds"
           git push

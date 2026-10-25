@@ -3,6 +3,11 @@ var SiteLocale = (() => {
 'use strict';
 const languages=['zh','en','ja','de'];
 const rows=`
+公司与模型|Companies & models|企業とモデル|Unternehmen & Modelle
+按厂商追踪模型、产品与公司动态|Track model, product and company updates by provider|企業別にモデル・製品・企業動向を追跡|Modelle, Produkte und Unternehmensmeldungen nach Anbieter verfolgen
+按主题查看公司、模型与近期安全动态。|Browse companies, models and recent safety updates by topic.|企業・モデル・最近の安全動向をテーマ別に閲覧します。|Unternehmen, Modelle und aktuelle Sicherheitsmeldungen nach Thema durchsuchen.
+主题数据更新|Topic data updated|テーマデータ更新|Themendaten aktualisiert
+近期热点|Recent updates|最近の注目情報|Aktuelle Meldungen
 来源目录|Source catalog|情報源カタログ|Quellenkatalog
 AI 安全数据来源目录|AI safety source catalog|AI 安全データ情報源カタログ|Quellenkatalog für KI-Sicherheitsdaten
 把基准、数据集、工具、环境、结果入口与核验证据分开记录，先回答资料从哪里来，再讨论能否比较。|Records benchmarks, datasets, tools, environments, result entry points and verification evidence separately. Establish provenance before comparing results.|ベンチマーク、データセット、ツール、環境、結果入口、検証証拠を分けて記録し、比較の前に出典を明確にします。|Erfasst Benchmarks, Datensätze, Tools, Umgebungen, Ergebniseinstiege und Prüfbelege getrennt. Vor Vergleichen wird zuerst die Herkunft geklärt.
