@@ -54,3 +54,12 @@
 
 @media(max-width:1120px){.madeo-subpage .catalog-toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}.madeo-subpage .catalog-toolbar .search-form{grid-column:1/-1}}
 @media(max-width:767px){.madeo-subpage .catalog-toolbar{grid-template-columns:1fr}.madeo-subpage .catalog-toolbar .search-form{grid-column:auto}.catalog-explore-details{margin-top:22px}}
+
+/* Stretch each card's title link across the card while preserving its explicit action links. */
+.catalog-card{position:relative;cursor:pointer;transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}
+.catalog-card h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.catalog-card .cp-card-actions a{position:relative;z-index:2}
+.catalog-card:hover{border-color:#9fadb7;background:#fbfcfd;box-shadow:0 5px 16px rgba(29,48,61,.07)}
+.catalog-card:focus-within{border-color:#294fa1;box-shadow:0 0 0 2px rgba(41,79,161,.22)}
+.catalog-card h3 a:focus-visible{outline:0}
+@media(prefers-reduced-motion:reduce){.catalog-card{transition:none}}

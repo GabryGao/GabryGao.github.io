@@ -4,6 +4,8 @@ import vm from 'node:vm';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const catalogCss=fs.readFileSync(path.join(root,'portal-catalog.css'),'utf8');
+const page=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const el={addEventListener(){},innerHTML:'',classList:{remove(){},toggle(){}},setAttribute(){},removeAttribute(){}};
 const c=vm.createContext({console,URL,URLSearchParams,location:{hash:'#home'},document:{querySelector:s=>s==='#main'?el:{...el},querySelectorAll:()=>[],addEventListener(){},title:''},window:{addEventListener(){},scrollTo(){}},setTimeout(){},clearTimeout(){},AbortController});
 for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','source-catalog.js','evaluation-data.js','portal-results.js','portal-compact.js','portal-catalog.js','portal-search.js','resource-submission.js']){
@@ -45,4 +47,5 @@ c.location.hash='#benchmarks?related=1';assert.ok(run("benchmarkPanel('')").incl
 c.location.hash='#benchmarks?topic=injection';const injectionCatalog=run("benchmarkPanel('')");assert.ok(injectionCatalog.includes('7</dt><dd>匹配资源'));assert.equal((injectionCatalog.match(/class="cp-resource-card catalog-card"/g)||[]).length,7);assert.ok(injectionCatalog.includes('class="catalog-bar-row active" data-catalog-topic="injection"'));assert.ok(injectionCatalog.includes('AgentDojo'));
 c.location.hash='#benchmarks?direction=data-privacy';const privacyCatalog=run("benchmarkPanel('data-privacy')");assert.ok(privacyCatalog.includes('catalog-snapshot'));assert.ok(privacyCatalog.includes('catalog-chart-grid'));assert.ok(privacyCatalog.includes('class="catalog-bar-row active" data-catalog-direction="data-privacy"'));assert.ok(privacyCatalog.includes('PrivacyLens'));assert.ok(privacyCatalog.includes('ConfAIde'));assert.ok(!privacyCatalog.includes('0 条基准示例'));
 c.location.hash='#methods?direction=data-privacy';const privacyMethods=run('methodsPage()');assert.ok(privacyMethods.includes('Privacy Meter'));assert.equal((privacyMethods.match(/class="cp-resource-card/g)||[]).length,6);assert.ok(privacyMethods.includes('评测规范与数据记录'));assert.ok(privacyMethods.includes('结果数据处理流程'));assert.ok(privacyMethods.includes('当前方向的比较边界'));
+assert.match(page,/portal-catalog\.css\?v=clickable-cards-20261025/);assert.match(catalogCss,/\.catalog-card h3 a::after/);assert.match(catalogCss,/\.catalog-card \.cp-card-actions a\{position:relative;z-index:2\}/);
 console.log('Compact portal checks passed: official homepage comparison, benchmark switching, compact resource routes, legacy destinations, subtopic filtering, search deduplication, model subset, honest receiver state and validated failure/success responses.');
