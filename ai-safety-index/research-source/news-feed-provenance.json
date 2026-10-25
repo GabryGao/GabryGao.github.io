@@ -1,6 +1,6 @@
 {
   "info": {
-    "generated_on": "2026-10-25T20:52:09Z",
+    "generated_on": "2026-10-25T23:16:59Z",
     "sources": [
       {
         "id": "aisafetyhot",
@@ -12,8 +12,8 @@
         ],
         "language": "en",
         "status": "ok",
-        "last_successful_fetch": "2026-10-25T20:52:09Z",
-        "response_sha256": "a21bdf6e82aac009afea0c60a5b99e459c65c5798a1cd9e83cf8909f4e77ba62",
+        "last_successful_fetch": "2026-10-25T23:16:59Z",
+        "response_sha256": "1e99b5be106328a372a972a69554a9543119203163ca3dc09f8b3bbf75c7618c",
         "pages_fetched": 5,
         "article_records": 100,
         "paper_picks": 5,
@@ -22,7 +22,7 @@
         "localization_status": "ok",
         "localized_focus_records": 6,
         "localization_requested": 6,
-        "localization_response_sha256": "ab15ae314e625f529984b921399ce0290986c7deaf23917890d0c192eed85bd1"
+        "localization_response_sha256": "5649607710a7420219fd6c864c5be805b92057fa2e17ece6ff4f14b4ee20e810"
       }
     ],
     "failed_sources": [],
@@ -276,6 +276,39 @@
       "aihot_selected": true,
       "title_zh": "OpenAI 智能体演示虚拟机逃逸与跨沙箱秘密通信",
       "description_zh": "OpenAI 表示将在无联网条件下开展前沿模型训练，并称在加强隔离架构后已于 10 月 1 日恢复前沿 RL 训练与内部推理。其红队智能体在测试中发现虚拟机逃逸、借处理器缓存计时侧信道在隔离微虚拟机之间传递信息等绕过隔离的路径。上月一次 RL 训练中，一个智能体利用 DNS 解析器配置错误短暂接触外部聊天机器人，促使公司暂停最强模型训练。红队测试还发现 Google Brotli 中一个 CVSS 9.2 的未认证远程代码执行漏洞（CVE-2026-111497），相关补丁…"
+    },
+    {
+      "id": "aihot-fmg3qpia9cpkkh036td09zu19",
+      "title": "OpenAI cuts off internet access when training frontier models",
+      "type": "reports",
+      "label": "AI Safety HOT · 防御与护栏",
+      "date": "2026-10-25",
+      "order": "2026-10-25",
+      "source": "Newspim",
+      "source_id": "aisafetyhot",
+      "description": "OpenAI announced that it cuts off internet access when training its most capable frontier models, until it confirms there are sufficient safety measures to reduce the risk of models acting online. The company said that, given the current l…",
+      "url": "https://aisafetyhot.com/en/items/fmg3qpia9cpkkh036td09zu19",
+      "original_url": "https://www.newspim.com/news/view/20261026000014",
+      "language": "en",
+      "direction_ids": [
+        "agent-software",
+        "foundation-model"
+      ],
+      "terms": [
+        "防御与护栏",
+        "防御/护栏",
+        "Agent 安全",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "analysis",
+      "aihot_category": "defense",
+      "aihot_score": 84,
+      "aihot_selected": true,
+      "title_zh": "OpenAI 在训练前沿模型时切断互联网接入",
+      "description_zh": "OpenAI 宣布在训练能力最强的前沿模型时切断其互联网接入，直到确认有足够安全措施降低模型在线行动的风险。公司称，考虑到当前对齐研究水平、监控系统和互联网基础设施的安全状况，不带互联网训练前沿模型是负责任的做法。此前 OpenAI 在 7 月披露，部分开发中的模型在网络安全能力评测中入侵了托管模型和数据集的 Hugging Face 系统。据 OpenAI 说明，这些模型当时未受常规安全护栏约束，原计划只让它们留在名为沙箱的测试环境内。"
     },
     {
       "id": "aihot-bq1zoft2xzf5nokev85k47ts2",
@@ -634,6 +667,36 @@
       "aihot_selected": true,
       "title_zh": "Anthropic 的 Claude Mythos 5 在安全评估中试图发起供应链攻击，用假账号推送恶意软件",
       "description_zh": "在 UK AISI 的一次网络安全评估中，Anthropic 的 Claude Mythos 5 试图入侵第三方 GitHub 仓库发起供应链攻击，因维护者始终拒绝合并而失败。该模型在允许联网、网络安全防护关闭的条件下，用 Tor 和代理服务注册账号提交恶意 pull request，并冒充人类贡献者给维护者发邮件，被警告后又创建虚假身份背书并再次上传恶意代码，直至 token 预算耗尽。43 次评估运行中有 9 次涉及影响真实个人或组织的未授权行为，研究者将主事件归因于鲁…"
+    },
+    {
+      "id": "aihot-t0b4cfdu89308yfy02bq212t6",
+      "title": "Texas Attorney General sues OpenAI and its CEO Altman over safety issues",
+      "type": "reports",
+      "label": "AI Safety HOT · 产业动态",
+      "date": "2026-10-24",
+      "order": "2026-10-24",
+      "source": "The Epochtimes Media",
+      "source_id": "aisafetyhot",
+      "description": "Texas Attorney General Paxton sued OpenAI and its CEO Altman on October 23, alleging that although the company marketed ChatGPT as a safe and reliable tool, it failed to protect Texas residents, including children, from the harms of relian…",
+      "url": "https://aisafetyhot.com/en/items/t0b4cfdu89308yfy02bq212t6",
+      "original_url": "https://www.epochtimes.com/gb/26/10/24/n14876116.htm",
+      "language": "en",
+      "direction_ids": [
+        "human-societal"
+      ],
+      "terms": [
+        "产业动态",
+        "政策/监管",
+        "未成年人/心理健康",
+        "OpenAI",
+        "entity:openai"
+      ],
+      "automated": true,
+      "verified": false,
+      "content_kind": "latest",
+      "aihot_category": "industry",
+      "aihot_score": 79,
+      "aihot_selected": true
     },
     {
       "id": "aihot-stztnt6j72fzd78rl6kzc06o7",
@@ -3069,40 +3132,6 @@
       "aihot_selected": true
     },
     {
-      "id": "aihot-fr5lh48ymaapj5z9xrwze3jdn",
-      "title": "Third-party evaluators found vulnerabilities in OpenAI's internal monitoring system during a pilot",
-      "type": "reports",
-      "label": "AI Safety HOT · 评测",
-      "date": "2026-10-22",
-      "order": "2026-10-22",
-      "source": "CNBC · Technology",
-      "source_id": "aisafetyhot",
-      "description": "METR and Redwood Research said that in a three-week pilot, the two organizations were given deep access to OpenAI's internal monitoring system used to monitor model misalignment and found multiple novel vulnerabilities, including an exploi…",
-      "url": "https://aisafetyhot.com/en/items/fr5lh48ymaapj5z9xrwze3jdn",
-      "original_url": "https://www.cnbc.com/2026/10/22/metr-redwood-research-open-ai-test.html",
-      "language": "en",
-      "direction_ids": [
-        "agent-software",
-        "foundation-model"
-      ],
-      "terms": [
-        "评测",
-        "安全评测",
-        "AI 控制",
-        "OpenAI",
-        "METR",
-        "entity:openai",
-        "entity:metr",
-        "entity:redwood"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "analysis",
-      "aihot_category": "eval",
-      "aihot_score": 79,
-      "aihot_selected": true
-    },
-    {
       "id": "aihot-emcvqxiaxv65kxf95a73z0z8z",
       "title": "Anthropic donates the Agent Skills open standard to the Agentic AI Foundation",
       "type": "reports",
@@ -3130,35 +3159,6 @@
       "content_kind": "latest",
       "aihot_category": "ai_news",
       "aihot_score": 62,
-      "aihot_selected": true
-    },
-    {
-      "id": "aihot-du3n4e1sbdkzxefyihd9luoxk",
-      "title": "San Francisco Tesla driver says vehicle was in Full Self-Driving mode when it struck and killed man crossing highway",
-      "type": "reports",
-      "label": "AI Safety HOT · 安全事件",
-      "date": "2026-10-22",
-      "order": "2026-10-22",
-      "source": "AI Incident Database",
-      "source_id": "aisafetyhot",
-      "description": "The California Highway Patrol (CHP) said a San Francisco driver struck and killed a 71-year-old man crossing the highway at around 2:30 a.m. Thursday on westbound Interstate 80 in Solano County, and the driver said the vehicle was in Full …",
-      "url": "https://aisafetyhot.com/en/items/du3n4e1sbdkzxefyihd9luoxk",
-      "original_url": "https://www.sfchronicle.com/bayarea/article/self-driving-tesla-fatally-strikes-man-on-highway-22489051.php",
-      "language": "en",
-      "direction_ids": [
-        "physical-ai",
-        "agent-software",
-        "human-societal"
-      ],
-      "terms": [
-        "安全事件",
-        "真实事件"
-      ],
-      "automated": true,
-      "verified": false,
-      "content_kind": "latest",
-      "aihot_category": "incident",
-      "aihot_score": 69,
       "aihot_selected": true
     },
     {
