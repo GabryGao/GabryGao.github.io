@@ -254,7 +254,7 @@ html[lang="zh-CN"] .news-copy-zh{display:inline}
   .home-river-stage{min-height:160px;margin-top:0}
   .home-river-canvas-panel{height:160px;min-height:160px}
   .home-river-axis{bottom:8px}
-  .home-river-focus{grid-template-columns:110px minmax(0,1fr);gap:18px;padding:10px 0 12px}
+  .home-river-focus{grid-template-columns:132px minmax(0,1fr);gap:18px;padding:10px 0 12px}
   .home-river-focus-head{gap:6px}
   .home-river-story-stack{min-height:70px}
   .home-river-story{gap:20px}
@@ -276,7 +276,7 @@ html[lang="zh-CN"] .news-copy-zh{display:inline}
   .home-river-stage{min-height:132px}
   .home-river-canvas-panel{height:132px;min-height:132px}
   .home-river-axis{right:14px;bottom:6px;left:14px}
-  .home-river-focus{grid-template-columns:92px minmax(0,1fr);gap:14px;padding:7px 0 8px}
+  .home-river-focus{grid-template-columns:120px minmax(0,1fr);gap:14px;padding:7px 0 8px}
   .home-river-focus-head{padding-left:8px;gap:4px;border-left-width:3px}
   .home-river-focus-head button{width:24px;height:24px}
   .home-river-story-stack{min-height:58px}
