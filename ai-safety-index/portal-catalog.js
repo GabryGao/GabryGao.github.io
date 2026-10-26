@@ -200,12 +200,12 @@ compactMethodCards=function(direction=''){
 methodsPage=function(){
  const direction=selectedDirection(),params=route().params,query=(params.get('q')||'').trim(),records=EvaluationCatalog.methodRecords(direction),filtered=EvaluationCatalog.sort(records.filter(record=>EvaluationCatalog.matches(record,query))),model=EvaluationCatalog.pageModel(filtered,EvaluationCatalog.methodPageSize);
 	 const toolbar='<div class="panel-toolbar method-toolbar method-tools-toolbar">'+searchForm('method-search','搜索工具或运行环境',query)+'</div>';
- return '<div class="wrap task-page cp-evaluation">'+compactEvalHead('基准与评测')+evalTabs('methods')+scopeControl(direction)+'<section class="method-resource-section" aria-labelledby="method-resources-title"><header class="method-resource-head"><div><span>TOOLS & RUNTIME ENVIRONMENTS</span><h2 id="method-resources-title">工具与运行环境</h2></div><p>'+esc(getDirection(direction)?.name||'全部方向')+' · '+records.length+' 项资源</p></header>'+toolbar+'<div class="count-row"><span>'+filtered.length+' 项匹配资源</span><span>每页 6 项 · 先进入站内资料档案</span></div>'+(model.visible.length?'<div class="resource-list catalog-grid">'+model.visible.map(methodCard).join('')+'</div>'+catalogPagination(model):contentEmpty('当前范围暂无工具或运行环境','调整关键词或研究方向后重试。',scopedLink('methods',''),'浏览全部工具'))+'</section>'+methodGuide(direction)+'</div>';
+ return '<div class="wrap task-page cp-evaluation">'+compactEvaluationShell('methods',direction)+'<section class="method-resource-section" aria-labelledby="method-resources-title"><header class="method-resource-head"><div><span>TOOLS & RUNTIME ENVIRONMENTS</span><h2 id="method-resources-title">工具与运行环境</h2></div><p>'+esc(getDirection(direction)?.name||'全部方向')+' · '+records.length+' 项资源</p></header>'+toolbar+'<div class="count-row"><span>'+filtered.length+' 项匹配资源</span></div>'+(model.visible.length?'<div class="resource-list catalog-grid">'+model.visible.map(methodCard).join('')+'</div>'+catalogPagination(model):contentEmpty('当前范围暂无工具或运行环境','调整关键词或研究方向后重试。',scopedLink('methods',''),'浏览全部工具'))+'</section>'+methodGuide(direction)+'</div>';
 };
 
 resultsPage=function(){
  const direction=selectedDirection();
- return '<div class="wrap task-page cp-evaluation">'+compactEvalHead('基准与评测','比较公开结果，并保留任务、设置、指标和来源。')+evalTabs('results')+scopeControl(direction)+resultPanel(direction)+'</div>';
+ return '<div class="wrap task-page cp-evaluation">'+compactEvaluationShell('results',direction)+resultPanel(direction)+'</div>';
 };
 
 document.addEventListener('change',e=>{if(e.target.id==='catalog-topic')replaceQuery('topic',e.target.value);if(e.target.id==='catalog-related')replaceQuery('related',e.target.checked?'1':'')});

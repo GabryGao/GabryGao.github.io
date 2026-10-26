@@ -1,7 +1,7 @@
 /* The accepted home body is unchanged; navigation is shared across both shells. */
 #primary-nav{overflow:visible;gap:16px}
 .md-nav-group{position:relative;display:flex;align-items:center;gap:3px;min-width:0}
-.site-header #primary-nav .md-nav-group>a{white-space:nowrap;font-size:16px;line-height:1.5}
+.site-header #primary-nav>.md-nav-group>a,.site-header #primary-nav>a{white-space:nowrap;font-size:16px;line-height:1.5;height:24px}
 .md-nav-toggle{display:flex;align-items:center;justify-content:center;width:20px;height:32px;padding:0;border:0;background:transparent;color:#222}
 .md-nav-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;transition:transform .18s}
 .md-nav-group.is-open .md-nav-toggle svg{transform:rotate(180deg)}
