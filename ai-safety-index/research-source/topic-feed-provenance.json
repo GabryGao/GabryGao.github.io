@@ -1,10 +1,10 @@
 {
   "info": {
-    "generated_on": "2026-10-25T23:17:03Z",
+    "generated_on": "2026-10-26T04:48:33Z",
     "status": "current",
     "record_count": 15,
-    "response_sha256": "57622d210adda4b9ab3f61fa583e04e68cfdc2aacaff2f987a49419fc3ec1dd9",
-    "last_successful_fetch": "2026-10-25T23:17:03Z",
+    "response_sha256": "034b2c2999aaf03a8460ca67ab8f67d7f838b55fd0623373ec8d3ae023537730",
+    "last_successful_fetch": "2026-10-26T04:48:33Z",
     "source": {
       "id": "aihot-topics",
       "name": "AIHOT",
