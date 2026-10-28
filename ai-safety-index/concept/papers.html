@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:76ch}
+
+/* year board: the page's signature */
+.years{margin:18px 0 26px;background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:22px 24px 16px;position:relative}
+.years::after{content:"";position:absolute;inset:8px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.years h2{margin:0 0 4px;font-weight:700;font-stretch:87.5%;font-size:22px}
+.years > p{margin:0 0 14px;color:var(--safe-muted);font-size:13px}
+.ybars{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:6px;height:150px;align-items:end;position:relative;z-index:1}
+.ybars button{font:inherit;color:inherit;background:none;border:0;padding:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;cursor:pointer}
+.ybars .v{font-size:12px;font-weight:600;text-align:center}
+.ybars .c{background:rgba(233,246,238,.55);border-radius:2px;min-height:3px;transition:background .2s}
+.ybars .y{font-size:11.5px;text-align:center;color:var(--safe-muted)}
+.ybars button:hover .c{background:var(--safe-ink)}
+.ybars button[aria-pressed="true"] .c{background:var(--warn)}
+.ybars button[aria-pressed="true"] .y{color:var(--safe-ink);font-weight:600}
+.ybars button:disabled{cursor:default;opacity:.5}
+@media (prefers-reduced-motion:no-preference){.ybars .c{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i)*40ms);transform-origin:bottom}}
+
+.reads{padding:0 0 30px}
+.tools{display:grid;grid-template-columns:2fr 1.3fr 1fr 1fr;gap:12px;align-items:end;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;color:var(--muted)}
+.input,.select{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:100%}
+.input::placeholder{color:#7d8982}
+.input:focus,.select:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.count-line{color:var(--muted);font-size:13px;margin:0 0 10px}
+
+.ygroup{margin-bottom:30px}
+.yhead{display:flex;align-items:flex-end;gap:14px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.yhead .plates{gap:5px}
+.yhead .plate{width:40px;height:56px;font-size:46px;border-radius:4px;animation:none}
+.yhead .plate::after{width:5px;height:5px;top:5px;margin-left:-2.5px}
+.yhead small{color:var(--muted);font-size:13px;padding-bottom:4px}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.plist .pt{overflow-wrap:anywhere;font-weight:600;font-size:16px;line-height:1.4;text-decoration:none}
+.plist .pt:hover{text-decoration:underline}
+.plist .au{grid-column:1;font-size:13px;color:var(--muted)}
+.plist .tg{grid-column:1;display:flex;flex-wrap:wrap;gap:6px}
+.plist .tg .tag{margin:0}
+.plist .vn{grid-row:1 / span 3;grid-column:2;text-align:right;font-size:13px;max-width:220px}
+.plist .vn b{display:block;font-weight:700;font-stretch:87.5%;font-size:15px}
+.plist .vn a{color:var(--muted)}
+.plist .vn a:hover{color:var(--warn)}
+.moreall{display:flex;justify-content:center;padding:10px 0 0}
+.btn{font:inherit;font-size:14px;font-weight:600;color:var(--enamel-ink);background:var(--ink);border:0;border-radius:5px;padding:10px 18px;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--warn)}
+@media (max-width:1040px){.tools{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){
+  .tools{grid-template-columns:1fr}
+  .years{padding:18px 14px 12px}
+  .ybars{gap:3px;height:120px}
+  .ybars .y{font-size:10px}
+  .ybars .v{font-size:11px}
+  .plist li{grid-template-columns:minmax(0,1fr)}
+  .plist .vn{grid-row:auto;grid-column:1;text-align:left;max-width:none}
+  .plist .vn b{display:inline;margin-right:8px}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>论文</h1>
+    <p id="head-sub"></p>
+  </div>
+  <nav class="dirs" aria-label="按研究方向筛选">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  </nav>
+
+  <section class="reads" aria-labelledby="reads-title">
+    <h2 id="reads-title" style="margin:22px 0 4px;font-weight:700;font-stretch:87.5%;font-size:24px">本周新进</h2>
+    <p class="sub" id="reads-sub"></p>
+    <ol id="reads"></ol>
+  </section>
+
+  <section class="years" aria-labelledby="years-title">
+    <h2 id="years-title">论文库按年份</h2>
+    <p id="years-sub">点击某一年只看这一年，再点一次取消。</p>
+    <div class="ybars" id="ybars" role="group" aria-label="年份"></div>
+  </section>
+
+  <div class="tools">
+    <div class="field">
+      <label for="q">关键词</label>
+      <input class="input" id="q" type="search" placeholder="标题、作者或子主题" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="sub">子主题</label>
+      <select class="select" id="sub"></select>
+    </div>
+    <div class="field">
+      <label for="venue">发表处</label>
+      <select class="select" id="venue"></select>
+    </div>
+    <div class="field">
+      <label for="sort">排序</label>
+      <select class="select" id="sort">
+        <option value="year">年份从新到旧</option>
+        <option value="title">标题 A–Z</option>
+      </select>
+    </div>
+  </div>
+
+  <section aria-labelledby="count">
+    <p class="count-line" id="count" aria-live="polite"></p>
+    <div id="list"></div>
+    <div class="moreall" id="moreall"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="foot"></span>
+    <a href="index.html">返回看板</a>
+    <a href="../#papers">现站论文页</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script>var paperRecords = [];</script>
+<script src="../opentai-papers.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, N = S.news, { esc, md, dirName, link } = S;
+  S.header('papers.html');
+  const P = paperRecords.slice();
+  const info = typeof paperImportInfo !== 'undefined' ? paperImportInfo : {};
+  const TOP_VENUES = ['arXiv', 'NeurIPS', 'ICLR', 'CVPR', 'USENIX Security', 'ACL', 'ICML', 'EMNLP', 'IROS', 'AAAI'];
+  const venueOf = p => TOP_VENUES.includes(p.venue) ? p.venue : 'other';
+  const years = [...new Set(P.map(p => p.year))].sort();
+  const p0 = S.params();
+  const state = { dir: S.dirParam(), q: p0.get('q') || '', sub: p0.get('sub') || 'all', venue: p0.get('venue') || 'all', year: p0.get('year') || 'all', sort: p0.get('sort') === 'title' ? 'title' : 'year', shown: 40 };
+
+  document.getElementById('head-sub').textContent = P.length + ' 篇，来自 OpenTAI 论文库快照（' + (info.imported_on || '导入日期未知') + ' 导入）。来源只提供年份和子主题，没有摘要；收录不代表认可论文结论。';
+  document.getElementById('foot').textContent = '论文库来自 OpenTAI 公开目录（commit ' + String(info.source_commit || '').slice(0, 7) + '），不会自动更新。现站另有 3 篇手工收录的基准论文，概念页暂未包含。';
+
+  const inDir = (p, d) => d === 'all' || (p.direction_ids || []).includes(d);
+  const match = (p, skip) => {
+    if (skip !== 'dir' && !inDir(p, state.dir)) return false;
+    if (skip !== 'year' && state.year !== 'all' && p.year !== state.year) return false;
+    if (skip !== 'sub' && state.sub !== 'all' && p.description !== state.sub) return false;
+    if (skip !== 'venue' && state.venue !== 'all' && venueOf(p) !== state.venue) return false;
+    if (state.q) {
+      const hay = [p.title, (p.authors || []).join(' '), p.description, p.venue, p.arxiv_id].join(' ').toLowerCase();
+      if (!state.q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w))) return false;
+    }
+    return true;
+  };
+
+  const renderDirs = S.dirSeg(document.getElementById('dirs'), () => state.dir,
+    id => P.filter(p => inDir(p, id) && match(p, 'dir')).length,
+    id => { state.dir = id; state.shown = 40; render(); });
+
+  const ybars = document.getElementById('ybars');
+  ybars.style.setProperty('--n', years.length);
+  ybars.addEventListener('click', e => { const b = e.target.closest('button[data-y]'); if (!b || b.disabled) return; state.year = state.year === b.dataset.y ? 'all' : b.dataset.y; state.shown = 40; render(); });
+
+  const q = document.getElementById('q'), sub = document.getElementById('sub'), venue = document.getElementById('venue'), sort = document.getElementById('sort');
+  let t; q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = q.value.trim(); state.shown = 40; render(); }, 150); });
+  sub.addEventListener('change', () => { state.sub = sub.value; state.shown = 40; render(); });
+  venue.addEventListener('change', () => { state.venue = venue.value; state.shown = 40; render(); });
+  sort.addEventListener('change', () => { state.sort = sort.value; render(); });
+  document.getElementById('moreall').addEventListener('click', e => { if (e.target.closest('button')) { state.shown += 40; render(); } });
+
+  function renderReads() {
+    const list = N.papers.filter(r => inDir(r, state.dir));
+    document.getElementById('reads-sub').textContent = 'AI Safety HOT 本周精选，共 ' + list.length + ' 篇，独立于下方论文库。来源未提供摘要。';
+    document.getElementById('reads').innerHTML = list.length ? list.map(r => {
+      const arxiv = (link(r).match(/arxiv\.org\/abs\/([\w.]+)/) || [])[1];
+      return '<li><time datetime="' + esc(r.date) + '">' + md(r.date) + '</time>'
+        + '<a class="pt" href="' + esc(link(r)) + '" rel="noopener" lang="en">' + esc(r.title) + '</a>'
+        + '<span class="pm">' + (arxiv ? 'arXiv ' + esc(arxiv) + ' · ' : '') + (r.direction_ids || []).map(dirName).join('、') + '</span>'
+        + '<span class="pl"><a href="' + esc(link(r)) + '" rel="noopener">' + (arxiv ? 'arXiv' : '原文') + ' ↗</a><a href="' + esc(r.url) + '" rel="noopener">AI Safety HOT ↗</a></span></li>';
+    }).join('') : '<li class="empty">这个方向本周没有精选论文。</li>';
+  }
+
+  const paperRow = p => {
+    const au = (p.authors || []).slice(0, 3).join(', ') + ((p.authors || []).length > 3 ? ' 等' : '');
+    const href = p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url;
+    return '<li><a class="pt" href="' + esc(href) + '" rel="noopener" lang="en">' + esc(p.title) + '</a>'
+      + '<span class="au" lang="en">' + esc(au) + '</span>'
+      + '<span class="tg">' + (p.description ? '<span class="tag">' + esc(p.description) + '</span>' : '') + (p.direction_ids || []).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</span>'
+      + '<span class="vn"><b>' + esc(p.venue || '') + '</b>' + (p.arxiv_id ? '<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" rel="noopener">arXiv ' + esc(p.arxiv_id) + '</a>' : '') + '</span></li>';
+  };
+
+  function render() {
+    S.setParams({ q: state.q, sub: state.sub, venue: state.venue, year: state.year, sort: state.sort === 'title' ? 'title' : null });
+    q.value = state.q; sort.value = state.sort;
+    renderDirs(); renderReads();
+
+    const yScope = P.filter(p => match(p, 'year'));
+    const yc = years.map(y => yScope.filter(p => p.year === y).length), maxY = Math.max(1, ...yc);
+    ybars.innerHTML = years.map((y, i) => '<button type="button" data-y="' + y + '" aria-pressed="' + (state.year === y) + '"' + (yc[i] ? '' : ' disabled') + ' aria-label="' + y + ' 年 ' + yc[i] + ' 篇"><span class="v">' + yc[i] + '</span><span class="c" style="--i:' + i + ';height:' + (yc[i] / maxY * 100) + '%"></span><span class="y">' + y + '</span></button>').join('');
+
+    const subScope = P.filter(p => match(p, 'sub'));
+    const subs = [...new Set(subScope.map(p => p.description).filter(Boolean))].map(s => [s, subScope.filter(p => p.description === s).length]).sort((a, b) => b[1] - a[1]);
+    if (state.sub !== 'all' && !subs.some(([s]) => s === state.sub)) state.sub = 'all';
+    sub.innerHTML = '<option value="all">全部子主题</option>' + subs.map(([s, n]) => '<option value="' + esc(s) + '">' + esc(s) + '（' + n + '）</option>').join('');
+    sub.value = state.sub;
+
+    const vScope = P.filter(p => match(p, 'venue'));
+    const vn = v => vScope.filter(p => venueOf(p) === v).length;
+    venue.innerHTML = '<option value="all">全部发表处</option>' + [...TOP_VENUES, 'other'].filter(v => vn(v)).map(v => '<option value="' + esc(v) + '">' + (v === 'other' ? '其他会议与期刊' : esc(v)) + '（' + vn(v) + '）</option>').join('');
+    if (![...venue.options].some(o => o.value === state.venue)) state.venue = 'all';
+    venue.value = state.venue;
+
+    const list = P.filter(p => match(p)).sort(state.sort === 'title' ? (a, b) => a.title.localeCompare(b.title, 'en') : (a, b) => b.year.localeCompare(a.year) || a.title.localeCompare(b.title, 'en'));
+    document.getElementById('count').textContent = list.length + ' 篇' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）') + (state.year === 'all' ? '' : '，' + state.year + ' 年');
+    const shown = list.slice(0, state.shown);
+    const el = document.getElementById('list');
+    if (!list.length) el.innerHTML = '<p class="empty">没有符合这些条件的论文。</p>';
+    else if (state.sort === 'title') el.innerHTML = '<ol class="plist">' + shown.map(paperRow).join('') + '</ol>';
+    else {
+      const by = {};
+      for (const p of shown) (by[p.year] ||= []).push(p);
+      el.innerHTML = Object.keys(by).sort().reverse().map(y => '<section class="ygroup" aria-label="' + y + ' 年"><div class="yhead">' + S.plates(y, y + ' 年')
+        + '<small>' + list.filter(p => p.year === y).length + ' 篇</small></div><ol class="plist">' + by[y].map(paperRow).join('') + '</ol></section>').join('');
+    }
+    document.getElementById('moreall').innerHTML = list.length > state.shown ? '<button type="button" class="btn">再显示 ' + Math.min(40, list.length - state.shown) + ' 篇（共 ' + list.length + '）</button>' : '';
+  }
+  render();
+})();
+</script>
+</body>
+</html>

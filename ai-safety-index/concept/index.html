@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 安全看板 · 首页概念稿</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <nav class="dirs" aria-label="按研究方向筛选">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  </nav>
+  <section class="top">
+    <div class="board" aria-labelledby="board-title">
+      <h1 id="board-title">距上一次 AI 安全事件</h1>
+      <div class="count" id="count" aria-live="polite"></div>
+      <dl class="last" id="last"></dl>
+      <div class="strip">
+        <ol id="strip"></ol>
+        <div class="legend">
+          <span style="--k:var(--warn)">有安全事件</span>
+          <span style="--k:linear-gradient(var(--alarm) 0 4px,var(--warn) 4px)">红色顶标：当天有热度 ≥ 90 的事件</span>
+          <span style="--k:rgba(233,246,238,.35)">无事件</span>
+          <span style="--k:repeating-linear-gradient(135deg,rgba(233,246,238,.4) 0 3px,transparent 3px 6px)">尚未采集</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="feed" aria-labelledby="feed-title">
+      <h2 id="feed-title">近 72 小时安全信号</h2>
+      <p class="sub" id="feed-sub"></p>
+      <ol id="feed"></ol>
+      <a class="all" href="records.html">查看全部记录 →</a>
+    </section>
+  </section>
+
+  <section class="score" aria-labelledby="score-title">
+    <header>
+      <div>
+        <h2 id="score-title">本周谁在制造安全新闻</h2>
+        <p class="sub" id="score-sub"></p>
+      </div>
+      <div class="seg" role="group" aria-label="按角色筛选" id="roles">
+        <button type="button" data-v="all" aria-pressed="true">全部</button>
+        <button type="button" data-v="lab" aria-pressed="false">模型公司</button>
+        <button type="button" data-v="eval" aria-pressed="false">评测与研究机构</button>
+      </div>
+    </header>
+    <div class="tablewrap">
+      <table>
+        <thead><tr id="thead"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="note">统计口径：每条记录按其标注的机构计入，一条记录可以同时计入多家机构。“安全事件”指来源标注为安全事件的记录，热度为来源平台给出的 0–100 分。这里不给机构打综合分或等级。</p>
+  </section>
+
+  <section class="reads" aria-labelledby="reads-title">
+    <h2 id="reads-title">本周精选论文</h2>
+    <p class="sub" id="reads-sub"></p>
+    <ol id="reads"></ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>数据来自 <a href="https://aisafetyhot.com/en" rel="noopener">AI Safety HOT</a> 公开接口，每 3 小时更新。</span>
+    <a href="../#benchmarks">基准目录</a>
+    <a href="../#papers">论文资料</a>
+    <a href="../">返回当前首页</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, N = S.news, { esc, iso, md, day, DAY, heat, title, link, isIncident, dirName } = S;
+  S.header('index.html');
+  const state = { dir: S.dirParam(), role: 'all', sortKey: 'signals', order: -1, open: null };
+  const inDir = r => state.dir === 'all' || (r.direction_ids || []).includes(state.dir);
+  const dirLabel = () => state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）';
+
+  S.dirSeg(document.getElementById('dirs'), () => state.dir,
+    id => N.signals.filter(r => id === 'all' || (r.direction_ids || []).includes(id)).length,
+    id => { state.dir = id; state.open = null; renderAll(); });
+
+  function renderBoard() {
+    const incidents = N.signals.filter(inDir).filter(isIncident).sort((a, b) => b.date.localeCompare(a.date) || heat(b) - heat(a));
+    document.getElementById('board-title').textContent = '距上一次' + (state.dir === 'all' ? ' AI ' : '「' + dirName(state.dir) + '」') + '安全事件';
+    const count = document.getElementById('count'), last = document.getElementById('last');
+    if (incidents.length) {
+      const top = incidents[0], n = Math.max(0, Math.round((N.today - day(top.date)) / DAY));
+      count.innerHTML = S.plates(n, n + ' 天') + '<span class="unit">天</span>';
+      last.innerHTML = '<dt>上一次事件</dt><dd><a href="' + esc(link(top)) + '" rel="noopener">' + esc(title(top)) + '</a></dd>'
+        + '<dt>来源</dt><dd class="meta">' + esc(top.source) + ' · ' + esc(top.date) + ' · 热度 ' + heat(top) + '</dd>';
+    } else {
+      const n = Math.round((N.today - N.firstDay) / DAY);
+      count.innerHTML = S.plates(n, '至少 ' + n + ' 天') + '<span class="unit">天以上</span>';
+      last.innerHTML = '<dt>上一次事件</dt><dd>采集窗口（' + iso(N.firstDay) + ' 起）内这个方向没有安全事件。</dd>';
+    }
+    const perDay = {};
+    for (const r of incidents) (perDay[r.date] ||= []).push(r);
+    const strip = document.getElementById('strip');
+    strip.style.setProperty('--days', N.span);
+    strip.innerHTML = S.stripHTML(perDay);
+  }
+
+  const feed = document.getElementById('feed');
+  S.bindItems(feed, state);
+  function renderFeed() {
+    const recent = N.signals.filter(inDir).filter(r => N.ref - day(r.date) <= 3 * DAY);
+    const top = recent.slice().sort((a, b) => heat(b) - heat(a)).slice(0, 6);
+    document.getElementById('feed-sub').textContent = '按来源热度排序，共 ' + recent.length + ' 条，点击展开摘要';
+    feed.innerHTML = top.length ? top.map(r => S.itemHTML(r, state.open === r.id)).join('') : '<li class="empty">这个方向近 72 小时没有采集到记录。</li>';
+  }
+
+  const ORGS = {
+    openai: ['OpenAI', 'lab'], anthropic: ['Anthropic', 'lab'], google: ['Google DeepMind', 'lab'],
+    deepseek: ['DeepSeek', 'lab'], moonshot: ['月之暗面', 'lab'], meta: ['Meta', 'lab'], xai: ['xAI', 'lab'],
+    'uk-aisi': ['英国 AI 安全研究所', 'eval'], metr: ['METR', 'eval'], redwood: ['Redwood Research', 'eval']
+  };
+  const COLS = [
+    { k: 'name', label: '机构' }, { k: 'signals', label: '本周信号', num: true }, { k: 'incidents', label: '其中安全事件', num: true },
+    { k: 'peak', label: '最高热度', num: true }, { label: '每日安全事件' }, { label: '最新一条' }
+  ];
+  const tbody = document.getElementById('tbody');
+  S.sortHead(document.getElementById('thead'), COLS, state, () => renderScore());
+  function renderScore() {
+    const orgs = {};
+    for (const r of N.signals.filter(inDir)) for (const t of r.terms || []) {
+      if (!t.startsWith('entity:')) continue;
+      const id = t.slice(7), [name, role] = ORGS[id] || [id, 'eval'];
+      const o = orgs[id] ||= { id, name, role, signals: 0, incidents: 0, peak: 0, days: {}, latest: null };
+      o.signals++; if (isIncident(r)) { o.incidents++; o.days[r.date] = (o.days[r.date] || 0) + 1; }
+      o.peak = Math.max(o.peak, heat(r));
+      if (!o.latest || r.date > o.latest.date || (r.date === o.latest.date && heat(r) > heat(o.latest))) o.latest = r;
+    }
+    const rows = Object.values(orgs);
+    const list = rows.filter(o => state.role === 'all' || o.role === state.role).sort((a, b) => {
+      const x = a[state.sortKey], y = b[state.sortKey];
+      return (typeof x === 'string' ? x.localeCompare(y) : x - y) * state.order || b.signals - a.signals;
+    });
+    const maxD = Math.max(1, ...rows.flatMap(o => Object.values(o.days)));
+    tbody.innerHTML = list.length ? list.map(o => {
+      const bars = N.days.map(d => {
+        const k = iso(d), v = o.days[k] || 0;
+        if (d > N.lastCollected) return '<i class="g" title="' + k + '：尚未采集"></i>';
+        return '<i class="' + (v ? '' : 'z') + '" style="height:' + (v ? Math.max(18, v / maxD * 100) : 8) + '%" title="' + k + '：' + v + ' 起"></i>';
+      }).join('');
+      const l = o.latest;
+      return '<tr><td><div class="org">' + esc(o.name) + '</div><div class="role">' + (o.role === 'lab' ? '模型公司' : '评测与研究机构') + '</div></td>'
+        + '<td class="num">' + o.signals + '</td><td class="num' + (o.incidents ? '' : ' zero') + '">' + o.incidents + '</td><td class="num">' + o.peak + '</td>'
+        + '<td><div class="week" style="--days:' + N.span + '">' + bars + '</div></td>'
+        + '<td class="latest">' + (l ? '<a href="' + esc(link(l)) + '" rel="noopener">' + esc(title(l)) + '</a><small>' + esc(l.source) + ' · ' + md(l.date) + '</small>' : '') + '</td></tr>';
+    }).join('') : '<tr><td class="empty" colspan="6">这个范围内本周没有标注机构的记录。</td></tr>';
+    document.getElementById('score-sub').textContent = '统计 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + ' 采集的 ' + N.signals.filter(inDir).length + ' 条记录' + dirLabel() + '，点击表头排序';
+  }
+  S.seg(document.getElementById('roles'), v => { state.role = v; renderScore(); });
+
+  function renderPapers() {
+    const list = N.papers.filter(inDir);
+    document.getElementById('reads-sub').textContent = 'AI Safety HOT 本周精选，共 ' + list.length + ' 篇' + dirLabel() + '。来源未提供摘要，请到原文核对内容与版本。';
+    document.getElementById('reads').innerHTML = list.length ? list.map(r => {
+      const arxiv = (link(r).match(/arxiv\.org\/abs\/([\w.]+)/) || [])[1];
+      return '<li><time datetime="' + esc(r.date) + '">' + md(r.date) + '</time>'
+        + '<a class="pt" href="' + esc(link(r)) + '" rel="noopener" lang="en">' + esc(r.title) + '</a>'
+        + '<span class="pm">' + (arxiv ? 'arXiv ' + esc(arxiv) + ' · ' : '') + (r.direction_ids || []).map(dirName).join('、') + '</span>'
+        + '<span class="pl"><a href="' + esc(link(r)) + '" rel="noopener">' + (arxiv ? 'arXiv' : '原文') + ' ↗</a><a href="' + esc(r.url) + '" rel="noopener">AI Safety HOT ↗</a></span></li>';
+    }).join('') : '<li class="empty">这个方向本周没有精选论文。</li>';
+  }
+
+  function renderAll() { renderBoard(); renderFeed(); renderScore(); renderPapers(); }
+  renderAll();
+})();
+</script>
+</body>
+</html>

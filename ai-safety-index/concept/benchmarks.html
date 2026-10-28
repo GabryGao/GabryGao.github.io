@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基准目录 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:72ch}
+
+/* evidence ladder: the page's signature */
+.ladder{margin:18px 0 22px;background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:22px 24px 18px;position:relative}
+.ladder::after{content:"";position:absolute;inset:8px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.ladder h2{margin:0 0 4px;font-weight:700;font-stretch:87.5%;font-size:22px}
+.ladder > p{margin:0 0 16px;color:var(--safe-muted);font-size:13px}
+.bar-stack{display:flex;height:14px;border-radius:2px;overflow:hidden;background:rgba(233,246,238,.15);margin-bottom:14px}
+.bar-stack span{display:block;height:100%}
+.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;position:relative;z-index:1}
+.levels button{font:inherit;color:var(--safe-ink);text-align:left;background:rgba(5,40,25,.35);border:1px solid rgba(233,246,238,.18);border-radius:4px;padding:10px 12px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:end;transition:background .2s,border-color .2s}
+.levels button:hover{background:rgba(5,40,25,.6);border-color:rgba(233,246,238,.4)}
+.levels button[aria-pressed="true"]{background:var(--enamel);color:var(--enamel-ink);border-color:var(--enamel)}
+.levels .nm{font-size:13px;font-weight:600;line-height:1.3}
+.levels .ct{grid-row:span 2;font-weight:800;font-stretch:75%;font-size:34px;line-height:.9}
+.levels .sq{display:flex;gap:3px}
+.sq i{width:10px;height:10px;border-radius:1px;border:1.5px solid currentColor;display:block}
+.sq i.f{background:currentColor}
+.sq.l1{color:var(--warn)}
+.levels button[aria-pressed="true"] .sq{color:var(--enamel-ink)}
+
+.tools{display:grid;grid-template-columns:2fr 1.2fr 1fr auto;gap:12px;align-items:end;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;color:var(--muted)}
+.input,.select{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:100%}
+.input::placeholder{color:#7d8982}
+.input:focus,.select:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.check{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;padding-bottom:10px;white-space:nowrap}
+.check input{width:18px;height:18px;accent-color:var(--warn);margin:0}
+.count-line{color:var(--muted);font-size:13px;margin:0 0 10px}
+
+.bench table{min-width:980px}
+.bench td{vertical-align:top}
+.bench .nmcell{width:22%}
+.rowbtn{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;display:flex;gap:10px;align-items:flex-start;width:100%}
+.rowbtn svg{width:12px;height:12px;flex:none;margin-top:6px;color:var(--muted);transition:transform .3s var(--ease)}
+.rowbtn[aria-expanded="true"] svg{transform:rotate(180deg);color:var(--ink)}
+.rowbtn:hover .org{color:var(--warn)}
+.idl{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.what{max-width:46ch;line-height:1.5}
+.what small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
+.what .metric-only{color:var(--muted)}
+.where .tag{margin:0 6px 6px 0}
+.ev{display:flex;flex-direction:column;gap:6px;font-size:13px;white-space:nowrap}
+.ev .sq.l1{color:var(--warn)}
+.ev .sq{color:var(--ink)}
+.ev .sq.l4{color:#5b6660}
+.res{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;white-space:nowrap}
+.res a{color:var(--ink);font-weight:600}
+.res a:hover{color:var(--warn)}
+tr.more td{background:var(--rail);padding:4px 10px 20px 32px}
+tr.more dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;margin:0;max-width:900px;font-size:14px}
+tr.more dt{color:var(--muted);font-size:13px}
+tr.more dd{margin:0;line-height:1.6}
+tr.more .go{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px}
+tr.more .go a{font-weight:600;color:var(--ink)}
+tr.more .go a:hover{color:var(--warn)}
+tr.row.open td{background:var(--rail)}
+.moreall{display:flex;justify-content:center;padding:22px 0 0}
+.btn{font:inherit;font-size:14px;font-weight:600;color:var(--enamel-ink);background:var(--ink);border:0;border-radius:5px;padding:10px 18px;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--warn)}
+@media (max-width:1040px){
+  .levels{grid-template-columns:repeat(3,1fr)}
+  .tools{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .levels{grid-template-columns:1fr 1fr}
+  .tools{grid-template-columns:1fr}
+  .ladder{padding:18px 16px 14px}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>基准目录</h1>
+    <p id="head-sub"></p>
+  </div>
+  <nav class="dirs" aria-label="按研究方向筛选">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  </nav>
+
+  <section class="ladder" aria-labelledby="ladder-title">
+    <h2 id="ladder-title">证据有多扎实</h2>
+    <p>按每个基准目前能拿到的结果分级。方块越满，越能直接拿来比较模型。点击某一级只看这一级。</p>
+    <div class="bar-stack" id="stack" aria-hidden="true"></div>
+    <div class="levels" id="levels" role="group" aria-label="证据等级"></div>
+  </section>
+
+  <div class="tools">
+    <div class="field">
+      <label for="q">关键词</label>
+      <input class="input" id="q" type="search" placeholder="基准名、指标、子领域或备注" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="topic">评测主题</label>
+      <select class="select" id="topic"></select>
+    </div>
+    <div class="field">
+      <label for="sort">排序</label>
+      <select class="select" id="sort">
+        <option value="evidence">证据从强到弱</option>
+        <option value="name">名称 A–Z</option>
+        <option value="checked">最近核验</option>
+      </select>
+    </div>
+    <label class="check"><input type="checkbox" id="related"> 包含相关能力</label>
+  </div>
+
+  <section class="bench" aria-labelledby="count">
+    <p class="count-line" id="count" aria-live="polite"></p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th scope="col"><span class="th">基准</span></th>
+          <th scope="col"><span class="th">测什么</span></th>
+          <th scope="col"><span class="th">主题与方向</span></th>
+          <th scope="col"><span class="th">证据</span></th>
+          <th scope="col"><span class="th">资源</span></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="moreall" id="moreall"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>资料来自现站核验过的来源包，每条都可以回到原作者页面核对。</span>
+    <a href="index.html">返回看板</a>
+    <a href="../#benchmarks">现站基准目录</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="../source-catalog.js"></script>
+<script>var benchmarkDirections = {};</script>
+<script src="../portal-catalog.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, { esc, dirName } = S;
+  S.header('benchmarks.html');
+  const C = EvaluationCatalog, T = EvaluationTopicCatalog;
+  const COPY = typeof catalogCardCopy !== 'undefined' ? catalogCardCopy : {};
+  const LEVELS = [
+    { id: 'l1', name: '站内已有结果', filled: 3, test: r => !!C.integratedBenchmark(r) },
+    { id: 'l2', name: '已下载结果', filled: 3, test: r => !C.integratedBenchmark(r) && /已下载/.test(r.result_state) },
+    { id: 'l3', name: '公开榜单或结果文件', filled: 2, test: r => !C.integratedBenchmark(r) && /公开榜单|公开结果文件/.test(r.result_state) },
+    { id: 'l4', name: '只有论文图表', filled: 1, test: r => !C.integratedBenchmark(r) && r.result_state === '论文/图表' },
+    { id: 'l5', name: '待核验', filled: 0, test: r => !C.integratedBenchmark(r) && r.result_state === '待核验' }
+  ];
+  const STACK = ['var(--warn)', '#e9f6ee', 'rgba(233,246,238,.7)', 'rgba(233,246,238,.4)', 'rgba(233,246,238,.18)'];
+  const levelOf = r => LEVELS.findIndex(l => l.test(r));
+  const squares = (n, cls = '') => '<span class="sq ' + cls + '" aria-hidden="true">' + [0, 1, 2].map(i => '<i class="' + (i < n ? 'f' : '') + '"></i>').join('') + '</span>';
+
+  const base = C.data.resources.filter(r => !C.isToolRecord(r));
+  const p = S.params();
+  const state = { dir: S.dirParam(), q: p.get('q') || '', topic: p.get('topic') || 'all', level: p.get('level') || 'all', sort: p.get('sort') || 'evidence', related: p.get('related') === '1', open: null, shown: 30 };
+
+  const inDir = (r, d) => d === 'all' || r.direction_id === d || (r.related_direction_ids || []).includes(d);
+  const match = (r, skip) => {
+    if (!state.related && r.relation === '相关能力') return false;
+    if (skip !== 'dir' && !inDir(r, state.dir)) return false;
+    if (skip !== 'level' && state.level !== 'all' && LEVELS[levelOf(r)]?.id !== state.level) return false;
+    if (skip !== 'topic' && state.topic !== 'all' && !T.matches(r, T.get(state.topic))) return false;
+    if (state.q) {
+      const hay = [r.id, r.name, r.subdomain, r.metric, r.note, r.direction, COPY[r.id]?.purpose].join(' ').toLowerCase();
+      if (!state.q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w))) return false;
+    }
+    return true;
+  };
+
+  document.getElementById('head-sub').textContent = base.filter(r => r.relation !== '相关能力').length + ' 个直接或混合评测，另有 ' + base.filter(r => r.relation === '相关能力').length + ' 个相关能力评测可选。资料核验于 ' + (C.data.checked_date || '未知') + '。';
+
+  const renderDirs = S.dirSeg(document.getElementById('dirs'), () => state.dir,
+    id => base.filter(r => inDir(r, id) && match(r, 'dir')).length,
+    id => { state.dir = id; state.shown = 30; render(); });
+
+  const levelsEl = document.getElementById('levels');
+  levelsEl.addEventListener('click', e => {
+    const b = e.target.closest('button[data-v]'); if (!b) return;
+    state.level = state.level === b.dataset.v ? 'all' : b.dataset.v; state.shown = 30; render();
+  });
+
+  const topic = document.getElementById('topic'), sort = document.getElementById('sort'), q = document.getElementById('q'), related = document.getElementById('related');
+  topic.addEventListener('change', () => { state.topic = topic.value; state.shown = 30; render(); });
+  sort.addEventListener('change', () => { state.sort = sort.value; render(); });
+  related.addEventListener('change', () => { state.related = related.checked; render(); });
+  let t; q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = q.value.trim(); state.shown = 30; render(); }, 150); });
+
+  const tbody = document.getElementById('tbody');
+  tbody.addEventListener('click', e => {
+    const b = e.target.closest('button.rowbtn'); if (!b) return;
+    const id = b.dataset.id; state.open = state.open === id ? null : id;
+    for (const x of tbody.querySelectorAll('button.rowbtn')) {
+      const on = x.dataset.id === state.open;
+      x.setAttribute('aria-expanded', on);
+      x.closest('tr').classList.toggle('open', on);
+      document.getElementById('m-' + x.dataset.id).hidden = !on;
+    }
+  });
+  document.getElementById('moreall').addEventListener('click', e => { if (e.target.closest('button')) { state.shown += 30; render(); } });
+
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+  function resources(r) {
+    const out = [];
+    if (r.url) out.push(['代码', r.url]);
+    if (r.result_url && r.result_url !== r.url) out.push([/arxiv|doi|openreview/.test(r.result_url) ? '论文' : '结果', r.result_url]);
+    if (r.data_entries?.[0]?.url && !out.some(x => x[1] === r.data_entries[0].url)) out.push(['数据', r.data_entries[0].url]);
+    if (out[0] && !/github|gitlab/.test(host(out[0][1]))) out[0][0] = /arxiv|doi|openreview/.test(out[0][1]) ? '论文' : '项目';
+    return out.map(([k, u]) => '<a href="' + esc(u) + '" rel="noopener">' + k + ' ↗</a>').join('');
+  }
+  function row(r) {
+    const lv = levelOf(r), L = LEVELS[lv] || LEVELS[4], copy = COPY[r.id], open = state.open === r.id;
+    const topics = T.definitions.filter(d => T.matches(r, d)).map(d => d.name).slice(0, 2);
+    const integrated = C.integratedBenchmark(r);
+    return '<tr class="row' + (open ? ' open' : '') + '"><td class="nmcell"><button type="button" class="rowbtn" data-id="' + esc(r.id) + '" aria-expanded="' + open + '" aria-controls="m-' + esc(r.id) + '">'
+      + S.chevron + '<span><span class="org">' + esc(r.name) + '</span><span class="idl">' + esc(r.id) + (r.relation !== '直接风险' ? ' · ' + esc(r.relation) : '') + '</span></span></button></td>'
+      + '<td class="what">' + (copy ? esc(copy.purpose) + '<small>' + esc(copy.contents) + '</small>' : '<span class="metric-only">' + esc(r.metric || '指标未标注') + '</span>') + '</td>'
+      + '<td class="where">' + (r.subdomain ? '<span class="tag">' + esc(r.subdomain) + '</span>' : '') + topics.map(n => '<span class="tag">' + esc(n) + '</span>').join('') + '<span class="tag">' + esc(dirName(r.direction_id)) + '</span></td>'
+      + '<td><div class="ev">' + squares(L.filled, lv <= 1 ? 'l1' : lv === 4 ? 'l4' : '') + esc(integrated ? '站内已有结果' : r.result_state) + '</div></td>'
+      + '<td><div class="res">' + resources(r) + '</div></td></tr>'
+      + '<tr class="more" id="m-' + esc(r.id) + '"' + (open ? '' : ' hidden') + '><td colspan="5"><dl>'
+      + (r.metric ? '<dt>指标</dt><dd>' + esc(r.metric) + '</dd>' : '')
+      + (r.note ? '<dt>备注</dt><dd>' + esc(r.note) + '</dd>' : '')
+      + (r.data_access ? '<dt>数据获取</dt><dd>' + esc(r.data_access) + '</dd>' : '')
+      + (r.license_note ? '<dt>许可</dt><dd>' + esc(r.license_note) + '</dd>' : '')
+      + (r.evidence_status ? '<dt>核验依据</dt><dd>' + esc(r.evidence_status) + (r.evidence_url ? '（<a href="' + esc(r.evidence_url) + '" rel="noopener">' + esc(host(r.evidence_url)) + '</a>）' : '') + '</dd>' : '')
+      + '<dt>核验日期</dt><dd>' + esc(r.checked_date || '未记录') + '</dd></dl>'
+      + '<div class="go">' + (integrated ? '<a href="../#results?benchmark=' + esc(integrated) + '">在现站看结果对比 ↗</a>' : '') + '<a href="../#resource/' + esc(r.id) + '">现站详情页 ↗</a></div></td></tr>';
+  }
+
+  function render() {
+    S.setParams({ q: state.q, topic: state.topic, level: state.level, sort: state.sort === 'evidence' ? null : state.sort, related: state.related ? '1' : null });
+    q.value = state.q; sort.value = state.sort; related.checked = state.related;
+    renderDirs();
+
+    const scope = base.filter(r => match(r, 'level'));
+    const counts = LEVELS.map(l => scope.filter(r => LEVELS[levelOf(r)] === l).length);
+    const total = Math.max(1, counts.reduce((a, b) => a + b, 0));
+    document.getElementById('stack').innerHTML = counts.map((n, i) => '<span style="width:' + (n / total * 100) + '%;background:' + STACK[i] + '"></span>').join('');
+    levelsEl.innerHTML = LEVELS.map((l, i) => '<button type="button" data-v="' + l.id + '" aria-pressed="' + (state.level === l.id) + '"><span class="nm">' + l.name + '</span><span class="ct">' + counts[i] + '</span>' + squares(l.filled, i <= 1 ? 'l1' : '') + '</button>').join('');
+
+    const topicScope = base.filter(r => match(r, 'topic'));
+    topic.innerHTML = '<option value="all">全部主题</option>' + T.definitions.map(d => [d, topicScope.filter(r => T.matches(r, d)).length]).filter(([, n]) => n).map(([d, n]) => '<option value="' + d.id + '">' + esc(d.name) + '（' + n + '）</option>').join('');
+    if (![...topic.options].some(o => o.value === state.topic)) state.topic = 'all';
+    topic.value = state.topic;
+
+    const list = base.filter(r => match(r)).sort(
+      state.sort === 'name' ? (a, b) => a.name.localeCompare(b.name)
+      : state.sort === 'checked' ? (a, b) => String(b.checked_date).localeCompare(String(a.checked_date)) || a.name.localeCompare(b.name)
+      : (a, b) => levelOf(a) - levelOf(b) || (COPY[b.id] ? 1 : 0) - (COPY[a.id] ? 1 : 0) || a.name.localeCompare(b.name));
+    document.getElementById('count').textContent = list.length + ' 个基准' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）') + '，点击名称展开数据获取、许可与核验依据';
+    tbody.innerHTML = list.length ? list.slice(0, state.shown).map(row).join('') : '<tr><td class="empty" colspan="5">没有符合这些条件的基准。</td></tr>';
+    document.getElementById('moreall').innerHTML = list.length > state.shown ? '<button type="button" class="btn">再显示 ' + Math.min(30, list.length - state.shown) + ' 个（共 ' + list.length + '）</button>' : '';
+  }
+  render();
+})();
+</script>
+</body>
+</html>

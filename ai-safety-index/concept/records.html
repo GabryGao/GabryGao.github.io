@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全部记录 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:70ch}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:40px;padding:20px 0 64px;align-items:start}
+.side{position:sticky;top:16px;display:flex;flex-direction:column;gap:22px}
+.side h2{margin:0 0 10px;font-size:13px;font-weight:600;color:var(--muted)}
+.mini{background:var(--safe);border-radius:6px;padding:16px 16px 12px;color:var(--safe-ink)}
+.mini .strip{margin:0;padding:0}
+.mini .strip ol{height:84px;gap:4px}
+.mini p{margin:10px 0 0;font-size:12px;color:var(--safe-muted)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;color:var(--muted)}
+.input,.select{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:100%}
+.input::placeholder{color:#7d8982}
+.input:focus,.select:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:13px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:4px;padding:5px 9px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chips button:hover{color:var(--ink);border-color:#43504a}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--enamel-ink);border-color:var(--ink);font-weight:600}
+.chips button b{font-weight:600;margin-left:5px;opacity:.6}
+.check{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--warn);margin:0}
+.reset{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:.22em;cursor:pointer;align-self:flex-start}
+.reset:hover{color:var(--ink)}
+
+.summary{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted);font-size:13px}
+.daygroup{margin-bottom:34px;scroll-margin-top:16px}
+.dayhead{display:flex;align-items:flex-end;gap:16px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.dayhead .plates{gap:6px}
+.dayhead .plate{width:44px;height:62px;font-size:52px;border-radius:4px;animation:none}
+.dayhead .plate::after{width:5px;height:5px;top:5px;margin-left:-2.5px}
+.dayhead .sep{font-weight:800;font-stretch:75%;font-size:40px;line-height:1;color:var(--muted);padding-bottom:6px}
+.dayhead h2{margin:0 0 4px;font-size:15px;font-weight:600}
+.dayhead small{display:block;color:var(--muted);font-size:13px}
+.dayhead .inc{color:var(--warn)}
+.feed ol{border-top:0}
+@media (max-width:1040px){
+  .layout{grid-template-columns:1fr;gap:28px}
+  .side{position:static;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;align-items:end}
+  .side .mini,.side>div:has(#cats){grid-column:1 / -1}
+}
+@media (max-width:560px){
+  .side{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>全部记录</h1>
+    <p id="head-sub"></p>
+  </div>
+  <nav class="dirs" aria-label="按研究方向筛选">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  </nav>
+
+  <div class="layout">
+    <aside class="side" aria-label="筛选">
+      <div class="mini">
+        <div class="strip"><ol id="strip"></ol></div>
+        <p>每日安全事件数，点击跳到当天</p>
+      </div>
+      <div class="field">
+        <label for="q">关键词</label>
+        <input class="input" id="q" type="search" placeholder="标题、摘要、标签或来源" autocomplete="off">
+      </div>
+      <div>
+        <h2>类型</h2>
+        <div class="chips" id="cats" role="group" aria-label="类型"></div>
+      </div>
+      <div>
+        <h2>内容</h2>
+        <div class="seg" id="kinds" role="group" aria-label="内容">
+          <button type="button" data-v="all" aria-pressed="true">全部</button>
+          <button type="button" data-v="latest" aria-pressed="false">资讯</button>
+          <button type="button" data-v="analysis" aria-pressed="false">解读</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="org">机构</label>
+        <select class="select" id="org"></select>
+      </div>
+      <label class="check"><input type="checkbox" id="inc"> 只看安全事件</label>
+      <button type="button" class="reset" id="reset">清除全部筛选</button>
+    </aside>
+
+    <section class="feed" aria-labelledby="list-title">
+      <div class="summary">
+        <h2 id="list-title" class="sub" style="margin:0" aria-live="polite"></h2>
+        <div class="seg" id="sort" role="group" aria-label="排序">
+          <button type="button" data-v="date" aria-pressed="true">按日期</button>
+          <button type="button" data-v="heat" aria-pressed="false">按热度</button>
+        </div>
+      </div>
+      <div id="list"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>数据来自 <a href="https://aisafetyhot.com/en" rel="noopener">AI Safety HOT</a> 公开接口，每 3 小时更新；目前只保留最近一次抓取窗口内的记录。</span>
+    <a href="index.html">返回看板</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, N = S.news, { esc, iso, day, heat, isIncident, category, title, dirName } = S;
+  S.header('records.html');
+  const p = S.params();
+  const state = {
+    dir: S.dirParam(), q: p.get('q') || '', cat: p.get('cat') || 'all', kind: p.get('kind') || 'all',
+    org: p.get('org') || 'all', inc: p.get('inc') === '1', sort: p.get('sort') === 'heat' ? 'heat' : 'date', open: null
+  };
+  const ORG_NAMES = { openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google DeepMind', deepseek: 'DeepSeek', moonshot: '月之暗面', 'uk-aisi': '英国 AI 安全研究所', metr: 'METR', redwood: 'Redwood Research' };
+  const orgOf = r => (r.terms || []).filter(t => t.startsWith('entity:')).map(t => t.slice(7));
+  const WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+
+  document.getElementById('head-sub').textContent = N.signals.length + ' 条公开来源记录，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。按天浏览，点击条目展开摘要。';
+
+  const match = (r, skip) => {
+    if (skip !== 'dir' && state.dir !== 'all' && !(r.direction_ids || []).includes(state.dir)) return false;
+    if (skip !== 'cat' && state.cat !== 'all' && category(r) !== state.cat) return false;
+    if (state.kind !== 'all' && r.content_kind !== state.kind) return false;
+    if (state.org !== 'all' && !orgOf(r).includes(state.org)) return false;
+    if (state.inc && !isIncident(r)) return false;
+    if (state.q) {
+      const hay = [r.title, r.title_zh, r.description, r.description_zh, r.source, ...(r.terms || [])].join(' ').toLowerCase();
+      if (!state.q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w))) return false;
+    }
+    return true;
+  };
+  const sync = () => S.setParams({ q: state.q, cat: state.cat, kind: state.kind, org: state.org, inc: state.inc ? '1' : null, sort: state.sort === 'heat' ? 'heat' : null });
+
+  const renderDirs = S.dirSeg(document.getElementById('dirs'), () => state.dir,
+    id => N.signals.filter(r => (id === 'all' || (r.direction_ids || []).includes(id)) && match(r, 'dir')).length,
+    id => { state.dir = id; render(); });
+
+  /* type chips, counted within the other filters */
+  const cats = document.getElementById('cats');
+  const catNames = [...new Set(N.signals.map(category))].sort((a, b) => N.signals.filter(r => category(r) === b).length - N.signals.filter(r => category(r) === a).length);
+  function renderCats() {
+    const n = c => N.signals.filter(r => (c === 'all' || category(r) === c) && match(r, 'cat')).length;
+    cats.innerHTML = ['all', ...catNames].map(c => '<button type="button" data-v="' + esc(c) + '" aria-pressed="' + (state.cat === c) + '">' + (c === 'all' ? '全部' : esc(c)) + '<b>' + n(c) + '</b></button>').join('');
+  }
+  cats.addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (!b) return; state.cat = b.dataset.v; render(); });
+
+  const kinds = document.getElementById('kinds');
+  S.seg(kinds, v => { state.kind = v; render(); });
+  const sortEl = document.getElementById('sort');
+  S.seg(sortEl, v => { state.sort = v; render(); });
+
+  const org = document.getElementById('org');
+  const orgIds = [...new Set(N.signals.flatMap(orgOf))].sort((a, b) => N.signals.filter(r => orgOf(r).includes(b)).length - N.signals.filter(r => orgOf(r).includes(a)).length);
+  org.innerHTML = '<option value="all">全部机构</option>' + orgIds.map(id => '<option value="' + esc(id) + '">' + esc(ORG_NAMES[id] || id) + '（' + N.signals.filter(r => orgOf(r).includes(id)).length + '）</option>').join('');
+  org.addEventListener('change', () => { state.org = org.value; render(); });
+
+  const inc = document.getElementById('inc');
+  inc.addEventListener('change', () => { state.inc = inc.checked; render(); });
+
+  const q = document.getElementById('q');
+  let t; q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = q.value.trim(); render(); }, 150); });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    Object.assign(state, { dir: 'all', q: '', cat: 'all', kind: 'all', org: 'all', inc: false, open: null });
+    S.setParams({ dir: null }); render();
+  });
+
+  const list = document.getElementById('list');
+  S.bindItems(list, state);
+
+  function render() {
+    sync();
+    q.value = state.q; org.value = state.org; inc.checked = state.inc;
+    for (const b of kinds.querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === state.kind);
+    for (const b of sortEl.querySelectorAll('button')) b.setAttribute('aria-pressed', b.dataset.v === state.sort);
+    renderDirs(); renderCats();
+
+    const rows = N.signals.filter(r => match(r));
+    const nInc = rows.filter(isIncident).length;
+    document.getElementById('list-title').textContent = rows.length + ' 条记录，其中 ' + nInc + ' 起安全事件' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）');
+
+    const perDay = {};
+    for (const r of rows.filter(isIncident)) (perDay[r.date] ||= []).push(r);
+    const strip = document.getElementById('strip');
+    strip.style.setProperty('--days', N.span);
+    strip.innerHTML = S.stripHTML(perDay, { link: state.sort === 'date' });
+
+    if (!rows.length) { list.innerHTML = '<p class="empty">没有符合这些条件的记录。<button type="button" class="reset" onclick="document.getElementById(\'reset\').click()">清除全部筛选</button></p>'; return; }
+    if (state.sort === 'heat') {
+      list.innerHTML = '<ol>' + rows.slice().sort((a, b) => heat(b) - heat(a) || b.date.localeCompare(a.date)).map(r => S.itemHTML(r, state.open === r.id)).join('') + '</ol>';
+      return;
+    }
+    const byDay = {};
+    for (const r of rows) (byDay[r.date] ||= []).push(r);
+    list.innerHTML = Object.keys(byDay).sort().reverse().map(k => {
+      const items = byDay[k].sort((a, b) => heat(b) - heat(a)), d = day(k), n = items.filter(isIncident).length;
+      const [m, dd] = [d.getMonth() + 1, d.getDate()];
+      return '<section class="daygroup" id="day-' + k + '" aria-label="' + k + '"><div class="dayhead">'
+        + S.plates(m, m + ' 月') + '<span class="sep" aria-hidden="true">/</span>' + S.plates(dd, dd + ' 日')
+        + '<div><h2>' + WEEK[d.getDay()] + '</h2><small>' + items.length + ' 条' + (n ? ' · <span class="inc">' + n + ' 起安全事件</span>' : '') + '</small></div></div>'
+        + '<ol>' + items.map(r => S.itemHTML(r, state.open === r.id)).join('') + '</ol></section>';
+    }).join('');
+  }
+  render();
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+})();
+</script>
+</body>
+</html>
