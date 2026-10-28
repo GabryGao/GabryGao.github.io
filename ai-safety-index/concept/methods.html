@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Methods · AI Safety Board">方法与说明 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:76ch}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:34px 0 12px}
+.sec-h h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:24px}
+.input{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:min(360px,100%)}
+.input::placeholder{color:#7d8982}
+.input:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+
+/* comparison boundary for the chosen direction */
+.boundary{margin:20px 0 0;background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:22px 24px;position:relative;display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:12px 32px}
+.boundary::after{content:"";position:absolute;inset:8px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.boundary h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:22px;line-height:1.2}
+.boundary p{margin:0 0 8px;line-height:1.65;max-width:68ch}
+.boundary p:last-child{margin:0;color:var(--safe-muted)}
+
+.tools table{min-width:900px}
+.tools td{vertical-align:top}
+.rowbtn{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;display:flex;gap:10px;align-items:flex-start;width:100%}
+.rowbtn svg{width:12px;height:12px;flex:none;margin-top:6px;color:var(--muted);transition:transform .3s var(--ease)}
+.rowbtn[aria-expanded="true"] svg{transform:rotate(180deg);color:var(--ink)}
+.rowbtn:hover .org{color:var(--warn)}
+.idl{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.what{max-width:44ch;line-height:1.5}
+.what small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
+.res{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;white-space:nowrap}
+.res a{color:var(--ink);font-weight:600}
+.res a:hover{color:var(--warn)}
+tr.more td{background:var(--rail);padding:4px 10px 20px 32px}
+tr.more dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;margin:0;max-width:900px;font-size:14px}
+tr.more dt{color:var(--muted);font-size:13px}
+tr.more dd{margin:0;line-height:1.6}
+tr.more .go{margin-top:14px;font-size:13px}
+tr.more .go a{font-weight:600;color:var(--ink)}
+tr.row.open td{background:var(--rail)}
+
+.standards{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.standards article{padding:18px 24px 20px 0;border-bottom:1px solid var(--line)}
+.standards article:nth-child(odd){border-right:1px solid var(--line)}
+.standards article:nth-child(even){padding-left:24px}
+.standards h3{margin:0 0 6px;font-weight:700;font-stretch:87.5%;font-size:18px}
+.standards p{margin:0;color:var(--muted);line-height:1.65;max-width:60ch}
+
+.pipeline{list-style:none;margin:0 0 64px;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--ink)}
+.pipeline li{padding:16px 18px 18px 0;position:relative}
+.pipeline li + li{padding-left:18px;border-left:1px solid var(--line)}
+.pipeline b{display:block;font-weight:800;font-stretch:75%;font-size:40px;line-height:1;color:var(--warn);margin-bottom:8px}
+.pipeline h3{margin:0 0 4px;font-size:15px;font-weight:600}
+.pipeline p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+@media (max-width:1040px){
+  .pipeline{grid-template-columns:1fr 1fr}
+  .pipeline li + li{border-left:0;padding-left:0}
+  .pipeline li{border-bottom:1px solid var(--line)}
+  .boundary{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .standards{grid-template-columns:1fr}
+  .standards article:nth-child(odd){border-right:0}
+  .standards article:nth-child(even){padding-left:0}
+  .pipeline{grid-template-columns:1fr}
+  .boundary{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div id="subnav"></div>
+  <div class="page-head">
+    <h1 data-en="Methods and notes">方法与说明</h1>
+    <p data-en="Tools and runtime environments for reproducing evaluations, plus how this site records and compares results.">用于复现评测的工具与运行环境，以及本站如何记录和比较结果。</p>
+  </div>
+  <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
+  </nav>
+
+  <section class="boundary" aria-labelledby="bd-title">
+    <h2 id="bd-title"></h2>
+    <div><p id="bd-principle"></p><p id="bd-note"></p></div>
+  </section>
+
+  <section class="tools" aria-labelledby="tools-title">
+    <div class="sec-h">
+      <div><h2 id="tools-title" data-en="Tools and runtime environments">工具与运行环境</h2><p class="sub" id="tools-sub" style="margin:4px 0 0"></p></div>
+      <input class="input" id="q" type="search" placeholder="搜索工具、用途或指标" data-en-placeholder="Search tools, purpose or metrics" aria-label="搜索工具" data-en-aria-label="Search tools" autocomplete="off">
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th scope="col"><span class="th" data-en="Tool">工具</span></th>
+          <th scope="col"><span class="th" data-en="What it is for">用途</span></th>
+          <th scope="col"><span class="th" data-en="Direction">方向</span></th>
+          <th scope="col"><span class="th" data-en="Links">资源</span></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="std-title">
+    <div class="sec-h"><h2 id="std-title" data-en="Evaluation standards and data records">评测规范与数据记录</h2></div>
+    <div class="standards" id="standards"></div>
+  </section>
+
+  <section aria-labelledby="pipe-title">
+    <div class="sec-h"><h2 id="pipe-title" data-en="How results are processed">结果数据处理流程</h2></div>
+    <ol class="pipeline" id="pipeline"></ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="results.html" data-en="Results board">评测看板</a>
+    <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
+    <a href="../#methods" data-en="Live site methods">现站方法与说明</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="../research-data.js"></script>
+<script src="../source-catalog.js"></script>
+<script>var benchmarkDirections = {};</script>
+<script src="../portal-catalog.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, { esc, T, tx, zhOnly, dirName } = S;
+  S.header('methods.html');
+  const C = EvaluationCatalog, M = s => tx('METHOD', s);
+  const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
+  const tools = C.data.resources.filter(C.isToolRecord);
+  const dirsOf = r => [r.direction_id, ...(r.related_direction_ids || [])];
+  const state = { dir: S.dirParam(), q: S.params().get('q') || '', open: null };
+  const $ = id => document.getElementById(id);
+
+  const STANDARDS = [['评测协议与适用范围','评测口径由基准版本、数据子集、任务、攻击与防御设置、运行预算和判分器共同确定。结果按协议分组，并关联模型版本与来源快照。'],['指标定义与量纲','每项指标记录定义、计量单位和优化方向。无害率、攻击成功率、任务成功率分别展示，不合成为平台总分。'],['版本与时间记录','测试时间、报告发布日期、页面更新时间和平台获取时间分别存储；未提供的字段明确标记为未报告。'],['数据来源与收录流程','每条结果关联官方项目、论文或发布文件，经过格式转换、数值校验、协议核对和收录审核。']];
+  const STEPS = [['结果采集','官方表格、公开 CSV / JSON 与论文结果'],['字段标准化','模型、任务、配置、指标、单位与来源'],['质量校验','原始数值、指标定义、协议与使用条件'],['协议分组','基准版本、任务设置、来源快照与指标'],['可视化发布','比较图表、结果明细与筛选数据导出']];
+  $('standards').innerHTML = STANDARDS.map(([h, b]) => '<article><h3>' + esc(M(h)) + '</h3><p>' + esc(M(b)) + '</p></article>').join('');
+  $('pipeline').innerHTML = STEPS.map(([h, b], i) => '<li><b aria-hidden="true">' + String(i + 1).padStart(2, '0') + '</b><h3>' + esc(M(h)) + '</h3><p>' + esc(M(b)) + '</p></li>').join('');
+
+  const renderDirs = S.dirSeg($('dirs'), () => state.dir, id => tools.filter(r => id === 'all' || dirsOf(r).includes(id)).length, id => { state.dir = id; state.open = null; render(); });
+  let t; $('q').value = state.q;
+  $('q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = $('q').value.trim(); render(); }, 150); });
+  $('tbody').addEventListener('click', e => {
+    const b = e.target.closest('button.rowbtn'); if (!b) return;
+    state.open = state.open === b.dataset.id ? null : b.dataset.id;
+    for (const x of $('tbody').querySelectorAll('button.rowbtn')) {
+      const on = x.dataset.id === state.open;
+      x.setAttribute('aria-expanded', on); x.closest('tr').classList.toggle('open', on);
+      $('m-' + x.dataset.id).hidden = !on;
+    }
+  });
+
+  function links(r) {
+    const out = [];
+    if (r.url) out.push([/github|gitlab/.test(r.url) ? T('代码', 'Code') : /arxiv|doi|openreview/.test(r.url) ? T('论文', 'Paper') : T('项目', 'Project'), r.url]);
+    if (r.result_url && r.result_url !== r.url) out.push([/arxiv|doi|openreview/.test(r.result_url) ? T('论文', 'Paper') : T('项目', 'Project'), r.result_url]);
+    if (r.data_entries?.[0]?.url && !out.some(x => x[1] === r.data_entries[0].url)) out.push([T('数据', 'Data'), r.data_entries[0].url]);
+    return out.map(([k, u]) => '<a href="' + esc(u) + '" rel="noopener">' + k + ' ↗</a>').join('');
+  }
+
+  function render() {
+    S.setParams({ q: state.q });
+    renderDirs();
+    const D = state.dir === 'all' ? null : researchDirections.find(d => d.id === state.dir);
+    $('bd-title').textContent = state.dir === 'all' ? T('比较边界', 'Comparison boundary') : T('「' + dirName(state.dir) + '」的比较边界', 'Comparison boundary: ' + dirName(state.dir));
+    $('bd-principle').textContent = M(D?.principle || '明确风险问题、评测对象、任务协议与评分方法，再判断结果能否比较。');
+    $('bd-note').textContent = M(D?.note || '不同基准、模型版本、攻击配置与评分器的结果不合成为统一安全总分。');
+
+    const list = C.sort(tools.filter(r => (state.dir === 'all' || dirsOf(r).includes(state.dir)) && (!state.q || [r.name, r.subdomain, r.metric, r.note, methodDisplayCopy(r).purpose, M(methodDisplayCopy(r).purpose)].join(' ').toLowerCase().includes(state.q.toLowerCase()))), 'name');
+    $('tools-sub').textContent = T(list.length + ' 项' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）') + '，点击名称展开数据获取与许可', plural(list.length, 'tool') + (state.dir === 'all' ? '' : ' (' + dirName(state.dir) + ')') + '. Select a name for data access and licence.');
+    $('tbody').innerHTML = list.length ? list.map(r => {
+      const c = methodDisplayCopy(r), open = state.open === r.id;
+      return '<tr class="row' + (open ? ' open' : '') + '"><td><button type="button" class="rowbtn" data-id="' + esc(r.id) + '" aria-expanded="' + open + '" aria-controls="m-' + esc(r.id) + '">' + S.chevron
+        + '<span><span class="org">' + esc(tx('NAME', r.name)) + '</span><span class="idl">' + esc(M(c.tag)) + '</span></span></button></td>'
+        + '<td class="what">' + esc(M(c.purpose)) + '<small>' + esc(M(c.contents)) + '</small></td>'
+        + '<td>' + dirsOf(r).map(d => '<span class="tag" style="margin:0 6px 6px 0">' + esc(dirName(d)) + '</span>').join('') + '</td>'
+        + '<td><div class="res">' + links(r) + '</div></td></tr>'
+        + '<tr class="more" id="m-' + esc(r.id) + '"' + (open ? '' : ' hidden') + '><td colspan="4"><dl>'
+        + (r.metric ? '<dt>' + T('指标', 'Metric') + '</dt><dd>' + zhOnly(tx('METRIC', r.metric)) + '</dd>' : '')
+        + (r.note ? '<dt>' + T('备注', 'Note') + '</dt><dd>' + zhOnly(r.note) + '</dd>' : '')
+        + (r.data_access ? '<dt>' + T('数据获取', 'Data access') + '</dt><dd>' + zhOnly(r.data_access) + '</dd>' : '')
+        + (r.license_note ? '<dt>' + T('许可', 'Licence') + '</dt><dd>' + zhOnly(r.license_note) + '</dd>' : '')
+        + '<dt>' + T('核验日期', 'Checked on') + '</dt><dd>' + esc(r.checked_date || T('未记录', 'Not recorded')) + '</dd></dl>'
+        + '<div class="go"><a href="../#resource/' + esc(r.id) + '">' + T('现站详情页', 'Live site detail page') + ' ↗</a></div></td></tr>';
+    }).join('') : '<tr><td class="empty" colspan="4">' + T('没有符合条件的工具。', 'No tools match.') + '</td></tr>';
+  }
+  render();
+})();
+</script>
+</body>
+</html>

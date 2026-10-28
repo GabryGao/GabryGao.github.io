@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Results board · AI Safety Board">评测看板 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:76ch}
+
+/* comparison boundary: the page's signature */
+.bound{margin:18px 0 20px;background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:22px 24px 20px;position:relative;display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:end}
+.bound::after{content:"";position:absolute;inset:8px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.bound h2{margin:0 0 6px;font-weight:700;font-stretch:87.5%;font-size:clamp(22px,2.4vw,30px);line-height:1.15}
+.bound dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0 0;font-size:14px}
+.bound dt{color:var(--safe-muted);font-size:13px}
+.bound dd{margin:0}
+.bound dd a{color:var(--safe-ink)}
+.bound .count{margin:0;align-items:flex-end;position:relative;z-index:1}
+.bound .plate{width:clamp(64px,6vw,84px);height:clamp(90px,8.4vw,118px);font-size:clamp(76px,7vw,100px)}
+.bound .unit{font-size:clamp(20px,2vw,26px)}
+.benches{margin-top:6px;overflow-x:auto;scrollbar-width:none}
+
+.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;color:var(--muted)}
+.input,.select{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:100%}
+.input::placeholder{color:#7d8982}
+.input:focus,.select:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.actions{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:4px 0 22px}
+.linkbtn{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:.22em;cursor:pointer}
+.linkbtn:hover{color:var(--ink)}
+.toast{font-size:13px;color:var(--warn)}
+
+.chart{border-top:2px solid var(--ink);padding-top:14px}
+.chart header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:13px;color:var(--muted)}
+.bars{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:minmax(140px,240px) 1fr 70px;gap:14px;align-items:center;padding:7px 0}
+.bars .nm{font-weight:600;font-size:14px;line-height:1.3;overflow-wrap:anywhere}
+.bars .nm small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.track{height:18px;background:#1d2420;border-radius:2px;position:relative}
+.fill{position:absolute;top:0;bottom:0;left:0;background:var(--enamel);border-radius:2px}
+.bars li.base .fill{background:var(--warn)}
+.bars li.best .nm::after{content:attr(data-best);margin-left:8px;font-size:11px;font-weight:600;color:var(--enamel-ink);background:var(--safe-muted);border-radius:3px;padding:1px 5px}
+.zero{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--muted)}
+.fill.pos{background:var(--safe-muted)}
+.fill.neg{background:var(--alarm)}
+.val{text-align:right;font-weight:800;font-stretch:75%;font-size:22px;line-height:1}
+.scale-note{margin:10px 0 0;color:var(--muted);font-size:12.5px}
+
+.detail-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:40px 0 10px}
+.detail-h h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:24px}
+.res table{min-width:860px}
+.res td{vertical-align:top}
+.res td.num{font-size:22px}
+.res input[type=checkbox]{width:18px;height:18px;accent-color:var(--warn);margin:2px 0 0}
+.res small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.res a{color:var(--ink)}
+.warns{margin:18px 0 0;padding:0;list-style:none;color:var(--muted);font-size:13px;display:grid;gap:4px}
+.warns li::before{content:"";display:inline-block;width:8px;height:8px;background:var(--warn);border-radius:1px;margin-right:8px;vertical-align:1px}
+.limits{margin:28px 0 64px;max-width:80ch;color:var(--muted);font-size:13.5px;line-height:1.7}
+@media (max-width:1040px){
+  .controls{grid-template-columns:1fr 1fr}
+  .bound{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .controls{grid-template-columns:1fr}
+  .bound{padding:18px 16px}
+  .bars li{grid-template-columns:1fr 56px;gap:4px 10px}
+  .bars .nm{grid-column:1 / -1}
+  .val{font-size:18px}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div id="subnav"></div>
+  <div class="page-head">
+    <h1 data-en="Results board">评测看板</h1>
+    <p id="head-sub"></p>
+  </div>
+  <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
+  </nav>
+  <div class="benches"><div class="seg" role="group" aria-label="基准" data-en-aria-label="Benchmark" id="benches"></div></div>
+
+  <section class="bound" aria-labelledby="bound-title">
+    <div>
+      <h2 id="bound-title"></h2>
+      <dl id="bound"></dl>
+    </div>
+    <div class="count" id="bound-count"></div>
+  </section>
+
+  <div class="controls">
+    <div class="field"><label for="task" data-en="Task">任务</label><select class="select" id="task"></select></div>
+    <div class="field"><label for="config" data-en="Setting">设置</label><select class="select" id="config"></select></div>
+    <div class="field"><label for="metric" data-en="Metric">指标</label><select class="select" id="metric"></select></div>
+    <div class="field"><label for="order" data-en="Order">排序</label>
+      <select class="select" id="order">
+        <option value="best" data-en="Best first">表现从好到差</option>
+        <option value="worst" data-en="Worst first">表现从差到好</option>
+        <option value="name" data-en="Model A–Z">模型 A–Z</option>
+      </select></div>
+    <div class="field"><label for="view" data-en="Show">显示方式</label>
+      <select class="select" id="view">
+        <option value="abs" data-en="Absolute values">绝对值</option>
+        <option value="rel" data-en="Difference from a baseline">相对基线的差值</option>
+      </select></div>
+    <div class="field"><label for="base" data-en="Baseline model">基线模型</label><select class="select" id="base"></select></div>
+    <div class="field"><label for="limit" data-en="Bars shown">图表显示</label>
+      <select class="select" id="limit">
+        <option value="6" data-en="Top 6">前 6 条</option>
+        <option value="10" data-en="Top 10">前 10 条</option>
+        <option value="20" data-en="Top 20">前 20 条</option>
+        <option value="all" data-en="All">全部</option>
+      </select></div>
+    <div class="field"><label for="prov" data-en="Developer">研发机构</label><select class="select" id="prov"></select></div>
+  </div>
+  <div class="actions">
+    <div class="field" style="flex:1;min-width:220px"><label for="q" data-en="Find a model">筛选模型</label><input class="input" id="q" type="search" placeholder="输入模型名" data-en-placeholder="Type a model name" autocomplete="off"></div>
+    <button type="button" class="linkbtn" id="reset" data-en="Restore default view">恢复默认视图</button>
+    <button type="button" class="linkbtn" id="copy" data-en="Copy link to this view">复制筛选链接</button>
+    <span class="toast" id="toast" aria-live="polite"></span>
+  </div>
+
+  <section class="chart" aria-labelledby="chart-title">
+    <header><h2 id="chart-title" class="sub" style="margin:0"></h2><span id="chart-dir"></span></header>
+    <ol class="bars" id="bars"></ol>
+    <p class="scale-note" id="scale-note"></p>
+  </section>
+
+  <section class="res" aria-labelledby="table-title">
+    <div class="detail-h">
+      <div><h2 id="table-title" data-en="Result details">模型结果明细</h2><p class="sub" style="margin:4px 0 0" data-en="Tick models to show only those in the chart.">勾选模型后，图表只显示勾选的模型。</p></div>
+      <button type="button" class="btn" id="csv" data-en="Export CSV">导出 CSV</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th scope="col"><span class="th" data-en="Compare">对比</span></th>
+          <th scope="col"><span class="th" data-en="Model and version">模型与版本</span></th>
+          <th scope="col"><span class="th" data-en="Developer">研发机构</span></th>
+          <th scope="col" class="num"><span class="th" id="th-val"></span></th>
+          <th scope="col"><span class="th" data-en="Task and setting">任务与设置</span></th>
+          <th scope="col"><span class="th" data-en="Date">日期</span></th>
+          <th scope="col"><span class="th" data-en="Source">来源</span></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <ul class="warns" id="warns"></ul>
+  </section>
+  <p class="limits" data-en="Results are comparable only within the same benchmark, version, task, setting and scoring method, and even within one research direction they may not be. Nothing here is combined into an overall score for a direction or a model.">只有在同一基准、同一版本、同一任务、同一设置和同一判分方法下，结果才可比较；同一研究方向内也不一定可比。这里不把结果合成为研究方向或模型的总分。</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-en="Every number comes from the authors' published table or leaderboard and links back to it.">每个数字都来自原作者公开的结果表或排行榜，并可回到原处核对。</span>
+    <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
+    <a href="../#results" data-en="Live site results">现站评测看板</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="../evaluation-data.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script>
+(async () => {
+  const S = Shell, { esc, T, tx, en, dirName } = S;
+  S.header('results.html');
+  const E = typeof EvaluationData !== 'undefined' ? EvaluationData : { benchmarks: [], records: [] };
+  const DATE_KIND = { report_published_on: T('报告发布日', 'report published'), page_updated_on: T('页面更新日', 'page updated'), source_row_date_unverified: T('原表日期（未确认）', 'table date (unconfirmed)'), not_reported: T('未报告', 'not reported') };
+
+  /* HELM Safety lives in the live site's provenance file, which keeps the source values on a 0–1 scale */
+  let helm = null;
+  try { helm = await (await fetch('../research-source/helm-safety-results-provenance.json')).json(); } catch {}
+  const benches = [];
+  if (helm) benches.push({
+    id: 'helm-safety', name: 'HELM Safety', version: 'HELM Safety v1.0', org: helm.publisher, url: helm.source_url, dirs: ['foundation-model', 'human-societal'],
+    desc: T('Stanford CRFM 的安全评测报告，这里取其中 HarmBench 两种设置下的结果。', 'Stanford CRFM safety report; this view uses its HarmBench results under two settings.'),
+    measure: T('无害性分数越高越好。原报告为 0–1 分，这里乘以 100 显示；不是攻击成功率，也不是当前排名。', 'Higher harmlessness is better. The report uses 0–1; shown here ×100. It is neither an attack success rate nor a current ranking.'),
+    detail: '', defaults: { task: 'HarmBench', config: 'default', metric: 'harmless' }
+  });
+  for (const b of E.benchmarks) benches.push({ id: b.id, name: b.name, version: tx('BENCH', b.version), org: b.org, url: b.url, dirs: b.direction_ids || [], desc: tx('BENCH', b.desc), measure: tx('BENCH', b.measure), detail: tx('BENCH', b.detail), defaults: { task: b.default_task, config: b.default_configuration, metric: b.default_metric } });
+
+  const rows = [];
+  if (helm) for (const r of helm.records) for (const [cfg, key] of [['default', 'score'], ['GCG-T', 'attack']]) rows.push({
+    bench: 'helm-safety', model: r.name, version: r.version || '', provider: r.creator, task: 'HarmBench', config: cfg, metric: 'harmless', metricLabel: T('无害性分数（0–100）', 'Harmlessness (0–100)'),
+    value: Math.round(r[key] * 1000) / 10, unit: 'score', better: 'higher', date: helm.published, dateKind: 'report_published_on', source: helm.source_url, warnings: [T('原报告 0–1 分乘以 100 显示', 'Source 0–1 values ×100')]
+  });
+  for (const r of E.records) rows.push({
+    bench: r.benchmark_id, model: r.model_label || r.model, version: r.model_version || '', provider: r.provider || '', task: r.task, config: r.configuration, metric: r.metric_id, metricLabel: r.metric_label || r.metric,
+    value: r.value, unit: r.unit, better: r.better, date: r.reported_date || '', dateKind: r.source_date_kind, source: r.source_url, warnings: r.warnings || []
+  });
+  const configLabel = c => c === 'default' ? T('默认设置', 'Default') : c;
+  const fmt = v => (Math.round(v * 10) / 10).toFixed(1).replace(/\.0$/, '');
+
+  const p = S.params();
+  const state = { dir: S.dirParam(), bench: p.get('benchmark') || 'helm-safety', task: p.get('task'), config: p.get('config'), metric: p.get('metric'), order: p.get('order') || 'best', view: p.get('view') || 'abs', base: p.get('base') || '', limit: p.get('limit') || '10', prov: p.get('prov') || 'all', q: p.get('q') || '', picked: new Set((p.get('models') || '').split(',').filter(Boolean)) };
+  if (!benches.some(b => b.id === state.bench)) state.bench = benches[0]?.id;
+
+  const $ = id => document.getElementById(id);
+  const inDir = b => state.dir === 'all' || b.dirs.includes(state.dir);
+  const renderDirs = S.dirSeg($('dirs'), () => state.dir, id => benches.filter(b => id === 'all' || b.dirs.includes(id)).length, id => {
+    state.dir = id; const cur = benches.find(b => b.id === state.bench);
+    if (!cur || !inDir(cur)) { const first = benches.find(inDir); if (first) pickBench(first.id); }
+    render();
+  });
+  function pickBench(id) { state.bench = id; state.task = state.config = state.metric = null; state.base = ''; state.picked.clear(); state.prov = 'all'; }
+  $('benches').addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (!b || b.disabled) return; pickBench(b.dataset.v); render(); });
+
+  const opts = (el, list, cur, label = x => x) => { el.innerHTML = list.map(v => '<option value="' + esc(v) + '">' + esc(label(v)) + '</option>').join(''); el.value = cur; };
+  for (const [id, key] of [['task', 'task'], ['config', 'config'], ['metric', 'metric'], ['order', 'order'], ['view', 'view'], ['base', 'base'], ['limit', 'limit'], ['prov', 'prov']])
+    $(id).addEventListener('change', () => { state[key] = $(id).value; if (key === 'task') state.config = state.metric = null; render(); });
+  let tq; $('q').addEventListener('input', () => { clearTimeout(tq); tq = setTimeout(() => { state.q = $('q').value.trim(); render(); }, 150); });
+  $('reset').addEventListener('click', () => { const id = state.bench; Object.assign(state, { order: 'best', view: 'abs', limit: '10', q: '' }); pickBench(id); render(); });
+  $('copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(location.href); $('toast').textContent = T('链接已复制', 'Link copied'); }
+    catch { $('toast').textContent = T('无法复制，请从地址栏复制', 'Could not copy; use the address bar'); }
+    setTimeout(() => { $('toast').textContent = ''; }, 2400);
+  });
+  $('tbody').addEventListener('change', e => {
+    const c = e.target.closest('input[data-m]'); if (!c) return;
+    c.checked ? state.picked.add(c.dataset.m) : state.picked.delete(c.dataset.m); render();
+  });
+
+  let current = [];
+  $('csv').addEventListener('click', () => {
+    const head = ['benchmark', 'model', 'version', 'developer', 'task', 'setting', 'metric', 'value', 'unit', 'better', 'date', 'date_kind', 'source'];
+    const q = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+    const csv = [head.join(','), ...current.map(r => [r.bench, r.model, r.version, r.provider, r.task, r.config, r.metricLabel, r.value, r.unit, r.better, r.date, r.dateKind, r.source].map(q).join(','))].join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' }));
+    a.download = state.bench + '-' + (state.task || '') + '-' + (state.metric || '') + '.csv';
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  function render() {
+    renderDirs();
+    const B = benches.find(b => b.id === state.bench);
+    $('benches').innerHTML = benches.map(b => '<button type="button" data-v="' + b.id + '" aria-pressed="' + (b.id === state.bench) + '"' + (inDir(b) ? '' : ' disabled') + '>' + esc(b.name) + '</button>').join('');
+    $('head-sub').textContent = T(benches.length + ' 个基准已有站内结果。只在同一基准、同一任务、同一设置之间比较。', benches.length + ' benchmarks have results on this site. Compare only within one benchmark, task and setting.');
+    if (!B) return;
+
+    const all = rows.filter(r => r.bench === B.id);
+    const tasks = [...new Set(all.map(r => r.task))];
+    if (!tasks.includes(state.task)) state.task = tasks.includes(B.defaults.task) ? B.defaults.task : tasks[0];
+    const inTask = all.filter(r => r.task === state.task);
+    const configs = [...new Set(inTask.map(r => r.config))];
+    if (!configs.includes(state.config)) state.config = configs.includes(B.defaults.config) ? B.defaults.config : configs[0];
+    const inCfg = inTask.filter(r => r.config === state.config);
+    const metrics = [...new Map(inCfg.map(r => [r.metric, r.metricLabel])).entries()];
+    if (!metrics.some(([m]) => m === state.metric)) state.metric = metrics.some(([m]) => m === B.defaults.metric) ? B.defaults.metric : metrics[0]?.[0];
+    let list = inCfg.filter(r => r.metric === state.metric);
+    const M = list[0] || {};
+    const providers = [...new Set(list.map(r => r.provider).filter(Boolean))].sort();
+    if (state.prov !== 'all' && !providers.includes(state.prov)) state.prov = 'all';
+    opts($('task'), tasks, state.task); opts($('config'), configs, state.config, configLabel);
+    $('metric').innerHTML = metrics.map(([m, l]) => '<option value="' + esc(m) + '">' + esc(l) + '</option>').join(''); $('metric').value = state.metric;
+    $('order').value = state.order; $('view').value = state.view; $('limit').value = state.limit; $('q').value = state.q;
+    $('prov').innerHTML = '<option value="all">' + T('全部机构', 'All developers') + '</option>' + providers.map(v => '<option value="' + esc(v) + '">' + esc(v) + '</option>').join(''); $('prov').value = state.prov;
+    $('prov').disabled = !providers.length;
+
+    if (state.prov !== 'all') list = list.filter(r => r.provider === state.prov);
+    if (state.q) list = list.filter(r => (r.model + ' ' + r.version).toLowerCase().includes(state.q.toLowerCase()));
+    const sign = M.better === 'lower' ? 1 : -1;
+    list.sort(state.order === 'name' ? (a, b) => a.model.localeCompare(b.model) : (a, b) => (a.value - b.value) * sign * (state.order === 'worst' ? -1 : 1) || a.model.localeCompare(b.model));
+    current = list;
+    const names = list.map(r => r.model);
+    if (state.base && !names.includes(state.base)) state.base = '';
+    if (!state.base) state.base = [...list].sort((a, b) => (a.value - b.value) * sign)[0]?.model || '';
+    $('base').innerHTML = names.map(n => '<option>' + esc(n) + '</option>').join(''); $('base').value = state.base;
+    $('base').disabled = state.view !== 'rel';
+    const baseRow = list.find(r => r.model === state.base);
+    const best = [...list].sort((a, b) => (a.value - b.value) * sign)[0];
+
+    S.setParams({ benchmark: state.bench, task: state.task, config: state.config, metric: state.metric, order: state.order === 'best' ? null : state.order, view: state.view === 'abs' ? null : state.view, base: state.view === 'rel' ? state.base : null, limit: state.limit === '10' ? null : state.limit, prov: state.prov, q: state.q, models: [...state.picked].join(',') || null });
+
+    /* boundary board */
+    const dates = [...new Set(list.map(r => r.date).filter(Boolean))].sort();
+    const kind = DATE_KIND[list[0]?.dateKind] || '';
+    $('bound-title').textContent = B.name + ' · ' + state.task;
+    $('bound').innerHTML = '<dt>' + T('版本', 'Version') + '</dt><dd>' + esc(B.version || T('未标注', 'not stated')) + '</dd>'
+      + '<dt>' + T('设置', 'Setting') + '</dt><dd>' + esc(configLabel(state.config)) + '</dd>'
+      + '<dt>' + T('指标', 'Metric') + '</dt><dd>' + esc(M.metricLabel || '') + ' · ' + (M.better === 'lower' ? T('越低越好', 'lower is better') : T('越高越好', 'higher is better')) + '</dd>'
+      + '<dt>' + T('日期', 'Date') + '</dt><dd>' + (dates.length ? esc(dates[0] === dates.at(-1) ? dates[0] : dates[0] + ' – ' + dates.at(-1)) + (kind ? T('（' + kind + '）', ' (' + kind + ')') : '') : T('未报告', 'not reported')) + '</dd>'
+      + '<dt>' + T('来源', 'Source') + '</dt><dd><a href="' + esc(B.url) + '" rel="noopener">' + esc(B.org || B.name) + ' ↗</a></dd>';
+    $('bound-count').innerHTML = S.plates(list.length, T(list.length + ' 个模型', list.length + ' models')) + '<span class="unit">' + T('个模型', 'models') + '</span>';
+
+    /* chart */
+    const shownRows = (state.picked.size ? list.filter(r => state.picked.has(r.model)) : list).slice(0, state.limit === 'all' ? Infinity : +state.limit);
+    $('chart-title').textContent = T('当前显示 ' + shownRows.length + ' / ' + list.length + ' 个可比模型', shownRows.length + ' of ' + list.length + ' comparable models shown');
+    $('chart-dir').textContent = (M.metricLabel || '') + ' · ' + (M.better === 'lower' ? T('越低越好', 'lower is better') : T('越高越好', 'higher is better'));
+    const maxV = M.unit === 'percent' || B.id === 'helm-safety' ? 100 : Math.max(1, ...list.map(r => Math.abs(r.value)));
+    const diffs = shownRows.map(r => baseRow ? r.value - baseRow.value : 0), maxD = Math.max(0.1, ...diffs.map(Math.abs));
+    $('bars').innerHTML = shownRows.length ? shownRows.map((r, i) => {
+      const cls = [r.model === state.base && state.view === 'rel' ? 'base' : '', best && r.model === best.model ? 'best' : ''].join(' ');
+      let bar, val;
+      if (state.view === 'rel' && baseRow) {
+        const d = diffs[i], good = d * -sign > 0, w = Math.abs(d) / maxD * 50;
+        bar = '<div class="track"><span class="zero" style="left:50%"></span><span class="fill ' + (d === 0 ? '' : good ? 'pos' : 'neg') + '" style="left:' + (d < 0 ? 50 - w : 50) + '%;width:' + w + '%"></span></div>';
+        val = (d > 0 ? '+' : '') + fmt(d);
+      } else {
+        bar = '<div class="track"><span class="fill" style="width:' + Math.max(0.5, Math.abs(r.value) / maxV * 100) + '%"></span></div>';
+        val = fmt(r.value);
+      }
+      return '<li class="' + cls + '" data-best="' + T('最好', 'best') + '"><span class="nm">' + esc(r.model) + (r.version && r.version !== r.model ? '<small>' + esc(r.version) + '</small>' : '') + '</span>' + bar + '<span class="val">' + val + '</span></li>';
+    }).join('') : '<li class="empty">' + T('没有符合条件的模型。', 'No models match.') + '</li>';
+    $('scale-note').textContent = state.view === 'rel' && baseRow
+      ? T('以 ' + state.base + ' 为基线：浅绿表示比基线更好，红色表示更差。', 'Baseline ' + state.base + ': pale green is better than the baseline, red is worse.')
+      : (B.measure || '');
+
+    /* table */
+    $('th-val').textContent = (M.metricLabel || T('数值', 'Value')) + (M.unit === 'percent' ? ' (%)' : '');
+    $('tbody').innerHTML = list.map(r => '<tr><td><input type="checkbox" data-m="' + esc(r.model) + '"' + (state.picked.has(r.model) ? ' checked' : '') + ' aria-label="' + T('对比 ', 'Compare ') + esc(r.model) + '"></td>'
+      + '<td><div class="org">' + esc(r.model) + '</div>' + (r.version && r.version !== r.model ? '<small>' + esc(r.version) + '</small>' : '') + '</td>'
+      + '<td>' + esc(r.provider || T('未标注', 'not stated')) + '</td><td class="num">' + fmt(r.value) + '</td>'
+      + '<td>' + esc(r.task) + '<small>' + esc(configLabel(r.config)) + '</small></td>'
+      + '<td>' + esc(r.date || T('未报告', 'not reported')) + '<small>' + esc(DATE_KIND[r.dateKind] || '') + '</small></td>'
+      + '<td><a href="' + esc(r.source) + '" rel="noopener">' + T('原始来源', 'Source') + ' ↗</a></td></tr>').join('');
+    const warns = [...new Set(list.flatMap(r => r.warnings))];
+    $('warns').innerHTML = warns.map(w => '<li>' + (en && S.CJK.test(tx('WARN', w)) ? S.zhOnly(w) : esc(tx('WARN', w))) + '</li>').join('') + (B.detail ? '<li>' + esc(B.detail) + '</li>' : '');
+  }
+  render();
+})();
+</script>
+</body>
+</html>

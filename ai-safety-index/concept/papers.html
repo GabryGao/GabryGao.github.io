@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>论文 · AI 安全看板</title>
+<title data-en="Papers · AI Safety Board">论文 · AI 安全看板</title>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
@@ -74,43 +74,43 @@
 
 <main class="wrap">
   <div class="page-head">
-    <h1>论文</h1>
+    <h1 data-en="Papers">论文</h1>
     <p id="head-sub"></p>
   </div>
-  <nav class="dirs" aria-label="按研究方向筛选">
-    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
 
   <section class="reads" aria-labelledby="reads-title">
-    <h2 id="reads-title" style="margin:22px 0 4px;font-weight:700;font-stretch:87.5%;font-size:24px">本周新进</h2>
+    <h2 id="reads-title" style="margin:22px 0 4px;font-weight:700;font-stretch:87.5%;font-size:24px" data-en="New this week">本周新进</h2>
     <p class="sub" id="reads-sub"></p>
     <ol id="reads"></ol>
   </section>
 
   <section class="years" aria-labelledby="years-title">
-    <h2 id="years-title">论文库按年份</h2>
-    <p id="years-sub">点击某一年只看这一年，再点一次取消。</p>
-    <div class="ybars" id="ybars" role="group" aria-label="年份"></div>
+    <h2 id="years-title" data-en="The library by year">论文库按年份</h2>
+    <p id="years-sub" data-en="Select a year to show only that year; select it again to clear.">点击某一年只看这一年，再点一次取消。</p>
+    <div class="ybars" id="ybars" role="group" aria-label="年份" data-en-aria-label="Year"></div>
   </section>
 
   <div class="tools">
     <div class="field">
-      <label for="q">关键词</label>
-      <input class="input" id="q" type="search" placeholder="标题、作者或子主题" autocomplete="off">
+      <label for="q" data-en="Keywords">关键词</label>
+      <input class="input" id="q" type="search" placeholder="标题、作者或子主题" data-en-placeholder="Title, author or subtopic" autocomplete="off">
     </div>
     <div class="field">
-      <label for="sub">子主题</label>
+      <label for="sub" data-en="Subtopic">子主题</label>
       <select class="select" id="sub"></select>
     </div>
     <div class="field">
-      <label for="venue">发表处</label>
+      <label for="venue" data-en="Venue">发表处</label>
       <select class="select" id="venue"></select>
     </div>
     <div class="field">
-      <label for="sort">排序</label>
+      <label for="sort" data-en="Sort">排序</label>
       <select class="select" id="sort">
-        <option value="year">年份从新到旧</option>
-        <option value="title">标题 A–Z</option>
+        <option value="year" data-en="Newest year first">年份从新到旧</option>
+        <option value="title" data-en="Title A–Z">标题 A–Z</option>
       </select>
     </div>
   </div>
@@ -125,18 +125,20 @@
 <footer>
   <div class="wrap">
     <span id="foot"></span>
-    <a href="index.html">返回看板</a>
-    <a href="../#papers">现站论文页</a>
+    <a href="index.html" data-en="Back to the board">返回看板</a>
+    <a href="../#papers" data-en="Live site papers">现站论文页</a>
   </div>
 </footer>
 
 <script src="../news-feed.js"></script>
 <script>var paperRecords = [];</script>
 <script src="../opentai-papers.js"></script>
+<script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
 (() => {
-  const S = Shell, N = S.news, { esc, md, dirName, link } = S;
+  const S = Shell, N = S.news, { esc, md, dirName, link, T, tx } = S;
+  const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   S.header('papers.html');
   const P = paperRecords.slice();
   const info = typeof paperImportInfo !== 'undefined' ? paperImportInfo : {};
@@ -146,8 +148,10 @@
   const p0 = S.params();
   const state = { dir: S.dirParam(), q: p0.get('q') || '', sub: p0.get('sub') || 'all', venue: p0.get('venue') || 'all', year: p0.get('year') || 'all', sort: p0.get('sort') === 'title' ? 'title' : 'year', shown: 40 };
 
-  document.getElementById('head-sub').textContent = P.length + ' 篇，来自 OpenTAI 论文库快照（' + (info.imported_on || '导入日期未知') + ' 导入）。来源只提供年份和子主题，没有摘要；收录不代表认可论文结论。';
-  document.getElementById('foot').textContent = '论文库来自 OpenTAI 公开目录（commit ' + String(info.source_commit || '').slice(0, 7) + '），不会自动更新。现站另有 3 篇手工收录的基准论文，概念页暂未包含。';
+  document.getElementById('head-sub').textContent = T(P.length + ' 篇，来自 OpenTAI 论文库快照（' + (info.imported_on || '导入日期未知') + ' 导入）。来源只提供年份和子主题，没有摘要；收录不代表认可论文结论。',
+    plural(P.length, 'paper') + ' from an OpenTAI library snapshot (imported ' + (info.imported_on || 'on an unknown date') + '). The source gives only year and subtopic, no abstracts. Listing a paper does not endorse its claims.');
+  document.getElementById('foot').textContent = T('论文库来自 OpenTAI 公开目录（commit ' + String(info.source_commit || '').slice(0, 7) + '），不会自动更新。现站另有 3 篇手工收录的基准论文，概念页暂未包含。',
+    'Library from the public OpenTAI catalog (commit ' + String(info.source_commit || '').slice(0, 7) + '); it does not update itself. Three benchmark papers added by hand on the live site are not included here yet.');
 
   const inDir = (p, d) => d === 'all' || (p.direction_ids || []).includes(d);
   const match = (p, skip) => {
@@ -179,22 +183,22 @@
 
   function renderReads() {
     const list = N.papers.filter(r => inDir(r, state.dir));
-    document.getElementById('reads-sub').textContent = 'AI Safety HOT 本周精选，共 ' + list.length + ' 篇，独立于下方论文库。来源未提供摘要。';
+    document.getElementById('reads-sub').textContent = T('AI Safety HOT 本周精选，共 ' + list.length + ' 篇，独立于下方论文库。来源未提供摘要。', plural(list.length, 'paper') + ' picked by AI Safety HOT this week, separate from the library below. The source gives no abstracts.');
     document.getElementById('reads').innerHTML = list.length ? list.map(r => {
       const arxiv = (link(r).match(/arxiv\.org\/abs\/([\w.]+)/) || [])[1];
       return '<li><time datetime="' + esc(r.date) + '">' + md(r.date) + '</time>'
         + '<a class="pt" href="' + esc(link(r)) + '" rel="noopener" lang="en">' + esc(r.title) + '</a>'
-        + '<span class="pm">' + (arxiv ? 'arXiv ' + esc(arxiv) + ' · ' : '') + (r.direction_ids || []).map(dirName).join('、') + '</span>'
-        + '<span class="pl"><a href="' + esc(link(r)) + '" rel="noopener">' + (arxiv ? 'arXiv' : '原文') + ' ↗</a><a href="' + esc(r.url) + '" rel="noopener">AI Safety HOT ↗</a></span></li>';
-    }).join('') : '<li class="empty">这个方向本周没有精选论文。</li>';
+        + '<span class="pm">' + (arxiv ? 'arXiv ' + esc(arxiv) + ' · ' : '') + (r.direction_ids || []).map(dirName).join(T('、', ', ')) + '</span>'
+        + '<span class="pl"><a href="' + esc(link(r)) + '" rel="noopener">' + (arxiv ? 'arXiv' : T('原文', 'Source')) + ' ↗</a><a href="' + esc(r.url) + '" rel="noopener">AI Safety HOT ↗</a></span></li>';
+    }).join('') : '<li class="empty">' + T('这个方向本周没有精选论文。', 'No featured papers in this direction this week.') + '</li>';
   }
 
   const paperRow = p => {
-    const au = (p.authors || []).slice(0, 3).join(', ') + ((p.authors || []).length > 3 ? ' 等' : '');
+    const au = (p.authors || []).slice(0, 3).join(', ') + ((p.authors || []).length > 3 ? T(' 等', ' et al.') : '');
     const href = p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url;
     return '<li><a class="pt" href="' + esc(href) + '" rel="noopener" lang="en">' + esc(p.title) + '</a>'
       + '<span class="au" lang="en">' + esc(au) + '</span>'
-      + '<span class="tg">' + (p.description ? '<span class="tag">' + esc(p.description) + '</span>' : '') + (p.direction_ids || []).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</span>'
+      + '<span class="tg">' + (p.description ? '<span class="tag">' + esc(tx('SUBTOPIC', p.description)) + '</span>' : '') + (p.direction_ids || []).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</span>'
       + '<span class="vn"><b>' + esc(p.venue || '') + '</b>' + (p.arxiv_id ? '<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" rel="noopener">arXiv ' + esc(p.arxiv_id) + '</a>' : '') + '</span></li>';
   };
 
@@ -205,33 +209,34 @@
 
     const yScope = P.filter(p => match(p, 'year'));
     const yc = years.map(y => yScope.filter(p => p.year === y).length), maxY = Math.max(1, ...yc);
-    ybars.innerHTML = years.map((y, i) => '<button type="button" data-y="' + y + '" aria-pressed="' + (state.year === y) + '"' + (yc[i] ? '' : ' disabled') + ' aria-label="' + y + ' 年 ' + yc[i] + ' 篇"><span class="v">' + yc[i] + '</span><span class="c" style="--i:' + i + ';height:' + (yc[i] / maxY * 100) + '%"></span><span class="y">' + y + '</span></button>').join('');
+    ybars.innerHTML = years.map((y, i) => '<button type="button" data-y="' + y + '" aria-pressed="' + (state.year === y) + '"' + (yc[i] ? '' : ' disabled') + ' aria-label="' + T(y + ' 年 ' + yc[i] + ' 篇', y + ': ' + plural(yc[i], 'paper')) + '"><span class="v">' + yc[i] + '</span><span class="c" style="--i:' + i + ';height:' + (yc[i] / maxY * 100) + '%"></span><span class="y">' + y + '</span></button>').join('');
 
     const subScope = P.filter(p => match(p, 'sub'));
     const subs = [...new Set(subScope.map(p => p.description).filter(Boolean))].map(s => [s, subScope.filter(p => p.description === s).length]).sort((a, b) => b[1] - a[1]);
     if (state.sub !== 'all' && !subs.some(([s]) => s === state.sub)) state.sub = 'all';
-    sub.innerHTML = '<option value="all">全部子主题</option>' + subs.map(([s, n]) => '<option value="' + esc(s) + '">' + esc(s) + '（' + n + '）</option>').join('');
+    sub.innerHTML = '<option value="all">' + T('全部子主题', 'All subtopics') + '</option>' + subs.map(([s, n]) => '<option value="' + esc(s) + '">' + esc(tx('SUBTOPIC', s)) + T('（' + n + '）', ' (' + n + ')') + '</option>').join('');
     sub.value = state.sub;
 
     const vScope = P.filter(p => match(p, 'venue'));
     const vn = v => vScope.filter(p => venueOf(p) === v).length;
-    venue.innerHTML = '<option value="all">全部发表处</option>' + [...TOP_VENUES, 'other'].filter(v => vn(v)).map(v => '<option value="' + esc(v) + '">' + (v === 'other' ? '其他会议与期刊' : esc(v)) + '（' + vn(v) + '）</option>').join('');
+    venue.innerHTML = '<option value="all">' + T('全部发表处', 'All venues') + '</option>' + [...TOP_VENUES, 'other'].filter(v => vn(v)).map(v => '<option value="' + esc(v) + '">' + (v === 'other' ? T('其他会议与期刊', 'Other venues') : esc(v)) + T('（' + vn(v) + '）', ' (' + vn(v) + ')') + '</option>').join('');
     if (![...venue.options].some(o => o.value === state.venue)) state.venue = 'all';
     venue.value = state.venue;
 
     const list = P.filter(p => match(p)).sort(state.sort === 'title' ? (a, b) => a.title.localeCompare(b.title, 'en') : (a, b) => b.year.localeCompare(a.year) || a.title.localeCompare(b.title, 'en'));
-    document.getElementById('count').textContent = list.length + ' 篇' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）') + (state.year === 'all' ? '' : '，' + state.year + ' 年');
+    document.getElementById('count').textContent = T(list.length + ' 篇' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）') + (state.year === 'all' ? '' : '，' + state.year + ' 年'),
+      plural(list.length, 'paper') + (state.dir === 'all' ? '' : ' (' + dirName(state.dir) + ')') + (state.year === 'all' ? '' : ', ' + state.year));
     const shown = list.slice(0, state.shown);
     const el = document.getElementById('list');
-    if (!list.length) el.innerHTML = '<p class="empty">没有符合这些条件的论文。</p>';
+    if (!list.length) el.innerHTML = '<p class="empty">' + T('没有符合这些条件的论文。', 'No papers match these filters.') + '</p>';
     else if (state.sort === 'title') el.innerHTML = '<ol class="plist">' + shown.map(paperRow).join('') + '</ol>';
     else {
       const by = {};
       for (const p of shown) (by[p.year] ||= []).push(p);
-      el.innerHTML = Object.keys(by).sort().reverse().map(y => '<section class="ygroup" aria-label="' + y + ' 年"><div class="yhead">' + S.plates(y, y + ' 年')
-        + '<small>' + list.filter(p => p.year === y).length + ' 篇</small></div><ol class="plist">' + by[y].map(paperRow).join('') + '</ol></section>').join('');
+      el.innerHTML = Object.keys(by).sort().reverse().map(y => '<section class="ygroup" aria-label="' + T(y + ' 年', y) + '"><div class="yhead">' + S.plates(y, T(y + ' 年', y))
+        + '<small>' + T(list.filter(p => p.year === y).length + ' 篇', plural(list.filter(p => p.year === y).length, 'paper')) + '</small></div><ol class="plist">' + by[y].map(paperRow).join('') + '</ol></section>').join('');
     }
-    document.getElementById('moreall').innerHTML = list.length > state.shown ? '<button type="button" class="btn">再显示 ' + Math.min(40, list.length - state.shown) + ' 篇（共 ' + list.length + '）</button>' : '';
+    document.getElementById('moreall').innerHTML = list.length > state.shown ? '<button type="button" class="btn">' + T('再显示 ' + Math.min(40, list.length - state.shown) + ' 篇（共 ' + list.length + '）', 'Show ' + Math.min(40, list.length - state.shown) + ' more (' + list.length + ' total)') + '</button>' : '';
   }
   render();
 })();

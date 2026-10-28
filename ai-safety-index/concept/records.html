@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>全部记录 · AI 安全看板</title>
+<title data-en="All records · AI Safety Board">全部记录 · AI 安全看板</title>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
@@ -58,49 +58,49 @@
 
 <main class="wrap">
   <div class="page-head">
-    <h1>全部记录</h1>
+    <h1 data-en="All records">全部记录</h1>
     <p id="head-sub"></p>
   </div>
-  <nav class="dirs" aria-label="按研究方向筛选">
-    <div class="seg seg-dirs" role="group" aria-label="研究方向" id="dirs"></div>
+  <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
+    <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
 
   <div class="layout">
-    <aside class="side" aria-label="筛选">
+    <aside class="side" aria-label="筛选" data-en-aria-label="Filters">
       <div class="mini">
         <div class="strip"><ol id="strip"></ol></div>
-        <p>每日安全事件数，点击跳到当天</p>
+        <p data-en="Safety incidents per day. Select a day to jump to it.">每日安全事件数，点击跳到当天</p>
       </div>
       <div class="field">
-        <label for="q">关键词</label>
-        <input class="input" id="q" type="search" placeholder="标题、摘要、标签或来源" autocomplete="off">
+        <label for="q" data-en="Keywords">关键词</label>
+        <input class="input" id="q" type="search" placeholder="标题、摘要、标签或来源" data-en-placeholder="Title, summary, tag or source" autocomplete="off">
       </div>
       <div>
-        <h2>类型</h2>
-        <div class="chips" id="cats" role="group" aria-label="类型"></div>
+        <h2 data-en="Type">类型</h2>
+        <div class="chips" id="cats" role="group" aria-label="类型" data-en-aria-label="Type"></div>
       </div>
       <div>
-        <h2>内容</h2>
-        <div class="seg" id="kinds" role="group" aria-label="内容">
-          <button type="button" data-v="all" aria-pressed="true">全部</button>
-          <button type="button" data-v="latest" aria-pressed="false">资讯</button>
-          <button type="button" data-v="analysis" aria-pressed="false">解读</button>
+        <h2 data-en="Content">内容</h2>
+        <div class="seg" id="kinds" role="group" aria-label="内容" data-en-aria-label="Content">
+          <button type="button" data-v="all" aria-pressed="true" data-en="All">全部</button>
+          <button type="button" data-v="latest" aria-pressed="false" data-en="News">资讯</button>
+          <button type="button" data-v="analysis" aria-pressed="false" data-en="Analysis">解读</button>
         </div>
       </div>
       <div class="field">
-        <label for="org">机构</label>
+        <label for="org" data-en="Organisation">机构</label>
         <select class="select" id="org"></select>
       </div>
-      <label class="check"><input type="checkbox" id="inc"> 只看安全事件</label>
-      <button type="button" class="reset" id="reset">清除全部筛选</button>
+      <label class="check"><input type="checkbox" id="inc"> <span data-en="Safety incidents only">只看安全事件</span></label>
+      <button type="button" class="reset" id="reset" data-en="Clear all filters">清除全部筛选</button>
     </aside>
 
     <section class="feed" aria-labelledby="list-title">
       <div class="summary">
         <h2 id="list-title" class="sub" style="margin:0" aria-live="polite"></h2>
-        <div class="seg" id="sort" role="group" aria-label="排序">
-          <button type="button" data-v="date" aria-pressed="true">按日期</button>
-          <button type="button" data-v="heat" aria-pressed="false">按热度</button>
+        <div class="seg" id="sort" role="group" aria-label="排序" data-en-aria-label="Sort">
+          <button type="button" data-v="date" aria-pressed="true" data-en="By date">按日期</button>
+          <button type="button" data-v="heat" aria-pressed="false" data-en="By heat">按热度</button>
         </div>
       </div>
       <div id="list"></div>
@@ -110,31 +110,35 @@
 
 <footer>
   <div class="wrap">
-    <span>数据来自 <a href="https://aisafetyhot.com/en" rel="noopener">AI Safety HOT</a> 公开接口，每 3 小时更新；目前只保留最近一次抓取窗口内的记录。</span>
-    <a href="index.html">返回看板</a>
+    <span><span data-en="Data from the">数据来自</span> <a href="https://aisafetyhot.com/en" rel="noopener">AI Safety HOT</a> <span data-en="public API, refreshed every 3 hours. Only the latest collection window is kept for now.">公开接口，每 3 小时更新；目前只保留最近一次抓取窗口内的记录。</span></span>
+    <a href="index.html" data-en="Back to the board">返回看板</a>
   </div>
 </footer>
 
 <script src="../news-feed.js"></script>
+<script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
 (() => {
-  const S = Shell, N = S.news, { esc, iso, day, heat, isIncident, category, title, dirName } = S;
+  const S = Shell, N = S.news, { esc, iso, day, heat, isIncident, category, categoryZh, tx, dirName, T } = S;
+  const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   S.header('records.html');
   const p = S.params();
   const state = {
     dir: S.dirParam(), q: p.get('q') || '', cat: p.get('cat') || 'all', kind: p.get('kind') || 'all',
     org: p.get('org') || 'all', inc: p.get('inc') === '1', sort: p.get('sort') === 'heat' ? 'heat' : 'date', open: null
   };
-  const ORG_NAMES = { openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google DeepMind', deepseek: 'DeepSeek', moonshot: '月之暗面', 'uk-aisi': '英国 AI 安全研究所', metr: 'METR', redwood: 'Redwood Research' };
+  const ORG_NAMES = { openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google DeepMind', deepseek: 'DeepSeek', moonshot: T('月之暗面', 'Moonshot AI'), 'uk-aisi': T('英国 AI 安全研究所', 'UK AI Security Institute'), metr: 'METR', redwood: 'Redwood Research' };
   const orgOf = r => (r.terms || []).filter(t => t.startsWith('entity:')).map(t => t.slice(7));
-  const WEEK = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+  const WEEK = T(['周日', '周一', '周二', '周三', '周四', '周五', '周六'], ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']);
+  const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  document.getElementById('head-sub').textContent = N.signals.length + ' 条公开来源记录，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。按天浏览，点击条目展开摘要。';
+  document.getElementById('head-sub').textContent = T(N.signals.length + ' 条公开来源记录，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。按天浏览，点击条目展开摘要。',
+    plural(N.signals.length, 'public-source record') + ' from ' + iso(N.firstDay) + ' to ' + iso(N.lastCollected) + '. Browse by day and select an entry for its summary.');
 
   const match = (r, skip) => {
     if (skip !== 'dir' && state.dir !== 'all' && !(r.direction_ids || []).includes(state.dir)) return false;
-    if (skip !== 'cat' && state.cat !== 'all' && category(r) !== state.cat) return false;
+    if (skip !== 'cat' && state.cat !== 'all' && categoryZh(r) !== state.cat) return false;
     if (state.kind !== 'all' && r.content_kind !== state.kind) return false;
     if (state.org !== 'all' && !orgOf(r).includes(state.org)) return false;
     if (state.inc && !isIncident(r)) return false;
@@ -152,10 +156,10 @@
 
   /* type chips, counted within the other filters */
   const cats = document.getElementById('cats');
-  const catNames = [...new Set(N.signals.map(category))].sort((a, b) => N.signals.filter(r => category(r) === b).length - N.signals.filter(r => category(r) === a).length);
+  const catNames = [...new Set(N.signals.map(categoryZh))].sort((a, b) => N.signals.filter(r => categoryZh(r) === b).length - N.signals.filter(r => categoryZh(r) === a).length);
   function renderCats() {
-    const n = c => N.signals.filter(r => (c === 'all' || category(r) === c) && match(r, 'cat')).length;
-    cats.innerHTML = ['all', ...catNames].map(c => '<button type="button" data-v="' + esc(c) + '" aria-pressed="' + (state.cat === c) + '">' + (c === 'all' ? '全部' : esc(c)) + '<b>' + n(c) + '</b></button>').join('');
+    const n = c => N.signals.filter(r => (c === 'all' || categoryZh(r) === c) && match(r, 'cat')).length;
+    cats.innerHTML = ['all', ...catNames].map(c => '<button type="button" data-v="' + esc(c) + '" aria-pressed="' + (state.cat === c) + '">' + (c === 'all' ? T('全部', 'All') : esc(tx('CATEGORY', c))) + '<b>' + n(c) + '</b></button>').join('');
   }
   cats.addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (!b) return; state.cat = b.dataset.v; render(); });
 
@@ -166,7 +170,7 @@
 
   const org = document.getElementById('org');
   const orgIds = [...new Set(N.signals.flatMap(orgOf))].sort((a, b) => N.signals.filter(r => orgOf(r).includes(b)).length - N.signals.filter(r => orgOf(r).includes(a)).length);
-  org.innerHTML = '<option value="all">全部机构</option>' + orgIds.map(id => '<option value="' + esc(id) + '">' + esc(ORG_NAMES[id] || id) + '（' + N.signals.filter(r => orgOf(r).includes(id)).length + '）</option>').join('');
+  org.innerHTML = '<option value="all">' + T('全部机构', 'All organisations') + '</option>' + orgIds.map(id => '<option value="' + esc(id) + '">' + esc(ORG_NAMES[id] || id) + T('（', ' (') + N.signals.filter(r => orgOf(r).includes(id)).length + T('）', ')') + '</option>').join('');
   org.addEventListener('change', () => { state.org = org.value; render(); });
 
   const inc = document.getElementById('inc');
@@ -192,7 +196,8 @@
 
     const rows = N.signals.filter(r => match(r));
     const nInc = rows.filter(isIncident).length;
-    document.getElementById('list-title').textContent = rows.length + ' 条记录，其中 ' + nInc + ' 起安全事件' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）');
+    document.getElementById('list-title').textContent = T(rows.length + ' 条记录，其中 ' + nInc + ' 起安全事件' + (state.dir === 'all' ? '' : '（' + dirName(state.dir) + '）'),
+      plural(rows.length, 'record') + ', ' + plural(nInc, 'safety incident') + (state.dir === 'all' ? '' : ' (' + dirName(state.dir) + ')'));
 
     const perDay = {};
     for (const r of rows.filter(isIncident)) (perDay[r.date] ||= []).push(r);
@@ -200,7 +205,7 @@
     strip.style.setProperty('--days', N.span);
     strip.innerHTML = S.stripHTML(perDay, { link: state.sort === 'date' });
 
-    if (!rows.length) { list.innerHTML = '<p class="empty">没有符合这些条件的记录。<button type="button" class="reset" onclick="document.getElementById(\'reset\').click()">清除全部筛选</button></p>'; return; }
+    if (!rows.length) { list.innerHTML = '<p class="empty">' + T('没有符合这些条件的记录。', 'No records match these filters. ') + '<button type="button" class="reset" onclick="document.getElementById(\'reset\').click()">' + T('清除全部筛选', 'Clear all filters') + '</button></p>'; return; }
     if (state.sort === 'heat') {
       list.innerHTML = '<ol>' + rows.slice().sort((a, b) => heat(b) - heat(a) || b.date.localeCompare(a.date)).map(r => S.itemHTML(r, state.open === r.id)).join('') + '</ol>';
       return;
@@ -211,8 +216,8 @@
       const items = byDay[k].sort((a, b) => heat(b) - heat(a)), d = day(k), n = items.filter(isIncident).length;
       const [m, dd] = [d.getMonth() + 1, d.getDate()];
       return '<section class="daygroup" id="day-' + k + '" aria-label="' + k + '"><div class="dayhead">'
-        + S.plates(m, m + ' 月') + '<span class="sep" aria-hidden="true">/</span>' + S.plates(dd, dd + ' 日')
-        + '<div><h2>' + WEEK[d.getDay()] + '</h2><small>' + items.length + ' 条' + (n ? ' · <span class="inc">' + n + ' 起安全事件</span>' : '') + '</small></div></div>'
+        + S.plates(m, T(m + ' 月', MONTH[m - 1])) + '<span class="sep" aria-hidden="true">/</span>' + S.plates(dd, T(dd + ' 日', String(dd)))
+        + '<div><h2>' + WEEK[d.getDay()] + '</h2><small>' + T(items.length + ' 条', plural(items.length, 'record')) + (n ? ' · <span class="inc">' + T(n + ' 起安全事件', plural(n, 'safety incident')) + '</span>' : '') + '</small></div></div>'
         + '<ol>' + items.map(r => S.itemHTML(r, state.open === r.id)).join('') + '</ol></section>';
     }).join('');
   }

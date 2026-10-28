@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Submit a resource · AI Safety Board">上传资源 · AI 安全看板</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:70ch}
+.notice{margin:18px 0 26px;max-width:860px;background:var(--warn);color:var(--enamel-ink);border-radius:6px;padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
+.notice svg{grid-row:span 2;width:22px;height:22px;margin-top:2px}
+.notice strong{font-weight:700;font-stretch:87.5%;font-size:17px}
+.notice span{font-size:14px;line-height:1.55}
+form{max-width:860px;display:grid;gap:18px;padding-bottom:64px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field > span{font-size:13px;color:var(--muted)}
+.field > span b{color:var(--warn);font-weight:600;margin-left:4px}
+.input,.select,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:10px 12px;width:100%}
+textarea{resize:vertical;min-height:120px;line-height:1.6}
+.input::placeholder,textarea::placeholder{color:#7d8982}
+.input:focus,.select:focus,textarea:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.input:user-invalid,textarea:user-invalid{border-color:var(--alarm)}
+fieldset{border:1px solid var(--line);border-radius:6px;padding:16px 18px 18px;margin:0;display:grid;gap:16px}
+legend{padding:0 6px;font-size:13px;font-weight:600;color:var(--ink)}
+.privacy{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ghost{font:inherit;font-size:14px;font-weight:600;color:var(--ink);background:none;border:1px solid var(--ink);border-radius:5px;padding:9px 17px;cursor:pointer;transition:background .2s,color .2s}
+.ghost:hover{background:var(--ink);color:var(--enamel-ink)}
+.status{min-height:1.5em;margin:0;font-size:14px;color:var(--warn)}
+@media (max-width:640px){.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+
+<main class="wrap">
+  <div id="subnav"></div>
+  <div class="page-head">
+    <h1 data-en="Submit a resource">上传资源</h1>
+    <p data-en="Suggest a paper, dataset, tool, benchmark or evaluation result for the index.">推荐一篇论文、一组数据、一个工具、一个基准或一条评测结果。</p>
+  </div>
+
+  <div class="notice" role="status">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v5M12 18v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <strong data-en="Submission is not connected yet">提交渠道尚未接通</strong>
+    <span data-en="For now you can only download a draft file. Nothing is sent anywhere, and the submit button stays off until the project owner opens a review channel.">目前只能下载草稿文件，内容不会发送到任何地方。项目负责人开放审核渠道之前，提交按钮保持不可用。</span>
+  </div>
+
+  <form id="form" novalidate>
+    <div class="row2">
+      <label class="field"><span data-en="Submission type">提交类型</span>
+        <select class="select" name="purpose">
+          <option value="resource" data-en="Add a resource">补充资源</option>
+          <option value="recommendation" data-en="Recommend work">推荐成果</option>
+        </select></label>
+      <label class="field"><span data-en="Resource type">资源类型</span>
+        <select class="select" name="type" id="type">
+          <option value="paper" data-en="Paper">论文</option>
+          <option value="data" data-en="Data or task">数据与任务</option>
+          <option value="method" data-en="Method or tool">方法与工具</option>
+          <option value="benchmark" data-en="Benchmark">基准目录</option>
+          <option value="result" data-en="Evaluation result">评测结果</option>
+        </select></label>
+    </div>
+    <label class="field"><span><span data-en="Name of the resource or work">资源或成果名称</span><b aria-hidden="true">*</b></span><input class="input" name="name" required maxlength="150"></label>
+    <div class="row2">
+      <label class="field"><span data-en="Research direction">研究方向</span><select class="select" name="direction" id="direction"></select></label>
+      <label class="field"><span data-en="Authors or team">作者或团队</span><input class="input" name="authors" maxlength="500"></label>
+    </div>
+    <label class="field"><span><span data-en="Original link">原始链接</span><b aria-hidden="true">*</b></span><input class="input" name="url" type="url" required placeholder="https://" maxlength="1000"></label>
+    <label class="field"><span><span data-en="Description or reason for recommending">说明或推荐理由</span><b aria-hidden="true">*</b></span><textarea name="message" required rows="4" maxlength="3000"></textarea></label>
+    <fieldset id="evidence" hidden disabled>
+      <legend data-en="Evidence for the result">评测结果依据</legend>
+      <div class="row2">
+        <label class="field"><span><span data-en="Benchmark version">基准版本</span><b aria-hidden="true">*</b></span><input class="input" name="benchmark_version" required maxlength="200"></label>
+        <label class="field"><span><span data-en="Task and setting">任务与设置</span><b aria-hidden="true">*</b></span><input class="input" name="configuration" required maxlength="1000"></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span><span data-en="Metric">评价指标</span><b aria-hidden="true">*</b></span><input class="input" name="metric" required maxlength="200"></label>
+        <label class="field"><span><span data-en="Original report">原始报告</span><b aria-hidden="true">*</b></span><input class="input" name="report_url" type="url" required placeholder="https://"></label>
+      </div>
+    </fieldset>
+    <label class="field"><span data-en="Contact email (optional, never shown)">联系邮箱（选填，不公开）</span><input class="input" name="email" type="email" autocomplete="email"></label>
+    <p class="privacy" data-en="The receiving channel opens once the project owner confirms it. Nothing you enter, including your contact details, is published before review.">接收渠道由项目负责人确认后开放。审核通过前不会公开内容或联系方式。</p>
+    <div class="buttons">
+      <button type="submit" class="btn" disabled data-en="Submit for review">提交待审核</button>
+      <button type="button" class="ghost" id="draft" data-en="Download a draft">下载资源草稿</button>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
+    <a href="../#upload" data-en="Live site form">现站上传页</a>
+  </div>
+</footer>
+
+<script src="../news-feed.js"></script>
+<script src="../research-data.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, { esc, T, dirName } = S;
+  S.header('upload.html');
+  const form = document.getElementById('form'), type = document.getElementById('type'), evidence = document.getElementById('evidence'), status = document.getElementById('status');
+  const dir = S.dirParam();
+  document.getElementById('direction').innerHTML = '<option value="">' + T('请选择方向', 'Choose a direction') + '</option>'
+    + researchDirections.map(d => '<option value="' + esc(d.id) + '"' + (d.id === dir ? ' selected' : '') + '>' + esc(dirName(d.id)) + '</option>').join('');
+
+  /* an evaluation result needs its protocol fields */
+  const syncEvidence = () => { const show = type.value === 'result'; evidence.hidden = !show; evidence.disabled = !show; };
+  type.addEventListener('change', syncEvidence); syncEvidence();
+
+  /* same draft shape and file name as the live site */
+  document.getElementById('draft').addEventListener('click', () => {
+    if (!form.reportValidity()) { status.textContent = T('请先补全标星号的必填项。', 'Fill in the fields marked with an asterisk first.'); return; }
+    const data = Object.fromEntries(new FormData(form));
+    const url = URL.createObjectURL(new Blob([JSON.stringify({ kind: 'local_draft', submitted: false, content: data }, null, 2)], { type: 'application/json;charset=utf-8' }));
+    const a = document.createElement('a'); a.href = url; a.download = 'ai-safety-index-resource-draft.json'; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    status.textContent = T('资源草稿已生成，请保存文件。内容尚未发送。', 'Draft created; save the file. Nothing has been sent.');
+  });
+  form.addEventListener('submit', e => { e.preventDefault(); status.textContent = T('提交渠道未接通，目前只能下载草稿，尚不能正式提交。', 'Submission is not connected yet; you can only download a draft for now.'); });
+})();
+</script>
+</body>
+</html>
