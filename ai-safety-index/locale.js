@@ -1267,6 +1267,26 @@ AI 安全研究与评测资料|AI safety research and evaluation resources|AI �
 基础安全、攻击鲁棒性、风险类别与层级|Baseline safety, attack robustness, risk categories and levels|基礎的安全性、攻撃ロバスト性、リスク分類と段階|Grundsicherheit, Angriffsrobustheit, Risikokategorien und -stufen
 干净准确率、对抗准确率、扰动准确率|Clean accuracy, adversarial accuracy, corruption accuracy|クリーン精度、敵対的精度、摂動精度|Saubere Genauigkeit, adversariale Genauigkeit, Störungsgenauigkeit
 正常效用、攻击下效用、攻击成功率|Normal utility, utility under attack, attack success rate|通常時の有用性、攻撃下の有用性、攻撃成功率|Normaler Nutzen, Nutzen unter Angriffen, Angriffserfolgsrate
+用 110 个明确恶意的多步工具任务，检验智能体是否拒绝执行，以及被越狱后还能否完成任务。|Tests if agents refuse 110 malicious multi-step tool tasks, and if jailbreaks let them finish.|明確に悪意のある110件の多段階ツールタスクで、エージェントが拒否するか、脱獄後もタスクを完遂できるかを検証します。|Lehnen Agenten 110 schädliche Werkzeugaufgaben ab – und erledigen sie sie nach einem Jailbreak?
+有害任务得分、拒答率、良性对照任务得分|Harmful-task score, refusal rate, benign-control task score|有害タスクのスコア、拒否率、無害な対照タスクのスコア|Schadensscore, Ablehnungsrate, harmlose Kontrollaufgaben
+MLCommons 产业级安全基准：按 12 类危害测试对话模型，给出 Poor 到 Excellent 五级评级。|MLCommons benchmark testing chat models on 12 hazard categories, graded Poor to Excellent.|MLCommonsの安全性ベンチマーク。12の危害カテゴリで対話モデルを試験し、5段階で評価します。|MLCommons-Benchmark: Chatmodelle in 12 Gefahrenkategorien, benotet von Poor bis Excellent.
+各危害类别违规率、五级安全评级|Violation rate per hazard category, five-level safety grade|危害カテゴリ別の違反率、5段階の安全性評価|Verstoßrate je Gefahrenkategorie, fünfstufige Sicherheitsnote
+从 8 部政府法规和 16 家企业政策整理出 314 个风险类别，检验模型是否拒绝对应请求。|314 risk categories from 8 regulations and 16 company policies; tests whether models refuse them.|8つの政府規制と16社の企業ポリシーから314のリスクカテゴリを整理し、該当する要求をモデルが拒否するかを検証します。|314 Risikokategorien aus 8 Regelwerken und 16 Firmenrichtlinien: Lehnen Modelle ab?
+四级风险分类下各类别的拒答率|Refusal rate per category in a four-level risk taxonomy|4階層のリスク分類における各カテゴリの拒否率|Ablehnungsrate je Kategorie in einer vierstufigen Risikotaxonomie
+约 4.5 万条红队提示，按 6 个大类、32 个细类组织，另有加入越狱攻击的对抗子集。|~45k red-teaming prompts in 6 macro and 32 micro categories, plus a jailbreak-augmented subset.|約4.5万件のレッドチーミング用プロンプトを6の大分類・32の小分類に整理し、脱獄攻撃を加えた敵対的サブセットも備えます。|Rund 45.000 Red-Teaming-Prompts in 6 Ober- und 32 Unterkategorien, plus Jailbreak-Teilmenge.
+32 个细类的安全分数、对抗子集安全分数|Safety score for each of 32 micro categories, adversarial-subset safety score|32の小分類ごとの安全性スコア、敵対的サブセットの安全性スコア|Score je Unterkategorie (32), Score der adversarialen Teilmenge
+在 10 个应用场景、400 多个工具中，比较提示注入、记忆投毒、后门等攻击及其防御。|Pits injection, memory-poisoning and backdoor attacks against defenses in 10 scenarios, 400+ tools.|10の場面と400以上のツールで、インジェクション、メモリ汚染、バックドア攻撃と防御を比較します。|Vergleicht Injection-, Memory-Poisoning- und Backdoor-Angriffe samt Abwehr in 10 Szenarien.
+各攻击类型成功率、拒答率、无攻击时任务完成率|Success rate per attack type, refusal rate, task completion without attack|攻撃タイプ別の成功率、拒否率、攻撃なしでのタスク完了率|Erfolgsrate je Angriff, Ablehnungsrate, Leistung ohne Angriff
+用统一代码和相同设置复现数十种后门攻击与防御，让不同方法可以直接横向比较。|Re-implements dozens of backdoor attacks and defenses in one codebase for direct comparison.|数十種類のバックドア攻撃と防御を共通のコードと設定で再実装し、手法同士を直接比較できるようにします。|Dutzende Backdoor-Angriffe und -Abwehren in einer Codebasis, direkt vergleichbar.
+攻击成功率 ASR、干净准确率 CA、防御开销|Attack success rate (ASR), clean accuracy (CA), defense cost|攻撃成功率 ASR、クリーン精度 CA、防御コスト|Angriffserfolgsrate (ASR), Clean Accuracy (CA), Abwehraufwand
+用 9 类社会属性的问答题检验刻板印象：信息不足时是否乱猜，信息充分时是否仍被偏见带偏。|QA probes of stereotypes in 9 social dimensions: guessing without information, bias despite it.|9つの社会的属性に関する質問応答で、情報不足のときに推測で答えるか、情報が十分でも偏見に引きずられるかを検証します。|QA-Test zu Stereotypen in 9 Dimensionen: Raten bei fehlender Info, Vorurteil trotz klarer Info?
+歧义与消歧情境下的准确率、偏见分数|Accuracy and bias score in ambiguous and disambiguated contexts|曖昧・明確な文脈それぞれの正答率とバイアススコア|Genauigkeit und Bias-Score in mehrdeutigen und eindeutigen Kontexten
+30 余万条问答对分别标注有害性与帮助性，覆盖 14 类危害，用于训练和评估安全对齐。|300k+ QA pairs with separate harmlessness and helpfulness labels across 14 harm categories.|30万件以上のQAペアに無害性と有用性を別々に注釈し、14の危害カテゴリを網羅します。|300.000+ QA-Paare mit getrennten Labels für Harmlosigkeit und Nutzen, 14 Schadenskategorien.
+14 类危害标签、无害性与帮助性偏好对|14 harm-category labels, harmlessness/helpfulness preferences|14の危害カテゴリのラベル、無害性・有用性の選好ペア|Labels für 14 Kategorien, Präferenzen zu Harmlosigkeit und Nutzen
+把恶意指令藏进邮件、网页、表格、代码等外部内容，检验模型在五类任务中会不会照做。|Hides malicious instructions in emails, web pages, tables and code to see if models obey them.|メール、ウェブ、表、コードに悪意ある指示を埋め込み、5種のタスクでモデルが従うかを検証します。|Versteckt Anweisungen in E-Mails, Webseiten, Tabellen und Code: Folgen Modelle ihnen?
+各场景攻击成功率、任务效用|Attack success rate per scenario, task utility|場面別の攻撃成功率、タスク有用性|Angriffserfolgsrate je Szenario, Aufgabennutzen
+让模型续写 23,679 条维基百科句首，比较不同职业、性别、种族、宗教与政治群体的生成差异。|Models continue 23,679 Wikipedia openings; outputs are compared across 5 demographic domains.|Wikipedia由来の23,679件の書き出しを続けて生成させ、職業・性別・人種・宗教・政治思想の集団ごとに生成文の差を比べます。|Modelle setzen 23.679 Wikipedia-Satzanfänge fort; Vergleich über 5 demografische Bereiche.
+情感倾向、毒性、尊重度（regard）、性别极性|Sentiment, toxicity, regard, gender polarity|感情傾向、有害性、尊重度（regard）、性別極性|Sentiment, Toxizität, Regard, Geschlechterpolarität
 隐私审计|Privacy auditing|プライバシー監査|Datenschutzaudit
 联邦学习|Federated learning|連合学習|Föderiertes Lernen
 智能体控制|Agent control|エージェント制御|Agentensteuerung
