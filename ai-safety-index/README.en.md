@@ -6,7 +6,7 @@ Website: https://gabrygao.github.io/ai-safety-index/
 
 [简体中文](README.md) · English · [日本語](README.ja.md)
 
-Open: [Research Observatory](https://gabrygao.github.io/ai-safety-index/#watch) · [Source Catalog](https://gabrygao.github.io/ai-safety-index/#sources) · [Papers](https://gabrygao.github.io/ai-safety-index/#papers) · [Evaluation Dashboard](https://gabrygao.github.io/ai-safety-index/#results) · [Research Topics](https://gabrygao.github.io/ai-safety-index/#directions)
+Open: [Research Observatory](https://gabrygao.github.io/ai-safety-index/#watch) · [Papers](https://gabrygao.github.io/ai-safety-index/#papers) · [Data and Tasks](https://gabrygao.github.io/ai-safety-index/#datasets) · [Evaluation Dashboard](https://gabrygao.github.io/ai-safety-index/#results) · [Benchmark Catalog](https://gabrygao.github.io/ai-safety-index/#benchmarks) · [Research Topics](https://gabrygao.github.io/ai-safety-index/#directions)
 
 ## What is included
 

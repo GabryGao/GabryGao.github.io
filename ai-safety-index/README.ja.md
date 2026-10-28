@@ -6,7 +6,7 @@ AI 安全性の研究分野、論文、データ、ベンチマーク、公開�
 
 [简体中文](README.md) · [English](README.en.md) · 日本語
 
-入口: [研究観測台](https://gabrygao.github.io/ai-safety-index/#watch) · [情報源カタログ](https://gabrygao.github.io/ai-safety-index/#sources) · [論文資料](https://gabrygao.github.io/ai-safety-index/#papers) · [評価ダッシュボード](https://gabrygao.github.io/ai-safety-index/#results) · [研究分野](https://gabrygao.github.io/ai-safety-index/#directions)
+入口: [研究観測台](https://gabrygao.github.io/ai-safety-index/#watch) · [論文資料](https://gabrygao.github.io/ai-safety-index/#papers) · [データとタスク](https://gabrygao.github.io/ai-safety-index/#datasets) · [評価ダッシュボード](https://gabrygao.github.io/ai-safety-index/#results) · [ベンチマーク一覧](https://gabrygao.github.io/ai-safety-index/#benchmarks) · [研究分野](https://gabrygao.github.io/ai-safety-index/#directions)
 
 ## 主な機能
 

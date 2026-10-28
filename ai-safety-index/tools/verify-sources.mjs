@@ -34,6 +34,7 @@ assert.ok(!fs.existsSync(path.join(publicRoot,'result-files')));
 const shell=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert.doesNotMatch(shell,/href="#sources"/);
 assert.doesNotMatch(shell,/portal-sources\.js/);
+for(const file of ['portal-sources.js','portal-sources.css','portal-sources-narrow.css'])assert.ok(!fs.existsSync(path.join(root,file)),file+' legacy UI removed');
 assert.match(shell,/source-catalog\.js/);
 assert.match(shell,/portal-catalog\.js/);
 assert.match(fs.readFileSync(path.join(root,'portal-compact.js'),'utf8'),/if\(path==='sources'\)path='results'/);

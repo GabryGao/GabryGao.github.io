@@ -88,7 +88,7 @@ const watch=fs.readFileSync(path.join(root,'portal-watch.css'),'utf8');
 assert.match(page,/portal-river\.js\?v=restore-river-20261025/);
 assert.match(page,/portal-showcase\.css\?v=readability-20261025/);
 assert.match(page,/portal-live\.css\?v=river-hotboard-20261025/);
-assert.match(page,/portal-watch\.js\?v=sticky-suites-20261026/);
+assert.match(page,/portal-watch\.js\?v=locale-cleanup-20261027/);
 assert.match(page,/portal-watch\.css\?v=sticky-story-tabs-20261025/);
 assert.match(watch,/\.story-tabs\{position:sticky;top:90px;z-index:20/);
 assert.match(watch,/@media\(max-width:767px\)\{\.story-tabs\{top:65px\}\}/);

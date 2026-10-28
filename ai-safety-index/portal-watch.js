@@ -160,9 +160,10 @@ var PortalWatch=(()=>{
   const latin=String(value||'').match(/[A-Za-z0-9]+/g);if(latin?.length)return latin.slice(0,2).map(word=>word[0]).join('').toUpperCase();
   return (String(value||'').match(/[\u3400-\u9fff]/g)||['AI']).slice(0,2).join('');
  }
+ function directionInitial(id){return ({'foundation-model':'F','agent-software':'A','data-privacy':'D','physical-ai':'P','human-societal':'H','ai-x':'X'})[id]||'AI'}
  function hotMarks(row){
   const primary=row.direction_ids?.[0]||'foundation-model';
-  return '<span class="home-hot-marks" aria-hidden="true"><i>'+esc(hotInitials(row.source))+'</i><i>'+esc(directionName(primary).slice(0,1))+'</i></span>';
+  return '<span class="home-hot-marks" aria-hidden="true"><i data-keep-original>'+esc(hotInitials(row.source))+'</i><i data-keep-original>'+directionInitial(primary)+'</i></span>';
  }
  function hotMeta(row,trend){
   const primary=row.direction_ids?.[0]||'foundation-model';

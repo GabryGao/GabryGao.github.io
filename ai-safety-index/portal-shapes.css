@@ -1,0 +1,530 @@
+/* Shared shape system: one consistent radius language across every portal view. */
+:root{
+  --portal-radius-surface:18px;
+  --portal-radius-card:16px;
+  --portal-radius-control:10px;
+  --portal-radius-pill:999px;
+}
+
+/* Large page surfaces and grouped content. */
+:where(
+  .md-nav-panel,
+  .quick-paths,
+  .front-news,
+  .homepage-benchmarks,
+  .topic-reading-preview,
+  .framework-explainer,
+  .result-toolbar,
+  .result-context,
+  .evaluation-functions,
+  .result-filter-row,
+  .result-details,
+  .catalog-snapshot,
+  .evaluation-directory,
+  .evaluation-directory-group,
+  .method-guide>div,
+  .method-boundary,
+  .method-resource-section,
+  .method-standards,
+  .method-standards>div,
+  .method-pipeline,
+  .method-pipeline>div,
+  .catalog-explore-details,
+  .resource-detail,
+  .resource-detail>header,
+  .resource-detail-main>section,
+  .resource-detail-aside,
+  .resource-detail-related,
+  .resource-detail-related>div,
+  .home-signal-river,
+  .home-river-stage,
+  .home-river-canvas-panel,
+  .home-river-focus,
+  .home-river-filters,
+  .home-hotboard,
+  .home-hot-list,
+  .home-evaluation,
+  .home-benchmark-tabs,
+  .home-evaluation-readout,
+  .home-evaluation-boundary,
+  .home-evaluation-table,
+  .mh-section,
+  .mh-home-actions,
+  .watch-home-strip,
+  .watch-summary,
+  .watch-toolbar,
+  .watch-pipeline,
+  .watch-observatory,
+  .watch-flow,
+  .watch-signals,
+  .watch-brief,
+  .watch-status,
+  .story-detail,
+  .story-detail>header,
+  .story-tabs,
+  .story-overview-grid,
+  .story-source-ledger,
+  .story-trend-layout figure,
+  .cp-framework,
+  .page-empty,
+  .filter-panel,
+  .compare-tray,
+  dialog
+){
+  border-radius:var(--portal-radius-surface);
+}
+
+/* Repeated cards and record blocks. */
+:where(
+  .path,
+  .note-link,
+  .info-line,
+  .detail-aside,
+  .comparison>article,
+  .task-hero,
+  .task-hub-link,
+  .home-resource-links,
+  .resource-teaser,
+  .research-reserve,
+  .feature-news,
+  .news-row,
+  .method-entry,
+  .scope-control,
+  .topic-directory>a,
+  .topic-actions,
+  .topic-exit,
+  .about-mission,
+  .about-method,
+  .library-row.library-card,
+  .library-card .library-record,
+  .hotspot-story,
+  .hotspot-secondary,
+  .research-index-row,
+  .index-list .bench-row,
+  .benchmark-columns article,
+  .resource-list .resource-row,
+  .aw-topic-panel,
+  .aw-blog-grid article,
+  .platform-block-grid>article,
+  .platform-bottom-cta,
+  .team-notice,
+  .cp-resource-card,
+  .cp-direction-card,
+  .cp-post,
+  .cp-company-directory,
+  .cp-company-topic,
+  .cp-company-card,
+  .catalog-card,
+  .evaluation-directory-card,
+  .evaluation-directory-example,
+  .catalog-chart,
+  .method-guide article,
+  .method-standards article,
+  .method-pipeline article,
+  .resource-use-grid>div,
+  .resource-limit-grid article,
+  .resource-source-list a,
+  .resource-detail-related>div>a,
+  .home-hot-primary,
+  .home-hot-secondary,
+  .home-hot-list>li,
+  .home-compare-row,
+  .mh-record,
+  .watch-flow-row,
+  .watch-signal,
+  .watch-brief-list li,
+  .story-overview-card,
+  .story-why-card,
+  .story-timeline article,
+  .story-source-ledger article,
+  .story-trend-layout aside>div,
+  .md-project-card,
+  .md-team-person
+){
+  border-radius:var(--portal-radius-card);
+}
+
+/* Preserve the same rounded cards in layouts that previously forced square corners. */
+.compact-portal .cp-direction-grid-home .cp-direction-card,
+.compact-portal .cp-company-grid .cp-company-topic,
+.compact-portal .catalog-grid .catalog-card,
+.madeo-subpage .md-project-card,
+.madeo-subpage .library-row.library-card,
+.madeo-subpage .index-list .bench-row,
+.madeo-subpage .news-list .news-row,
+.madeo-subpage .topic-directory>a,
+.madeo-subpage .resource-list .resource-row{
+  border-radius:var(--portal-radius-card);
+}
+
+/* Large directory cards: enough room for one clear idea, metadata and actions. */
+.compact-portal .cp-direction-grid-home{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  border:0;
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card{
+  grid-template-columns:38px minmax(0,1fr) 16px;
+  gap:13px;
+  min-height:168px;
+  padding:22px;
+  align-items:start;
+  border:1px solid #d5dde0;
+  background:rgba(244,249,247,.82);
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card[data-direction="foundation-model"]{
+  background:rgba(242,245,251,.86);
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card[data-direction="agent-software"]{
+  background:rgba(239,247,244,.86);
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card[data-direction="physical-ai"]{
+  background:rgba(248,245,237,.88);
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card[data-direction="human-societal"]{
+  background:rgba(249,241,239,.86);
+}
+
+.compact-portal .cp-direction-grid-home .cp-direction-card[data-direction="ai-x-science"]{
+  background:rgba(246,241,248,.86);
+}
+
+.compact-portal .cp-direction-grid-home .cp-mark{
+  width:38px;
+  height:38px;
+  border-radius:var(--portal-radius-control);
+}
+
+.compact-portal .cp-direction-grid-home h3{
+  font-size:17px;
+  line-height:1.45;
+}
+
+.compact-portal .cp-direction-grid-home small{
+  margin-top:9px;
+  font-size:12px;
+  line-height:1.65;
+  -webkit-line-clamp:3;
+}
+
+.compact-portal .cp-company-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.compact-portal .cp-company-grid .cp-company-topic{
+  min-height:205px;
+  padding:22px;
+  background:rgba(255,255,255,.92);
+}
+
+.compact-portal .catalog-grid .catalog-card{
+  display:flex;
+  height:100%;
+  min-height:270px;
+  padding:19px;
+  border-color:var(--card-line,#cbd5dc);
+  background:var(--card-tint,#f7f9fa);
+  box-shadow:0 7px 20px rgba(31,46,56,.035);
+}
+
+.compact-portal .catalog-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:stretch;
+  gap:14px;
+}
+
+.compact-portal .catalog-grid .catalog-card .cp-resource-copy{
+  display:grid;
+  width:100%;
+  min-width:0;
+  height:100%;
+  grid-template-rows:48px 58px 36px 18px minmax(40px,auto);
+  row-gap:8px;
+}
+
+.compact-portal .catalog-grid .catalog-card-heading{
+  min-height:0;
+  gap:10px;
+}
+
+.compact-portal .catalog-grid .catalog-card-heading h3{
+  display:-webkit-box;
+  overflow:hidden;
+  font-size:15.5px;
+  line-height:1.4;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.compact-portal .catalog-grid .catalog-card .catalog-card-purpose{
+  display:-webkit-box;
+  margin:0;
+  overflow:hidden;
+  font-size:11.5px;
+  line-height:1.6;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+}
+
+.compact-portal .catalog-grid .catalog-card .catalog-card-evaluation{
+  display:-webkit-box;
+  margin:0;
+  overflow:hidden;
+  font-size:10.5px;
+  line-height:1.6;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.compact-portal .catalog-grid .catalog-card-date{
+  margin:0;
+  padding:0;
+}
+
+.compact-portal .catalog-grid .catalog-card .catalog-card-resource-actions{
+  align-content:flex-start;
+  margin:0;
+  padding-top:9px;
+}
+
+[data-infinite-list]>[hidden]{
+  display:none!important;
+}
+
+.infinite-sentinel{
+  width:100%;
+  height:1px;
+  margin:0;
+  pointer-events:none;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="agent"]{
+  --card-tint:#eef7f3;
+  --card-line:#a9c9bd;
+  --tag-bg:#dceee7;
+  --tag-ink:#245e4f;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="privacy"]{
+  --card-tint:#f1f5fb;
+  --card-line:#b8c7df;
+  --tag-bg:#e1e9f6;
+  --tag-ink:#315b9d;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="assurance"]{
+  --card-tint:#fbf6ee;
+  --card-line:#dbc6a4;
+  --tag-bg:#f2e6d1;
+  --tag-ink:#7b5722;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="multimodal"]{
+  --card-tint:#f8f2f7;
+  --card-line:#d7bfd2;
+  --tag-bg:#eddfeb;
+  --tag-ink:#754e6e;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="physical"]{
+  --card-tint:#f2f6ee;
+  --card-line:#bdcbae;
+  --tag-bg:#e3ecd9;
+  --tag-ink:#536e3a;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="alignment"]{
+  --card-tint:#faf2ef;
+  --card-line:#d9bbb3;
+  --tag-bg:#f1dfd9;
+  --tag-ink:#895344;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone="general"]{
+  --card-tint:#f6f8fa;
+  --card-line:#cbd5dc;
+  --tag-bg:#e7edf1;
+  --tag-ink:#3d5563;
+}
+
+.compact-portal .catalog-grid .catalog-card[data-card-tone]{
+  background:var(--card-tint,#f7f9fa);
+}
+
+.compact-portal .catalog-grid .catalog-card .catalog-card-tag{
+  padding:5px 10px;
+  border-color:var(--card-line,#cbd5dc);
+  background:var(--tag-bg,#e7edf1);
+  color:var(--tag-ink,#3d5563);
+  font-size:10px;
+  font-weight:560;
+}
+
+.compact-portal .catalog-grid .catalog-card:hover{
+  border-color:var(--tag-ink,#6f7b84);
+  background:var(--card-tint,#f7f9fa);
+  box-shadow:0 10px 24px rgba(31,46,56,.08);
+}
+
+/* Search, filter and action controls use a smaller radius. */
+:where(
+  .search-form,
+  .small-button,
+  .button,
+  .filter-toggle,
+  .term-button,
+  .task-tabs,
+  .tabs,
+  .segmented,
+  .home-models-toggle,
+  .home-news-actions>a,
+  .home-news-toggle,
+  .home-river-focus-head button,
+  .home-river-filters button,
+  .watch-toolbar button,
+  .watch-export button,
+  .resource-detail-back,
+  .resource-shortcuts a,
+  .topic-actions>a,
+  .library-pagination,
+  .cp-news-pagination a,
+  .cp-news-pagination span
+){
+  border-radius:var(--portal-radius-control);
+}
+
+main :where(input:not([type="checkbox"]):not([type="radio"]),select,textarea),
+.language-control select{
+  border-radius:var(--portal-radius-control);
+}
+
+.compact-portal main .panel-toolbar select,
+.compact-portal main .search-form,
+.compact-portal main .search-form input,
+.compact-portal main .catalog-related-filter,
+.compact-portal main .result-filter-row select{
+  border-radius:var(--portal-radius-control);
+}
+
+main :where(button:not(.icon-button):not(.row-arrow):not(.modal-close)){
+  border-radius:var(--portal-radius-control);
+}
+
+main :where(input[type="checkbox"],input[type="radio"]){
+  border-radius:4px;
+}
+
+/* Navigation choices and compact metadata read as pills, not square labels. */
+:where(
+  .tab,
+  .md-filter-pills>button,
+  .keyword-row button,
+  .topic-tags a,
+  .topic-tags span,
+  .label,
+  .filter-chip,
+  .catalog-card-tag,
+  .resource-detail-tags span,
+  .story-keywords span,
+  .news-detail-kind,
+  .watch-flow-topic,
+  .framework-status,
+  .md-cover-label,
+  .home-hot-change,
+  .home-hot-live,
+  .featured-badge,
+  .ai-score
+){
+  border-radius:var(--portal-radius-pill);
+}
+
+@media(max-width:767px){
+  :root{
+    --portal-radius-surface:16px;
+    --portal-radius-card:14px;
+  }
+
+  .compact-portal .cp-direction-grid-home{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .compact-portal .cp-direction-grid-home .cp-direction-card{
+    min-height:144px;
+    padding:18px;
+  }
+
+  .compact-portal .cp-company-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+    border:0;
+    overflow:visible;
+  }
+
+  .compact-portal .cp-company-grid .cp-company-topic{
+    min-height:164px;
+    padding:18px;
+    border:1px solid var(--cp-rule);
+  }
+
+  .compact-portal .catalog-grid{
+    grid-template-columns:1fr;
+  }
+
+  .compact-portal .catalog-grid .catalog-card{
+    min-height:0;
+    padding:18px;
+  }
+
+  .compact-portal .catalog-grid .catalog-card .cp-resource-copy{
+    display:flex;
+    height:auto;
+    flex-direction:column;
+  }
+
+  .compact-portal .catalog-grid .catalog-card-heading h3{
+    display:block;
+    overflow:visible;
+  }
+
+  .compact-portal .catalog-grid .catalog-card .catalog-card-purpose{
+    margin-top:14px;
+  }
+
+  .compact-portal .catalog-grid .catalog-card .catalog-card-evaluation{
+    margin-top:9px;
+  }
+
+  .compact-portal .catalog-grid .catalog-card-date{
+    margin-top:auto;
+    padding-top:12px;
+  }
+
+  .compact-portal .catalog-grid .catalog-card .catalog-card-resource-actions{
+    margin-top:8px;
+  }
+}
+
+@media(min-width:768px) and (max-width:1180px){
+  .compact-portal .cp-company-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .compact-portal .catalog-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(min-width:768px) and (max-width:980px){
+  .compact-portal .cp-direction-grid-home,
+  .compact-portal .cp-company-grid,
+  .compact-portal .catalog-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}

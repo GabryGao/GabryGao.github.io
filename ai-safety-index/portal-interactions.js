@@ -47,12 +47,52 @@ var PortalInteractions=(()=>{
  document.addEventListener('click',e=>{if(!e.target.closest('.md-nav-group')||e.target.closest('.md-nav-panel a'))closeSubnav()},true);
  window.addEventListener('resize',closeSubnav);window.addEventListener('scroll',closeSubnav,{passive:true});
 
+ const infiniteObservers=[];
+ function clearInfiniteObservers(){while(infiniteObservers.length)infiniteObservers.pop().disconnect()}
+ function mountInfiniteLists(root=document){
+  clearInfiniteObservers();
+  if(!root||typeof root.querySelectorAll!=='function')return;
+  root.querySelectorAll('[data-infinite-sentinel]').forEach(node=>node.remove());
+  root.querySelectorAll('[data-infinite-list]').forEach(list=>{
+   const items=[...list.children],batch=Math.max(1,Number(list.dataset.infiniteBatch)||20);
+   let visible=Math.min(batch,items.length);
+   items.forEach((item,index)=>{item.hidden=index>=visible});
+   if(visible>=items.length)return;
+   const sentinel=document.createElement('div');
+   sentinel.className='infinite-sentinel';
+   sentinel.dataset.infiniteSentinel='';
+   sentinel.setAttribute('aria-hidden','true');
+   list.insertAdjacentElement('afterend',sentinel);
+   if(!('IntersectionObserver' in window)){
+    items.forEach(item=>{item.hidden=false});
+    sentinel.remove();
+    return;
+   }
+   let observer;
+   const reveal=()=>{
+    const next=Math.min(visible+batch,items.length);
+    while(visible<next){items[visible].hidden=false;visible++}
+    if(visible>=items.length){observer.disconnect();sentinel.remove();return}
+    setTimeout(()=>observer.observe(sentinel),0);
+   };
+   observer=new IntersectionObserver(entries=>{
+    if(!entries.some(entry=>entry.isIntersecting))return;
+    observer.unobserve(sentinel);
+    reveal();
+   },{rootMargin:'560px 0px'});
+   observer.observe(sentinel);
+   infiniteObservers.push(observer);
+  });
+ }
+ api.mountInfiniteLists=mountInfiniteLists;
+
  // Pages render immediately; use the platform's native pointer.
  const priorRender=render;let previousKey=routeKey(location.hash);
  render=function(){
   const next=routeKey(location.hash),changed=next!==previousKey;previousKey=next;closeSubnav();
   if(changed&&typeof closeMadeoMenu==='function')closeMadeoMenu(false);
-  renderImmediately(()=>priorRender());
+  renderImmediately(()=>{priorRender();mountInfiniteLists(document.querySelector('#main')||document)});
  };
+ mountInfiniteLists(document.querySelector('#main')||document);
  return api;
 })();

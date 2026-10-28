@@ -200,6 +200,7 @@ AI 安全热点榜|AI safety hot list|AI 安全ホットリスト|Hotlist zur KI
 平台获取：|Platform retrieved:|プラットフォーム取得：|Plattformabruf:
 观察台与采集说明|Observatory and collection notes|観測台と収集方法|Beobachtung und Erfassung
 查看动态观察台|View research observatory|研究観測台を見る|Forschungsbeobachtung öffnen
+进入动态观察台|Open research observatory|研究観測台を開く|Forschungsbeobachtung öffnen
 动态信息流：公开来源经过主题聚类和信号筛选，汇聚为今日焦点。|Dynamic signal flow: public sources pass through topic clustering and signal filtering before converging into today's focus.|動的シグナルフロー：公開情報源をテーマ別に集約・選別し、今日の注目情報に絞り込みます。|Dynamischer Signalfluss: Öffentliche Quellen werden thematisch gebündelt und gefiltert, bevor sie zu den heutigen Schwerpunkten zusammenlaufen.
 动态信息流：公开来源经过主题聚类和信号筛选，汇聚为当前焦点。|Dynamic signal flow: public sources pass through topic clustering and signal filtering before converging into the current focus.|動的シグナルフロー：公開情報源をテーマ別に集約・選別し、現在の注目情報に絞り込みます。|Dynamischer Signalfluss: Öffentliche Quellen werden thematisch gebündelt und gefiltert, bevor sie zum aktuellen Schwerpunkt zusammenlaufen.
 主题聚类|Topic clustering|テーマ集約|Themenbündelung
@@ -982,6 +983,7 @@ ProPILE, PII-Bench / PLeak类数据集|ProPILE, PII-Bench / PLeak-style datasets
 危险知识、可执行有害协助与严重错误建议是三类不同风险。|Hazardous knowledge, actionable harmful assistance and severely incorrect advice are distinct risks.|危険な知識・実行可能な有害支援・重大な誤助言は異なるリスクです。|Gefährliches Wissen, umsetzbare schädliche Hilfe und schwerwiegend falsche Ratschläge sind unterschiedliche Risiken.
 原型中的历史结果来自 HELM Safety v1.0 报告。完整方案与字段规则见|Historical results in this prototype come from HELM Safety v1.0. Full methodology and field rules:|このプロトタイプの過去の結果は HELM Safety v1.0 報告によります。全体の手法と項目規則：|Historische Ergebnisse dieses Prototyps stammen aus HELM Safety v1.0. Vollständige Methodik und Feldregeln:
 原始项目或论文|Original project or paper|元のプロジェクト・論文|Originalprojekt oder -arbeit
+核验页面|Verification page|検証ページ|Prüfseite
 参与创建、学术把关或内容建设等，按确认结果填写。|List confirmed roles in creation, academic oversight or content development.|設立・学術確認・内容制作など、確認済みの役割を記載します。|Bestätigte Rollen bei Aufbau, wissenschaftlicher Prüfung oder Inhaltserstellung angeben.
 参与名单尚未确认|Contributors not yet confirmed|参加者は未確定|Mitwirkende noch nicht bestätigt
 发布方|Publisher|公開元|Herausgeber
@@ -1223,6 +1225,114 @@ addRows(`
 香港理工大学|The Hong Kong Polytechnic University|香港理工大学|Hong Kong Polytechnic University
 东京理科大学|Tokyo University of Science|東京理科大学|Tokyo University of Science
 `);
+addRows(`
+AI 安全研究与评测资料|AI safety research and evaluation resources|AI 安全性の研究・評価資料|Ressourcen für Forschung und Evaluation zur KI-Sicherheit
+产业动态|Industry updates|業界動向|Branchenmeldungen
+安全事件|Safety incident|安全インシデント|Sicherheitsvorfall
+模型|Model|モデル|Modell
+清除|Clear|クリア|Löschen
+全部资料|All resources|すべての資料|Alle Ressourcen
+最近更新|Recently updated|最近の更新|Zuletzt aktualisiert
+名称 Z–A|Name Z–A|名前 Z–A|Name Z–A
+投毒与后门|Poisoning & backdoors|データ汚染とバックドア|Datenvergiftung & Hintertüren
+情境隐私|Contextual privacy|文脈的プライバシー|Kontextbezogener Datenschutz
+差分隐私与效用权衡|Differential privacy & utility trade-offs|差分プライバシーと有用性の両立|Differential Privacy & Nutzenabwägung
+模型窃取与查询成本|Model extraction & query cost|モデル抽出と照会コスト|Modellextraktion & Anfragekosten
+成员推断|Membership inference|メンバーシップ推論|Mitgliedschaftsinferenz
+查询感知隐私保护|Query-aware privacy protection|クエリ適応型プライバシー保護|Anfragebewusster Datenschutz
+情境完整性与隐私规范|Contextual integrity & privacy norms|文脈的整合性とプライバシー規範|Kontextuelle Integrität & Datenschutznormen
+近期事件、产品动态与公开公告。|Recent events, product updates and public announcements.|最近の出来事、製品動向、公開発表。|Aktuelle Ereignisse, Produktmeldungen und öffentliche Ankündigungen.
+评测、论文、方法与安全机制分析。|Analysis of evaluations, papers, methods and safety mechanisms.|評価、論文、手法、安全メカニズムの分析。|Analysen zu Evaluationen, Publikationen, Methoden und Sicherheitsmechanismen.
+把热点榜、公开资讯、研究方向与来源状态放在同一视图中，并保留站内详情与原始出处。|View trending signals, public updates, research topics and source status together, with on-site details and original sources retained.|注目トピック、公開情報、研究分野、情報源の状態を一つの画面で確認し、サイト内の詳細と原典もたどれます。|Trends, öffentliche Meldungen, Forschungsthemen und Quellenstatus in einer Ansicht, mit internen Details und Originalquellen.
+热点指数来自公开接口字段；排序同时考虑发布时间并做标题近似去重。趋势线表示同类议题近 7 个完整自然日的收录量，不代表社交讨论量或风险等级。|The heat index uses a public API field. Ranking also considers publication time and removes near-duplicate titles. Trend lines show collected items for similar topics over the last seven complete calendar days, not social discussion volume or risk level.|注目指数は公開 API の項目を使用します。順位は公開時刻も考慮し、類似タイトルを除外します。推移線は同種トピックについて直近 7 暦日に収録した件数であり、SNS 上の議論量やリスク水準ではありません。|Der Trendindex nutzt ein öffentliches API-Feld. Die Sortierung berücksichtigt auch den Veröffentlichungszeitpunkt und entfernt ähnliche Titel. Die Trendlinie zeigt erfasste Beiträge zu ähnlichen Themen in den letzten sieben vollständigen Kalendertagen, nicht Diskussionsvolumen oder Risikostufe.
+评测内容：|Evaluation:|評価内容：|Bewertung:
+更新于|Updated:|更新日：|Aktualisiert:
+查看详情|View details|詳細を見る|Details ansehen
+项目|Project|プロジェクト|Projekt
+代码|Code|コード|Code
+机器遗忘|Machine unlearning|機械学習モデルの忘却|Maschinelles Verlernen
+多维可信性|Multidimensional trustworthiness|多面的な信頼性|Mehrdimensionale Vertrauenswürdigkeit
+细粒度安全与攻击|Fine-grained safety and attacks|細粒度の安全性と攻撃|Feingranulare Sicherheit und Angriffe
+视觉对抗鲁棒性|Visual adversarial robustness|視覚的な敵対的ロバスト性|Visuelle adversariale Robustheit
+间接提示注入|Indirect prompt injection|間接プロンプトインジェクション|Indirekte Prompt Injection
+评估语言模型能否定向遗忘指定知识，同时保持未遗忘知识与通用能力。|Evaluates whether a language model can selectively forget specified knowledge while retaining other knowledge and general capabilities.|言語モデルが指定された知識を選択的に忘却しつつ、その他の知識と汎用能力を維持できるかを評価します。|Bewertet, ob ein Sprachmodell gezielt vorgegebenes Wissen vergessen und anderes Wissen sowie allgemeine Fähigkeiten bewahren kann.
+从知识移除、隐私泄露与模型效用等方面评估机器遗忘方法。|Evaluates machine-unlearning methods through knowledge removal, privacy leakage and model utility.|知識除去、プライバシー漏えい、モデル有用性の観点から機械学習モデルの忘却手法を評価します。|Bewertet Verfahren zum maschinellen Verlernen anhand von Wissensentfernung, Datenschutzrisiken und Modellnutzen.
+从毒性、偏见、隐私、伦理与鲁棒性等维度评估大语言模型可信性。|Evaluates large-language-model trustworthiness across toxicity, bias, privacy, ethics and robustness.|有害性、偏見、プライバシー、倫理、ロバスト性などから大規模言語モデルの信頼性を評価します。|Bewertet die Vertrauenswürdigkeit großer Sprachmodelle anhand von Toxizität, Verzerrung, Datenschutz, Ethik und Robustheit.
+用分层安全问题和攻击设置评估模型识别与拒绝有害请求的能力。|Uses layered safety questions and attack settings to evaluate whether models identify and reject harmful requests.|段階的な安全質問と攻撃設定を用いて、有害な要求を識別し拒否する能力を評価します。|Bewertet mit gestuften Sicherheitsfragen und Angriffskonfigurationen, ob Modelle schädliche Anfragen erkennen und ablehnen.
+比较图像模型在标准输入、对抗攻击和常见扰动下的鲁棒性。|Compares image-model robustness under standard inputs, adversarial attacks and common corruptions.|標準入力、敵対的攻撃、一般的な摂動に対する画像モデルのロバスト性を比較します。|Vergleicht die Robustheit von Bildmodellen bei Standardeingaben, adversarialen Angriffen und üblichen Störungen.
+在工具调用任务中评估智能体的正常效用、受攻击效用与提示注入风险。|Evaluates normal utility, utility under attack and prompt-injection risk in tool-using agent tasks.|ツール利用エージェントのタスクで、通常時の有用性、攻撃下の有用性、プロンプトインジェクションのリスクを評価します。|Bewertet bei Agentenaufgaben mit Werkzeugnutzung den normalen Nutzen, den Nutzen unter Angriffen und das Risiko von Prompt Injection.
+遗忘质量、模型效用、保留集与遗忘集表现|Forgetting quality, model utility, retained-set and forgotten-set performance|忘却品質、モデル有用性、保持集合と忘却集合の性能|Vergessensqualität, Modellnutzen sowie Leistung auf Behalte- und Vergessensmenge
+遗忘效果、隐私保护、能力保留|Forgetting effectiveness, privacy protection, capability retention|忘却効果、プライバシー保護、能力維持|Vergessenswirkung, Datenschutz, Fähigkeitserhalt
+毒性、刻板印象、对抗鲁棒性、隐私、伦理与公平性|Toxicity, stereotypes, adversarial robustness, privacy, ethics and fairness|有害性、ステレオタイプ、敵対的ロバスト性、プライバシー、倫理、公平性|Toxizität, Stereotype, adversariale Robustheit, Datenschutz, Ethik und Fairness
+基础安全、攻击鲁棒性、风险类别与层级|Baseline safety, attack robustness, risk categories and levels|基礎的安全性、攻撃ロバスト性、リスク分類と段階|Grundsicherheit, Angriffsrobustheit, Risikokategorien und -stufen
+干净准确率、对抗准确率、扰动准确率|Clean accuracy, adversarial accuracy, corruption accuracy|クリーン精度、敵対的精度、摂動精度|Saubere Genauigkeit, adversariale Genauigkeit, Störungsgenauigkeit
+正常效用、攻击下效用、攻击成功率|Normal utility, utility under attack, attack success rate|通常時の有用性、攻撃下の有用性、攻撃成功率|Normaler Nutzen, Nutzen unter Angriffen, Angriffserfolgsrate
+隐私审计|Privacy auditing|プライバシー監査|Datenschutzaudit
+联邦学习|Federated learning|連合学習|Föderiertes Lernen
+智能体控制|Agent control|エージェント制御|Agentensteuerung
+检索生成评估|Retrieval-augmented generation evaluation|検索拡張生成の評価|Evaluation abrufgestützter Generierung
+安全强化学习|Safe reinforcement learning|安全な強化学習|Sicheres bestärkendes Lernen
+智能合约安全|Smart-contract security|スマートコントラクトの安全性|Smart-Contract-Sicherheit
+机器人安全|Robot safety|ロボット安全|Robotersicherheit
+物理 AI 环境|Physical AI environment|フィジカル AI 環境|Physical-AI-Umgebung
+智能体任务环境|Agent task environment|エージェント用タスク環境|Agentenaufgabenumgebung
+用于构建和比较机器遗忘实验。|Used to build and compare machine-unlearning experiments.|機械学習モデルの忘却実験を構築し、比較するために使用します。|Zum Aufbau und Vergleich von Experimenten zum maschinellen Verlernen.
+用于检测训练数据泄露和成员推断风险。|Detects training-data leakage and membership-inference risk.|学習データの漏えいとメンバーシップ推論のリスクを検出します。|Erkennt Trainingsdatenlecks und Risiken der Mitgliedschaftsinferenz.
+成员推断、低误报率表现、隐私泄露|Membership inference, low-false-positive performance, privacy leakage|メンバーシップ推論、低い偽陽性率での性能、プライバシー漏えい|Mitgliedschaftsinferenz, Leistung bei niedriger Falsch-Positiv-Rate, Datenschutzlecks
+提供联邦学习任务、数据和系统基线。|Provides federated-learning tasks, data and system baselines.|連合学習のタスク、データ、システム基準を提供します。|Stellt Aufgaben, Daten und Systembaselines für föderiertes Lernen bereit.
+任务效用、通信成本、训练效率|Task utility, communication cost, training efficiency|タスク有用性、通信コスト、学習効率|Aufgabennutzen, Kommunikationskosten, Trainingseffizienz
+用于比较数据选择、清洗和质量治理方法。|Compares data-selection, cleaning and quality-governance methods.|データ選択、クリーニング、品質管理の手法を比較します。|Vergleicht Methoden zur Datenauswahl, Bereinigung und Qualitätssteuerung.
+数据质量、下游表现、选择与清洗流程|Data quality, downstream performance, selection and cleaning workflows|データ品質、下流タスク性能、選択とクリーニングの手順|Datenqualität, nachgelagerte Leistung, Auswahl- und Bereinigungsabläufe
+用于评估智能体控制协议中的安全与效用。|Evaluates safety and utility in agent-control protocols.|エージェント制御プロトコルの安全性と有用性を評価します。|Bewertet Sicherheit und Nutzen in Protokollen zur Agentensteuerung.
+控制协议、安全表现、任务效用|Control protocol, safety performance, task utility|制御プロトコル、安全性、タスク有用性|Steuerungsprotokoll, Sicherheitsleistung, Aufgabennutzen
+用于评估检索增强生成系统的相关性与忠实度。|Evaluates relevance and faithfulness in retrieval-augmented generation systems.|検索拡張生成システムの関連性と忠実性を評価します。|Bewertet Relevanz und Faktentreue in abrufgestützten Generierungssystemen.
+上下文相关性、答案忠实度、答案相关性|Context relevance, answer faithfulness, answer relevance|文脈の関連性、回答の忠実性、回答の関連性|Kontextrelevanz, Antworttreue, Antwortrelevanz
+用于比较安全强化学习算法与基线。|Compares safe-reinforcement-learning algorithms and baselines.|安全な強化学習のアルゴリズムと基準手法を比較します。|Vergleicht Algorithmen und Baselines für sicheres bestärkendes Lernen.
+任务回报、安全成本、收敛表现|Task reward, safety cost, convergence|タスク報酬、安全コスト、収束性能|Aufgabenbelohnung, Sicherheitskosten, Konvergenz
+用于智能合约漏洞检测、注入与攻防实验。|Supports smart-contract vulnerability detection, injection and attack-defense experiments.|スマートコントラクトの脆弱性検出、注入、攻防実験に使用します。|Für Schwachstellenerkennung, Injektion und Angriffs-/Abwehrexperimente bei Smart Contracts.
+漏洞检出、误报漏报、运行代价|Vulnerability detection, false positives and negatives, runtime cost|脆弱性検出、偽陽性と偽陰性、実行コスト|Schwachstellenerkennung, Fehlalarme und Auslassungen, Laufzeitkosten
+用于评估机器人任务中的安全约束和防护方法。|Evaluates safety constraints and protections in robot tasks.|ロボットタスクの安全制約と防護手法を評価します。|Bewertet Sicherheitsauflagen und Schutzmaßnahmen bei Roboteraufgaben.
+安全规格、违规检测、任务成功率|Safety specifications, violation detection, task success rate|安全仕様、違反検出、タスク成功率|Sicherheitsspezifikationen, Verstoßerkennung, Aufgabenerfolgsrate
+提供驾驶、具身或机器人任务的仿真与数据环境。|Provides simulation and data environments for driving, embodied and robot tasks.|運転、身体性 AI、ロボットタスク向けのシミュレーションとデータ環境を提供します。|Stellt Simulations- und Datenumgebungen für Fahr-, Embodied-AI- und Roboteraufgaben bereit.
+任务表现、感知能力、操作能力|Task performance, perception, manipulation|タスク性能、知覚能力、操作能力|Aufgabenleistung, Wahrnehmung, Manipulation
+提供智能体任务执行和工具调用的可复现实验环境。|Provides reproducible environments for agent tasks and tool use.|エージェントのタスク実行とツール利用を再現できる実験環境を提供します。|Stellt reproduzierbare Umgebungen für Agentenaufgaben und Werkzeugnutzung bereit.
+任务成功率、工具使用、系统能力|Task success rate, tool use, system capability|タスク成功率、ツール利用、システム能力|Aufgabenerfolgsrate, Werkzeugnutzung, Systemfähigkeit
+用于搭建安全评测环境、运行任务和复现实验。|Used to assemble safety-evaluation environments, run tasks and reproduce experiments.|安全評価環境の構築、タスク実行、実験再現に使用します。|Zum Aufbau von Sicherheitsbewertungsumgebungen, Ausführen von Aufgaben und Reproduzieren von Experimenten.
+任务运行、工具集成、系统能力与复现流程|Task execution, tool integration, system capability and reproduction workflow|タスク実行、ツール統合、システム能力、再現手順|Aufgabenausführung, Werkzeugintegration, Systemfähigkeit und Reproduktionsablauf
+资料档案|Resource record|資料記録|Ressourceneintrag
+工具与环境档案|Tool and environment record|ツール・環境記録|Werkzeug- und Umgebungseintrag
+目录记录|Catalog record|カタログ記録|Katalogeintrag
+资料概览|Overview|概要|Übersicht
+评测内容与使用|Evaluation and use|評価内容と用途|Evaluation und Nutzung
+资源入口|Resource links|資料リンク|Ressourcenlinks
+主要标签|Primary tag|主なタグ|Hauptkategorie
+评测内容|Evaluation scope|評価内容|Evaluationsumfang
+研究方向|Research topic|研究分野|Forschungsthema
+更新日期|Updated|更新日|Aktualisiert
+主要评测内容|Primary evaluation scope|主な評価内容|Zentraler Evaluationsumfang
+资料类型|Resource type|資料種別|Ressourcentyp
+来源与核验记录|Source and verification record|情報源と確認記録|Quellen- und Prüfvermerk
+以下字段保留目录原文，便于核验。|The fields below retain the original catalog wording for verification.|以下の項目は確認用にカタログの原文を保持しています。|Die folgenden Felder behalten zur Prüfung den ursprünglichen Katalogtext bei.
+细分领域|Subdomain|下位分野|Teilgebiet
+核心指标|Core metrics|主要指標|Kernmetriken
+数据可用性|Data availability|データの利用可否|Datenverfügbarkeit
+目录备注|Catalog note|カタログ注記|Kataloghinweis
+核验记录|Verification|確認記録|Prüfvermerk
+核验状态|Verification status|確認状況|Prüfstatus
+公开来源已核验|Public sources verified|公開情報源を確認済み|Öffentliche Quellen geprüft
+许可说明|License note|ライセンス注記|Lizenzhinweis
+使用前请核对原始许可|Check the original license before use|利用前に原ライセンスを確認してください|Vor Nutzung die Originallizenz prüfen
+记录类型|Record type|記録種別|Eintragstyp
+最近核验|Last reviewed|最終確認|Zuletzt geprüft
+记录信息|Record information|記録情報|Eintragsinformationen
+目录编号|Catalog ID|カタログ ID|Katalog-ID
+核验日期|Review date|確認日|Prüfdatum
+返回目录|Back to catalog|カタログに戻る|Zurück zum Katalog
+同领域资料|Related resources|同分野の資料|Verwandte Ressourcen
+查看全部|View all|すべて見る|Alle ansehen
+当前记录未提供可核验的公开链接。|No verifiable public link is provided for this record.|この記録には確認可能な公開リンクがありません。|Für diesen Eintrag ist kein prüfbarer öffentlicher Link angegeben.
+这是一项工具或运行环境资料，适合用于搭建实验、生成任务或复现流程；它本身不是模型安全得分。|This is a tool or runtime resource for assembling experiments, generating tasks or reproducing workflows; it is not a model-safety score.|実験の構築、タスク生成、手順再現に使うツールまたは実行環境の資料であり、モデル安全性の得点ではありません。|Dies ist eine Werkzeug- oder Laufzeitressource für Experimente, Aufgabenerzeugung und Reproduktionsabläufe; sie ist keine Modellsicherheitsnote.
+`);
 const ordered=()=>[...dictionary.keys()].sort((a,b)=>b.length-a.length);
 let keys,fragmentPattern;
 function translate(value,language){
@@ -1236,10 +1346,17 @@ function translate(value,language){
  out=out.replace(/显示 ([\d–]+) 条/g,(_,n)=>at(`Showing ${n}`,`${n} 件を表示`,`Einträge ${n}`));
  out=out.replace(/当前显示 (\d+) \/ (\d+) 个可比模型/g,(_,shown,total)=>at(`Showing ${shown} of ${total} comparable models`,`比較可能な ${total} モデル中 ${shown} 件を表示`,`Zeigt ${shown} von ${total} vergleichbaren Modellen`));
  out=out.replace(/显示全部 (\d+) 个模型/g,(_,n)=>at(`Show all ${n} models`,`全 ${n} モデルを表示`,`Alle ${n} Modelle anzeigen`));
+ out=out.replace(/图表默认显示前 (\d+) 个模型；数值表保留 6 个模型。这里只比较同一基准、同一任务和同一配置，不生成跨基准“总安全分”。/g,(_,n)=>at(`The chart shows the first ${n} models by default; the value table keeps 6. Only the same benchmark, task and configuration are compared, with no cross-benchmark aggregate safety score.`,`グラフは標準で上位 ${n} モデルを表示し、数値表には 6 モデルを残します。同じベンチマーク・タスク・設定だけを比較し、横断的な総合安全点は作りません。`,`Das Diagramm zeigt standardmäßig die ersten ${n} Modelle; die Wertetabelle enthält 6. Verglichen werden nur derselbe Benchmark, dieselbe Aufgabe und Konfiguration; es gibt keine benchmarkübergreifende Gesamtsicherheitsnote.`));
  out=out.replace(/显示前 (\d+) 个模型/g,(_,n)=>at(`Show the first ${n} models`,`上位 ${n} モデルを表示`,`Die ersten ${n} Modelle anzeigen`));
  out=out.replace(/收起为前 (\d+) 个模型/g,(_,n)=>at(`Collapse to the first ${n} models`,`上位 ${n} モデルに戻す`,`Auf die ersten ${n} Modelle reduzieren`));
  out=out.replace(/图表显示前 (\d+) 条；完整记录见下方表格。/g,(_,n)=>at(`Chart shows the first ${n} records; the full table is below.`,`グラフは先頭 ${n} 件を表示しています。全件は下の表で確認できます。`,`Das Diagramm zeigt die ersten ${n} Einträge; die vollständige Tabelle steht darunter.`));
- out=out.replace(/图表默认显示前 (\d+) 个模型；数值表保留 6 个模型。这里只比较同一基准、同一任务和同一配置，不生成跨基准“总安全分”。/g,(_,n)=>at(`The chart shows the first ${n} models by default; the value table keeps 6. Only the same benchmark, task and configuration are compared, with no cross-benchmark aggregate safety score.`,`グラフは標準で上位 ${n} モデルを表示し、数値表には 6 モデルを残します。同じベンチマーク・タスク・設定だけを比較し、横断的な総合安全点は作りません。`,`Das Diagramm zeigt standardmäßig die ersten ${n} Modelle; die Wertetabelle enthält 6. Verglichen werden nur derselbe Benchmark, dieselbe Aufgabe und Konfiguration; es gibt keine benchmarkübergreifende Gesamtsicherheitsnote.`));
+ out=out.replace(/(\d+) 条记录，来自 (\d+) 个公开来源。以下为元数据索引，不代替原文核对。/g,(_,records,sources)=>at(`${records} records from ${sources} public sources. This metadata index does not replace checking the originals.`,`公開情報源 ${sources} 件から ${records} 件。メタデータ索引であり、原文確認の代わりにはなりません。`,`${records} Einträge aus ${sources} öffentlichen Quellen. Dieser Metadatenindex ersetzt nicht die Prüfung der Originale.`));
+ out=out.replace(/(\d+) 项直接或混合评测/g,(_,n)=>at(`${n} direct or mixed evaluations`,`${n} 件の直接・混合評価`,`${n} direkte oder gemischte Evaluationen`));
+ out=out.replace(/(\d+) 项相关能力可选 · 资料核验于 ([\d-]+)/g,(_,n,date)=>at(`${n} related-capability records available · Reviewed ${date}`,`関連能力 ${n} 件・資料確認日 ${date}`,`${n} Einträge zu verwandten Fähigkeiten · geprüft am ${date}`));
+ out=out.replace(/(.+?) · (\d+) 项资源/g,(_,scope,n)=>at(`${scope} · ${n} resources`,`${scope}・資料 ${n} 件`,`${scope} · ${n} Ressourcen`));
+ out=out.replace(/(\d+) 项匹配资源/g,(_,n)=>at(`${n} matching resources`,`${n} 件の該当資料`,`${n} passende Ressourcen`));
+ out=out.replace(/HELM Safety v1\.0 · HarmBench · 默认设置 · 发布于 ([\d-]+)/g,(_,date)=>at(`HELM Safety v1.0 · HarmBench · Default configuration · Published ${date}`,`HELM Safety v1.0・HarmBench・既定の設定・公開日 ${date}`,`HELM Safety v1.0 · HarmBench · Standardkonfiguration · veröffentlicht am ${date}`));
+ out=out.replace(/用于评估(.+?)中的风险表现、系统能力与防护效果。/g,(_,scope)=>at(`Evaluates risk behavior, system capability and protective effectiveness in ${scope}.`,`${scope}におけるリスク挙動、システム能力、防御効果を評価します。`,`Bewertet Risikoverhalten, Systemfähigkeiten und Schutzwirkung in ${scope}.`));
  out=out.replace(/(\d+) 条记录 · 点击筛选/g,(_,n)=>at(`${n} records · click to filter`,`${n} 件・クリックして絞り込み`,`${n} Einträge · zum Filtern klicken`));
  out=out.replace(/相对 (.+?) 的差值/g,(_,model)=>at(`Difference from ${model}`,`${model} との差`, `Differenz zu ${model}`));
  out=out.replace(/(.+?) · 相对 (.+?) · ([+−\d.]+ pp)/g,(_,model,baseline,value)=>at(`${model} · vs ${baseline} · ${value}`,`${model}・${baseline} 比・${value}`,`${model} · gegenüber ${baseline} · ${value}`));
@@ -1266,7 +1383,6 @@ function translate(value,language){
  out=out.replace(/(\d+) 个相关(?:记录|示例)/g,(_,n)=>at(`${n} related records`,`${n} 件の関連資料`,`${n} verwandte Einträge`));
   out=out.replace(/(\d+) 个来源/g,(_,n)=>at(`${n} sources`,`${n} 件の情報源`,`${n} Quellen`));
  out=out.replace(/(\d+) 条近 30 日记录/g,(_,n)=>at(`${n} records in the last 30 days`,`過去 30 日の資料 ${n} 件`,`${n} Einträge in den letzten 30 Tagen`));
- out=out.replace(/(\d+) 条记录，来自 (\d+) 个公开来源。以下为元数据索引，不代替原文核对。/g,(_,records,sources)=>at(`${records} records from ${sources} public sources. This metadata index does not replace checking the originals.`,`公開情報源 ${sources} 件から ${records} 件。メタデータ索引であり、原文確認の代わりにはなりません。`,`${records} Einträge aus ${sources} öffentlichen Quellen. Dieser Metadatenindex ersetzt nicht die Prüfung der Originale.`));
  // One pass over source fragments: never re-translate translated output.
  keys ||= ordered();
  fragmentPattern ||= new RegExp(keys.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
