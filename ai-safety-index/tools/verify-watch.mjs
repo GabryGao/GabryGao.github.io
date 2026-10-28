@@ -81,7 +81,7 @@ assert.doesNotMatch(home,/每 3 小时/);
 assert.match(home,/href="#watch"/);
 assert.doesNotMatch(home,/href="#sources"/);
 assert.match(home,/href="#results\?benchmark=/);
-const page=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const page=fs.readFileSync(path.join(root,'legacy.html'),'utf8');
 const live=fs.readFileSync(path.join(root,'portal-live.css'),'utf8');
 const river=fs.readFileSync(path.join(root,'portal-river.js'),'utf8');
 const watch=fs.readFileSync(path.join(root,'portal-watch.css'),'utf8');

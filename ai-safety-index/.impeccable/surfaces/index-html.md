@@ -1,11 +1,18 @@
 ---
 version: 1
+slug: "index-html"
+primary_target: "index.html"
+related_targets: ["records.html","results.html","benchmarks.html"]
+---
+
+---
+version: 1
 slug: "concept-index-html"
 primary_target: "concept/index.html"
 related_targets: []
 ---
 
-Scope: homepage concept (standalone page), Operate mode, code-led. Audience: researchers and people following AI safety who want to know what happened this week. Data: news-feed.js (AI Safety HOT records, 7-day window), no invented scores or grades.
+Scope: site home page (index.html) and the pages sharing its shell, Operate mode, code-led. Audience: researchers and people following AI safety who want to know what happened this week. Data: news-feed.js (AI Safety HOT records, 7-day window), no invented scores or grades.
 
 ## Direction contract
 

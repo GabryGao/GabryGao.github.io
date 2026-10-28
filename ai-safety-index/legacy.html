@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff"><meta name="description" content="AI Safety Index：连接 AI 安全研究方向、论文、数据、基准与公开评测结果。">
+  <title>AI Safety Index · 研究与评测门户</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="directions.css">
+  <link rel="stylesheet" href="portal-v4.css">
+  <link rel="stylesheet" href="portal-v5.css">
+  <link rel="stylesheet" href="portal-editorial.css?v=4lang-20261019">
+  <link rel="stylesheet" href="portal-grid.css?v=metadata-20261020">
+  <link rel="preload" href="assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="portal-framework.css?v=upload-20261020">
+  <link rel="stylesheet" href="portal-madeo.css?v=upload-20261020">
+  <link rel="stylesheet" href="portal-interactions.css?v=nav-align-20261027">
+  <link rel="stylesheet" href="portal-home.css?v=cohesion-20261020">
+  <link rel="stylesheet" href="portal-practical.css?v=practical-20261020">
+  <link rel="stylesheet" href="portal-compact.css?v=editorial-polish-20261026">
+  <link rel="stylesheet" href="portal-evaluations.css?v=model-depth-20261025">
+  <link rel="stylesheet" href="portal-catalog.css?v=catalog-cards-20261027b">
+  <link rel="stylesheet" href="portal-showcase.css?v=readability-20261025">
+  <link rel="stylesheet" href="portal-watch.css?v=sticky-story-tabs-20261025">
+  <link rel="stylesheet" href="portal-live.css?v=river-hotboard-20261025">
+  <link rel="stylesheet" href="portal-shapes.css?v=infinite-align-20261027">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <div class="site-announcement"><span>AI Safety Index</span><span>开放的 AI 安全研究与评测资料</span><a href="#papers">探索论文资料 <span aria-hidden="true">↗</span></a></div>
+  <header class="site-header">
+    <div class="header-inner"><a class="brand" href="#home" aria-label="AI Safety Index 首页"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 6v6c0 5 9 10 9 10s9-5 9-10V6l-9-4Z"/><path d="m8 12 3 3 5-6"/></svg><span>AI Safety Index</span><span class="md-page-label"></span></a>
+    <nav id="primary-nav" aria-label="主导航"><a href="#directions" data-nav="directions">研究方向</a><a href="#news" data-nav="news">研究热点</a><a href="#results" data-nav="benchmarks">基准与评测</a><a href="#teams" data-nav="teams">研究团队</a></nav>
+    <div class="header-actions"><label class="language-control"><span class="visually-hidden">语言 / Language</span><select id="site-language" aria-label="Language / 语言" data-keep-original><option value="zh">中文</option><option value="en">English</option><option value="ja">日本語</option><option value="de">Deutsch</option></select></label><button class="icon-button search-trigger" data-action="search" aria-label="全站搜索"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button id="menu-button" class="icon-button mobile-menu" aria-label="打开导航" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="md-menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18M3 15h18"/></svg></button></div></div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home">Safety Index</a><p>AI 安全领域的研究、评测与原始资料。<br>从具体问题出发，理解安全边界。</p></div><div><h3>探索研究</h3><a href="#directions">六大研究方向</a><a href="#papers">论文资料</a><a href="#datasets">数据与任务</a><a href="#news">研究热点</a></div><div><h3>评测与实践</h3><a href="#benchmarks">评测基准</a><a href="#results">公开结果</a><a href="#methods">方法与说明</a><button data-action="method">收录与比较原则</button></div><div><h3>关于 Index</h3><a href="#teams">研究团队</a></div></div><div class="footer-bottom"><span>AI SAFETY INDEX</span><span>AI 安全研究与评测资料</span></div></div></footer>
+  <aside id="compare-tray" class="compare-tray" aria-live="polite" hidden></aside>
+  <dialog id="modal"><div id="modal-body"></div></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+  <script src="research-data.js"></script>
+  <script src="directions.js"></script>
+  <script src="locale.js?v=locale-cleanup-20261027f"></script>
+  <script src="app.js?v=sticky-suites-20261026"></script>
+  <script src="portal-v4.js?v=upload-20261020"></script>
+  <script src="portal-v5.js?v=content-cleanup-20261026"></script>
+  <script src="opentai-papers.js?v=20261019"></script>
+  <script src="paper-library.js?v=infinite-scroll-20261027"></script>
+  <script src="portal-editorial.js?v=framework-20261020d"></script>
+  <script src="news-feed.js?v=localized-news-20261024"></script>
+  <script src="topic-feed.js?v=company-topics-20261025"></script>
+  <script src="portal-framework.js?v=live-flow-20261024"></script>
+  <script src="portal-home.js?v=practical-20261020"></script>
+  <script src="portal-madeo.js?v=content-cleanup-20261026"></script>
+  <script src="source-catalog.js?v=scoped-catalog-20261024"></script>
+  <script src="evaluation-data.js?v=acceptance-20261025"></script>
+  <script src="portal-results.js?v=content-cleanup-20261026"></script>
+  <script src="portal-compact.js?v=infinite-scroll-20261027"></script>
+  <script src="portal-catalog.js?v=infinite-align-20261027"></script>
+  <script src="portal-search.js?v=internal-details-20261025"></script>
+  <script src="resource-submission.js?v=compact-20261021"></script>
+  <script src="portal-watch.js?v=locale-cleanup-20261027"></script>
+  <script src="portal-river.js?v=restore-river-20261025"></script>
+  <script src="portal-interactions.js?v=infinite-scroll-20261027"></script>
+</body>
+</html>

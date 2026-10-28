@@ -24,7 +24,7 @@ for(const route of routes){
 for(const fn of ['showMethod()','showSubmit()','showSearch("zzzz")','state.selected.add("claude");state.selected.add("mini");showCompare()']){
  try{vm.runInContext(fn,context);for(const [key,e] of elements)if(e.innerHTML){html.push({route:fn,key,html:e.innerHTML});e.innerHTML=''}}catch(e){console.error(fn,e.message)}
 }
-html.push({route:'shell',html:fs.readFileSync(path.join(root,'index.html'),'utf8')});
+html.push({route:'shell',html:fs.readFileSync(path.join(root,'legacy.html'),'utf8')});
 html.push({route:'design-spec',html:fs.readFileSync(path.join(root,'design-spec.html'),'utf8')});
 fs.writeFileSync(process.argv[2],JSON.stringify(html));
 console.log('Collected '+html.length+' rendered surfaces');

@@ -6,7 +6,17 @@
 
 简体中文 · [English](README.en.md) · [日本語](README.ja.md)
 
-快速入口：[动态观察台](https://gabrygao.github.io/ai-safety-index/#watch) · [论文资料](https://gabrygao.github.io/ai-safety-index/#papers) · [数据与任务](https://gabrygao.github.io/ai-safety-index/#datasets) · [评测看板](https://gabrygao.github.io/ai-safety-index/#results) · [基准目录](https://gabrygao.github.io/ai-safety-index/#benchmarks) · [研究方向](https://gabrygao.github.io/ai-safety-index/#directions)
+快速入口：[看板](https://gabrygao.github.io/ai-safety-index/) · [全部记录](https://gabrygao.github.io/ai-safety-index/records.html) · [研究方向](https://gabrygao.github.io/ai-safety-index/directions.html) · [评测看板](https://gabrygao.github.io/ai-safety-index/results.html) · [基准目录](https://gabrygao.github.io/ai-safety-index/benchmarks.html) · [论文](https://gabrygao.github.io/ai-safety-index/papers.html) · [旧版](https://gabrygao.github.io/ai-safety-index/legacy.html)
+
+## 2026-10-29 改版
+
+网站换成"AI 安全看板"：首页是"距上一次 AI 安全事件"的天数看板、最近 7 天的安全信号、按机构统计的近 30 天安全信号表和本周 arXiv 安全论文；另有全部记录、研究方向、基准与评测（评测看板、基准目录、方法与说明、上传资源）、论文、详情、全站搜索和关于页。界面为中文和英文，英文是待审稿的草稿；目录里的备注、数据获取和许可长句暂只有中文，并标注 "Chinese only"。日文和德文只保留在旧版 `legacy.html`。旧的 `#路由` 链接会自动跳到新页面。
+
+页面共用 `shell.css`、`shell.js`、`i18n.js`、`catalog.js`；原先写在旧界面脚本里的文案、主题、工具描述、数据集、团队和手工论文已移到 `site-data.js`。检查：`node tools/verify-site.mjs`（定时任务也会运行）。设计记录见 `DESIGN.md`，产品范围见 `PRODUCT.md`。
+
+安全动态由 `tools/update-signals.py` 从各机构官方发布和 AI Incident Database 自动收集，论文精选由 `tools/update-papers.py` 从 arXiv 自动筛选，均按本站规则，不使用任何新闻聚合站的数据。
+
+以下各节记录的是旧版（现 `legacy.html`）。
 
 ## 当前能力
 

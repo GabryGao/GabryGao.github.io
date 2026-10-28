@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Benchmarks · AI Safety Board">基准目录 · AI 安全看板</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
 .page-head{padding:28px 0 8px}
@@ -25,9 +25,6 @@
 .levels .nm{font-size:13px;font-weight:600;line-height:1.3}
 .levels .ct{grid-row:span 2;font-weight:800;font-stretch:75%;font-size:34px;line-height:.9}
 .levels .sq{display:flex;gap:3px}
-.sq i{width:10px;height:10px;border-radius:1px;border:1.5px solid currentColor;display:block}
-.sq i.f{background:currentColor}
-.sq.l1{color:var(--warn)}
 .levels button[aria-pressed="true"] .sq{color:var(--enamel-ink)}
 
 .tools{display:grid;grid-template-columns:2fr 1.2fr 1fr auto;gap:12px;align-items:end;margin-bottom:14px}
@@ -70,6 +67,15 @@ tr.row.open td{background:var(--rail)}
 .moreall{display:flex;justify-content:center;padding:22px 0 0}
 .btn{font:inherit;font-size:14px;font-weight:600;color:var(--enamel-ink);background:var(--ink);border:0;border-radius:5px;padding:10px 18px;cursor:pointer;transition:background .2s}
 .btn:hover{background:var(--warn)}
+.datasets{margin:44px 0 64px;scroll-margin-top:16px}
+.datasets h2{margin:0 0 4px;font-weight:700;font-stretch:87.5%;font-size:24px}
+.dslist{list-style:none;margin:12px 0 0;padding:0;border-top:2px solid var(--ink)}
+.dslist li{display:grid;grid-template-columns:minmax(180px,1fr) 2fr auto;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.dslist b{font-weight:700;font-stretch:87.5%;font-size:18px}
+.dslist small{display:block;color:var(--muted);font-size:12.5px;font-weight:400;font-stretch:100%;margin-top:2px}
+.dslist p{margin:0;color:var(--muted);line-height:1.6}
+.dslist a{font-size:13px;font-weight:600;white-space:nowrap}
+@media (max-width:700px){.dslist li{grid-template-columns:1fr}}
 @media (max-width:1040px){
   .levels{grid-template-columns:repeat(3,1fr)}
   .tools{grid-template-columns:1fr 1fr}
@@ -137,20 +143,25 @@ tr.row.open td{background:var(--rail)}
     </div>
     <div class="moreall" id="moreall"></div>
   </section>
+
+  <section class="datasets" id="datasets" aria-labelledby="ds-title">
+    <h2 id="ds-title" data-en="Data and tasks">数据与任务</h2>
+    <p class="sub" data-en="Datasets and task suites that are not benchmarks themselves but feed them.">本身不是基准、但为评测提供数据或任务的资源。</p>
+    <ol class="dslist" id="dslist"></ol>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span data-en="From the source package reviewed for the live site; every entry links back to the original authors.">资料来自现站核验过的来源包，每条都可以回到原作者页面核对。</span>
+    <span data-en="From a reviewed source package; every entry links back to the original authors.">资料来自核验过的来源包，每条都可以回到原作者页面核对。</span>
     <a href="index.html" data-en="Back to the board">返回看板</a>
-    <a href="../#benchmarks" data-en="Live site catalog">现站基准目录</a>
   </div>
 </footer>
 
-<script src="../news-feed.js"></script>
-<script src="../source-catalog.js"></script>
-<script>var benchmarkDirections = {};</script>
-<script src="../portal-catalog.js"></script>
+<script src="signals-feed.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script src="catalog.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
@@ -158,8 +169,10 @@ tr.row.open td{background:var(--rail)}
   const S = Shell, { esc, dirName, T, tx, en, zhOnly } = S;
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   S.header('benchmarks.html');
-  const C = EvaluationCatalog, TC = EvaluationTopicCatalog;
-  const COPY = en ? (ConceptI18n.COPY || {}) : (typeof catalogCardCopy !== 'undefined' ? catalogCardCopy : {});
+  const K = Catalog;
+  const C = { data: { resources: K.resources, checked_date: K.checked }, isToolRecord: K.isTool, integratedBenchmark: K.integrated };
+  const TC = { definitions: K.topics, matches: K.topicMatches, get: id => K.topics.find(t => t.id === id) || null };
+  const COPY = en ? (ConceptI18n.COPY || {}) : (K.data.cardCopy || {});
   const LEVELS = [
     { id: 'l1', name: T('站内已有结果', 'Results on this site'), filled: 3, test: r => !!C.integratedBenchmark(r) },
     { id: 'l2', name: T('已下载结果', 'Downloaded results'), filled: 3, test: r => !C.integratedBenchmark(r) && /已下载/.test(r.result_state) },
@@ -247,7 +260,7 @@ tr.row.open td{background:var(--rail)}
       + (r.license_note ? '<dt>' + T('许可', 'Licence') + '</dt><dd>' + zhOnly(r.license_note) + '</dd>' : '')
       + (r.evidence_status ? '<dt>' + T('核验依据', 'Checked against') + '</dt><dd>' + (r.evidence_status === '原作者/出版方正文已读取' ? T(esc(r.evidence_status), 'Original author or publisher text read') : zhOnly(r.evidence_status)) + (r.evidence_url ? T('（', ' (') + '<a href="' + esc(r.evidence_url) + '" rel="noopener">' + esc(host(r.evidence_url)) + '</a>' + T('）', ')') : '') + '</dd>' : '')
       + '<dt>' + T('核验日期', 'Checked on') + '</dt><dd>' + esc(r.checked_date || T('未记录', 'Not recorded')) + '</dd></dl>'
-      + '<div class="go">' + (integrated ? '<a href="results.html?benchmark=' + esc(integrated) + '">' + T('在评测看板看结果', 'See results on the board') + ' →</a>' : '') + '<a href="../#resource/' + esc(r.id) + '">' + T('现站详情页', 'Live site detail page') + ' ↗</a></div></td></tr>';
+      + '<div class="go">' + (integrated ? '<a href="results.html?benchmark=' + esc(integrated) + '">' + T('在评测看板看结果', 'See results on the board') + ' →</a>' : '') + '<a href="detail.html?id=' + esc(r.id) + '">' + T('查看完整详情', 'Full details') + ' →</a></div></td></tr>';
   }
 
   function render() {
@@ -276,7 +289,10 @@ tr.row.open td{background:var(--rail)}
     const next = Math.min(30, list.length - state.shown);
     document.getElementById('moreall').innerHTML = list.length > state.shown ? '<button type="button" class="btn">' + T('再显示 ' + next + ' 个（共 ' + list.length + '）', 'Show ' + next + ' more (' + list.length + ' total)') + '</button>' : '';
   }
+  const site = x => tx('SITE', x);
+  document.getElementById('dslist').innerHTML = (K.data.datasets || []).map(x => '<li><b>' + esc(site(x.name)) + '<small>' + esc(site(x.kind)) + ' · ' + esc(x.source) + '</small></b><p>' + esc(site(x.description)) + '</p><a href="' + esc(x.url) + '" rel="noopener">' + T('打开', 'Open') + ' ↗</a></li>').join('');
   render();
+  if (location.hash === '#datasets') document.getElementById('datasets').scrollIntoView();
 })();
 </script>
 </body>

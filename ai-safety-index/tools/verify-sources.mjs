@@ -31,7 +31,7 @@ for(const file of ['AI_Safety_Index_数据来源汇总.html','六大方向来源
 assert.ok(!fs.existsSync(path.join(publicRoot,'evidence')));
 assert.ok(!fs.existsSync(path.join(publicRoot,'result-files')));
 
-const shell=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const shell=fs.readFileSync(path.join(root,'legacy.html'),'utf8');
 assert.doesNotMatch(shell,/href="#sources"/);
 assert.doesNotMatch(shell,/portal-sources\.js/);
 for(const file of ['portal-sources.js','portal-sources.css','portal-sources-narrow.css'])assert.ok(!fs.existsSync(path.join(root,file)),file+' legacy UI removed');

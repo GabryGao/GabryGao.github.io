@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Research directions · AI Safety Board">研究方向 · AI 安全看板</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:8px 0 0;color:var(--muted);max-width:72ch;line-height:1.6}
+.overview{list-style:none;margin:20px 0 64px;padding:0;border-top:2px solid var(--ink)}
+.overview li{border-bottom:1px solid var(--line)}
+.overview a{display:grid;grid-template-columns:minmax(220px,1.4fr) 2fr repeat(4,92px);gap:12px 20px;align-items:center;padding:18px 0;text-decoration:none;transition:background .2s}
+.overview a:hover{background:var(--rail)}
+.overview .nm{font-weight:700;font-stretch:87.5%;font-size:21px;line-height:1.2}
+.overview .nm small{display:block;font-weight:400;font-stretch:100%;font-size:12.5px;color:var(--muted);margin-top:3px}
+.overview .q{color:var(--muted);line-height:1.5}
+.overview .st{text-align:right}
+.overview .st b{display:block;font-weight:800;font-stretch:75%;font-size:30px;line-height:1}
+.overview .st span{font-size:11.5px;color:var(--muted)}
+.overview .st.hot b{color:var(--warn)}
+.ohead{display:grid;grid-template-columns:minmax(220px,1.4fr) 2fr repeat(4,92px);gap:12px 20px;padding:12px 0 8px;font-size:12.5px;color:var(--muted)}
+.ohead span:nth-child(n+3){text-align:right}
+
+.dhead{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;padding:18px 0 10px;align-items:stretch}
+.dhead h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(32px,4vw,52px);line-height:1.05}
+.dhead .q{margin:12px 0 8px;font-size:19px;line-height:1.45}
+.dhead p{margin:0;color:var(--muted);line-height:1.65;max-width:62ch}
+.dhead .kids{margin-top:14px}
+.dhead .kids .tag{margin:0 6px 6px 0}
+.mini{background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:18px 20px 14px;position:relative;display:flex;flex-direction:column}
+.mini::after{content:"";position:absolute;inset:7px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.mini h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:18px}
+.mini .count{margin:12px 0 6px}
+.mini .plate{width:58px;height:82px;font-size:70px}
+.mini .unit{font-size:24px}
+.mini .last{font-size:13px;color:var(--safe-muted);line-height:1.5}
+.mini .last a{color:var(--safe-ink)}
+.mini .strip{margin-top:auto;padding-top:12px}
+.mini .strip ol{height:70px;gap:4px}
+.bound{border-top:2px solid var(--ink);margin-top:26px;padding-top:14px;display:grid;grid-template-columns:200px 1fr;gap:10px 28px}
+.bound h2,.sec h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:22px}
+.bound p{margin:0 0 6px;line-height:1.65;max-width:72ch}
+.bound p + p{color:var(--muted)}
+.topics table{min-width:760px}
+.topics td{vertical-align:top;line-height:1.55}
+.topics td small{display:block;color:var(--muted);font-size:12.5px}
+.sec{margin-top:40px}
+.sec header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.sec header a{font-size:13px;color:var(--muted)}
+.sec header a:hover{color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows li{border-bottom:1px solid var(--line);padding:11px 0;display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:baseline}
+.rows a{font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.rows a:hover{text-decoration:underline}
+.rows small{grid-column:1;color:var(--muted);font-size:12.5px}
+.rows .sq{grid-row:1 / span 2;grid-column:2;align-self:center;color:var(--ink)}
+.rows .sq.l1{color:var(--warn)}
+.endpad{height:64px}
+@media (max-width:1040px){
+  .overview a,.ohead{grid-template-columns:1fr repeat(4,70px)}
+  .overview .q,.ohead span:nth-child(2){display:none}
+  .dhead,.two{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .overview a{grid-template-columns:1fr 1fr 1fr;row-gap:8px}
+  .overview .nm{grid-column:1 / -1}
+  .overview .st{text-align:left}
+  .ohead{display:none}
+  .bound{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap" id="main"></main>
+<footer>
+  <div class="wrap">
+    <a href="index.html" data-en="Back to the board">返回看板</a>
+    <a href="records.html" data-en="All records">全部记录</a>
+  </div>
+</footer>
+
+<script src="signals-feed.js"></script>
+<script src="research-data.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script>var paperRecords = [];</script>
+<script src="opentai-papers.js"></script>
+<script src="i18n.js"></script>
+<script src="catalog.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, K = Catalog, N = S.news, { esc, T, tx, en, dirName, day, DAY, isIncident, iso, md } = S;
+  S.header('directions.html');
+  const site = s => tx('SITE', s);
+  const main = document.getElementById('main');
+  const dir = S.dirParam();
+  const papers = K.papers();
+  const stats = id => {
+    const sig = N.signals.filter(r => (r.direction_ids || []).includes(id)), recent = N.recent.filter(r => (r.direction_ids || []).includes(id));
+    const inc = sig.filter(isIncident).sort((a, b) => b.date.localeCompare(a.date));
+    return {
+      sig, recent, inc, days: inc.length ? Math.max(0, Math.round((N.today - day(inc[0].date)) / DAY)) : null,
+      benches: K.benchmarks.filter(r => r.relation !== '相关能力' && K.dirsOf(r).includes(id)),
+      tools: K.tools.filter(r => K.dirsOf(r).includes(id)),
+      papers: papers.filter(p => (p.direction_ids || []).includes(id))
+    };
+  };
+
+  if (dir === 'all') {
+    main.innerHTML = '<div class="page-head"><h1>' + T('研究方向', 'Research directions') + '</h1><p>' + T('六个方向共享同一批资料，一条资料可以同时属于多个方向。点击进入某个方向，查看它的安全动态、比较边界、基准、工具和论文。', 'Six directions share one pool of material, and an entry can belong to several. Open a direction for its safety signals, comparison boundary, benchmarks, tools and papers.') + '</p></div>'
+      + '<div class="ohead" aria-hidden="true"><span>' + T('方向', 'Direction') + '</span><span>' + T('核心问题', 'Key question') + '</span><span>' + T('距上次事件', 'Since incident') + '</span><span>' + T('近 30 天信号', 'Signals, 30 days') + '</span><span>' + T('基准', 'Benchmarks') + '</span><span>' + T('论文', 'Papers') + '</span></div>'
+      + '<ol class="overview">' + researchDirections.map(d => {
+        const s = stats(d.id);
+        const daysTxt = s.days == null ? '—' : s.days;
+        return '<li><a href="directions.html?dir=' + d.id + '"><span class="nm">' + esc(dirName(d.id)) + '<small>' + esc(site(d.short)) + '</small></span><span class="q">' + esc(site(d.question)) + '</span>'
+          + '<span class="st' + (s.days != null && s.days <= 2 ? ' hot' : '') + '"><b>' + daysTxt + '</b><span>' + T('天', s.days === 1 ? 'day' : 'days') + '</span></span>'
+          + '<span class="st"><b>' + s.recent.length + '</b><span>' + T('条信号', 'signals') + '</span></span>'
+          + '<span class="st"><b>' + s.benches.length + '</b><span>' + T('个基准', 'benchmarks') + '</span></span>'
+          + '<span class="st"><b>' + s.papers.length + '</b><span>' + T('篇论文', 'papers') + '</span></span></a></li>';
+      }).join('') + '</ol>';
+    return;
+  }
+
+  const D = researchDirections.find(d => d.id === dir);
+  const s = stats(dir);
+  document.title = dirName(dir) + T(' · AI 安全看板', ' · AI Safety Board');
+  const perDay = {};
+  for (const r of s.inc) (perDay[r.date] ||= []).push(r);
+  const top = s.inc[0];
+  const benches = s.benches.slice().sort((a, b) => K.levelOf(a) - K.levelOf(b) || a.name.localeCompare(b.name)).slice(0, 8);
+  const recent = s.sig.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+  const pp = s.papers.slice().sort((a, b) => String(b.year).localeCompare(String(a.year)) || a.title.localeCompare(b.title)).slice(0, 8);
+  const datasets = (K.data.datasets || []).filter(x => (x.direction_ids || []).includes(dir));
+
+  main.innerHTML = '<nav class="dirs" aria-label="' + T('切换方向', 'Switch direction') + '"><div class="seg seg-dirs" role="group" id="dirs"></div></nav>'
+    + '<div class="dhead"><div><h1>' + esc(dirName(dir)) + '</h1><p class="q">' + esc(site(D.question)) + '</p><p>' + esc(site(D.description)) + '</p>'
+    + '<div class="kids">' + D.children.map(c => '<span class="tag">' + esc(site(c)) + '</span>').join('') + '</div></div>'
+    + '<section class="mini" aria-labelledby="mini-t"><h2 id="mini-t">' + T('距上一次安全事件', 'Since the last safety incident') + '</h2>'
+    + (top ? '<div class="count">' + S.plates(s.days, T(s.days + ' 天', s.days + ' days')) + '<span class="unit">' + T('天', s.days === 1 ? 'day' : 'days') + '</span></div><p class="last"><a href="records.html?item=' + encodeURIComponent(top.id) + '">' + esc(S.title(top)) + '</a> · ' + esc(top.date) + '</p>'
+      : '<p class="last" style="margin-top:12px">' + T('采集窗口（' + iso(N.firstDay) + ' 起）内没有安全事件。', 'No safety incident since collection began on ' + iso(N.firstDay) + '.') + '</p>')
+    + '<div class="strip"><ol id="strip"></ol></div></section></div>'
+    + '<section class="bound"><h2>' + T('比较边界', 'Comparison boundary') + '</h2><div><p>' + esc(tx('METHOD', D.principle)) + '</p><p>' + esc(tx('METHOD', D.note)) + '</p></div></section>'
+    + '<section class="sec topics"><header><h2>' + T('子方向与候选基准', 'Subtopics and candidate benchmarks') + '</h2></header><div class="tablewrap"><table><thead><tr><th scope="col"><span class="th">' + T('子方向', 'Subtopic') + '</span></th><th scope="col"><span class="th">' + T('报告要求', 'What to report') + '</span></th><th scope="col"><span class="th">' + T('候选基准', 'Candidates') + '</span></th></tr></thead><tbody>'
+    + D.topics.map(t => '<tr><td><div class="org">' + esc(T(t.name, t.en || site(t.name))) + '</div><small lang="en">' + esc(t.tech || '') + '</small></td><td>' + esc(site(t.boundary)) + '</td><td lang="en">' + esc(t.candidates || '') + '</td></tr>').join('') + '</tbody></table></div></section>'
+    + '<div class="two"><section class="sec"><header><h2>' + T('近期安全信号', 'Recent safety signals') + '</h2><a href="records.html?dir=' + dir + '">' + T('全部 ' + s.sig.length + ' 条', 'All ' + s.sig.length) + ' →</a></header><ol class="rows">'
+    + (recent.length ? recent.map(r => '<li><a href="records.html?item=' + encodeURIComponent(r.id) + '">' + esc(S.title(r)) + '</a><small>' + esc(S.category(r)) + ' · ' + esc(r.source) + ' · ' + md(r.date) + '</small></li>').join('') : '<li class="empty">' + T('近期没有记录。', 'No recent records.') + '</li>') + '</ol></section>'
+    + '<section class="sec"><header><h2>' + T('基准', 'Benchmarks') + '</h2><a href="benchmarks.html?dir=' + dir + '">' + T('全部 ' + s.benches.length + ' 个', 'All ' + s.benches.length) + ' →</a></header><ol class="rows">'
+    + benches.map(r => { const lv = K.levelOf(r); return '<li><a href="detail.html?id=' + esc(r.id) + '">' + esc(tx('NAME', r.name)) + '</a><small>' + esc(tx('SUBDOMAIN', r.subdomain || '')) + ' · ' + T(K.LEVELS[lv].zh, K.LEVELS[lv].en) + '</small>' + K.squares(K.LEVELS[lv].filled, lv <= 1 ? 'l1' : '') + '</li>'; }).join('') + '</ol></section></div>'
+    + '<div class="two"><section class="sec"><header><h2>' + T('论文', 'Papers') + '</h2><a href="papers.html?dir=' + dir + '">' + T('全部 ' + s.papers.length + ' 篇', 'All ' + s.papers.length) + ' →</a></header><ol class="rows">'
+    + pp.map(p => '<li><a href="' + esc(p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url) + '" rel="noopener" lang="en">' + esc(p.title) + '</a><small>' + esc(p.year || '') + ' · ' + esc(tx('SITE', p.venue || '')) + (p.description ? ' · ' + esc(tx('SUBTOPIC', p.description)) : '') + '</small></li>').join('') + '</ol></section>'
+    + '<section class="sec"><header><h2>' + T('工具与数据', 'Tools and data') + '</h2><a href="methods.html?dir=' + dir + '">' + T('全部工具', 'All tools') + ' →</a></header><ol class="rows">'
+    + datasets.map(x => '<li><a href="' + esc(x.url) + '" rel="noopener">' + esc(site(x.name)) + ' ↗</a><small>' + esc(site(x.kind)) + ' · ' + esc(x.source) + '</small></li>').join('')
+    + s.tools.map(r => '<li><a href="detail.html?id=' + esc(r.id) + '">' + esc(tx('NAME', r.name)) + '</a><small>' + esc(tx('METHOD', K.toolCopy(r).tag)) + '</small></li>').join('')
+    + (datasets.length || s.tools.length ? '' : '<li class="empty">' + T('暂无。', 'None yet.') + '</li>') + '</ol></section></div><div class="endpad"></div>';
+
+  const strip = document.getElementById('strip');
+  strip.style.setProperty('--days', N.span);
+  strip.innerHTML = S.stripHTML(perDay);
+  S.dirSeg(document.getElementById('dirs'), () => dir, id => id === 'all' ? researchDirections.length : 1, id => { location.href = id === 'all' ? 'directions.html' : 'directions.html?dir=' + id; });
+})();
+</script>
+</body>
+</html>

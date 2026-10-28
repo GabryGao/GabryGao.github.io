@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Papers · AI Safety Board">论文 · AI 安全看板</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
 .page-head{padding:28px 0 8px}
@@ -124,15 +124,15 @@
 
 <footer>
   <div class="wrap">
-    <span id="foot"></span>
     <a href="index.html" data-en="Back to the board">返回看板</a>
-    <a href="../#papers" data-en="Live site papers">现站论文页</a>
   </div>
 </footer>
 
-<script src="../news-feed.js"></script>
+<script src="signals-feed.js"></script>
+<script src="paper-picks.js"></script>
 <script>var paperRecords = [];</script>
-<script src="../opentai-papers.js"></script>
+<script src="opentai-papers.js"></script>
+<script src="site-data.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
@@ -140,7 +140,7 @@
   const S = Shell, N = S.news, { esc, md, dirName, link, T, tx } = S;
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   S.header('papers.html');
-  const P = paperRecords.slice();
+  const P = [...paperRecords, ...((typeof SiteData !== 'undefined' && SiteData.handPapers) || [])];
   const info = typeof paperImportInfo !== 'undefined' ? paperImportInfo : {};
   const TOP_VENUES = ['arXiv', 'NeurIPS', 'ICLR', 'CVPR', 'USENIX Security', 'ACL', 'ICML', 'EMNLP', 'IROS', 'AAAI'];
   const venueOf = p => TOP_VENUES.includes(p.venue) ? p.venue : 'other';
@@ -148,10 +148,7 @@
   const p0 = S.params();
   const state = { dir: S.dirParam(), q: p0.get('q') || '', sub: p0.get('sub') || 'all', venue: p0.get('venue') || 'all', year: p0.get('year') || 'all', sort: p0.get('sort') === 'title' ? 'title' : 'year', shown: 40 };
 
-  document.getElementById('head-sub').textContent = T(P.length + ' 篇，来自 OpenTAI 论文库快照（' + (info.imported_on || '导入日期未知') + ' 导入）。来源只提供年份和子主题，没有摘要；收录不代表认可论文结论。',
-    plural(P.length, 'paper') + ' from an OpenTAI library snapshot (imported ' + (info.imported_on || 'on an unknown date') + '). The source gives only year and subtopic, no abstracts. Listing a paper does not endorse its claims.');
-  document.getElementById('foot').textContent = T('论文库来自 OpenTAI 公开目录（commit ' + String(info.source_commit || '').slice(0, 7) + '），不会自动更新。现站另有 3 篇手工收录的基准论文，概念页暂未包含。',
-    'Library from the public OpenTAI catalog (commit ' + String(info.source_commit || '').slice(0, 7) + '); it does not update itself. Three benchmark papers added by hand on the live site are not included here yet.');
+  document.getElementById('head-sub').textContent = T(P.length + ' 篇论文，按年份排列。收录不代表认可论文结论。', plural(P.length, 'paper') + ', listed by year. Listing a paper does not endorse its claims.');
 
   const inDir = (p, d) => d === 'all' || (p.direction_ids || []).includes(d);
   const match = (p, skip) => {
@@ -182,24 +179,21 @@
   document.getElementById('moreall').addEventListener('click', e => { if (e.target.closest('button')) { state.shown += 40; render(); } });
 
   function renderReads() {
-    const list = N.papers.filter(r => inDir(r, state.dir));
-    document.getElementById('reads-sub').textContent = T('AI Safety HOT 本周精选，共 ' + list.length + ' 篇，独立于下方论文库。来源未提供摘要。', plural(list.length, 'paper') + ' picked by AI Safety HOT this week, separate from the library below. The source gives no abstracts.');
-    document.getElementById('reads').innerHTML = list.length ? list.map(r => {
-      const arxiv = (link(r).match(/arxiv\.org\/abs\/([\w.]+)/) || [])[1];
-      return '<li><time datetime="' + esc(r.date) + '">' + md(r.date) + '</time>'
-        + '<a class="pt" href="' + esc(link(r)) + '" rel="noopener" lang="en">' + esc(r.title) + '</a>'
-        + '<span class="pm">' + (arxiv ? 'arXiv ' + esc(arxiv) + ' · ' : '') + (r.direction_ids || []).map(dirName).join(T('、', ', ')) + '</span>'
-        + '<span class="pl"><a href="' + esc(link(r)) + '" rel="noopener">' + (arxiv ? 'arXiv' : T('原文', 'Source')) + ' ↗</a><a href="' + esc(r.url) + '" rel="noopener">AI Safety HOT ↗</a></span></li>';
-    }).join('') : '<li class="empty">' + T('这个方向本周没有精选论文。', 'No featured papers in this direction this week.') + '</li>';
+    const list = S.picks.filter(p => state.dir === 'all' || (p.direction_ids || []).includes(state.dir));
+    const sec = document.getElementById('reads').closest('section');
+    sec.hidden = !list.length;
+    document.getElementById('reads-sub').textContent = T('本站按安全关键词从 arXiv 近 7 天的新论文中自动筛选，共 ' + list.length + ' 篇，未经人工审核；与下方论文库分开。', plural(list.length, 'paper') + ' picked automatically from the last 7 days of arXiv by this site\'s safety keywords; not reviewed by hand and separate from the library below.');
+    document.getElementById('reads').innerHTML = S.picksHTML(list);
   }
+
 
   const paperRow = p => {
     const au = (p.authors || []).slice(0, 3).join(', ') + ((p.authors || []).length > 3 ? T(' 等', ' et al.') : '');
     const href = p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url;
     return '<li><a class="pt" href="' + esc(href) + '" rel="noopener" lang="en">' + esc(p.title) + '</a>'
-      + '<span class="au" lang="en">' + esc(au) + '</span>'
+      + (p.hand ? '<span class="au">' + esc(tx('SITE', p.note)) + '</span>' : '<span class="au" lang="en">' + esc(au) + '</span>')
       + '<span class="tg">' + (p.description ? '<span class="tag">' + esc(tx('SUBTOPIC', p.description)) + '</span>' : '') + (p.direction_ids || []).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</span>'
-      + '<span class="vn"><b>' + esc(p.venue || '') + '</b>' + (p.arxiv_id ? '<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" rel="noopener">arXiv ' + esc(p.arxiv_id) + '</a>' : '') + '</span></li>';
+      + '<span class="vn"><b>' + esc(tx('SITE', p.venue || '')) + '</b>' + (p.arxiv_id ? '<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" rel="noopener">arXiv ' + esc(p.arxiv_id) + '</a>' : '') + '</span></li>';
   };
 
   function render() {

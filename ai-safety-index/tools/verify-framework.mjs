@@ -33,7 +33,7 @@ assert.match(shapes,/grid-template-rows:48px 58px 36px 18px minmax\(40px,auto\)/
 assert.match(shapes,/\[data-infinite-list\]>\[hidden\]/);
 assert.match(shapes,/\.watch-flow-topic/);
 assert.match(shapes,/\.cp-resource-card/);
-const documentHtml=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const documentHtml=fs.readFileSync(path.join(root,'legacy.html'),'utf8');
 assert.match(documentHtml,/portal-shapes\.css\?v=infinite-align-20261027/);
 assert.ok(documentHtml.indexOf('portal-shapes.css')>documentHtml.indexOf('portal-live.css'),'Shape policy must load after page-specific styles');
 assert.ok(home.includes('基准目录'));assert.ok(home.includes('上传与补充'));
@@ -51,7 +51,7 @@ c.location.hash='#news?direction=physical-ai&q=unfindable-xz';assert.ok(run("new
 c.location.hash='#news?origin=auto';const automaticNews=run("newsPanel('')");assert.match(automaticNews,/href="#news\/aihot-/);assert.ok(!automaticNews.includes('站内详情 · 主要入口保留在本站'));assert.ok(!automaticNews.includes('来源：AI Safety HOT'));assert.ok(!automaticNews.includes('target="_blank"'));
 const unsafe={id:'x',title:'<img src=x onerror=x>',label:'test',date:'2026-10-20',url:'https://example.com',source:'<script>',description:'<script>',direction_ids:[],automated:true};c.unsafe=unsafe;assert.ok(!run('newsRows([unsafe])').includes('<script>'));
 c.location.hash='#upload?direction=physical-ai';const upload=run('uploadPage()');assert.ok(upload.includes('name="type"'));assert.ok(upload.includes('提交渠道未接通'));assert.ok(upload.includes('value="physical-ai" selected'));assert.ok(!upload.includes('mailto:'));assert.ok(upload.includes('#results?direction=physical-ai'));assert.ok(!run('teamsPage()').includes('#contact'));assert.ok(!run('home()').includes('#contact'));c.location.hash='#contact';run('render()');assert.ok(el.innerHTML.includes('cp-evaluation'),'Legacy contact root goes to the evaluation dashboard');
-const html=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const nav of ['directions','news','benchmarks','teams'])assert.ok(html.includes(`data-nav="${nav}"`));
+const html=fs.readFileSync(path.join(root,'legacy.html'),'utf8');for(const nav of ['directions','news','benchmarks','teams'])assert.ok(html.includes(`data-nav="${nav}"`));
 assert.ok(!html.includes('data-nav="contact"'));assert.ok(!html.includes('href="#contact"'));
 const locale=fs.readFileSync(path.join(root,'locale.js'),'utf8');assert.ok(!/location\.(?:hash|href)\s*=|location\.(?:assign|replace|reload)\(/.test(locale));
 const bundled=run('JSON.parse(JSON.stringify({info:liveNewsInfo,records:liveAutomatedNews}))');

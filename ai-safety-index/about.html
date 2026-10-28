@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="About · AI Safety Board">关于 · AI 安全看板</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 8px;max-width:760px}
+.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.page-head p{margin:14px 0 0;font-size:17px;line-height:1.7}
+.sec{margin-top:40px;max-width:900px}
+.sec h2{margin:0 0 12px;font-weight:700;font-stretch:87.5%;font-size:22px}
+.team{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.team li{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.team b{font-weight:700;font-stretch:87.5%;font-size:20px}
+.team span{color:var(--muted)}
+.sources{display:grid;grid-template-columns:200px 1fr;gap:12px 24px;margin:0;border-top:2px solid var(--ink);padding-top:14px}
+.sources dt{font-weight:600}
+.sources dd{margin:0;color:var(--muted);line-height:1.65}
+.sources a{color:var(--ink)}
+.sec p{color:var(--muted);line-height:1.7;max-width:72ch}
+.endpad{height:64px}
+@media (max-width:640px){.team li{grid-template-columns:1fr}.sources{grid-template-columns:1fr;gap:4px}.sources dd{margin-bottom:10px}}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap">
+  <div class="page-head">
+    <h1 data-en="About">关于</h1>
+    <p data-en="AI Safety Index tracks what is happening in AI safety each week and links it to the research, benchmarks and published results behind it. Every number points back to its original source; nothing here is combined into an overall safety score.">AI Safety Index 追踪每周 AI 安全领域发生了什么，并把它连到背后的研究、基准和公开结果。每个数字都能回到原始来源；这里不把任何结果合成为总体安全分。</p>
+  </div>
+
+  <section class="sec" aria-labelledby="team-title">
+    <h2 id="team-title" data-en="Team">研究团队</h2>
+    <ul class="team" id="team"></ul>
+  </section>
+
+  <section class="sec" aria-labelledby="src-title">
+    <h2 id="src-title" data-en="Where the data comes from">数据来源</h2>
+    <dl class="sources" id="sources"></dl>
+  </section>
+
+  <section class="sec" aria-labelledby="old-title">
+    <h2 id="old-title" data-en="Previous version">旧版网站</h2>
+    <p><span data-en="The previous version, with Japanese and German, stays available for comparison for now:">旧版网站（含日文和德文）暂时保留，供对照使用：</span> <a href="legacy.html" data-en="open the previous version">打开旧版</a></p>
+  </section>
+  <div class="endpad"></div>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="upload.html" data-en="Submit a resource">上传资源</a>
+    <a href="methods.html" data-en="Methods and notes">方法与说明</a>
+  </div>
+</footer>
+
+<script src="signals-feed.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script src="evaluation-data.js"></script>
+<script>var paperRecords = [];</script>
+<script src="opentai-papers.js"></script>
+<script src="i18n.js"></script>
+<script src="catalog.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, K = Catalog, { esc, T, tx, iso } = S;
+  S.header('about.html');
+  const site = s => tx('SITE', s);
+  document.getElementById('team').innerHTML = (K.data.team || []).map(m => '<li><b>' + esc(m.name) + '</b><span>' + esc(site(m.institution)) + '</span><span>' + esc(site(m.role)) + '</span></li>').join('');
+  const N = S.news, E = typeof EvaluationData !== 'undefined' ? EvaluationData : {}, P = typeof paperImportInfo !== 'undefined' ? paperImportInfo : {};
+  const rows = [
+    [T('安全动态', 'Safety signals'), T('本站每 3 小时从 OpenAI、Google DeepMind、英国 AI 安全研究所、METR、NIST 的官方发布中，按本站的安全规则自动筛选；事件来自 <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a> 收录的报道。每条都链接到原文，保留 90 天。当前 ' + N.signals.length + ' 条，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。', 'Every 3 hours this site filters official posts from OpenAI, Google DeepMind, the UK AI Security Institute, METR and NIST with its own safety rules; incidents come from reports listed by the <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a>. Each links to the original and is kept for 90 days. ' + N.signals.length + ' records from ' + iso(N.firstDay) + ' to ' + iso(N.lastCollected) + '.')],
+    [T('论文精选', 'Paper picks'), T('每 3 小时用本站的安全关键词规则，从 arXiv 近 7 天的新论文中自动挑选 8 篇，未经人工审核。', 'Every 3 hours this site picks 8 papers from the last 7 days of arXiv with its own safety keyword rules; not reviewed by hand.')],
+    [T('基准与工具', 'Benchmarks and tools'), T(K.resources.length + ' 条资料，逐条读取了原作者或出版方的页面，核验于 ' + K.checked + '。', K.resources.length + ' entries, each checked against the original author or publisher page on ' + K.checked + '.')],
+    [T('评测结果', 'Evaluation results'), T((E.records || []).length + ' 条结果来自 ' + (E.benchmarks || []).length + ' 个基准的公开结果表，另有 HELM Safety 的历史报告。都不是本站复测。', (E.records || []).length + ' results from the published tables of ' + (E.benchmarks || []).length + ' benchmarks, plus the historical HELM Safety report. None were re-run by this site.')],
+    [T('论文', 'Papers'), T(K.papers().length + ' 篇论文，保留标题、作者、年份和原文链接，不复制摘要或正文。收录不代表认可论文结论。', K.papers().length + ' papers with title, authors, year and original link; no abstracts or full text are copied. Listing a paper does not endorse its claims.')]
+  ];
+  document.getElementById('sources').innerHTML = rows.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
+})();
+</script>
+</body>
+</html>

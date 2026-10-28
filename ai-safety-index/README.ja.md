@@ -6,7 +6,13 @@ AI 安全性の研究分野、論文、データ、ベンチマーク、公開�
 
 [简体中文](README.md) · [English](README.en.md) · 日本語
 
-入口: [研究観測台](https://gabrygao.github.io/ai-safety-index/#watch) · [論文資料](https://gabrygao.github.io/ai-safety-index/#papers) · [データとタスク](https://gabrygao.github.io/ai-safety-index/#datasets) · [評価ダッシュボード](https://gabrygao.github.io/ai-safety-index/#results) · [ベンチマーク一覧](https://gabrygao.github.io/ai-safety-index/#benchmarks) · [研究分野](https://gabrygao.github.io/ai-safety-index/#directions)
+入口: [ボード](https://gabrygao.github.io/ai-safety-index/) · [すべての記録](https://gabrygao.github.io/ai-safety-index/records.html) · [研究分野](https://gabrygao.github.io/ai-safety-index/directions.html) · [評価ボード](https://gabrygao.github.io/ai-safety-index/results.html) · [ベンチマーク一覧](https://gabrygao.github.io/ai-safety-index/benchmarks.html) · [論文](https://gabrygao.github.io/ai-safety-index/papers.html) · [旧版](https://gabrygao.github.io/ai-safety-index/legacy.html)
+
+## 2026-10-29 のリニューアル
+
+サイトは「AI 安全ボード」になりました。トップページには、直近の AI 安全インシデントからの日数、過去 72 時間の安全シグナル、組織ごとの今週の安全シグナル、今週の注目論文を表示します。ほかに、すべての記録、研究分野、評価（評価ボード、ベンチマーク一覧、方法と説明、資料の投稿）、論文、詳細、サイト内検索、概要のページがあります。表示言語は中国語と英語です。日本語とドイツ語は旧版 `legacy.html` にのみ残ります。旧来の `#ルート` 形式のリンクは新しいページへ転送されます。
+
+以下の各節は旧版（現在の `legacy.html`）についての記録です。
 
 ## 主な機能
 

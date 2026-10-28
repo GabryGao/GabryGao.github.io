@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Search · AI Safety Board">搜索 · AI 安全看板</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.page-head{padding:28px 0 18px}
+.page-head h1{margin:0 0 14px;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.big{display:flex;gap:10px;max-width:760px}
+.big input{flex:1;font:inherit;font-size:17px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:12px 14px}
+.big input:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.summary{color:var(--muted);font-size:14px;margin:14px 0 0}
+.group{margin-top:30px}
+.group header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.group h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:22px}
+.group h2 b{font-weight:800;font-stretch:75%;color:var(--warn);margin-left:8px}
+.group header a{font-size:13px;color:var(--muted)}
+.group header a:hover{color:var(--ink)}
+.hits{list-style:none;margin:0;padding:0}
+.hits li{border-bottom:1px solid var(--line);padding:12px 0}
+.hits a{font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.hits a:hover{text-decoration:underline}
+.hits small{display:block;color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.5}
+mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1px}
+.endpad{height:64px}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap">
+  <div class="page-head">
+    <h1 data-en="Search the site">搜索全站</h1>
+    <form class="big" action="search.html" role="search">
+      <input type="search" name="q" id="q" placeholder="论文、基准、工具、记录、方向或成员" data-en-placeholder="Papers, benchmarks, tools, records, directions or people" aria-label="搜索" data-en-aria-label="Search" autocomplete="off">
+      <button type="submit" class="btn" data-en="Search">搜索</button>
+    </form>
+    <p class="summary" id="summary" aria-live="polite"></p>
+  </div>
+  <div id="results"></div>
+  <div class="endpad"></div>
+</main>
+
+<script src="signals-feed.js"></script>
+<script src="research-data.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script>var paperRecords = [];</script>
+<script src="opentai-papers.js"></script>
+<script src="i18n.js"></script>
+<script src="catalog.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, K = Catalog, { esc, T, tx, en, dirName, md } = S;
+  S.header('search.html');
+  const site = s => tx('SITE', s);
+  const q = (S.params().get('q') || '').trim();
+  document.getElementById('q').value = q;
+  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+  /* every entry is searchable in both languages, whichever one the page shows */
+  const hit = parts => { const hay = parts.filter(Boolean).join(' ').toLowerCase(); return words.every(w => hay.includes(w)); };
+  const mark = s => { let out = esc(s); for (const w of words) out = out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), m => '<mark>' + m + '</mark>'); return out; };
+  if (!words.length) { document.getElementById('summary').textContent = T('输入关键词后按回车。', 'Type a keyword and press Enter.'); return; }
+
+  const I = ConceptI18n;
+  const groups = [
+    { title: T('研究方向', 'Directions'), more: null, items: researchDirections.filter(d => hit([d.name, d.en, d.short, d.question, d.description, ...d.children, site(d.question), site(d.description)]))
+        .map(d => ({ href: 'directions.html?dir=' + d.id, title: dirName(d.id), sub: site(d.question) })) },
+    { title: T('记录', 'Records'), more: 'records.html?q=', items: S.news.signals.filter(r => hit([r.title, r.description, r.source, ...(r.orgs || []).map(S.orgName), ...(S.CATEGORY[r.category] || [])]))
+        .map(r => ({ href: 'records.html?item=' + encodeURIComponent(r.id), title: S.title(r), sub: S.category(r) + ' · ' + r.source + ' · ' + md(r.date) })) },
+    { title: T('基准', 'Benchmarks'), more: 'benchmarks.html?related=1&q=', items: K.benchmarks.filter(r => hit([r.id, r.name, r.subdomain, r.metric, r.note, (K.data.cardCopy[r.id] || {}).purpose, (I.COPY[r.id] || {}).purpose, I.METRIC[r.metric], I.SUBDOMAIN[r.subdomain]]))
+        .map(r => ({ href: 'detail.html?id=' + r.id, title: tx('NAME', r.name), sub: tx('SUBDOMAIN', r.subdomain || '') + ' · ' + dirName(r.direction_id) })) },
+    { title: T('工具与运行环境', 'Tools and environments'), more: 'methods.html?q=', items: K.tools.filter(r => { const c = K.toolCopy(r); return hit([r.name, r.subdomain, r.metric, c.purpose, c.tag, tx('METHOD', c.purpose)]); })
+        .map(r => ({ href: 'detail.html?id=' + r.id, title: tx('NAME', r.name), sub: tx('METHOD', K.toolCopy(r).purpose) })) },
+    { title: T('数据与任务', 'Data and tasks'), more: null, items: (K.data.datasets || []).filter(x => hit([x.name, x.description, x.source, x.kind, site(x.description)]))
+        .map(x => ({ href: x.url, title: site(x.name), sub: site(x.kind) + ' · ' + x.source, ext: true })) },
+    { title: T('论文', 'Papers'), more: 'papers.html?q=', items: K.papers().filter(p => hit([p.title, (p.authors || []).join(' '), p.description, p.venue, p.arxiv_id, I.SUBTOPIC[p.description], p.note]))
+        .map(p => ({ href: p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url, title: p.title, sub: [p.year, tx('SITE', p.venue || ''), p.description ? tx('SUBTOPIC', p.description) : ''].filter(Boolean).join(' · '), ext: true })) },
+    { title: T('团队成员', 'Team'), more: null, items: (K.data.team || []).filter(m => hit([m.name, m.institution, m.role, site(m.institution), site(m.role)]))
+        .map(m => ({ href: 'about.html', title: m.name, sub: site(m.institution) + ' · ' + site(m.role) })) }
+  ].filter(g => g.items.length);
+
+  const total = groups.reduce((n, g) => n + g.items.length, 0);
+  document.getElementById('summary').textContent = total ? T('“' + q + '”共找到 ' + total + ' 条结果。', total + ' result' + (total === 1 ? '' : 's') + ' for “' + q + '”.') : T('没有找到“' + q + '”。可以换个关键词，或用英文名称试试。', 'Nothing found for “' + q + '”. Try another keyword or the Chinese name.');
+  document.getElementById('results').innerHTML = groups.map(g => '<section class="group"><header><h2>' + esc(g.title) + '<b>' + g.items.length + '</b></h2>'
+    + (g.more && g.items.length > 8 ? '<a href="' + g.more + encodeURIComponent(q) + '">' + T('在对应页面查看全部', 'See all on that page') + ' →</a>' : '') + '</header><ol class="hits">'
+    + g.items.slice(0, 8).map(x => '<li><a href="' + esc(x.href) + '"' + (x.ext ? ' rel="noopener"' : '') + '>' + mark(x.title) + (x.ext ? ' ↗' : '') + '</a><small>' + mark(x.sub || '') + '</small></li>').join('') + '</ol></section>').join('');
+})();
+</script>
+</body>
+</html>

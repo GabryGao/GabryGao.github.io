@@ -1,0 +1,2464 @@
+{
+ "info": {
+  "generated_on": "2026-10-28T16:32:40Z",
+  "status": "current",
+  "sources": [
+   {
+    "id": "openai",
+    "name": "OpenAI",
+    "kind": "official",
+    "url": "https://openai.com/news/rss.xml",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 193,
+    "response_sha256": "53e453a56cd25aa9a22c865662c59ae8b76af2c3aca6b2896a63237dc1502a82"
+   },
+   {
+    "id": "deepmind",
+    "name": "Google DeepMind",
+    "kind": "official",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 11,
+    "response_sha256": "f8ff948e98d63b7201ae63315f44a3db1413f910230713affe6177b4208611b0"
+   },
+   {
+    "id": "uk-aisi",
+    "name": "UK AI Security Institute",
+    "kind": "official",
+    "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 16,
+    "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
+   },
+   {
+    "id": "metr",
+    "name": "METR",
+    "kind": "official",
+    "url": "https://metr.org/feed.xml",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 94,
+    "response_sha256": "11e49ab3f89b63b3d5b377325279c294aaa3c1992788d797cb9570bd1f72d4b2"
+   },
+   {
+    "id": "nist",
+    "name": "NIST",
+    "kind": "official",
+    "url": "https://www.nist.gov/news-events/news/rss.xml",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 0,
+    "response_sha256": "2cab52f7d5556c7bd7739318b411c90cff636fa960d84f0b5c742e8cdea2e552"
+   },
+   {
+    "id": "aiid",
+    "name": "AI Incident Database",
+    "kind": "incident",
+    "url": "https://incidentdatabase.ai/rss.xml",
+    "status": "ok",
+    "last_successful_fetch": "2026-10-28T16:32:40Z",
+    "records": 100,
+    "response_sha256": "32d9dd5519dfec7da83057e245a8eea5a924dafcf0756e74a285fc8ba6bed4d4"
+   }
+  ],
+  "record_count": 148,
+  "archive_days": 90,
+  "policy": "Titles, dates, links and short publisher summaries from primary feeds; categories, directions and organisations assigned by this site's keyword rules"
+ },
+ "records": [
+  {
+   "id": "aiid-dec20eea8e24",
+   "title": "S.F. Tesla driver who fatally struck man crossing highway said car was in full-self-driving mode",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.sfchronicle.com/bayarea/article/self-driving-tesla-fatally-strikes-man-on-highway-22489051.php",
+   "description": "A Tesla driver told officials he was using the car’s full self-driving mode when he fatally struck a 71-year-old man crossing a Solano County highway early Thursday morning, California Highway Patrol…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-cf77f4885806",
+   "title": "Politie waarschuwt voor nieuwe truc bij bankhelpdeskfraude: 380.000 euro buitgemaakt",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://opgelicht.avrotros.nl/nieuws/politie-waarschuwt-voor-nieuwe-truc-bij-bankhelpdeskfraude-380000-euro-buitgemaakt-20602",
+   "description": "De politie heeft twee verdachten aangehouden in een onderzoek naar een nieuwe vorm van bankhelpdeskfraude. Daarbij hebben oplichters zo'n 170 slachtoffers voor in totaal 380.000 euro gedupeerd. Neder…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-c92bfdeb8059",
+   "title": "Lebanese family sues OpenAI over death of 15-year-old Mathias Habib: Lawsuit details alleged ChatGPT safety failures",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.lbcgroup.tv/news/lebanon-news/963208/lebanese-family-sues-openai-over-death-of-15-year-old-mathias-habib-la/en",
+   "description": "The parents of a 15-year-old Lebanese boy who died by suicide have filed a lawsuit against OpenAI and its CEO, Sam Altman, alleging that interactions with ChatGPT contributed to their son’s death. Ch…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-c803df15750c",
+   "title": "El PP da un paso más en su campaña y suplanta la identidad de Begoña Gómez, Zapatero y Ábalos: “¿Irse de putas? Sí, soy zurdo",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://elpais.com/espana/elecciones-generales/2026-10-22/el-pp-da-un-paso-mas-en-su-campana-y-suplanta-la-identidad-de-begona-gomez-zapatero-y-abalos-irse-de-putas-si-soy-zurdo.html",
+   "description": "No solo hay 10 horas de diferencia entre los dos vídeos. El primero, del PSOE, se publicó en la cuenta oficial de Pedro Sánchez a las 8.29 de la mañana de este miércoles, justo antes de la ponencia d…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-ba6b77f8c7b1",
+   "title": "مراهق لبناني ضحية للذكاء الاصطناعي.. ما علاقة تشات جي بي تي بمقتله؟",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.alaraby.com/news/%D9%85%D8%B1%D8%A7%D9%87%D9%82-%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A-%D8%B6%D8%AD%D9%8A%D8%A9-%D9%84%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D9%85%D8%A7-%D8%B9%D9%84%D8%A7%D9%82%D8%A9-%D8%AA%D8%B4%D8%A7%D8%AA-%D8%AC%D9%8A-%D8%A8%D9%8A-%D8%AA%D9%8A-%D8%A8%D9%85%D9%82%D8%AA%D9%84%D9%87",
+   "description": "دعوى قضائية ضد تطبيق المحادثة شات جي بي تي عقب محادثات عززت انتحار مراهق لبناني. رفعت عائلة المراهق اللبناني ماتياس حبيب (15 عامًا)، ممثلة بوالديه شربل وسها حبيب وبإسناد من \"مركز ضحايا وسائل التواصل…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b82c74d13db1",
+   "title": "Sacramento man driving Tesla allegedly falls asleep, injures officers",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.sfgate.com/bayarea/article/driving-tesla-asleep-officers-22480723.php",
+   "description": "Two California Highway Patrol officers were injured in a crash involving a Tesla that was in self-driving mode. On Tuesday, just before midnight, dashcam footage captured a car driving straight into…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b6678627134c",
+   "title": "Police arrest two suspects in AI-powered bank fraud that cost victims €380,000",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://nltimes.nl/2026/10/21/police-arrest-two-suspects-ai-powered-bank-fraud-cost-victims-eu380000",
+   "description": "Rotterdam police arrested two suspects accused of a new form of bank-helpdesk fraud. The operation allegedly caused around €380,000 in losses for 170 victims in just three weeks. The suspects alleged…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b5a24076d523",
+   "title": "عائلة ماتياس حبيب تقاضي \"OpenAI\" بتهمة التسبب بوفاته وتحمّل \"ChatGPT\" مسؤولية عدم التدخل رغم علمه بأنه قاصر",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.lbcgroup.tv/news/LBCI-latest-news/963205/Lebanon-news-lbci/ar",
+   "description": "تقدم كل من شربل وسها حبيب اليوم بدعوى قضائية بتهمة التسبب في الوفاة (القتل الخطأ) ضد شركة \"أوبن إيه آي\" (OpenAI, Inc.)، والشركات التابعة لها، ورئيسها التنفيذي صامويل ألتمان، وذلك أمام المحكمة العليا…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-ac466e401163",
+   "title": "Vallejo man hit, killed by Tesla under self-driving mode identified",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.sfgate.com/news/bayarea/article/vallejo-man-killed-by-tesla-in-full-22492074.php",
+   "description": "A man killed in Vallejo by a car under a driver assistance system has been identified, the Solano County Coroner said Friday. Vallejo resident Domingo Gonzales, 71, was hit by a Tesla in Full Self-Dr…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-aa6115cdc5c0",
+   "title": "SF man operating self-driving Tesla hits, kills pedestrian on I-80, CHP says",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.sfgate.com/bayarea/article/tesla-crash-solano-county-pedestrian-22489807.php",
+   "description": "A Tesla driver from San Francisco allegedly struck and killed a pedestrian in Solano County early Thursday morning while his car was in self-driving mode, officials said. The crash happened just afte…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-810c1d05b838",
+   "title": "Opposition deepfake video of Spanish PM’s wife sparks outrage before election",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theguardian.com/world/2026/oct/23/opposition-deepfake-video-spain-election",
+   "description": "A political ad from Spain’s main opposition party that used a deepfake video of the prime minister’s wife has sparked outrage and set off a wider debate on AI, as the deeply polarised country gears u…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-80aac9868cd3",
+   "title": "AI-driven, large-scale nation-state campaign using ARTEX enables supply chain compromise",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+   "description": "As early as September 2026, Storm-0940, a China-state aligned actor, used the agentic AI penetration testing framework ARTEX to automate attacks targeting hundreds of organizations globally across a…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-7a8ed91f29f4",
+   "title": "Chinese-linked hackers compromise ConnectWise, target hundreds in global attack, Microsoft says",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/technology/chinese-linked-hackers-compromise-connectwise-target-hundreds-global-attack-2026-10-21/",
+   "description": "Oct 21 (Reuters) - A Chinese state-aligned hacking group used an AI-driven penetration testing tool to compromise IT ​services firm ConnectWise as part of a campaign that targeted hundreds ‌of organi…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "aiid-6826b752957a",
+   "title": "Accessing and changing internal systems during dashboard research",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/",
+   "description": "Summary In two evaluations, an internal model tasked to retrieve figures from a public research dashboard accessed the organization’s internal systems and changed their configuration. In the first ev…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5e1def9350aa",
+   "title": "بعد انتحار ابنها... عائلة لبنانية تخوض معركة ضد الذكاء الاصطناعي",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.independentarabia.com/node/651944/%D8%AA%D8%AD%D9%82%D9%8A%D9%82%D8%A7%D8%AA-%D9%88%D9%85%D8%B7%D9%88%D9%84%D8%A7%D8%AA/%D8%A8%D8%B9%D8%AF-%D8%A7%D9%86%D8%AA%D8%AD%D8%A7%D8%B1-%D8%A7%D8%A8%D9%86%D9%87%D8%A7-%D8%B9%D8%A7%D8%A6%D9%84%D8%A9-%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D8%A9-%D8%AA%D8%AE%D9%88%D8%B6-%D9%85%D8%B9%D8%B1%D9%83%D8%A9-%D8%B6%D8%AF-%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
+   "description": "مأساة ماتياس حبيب تطلق حملة توعية داخل لبنان ملخص تدعو قضية انتحار الشاب ماتياس حبيب والدعوى القضائية التي تقدم بها أهله ضد شركة (Open AI) إلى إعادة النظر بما يشكله الذكاء الاصطناعي من خطر في المنازل…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-3b60864d514a",
+   "title": "ChatGPT accusé de meurtre",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://lobservateur.info/article/120010/actualites/chatgpt-accuse-de-meurtre",
+   "description": "C'est l'histoire qu'aucun parent ne veut vivre. Mathias Habib, 15 ans, brillant élève libanais, sans le moindre antécédent psychologique, se suicide le 22 avril 2026. Ses parents portent plainte cont…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-26cebe55b8dd",
+   "title": "Leire Diez se querella contra el PP por su vídeo hecho con IA que le acusa de contratar \"matones\"",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.libertaddigital.com/espana/2026-10-23/leire-diez-se-querella-contra-el-pp-por-su-video-hecho-con-ia-que-le-acusa-de-contratar-matones-7480817/",
+   "description": "Leire Díez ha presentado una querella contra el Partido Popular por el vídeo hecho por inteligencia artificial que menciona que Díez contrató a \"matones\" para quitar de en medio a una juez, en alusió…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1e4c521735e9",
+   "title": "2 CHP officers injured while investigating deadly I-80 crash near Fairfield",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cbsnews.com/sacramento/news/fairfield-i80-tesla-crash-2-chp-officers-hurt/",
+   "description": "A 19-year-old driver died in a crash on Interstate 80 near Fairfield Tuesday night, and two California Highway Patrol officers investigating that crash were injured about an hour later when a Tesla h…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1454b80d3a55",
+   "title": "COMPLAINT AND DEMAND FOR JURY TRIAL (Charbel Habib and Soha Samaha v. OpenAI, Inc., et al.)",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.lbcgroup.tv/uploadImages/ExtImages/Images2/2026.10.14%20OpenAI%20JCCP%20-%20Habib%20Complaint.pdf",
+   "description": "AIID editor's note (AI-assisted abridgement): The 42-page source exceeds AIID's 50,000-character text limit. This abridgement was prepared with AI assistance and retains verbatim excerpts covering th…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-112a513504c1",
+   "title": "Twee verdachten aangehouden in onderzoek naar nieuwe vorm van bankhelpdeskfraude",
+   "date": "2026-10-24",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.politie.nl/nieuws/2026/oktober/20/07-twee-verdachten-aangehouden-in-onderzoek-naar-nieuwe-vorm-van-bankhelpdeskfraude.html",
+   "description": "380.000 euro schade bij zo'n 170 slachtoffers. Dat waren de cijfers waarmee het Rotterdamse Team Cybercrime werd geconfronteerd in de drie weken die het onderzoeksteam zicht had op de servers van een…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "openai-48e2274fdf2b",
+   "title": "Securing our frontier model training environment",
+   "date": "2026-10-23",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+   "description": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-15c1f8ef7a58",
+   "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+   "date": "2026-10-23",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+   "description": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-ef3a25c289a4",
+   "title": "Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance",
+   "date": "2026-10-23",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.crowdstrike.com/en-us/blog/unknown-threat-actor-uses-artex-to-target-south-korean-finance/",
+   "description": "CrowdStrike Intelligence identified infrastructure associated with a targeted campaign against South Korean financial organizations that resulted in exfiltrated data. The campaign was active from lat…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "metr-b30896a85035",
+   "title": "Red-Teaming OpenAI's Internal Agent Monitoring Systems",
+   "date": "2026-10-22",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
+   "description": "",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "metr",
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-ff8557cb93c1",
+   "title": "司机激活智驾并双手脱离方向盘”，江西一轿车追尾致3死，调查报告公布",
+   "date": "2026-10-22",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.thepaper.cn/newsDetail_forward_33266056",
+   "description": "原标题：江西赣州公布一轿车追尾致3死事故调查报告：事发前司机激活智驾并双手脱离方向盘 济广高速赣州瑞金段2025年十一假期凌晨发生一起轿车追尾重货车事故导致3人死亡，事故发生前不久，轿车驾驶员主动激活智能驾驶辅助模式，并双手脱离方向盘。 江西赣州市应急管理局近日公布的《赣州瑞金济广高速“10·2”较大道路交通事故调查报告》显示：2025年10月2日4时许，在赣州瑞金市境内济广高速公路1408km…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-7213b3013ab1",
+   "title": "AI-based speech-signal processing technology and data protection",
+   "date": "2026-10-22",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.naih.hu/data-protection/decisions?download=522:ai-based-speech-signal-processing-technology-and-data-protection",
+   "description": "AIID editor's note: This is an AI-assisted abridged conversion of the supplied 35-page English decision, whose extracted text exceeds 50,000 characters. It retains the opening decision and operative…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-65aa780de424",
+   "title": "Szoftverrel figyelte az ügyfelek érzelmeit a hangjuk alapján egy magyar bank, 250 milliós bírságot kapott",
+   "date": "2026-10-22",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://telex.hu/belfold/2022/04/05/naih-rekordbirsag-250-millio-forint-bank-mesterseges-intelligencia-alkalmazasa",
+   "description": "Rekordbüntetést szabott ki a NAIH, melyet a március végén megjelent előző évi beszámolójában hozott nyilvánosságra – derül ki a Deloitte közleményéből. Amellett, hogy ez az eddigi legmagasabb adatvéd…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-60687224b8b2",
+   "title": "OpenAI “rogue” agent activities found on Wikimedia projects",
+   "date": "2026-10-22",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+   "description": "Recently, multiple organisations have disclosed how clusters of so-called “rogue” AI agents attempted to break into websites and online services, sometimes successfully. Agents from OpenAI’s environm…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-d3f519557f32",
+   "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+   "date": "2026-10-21",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "attack",
+   "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+   "description": "Patch the Planet connects security researchers, maintainers, and incident responders to help address critical vulnerabilities across open source.",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-b2deaf97c98c",
+   "title": "Democratic governance of frontier AI, part II: Empowering cyber defenders",
+   "date": "2026-10-21",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/empowering-cyber-defenders",
+   "description": "OpenAI outlines a blueprint for empowering cyber defenders with frontier AI, stronger safeguards, modernized cybersecurity, and more resilient public institutions.",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-9201054eeb4c",
+   "title": "Cloudflare links vulnerability discovery to defense with OpenAI",
+   "date": "2026-10-21",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "attack",
+   "url": "https://openai.com/index/cloudflare-cyber",
+   "description": "Cloudflare uses OpenAI Daybreak to investigate vulnerabilities and propose fixes for review. Its developers use Codex to build faster and improve code quality.",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-2ed22a61b2f1",
+   "title": "Broad access through consistent standards",
+   "date": "2026-10-21",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/broad-access-through-consistent-standards",
+   "description": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-f7f4fdb72db8",
+   "title": "Dembo campaign says AI used in Trump-linked PAC attack ad",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://fox56news.com/news/kentucky/dembo-campaign-says-ai-used-in-trump-linked-pac-attack-ad/",
+   "description": "The Dembo campaign alleges a Trump-linked PAC used improper AI to create an attack ad in Kentucky. The attack ad failed to disclose its use of AI, which violates specific requirements under Kentucky…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-f0666bce2a93",
+   "title": "As Democrats move to stop Blakeman’s AI depictions, he again claims they’re trying to cheat",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://spectrumlocalnews.com/nys/central-ny/politics/2026/08/11/democrats-blakeman-ai-depictions-",
+   "description": "New York Democratic Party Chair Jay Jacobs filed a complaint with the state Board of Elections alleging the Blakeman campaign is violating state law. (AP Photo/Ryan Murphy) New York Democrats are cha…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-ed326dc0676a",
+   "title": "AI ads skewed Talarico’s words and positions. It’s part of a changing scene in political advertising",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://politifact.com/article/2026/jun/22/talarico-artificial-intelligence-ads-senate-texas/",
+   "description": "In an online ad viewed millions of times, Texas U.S. Senate candidate James Talarico appears to be wearing a dress and singing about transgender children. Citizens for Sanity, a conservative nonprofi…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-eb1af28b2c3a",
+   "title": "Misuse of AI in legal proceedings: A word of caution from the Courts",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ensafrica.com/news/detail/11940/misuse-of-ai-in-legal-proceedings-a-word-of-c/",
+   "description": "Artificial intelligence (\"AI\") is rapidly reshaping legal practice. Lawyers are increasingly using AI tools for drafting, research assistance, document review, summarisation and litigation preparatio…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-d08fbe29daa4",
+   "title": "Texas universities limit their brands in political ads. Dan Patrick used them anyway.",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.texastribune.org/2026/09/14/texas-college-football-trademark-dan-patrick-campaigning/",
+   "description": "It is not clear if Patrick’s campaign sought permission from three Texas universities to use their trademarks in a college football-inspired ad that appears to be AI-generated. Texas Lt. Gov. Dan Pat…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-bfa998e6f2ba",
+   "title": "India becomes the latest country to report rogue AI agent activity",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/",
+   "description": "AI agents from multiple providers accessed personal data and confidential material at Indian organizations during research and testing, India’s cybersecurity agency said Thursday. The Indian Computer…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-bbb66f401801",
+   "title": "AI-generated political ads have appeared in Pennsylvania. Are these kind of ads allowed?",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cbsnews.com/pittsburgh/news/ai-political-ads-pennsylvania-governors-race-midterm-election/",
+   "description": "With less than two weeks before Election Day, the Pennsylvania governor's race has taken an artificial intelligence turn. An AI-generated ad by Stacy Garrity's campaign has joined a handful of others…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b2456e9dc013",
+   "title": "A BMW Dealership Let An AI Make Offers, It Cost Them $7,000",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.carscoops.com/2026/06/bmw-dealer-ai-chatbot-offer/",
+   "description": "A BMW dealer blamed an AI chatbot for a $7,000 pricing mistake. The customer says he never knew he was negotiating with AI. After media scrutiny, the dealership honored the original offer. Sometimes…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a72d4ada1e08",
+   "title": "AI Agents as Attack Vectors: Unauthorized Access by Agents under Evaluation and Misuse of Open-Source Agentic AI Tools Targeting Indian ICT Assets",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0049",
+   "description": "CERT-In Advisory CIAD-2026-0049 AI Agents as Attack Vectors: Unauthorized Access by Agents under Evaluation and Misuse of Open-Source Agentic AI Tools Targeting Indian ICT Assets Original Issue Date:…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a15c506e810c",
+   "title": "In lieutenant governor race, Vikki Goodwin says Dan Patrick ads are illegal AI deepfakes",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.texastribune.org/2026/09/21/texas-goodwin-patrick-ad-police-complaint/",
+   "description": "The Democrat filed a police complaint against the Republican incumbent, saying state law bans deceptive video so close to the election. Patrick’s camp said they were obvious parodies. State Rep. Vikk…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-98c6fcca2f06",
+   "title": "Secret weapon or ‘slopaganda’? How AI is revolutionizing campaign advertising.",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.washingtonpost.com/politics/2026/09/30/secret-weapon-or-slopaganda-how-ai-is-revolutionizing-campaign-advertising/",
+   "description": "The advancing technology offers campaigns the tools to make compelling, lifelike ads. That’s leading even seasoned political observers to take note. Political advertisements created with artificial i…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-94dc52b8a485",
+   "title": "BMW Dealer's AI Chatbot Accidentally Makes High Trade-In Offer, Salesperson Tries to Walk It Back",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.roadandtrack.com/news/a71571068/bmw-dealership-trade-in-offer-accidentally-made-by-ai/",
+   "description": "A Canadian BMW owner recently thought he had negotiated a great deal to sell his car back to a local dealer. After a series of online exchanges, a representative who went by \"Quinn\" agreed to pay $27…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8877a5b6d638",
+   "title": "Wikimedia Foundation comes forward as latest OpenAI agent assault victim",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/06/wikimedia-foundation-comes-forward-as-latest-openai-agent-assault-victim/5301400",
+   "description": "Wikipedia’s parent organization says that OpenAI agents edited some non-public wiki pages and generated traffic that may have contributed to a partial Wikidata outage in May. This makes the non-profi…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-74d7fe52a375",
+   "title": "Vikki Goodwin files police report saying Dan Patrick broke law with AI-generated campaign ads",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.kut.org/politics/2026-09-21/vikki-goodwin-dan-patrick-ai-deepfake-campaign-ads-texas-lieutenant-governor-race",
+   "description": "State Rep. Vikki Goodwin, the Austin Democrat running to unseat Texas Lt. Gov. Dan Patrick, filed a police report saying that artificial intelligence-generated ads released by Patrick's campaign in S…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-61a1c0233da6",
+   "title": "WECT INVESTIGATES: Michael Lee hit with cease and desist over AI ad",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.wect.com/2026/09/03/wect-investigates-michael-lee-hit-with-cease-desist-over-ai-ad/",
+   "description": "WILMINGTON, N.C. (WECT) - An AI advertisement is at the center of a dispute between the two candidates running for a state senate seat. Democrat Jessica Bichler has sent a cease and desist letter to…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5b6a46d4fa51",
+   "title": "Dealership revoked offer to buy back customer's BMW, blaming wayward AI chatbot",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cbc.ca/news/business/ai-chatbot-bmw-dealership-9.7230226",
+   "description": "A Toronto man says he was shocked and devastated when a BMW dealership revoked an offer to buy back his car, telling him an AI chatbot generated the offer by mistake. The dealership has since reinsta…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-4f04ec2eef6a",
+   "title": "Republicans release AI deepfake of James Talarico as phony videos proliferate in midterm races",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cnn.com/2026/03/13/politics/james-talarico-ai-deepfake-republicans-midterms",
+   "description": "Senate Republicans released an online ad this week in which a real-looking but fake version of a Democratic candidate, fabricated with artificial intelligence, appears to speak directly into the came…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-4badee6a3db9",
+   "title": "Man Says Meta's Muse AI Gave His Home Address Out to Strangers",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://futurism.com/artificial-intelligence/metas-muse-ai-giving-users-home-addresses",
+   "description": "Personal assistant, or secret saboteur? A man claims that his Muse AI agent gave out his address to strangers and even sent them to his home, after letting the brand-new model handle his Facebook Mar…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "meta"
+   ]
+  },
+  {
+   "id": "aiid-3ed3d9ad612a",
+   "title": "Ossoff Holds Virtual Conference as New Makeup Ad Drops",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.dailysignal.com/2026/09/04/ossoff-conference-senate-ad/",
+   "description": "A new election advertisement criticizing Sen. Jon Ossoff’s exorbitant spending on hair and makeup was released on Friday, as the senator spoke with reporters in a virtual news conference to take jabs…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-3e92081e8377",
+   "title": "Roux v Greunen and Others (2025/81170) [2026] ZAGPJHC 55 (29 January 2026)",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www3.saflii.org/za/cases/ZAGPJHC/2026/55.html",
+   "description": "AIID editor's note: This judgment has been abridged with AI assistance to fit AIID's 50,000-character limit. Paragraphs 54-118 and 134-146, headings pertaining solely to those passages, and footnotes…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-380adb72d920",
+   "title": "Paxton’s AI-Heavy Ad Leaves Out Context of Talarico Remarks About Christianity",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.factcheck.org/2026/09/paxtons-ai-heavy-ad-leaves-out-context-of-talarico-remarks-about-christianity/",
+   "description": "In the Texas Senate race, Republican candidate Ken Paxton is running an ad that features an artificial-intelligence version of James Talarico, Paxton’s Democratic opponent, repeating several statemen…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1970952a0a90",
+   "title": "Colorado Sen. Cathy Kipp submits first complaint under state’s deepfake disclosure law",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://coloradonewsline.com/2026/08/24/cathy-kipp-first-complaint-deepfake-disclosure-law/",
+   "description": "Sen. Cathy Kipp, a Fort Collins Democrat, speaks on the Colorado Senate floor about a bill to ask voters for more public education funding on April 24, 2026. (Screenshot from Colorado Channel YouTube…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-13aded28a599",
+   "title": "An Infamous Attack Ad Just Got an AI Resurrection",
+   "date": "2026-10-21",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.motherjones.com/politics/2026/08/an-infamous-attack-ad-just-got-an-ai-resurrection/",
+   "description": "In 1964, Lyndon B. Johnson’s campaign ran a terrifying 60-second advertisement. It opens with a three-year-old girl in a field, pulling petals off a daisy while counting to ten. Then, a man’s voice b…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "metr-b839ee00b563",
+   "title": "Review of the \"Misalignment in high-stakes settings\" section in Anthropic's Risk Report (August 2026)",
+   "date": "2026-10-20",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "alignment",
+   "url": "https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-f8ae44fc4dc1",
+   "title": "Homem usa IA para simular fotografia armado e ameaçar ex-companheira",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.metropoles.com/distrito-federal/na-mira/homem-usa-ia-para-simular-fotografia-armado-e-ameacar-ex-companheira",
+   "description": "Um caso inusitado de violência doméstica chamou a atenção das autoridades para o uso indevido de novas tecnologias em crimes de intimidação. Um homem foi preso pela Polícia Civil de Goiás (PCGO) após…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-f0edea2600dd",
+   "title": "Report on the Assessment of Social Health Authority (SHA) Utilization of Funds Disbursed Since Inception and Challenges Faced by Facilities",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://libraryir.parliament.go.ke/bitstreams/86b29949-bf4b-491c-b24e-bfda1ea1fe13/download",
+   "description": "AIID editor's note: This is an abridged Markdown conversion of the original report created with AI assistance. It retains the cover text, Chairperson's Foreword, Chapters One and Two, section 3.4 (Ma…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8535416bba6d",
+   "title": "Kenya Union of Journalists v Kenya Broadcasting Corporation [2025] KEHC 17216 (KLR) - Judicial Review Miscellaneous Application E355 of 2025",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://sheriahub.com/cases/ke/caselaw/kenya-union-of-journalists-v-kenya-broadcasting-corporation-2025-kehc-17216-klr",
+   "description": "Kenya Union of Journalists v Kenya Broadcasting Corporation \\[2025] KEHC 17216 (KLR) - Judicial Review Miscellaneous Application E355 of 2025 REPUBLIC OF KENYA IN THE HIGH COURT OF KENYA AT NAIROBI J…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-68c5cdc09943",
+   "title": "MPs lay bare rot in SHA as Duale defends programme",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.the-star.co.ke/news/2025-10-15-mps-lay-bare-sha-flaws-as-duale-defends-programme",
+   "description": "MPs have exposed deep-rooted challenges hindering the delivery of health services under the new Social Health Authority. The revelations came as Health CS Aden Duale defended the Taifa Care programme…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-580bea1e7f6f",
+   "title": "AI system flaws push SHA into chaos, MPs say in explosive report",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.the-star.co.ke/news/2025-12-04-ai-system-flaws-push-sha-into-chaos-mps",
+   "description": "A parliamentary probe has unearthed how over-reliance on a faulty artificial intelligence system is allegedly causing widespread rejection of hospital claims at the Social Health Insurance Fund. Acco…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1e71e5005927",
+   "title": "High Court Orders KBC to Delete Employees’ Biometric Data Over Privacy Breach",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.kenyans.co.ke/news/118418-high-court-orders-kbc-delete-employees-biometric-data-over-privacy-breach",
+   "description": "The High Court has ordered the Kenya Broadcasting Corporation (KBC) to delete and destroy biometric data collected from its employees after ruling that its facial recognition attendance system was un…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-0e101e4bb86c",
+   "title": "MPs flag systemic failures undermining Social Health Authority",
+   "date": "2026-10-20",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://eastleighvoice.co.ke/health/248335/mps-flag-systemic-failures-undermining-social-health-authority",
+   "description": "Recurrent systemic failures, operational and policy gaps, and poor financial management are among the major threats to the effective implementation of the Social Health Authority (SHA), a new report…",
+   "direction_ids": [
+    "ai-x-science",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-f001067a6aa6",
+   "title": "Enganado por vídeo de IA, pedreiro viaja 2 mil km por amor falso e fica desamparado em BH",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.itatiaia.com.br/brasil/sudeste/mg/enganado-por-video-de-ia-pedreiro-viaja-2-mil-km-por-amor-falso-e-fica-desamparado-em-bh/",
+   "description": "O pedreiro Edimar Rocha Martins, de 49 anos, deixou a cidade de Imperatriz, no Maranhão, e viajou mais de 2 mil quilômetros até Belo Horizonte, capital de Minas Gerais, acreditando que iria morar com…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-c08ce87696b7",
+   "title": "How we investigated Kenya’s AI means testing system",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.lighthousereports.com/methodology/how-we-investigated-kenyas-ai-means-testing-system/",
+   "description": "In October of 2024, a graphic designer in western Kenya found himself questioning why the government wanted to know whether the walls of his home were made of plywood or mud. He was registering for t…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-bdb8e8953fb2",
+   "title": "Hiding Behind AI",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.lighthousereports.com/investigation/hiding-behind-ai/",
+   "description": "As cost-of-living protests roiled the streets of Nairobi in 2024, the Kenyan government embarked on a population-level technological experiment. They would use AI to calculate how much every Kenyan s…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-648fc227afe4",
+   "title": "How one hacker used AI agents and a few thousand dollars to break into scores of sites",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/legal/government/how-one-hacker-used-ai-agents-few-thousand-dollars-break-into-scores-sites-2026-10-19/",
+   "description": "WASHINGTON, Oct 19 (Reuters) - Over the past couple of weeks, a cybersecurity researcher watched as a Chinese-speaking hacker broke into websites belonging to more than 100 companies, including farm…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5f65f09434b7",
+   "title": "Mobilisation lycéenne : quand les images «améliorées» par l’IA génèrent des fausses pistes",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.liberation.fr/checknews/mouvement-lyceen-quand-les-images-ameliorees-par-lia-generent-des-fausses-pistes-20261011_Z5BPXSWSDFFUVMBDFRQIYQ4AKA/",
+   "description": "Mobilisation lycéenne : quand les images «améliorées» par l’IA génèrent des fausses pistes Dans le cadre du mouvement lycéen, de nombreux internautes utilisent des outils d’intelligence artificielle…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5dc6d4837f5c",
+   "title": "Anthropic uses AI to dodge customer complaints. A new law may force a change",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://sfstandard.com/2026/10/15/anthropic-customer-service-human/",
+   "description": "One customer spent weeks talking to an AI agent to resolve a Claude billing error that overcharged him by $3,500. Inside the disorienting Dreamforce takeover of Moscone Center last month, one booth a…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-5d829b7f9dba",
+   "title": "Psicóloga morre após esperar cinco dias por vaga de UTI em MG; família questiona sistema que distribui leitos",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://g1.globo.com/mg/zona-da-mata/noticia/2026/06/11/psicologa-morre-apos-5-dias-de-espera-por-leito-em-mg-familia-contesta-novo-sistema-de-regulacao.ghtml",
+   "description": "Rebeca Cardoso Tenente Molina, de 32 anos, procurou atendimento devido a pedras na vesícula, teve uma rápida piora no quadro clínico e precisava ser transferida. Secretaria de Estado de Saúde disse q…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5cd5684d1e9f",
+   "title": "Hiding Behind AI: How SHA Was Used to Load Health System Costs Onto the Poorest",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theelephant.info/investigations/2026/05/06/hiding-behind-ai-how-sha-was-used-to-load-health-system-costs-onto-poorest/",
+   "description": "For the first time, Africa Uncensored, Lighthouse Reports and The Guardian reveal the technology and the politics behind Kenya’s AI experiment. Every day, Grace sits in people’s homes and asks them q…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-46e866d9a597",
+   "title": "Inside Cairn: Open Windows into massive AI-Driven Cyber Operations",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://norforge.com/blog/inside_cairn",
+   "description": "More than 20 exposed Cairn panels give an unusually detailed view of how threat actors select targets, direct autonomous agents, exploit vulnerabilities, and establish persistent access to compromise…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-2e249ea12005",
+   "title": "PJF move ação civil pública contra nova central estadual de regulação de leitos na saúde",
+   "date": "2026-10-19",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://tribunademinas.com.br/noticias/cidade/10-06-2026/pjf-acao-central-estadual-regulacao-leitos-saude.html",
+   "description": "Mãe de gêmeos, moradora de Mar de Espanha, morreu durante saga em busca de UTI neurológica A substituição do sistema de regulação de leitos na saúde SUSFácil pela plataforma Central de Operações para…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-e665df63b711",
+   "title": "GBI Arrests Braselton Police Chief for Harassment and Stalking",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://gbi.georgia.gov/press-releases/2025-11-19/gbi-arrests-braselton-police-chief-harassment-and-stalking",
+   "description": "Braselton, Jackson County, GA (November 19, 2025) -- The GBI has arrested and charged Braselton Police Department Chief Michael Steffman, age 49, of Braselton, GA, with Violation of Oath by Public Of…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b9847c421b94",
+   "title": "Touba : Un Individu Arrêté pour Cyber-Escroquerie, Chantage et Usage Frauduleux de l’IA",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.rts.sn/actualite/detail/a-la-une/touba-un-individu-arrete-pour-cyber-escroquerie-chantage-et-usage-frauduleux-de-lia",
+   "description": "Le Commissariat d’arrondissement de Ndamatou/Touba a procédé, hier, au démantèlement d’une entreprise criminelle numérique impliquée dans la collecte et la diffusion illicites de contenus à caractère…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b7625269d34f",
+   "title": "NEW DETAILS: Former Braselton Police Chief accused of stalking; judge denied protective order",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.wsbtv.com/news/local/new-details-former-braselton-police-chief-accused-stalking-judge-denied-protective-order/DMECQENH7FGU5EQSD5XXUYZPYU/",
+   "description": "BRASELTON, Ga. --- A woman accusing the Braselton police chief of stalking her was denied a protective order against him before his arrest. Channel 2 Action News reported last week when Michael Steff…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a3b8e7529e14",
+   "title": "Haines City officer arrested for misusing Flock cameras to track estranged wife: Officials",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.fox13news.com/news/haines-city-officer-arrested-misusing-flock-cameras-track-estranged-wife-officials",
+   "description": "HAINES CITY, Fla. - A Haines City police officer is accused of misusing Flock camera databases to track his estranged wife's car, according to officials. Haines City police investigation What we know…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-7a1c260de3c9",
+   "title": "Police departments weren’t looking for officers abusing Flock. We did it for them.",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.washingtonpost.com/technology/2026/08/19/we-found-cops-who-misused-flock-their-police-departments-didnt-know/",
+   "description": "Last month, as Indianapolis residents called for tighter restrictions on police surveillance, Police Chief Tanya Terry sought to reassure the public that her officers were using the 301 Flock cameras…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-73cd97926332",
+   "title": "Haines City police add new safeguards for Flock cameras after officer accused of misuse",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.tampabay28.com/news/region-polk/haines-city-police-add-new-safeguards-for-flock-cameras-after-officer-accused-of-misuse",
+   "description": "HAINES CITY, Fla. --- Haines City Police Department is changing how officers use Flock cameras after an officer was accused of repeatedly using the system to track his estranged wife's vehicle. The d…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-2cb8c8ffd9fb",
+   "title": "Georgia police chief charged with using license plate readers to stalk and harass people",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://apnews.com/article/georgia-plate-readers-stalk-harass-chief-arrested-39adb6f89fc2074da61f2801fef3f180",
+   "description": "BRASELTON, Ga. (AP) — A police chief in suburban Atlanta has been arrested on charges that he used the city’s automated license plate recognition cameras to stalk and harass multiple people. Michael…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-27fc866fb1bd",
+   "title": "Haines City police officer accused of using FLOCK cameras to search estranged wife's vehicle over 700 times",
+   "date": "2026-10-18",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.tampabay28.com/news/region-polk/haines-city-police-officer-accused-of-using-flock-cameras-to-search-estranged-wifes-vehicle-over-700-times",
+   "description": "HAINES CITY, Fla. — Haines City Police said an officer has been arrested after an investigation revealed FLOCK camera misuse. According to an arrest affidavit from the Haines City Police Department,…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b5ab4f8c4949",
+   "title": "Papua New Guinea moves to outlaw AI deepfakes as victims call for more protection",
+   "date": "2026-10-17",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.abc.net.au/news/2026-07-21/new-laws-in-png-target-ai-deepfakes/106928414",
+   "description": "An AI-generated image showing Jennifer Baing with a group of people holding cash standing behind another pile of cash. Jennifer Baing says AI-generated images of her have been used by scammers to imp…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-ab1ea85c91e3",
+   "title": "Mouvement des lycéens en France : faux, cette vidéo ne montre pas un manifestant recevant un coup violent d’un policier",
+   "date": "2026-10-17",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://africacheck.org/fr/fact-checks/meta-programme-fact-checks/mouvement-des-lyceens-en-france-faux-cette-video-ne-montre-pas-un-manifestant-frappe-par-un-policier-video-generee-par",
+   "description": "EN BREF : Cette vidéo a été générée par intelligence artificielle et diffusée sur les réseaux sociaux depuis juin 2026. Sur Facebook, l’activiste Natalie Yamb, très critique du gouvernement d’Emmanue…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "meta"
+   ]
+  },
+  {
+   "id": "aiid-d5dd6b7219be",
+   "title": "Lawsuit claims Sharp HealthCare secretly recorded exam room conversations without patient consent",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.kpbs.org/news/health/2025/12/11/lawsuit-claims-sharp-healthcare-secretly-recorded-exam-room-conversations-without-patient-consent",
+   "description": "A proposed class-action lawsuit filed in San Diego Superior Court claims Sharp HealthCare secretly recorded doctor-patient conversations using an artificial intelligence tool --- and falsely document…",
+   "direction_ids": [
+    "ai-x-science",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-d209c2be7c80",
+   "title": "Protesta por presuntos deepfakes sexuales de alumnas termina con destrozos y Carabineros en colegio de Puente Alto",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.adnradio.cl/2026/08/27/protesta-por-presuntos-deepfakes-sexuales-termina-con-destrozos-y-presencia-de-carabineros-en-colegio-de-puente-alto/",
+   "description": "Una protesta de estudiantes de enseñanza media del Colegio Alicante del Sol, en Puente Alto, terminó este jueves con destrozos, enfrentamientos y la presencia de Carabineros, en medio de la molestia…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-c565ebbfc301",
+   "title": "\"Раздели\" фотографию через ИИ и разослали знакомым\". Девушка жалуется на затягивание дела",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://kaktus.media/doc/554280_razdeli_fotografiu_cherez_ii_i_razoslali_znakomym._devyshka_jalyetsia_na_zatiagivanie_dela.html",
+   "description": "В редакцию Kaktus.media обратилась 23-летняя Аима Юнусбаева, которая стала жертвой сексуализированного дипфейка. Она опасается, что не сможет защитить свои права, а виновник сможет избежать наказания…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b73f2b574988",
+   "title": "“Mamá, pasó algo grave”: apoderados denuncian abuso sexual digital contra sus hijas mediante IA",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.t13.cl/noticia/nacional/mama-paso-algo-grave-apoderados-denuncian-abuso-sexual-digital-contra-sus-hijas-3-10-2026",
+   "description": "Los antecedentes conocidos sobre el caso ocurrido en el Colegio Alicante del Sol de Puente Alto permiten reconstruir cómo se elaboró y comenzó a circular el material que terminó afectando a alumnas d…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a535827ed2a3",
+   "title": "Lawsuit: Reno police detective says she was told not to write a report about false facial recognition arrest (1 of 4)",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thisisreno.com/2026/10/killinger-civil-rights-lawsuit/",
+   "description": "A Reno police detective testified she was ordered not to write a report after concluding that officer Richard Jager had wrongly jailed Jason Killinger, court records in Killinger's civil rights lawsu…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a13754e101bb",
+   "title": "Firmware to Root in 30 Minutes: How AI is Changing Threat Intelligence",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.claroty.com/team82/research/firmware-to-root-in-30-minutes-how-ai-is-changing-threat-intelligence",
+   "description": "This week's cyberattacks affecting supermarket refrigeration systems in France underscores how disruptions and damage to industrial equipment can lead to, in this case, food waste and significant fin…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-78555aa9269d",
+   "title": "An AI scanner falsely pinned $2,200 of rental car damage on me",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thepointsguy.com/travel/rental-car-ai-scanner-mistake",
+   "description": "When John Stachura drove his rental car through Sixt's futuristic artificial intelligence scanner in Manchester, England, he was impressed. He assumed that such an elaborate contraption must be a foo…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5d178cb54e22",
+   "title": "UK Election Watchdog Develops AI System to Flag Deepfakes Within 3 Hours",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.techpolicy.press/uk-election-watchdog-develops-ai-system-to-flag-deepfakes-within-3-hours/",
+   "description": "The United Kingdom's election watchdog is developing an AI-powered system designed to notify candidates of significant deepfakes within three hours of posting to social media, the organization's chie…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-45acc574b00f",
+   "title": "Invasion of the Self-Replicating AI-Malware Botnet",
+   "date": "2026-10-15",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theatlantic.com/ideas/2026/10/ai-malware-botnet/688997/",
+   "description": "Have you ever counted the computers in your house? Tally them up now. I'll wait. You're probably including your desktop and laptop computers, if you own some. I bet you're also including the smartpho…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "metr-379b9af7ddd3",
+   "title": "Our approach to working with AI companies",
+   "date": "2026-10-14",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "metr-33ec7de5ea06",
+   "title": "A proposal for better informing the public about loss-of-control risks from frontier AI development",
+   "date": "2026-10-14",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-10-14-better-informing-the-public-about-loss-of-control-risks/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "aiid-cf1bc6ff4cdd",
+   "title": "Anthropic AI agents took ‘unintended’ actions on government sites",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.washingtonpost.com/technology/2026/10/09/anthropic-discloses-incidents-its-ai-models-misusing-government-sites/",
+   "description": "SAN FRANCISCO --- Anthropic, maker of the Claude chatbot, said that some of its AI agents had taken unintended actions on federal, state and local websites, including submitting a false tip about a m…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-c44f431ccf56",
+   "title": "AI model submitted false tip about unsolved murder, Philadelphia police say",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://6abc.com/post/anthropic-ai-model-submitted-false-tip-unsolved-murder-philadelphia-police-say/19925243/",
+   "description": "PHILADELPHIA (WPVI) -- An Anthropic A.I. model submitted a false tip about an unsolved murder through a publicly accessible web form, Philadelphia police said Friday. The tip was sent through PhillyU…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-a842dc410cb5",
+   "title": "Investigating unintended model actions in our evaluations and internal use",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+   "description": "This report describes examples of unintended model actions we've observed during evaluations and internal use of Claude. It is part of our effort to publish more frequent standalone reports on model…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-8606b8166cc3",
+   "title": "AI and Deepfakes arrive in Bhutan",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thebhutanese.bt/ai-and-deepfakes-arrive-in-bhutan/",
+   "description": "In an era where reality and fabrication blur with unsettling ease, the rise of deepfake technology poses an unprecedented challenge to our understanding of truth and authenticity. Not long ago a Tik…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8378e8ece493",
+   "title": "A statement from the Caine Prize for African Writing in response to Vauhini Vara’s article Yet another literary Prize winner seems to be AI",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.caineprize.com/",
+   "description": "On Tuesday 6 October in London, Simbarashe Steyn Kundizeza was announced as the 2026 Caine Prize winner. Today, 11 October, an article by journalist Vauhini Vara suggests that the winning story The B…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-80005e9959a1",
+   "title": "Anthropic AI Model Went Rogue, Submitted Fake Unsolved Murder Tip",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.wsj.com/us-news/anthropic-ai-model-goes-rogue-submits-fake-unsolved-murder-tip-b0566f54",
+   "description": "Rogue AI models have hacked companies and tried to break into government websites. Now one has submitted a fake tip for an unsolved crime. Police in Philadelphia say Anthropic alerted them this week…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-7096d9b238ee",
+   "title": "OpenAI Pulls Three AI-Generated Math Papers Over Sign Error",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aiweekly.co/alerts/openai-pulls-three-ai-generated-math-papers-over-sign-error",
+   "description": "TL;DR OpenAI withdrew three of its 722 AI-generated math manuscripts on October 7 after a sign error in a Weil-classes proof collapsed the argument. The flaw cascaded into two dependent papers, inclu…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-6794814fc09c",
+   "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+   "description": "An Anthropic AI model submitted a false tip about an unsolved murder to the Philadelphia police. The AI reportedly submitted this incorrect information to a public Philadelphia Police Department (PPD…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-4842d33305e1",
+   "title": "It's my work, I stand by it — Caine Prize winner Kundizeza rubbishes AI allegations",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.newzimbabwe.com/its-my-work-i-stand-by-it-caine-prize-winner-kundizeza-rubbishes-ai-allegations/",
+   "description": "ZIMBABWEAN author Simbarashe Steyn Kundizeza has struck a defiant tone, hitting back at allegations that his Caine Prize-winning short story “The Blue Fighter” was written using generative Artificial…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-3a86afd21c3a",
+   "title": "Yet Another Literary Prizewinner Seems to Be AI",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theatlantic.com/books/2026/10/caine-prize-winning-short-story-seems-be-ai/688967/",
+   "description": "Because literary journals tend to have small circulations, few readers are likely to have come across \"The Whistleblower,\" a short story by the Zimbabwean writer Simbarashe Steyn Kundizeza. Published…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1a37b1cb79fd",
+   "title": "Deepfake Impact: Bhutanese woman’s ordeal and legal challenges in cyberspace",
+   "date": "2026-10-14",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.bbs.bt/197290/",
+   "description": "Despite the world of differences, artificial intelligence, AI, is making in cyberspace, it is equally becoming destructive. From spreading misinformation to impersonating people and sending unpleasan…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-e33fa0a911ed",
+   "title": "Greece: Police bust gang using AI to clone relatives' voices for cash",
+   "date": "2026-10-13",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.euronews.com/2026/09/18/greece-police-bust-gang-using-ai-to-clone-relatives-voices-for-cash",
+   "description": "According to the police, the organisation's illegal proceeds from its activities are estimated to exceed 1 million euros. A criminal organisation that used Artificial Intelligence (AI) tools to clone…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-d17d04eba373",
+   "title": "Truffa da 39,5 milioni all'ex capo di Fideuram, un indagato",
+   "date": "2026-10-13",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ansa.it/sito/notizie/cronaca/2026/09/25/truffa-da-395-milioni-allex-capo-di-fideuram-un-indagato_f747847d-aaa5-4f5f-9bee-1d476b6bea1e.html",
+   "description": "Una serie di truffe con \"modalità simili\", sfruttando l'intelligenza artificiale con messaggi, mail e con il sistema del \"voice cloning\", ossia voci ricreate e identiche a quelle reali. Raggiri per d…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-c28bf2cf1bb2",
+   "title": "18-9-2026: Δ.Α.Ο.Ε.: Εξαρθρώθηκε εγκληματική οργάνωση τα μέλη της οποίας με διάφορα προσχήματα και τη χρήση Τεχνητής Νοημοσύνης (A.I.) διέπρατταν απάτες και διακεκριμένες κλοπές",
+   "date": "2026-10-13",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.astynomia.gr/2026/09/18/18-9-2026-d-a-o-e-exarthrothike-egklimatiki-organosi-ta-meli-tis-opoias-me-diafora-proschimata-kai-ti-chrisi-technitis-noimosynis-a-i-dieprattan-apates-kai-diakekrimenes-klopes/",
+   "description": "ΑΡΧΗΓΕΙΟ ΕΛΛΗΝΙΚΗΣ ΑΣΤΥΝΟΜΙΑΣ Αθήνα, 18 Σεπτεμβρίου 2026 ΔΕΛΤΙΟ ΤΥΠΟΥ Δ.Α.Ο.Ε.: Εξαρθρώθηκε εγκληματική οργάνωση τα μέλη της οποίας με διάφορα προσχήματα και τη χρήση Τεχνητής Νοημοσύνης (A.I.) διέπρ…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-67381d8bafe8",
+   "title": "AI messaging scam costs Italy's top bank Intesa millions, sources say",
+   "date": "2026-10-13",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/legal/government/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say-2026-09-25/",
+   "description": "MILAN, Sept 25 (Reuters) - Fraudsters using AI to impersonate senior executives stole €95 million ($108 million) from Fideuram, the private banking arm of Italy's biggest lender ​Intesa Sanpaolo (ISP…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-237015f9deee",
+   "title": "Il falso messaggio WhatsApp inviato all'ex presidente Fideuram e la telefonata contraffatta con l'AI: spariti 36 milioni di euro",
+   "date": "2026-10-13",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://milano.corriere.it/notizie/cronaca/26_settembre_25/fideuram-truffa-falso-messaggio-whatsapp-molesini-milioni-d5248b46-a7e7-4130-8c74-e09be5e00xlk.shtml",
+   "description": "Dipende da come Fideuram e Banca Intesa la vedano: se lamentando il bicchiere mezzo vuoto, per i 36 milioni che Fideuram (controllata da Intesa) in febbraio ha perduto in una truffa internazionale ai…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "uk-aisi-c6a72e78a1ce",
+   "title": "Britain steps up national defences against growing AI risks",
+   "date": "2026-10-12",
+   "source": "UK AI Security Institute",
+   "source_id": "uk-aisi",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://www.gov.uk/government/news/britain-steps-up-national-defences-against-growing-ai-risks",
+   "description": "Britain will be better protected from the risks posed by increasingly powerful AI by a suite of measures.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "uk-aisi"
+   ]
+  },
+  {
+   "id": "openai-077dea1e8a7a",
+   "title": "Disrupting AI-enabled “false front” operations",
+   "date": "2026-10-08",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
+   "description": "OpenAI disrupted two AI-enabled influence operations that used false-front journalists and a think tank to spread geopolitical messaging.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-add179b8d937",
+   "title": "AI systems could cover up misbehavior",
+   "date": "2026-10-06",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "openai-6a91381a4292",
+   "title": "Disrupting a coordinated model-distillation campaign",
+   "date": "2026-09-30",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+   "description": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-8b1ff7a67840",
+   "title": "Chris Painter's testimony to the U.S. Senate on AI agent incidents",
+   "date": "2026-09-30",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
+   "description": "",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "deepmind-15e70ee5e4a7",
+   "title": "Gemini 4 Argon: our next era of frontier intelligence",
+   "date": "2026-09-30",
+   "source": "Google DeepMind",
+   "source_id": "deepmind",
+   "kind": "official",
+   "category": "research",
+   "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "openai-cf468ec39dd6",
+   "title": "Towards safety cases for frontier AI training",
+   "date": "2026-09-28",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+   "description": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-7cfe345a1794",
+   "title": "Implementing and Evaluating a Basic Per-Action Monitor for Safer Evals",
+   "date": "2026-09-27",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://metr.org/notes/2026-09-27-implementing-a-basic-blocking-action-monitor/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "openai-73fafdf6f45f",
+   "title": "Airbnb widens access to GPT-6 Astra and OpenAI frontier models",
+   "date": "2026-09-23",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/airbnb-gpt-6-astra",
+   "description": "Learn how Airbnb is expanding access to GPT-6 Astra and OpenAI frontier models to help engineering teams solve bugs, design systems, and ship faster.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-01d4e543c941",
+   "title": "Sam Altman’s remarks at the United Nations Security Council",
+   "date": "2026-09-23",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+   "description": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-b4fb82cc1313",
+   "title": "Priorities and principles for effective third party assessments",
+   "date": "2026-09-22",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/priorities-principles-third-party-assessments",
+   "description": "OpenAI outlines priorities and principles for rigorous, secure, and independent third-party AI safety assessments of frontier models and safeguards.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-05fbefef7643",
+   "title": "Summary of METR's predeployment evaluation of Claude Opus 5.5",
+   "date": "2026-09-22",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic",
+    "metr"
+   ]
+  },
+  {
+   "id": "openai-2c9792fbb14a",
+   "title": "Building standards for the next phase of AI",
+   "date": "2026-09-21",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/building-standards-next-phase-ai",
+   "description": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-559b0cf11197",
+   "title": "Introducing the Australian Youth Safety Blueprint",
+   "date": "2026-09-18",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/australian-youth-safety-blueprint",
+   "description": "OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-bbe6c30a33c9",
+   "title": "Our framework for reporting model misalignment",
+   "date": "2026-09-16",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "alignment",
+   "url": "https://openai.com/index/model-misalignment-reporting-framework",
+   "description": "OpenAI shares a framework for tracking, investigating, and disclosing model misalignment, alongside six reports of unexpected or concerning model behavior.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-9786c92a289d",
+   "title": "The AI policy window is open. We need to act.",
+   "date": "2026-09-09",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/ai-policy-window",
+   "description": "Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains open.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-534907e0d31e",
+   "title": "Paul Christiano joins OpenAI Foundation Board",
+   "date": "2026-09-09",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+   "description": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-99c22bc85dd5",
+   "title": "Funding grants for new research into AI and teen development",
+   "date": "2026-09-08",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/teen-development-research-grants",
+   "description": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-a8e8f9dc895a",
+   "title": "An Alien Mind",
+   "date": "2026-09-06",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/an-alien-mind",
+   "description": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-2e155b11d809",
+   "title": "Safety overview: GPT-6 Astra",
+   "date": "2026-09-03",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/safety-overview-gpt-6-astra",
+   "description": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-309be27bdcfe",
+   "title": "Path to Astra: critical capabilities and frontier safeguards",
+   "date": "2026-09-01",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/path-to-astra",
+   "description": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-0703988e3a33",
+   "title": "OpenAI supports California’s bill to advance youth AI safety",
+   "date": "2026-08-31",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+   "description": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-5eb7907d4adf",
+   "title": "Update on Security at METR",
+   "date": "2026-08-31",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-08-31-security-update/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "openai-504dd1ec9508",
+   "title": "The Hugging Face incident and the road ahead",
+   "date": "2026-08-26",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+   "description": "OpenAI shares findings from the Hugging Face security incident and the steps we’re taking to strengthen AI model security, monitoring, and alignment.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-9ad84ad00d20",
+   "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+   "date": "2026-08-26",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "description": "",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "metr",
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-da55f7d7bd9d",
+   "title": "Disrupting a new covert influence campaign from Russia",
+   "date": "2026-08-25",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
+   "description": "OpenAI banned Russia-origin accounts using AI to promote a fake Israel-based think tank and a “sovereignty” index praising Russia and criticizing the West.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-ef913e9fdabc",
+   "title": "Offering Zero Data Retention for frontier models",
+   "date": "2026-08-19",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "attack",
+   "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+   "description": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-68c52c81310f",
+   "title": "Pacing model development in an era of cyber-critical capabilities",
+   "date": "2026-08-18",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/pacing-model-development-cyber-capabilities",
+   "description": "OpenAI is strengthening monitoring, alignment, and security for frontier AI models. See how new safeguards are guiding the pace of model development.",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-67f37d861d34",
+   "title": "Strengthening democratic oversight in national security",
+   "date": "2026-08-18",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+   "description": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-cb57b625cb32",
+   "title": "Have We Seen an Acceleration in Discoveries?",
+   "date": "2026-08-14",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/notes/2026-08-14-llm-contribution-to-discoveries/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "metr-2073d296ae24",
+   "title": "Funding update",
+   "date": "2026-08-14",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-08-14-funding-update/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
+   "id": "openai-7f776d7829d0",
+   "title": "Putting frontier cyber models in more trusted hands",
+   "date": "2026-08-10",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands",
+   "description": "Approved Daybreak partners can use OpenAI’s frontier cyber models to deliver authorized, governed cybersecurity services to customers.",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-833934ee3b25",
+   "title": "Responding to the next frontier of critical cyber capabilities",
+   "date": "2026-08-07",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
+   "description": "OpenAI is sharing preliminary cybersecurity evaluations for Astra and the steps we’re taking to strengthen safeguards and security controls.",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-6da5f2d271da",
+   "title": "Working with the American Psychological Association on youth mental health and AI",
+   "date": "2026-08-06",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai",
+   "description": "OpenAI and the American Psychological Association advance evidence-based guidance, resources, and safeguards for responsible AI use and youth mental health.",
+   "direction_ids": [
+    "ai-x-science",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-977f60f7e5e3",
+   "title": "Third-party cyber evaluations involving OpenAI models",
+   "date": "2026-08-04",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "eval",
+   "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models",
+   "description": "OpenAI explains recent third-party cybersecurity evaluation incidents and outlines new safeguards to strengthen AI model testing and evaluation.",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-c5ad624a6ffb",
+   "title": "Disrupting a Cambodia-based criminal scam operation",
+   "date": "2026-07-31",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation",
+   "description": "OpenAI disrupted a Cambodia-based scam operation using ChatGPT to support investment, romance, gambling, and impersonation schemes.",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-b86dc435d64a",
+   "title": "Advancing responsible AI across Europe",
+   "date": "2026-07-31",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "policy",
+   "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
+   "description": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "openai-fc362ba711f5",
+   "title": "Advancing the price-performance frontier with GPT-5.6",
+   "date": "2026-07-30",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+   "description": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  }
+ ]
+}

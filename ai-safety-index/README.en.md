@@ -6,7 +6,17 @@ Website: https://gabrygao.github.io/ai-safety-index/
 
 [简体中文](README.md) · English · [日本語](README.ja.md)
 
-Open: [Research Observatory](https://gabrygao.github.io/ai-safety-index/#watch) · [Papers](https://gabrygao.github.io/ai-safety-index/#papers) · [Data and Tasks](https://gabrygao.github.io/ai-safety-index/#datasets) · [Evaluation Dashboard](https://gabrygao.github.io/ai-safety-index/#results) · [Benchmark Catalog](https://gabrygao.github.io/ai-safety-index/#benchmarks) · [Research Topics](https://gabrygao.github.io/ai-safety-index/#directions)
+Open: [Board](https://gabrygao.github.io/ai-safety-index/) · [All records](https://gabrygao.github.io/ai-safety-index/records.html) · [Research directions](https://gabrygao.github.io/ai-safety-index/directions.html) · [Results board](https://gabrygao.github.io/ai-safety-index/results.html) · [Benchmark catalog](https://gabrygao.github.io/ai-safety-index/benchmarks.html) · [Papers](https://gabrygao.github.io/ai-safety-index/papers.html) · [Previous version](https://gabrygao.github.io/ai-safety-index/legacy.html)
+
+## Redesign (2026-10-29)
+
+The site is now an AI safety board: the home page shows the days since the last AI safety incident, the latest safety signals, the last 30 days of signals per organisation and this week's arXiv safety papers. Further pages cover all records, research directions, evaluation (results board, benchmark catalog, methods, resource form), papers, entry details, site-wide search and about. The interface is Chinese and English; the English is a draft awaiting review, and long catalog notes on data access and licences stay in Chinese, marked "Chinese only". Japanese and German remain only in the previous version, `legacy.html`. Old `#route` links redirect to the new pages.
+
+Pages share `shell.css`, `shell.js`, `i18n.js` and `catalog.js`; copy, topics, tool descriptions, datasets, team entries and hand-added papers that used to sit inside the old interface scripts now live in `site-data.js`. Check with `node tools/verify-site.mjs` (the scheduled workflow runs it too). See `DESIGN.md` and `PRODUCT.md`.
+
+Safety signals are collected by `tools/update-signals.py` from official posts and the AI Incident Database, and paper picks by `tools/update-papers.py` from arXiv, both with this site's own rules; no news aggregator's data is used.
+
+The sections below describe the previous version (now `legacy.html`).
 
 ## What is included
 

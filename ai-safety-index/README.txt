@@ -1,4 +1,8 @@
-AI Safety Index · 2026-10-22
+AI Safety Index · 2026-10-29
+
+2026-10-29 改版：首页为 AI 安全看板（距上一次安全事件天数、最新安全信号、机构安全信号表、arXiv 本周安全论文），另有 records、directions、results、benchmarks、methods、upload、papers、detail、search、about 页面；中英双语。旧版保留为 legacy.html，旧 #路由 链接会跳到新页面。数据附加项在 site-data.js；检查 node tools/verify-site.mjs。以下为旧版说明。
+
+（旧版）AI Safety Index · 2026-10-22
 
 无需构建；运行 python3 -m http.server 8765 后访问本地网址。
 正式地址：https://gabrygao.github.io/ai-safety-index/

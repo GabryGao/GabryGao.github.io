@@ -1,543 +1,518 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T12:25:14.577585+00:00",
+  "generatedAt": "2026-10-28T16:00:26+00:00",
   "title": "Design System: AI Safety Index",
   "extensions": {
     "colorMeta": {
-      "primary": {
-        "role": "primary",
-        "displayName": "Focus Blue",
+      "ground": {
+        "role": "neutral",
+        "displayName": "Graphite Ground",
+        "canonical": "#121614",
         "tonalRamp": [
-          "oklch(15% 0.18 262)",
-          "oklch(27% 0.18 262)",
-          "oklch(39% 0.18 262)",
-          "oklch(51% 0.18 262)",
-          "oklch(63% 0.18 262)",
-          "oklch(75% 0.18 262)",
-          "oklch(87% 0.18 262)",
-          "oklch(95% 0.18 262)"
+          "oklch(15% 0.007 164)",
+          "oklch(26% 0.007 164)",
+          "oklch(38% 0.005 164)",
+          "oklch(49% 0.004 164)",
+          "oklch(61% 0.003 164)",
+          "oklch(72% 0.002 164)",
+          "oklch(84% 0.002 164)",
+          "oklch(95% 0.002 164)"
         ]
       },
-      "white": {
+      "rail": {
         "role": "neutral",
-        "displayName": "White",
+        "displayName": "Rail",
+        "canonical": "#181d1a",
         "tonalRamp": [
-          "oklch(15% 0 0)",
-          "oklch(27% 0 0)",
-          "oklch(39% 0 0)",
-          "oklch(51% 0 0)",
-          "oklch(63% 0 0)",
-          "oklch(75% 0 0)",
-          "oklch(87% 0 0)",
-          "oklch(95% 0 0)"
+          "oklch(15% 0.008 159)",
+          "oklch(26% 0.009 159)",
+          "oklch(38% 0.007 159)",
+          "oklch(49% 0.006 159)",
+          "oklch(61% 0.004 159)",
+          "oklch(72% 0.003 159)",
+          "oklch(84% 0.002 159)",
+          "oklch(95% 0.002 159)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Rule Line",
+        "canonical": "#2a322e",
+        "tonalRamp": [
+          "oklch(15% 0.010 164)",
+          "oklch(26% 0.012 164)",
+          "oklch(38% 0.012 164)",
+          "oklch(49% 0.010 164)",
+          "oklch(61% 0.008 164)",
+          "oklch(72% 0.006 164)",
+          "oklch(84% 0.003 164)",
+          "oklch(95% 0.003 164)"
         ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
+        "canonical": "#eceee9",
         "tonalRamp": [
-          "oklch(15% 0.025 245)",
-          "oklch(27% 0.025 245)",
-          "oklch(39% 0.025 245)",
-          "oklch(51% 0.025 245)",
-          "oklch(63% 0.025 245)",
-          "oklch(75% 0.025 245)",
-          "oklch(87% 0.025 245)",
-          "oklch(95% 0.025 245)"
+          "oklch(15% 0.002 124)",
+          "oklch(26% 0.002 124)",
+          "oklch(38% 0.002 124)",
+          "oklch(49% 0.003 124)",
+          "oklch(61% 0.004 124)",
+          "oklch(72% 0.005 124)",
+          "oklch(84% 0.006 124)",
+          "oklch(95% 0.007 124)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted",
+        "displayName": "Muted Lichen",
+        "canonical": "#a3aea7",
         "tonalRamp": [
-          "oklch(15% 0.02 245)",
-          "oklch(27% 0.02 245)",
-          "oklch(39% 0.02 245)",
-          "oklch(51% 0.02 245)",
-          "oklch(63% 0.02 245)",
-          "oklch(75% 0.02 245)",
-          "oklch(87% 0.02 245)",
-          "oklch(95% 0.02 245)"
+          "oklch(15% 0.004 158)",
+          "oklch(26% 0.005 158)",
+          "oklch(38% 0.008 158)",
+          "oklch(49% 0.010 158)",
+          "oklch(61% 0.013 158)",
+          "oklch(72% 0.015 158)",
+          "oklch(84% 0.014 158)",
+          "oklch(95% 0.011 158)"
         ]
       },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Rule",
-        "tonalRamp": [
-          "oklch(15% 0.006 245)",
-          "oklch(27% 0.006 245)",
-          "oklch(39% 0.006 245)",
-          "oklch(51% 0.006 245)",
-          "oklch(63% 0.006 245)",
-          "oklch(75% 0.006 245)",
-          "oklch(87% 0.006 245)",
-          "oklch(95% 0.006 245)"
-        ]
-      },
-      "mark": {
-        "role": "neutral",
-        "displayName": "Resource Mark",
-        "tonalRamp": [
-          "oklch(15% 0.025 255)",
-          "oklch(27% 0.025 255)",
-          "oklch(39% 0.025 255)",
-          "oklch(51% 0.025 255)",
-          "oklch(63% 0.025 255)",
-          "oklch(75% 0.025 255)",
-          "oklch(87% 0.025 255)",
-          "oklch(95% 0.025 255)"
-        ]
-      },
-      "mint": {
-        "role": "secondary",
-        "displayName": "Menu Mint",
-        "tonalRamp": [
-          "oklch(15% 0.1 161)",
-          "oklch(27% 0.1 161)",
-          "oklch(39% 0.1 161)",
-          "oklch(51% 0.1 161)",
-          "oklch(63% 0.1 161)",
-          "oklch(75% 0.1 161)",
-          "oklch(87% 0.1 161)",
-          "oklch(95% 0.1 161)"
-        ]
-      },
-      "home-blue": {
+      "safe": {
         "role": "primary",
-        "displayName": "Home Evidence Blue",
+        "displayName": "Safe-Condition Green",
+        "canonical": "#086a41",
         "tonalRamp": [
-          "oklch(15% 0.13 264)",
-          "oklch(27% 0.13 264)",
-          "oklch(39% 0.13 264)",
-          "oklch(51% 0.13 264)",
-          "oklch(63% 0.13 264)",
-          "oklch(75% 0.13 264)",
-          "oklch(87% 0.13 264)",
-          "oklch(95% 0.13 264)"
+          "oklch(15% 0.059 158)",
+          "oklch(26% 0.076 158)",
+          "oklch(38% 0.093 158)",
+          "oklch(49% 0.101 158)",
+          "oklch(61% 0.084 158)",
+          "oklch(72% 0.068 158)",
+          "oklch(84% 0.051 158)",
+          "oklch(95% 0.034 158)"
         ]
       },
-      "home-pale": {
+      "safe-deep": {
+        "role": "primary",
+        "displayName": "Deep Green",
+        "canonical": "#054d2f",
+        "tonalRamp": [
+          "oklch(15% 0.058 159)",
+          "oklch(26% 0.071 159)",
+          "oklch(38% 0.083 159)",
+          "oklch(49% 0.069 159)",
+          "oklch(61% 0.056 159)",
+          "oklch(72% 0.043 159)",
+          "oklch(84% 0.029 159)",
+          "oklch(95% 0.021 159)"
+        ]
+      },
+      "safe-ink": {
+        "role": "primary",
+        "displayName": "Board Ink",
+        "canonical": "#e9f6ee",
+        "tonalRamp": [
+          "oklch(15% 0.004 159)",
+          "oklch(26% 0.004 159)",
+          "oklch(38% 0.004 159)",
+          "oklch(49% 0.006 159)",
+          "oklch(61% 0.009 159)",
+          "oklch(72% 0.012 159)",
+          "oklch(84% 0.014 159)",
+          "oklch(95% 0.017 159)"
+        ]
+      },
+      "safe-muted": {
+        "role": "primary",
+        "displayName": "Board Muted",
+        "canonical": "#cfe8da",
+        "tonalRamp": [
+          "oklch(15% 0.008 161)",
+          "oklch(26% 0.008 161)",
+          "oklch(38% 0.008 161)",
+          "oklch(49% 0.014 161)",
+          "oklch(61% 0.019 161)",
+          "oklch(72% 0.024 161)",
+          "oklch(84% 0.029 161)",
+          "oklch(95% 0.031 161)"
+        ]
+      },
+      "enamel": {
         "role": "neutral",
-        "displayName": "Home Pale",
+        "displayName": "Enamel White",
+        "canonical": "#f3f2ec",
         "tonalRamp": [
-          "oklch(15% 0.025 264)",
-          "oklch(27% 0.025 264)",
-          "oklch(39% 0.025 264)",
-          "oklch(51% 0.025 264)",
-          "oklch(63% 0.025 264)",
-          "oklch(75% 0.025 264)",
-          "oklch(87% 0.025 264)",
-          "oklch(95% 0.025 264)"
+          "oklch(15% 0.002 99)",
+          "oklch(26% 0.002 99)",
+          "oklch(38% 0.002 99)",
+          "oklch(49% 0.003 99)",
+          "oklch(61% 0.004 99)",
+          "oklch(72% 0.005 99)",
+          "oklch(84% 0.007 99)",
+          "oklch(95% 0.008 99)"
         ]
       },
-      "home-green": {
+      "enamel-ink": {
+        "role": "neutral",
+        "displayName": "Enamel Ink",
+        "canonical": "#121614",
+        "tonalRamp": [
+          "oklch(15% 0.007 164)",
+          "oklch(26% 0.007 164)",
+          "oklch(38% 0.005 164)",
+          "oklch(49% 0.004 164)",
+          "oklch(61% 0.003 164)",
+          "oklch(72% 0.002 164)",
+          "oklch(84% 0.002 164)",
+          "oklch(95% 0.002 164)"
+        ]
+      },
+      "warn": {
         "role": "secondary",
-        "displayName": "Home Green",
+        "displayName": "Warning Yellow",
+        "canonical": "#f0c233",
         "tonalRamp": [
-          "oklch(15% 0.06 160)",
-          "oklch(27% 0.06 160)",
-          "oklch(39% 0.06 160)",
-          "oklch(51% 0.06 160)",
-          "oklch(63% 0.06 160)",
-          "oklch(75% 0.06 160)",
-          "oklch(87% 0.06 160)",
-          "oklch(95% 0.06 160)"
+          "oklch(15% 0.039 90)",
+          "oklch(26% 0.039 90)",
+          "oklch(38% 0.057 90)",
+          "oklch(49% 0.082 90)",
+          "oklch(61% 0.107 90)",
+          "oklch(72% 0.132 90)",
+          "oklch(84% 0.156 90)",
+          "oklch(95% 0.131 90)"
         ]
       },
-      "home-mint": {
+      "alarm": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#ff6b5e",
+        "tonalRamp": [
+          "oklch(15% 0.046 28)",
+          "oklch(26% 0.069 28)",
+          "oklch(38% 0.098 28)",
+          "oklch(49% 0.128 28)",
+          "oklch(61% 0.157 28)",
+          "oklch(72% 0.180 28)",
+          "oklch(84% 0.151 28)",
+          "oklch(95% 0.121 28)"
+        ]
+      },
+      "tag-fill": {
         "role": "neutral",
-        "displayName": "Home Mint",
+        "displayName": "Tag Fill",
+        "canonical": "#26302b",
         "tonalRamp": [
-          "oklch(15% 0.025 160)",
-          "oklch(27% 0.025 160)",
-          "oklch(39% 0.025 160)",
-          "oklch(51% 0.025 160)",
-          "oklch(63% 0.025 160)",
-          "oklch(75% 0.025 160)",
-          "oklch(87% 0.025 160)",
-          "oklch(95% 0.025 160)"
+          "oklch(15% 0.013 164)",
+          "oklch(26% 0.016 164)",
+          "oklch(38% 0.015 164)",
+          "oklch(49% 0.012 164)",
+          "oklch(61% 0.009 164)",
+          "oklch(72% 0.007 164)",
+          "oklch(84% 0.004 164)",
+          "oklch(95% 0.004 164)"
         ]
       },
-      "home-attack": {
-        "role": "secondary",
-        "displayName": "Home Attack",
-        "tonalRamp": [
-          "oklch(15% 0.13 38)",
-          "oklch(27% 0.13 38)",
-          "oklch(39% 0.13 38)",
-          "oklch(51% 0.13 38)",
-          "oklch(63% 0.13 38)",
-          "oklch(75% 0.13 38)",
-          "oklch(87% 0.13 38)",
-          "oklch(95% 0.13 38)"
-        ]
-      },
-      "home-ink": {
+      "dim-figure": {
         "role": "neutral",
-        "displayName": "Home Ink",
+        "displayName": "Dim Figure",
+        "canonical": "#5b6660",
         "tonalRamp": [
-          "oklch(15% 0 0)",
-          "oklch(27% 0 0)",
-          "oklch(39% 0 0)",
-          "oklch(51% 0 0)",
-          "oklch(63% 0 0)",
-          "oklch(75% 0 0)",
-          "oklch(87% 0 0)",
-          "oklch(95% 0 0)"
+          "oklch(15% 0.008 162)",
+          "oklch(26% 0.011 162)",
+          "oklch(38% 0.014 162)",
+          "oklch(49% 0.016 162)",
+          "oklch(61% 0.014 162)",
+          "oklch(72% 0.011 162)",
+          "oklch(84% 0.009 162)",
+          "oklch(95% 0.006 162)"
+        ]
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder",
+        "canonical": "#7d8982",
+        "tonalRamp": [
+          "oklch(15% 0.006 160)",
+          "oklch(26% 0.009 160)",
+          "oklch(38% 0.012 160)",
+          "oklch(49% 0.014 160)",
+          "oklch(61% 0.017 160)",
+          "oklch(72% 0.015 160)",
+          "oklch(84% 0.012 160)",
+          "oklch(95% 0.009 160)"
         ]
       }
     },
     "typographyMeta": {
+      "plate-numeral": {
+        "displayName": "Plate Numeral",
+        "purpose": "Digits on enamel plates.",
+        "fontStretch": "75%"
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Counts, item dates, chart values; 22 to 40px.",
+        "fontStretch": "75%"
+      },
+      "board-headline": {
+        "displayName": "Board Headline",
+        "purpose": "The home board sentence; text-wrap balance.",
+        "fontStretch": "87.5%"
+      },
       "page-title": {
-        "purpose": "Inter 500 30px/1.35; 25px phone; normal tracking"
+        "displayName": "Page Title",
+        "purpose": "Inner page h1.",
+        "fontStretch": "87.5%"
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Section and board headings; 22 to 24px.",
+        "fontStretch": "87.5%"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Organisation, dataset, direction and paper names; 18 to 21px.",
+        "fontStretch": "87.5%"
       },
       "body": {
-        "purpose": "14px/1.65 Inter and CJK sans"
+        "displayName": "Body",
+        "purpose": "Reading text; prose capped at 62 to 76ch.",
+        "fontStretch": "100%"
       },
-      "card": {
-        "purpose": "16px/1.5 weight 500"
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Row titles, list links, pressed labels.",
+        "fontStretch": "100%"
       },
-      "metadata": {
-        "purpose": "11–12px source labels; 13px chart names and 14px tabular values"
-      },
-      "home-display": {
-        "displayName": "Open Home Display",
-        "purpose": "Two-line research headline; phone and tablet overrides live in responsive.home."
-      },
-      "home-section": {
-        "displayName": "Home Section",
-        "purpose": "Weight-400 section headings; 25px on phone."
-      },
-      "home-caption": {
-        "displayName": "Home Caption",
-        "purpose": "Unboxed titles below result canvases and featured news."
+      "label": {
+        "displayName": "Label",
+        "purpose": "Metadata, field and dt labels in muted; 12.5 to 13px.",
+        "fontStretch": "100%"
       }
     },
-    "shadows": [
+    "fonts": [
       {
-        "name": "legacy-dialog",
-        "value": "0 24px 100px #102f3a40",
-        "purpose": "Existing non-MADEO dialogs only."
+        "family": "Archivo",
+        "weight": 400,
+        "stretch": "100%",
+        "src": "fonts/archivo-400.woff2"
       },
       {
-        "name": "madeo-flat",
-        "value": "none",
-        "purpose": "Home and research surfaces, shared header and full-screen menu."
+        "family": "Archivo",
+        "weight": 600,
+        "stretch": "100%",
+        "src": "fonts/archivo-600.woff2"
+      },
+      {
+        "family": "Archivo",
+        "weight": 700,
+        "stretch": "87.5%",
+        "src": "fonts/archivo-semicond-700.woff2"
+      },
+      {
+        "family": "Archivo",
+        "weight": 800,
+        "stretch": "75%",
+        "src": "fonts/archivo-cond-800.woff2"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "board",
+        "value": "0 1px 0 rgba(255,255,255,.12) inset, 0 24px 48px -24px rgba(0,0,0,.6)",
+        "purpose": "Home green board: lit top edge and soft drop."
+      },
+      {
+        "name": "plate",
+        "value": "0 2px 0 rgba(0,0,0,.25), 0 14px 22px -10px rgba(0,0,0,.45)",
+        "purpose": "Enamel plate thickness and lift."
+      },
+      {
+        "name": "rivet",
+        "value": "inset 0 1px 1px rgba(0,0,0,.35)",
+        "purpose": "Rivet head on each plate."
+      },
+      {
+        "name": "board-inner-rule",
+        "value": "inset 6-10px; border: 2px solid rgba(233,246,238,.22); border-radius: 3px",
+        "purpose": "Inner rule drawn by ::after on every green board."
       }
     ],
     "motion": [
       {
-        "name": "cover-ease",
+        "name": "ease",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Subpage cover zoom easing."
+        "purpose": "The single easing curve for all transitions and animations."
       },
       {
-        "name": "cover-duration",
-        "value": ".65s",
-        "purpose": "Subpage image transform transition."
+        "name": "plate-turn",
+        "value": "rotateX(-88deg) + brightness(.7) to none, .9s, second plate +.12s",
+        "purpose": "Plates turning into place; only under prefers-reduced-motion: no-preference."
       },
       {
-        "name": "cover-hover",
-        "value": "scale(1.035)",
-        "purpose": "Precise-pointer cover feedback; disabled for reduced motion."
+        "name": "strip-rise",
+        "value": "scaleY(0) to none from bottom, .7s, delay .45s + i*40ms",
+        "purpose": "Strip and year bars rising; only under prefers-reduced-motion: no-preference."
       },
       {
-        "name": "home-action-state",
-        "value": ".2s",
-        "purpose": "Homepage action transition inherited from the framework."
-      },
-      {
-        "name": "home-title-entry",
-        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Title enters only on Home route-path change; no locale/setting replay."
-      },
-      {
-        "name": "home-image-entry",
-        "value": "760ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Featured image crop reveal only on Home route-path change."
-      },
-      {
-        "name": "home-cover-hover",
-        "value": "600ms cubic-bezier(.16,1,.3,1); scale(1.035)",
-        "purpose": "Featured-news hover; reduced motion disables transition."
+        "name": "state",
+        "value": ".2s colour/background; .3s chevron rotate; .35s detail open",
+        "purpose": "Hover and expand feedback (detail open fade is also gated by reduced motion)."
       }
     ],
     "breakpoints": [
       {
-        "name": "wide-subpage",
-        "value": "1600px"
+        "name": "tablet",
+        "value": "1040px"
       },
       {
-        "name": "compact-subpage",
-        "value": "1150px"
-      },
-      {
-        "name": "phone",
-        "value": "767px"
-      },
-      {
-        "name": "narrow-phone",
-        "value": "360px"
-      },
-      {
-        "name": "home-compact-intro",
-        "value": "1050px"
+        "name": "mobile",
+        "value": "560px"
       }
-    ],
-    "tonalRampPolicy": "Ramps are synthesized OKLCH inspection aids, not additional implementation tokens or approved component fills.",
-    "sourceFiles": [
-      "portal-framework.css",
-      "portal-madeo.css",
-      "portal-madeo.js",
-      "assets/madeo/provenance.json",
-      "portal-interactions.js",
-      "portal-interactions.css",
-      "portal-home.css",
-      "portal-home.js",
-      "portal-practical.css",
-      "portal-results.js",
-      "research-source/helm-safety-results-provenance.json",
-      "portal-compact.js",
-      "portal-compact.css",
-      "portal-search.js",
-      "resource-submission.js",
-      "portal-showcase.css",
-      "portal-motion.js"
-    ],
-    "layout": {
-      "container": "90%",
-      "maxWidth": "1240px",
-      "header": "68px",
-      "phoneHeader": "60px",
-      "resourceColumns": {
-        "desktop": 3,
-        "tablet": 2,
-        "phone": 1
-      },
-      "cardGap": "14px",
-      "cardPadding": "18px",
-      "homeMainColumns": "1fr 1fr",
-      "homePhoneColumns": 1,
-      "homePreview": "3 of 9 shared historical records; vertical selectable bars and horizontal paired-setting comparison",
-      "evaluation": "filters → horizontal bars → same-record table → source/share",
-      "news": "curated picks plus compact 12-record pages; covers optional",
-      "homeVisual": "Open two-line headline and search alongside, then staggered large canvases with captions",
-      "home": {
-        "introColumns": "1.25fr 1fr",
-        "introGap": "64px",
-        "heroPadding": "58px 0 48px",
-        "searchMaxWidth": "450px",
-        "columnGap": "44px",
-        "rowGap": "64px",
-        "evenTileOffset": "76px",
-        "canvasPadding": "24px 30px",
-        "newsCoverAspectRatio": 1.48,
-        "sequence": [
-          "primary vertical chart",
-          "featured news 1",
-          "featured news 2",
-          "paired-setting chart"
-        ],
-        "below": [
-          "six compact directions",
-          "shared research",
-          "dated collection/news updates",
-          "mission",
-          "expandable history"
-        ]
-      }
-    },
-    "scopePolicy": "Home uses portal-showcase.css and shared-record composition in portal-compact.js. Compact resource routes retain their existing 3/2/1 layouts and tokens. Rasters only in research news; real charts are HTML/CSS. ResourceSubmission is unconfigured, official submit disabled, local draft only.",
-    "interactions": {
-      "pointer": {
-        "type": "native system cursor",
-        "customOverlay": false
-      },
-      "subnavigation": {
-        "desktopWidth": "min(860px,88vw)",
-        "columns": 2,
-        "leaveDelay": "180ms",
-        "mobile": "plus disclosure in full-screen menu"
-      },
-      "routeCurtain": {
-        "enabled": false,
-        "navigation": "immediate synchronous render"
-      },
-      "homeEntrances": {
-        "enabled": false,
-        "moduleLoaded": false
-      }
-    },
-    "responsive": {
-      "home": {
-        "tablet": {
-          "range": "768–1050px",
-          "display": "44px",
-          "introGap": "36px",
-          "heroTop": "44px",
-          "gridGap": "44px 28px",
-          "evenTileOffset": "54px"
-        },
-        "phone": {
-          "maxWidth": "767px",
-          "columns": 1,
-          "display": "clamp(35px,7vw,49px)/1.15; letter-spacing:-.025em",
-          "heroPadding": "42px 0 34px",
-          "introGap": "28px",
-          "gridGap": "36px",
-          "evenTileOffset": 0,
-          "canvasPadding": "22px",
-          "sectionTitle": "25px",
-          "caption": "21px/1.45"
-        }
-      }
-    }
+    ]
   },
   "components": [
     {
-      "name": "Compact resource card",
+      "name": "Green Board",
       "kind": "card",
-      "refersTo": "compact-resource",
-      "description": "Type mark, actual record title, description and metadata without image.",
-      "html": "<article style=\"font:14px/1.65 sans-serif;border:1px solid #dce1e5;padding:18px;display:flex;gap:12px\"><span style=\"color:#2b4fa5;background:#edf2fa;padding:4px\">AI</span><div><strong>AgentDojo</strong><p>Prompt injection evaluation environment</p></div></article>",
-      "css": ""
+      "refersTo": "board",
+      "description": "Safe-green signage panel with a 2px inner rule; one per page, holds the key count or boundary.",
+      "html": "<section class=\"ds-board\"><h2 class=\"ds-board-h\">距离上一起 AI 安全事件已经</h2><p class=\"ds-board-meta\">上一起：示例事件 · 来源 · 10/27</p></section>",
+      "css": ".ds-board{position:relative;overflow:hidden;background:var(--safe,#086a41);color:var(--safe-ink,#e9f6ee);border-radius:6px;padding:36px 40px 28px;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 24px 48px -24px rgba(0,0,0,.6)}.ds-board::after{content:\"\";position:absolute;inset:10px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}.ds-board-h{margin:0;font-weight:700;font-stretch:87.5%;font-size:32px;line-height:1.15;letter-spacing:-.01em}.ds-board-meta{margin:16px 0 0;font-size:13px;color:var(--safe-muted,#cfe8da)}"
     },
     {
-      "name": "Heading resource action",
+      "name": "Enamel Number Plates",
+      "kind": "custom",
+      "refersTo": "enamel-plate",
+      "description": "Zero-padded enamel digit tiles with centre seam and rivet; turn into place on load.",
+      "html": "<div class=\"ds-plates\" role=\"img\" aria-label=\"02\"><span class=\"ds-plate\">0</span><span class=\"ds-plate\">2</span></div>",
+      "css": ".ds-plates{display:flex;gap:10px;perspective:600px;padding:16px;background:var(--safe,#086a41)}.ds-plate{position:relative;width:110px;height:158px;display:grid;place-items:center;background:var(--enamel,#f3f2ec);color:var(--enamel-ink,#121614);border-radius:6px;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;font-weight:800;font-stretch:75%;font-size:136px;line-height:1;box-shadow:0 2px 0 rgba(0,0,0,.25),0 14px 22px -10px rgba(0,0,0,.45)}.ds-plate::before{content:\"\";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(18,22,20,.16)}.ds-plate::after{content:\"\";position:absolute;width:7px;height:7px;border-radius:50%;background:#c9c8c0;top:9px;left:50%;margin-left:-3.5px;box-shadow:inset 0 1px 1px rgba(0,0,0,.35)}@media (prefers-reduced-motion:no-preference){.ds-plate{animation:ds-turn .9s cubic-bezier(.16,1,.3,1) both}.ds-plate:nth-child(2){animation-delay:.12s}@keyframes ds-turn{from{transform:rotateX(-88deg);filter:brightness(.7)}to{transform:none;filter:none}}}"
+    },
+    {
+      "name": "Daily Incident Strip",
+      "kind": "custom",
+      "refersTo": "board",
+      "description": "One bar per day for the last 14 days: yellow incident, pale for none, hatched outside the collected range.",
+      "html": "<ol class=\"ds-strip\"><li><span class=\"ds-n\">2</span><span class=\"ds-col\" style=\"height:60%\"></span><span class=\"ds-d\">10/24</span></li><li class=\"hot\"><span class=\"ds-n\">3</span><span class=\"ds-col\" style=\"height:100%\"></span><span class=\"ds-d\">10/25</span></li><li class=\"none\"><span class=\"ds-n\">0</span><span class=\"ds-col\" style=\"height:3%\"></span><span class=\"ds-d\">10/26</span></li><li class=\"gap\"><span class=\"ds-n\">–</span><span class=\"ds-col\"></span><span class=\"ds-d\">10/27</span></li></ol>",
+      "css": ".ds-strip{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;height:128px;align-items:end;background:var(--safe,#086a41);font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif}.ds-strip li{height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}.ds-col{background:var(--warn,#f0c233);border-radius:2px;min-height:3px}.ds-strip li.hot .ds-col{background:linear-gradient(var(--alarm,#ff6b5e) 0 7px,var(--warn,#f0c233) 7px)}.ds-strip li.none .ds-col{background:rgba(233,246,238,.35)}.ds-strip li.gap .ds-col{height:100%;background:repeating-linear-gradient(135deg,rgba(233,246,238,.18) 0 4px,transparent 4px 9px);border:1px dashed rgba(233,246,238,.35)}.ds-n{font-size:12px;font-weight:600;text-align:center;color:var(--safe-ink,#e9f6ee)}.ds-d{font-size:11px;text-align:center;color:var(--safe-muted,#cfe8da)}"
+    },
+    {
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "compact-action",
-      "html": "<button style=\"background:#2b4fa5;color:white;border:0;border-radius:6px;padding:9px 16px\">Upload resource</button>",
-      "css": "",
-      "description": "Heading resource action."
+      "refersTo": "button-primary",
+      "description": "Ink button that turns warning yellow on hover.",
+      "html": "<button class=\"ds-btn\">加载更多</button>",
+      "css": ".ds-btn{font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--enamel-ink,#121614);background:var(--ink,#eceee9);border:0;border-radius:5px;padding:10px 18px;cursor:pointer;transition:background .2s}.ds-btn:hover{background:var(--warn,#f0c233)}.ds-btn:focus-visible{outline:2px solid var(--warn,#f0c233);outline-offset:3px}"
     },
     {
-      "name": "Confirmed member initials",
-      "kind": "custom",
-      "refersTo": "compact-avatar",
-      "html": "<span style=\"display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;border-radius:50%;background:#edf2fa;color:#2b4fa5;font:17px sans-serif\">XL</span>",
-      "css": "",
-      "description": "Confirmed member initials."
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined ink button; fills ink on hover.",
+      "html": "<button class=\"ds-ghost\">复制内容</button>",
+      "css": ".ds-ghost{font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--ink,#eceee9);background:none;border:1px solid var(--ink,#eceee9);border-radius:5px;padding:9px 17px;cursor:pointer;transition:background .2s,color .2s}.ds-ghost:hover{background:var(--ink,#eceee9);color:var(--enamel-ink,#121614)}.ds-ghost:focus-visible{outline:2px solid var(--warn,#f0c233);outline-offset:3px}"
     },
     {
-      "name": "Historical result bar",
-      "kind": "custom",
-      "description": "Same record drives score, bar width and CSV; 98.1 equals source .981 ×100.",
-      "html": "<div style=\"font:13px sans-serif;display:grid;grid-template-columns:160px 1fr 45px;gap:16px;align-items:center\"><span>Claude 3.5 Sonnet</span><div style=\"height:22px;background:#f0f3f5\"><span style=\"display:block;height:100%;width:98.1%;background:#aa513c\"></span></div><strong>98.1</strong></div>",
-      "css": ""
-    },
-    {
-      "name": "Home underline search",
-      "kind": "input",
-      "description": "Right-hand finder paired with the open home headline.",
-      "html": "<form class=\"ds-home-search\"><input aria-label=\"Search research\" placeholder=\"Search papers, benchmarks or data\"><button>Search →</button></form>",
-      "css": ".ds-home-search{display:flex;gap:10px;border-bottom:1px solid #8b939a;font:14px/1.5 sans-serif;min-height:45px}.ds-home-search input{font:inherit;min-width:0;flex:1;border:0;background:none;padding:12px 0}.ds-home-search button{font:13px sans-serif;white-space:nowrap;background:none;border:0;padding:8px}.ds-home-search:focus-within{border-bottom:2px solid #294b9c}.ds-home-search button:hover{color:#294b9c}.ds-home-search button:focus-visible{outline:2px solid #294b9c;outline-offset:5px}"
-    },
-    {
-      "name": "Home historical result canvas",
-      "kind": "custom",
-      "refersTo": "home-primary-canvas",
-      "description": "Vertical chart of the same three historical records; this preview uses the default setting.",
-      "html": "<section class=\"ds-home-chart\"><small>HELM Safety v1.0 · HarmBench · 2024-11-08</small><p>Default setting · source ×100 · 3 / 9 models</p><div class=\"ds-home-bars\"><a href=\"#results\" style=\"height:98.1%\" aria-label=\"Claude 3.5 Sonnet 98.1\"><b>98.1</b></a><a href=\"#results\" style=\"height:84.9%\" aria-label=\"GPT-4o mini 84.9\"><b>84.9</b></a><a href=\"#results\" style=\"height:82.9%\" aria-label=\"GPT-4o 82.9\"><b>82.9</b></a></div><div class=\"ds-home-names\"><span>Claude 3.5 Sonnet</span><span>GPT-4o mini</span><span>GPT-4o</span></div></section>",
-      "css": ".ds-home-chart{background:#e7ecfa;color:#172c60;padding:24px 30px;font:12px/1.5 sans-serif}.ds-home-bars{height:172px;display:flex;align-items:end;justify-content:space-around;gap:30px;margin-top:40px;border-bottom:1px solid #8c9bc0}.ds-home-bars a{position:relative;width:25%;max-width:84px;background:#294b9c;color:#172c60}.ds-home-bars b{position:absolute;top:-25px;left:50%;transform:translateX(-50%);font-size:18px;font-variant-numeric:tabular-nums}.ds-home-bars a:hover{background:#172e68}.ds-home-bars a:focus-visible{outline:2px solid #294b9c;outline-offset:5px}.ds-home-names{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;text-align:center;font-size:11px;padding-top:12px}"
-    },
-    {
-      "name": "Shared navigation links",
-      "kind": "nav",
-      "description": "Practical direct access within the white shell; the green trigger and blue dialog remain shared.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Research\"><a href=\"#directions\">Directions</a><a href=\"#news\">News</a><a href=\"#results\" aria-current=\"page\">Evaluation</a><a href=\"#teams\">Team</a></nav>",
-      "css": ".ds-nav{display:flex;gap:24px;flex-wrap:wrap;font:14px/1.5 sans-serif}.ds-nav a{color:#182a3a;text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current]{color:#2b4fa5}.ds-nav a:focus-visible{outline:2px solid #2b4fa5;outline-offset:5px}"
-    },
-    {
-      "name": "Resource topic chip",
+      "name": "Segmented Control",
       "kind": "chip",
-      "description": "Small text-led topic labels within compact cards.",
-      "html": "<a class=\"ds-topic-chip\" href=\"#directions\">Model alignment</a>",
-      "css": ".ds-topic-chip{display:inline-block;color:#52606d;font:12px/1.6 sans-serif;text-decoration:none}.ds-topic-chip:hover{color:#2b4fa5;text-decoration:underline}.ds-topic-chip:focus-visible{outline:2px solid #2b4fa5;outline-offset:4px}"
+      "refersTo": "segment-pressed",
+      "description": "Framed button group; pressed is an ink fill; counts trail each label.",
+      "html": "<div class=\"ds-seg\"><button aria-pressed=\"true\">全部方向<b>42</b></button><button aria-pressed=\"false\">基础模型<b>12</b></button><button aria-pressed=\"false\" disabled>物理 AI<b>0</b></button></div>",
+      "css": ".ds-seg{display:inline-flex;border:1px solid var(--line,#2a322e);border-radius:5px;padding:3px;gap:2px;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif}.ds-seg button{font:inherit;font-size:13px;color:var(--muted,#a3aea7);background:none;border:0;padding:6px 12px;border-radius:3px;cursor:pointer;transition:background .2s,color .2s}.ds-seg button:hover{color:var(--ink,#eceee9)}.ds-seg button[aria-pressed=\"true\"]{background:var(--ink,#eceee9);color:var(--enamel-ink,#121614);font-weight:600}.ds-seg button b{font-weight:600;margin-left:6px;opacity:.6}.ds-seg button:disabled{opacity:.4;cursor:not-allowed}.ds-seg button:focus-visible{outline:2px solid var(--warn,#f0c233);outline-offset:3px}"
+    },
+    {
+      "name": "Tags",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Neutral tag, yellow incident tag, and the outlined Chinese-only marker.",
+      "html": "<span class=\"ds-tag\">政策治理</span><span class=\"ds-tag ds-inc\">安全事件</span><span class=\"ds-zh\">Chinese only</span>",
+      "css": ".ds-tag{display:inline-block;padding:0 6px;border-radius:3px;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;font-size:11.5px;line-height:18px;margin-right:8px;background:#26302b;color:var(--ink,#eceee9)}.ds-inc{background:var(--warn,#f0c233);color:var(--enamel-ink,#121614);font-weight:600}.ds-zh{display:inline-block;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;font-size:11px;line-height:16px;padding:0 5px;border-radius:3px;border:1px solid #4a5650;color:var(--muted,#a3aea7)}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Rail field; focus swaps the border for a yellow outline.",
+      "html": "<label class=\"ds-field\"><span>关键词</span><input class=\"ds-input\" placeholder=\"搜索标题或来源\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif}.ds-field span{font-size:13px;color:var(--muted,#a3aea7)}.ds-input{font:inherit;font-size:14px;color:var(--ink,#eceee9);background:var(--rail,#181d1a);border:1px solid var(--line,#2a322e);border-radius:5px;padding:9px 11px}.ds-input::placeholder{color:#7d8982}.ds-input:focus{outline:2px solid var(--warn,#f0c233);outline-offset:1px;border-color:transparent}"
+    },
+    {
+      "name": "Ruled Table with Sortable Head",
+      "kind": "custom",
+      "refersTo": "figure",
+      "description": "2px ink top rule, muted headers, sorted column in ink, condensed figures right-aligned.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>机构</th><th class=\"num\" aria-sort=\"descending\"><button>信号 <svg viewBox=\"0 0 10 10\" width=\"10\" height=\"10\"><path d=\"M1 3l4 4 4-4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/></svg></button></th></tr></thead><tbody><tr><td class=\"org\">OpenAI</td><td class=\"num\">7</td></tr><tr><td class=\"org\">Anthropic</td><td class=\"num zero\">0</td></tr></tbody></table>",
+      "css": ".ds-table{border-collapse:collapse;width:100%;border-top:2px solid var(--ink,#eceee9);font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif;color:var(--ink,#eceee9)}.ds-table th{font-weight:600;font-size:12.5px;color:var(--muted,#a3aea7);text-align:left;padding:12px 10px;border-bottom:1px solid var(--line,#2a322e)}.ds-table th button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;display:flex;gap:6px;align-items:center;margin-left:auto}.ds-table th[aria-sort] button{color:var(--ink,#eceee9)}.ds-table th button:focus-visible{outline:2px solid var(--warn,#f0c233);outline-offset:3px}.ds-table td{padding:14px 10px;border-bottom:1px solid var(--line,#2a322e)}.ds-table tr:hover td{background:var(--rail,#181d1a)}.ds-table .org{font-weight:700;font-stretch:87.5%;font-size:18px}.ds-table td.num{text-align:right;font-weight:800;font-stretch:75%;font-size:26px;line-height:1}.ds-table td.num.zero{color:#5b6660}"
+    },
+    {
+      "name": "Evaluation Sub-navigation",
+      "kind": "nav",
+      "refersTo": "label",
+      "description": "Ruled tab row; current tab has ink 600 text and a 2px yellow underline.",
+      "html": "<nav class=\"ds-subnav\"><a href=\"#\" aria-current=\"page\">评测看板</a><a href=\"#\">基准目录</a><a href=\"#\">方法与说明</a><a href=\"#\">上传资源</a></nav>",
+      "css": ".ds-subnav{display:flex;gap:4px;border-bottom:1px solid var(--line,#2a322e);font-family:\"Archivo\",\"PingFang SC\",\"Hiragino Sans GB\",\"Noto Sans SC\",\"Microsoft YaHei\",system-ui,sans-serif}.ds-subnav a{padding:10px 14px;text-decoration:none;color:var(--muted,#a3aea7);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}.ds-subnav a:hover{color:var(--ink,#eceee9)}.ds-subnav a[aria-current]{color:var(--ink,#eceee9);border-bottom-color:var(--warn,#f0c233);font-weight:600}.ds-subnav a:focus-visible{outline:2px solid var(--warn,#f0c233);outline-offset:3px}"
     }
   ],
   "narrative": {
-    "northStar": "Find the evidence quickly.",
-    "overview": "The homepage adopts the user-approved Madeo composition: white ground, a large open two-line headline, useful search alongside and staggered visual canvases. Actual result graphics and source-linked research recommendations form the work on display. Compact research routes retain their established practical density, typography and resource cards.\n\nThe home composition is a surface-specific expression, not a replacement for the compact subpage system. Conceptual covers belong only to research news; evaluation graphics remain explicit, accessible representations of the same historical records used by the dashboard.",
+    "northStar": "The Works Safety Board",
+    "overview": "**Creative North Star: \"The Works Safety Board\"**\n\nThe site is the board at a plant gate that counts days since the last incident. A graphite ground carries every page; safe-condition green panels are the boards; white enamel plates carry the count; warning yellow marks incidents and the reader's current focus; signal red appears only as a cap or a negative. Everything else is ruled lists and tables in ink and muted grey on the dark ground.\n\nDensity is that of an operations dashboard: ruled rows, tabular figures, compact labels, one green board per page as its signature. Headings and numerals use Archivo at condensed widths, so figures read like stencilled signage; UI and prose stay at normal width. The site is bilingual (Chinese default, English by switch) and renders CJK text in the system sans.",
     "keyCharacteristics": [
-      "Open headline and search above staggered, equal-width home canvases.",
-      "Historical charts with names, numbers, settings and source dates.",
-      "Compact 3/2/1-column research routes with small icons and team initials.",
-      "White ground, flat surfaces and four-language continuity."
+      "Dark graphite ground (single dark theme, `color-scheme: dark`), no light mode.",
+      "One green board panel per page, framed by an inset 2px rule, holding the page's key count or boundary.",
+      "Enamel number plates with a centre seam and a top rivet for headline counts and date/year group heads.",
+      "Condensed 800 numerals everywhere a number is the point; tabular figures site-wide.",
+      "Ruled tables and lists opened by a 2px ink top rule; rows divided by 1px lines.",
+      "Motion limited to plates turning and bars rising, both off under reduced motion."
     ],
     "rules": [
       {
-        "name": "Shared Evidence",
-        "body": "Home charts, the results dashboard, numeric tables and CSV derive from shared records; preserve version, setting, date and ×100 disclosure.",
-        "section": "components"
+        "name": "The Rationed Signal Rule",
+        "body": "Yellow fills mean an incident, a warning or the current selection; red means a negative or an error. Neither colour fills a neutral surface or decorates a heading.",
+        "section": "colors"
       },
       {
-        "name": "Surface Scope",
-        "body": "Apply the large staggered composition to Home; retain compact resource layouts on other routes.",
-        "section": "layout"
+        "name": "The One Green Board Rule",
+        "body": "Green is a panel, not an accent. Each page has one board (the home page's is the large one); green never tints text, borders or buttons on the ground.",
+        "section": "colors"
       },
       {
-        "name": "Flat Surface",
-        "body": "Use spacing, fine rules and chart-specific tonal canvases to separate content; do not add card shadows to Home.",
+        "name": "The Inset Rule Rule",
+        "body": "Every green board carries a 2px inner rule in safe-ink at 22% alpha, inset 6 to 10px (10px on the home board, 7px on mobile) with 3px corners, drawn above the fill and ignoring pointer events.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Carries Rank Rule",
+        "body": "Hierarchy is set by width and weight, not size alone: condensed 800 for numbers, semi-condensed 700 for names and headings, normal width for everything read as prose or operated as UI.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Languages Rule",
+        "body": "Only Chinese and English. Static strings carry Chinese in markup with `data-en` (and `data-en-placeholder`, `data-en-aria-label`, `data-en-title`); scripted strings use `T(zh, en)`. Long catalogue prose with no English stays Chinese, tagged `lang=\"zh-CN\"` and followed by the \"Chinese only\" marker.",
+        "section": "typography"
+      },
+      {
+        "name": "The Signage Only Rule",
+        "body": "Shadows belong to boards and plates, the physical objects of the world. UI controls, rows and cards stay flat.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do preserve white ground and use the pale chart fills only within their home canvases.",
-      "Do keep explicit model names, values, 0–100 axes, historical date and source links beside both home charts.",
-      "Do retain compact subpage tokens, horizontal results bars and internally scrolling tables.",
-      "Do preserve visible keyboard focus, reduced motion, route state, locale continuity and form drafts."
+      "Do put each page's key number or boundary on one green board with its 2px inner rule.",
+      "Do set every count in condensed 800 Archivo, on enamel plates when it is the page's headline number.",
+      "Do open every table and list with a 2px ink top rule and divide rows with 1px line rules.",
+      "Do use warning yellow for incidents, warnings, the current selection and focus, and signal red only for negatives and errors.",
+      "Do show uncollected days as hatched with a dashed border, never as zero.",
+      "Do write every string in Chinese with an English pair (`data-en` or `T(zh, en)`), and mark untranslated Chinese prose \"Chinese only\" in English mode.",
+      "Do keep motion to plates turning and bars rising, inside `prefers-reduced-motion: no-preference`."
     ],
     "donts": [
-      "Don't restore the rejected compact dashboard composition on Home.",
-      "Don't expand the home gallery treatment into resource subpages.",
-      "Don't use conceptual covers as paper figures, model evidence or member portraits.",
-      "Don't invent current rankings, overall-safety percentages, posts, team work or submission success."
+      "Don't use green as a text, border or button colour on the graphite ground.",
+      "Don't fill neutral surfaces or headings with yellow or red.",
+      "Don't add shadows to controls, rows or cards; only boards and plates are lifted.",
+      "Don't add a light theme, a second typeface, or languages other than Chinese and English.",
+      "Don't box lists into cards; they are ruled rows on the ground."
     ]
-  },
-  "resourceContribution": {
-    "route": "#upload",
-    "placement": "heading-right action on three evaluation tabs",
-    "receiver": null,
-    "status": "not connected; official submit disabled; local JSON draft only",
-    "successContract": "pending_review and receipt_id from an actual backend",
-    "failure": "input retained",
-    "email": "optional; private; never published"
-  },
-  "resultExplorer": {
-    "source": "research-source/helm-safety-results-provenance.json",
-    "records": 9,
-    "reportDate": "2024-11-08",
-    "controls": [
-      "benchmark",
-      "model",
-      "developer",
-      "configuration",
-      "sort"
-    ],
-    "displayScale": "source × 100; 0–100",
-    "chartDesktop": "horizontal bars",
-    "chartPhone": "horizontal bars",
-    "table": "source-linked, own overflow region",
-    "csv": "same filtered array, with original 0–1 values",
-    "chartScope": "Full results dashboard; home chart types are recorded separately in homeCharts",
-    "homeCharts": {
-      "records": 3,
-      "totalRecords": 9,
-      "benchmark": "HELM Safety v1.0",
-      "task": "HarmBench",
-      "primary": "vertical bars, default/GCG-T select",
-      "comparison": "horizontal dumbbell of both settings for same model versions, numeric disclosure",
-      "defaultValues": [
-        98.1,
-        84.9,
-        82.9
-      ],
-      "gcgTValues": [
-        87.9,
-        76.5,
-        62.2
-      ],
-      "claimBoundary": "historical source scores ×100, not current ranking or overall safety"
-    }
   }
 }

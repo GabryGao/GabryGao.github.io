@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Methods · AI Safety Board">方法与说明 · AI 安全看板</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
 .page-head{padding:28px 0 8px}
@@ -122,22 +122,23 @@ tr.row.open td{background:var(--rail)}
   <div class="wrap">
     <a href="results.html" data-en="Results board">评测看板</a>
     <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
-    <a href="../#methods" data-en="Live site methods">现站方法与说明</a>
   </div>
 </footer>
 
-<script src="../news-feed.js"></script>
-<script src="../research-data.js"></script>
-<script src="../source-catalog.js"></script>
-<script>var benchmarkDirections = {};</script>
-<script src="../portal-catalog.js"></script>
+<script src="signals-feed.js"></script>
+<script src="research-data.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script src="catalog.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
 (() => {
   const S = Shell, { esc, T, tx, zhOnly, dirName } = S;
   S.header('methods.html');
-  const C = EvaluationCatalog, M = s => tx('METHOD', s);
+  const K = Catalog, M = s => tx('METHOD', s);
+  const C = { data: { resources: K.resources }, isToolRecord: K.isTool, sort: list => list.slice().sort((a, b) => a.name.localeCompare(b.name)) };
+  const methodDisplayCopy = K.toolCopy;
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
   const tools = C.data.resources.filter(C.isToolRecord);
   const dirsOf = r => [r.direction_id, ...(r.related_direction_ids || [])];
@@ -193,7 +194,7 @@ tr.row.open td{background:var(--rail)}
         + (r.data_access ? '<dt>' + T('数据获取', 'Data access') + '</dt><dd>' + zhOnly(r.data_access) + '</dd>' : '')
         + (r.license_note ? '<dt>' + T('许可', 'Licence') + '</dt><dd>' + zhOnly(r.license_note) + '</dd>' : '')
         + '<dt>' + T('核验日期', 'Checked on') + '</dt><dd>' + esc(r.checked_date || T('未记录', 'Not recorded')) + '</dd></dl>'
-        + '<div class="go"><a href="../#resource/' + esc(r.id) + '">' + T('现站详情页', 'Live site detail page') + ' ↗</a></div></td></tr>';
+        + '<div class="go"><a href="detail.html?id=' + esc(r.id) + '">' + T('查看完整详情', 'Full details') + ' →</a></div></td></tr>';
     }).join('') : '<tr><td class="empty" colspan="4">' + T('没有符合条件的工具。', 'No tools match.') + '</td></tr>';
   }
   render();

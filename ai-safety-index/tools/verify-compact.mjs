@@ -9,7 +9,7 @@ const compactCss=fs.readFileSync(path.join(root,'portal-compact.css'),'utf8');
 const shapesCss=fs.readFileSync(path.join(root,'portal-shapes.css'),'utf8');
 const interactionSource=fs.readFileSync(path.join(root,'portal-interactions.js'),'utf8');
 const watchSource=fs.readFileSync(path.join(root,'portal-watch.js'),'utf8');
-const page=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const page=fs.readFileSync(path.join(root,'legacy.html'),'utf8');
 const el={addEventListener(){},innerHTML:'',classList:{remove(){},toggle(){}},setAttribute(){},removeAttribute(){}};
 const c=vm.createContext({console,URL,URLSearchParams,location:{hash:'#home'},document:{querySelector:s=>s==='#main'?el:{...el},querySelectorAll:()=>[],addEventListener(){},title:''},window:{addEventListener(){},scrollTo(){}},setTimeout(){},clearTimeout(){},AbortController});
 for(const f of ['research-data.js','directions.js','app.js','portal-v4.js','portal-v5.js','opentai-papers.js','paper-library.js','portal-editorial.js','news-feed.js','topic-feed.js','portal-framework.js','portal-home.js','portal-madeo.js','source-catalog.js','evaluation-data.js','portal-results.js','portal-compact.js','portal-catalog.js','portal-search.js','resource-submission.js']){

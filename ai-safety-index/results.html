@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-en="Results board · AI Safety Board">评测看板 · AI 安全看板</title>
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <style>
 .page-head{padding:28px 0 8px}
@@ -163,12 +163,11 @@
   <div class="wrap">
     <span data-en="Every number comes from the authors' published table or leaderboard and links back to it.">每个数字都来自原作者公开的结果表或排行榜，并可回到原处核对。</span>
     <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
-    <a href="../#results" data-en="Live site results">现站评测看板</a>
   </div>
 </footer>
 
-<script src="../news-feed.js"></script>
-<script src="../evaluation-data.js"></script>
+<script src="signals-feed.js"></script>
+<script src="evaluation-data.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
@@ -180,7 +179,7 @@
 
   /* HELM Safety lives in the live site's provenance file, which keeps the source values on a 0–1 scale */
   let helm = null;
-  try { helm = await (await fetch('../research-source/helm-safety-results-provenance.json')).json(); } catch {}
+  try { helm = await (await fetch('research-source/helm-safety-results-provenance.json')).json(); } catch {}
   const benches = [];
   if (helm) benches.push({
     id: 'helm-safety', name: 'HELM Safety', version: 'HELM Safety v1.0', org: helm.publisher, url: helm.source_url, dirs: ['foundation-model', 'human-societal'],

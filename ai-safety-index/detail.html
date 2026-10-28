@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Detail · AI Safety Board">详情 · AI 安全看板</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<style>
+.crumb{padding:22px 0 0;font-size:13px;color:var(--muted)}
+.crumb a{color:var(--muted)}
+.crumb a:hover{color:var(--ink)}
+.head{display:grid;grid-template-columns:1fr auto;gap:18px 32px;align-items:end;padding:14px 0 22px;border-bottom:2px solid var(--ink)}
+.head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(32px,4vw,52px);line-height:1.05;overflow-wrap:anywhere}
+.head .idl{color:var(--muted);font-size:13px;margin:0 0 8px}
+.head .lead{margin:12px 0 0;font-size:17px;line-height:1.6;max-width:62ch}
+.head .lead small{display:block;color:var(--muted);font-size:14px;margin-top:6px}
+.evboard{background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:16px 20px;min-width:240px;position:relative}
+.evboard::after{content:"";position:absolute;inset:6px;border:2px solid rgba(233,246,238,.22);border-radius:3px;pointer-events:none}
+.evboard b{display:block;font-size:12px;font-weight:600;color:var(--safe-muted);margin-bottom:8px}
+.evboard .sq{color:var(--warn);gap:5px}
+.evboard .sq i{width:16px;height:16px}
+.evboard span.lv{display:block;margin-top:8px;font-weight:700;font-stretch:87.5%;font-size:19px}
+.evboard a{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--safe-ink);position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:40px;padding:26px 0 64px}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:12px 20px;margin:0}
+.facts dt{color:var(--muted);font-size:13px;padding-top:2px}
+.facts dd{margin:0;line-height:1.65}
+.facts .tag{margin:0 6px 6px 0}
+aside h2,.related h2{margin:0 0 10px;font-weight:700;font-stretch:87.5%;font-size:20px}
+.links{list-style:none;margin:0 0 26px;padding:0;border-top:1px solid var(--line)}
+.links li{border-bottom:1px solid var(--line)}
+.links a{display:flex;justify-content:space-between;gap:10px;padding:12px 0;text-decoration:none;font-weight:600}
+.links a:hover{color:var(--warn)}
+.links small{display:block;font-weight:400;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
+.related{margin-top:34px}
+.plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.plist li{padding:12px 0;border-bottom:1px solid var(--line)}
+.plist a{font-weight:600;text-decoration:none}
+.plist a:hover{text-decoration:underline}
+.plist small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.missing{padding:60px 0;max-width:60ch}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.head{grid-template-columns:1fr}}
+@media (max-width:560px){.facts{grid-template-columns:1fr;gap:4px}.facts dd{margin-bottom:10px}}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap" id="main"></main>
+<footer>
+  <div class="wrap">
+    <a href="benchmarks.html" data-en="Benchmark catalog">基准目录</a>
+    <a href="methods.html" data-en="Tools and environments">工具与运行环境</a>
+  </div>
+</footer>
+
+<script src="signals-feed.js"></script>
+<script src="source-catalog.js"></script>
+<script src="site-data.js"></script>
+<script>var paperRecords = [];</script>
+<script src="opentai-papers.js"></script>
+<script src="i18n.js"></script>
+<script src="catalog.js"></script>
+<script src="shell.js"></script>
+<script>
+(() => {
+  const S = Shell, K = Catalog, { esc, T, tx, en, zhOnly, dirName } = S;
+  const id = S.params().get('id') || '';
+  const r = K.resources.find(x => x.id === id);
+  const tool = r && K.isTool(r);
+  S.header(tool ? 'methods.html' : 'benchmarks.html');
+  const main = document.getElementById('main');
+  if (!r) {
+    main.innerHTML = '<div class="missing"><h1>' + T('没有找到这条资料', 'Entry not found') + '</h1><p class="sub">' + T('编号 ' + esc(id) + ' 不在当前的资料包里。', 'ID ' + esc(id) + ' is not in the current source package.') + '</p><p><a href="benchmarks.html">' + T('回到基准目录', 'Back to the benchmark catalog') + ' →</a></p></div>';
+    return;
+  }
+  const name = tx('NAME', r.name);
+  document.title = name + T(' · AI 安全看板', ' · AI Safety Board');
+  const copy = tool ? K.toolCopy(r) : (en ? (ConceptI18n.COPY || {}) : (K.data.cardCopy || {}))[r.id];
+  const lead = tool ? tx('METHOD', copy.purpose) : copy?.purpose;
+  const contents = tool ? tx('METHOD', copy.contents) : copy?.contents;
+  const lv = K.levelOf(r), L = K.LEVELS[lv], integrated = K.integrated(r);
+  const topics = K.topics.filter(t => K.topicMatches(r, t)).map(t => tx('TOPIC', t.name));
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
+
+  const links = [];
+  if (r.url) links.push([/github|gitlab/.test(r.url) ? T('代码仓库', 'Code repository') : /arxiv|doi|openreview/.test(r.url) ? T('论文', 'Paper') : T('项目主页', 'Project page'), r.url]);
+  if (r.result_url && r.result_url !== r.url) links.push([/arxiv|doi|openreview/.test(r.result_url) ? T('论文', 'Paper') : T('公开结果', 'Published results'), r.result_url]);
+  for (const d of r.data_entries || []) links.push([T('数据：', 'Data: ') + d.name + (d.license ? ' · ' + d.license : '') + (d.gated ? T(' · 需申请', ' · gated') : ''), d.url]);
+  if (r.evidence_url) links.push([T('核验依据', 'Evidence checked'), r.evidence_url]);
+
+  /* papers whose title names this resource, matched on the name before any bracket */
+  const key = r.name.replace(/[（(].*$/, '').split(' / ')[0].trim().toLowerCase();
+  const related = key.length >= 4 ? K.papers().filter(p => (p.title || '').toLowerCase().includes(key)).slice(0, 6) : [];
+  const news = S.news.signals.filter(x => key.length >= 4 && (x.title || '').toLowerCase().includes(key)).slice(0, 5);
+
+  main.innerHTML = '<nav class="crumb" aria-label="' + T('位置', 'Breadcrumb') + '"><a href="' + (tool ? 'methods.html' : 'benchmarks.html') + '">' + (tool ? T('工具与运行环境', 'Tools and environments') : T('基准目录', 'Benchmark catalog')) + '</a> / ' + esc(r.id) + '</nav>'
+    + '<div class="head"><div><p class="idl">' + esc(r.id) + ' · ' + esc(tx('RELATION', r.relation)) + ' · ' + esc(dirName(r.direction_id)) + '</p><h1>' + esc(name) + '</h1>'
+    + (lead ? '<p class="lead">' + esc(lead) + (contents ? '<small>' + esc(contents) + '</small>' : '') + '</p>' : '<p class="lead">' + zhOnly(tx('METRIC', r.metric) || '') + '</p>') + '</div>'
+    + (tool ? '' : '<div class="evboard"><b>' + T('证据等级', 'Evidence level') + '</b>' + K.squares(L.filled) + '<span class="lv">' + T(L.zh, L.en) + '</span>' + (integrated ? '<a href="results.html?benchmark=' + esc(integrated) + '">' + T('在评测看板看结果', 'See results on the board') + ' →</a>' : '') + '</div>') + '</div>'
+    + '<div class="grid"><div><dl class="facts">'
+    + (r.metric ? '<dt>' + T('指标', 'Metric') + '</dt><dd>' + zhOnly(tx('METRIC', r.metric)) + '</dd>' : '')
+    + '<dt>' + T('主题与方向', 'Topic and direction') + '</dt><dd>' + (r.subdomain ? '<span class="tag">' + esc(tx('SUBDOMAIN', r.subdomain)) + '</span>' : '') + topics.map(t => '<span class="tag">' + esc(t) + '</span>').join('') + K.dirsOf(r).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</dd>'
+    + '<dt>' + T('结果状态', 'Result status') + '</dt><dd>' + esc(tx('STATE', r.result_state)) + '</dd>'
+    + (r.note ? '<dt>' + T('备注', 'Note') + '</dt><dd>' + zhOnly(r.note) + '</dd>' : '')
+    + (r.data_access ? '<dt>' + T('数据获取', 'Data access') + '</dt><dd>' + zhOnly(r.data_access) + '</dd>' : '')
+    + (r.license_note ? '<dt>' + T('许可', 'Licence') + '</dt><dd>' + zhOnly(r.license_note) + '</dd>' : '')
+    + (r.evidence_status ? '<dt>' + T('核验依据', 'Checked against') + '</dt><dd>' + (r.evidence_status === '原作者/出版方正文已读取' ? T(esc(r.evidence_status), 'Original author or publisher text read') : zhOnly(r.evidence_status)) + '</dd>' : '')
+    + '<dt>' + T('核验日期', 'Checked on') + '</dt><dd>' + esc(r.checked_date || T('未记录', 'Not recorded')) + '</dd></dl>'
+    + (related.length ? '<section class="related"><h2>' + T('相关论文', 'Related papers') + '</h2><ol class="plist">' + related.map(p => '<li><a href="' + esc(p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url) + '" rel="noopener" lang="en">' + esc(p.title) + '</a><small>' + esc(p.year || '') + ' · ' + esc(tx('SITE', p.venue || '')) + '</small></li>').join('') + '</ol></section>' : '')
+    + (news.length ? '<section class="related"><h2>' + T('近期相关记录', 'Recent related records') + '</h2><ol class="plist">' + news.map(x => '<li><a href="records.html?item=' + encodeURIComponent(x.id) + '">' + esc(S.title(x)) + '</a><small>' + esc(x.source) + ' · ' + esc(x.date) + '</small></li>').join('') + '</ol></section>' : '')
+    + '</div><aside><h2>' + T('资源入口', 'Links') + '</h2><ul class="links">' + links.map(([k, u]) => '<li><a href="' + esc(u) + '" rel="noopener"><span>' + esc(k) + '<small>' + esc(host(u)) + '</small></span>↗</a></li>').join('') + '</ul></aside></div>';
+})();
+</script>
+</body>
+</html>

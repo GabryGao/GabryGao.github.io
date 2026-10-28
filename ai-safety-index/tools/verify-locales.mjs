@@ -43,7 +43,7 @@ for(const lang of ['en','ja','de']){
 assert.equal(api.translate('论文资料','invalid'),'论文资料');
 assert.ok(api.searchText('数据与隐私安全').includes('Datenschutz'));
 assert.ok(api.searchText('提示注入攻击').includes('プロンプト'));
-const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const html=fs.readFileSync(path.join(root,'legacy.html'),'utf8');
 assert.ok(html.includes('id="site-language"'));
 assert.ok(html.includes('locale.js'));
 const runtime=fs.readFileSync(path.join(root,'locale.js'),'utf8');

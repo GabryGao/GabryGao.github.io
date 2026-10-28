@@ -18,7 +18,7 @@ assert.ok(!source.includes('md-dot-active'));
 assert.ok(!source.includes("window.scrollTo({top:0"),'Page-level scrolling is owned by the central hashchange handler');
 assert.ok(source.includes('IntersectionObserver'),'Long lists progressively reveal more records while scrolling');
 assert.ok(source.includes('data-infinite-list'));
-const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('../legacy.html',import.meta.url),'utf8');
 assert.ok(!/<script[^>]+src="portal-motion\.js/.test(html),'No page entrance animation module is loaded');
 assert.ok(!/<link[^>]+href="portal-motion\.css/.test(html),'Motion styles are consolidated into the interaction layer');
 const css=fs.readFileSync(new URL('../portal-interactions.css',import.meta.url),'utf8');
