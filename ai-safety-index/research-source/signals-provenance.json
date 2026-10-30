@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-10-29T18:29:05Z",
+  "generated_on": "2026-10-30T01:00:32Z",
   "status": "partial",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-29T18:29:05Z",
+    "last_successful_fetch": "2026-10-30T01:00:32Z",
     "records": 193,
-    "response_sha256": "a83221a5aa27016eb59d74b33a5dbd03e7d93b1a4d5ddef66c7a379c58628a53"
+    "response_sha256": "38f66a4c8dd1a94c44abb919ba721d9e24a38b7f2d732e23e246412c1e95569f"
    },
    {
     "id": "deepmind",
@@ -28,7 +28,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-10-29T18:29:05Z",
+    "last_successful_fetch": "2026-10-30T01:00:32Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -38,9 +38,9 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-29T18:29:05Z",
+    "last_successful_fetch": "2026-10-30T01:00:32Z",
     "records": 94,
-    "response_sha256": "11e49ab3f89b63b3d5b377325279c294aaa3c1992788d797cb9570bd1f72d4b2"
+    "response_sha256": "c6d819bcfb1fcce48d51b0d4c893e2933257b671b3816728e89300c1fcd5b225"
    },
    {
     "id": "nist",
@@ -48,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-29T18:29:05Z",
+    "last_successful_fetch": "2026-10-30T01:00:32Z",
     "records": 0,
     "response_sha256": "2cab52f7d5556c7bd7739318b411c90cff636fa960d84f0b5c742e8cdea2e552"
    },
@@ -58,16 +58,111 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-29T18:29:05Z",
+    "last_successful_fetch": "2026-10-30T01:00:32Z",
     "records": 100,
-    "response_sha256": "a0bc363009c5966bc3f01dd75a068baeb0fba960fa8b39346a7f4bf48989d552"
+    "response_sha256": "c447adb986159a63bf80c420532ef46532d45bdf85078e24f7638b0ec7f203c7"
    }
   ],
-  "record_count": 148,
+  "record_count": 152,
   "archive_days": 90,
   "policy": "Titles, dates, links and short publisher summaries from primary feeds; categories, directions and organisations assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "aiid-f9b30a729071",
+   "title": "Storm-1516 Produces Very Likely Deepfake Videos of Student Accusing Democratic Senate Candidate of Sexual Assault",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.graphika.com/insights/storm-1516-produces-very-likely-deepfake-videos-of-student-accusing-democratic-senate-candidate",
+   "description": "We identified a very likely coordinated network of accounts across Facebook, Instagram, Pinterest, Threads, TikTok, X, and YouTube that is impersonating US Assistant Attorney General Colin McDonald,…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": [
+    "meta"
+   ]
+  },
+  {
+   "id": "aiid-e8af9a0a345a",
+   "title": "How an AI start-up founded by ex-DOGE staffers broke into Anthropic",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.washingtonpost.com/technology/2026/10/26/researchers-cybersecurity-start-up-cathedral-got-inside-anthropic/",
+   "description": "Cathedral, a months-old cybersecurity start-up, recently told Claude chatbot maker Anthropic that its researchers had penetrated sensitive internal data and messaging systems at the artificial intell…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "aiid-b9ad400cb862",
+   "title": "At Johns Hopkins, shadow AI use linked to data breach",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.healthcareitnews.com/news/johns-hopkins-shadow-ai-use-linked-data-breach",
+   "description": "A hospital employee at Baltimore's Johns Hopkins Bayview Medical Center appears to have chosen a consumer AI tool to help crunch some numbers this past month, and now the health system is notifying 3…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-7d04b05ce2a5",
+   "title": "Russian disinformation group targets James Talarico with baseless claim in AI-generated video",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://politifact.com/factchecks/2026/oct/22/tweets/russian-disinformation-group-targets-james-talarico-with-baseless-claim-in-ai-generated-video/",
+   "description": "X posts stated on October 21, 2026 in X posts: This video shows a former James Talarico student accusing him of misconduct. Pants on Fire! Democratic U.S. Senate candidate Texas state Rep. James Tala…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-326d872c5046",
+   "title": "Senior official at Dartmouth College resigns over AI use",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.washingtonpost.com/education/2026/10/28/senior-official-dartmouth-college-resigns-over-ai-use/",
+   "description": "A top administrator at Dartmouth College resigned after a faculty committee determined that he had improperly failed to disclose the use of artificial intelligence in some of his academic and public…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-2d27ef900c67",
+   "title": "AI bots flooded 2023 UK government consultation on disposable vapes ban",
+   "date": "2026-10-29",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theguardian.com/society/2026/oct/27/ai-bots-flooded-2023-uk-government-consultation-disposable-vapes-ban",
+   "description": "AI bots flooded a government consultation with tens of thousands of fake responses in a failed attempt to stop the UK’s ban on disposable vapes. Three-quarters of all the responses to the 2023 consul…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
   {
    "id": "deepmind-b0da25ea6c1a",
    "title": "Gemini 4 Carbon: Our next frontier model",
@@ -2419,41 +2514,6 @@
    "direction_ids": [
     "agent-software",
     "foundation-model"
-   ],
-   "orgs": [
-    "openai"
-   ]
-  },
-  {
-   "id": "openai-c5ad624a6ffb",
-   "title": "Disrupting a Cambodia-based criminal scam operation",
-   "date": "2026-07-31",
-   "source": "OpenAI",
-   "source_id": "openai",
-   "kind": "official",
-   "category": "research",
-   "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation",
-   "description": "OpenAI disrupted a Cambodia-based scam operation using ChatGPT to support investment, romance, gambling, and impersonation schemes.",
-   "direction_ids": [
-    "human-societal",
-    "foundation-model"
-   ],
-   "orgs": [
-    "openai"
-   ]
-  },
-  {
-   "id": "openai-b86dc435d64a",
-   "title": "Advancing responsible AI across Europe",
-   "date": "2026-07-31",
-   "source": "OpenAI",
-   "source_id": "openai",
-   "kind": "official",
-   "category": "policy",
-   "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
-   "description": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances.",
-   "direction_ids": [
-    "human-societal"
    ],
    "orgs": [
     "openai"
