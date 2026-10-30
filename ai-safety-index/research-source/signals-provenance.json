@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-10-30T10:01:54Z",
-  "status": "current",
+  "generated_on": "2026-10-30T18:00:48Z",
+  "status": "partial",
   "sources": [
    {
     "id": "openai",
@@ -9,19 +9,18 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
-    "records": 193,
-    "response_sha256": "8c8bb61b8b6a64305017bbd66f221f985e2efcedde1e40957c61b91b1db14ff8"
+    "last_successful_fetch": "2026-10-30T18:00:48Z",
+    "records": 194,
+    "response_sha256": "0c746bd6e45900b2b6fe73235a325cf3ebdffae63a1a666928eb9c52d7fa3172"
    },
    {
     "id": "deepmind",
     "name": "Google DeepMind",
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
-    "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
-    "records": 12,
-    "response_sha256": "138be41eb04783c116dade2ae0ae7eddc01ab6f67e894726ca423f4b575eb484"
+    "status": "failed",
+    "error": "ParseError",
+    "last_successful_fetch": "2026-10-30T10:01:54Z"
    },
    {
     "id": "uk-aisi",
@@ -29,7 +28,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
+    "last_successful_fetch": "2026-10-30T18:00:48Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +38,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
+    "last_successful_fetch": "2026-10-30T18:00:48Z",
     "records": 94,
     "response_sha256": "c6d819bcfb1fcce48d51b0d4c893e2933257b671b3816728e89300c1fcd5b225"
    },
@@ -49,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
+    "last_successful_fetch": "2026-10-30T18:00:48Z",
     "records": 0,
     "response_sha256": "2cab52f7d5556c7bd7739318b411c90cff636fa960d84f0b5c742e8cdea2e552"
    },
@@ -59,16 +58,34 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-10-30T10:01:54Z",
+    "last_successful_fetch": "2026-10-30T18:00:48Z",
     "records": 100,
     "response_sha256": "c447adb986159a63bf80c420532ef46532d45bdf85078e24f7638b0ec7f203c7"
    }
   ],
-  "record_count": 152,
+  "record_count": 153,
   "archive_days": 90,
   "policy": "Titles, dates, links and short publisher summaries from primary feeds; categories, directions and organisations assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "openai-c7606af40dbb",
+   "title": "Community safety report and new protections for teens",
+   "date": "2026-10-30",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+   "description": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
   {
    "id": "aiid-f9b30a729071",
    "title": "Storm-1516 Produces Very Likely Deepfake Videos of Student Accusing Democratic Senate Candidate of Sexual Assault",
