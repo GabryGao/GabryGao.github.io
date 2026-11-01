@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-11-01T00:08:41Z",
-  "status": "partial",
+  "generated_on": "2026-11-01T06:06:22Z",
+  "status": "current",
   "sources": [
    {
     "id": "openai",
@@ -9,18 +9,19 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T00:08:41Z",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
     "records": 194,
-    "response_sha256": "2819afc2147040c2e916969add77ec45ea28169b24777ae10339c705676c3693"
+    "response_sha256": "25c2a2a5cf9af5e379431611e4b7b8de040dfa36d9cfb911a81ddeb3ca05dc17"
    },
    {
     "id": "deepmind",
     "name": "Google DeepMind",
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
-    "status": "failed",
-    "error": "ParseError",
-    "last_successful_fetch": "2026-10-31T19:18:04Z"
+    "status": "ok",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "records": 12,
+    "response_sha256": "138be41eb04783c116dade2ae0ae7eddc01ab6f67e894726ca423f4b575eb484"
    },
    {
     "id": "uk-aisi",
@@ -28,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T00:08:41Z",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -38,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T00:08:41Z",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
     "records": 94,
     "response_sha256": "a3e9176a71a4fdb6b76e140bc6474b646ab6d6379e2e16aaa22035a55fda18ab"
    },
@@ -48,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T00:08:41Z",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
     "records": 0,
     "response_sha256": "2cab52f7d5556c7bd7739318b411c90cff636fa960d84f0b5c742e8cdea2e552"
    },
@@ -58,16 +59,126 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T00:08:41Z",
+    "last_successful_fetch": "2026-11-01T06:06:22Z",
     "records": 100,
-    "response_sha256": "51363b6ac85ac9f0681eaf36e09a892488647b8b99b78c74254a7bee2d1182dc"
+    "response_sha256": "6e40f9f733b405cb5f9f36118ebb0536533ffc8ee8c8a78bda217279c4e0bf45"
    }
   ],
-  "record_count": 154,
+  "record_count": 166,
   "archive_days": 90,
   "policy": "Titles, dates, links and short publisher summaries from primary feeds; categories, directions and organisations assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "aiid-de035062107f",
+   "title": "Chainalysis Security Incident Information",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
+   "description": "Chainalysis was recently the target of a cybersecurity incident, similar to many other tech platforms in recent weeks. Based on the investigation to date, we have found no evidence of unauthorized ac…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-ce81ccfb4028",
+   "title": "Cyberattack by Rogue AI Swarm Stokes Fears of Out-of-Control Agents",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.wsj.com/tech/ai/cyberattack-by-rogue-ai-swarm-stokes-fears-of-out-of-control-agents-473a0352",
+   "description": "Artificial intelligence agents being tested by OpenAI launched a cyberattack against a popular software service two months before they hacked the AI software company Hugging Face, a new signal of the…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-bca45802c685",
+   "title": "OpenAI agents carried out an undisclosed cyber-attack on RubyGems",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://rubyhack.ai/",
+   "description": "Intro On May 11th, 2026, hundreds of malicious packages were uploaded to RubyGems by AI agents. We believe these were authored by internal OpenAI agents (more). The agents: Attempted to steal RubyGem…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-b20941b3acab",
+   "title": "The Hugging Face incident and other third-party impacts from misaligned models",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+   "description": "As AI systems become more capable and autonomous, misaligned behavior can translate into consequential actions in the real world, including cybersecurity incidents and other outcomes that developers…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-acaa113a0748",
+   "title": "CrowdStrike Uncovers New Agentic AI Campaigns",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+   "description": "A new report from the CrowdStrike Counter Adversary Operations team details research into four previously unreported threat actors, each of whom left their offensive agent frameworks exposed via open…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a291b7051796",
+   "title": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
+   "description": "Blockchain intelligence firm Chainalysis has disclosed a security incident after attackers used what it describes as \"offensive agentic techniques\" to gain unauthorized access to its internal systems…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8d1e9587634b",
+   "title": "Crecen los ciberataques con agentes de IA en Argentina: vulneraron al menos 15 entidades de salud y robaron historias clínicas",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.clarin.com/tecnologia/crecen-ciberataque-agentes-ia-argentina-vulneraron-15-entidades-salud-robaron-historias-clinicas_0_E48IKoPlfw.html",
+   "description": "CrowdStrike identificó una campaña de ciberataques contra instituciones sanitarias argentinas entre mayo y agosto de 2026. La investigación también detectó actividad en Brasil y Colombia. El dato es…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
   {
    "id": "aiid-8891476791df",
    "title": "VAPOR PANDA Uses AI-Driven ARTEX to Scale a Global Espionage Campaign",
@@ -83,6 +194,83 @@
    ],
    "orgs": [
     "deepseek"
+   ]
+  },
+  {
+   "id": "aiid-8882b29288ae",
+   "title": "Les panneaux seraient écrits par intelligence artificielle : dans le Finistère, cette traduction en breton ne passe pas",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ouest-france.fr/bretagne/culture-bretonne/les-panneaux-seraient-ecrits-par-intelligence-artificielle-a-locronan-cette-traduction-en-breton-ne-passe-pas-e1a0624c-1d50-11f1-bd9a-a7229110a04d",
+   "description": "Des panneaux récemment installés rappellent les liens étroits entre la petite cité de caractère et le cinéma. Les textes en breton auraient été produits par l'intelligence artificielle, dénoncent des…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-5219d3079a57",
+   "title": "阿里巴巴研究团队披露一起“agent叛逃偷矿事件”",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.secrss.com/articles/89362",
+   "description": "该代理自主创建反向SSH隧道并利用计算资源挖矿。 阿里巴巴关联研究团队（ROCK & ROLL & iFlow CLI & Terminal Bench Pro & iFlow-ROME联合团队），在2025年12月于arXiv发布、2026年1月修订的论文《Let It Flow： Agentic Crafting on Rock and Roll， Building the ROME Mod…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-25fc3cfd935f",
+   "title": "Temporarily disabling new user registrations",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://status.rubygems.org/incidents/cytf062tkwtt",
+   "description": "Resolved This incident has been resolved and we've re-enabled account registrations Posted May 16, 2026 - 05:12 UTC Update The malicious spam activity against rubygems.org has stopped. The bot accoun…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-06b423d9e8e3",
+   "title": "An update on the May spam-publishing campaign on rubygems.org",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+   "description": "Following reporting by The Wall Street Journal and the publication of research by Nightingale Collective, we want to clarify what we know about the spam-publishing campaign on rubygems.org in May 202…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-01eee6dab241",
+   "title": "New packages identified in GemStuffer 'OpenAI Swarm' malicious RubyGems campaign",
+   "date": "2026-10-31",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://research.jfrog.com/post/gemstuffer-openai-rubygems/",
+   "description": "JFrog Security Research is actively monitoring the recent GemStuffer incident, and using our extensive Catalog of RubyGems artifacts, managed to identify 3,022 campaign-associated RubyGems packages,…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
    ]
   },
   {
