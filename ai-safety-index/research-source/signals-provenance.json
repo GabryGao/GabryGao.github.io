@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-11-01T06:06:22Z",
-  "status": "current",
+  "generated_on": "2026-11-01T13:25:32Z",
+  "status": "partial",
   "sources": [
    {
     "id": "openai",
@@ -9,19 +9,18 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "last_successful_fetch": "2026-11-01T13:25:32Z",
     "records": 194,
-    "response_sha256": "25c2a2a5cf9af5e379431611e4b7b8de040dfa36d9cfb911a81ddeb3ca05dc17"
+    "response_sha256": "29d3445f194a2f796410a768141c4990ce33a8156f16f78fe5c6e3d7b347cbc6"
    },
    {
     "id": "deepmind",
     "name": "Google DeepMind",
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
-    "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
-    "records": 12,
-    "response_sha256": "138be41eb04783c116dade2ae0ae7eddc01ab6f67e894726ca423f4b575eb484"
+    "status": "failed",
+    "error": "ParseError",
+    "last_successful_fetch": "2026-11-01T06:06:22Z"
    },
    {
     "id": "uk-aisi",
@@ -29,7 +28,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "last_successful_fetch": "2026-11-01T13:25:32Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +38,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "last_successful_fetch": "2026-11-01T13:25:32Z",
     "records": 94,
     "response_sha256": "a3e9176a71a4fdb6b76e140bc6474b646ab6d6379e2e16aaa22035a55fda18ab"
    },
@@ -49,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "last_successful_fetch": "2026-11-01T13:25:32Z",
     "records": 0,
     "response_sha256": "2cab52f7d5556c7bd7739318b411c90cff636fa960d84f0b5c742e8cdea2e552"
    },
@@ -59,7 +58,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-01T06:06:22Z",
+    "last_successful_fetch": "2026-11-01T13:25:32Z",
     "records": 100,
     "response_sha256": "6e40f9f733b405cb5f9f36118ebb0536533ffc8ee8c8a78bda217279c4e0bf45"
    }
