@@ -1,11 +1,11 @@
 {
  "info": {
-  "generated_on": "2026-11-02T00:45:34Z",
+  "generated_on": "2026-11-02T11:08:50Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-02T00:45:34Z",
+  "last_successful_fetch": "2026-11-02T11:08:50Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "cc993396bfd30378399466ab43a278e5e29d30b1623a87b7a55b8952d75a391d",
+  "response_sha256": "77f02ff91e8b05a30cb48eeab6e7589cfe1531c93e1929e329073f7f85bd45cb",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
@@ -62,6 +62,24 @@
    "score": 16
   },
   {
+   "arxiv_id": "2610.40926",
+   "title": "CoFiBreak: A Coarse-to-Fine Diversity Reward for Effective Multi-Turn Jailbreak",
+   "date": "2026-10-29",
+   "authors": [
+    "Jialin Song",
+    "Xiaodong Liu",
+    "Weiwei Yang"
+   ],
+   "more_authors": true,
+   "category": "cs.CL",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 16
+  },
+  {
    "arxiv_id": "2610.39122",
    "title": "Appreciation Teaches Unauthorized Execution: Self-Evolution Degrades the Robustness of Personal Agents to Indirect Prompt Injection",
    "date": "2026-10-29",
@@ -94,22 +112,6 @@
    "score": 14
   },
   {
-   "arxiv_id": "2610.38091",
-   "title": "Jailbreak Connectivity: Towards Diverse, Transferable, and Universal Multimodal Large Language Model Jailbreak",
-   "date": "2026-10-28",
-   "authors": [
-    "Xu Zhang",
-    "Ziqing Hu",
-    "Shuo Han"
-   ],
-   "more_authors": true,
-   "category": "cs.LG",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 16
-  },
-  {
    "arxiv_id": "2610.38895",
    "title": "FlipJev: Fast Black-Box Red Teaming Finds Universal Adversarial Suffixes for Typed Decision Models",
    "date": "2026-10-28",
@@ -127,20 +129,20 @@
    "score": 16
   },
   {
-   "arxiv_id": "2610.38181",
-   "title": "Component Translation and Judge-Labelled Refusal: A Multilingual Safety Evaluation",
+   "arxiv_id": "2610.38833",
+   "title": "Discovering Jailbreaks via Curriculum of Models",
    "date": "2026-10-28",
    "authors": [
-    "Yongxi Zhou",
-    "Junwei Yao",
-    "Wenbo Ye"
+    "Michał Burzyński",
+    "Noah T. Rossi",
+    "Shomit Basu"
    ],
    "more_authors": true,
-   "category": "cs.CL",
+   "category": "cs.LG",
    "direction_ids": [
     "foundation-model"
    ],
-   "score": 14
+   "score": 13
   }
  ]
 }
