@@ -6,6 +6,7 @@
 <title data-en="All records · AI Safety Board">全部记录 · AI 安全看板</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
 .page-head{padding:28px 0 8px}
 .page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
@@ -20,15 +21,15 @@
 .field{display:flex;flex-direction:column;gap:6px}
 .field label{font-size:13px;color:var(--muted)}
 .input,.select{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:100%}
-.input::placeholder{color:#7d8982}
-.input:focus,.select:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.input::placeholder{color:var(--placeholder)}
+.input:focus,.select:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips button{font:inherit;font-size:13px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:4px;padding:5px 9px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.chips button:hover{color:var(--ink);border-color:#43504a}
-.chips button[aria-pressed="true"]{background:var(--ink);color:var(--enamel-ink);border-color:var(--ink);font-weight:600}
+.chips button:hover{color:var(--ink);border-color:var(--muted)}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink);border-color:var(--ink);font-weight:600}
 .chips button b{font-weight:600;margin-left:5px;opacity:.6}
 .check{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer}
-.check input{width:18px;height:18px;accent-color:var(--warn);margin:0}
+.check input{width:18px;height:18px;accent-color:var(--safe);margin:0}
 .reset{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:.22em;cursor:pointer;align-self:flex-start}
 .reset:hover{color:var(--ink)}
 
@@ -41,7 +42,7 @@
 .dayhead .sep{font-weight:800;font-stretch:75%;font-size:40px;line-height:1;color:var(--muted);padding-bottom:6px}
 .dayhead h2{margin:0 0 4px;font-size:15px;font-weight:600}
 .dayhead small{display:block;color:var(--muted);font-size:13px}
-.dayhead .inc{color:var(--warn)}
+.dayhead .inc{color:var(--hl)}
 .feed ol{border-top:0}
 @media (max-width:1040px){
   .layout{grid-template-columns:1fr;gap:28px}

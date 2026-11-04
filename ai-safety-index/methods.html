@@ -6,6 +6,7 @@
 <title data-en="Methods · AI Safety Board">方法与说明 · AI 安全看板</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
 .page-head{padding:28px 0 8px}
 .page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
@@ -13,8 +14,8 @@
 .sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:34px 0 12px}
 .sec-h h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:24px}
 .input{font:inherit;font-size:14px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:9px 11px;width:min(360px,100%)}
-.input::placeholder{color:#7d8982}
-.input:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.input::placeholder{color:var(--placeholder)}
+.input:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent}
 
 /* comparison boundary for the chosen direction */
 .boundary{margin:20px 0 0;background:var(--safe);color:var(--safe-ink);border-radius:6px;padding:22px 24px;position:relative;display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:12px 32px}
@@ -28,13 +29,13 @@
 .rowbtn{font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;display:flex;gap:10px;align-items:flex-start;width:100%}
 .rowbtn svg{width:12px;height:12px;flex:none;margin-top:6px;color:var(--muted);transition:transform .3s var(--ease)}
 .rowbtn[aria-expanded="true"] svg{transform:rotate(180deg);color:var(--ink)}
-.rowbtn:hover .org{color:var(--warn)}
+.rowbtn:hover .org{color:var(--hl)}
 .idl{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 .what{max-width:44ch;line-height:1.5}
 .what small{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
 .res{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;white-space:nowrap}
 .res a{color:var(--ink);font-weight:600}
-.res a:hover{color:var(--warn)}
+.res a:hover{color:var(--hl)}
 tr.more td{background:var(--rail);padding:4px 10px 20px 32px}
 tr.more dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;margin:0;max-width:900px;font-size:14px}
 tr.more dt{color:var(--muted);font-size:13px}
@@ -53,7 +54,7 @@ tr.row.open td{background:var(--rail)}
 .pipeline{list-style:none;margin:0 0 64px;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--ink)}
 .pipeline li{padding:16px 18px 18px 0;position:relative}
 .pipeline li + li{padding-left:18px;border-left:1px solid var(--line)}
-.pipeline b{display:block;font-weight:800;font-stretch:75%;font-size:40px;line-height:1;color:var(--warn);margin-bottom:8px}
+.pipeline b{display:block;font-weight:800;font-stretch:75%;font-size:40px;line-height:1;color:var(--hl);margin-bottom:8px}
 .pipeline h3{margin:0 0 4px;font-size:15px;font-weight:600}
 .pipeline p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
 @media (max-width:1040px){

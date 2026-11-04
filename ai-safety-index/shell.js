@@ -90,9 +90,31 @@
     el.innerHTML = '<div class="wrap"><a class="brand" href="index.html"><i aria-hidden="true"></i>AI Safety Index</a>'
       + '<nav class="nav" aria-label="' + T('主导航', 'Main') + '">' + PAGES.map(([href, zh, english]) => '<a href="' + href + '"' + (href === current || (inEval && href === 'results.html') ? ' aria-current="page"' : '') + '>' + T(zh, english) + '</a>').join('')
       + '</nav><form class="hsearch" action="search.html" role="search"><input type="search" name="q" value="' + esc(current === 'search.html' ? (params().get('q') || '') : '') + '" placeholder="' + T('搜索全站', 'Search the site') + '" aria-label="' + T('搜索全站', 'Search the site') + '"></form><span class="stamp">' + stamp + '</span>'
+      + '<button type="button" class="themebtn" id="themebtn"></button>'
       + '<a class="langlink" href="' + esc(other.pathname + other.search + other.hash) + '" hreflang="' + (en ? 'zh' : 'en') + '" lang="' + (en ? 'zh-CN' : 'en') + '">' + (en ? '中文' : 'EN') + '</a></div>';
+    themeButton(document.getElementById('themebtn'));
     const sub = document.getElementById('subnav');
     if (sub && inEval) sub.innerHTML = '<nav class="subnav" aria-label="' + T('基准与评测', 'Evaluation') + '">' + EVAL_PAGES.map(([href, zh, english]) => '<a href="' + href + '"' + (href === current ? ' aria-current="page"' : '') + '>' + T(zh, english) + '</a>').join('') + '</nav>';
+  }
+
+  /* lights on / off: light by default, the choice is remembered per browser */
+  const MOON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1z" fill="currentColor"/></svg>';
+  const SUN = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  function themeButton(btn) {
+    const root = document.documentElement;
+    const paint = () => {
+      const dark = root.dataset.theme === 'dark';
+      btn.innerHTML = (dark ? SUN : MOON) + '<span>' + (dark ? T('开灯', 'Lights on') : T('关灯', 'Lights off')) + '</span>';
+      btn.setAttribute('aria-pressed', String(dark));
+      btn.title = dark ? T('切换到浅色', 'Switch to light') : T('切换到深色', 'Switch to dark');
+    };
+    btn.addEventListener('click', () => {
+      const dark = root.dataset.theme !== 'dark';
+      if (dark) root.dataset.theme = 'dark'; else delete root.dataset.theme;
+      try { localStorage.setItem('asi-theme', dark ? 'dark' : 'light'); } catch {}
+      paint();
+    });
+    paint();
   }
 
   /* URL state */

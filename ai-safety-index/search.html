@@ -6,17 +6,18 @@
 <title data-en="Search · AI Safety Board">搜索 · AI 安全看板</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
 .page-head{padding:28px 0 18px}
 .page-head h1{margin:0 0 14px;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
 .big{display:flex;gap:10px;max-width:760px}
 .big input{flex:1;font:inherit;font-size:17px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:12px 14px}
-.big input:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.big input:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent}
 .summary{color:var(--muted);font-size:14px;margin:14px 0 0}
 .group{margin-top:30px}
 .group header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:8px}
 .group h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:22px}
-.group h2 b{font-weight:800;font-stretch:75%;color:var(--warn);margin-left:8px}
+.group h2 b{font-weight:800;font-stretch:75%;color:var(--hl);margin-left:8px}
 .group header a{font-size:13px;color:var(--muted)}
 .group header a:hover{color:var(--ink)}
 .hits{list-style:none;margin:0;padding:0}

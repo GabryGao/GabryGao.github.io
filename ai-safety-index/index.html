@@ -42,6 +42,7 @@
 </script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 </head>
 <body>
 <header class="bar" id="bar"></header>
@@ -52,7 +53,7 @@
   </nav>
   <section class="top">
     <div class="board" aria-labelledby="board-title">
-      <h1 id="board-title">距上一次 AI 安全事件</h1>
+      <h1 id="board-title">近期收录事件</h1>
       <div class="count" id="count" aria-live="polite"></div>
       <dl class="last" id="last"></dl>
       <div class="strip">
@@ -76,7 +77,7 @@
   <section class="score" aria-labelledby="score-title">
     <header>
       <div>
-        <h2 id="score-title" data-en="Who made safety news in the last 30 days">近 30 天谁在制造安全新闻</h2>
+        <h2 id="score-title" data-en="Organisation activity">机构相关动态</h2>
         <p class="sub" id="score-sub"></p>
       </div>
       <div class="seg" role="group" aria-label="按角色筛选" data-en-aria-label="Filter by role" id="roles">
@@ -91,7 +92,6 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p class="note" data-en="How this is counted: signals are official posts from labs, governments and research groups that match this site's safety rules, plus incident reports listed by the AI Incident Database. Organisations are matched by name, so one record can count for several. Everything is filtered automatically and unreviewed. Organisations get no overall score or grade here.">统计口径：信号包括各实验室、政府和研究机构官方发布中符合本站安全规则的内容，以及 AI Incident Database 收录的事件报道。机构按名称匹配，一条记录可以同时计入多家机构。全部为自动筛选，未经人工审核。这里不给机构打综合分或等级。</p>
   </section>
 
   <section class="reads" aria-labelledby="reads-title">
@@ -130,18 +130,19 @@
   function renderBoard() {
     const incidents = N.signals.filter(inDir).filter(isIncident).sort((a, b) => b.date.localeCompare(a.date));
     document.getElementById('board-title').textContent = state.dir === 'all'
-      ? T('距上一次 AI 安全事件', 'Since the last AI safety incident')
-      : T('距上一次「' + dirName(state.dir) + '」安全事件', 'Since the last incident in ' + dirName(state.dir));
+      ? T('近期收录事件', 'Recent incidents')
+      : T('近期收录事件 · ' + dirName(state.dir), 'Recent incidents · ' + dirName(state.dir));
     const count = document.getElementById('count'), last = document.getElementById('last');
+    const from = iso(N.days[0]);
+    const inWindow = incidents.filter(r => r.date >= from);
+    const n = inWindow.length;
+    count.innerHTML = S.plates(n, T(n + ' 起', plural(n, 'incident'))) + '<span class="unit">' + T('起', n === 1 ? 'incident' : 'incidents') + '<small>' + T('近 ' + N.span + ' 天', 'last ' + N.span + ' days') + '</small></span>';
     if (incidents.length) {
-      const top = incidents[0], n = Math.max(0, Math.round((N.today - day(top.date)) / DAY));
-      count.innerHTML = S.plates(n, T(n + ' 天', plural(n, 'day'))) + '<span class="unit">' + T('天', n === 1 ? 'day' : 'days') + '</span>';
-      last.innerHTML = '<dt>' + T('上一次事件', 'Last incident') + '</dt><dd><a href="' + esc(link(top)) + '" rel="noopener">' + esc(title(top)) + '</a></dd>'
+      const top = incidents[0];
+      last.innerHTML = '<dt>' + T('最新一条', 'Latest') + '</dt><dd><a href="' + esc(link(top)) + '" rel="noopener">' + esc(title(top)) + '</a></dd>'
         + '<dt>' + T('来源', 'Source') + '</dt><dd class="meta">' + esc(top.source) + ' · ' + esc(top.date) + '</dd>';
     } else {
-      const n = Math.round((N.today - N.firstDay) / DAY);
-      count.innerHTML = S.plates(n, T('至少 ' + n + ' 天', 'at least ' + plural(n, 'day'))) + '<span class="unit">' + T('天以上', '+ days') + '</span>';
-      last.innerHTML = '<dt>' + T('上一次事件', 'Last incident') + '</dt><dd>' + T('采集窗口（' + iso(N.firstDay) + ' 起）内这个方向没有安全事件。', 'No safety incident in this direction since collection began on ' + iso(N.firstDay) + '.') + '</dd>';
+      last.innerHTML = '<dt>' + T('最新一条', 'Latest') + '</dt><dd>' + T('这个方向暂无收录事件。', 'No incidents recorded in this direction yet.') + '</dd>';
     }
     const perDay = {};
     for (const r of incidents) (perDay[r.date] ||= []).push(r);
@@ -201,7 +202,7 @@
     const list = S.picks.filter(p => state.dir === 'all' || (p.direction_ids || []).includes(state.dir));
     const sec = document.getElementById('reads').closest('section');
     sec.hidden = !list.length;
-    document.getElementById('reads-sub').textContent = T('本站按安全关键词从 arXiv 近 7 天的新论文中自动筛选，共 ' + list.length + ' 篇，未经人工审核。', plural(list.length, 'paper') + ' picked automatically from the last 7 days of arXiv by this site\'s safety keywords; not reviewed by hand.');
+    document.getElementById('reads-sub').textContent = T('arXiv 近 7 天的安全相关新论文，共 ' + list.length + ' 篇。', plural(list.length, 'paper') + ' on AI safety from the last 7 days of arXiv.');
     document.getElementById('reads').innerHTML = S.picksHTML(list);
   }
 

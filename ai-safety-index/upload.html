@@ -6,6 +6,7 @@
 <title data-en="Submit a resource · AI Safety Board">上传资源 · AI 安全看板</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
 .page-head{padding:28px 0 8px}
 .page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
@@ -18,19 +19,19 @@ form{max-width:860px;display:grid;gap:18px;padding-bottom:64px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field > span{font-size:13px;color:var(--muted)}
-.field > span b{color:var(--warn);font-weight:600;margin-left:4px}
+.field > span b{color:var(--hl);font-weight:600;margin-left:4px}
 .input,.select,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--rail);border:1px solid var(--line);border-radius:5px;padding:10px 12px;width:100%}
 textarea{resize:vertical;min-height:120px;line-height:1.6}
-.input::placeholder,textarea::placeholder{color:#7d8982}
-.input:focus,.select:focus,textarea:focus{outline:2px solid var(--warn);outline-offset:1px;border-color:transparent}
+.input::placeholder,textarea::placeholder{color:var(--placeholder)}
+.input:focus,.select:focus,textarea:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent}
 .input:user-invalid,textarea:user-invalid{border-color:var(--alarm)}
 fieldset{border:1px solid var(--line);border-radius:6px;padding:16px 18px 18px;margin:0;display:grid;gap:16px}
 legend{padding:0 6px;font-size:13px;font-weight:600;color:var(--ink)}
 .privacy{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
 .buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .ghost{font:inherit;font-size:14px;font-weight:600;color:var(--ink);background:none;border:1px solid var(--ink);border-radius:5px;padding:9px 17px;cursor:pointer;transition:background .2s,color .2s}
-.ghost:hover{background:var(--ink);color:var(--enamel-ink)}
-.status{min-height:1.5em;margin:0;font-size:14px;color:var(--warn)}
+.ghost:hover{background:var(--ink);color:var(--on-ink)}
+.status{min-height:1.5em;margin:0;font-size:14px;color:var(--hl)}
 @media (max-width:640px){.row2{grid-template-columns:1fr}}
 </style>
 </head>
