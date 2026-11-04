@@ -1,16 +1,67 @@
 {
  "info": {
-  "generated_on": "2026-11-03T23:23:54Z",
+  "generated_on": "2026-11-04T06:23:55Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-03T23:23:54Z",
+  "last_successful_fetch": "2026-11-04T06:23:55Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "c8d1c525def6b478ba5c519a6b6b1effbf64fdb8b0f8b9d97232ca66b3b0b4d4",
+  "response_sha256": "435da39cf7ac9cff1e63d4f55e54e5501ecd3490a7453c178d0e8ee208bcfbed",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.04717",
+   "title": "BrainwashedLLM: Jailbreaking via Automated Adversarial Chain of Thoughts Discovery",
+   "date": "2026-11-03",
+   "authors": [
+    "Masoud Poorghaffar Aghdam",
+    "Göktuğ Serdar Yıldırım",
+    "Sinem Sav"
+   ],
+   "more_authors": false,
+   "category": "cs.CR",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "score": 18
+  },
+  {
+   "arxiv_id": "2611.04878",
+   "title": "TraceRouter++: Causal Semantic Routing Realignment via Optimal Transport",
+   "date": "2026-11-03",
+   "authors": [
+    "Chuancheng Shi",
+    "Shangze Li",
+    "Wenhua Wu"
+   ],
+   "more_authors": true,
+   "category": "cs.CL",
+   "direction_ids": [
+    "physical-ai",
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 15
+  },
+  {
+   "arxiv_id": "2611.04556",
+   "title": "Inter-Agent Influence: Evaluating Persuasion, Deception, and Coercion in Multi-Agent Systems",
+   "date": "2026-11-03",
+   "authors": [
+    "Chandler Smith",
+    "Qi Guo",
+    "Cecilia Elena Tilli"
+   ],
+   "more_authors": true,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 11
+  },
   {
    "arxiv_id": "2611.02516",
    "title": "Cumulative and Audited Guardrail Tool Evolution for LLM Agent Safety",
@@ -79,69 +130,21 @@
    "score": 12
   },
   {
-   "arxiv_id": "2611.02134",
-   "title": "HaloGuard 2.0: An Open-Weights Constitutional Output Guard for Multilingual Response Safety",
-   "date": "2026-11-01",
+   "arxiv_id": "2611.03575",
+   "title": "VeriHarm-Bench: Measuring Harmful Success in LLM Coding Agents Verifiably",
+   "date": "2026-11-02",
    "authors": [
-    "Ashmiya Lenin",
-    "Navaneeth Sangameswaran",
-    "Preetham S"
-   ],
-   "more_authors": false,
-   "category": "cs.CL",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 14
-  },
-  {
-   "arxiv_id": "2611.01976",
-   "title": "Beyond Prompt Injection: The Tool Update Gap in LLM Agent Security",
-   "date": "2026-11-01",
-   "authors": [
-    "Shiyu Kan",
-    "Yue Qi",
-    "Yufei Han"
+    "Wei-Lin Chen",
+    "Zhepei Wei",
+    "Xinyu Zhu"
    ],
    "more_authors": true,
-   "category": "cs.CR",
+   "category": "cs.CL",
    "direction_ids": [
     "agent-software",
     "foundation-model"
    ],
-   "score": 12
-  },
-  {
-   "arxiv_id": "2611.01700",
-   "title": "MemHarmBench: Evaluating Cross-Session Prompt Injection in Memory-Persistent AI Agents",
-   "date": "2026-11-01",
-   "authors": [
-    "Zhihua Wang",
-    "Yunhao Feng",
-    "Yifeng Gao"
-   ],
-   "more_authors": true,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software"
-   ],
    "score": 11
-  },
-  {
-   "arxiv_id": "2611.01342",
-   "title": "J-Anchor: Defending Against Prefill Attacks via J-Space Selective Refusal Restoration",
-   "date": "2026-10-31",
-   "authors": [
-    "Running Yang",
-    "Beidi Zhao",
-    "Xiaoxiao Li"
-   ],
-   "more_authors": false,
-   "category": "cs.CR",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 13
   }
  ]
 }
