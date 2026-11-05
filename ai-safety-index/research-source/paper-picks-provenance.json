@@ -1,16 +1,80 @@
 {
  "info": {
-  "generated_on": "2026-11-04T23:40:02Z",
-  "status": "stale",
-  "last_successful_fetch": "2026-11-04T17:15:23Z",
-  "error": "HTTPError",
+  "generated_on": "2026-11-05T06:47:54Z",
+  "status": "current",
+  "last_successful_fetch": "2026-11-05T06:47:54Z",
+  "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "bc40f678ece1bb442e9a1addabb6afc6a9173c2765510b030d1c88708e3987a6",
+  "response_sha256": "4ca0d7cd1cda97fa000513dba11d0a6e0ffa41a2d34a86364da3ca72c33abb63",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.06553",
+   "title": "Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in Large Language Models",
+   "date": "2026-11-04",
+   "authors": [
+    "Hamid Dashtbani",
+    "Alexandra Dmitrienko"
+   ],
+   "more_authors": false,
+   "category": "cs.AI",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "score": 20
+  },
+  {
+   "arxiv_id": "2611.06147",
+   "title": "SafeStart: Mitigating the Overlooked Safety Cost of Active Expert Reduction in MoE LLM Serving",
+   "date": "2026-11-04",
+   "authors": [
+    "Erfan Baghaei Potraghloo",
+    "Saeid Shokoufa",
+    "Seyedarmin Azizi"
+   ],
+   "more_authors": true,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 13
+  },
+  {
+   "arxiv_id": "2611.06380",
+   "title": "Does Context Compression Preserve Refusal Alignment?",
+   "date": "2026-11-04",
+   "authors": [
+    "Anthony Nguyen",
+    "Wenjun Lin"
+   ],
+   "more_authors": false,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 12
+  },
+  {
+   "arxiv_id": "2611.06412",
+   "title": "A Bag of Tricks for Defending Deep Learning-based Face Recognition Pipelines against Backdoor Attacks",
+   "date": "2026-11-04",
+   "authors": [
+    "Quentin Le Roux",
+    "Marti Jimenez",
+    "Yannick Teglia"
+   ],
+   "more_authors": true,
+   "category": "cs.CV",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "score": 12
+  },
   {
    "arxiv_id": "2611.04717",
    "title": "BrainwashedLLM: Jailbreaking via Automated Adversarial Chain of Thoughts Discovery",
@@ -63,88 +127,20 @@
    "score": 11
   },
   {
-   "arxiv_id": "2611.02516",
-   "title": "Cumulative and Audited Guardrail Tool Evolution for LLM Agent Safety",
-   "date": "2026-11-02",
+   "arxiv_id": "2611.04379",
+   "title": "Understanding Backdoor Attacks in Scene Graph Generation via Global Context Pathway",
+   "date": "2026-11-03",
    "authors": [
-    "Xiao Yang",
-    "Aishan Liu",
-    "Siyuan Liang"
+    "Xiaoguang Chang",
+    "Tuo Chen",
+    "Chengze Jiang"
    ],
    "more_authors": true,
-   "category": "cs.AI",
+   "category": "cs.CV",
    "direction_ids": [
-    "physical-ai",
-    "agent-software",
-    "foundation-model"
+    "data-privacy"
    ],
-   "score": 12
-  },
-  {
-   "arxiv_id": "2611.02791",
-   "title": "PGuard: A Native, Streaming, and Plug-in Guardrail for Multimodal Large Language Models",
-   "date": "2026-11-02",
-   "authors": [
-    "Junyu Lin",
-    "Mengjie Wu",
-    "Yonghao Dong"
-   ],
-   "more_authors": true,
-   "category": "cs.CL",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 12
-  },
-  {
-   "arxiv_id": "2611.02815",
-   "title": "Predictive Safety Guardrails Do Not Always Make LLM Agents Safer",
-   "date": "2026-11-02",
-   "authors": [
-    "Weixiang Zhao",
-    "Zhihao Liu",
-    "Guancheng Li"
-   ],
-   "more_authors": true,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 12
-  },
-  {
-   "arxiv_id": "2611.03374",
-   "title": "Characterizing When Language Models Take Harmful Actions to Protect Their Assigned Goals",
-   "date": "2026-11-02",
-   "authors": [
-    "Brandon Jaipersaud",
-    "Elliot Creager"
-   ],
-   "more_authors": false,
-   "category": "cs.LG",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 12
-  },
-  {
-   "arxiv_id": "2611.03575",
-   "title": "VeriHarm-Bench: Measuring Harmful Success in LLM Coding Agents Verifiably",
-   "date": "2026-11-02",
-   "authors": [
-    "Wei-Lin Chen",
-    "Zhepei Wei",
-    "Xinyu Zhu"
-   ],
-   "more_authors": true,
-   "category": "cs.CL",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 11
+   "score": 9
   }
  ]
 }
