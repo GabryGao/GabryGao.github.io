@@ -43,6 +43,7 @@
 </script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="home-crawler.css">
 <script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 </head>
 <body>
@@ -52,6 +53,40 @@
   <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
     <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
+
+  <section class="crawler-viz" id="crawler-viz" aria-labelledby="crawler-title">
+    <canvas id="crawler-canvas" aria-hidden="true"></canvas>
+    <header class="crawler-head">
+      <div>
+        <div class="crawler-statusline">
+          <span class="crawler-state"><i aria-hidden="true"></i><span data-en="Automatic collection">自动采集</span></span>
+          <span id="crawler-updated"></span>
+        </div>
+        <h1 id="crawler-title" data-en="Live collection network">实时采集网络</h1>
+        <p id="crawler-summary"></p>
+      </div>
+      <dl class="crawler-metrics">
+        <div><dt data-en="Sources">来源</dt><dd id="crawler-source-count">--</dd></div>
+        <div><dt data-en="Signals">信号</dt><dd id="crawler-record-count">--</dd></div>
+        <div><dt data-en="Papers">论文</dt><dd id="crawler-paper-count">--</dd></div>
+      </dl>
+    </header>
+    <a class="crawler-current" id="crawler-current" href="records.html" aria-live="polite">
+      <span class="crawler-current-meta">
+        <b id="crawler-current-kind" data-en="Safety signal">安全信号</b>
+        <span id="crawler-current-source"></span>
+        <time id="crawler-current-time"></time>
+      </span>
+      <strong id="crawler-current-title" data-en="Loading the latest collected record">正在载入最新采集记录</strong>
+      <span class="crawler-current-go" data-en="Open record →">查看记录 →</span>
+    </a>
+    <nav class="crawler-actions" aria-label="采集数据入口" data-en-aria-label="Collected data links">
+      <a href="records.html" data-en="All records">全部记录</a>
+      <a href="papers.html" data-en="Papers">论文</a>
+      <a href="research-map.html" data-en="Research map">研究地图</a>
+    </nav>
+  </section>
+
   <section class="top">
     <div class="board" aria-labelledby="board-title">
       <h1 id="board-title">近期收录事件</h1>
@@ -115,11 +150,13 @@
 <script src="paper-picks.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
+<script src="home-crawler.js"></script>
 <script>
 (() => {
   const S = Shell, N = S.news, { esc, iso, md, day, DAY, title, link, isIncident, dirName, T, en } = S;
   S.header('index.html');
   const state = { dir: S.dirParam(), role: 'all', sortKey: 'signals', order: -1, open: null };
+  const crawler = HomeCrawler.mount(document.getElementById('crawler-viz'));
   const inDir = r => state.dir === 'all' || (r.direction_ids || []).includes(state.dir);
   const dirLabel = () => state.dir === 'all' ? '' : T('（' + dirName(state.dir) + '）', ' (' + dirName(state.dir) + ')');
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
@@ -208,7 +245,7 @@
   }
 
 
-  function renderAll() { renderBoard(); renderFeed(); renderScore(); renderPapers(); }
+  function renderAll() { crawler.setDirection(state.dir); renderBoard(); renderFeed(); renderScore(); renderPapers(); }
   renderAll();
 })();
 </script>

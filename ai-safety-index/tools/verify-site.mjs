@@ -22,8 +22,10 @@ for(const page of pages){
  if(!['research-map.html','about.html'].includes(page))assert.doesNotMatch(html.replace(/<script src="[^"]*"><\/script>/g,''),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${page} mentions an aggregator source`);
 }
 
-for(const f of ['shell.js','catalog.js','i18n.js','site-data.js','research-map.js'])assert.doesNotMatch(read(f),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${f} mentions an aggregator source`);
-for(const f of ['shell.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
+for(const f of ['shell.js','catalog.js','i18n.js','site-data.js','research-map.js','home-crawler.js'])assert.doesNotMatch(read(f),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${f} mentions an aggregator source`);
+for(const f of ['shell.js','home-crawler.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
+assert.match(read('index.html'),/id="crawler-canvas"/,'home page lacks the live collection canvas');
+assert.match(read('index.html'),/src="home-crawler\.js"/,'home page does not load the collection visualisation');
 assert.match(read('shell.js'),/\['research-map\.html', '研究地图', 'Research map'\]/,'research map is missing from the global navigation');
 assert.match(read('papers.html'),/href="research-map\.html"/,'papers page lacks a research-map entry');
 assert.match(read('search.html'),/research-map-data\/library\.js/,'global search does not load the research corpus');
