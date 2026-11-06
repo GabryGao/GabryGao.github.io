@@ -43,8 +43,9 @@
 </script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
-<link rel="stylesheet" href="home-crawler.css">
+<link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="signal-web.css">
+<link rel="stylesheet" href="news.css">
 <script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 </head>
 <body>
@@ -55,56 +56,30 @@
     <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
 
-  <section class="crawler-viz" id="crawler-viz" aria-labelledby="crawler-title">
-    <canvas id="crawler-canvas" aria-hidden="true"></canvas>
-    <header class="crawler-head">
-      <div>
-        <div class="crawler-statusline">
-          <span class="crawler-state"><i aria-hidden="true"></i><span data-en="Automatic collection">自动采集</span></span>
-          <span id="crawler-updated"></span>
-        </div>
-        <h1 id="crawler-title" data-en="Live collection network">实时采集网络</h1>
-        <p id="crawler-summary"></p>
-      </div>
-      <dl class="crawler-metrics">
-        <div><dt data-en="Sources">来源</dt><dd id="crawler-source-count">--</dd></div>
-        <div><dt data-en="Signals">信号</dt><dd id="crawler-record-count">--</dd></div>
-        <div><dt data-en="Papers">论文</dt><dd id="crawler-paper-count">--</dd></div>
-      </dl>
-    </header>
-    <a class="crawler-current" id="crawler-current" href="records.html" aria-live="polite">
-      <span class="crawler-current-meta">
-        <b id="crawler-current-kind" data-en="Safety signal">安全信号</b>
-        <span id="crawler-current-source"></span>
-        <time id="crawler-current-time"></time>
-      </span>
-      <strong id="crawler-current-title" data-en="Loading the latest collected record">正在载入最新采集记录</strong>
-      <span class="crawler-current-go" data-en="Open record →">查看记录 →</span>
-    </a>
-    <nav class="crawler-actions" aria-label="采集数据入口" data-en-aria-label="Collected data links">
-      <a href="records.html" data-en="All records">全部记录</a>
-      <a href="papers.html" data-en="Papers">论文</a>
-      <a href="research-map.html" data-en="Research map">研究地图</a>
-    </nav>
+  <section class="crawl crawl-big" aria-labelledby="crawl-title">
+    <h1 class="crawl-title" id="crawl-title"><span data-en="Signal crawler">信号爬虫</span><small id="crawl-sub" data-en="Last 14 days, routed by research direction">近 14 天 · 按研究方向分流</small></h1>
+    <figure class="art">
+      <canvas id="web" aria-label="近 14 天安全信号按研究方向分流的动画" data-en-aria-label="Animation routing the last 14 days of safety signals into research directions"></canvas>
+      <div class="peek" id="peek" aria-live="polite"></div>
+      <figcaption><span style="--k:var(--warn)" data-en="Incident">安全事件</span><span style="--k:var(--safe)" data-en="Other signal">其他信号</span><span class="hint" data-en="Hover a headline for its summary · select one to open it">悬停标题看摘要 · 点击查看详情</span></figcaption>
+    </figure>
   </section>
 
-  <section class="top">
-    <div class="crawl">
-      <h2 class="crawl-title"><span data-en="Signal crawler">信号爬虫</span><small data-en="Last 14 days, routed by research direction">近 14 天 · 按研究方向分流</small></h2>
-      <figure class="art">
-        <canvas id="web" aria-label="近 14 天安全信号按研究方向分流的动画" data-en-aria-label="Animation routing the last 14 days of safety signals into research directions"></canvas>
-        <div class="peek" id="peek" aria-live="polite"></div>
-        <figcaption><span style="--k:var(--warn)" data-en="Incident">安全事件</span><span style="--k:var(--safe)" data-en="Other signal">其他信号</span><span class="hint" data-en="Hover a headline for its summary · select a box for that direction">悬停标题看摘要 · 点右侧方框看该方向</span></figcaption>
-      </figure>
-      <div hidden><h1 id="board-title"></h1><div id="count"></div><dl id="last"></dl><ol id="strip"></ol></div>
+  <section class="news" aria-label="安全动态" data-en-aria-label="Safety news">
+    <div class="news-main">
+      <article class="lead story" id="lead"></article>
+      <div class="pair" id="pair"></div>
+      <section class="log" aria-labelledby="log-title">
+        <header><h2 id="log-title" data-en="Observation log">观测日志</h2><span id="log-sub"></span></header>
+        <ol id="log"></ol>
+      </section>
     </div>
-
-    <section class="feed" aria-labelledby="feed-title">
-      <h2 id="feed-title" data-en="Latest safety signals">最新安全信号</h2>
-      <p class="sub" id="feed-sub"></p>
-      <ol id="feed"></ol>
-      <a class="all" href="records.html" data-en="See all records →">查看全部记录 →</a>
-    </section>
+    <aside class="side">
+      <header><h2 data-en="Trending">趋势</h2><span data-en="14 days · by related records">近 14 天 · 按相关记录</span></header>
+      <ol class="trend" id="trend"></ol>
+      <header><h2 data-en="Directions">研究方向</h2><span data-en="last 14 days">近 14 天</span></header>
+      <ul class="topics" id="topics"></ul>
+    </aside>
   </section>
 
   <section class="score" aria-labelledby="score-title">
@@ -147,14 +122,13 @@
 <script src="paper-picks.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
-<script src="home-crawler.js"></script>
-<script src="signal-web.js?v=6"></script>
+<script src="news.js"></script>
+<script src="signal-web.js?v=7"></script>
 <script>
 (() => {
   const S = Shell, N = S.news, { esc, iso, md, day, DAY, title, link, isIncident, dirName, T, en } = S;
   S.header('index.html');
   const state = { dir: S.dirParam(), role: 'all', sortKey: 'signals', order: -1, open: null };
-  const crawler = HomeCrawler.mount(document.getElementById('crawler-viz'));
   const inDir = r => state.dir === 'all' || (r.direction_ids || []).includes(state.dir);
   const dirLabel = () => state.dir === 'all' ? '' : T('（' + dirName(state.dir) + '）', ' (' + dirName(state.dir) + ')');
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
@@ -163,39 +137,49 @@
     id => N.signals.filter(r => id === 'all' || (r.direction_ids || []).includes(id)).length,
     id => { state.dir = id; state.open = null; renderAll(); });
 
-  function renderBoard() {
-    const incidents = N.signals.filter(inDir).filter(isIncident).sort((a, b) => b.date.localeCompare(a.date));
-    document.getElementById('board-title').textContent = state.dir === 'all'
-      ? T('近期收录事件', 'Recent incidents')
-      : T('近期收录事件 · ' + dirName(state.dir), 'Recent incidents · ' + dirName(state.dir));
-    const count = document.getElementById('count'), last = document.getElementById('last');
-    const from = iso(N.days[0]);
-    const inWindow = incidents.filter(r => r.date >= from);
-    const n = inWindow.length;
-    count.innerHTML = S.plates(n, T(n + ' 起', plural(n, 'incident'))) + '<span class="unit">' + T('起', n === 1 ? 'incident' : 'incidents') + '<small>' + T('近 ' + N.span + ' 天', 'last ' + N.span + ' days') + '</small></span>';
-    if (incidents.length) {
-      const top = incidents[0];
-      last.innerHTML = '<dt>' + T('最新一条', 'Latest') + '</dt><dd><a href="' + esc(link(top)) + '" rel="noopener">' + esc(title(top)) + '</a></dd>'
-        + '<dt>' + T('来源', 'Source') + '</dt><dd class="meta">' + esc(top.source) + ' · ' + esc(top.date) + '</dd>';
+  /* editorial feed: lead story, two more, a numbered log, and a trending column */
+  const W = News;
+  const kick = (r, extra) => '<div class="kick"><b class="' + (isIncident(r) ? 'inc' : '') + '">' + esc(S.category(r)) + '</b>' + (extra || '')
+    + '<time datetime="' + esc(r.date) + '">' + md(r.date) + '</time><span>' + W.ago(r.date) + '</span></div>';
+  const meta = (r, n) => '<div class="meta"><strong>' + esc(r.source) + '</strong>'
+    + ((r.direction_ids || []).length ? '<span class="tg">' + r.direction_ids.map(d => '<span>' + esc(dirName(d)) + '</span>').join('') + '</span>' : '')
+    + (n ? '<a href="' + W.href(r) + '">' + T('⧉ ' + n + ' 条相关', '⧉ ' + n + ' related') + '</a>' : '')
+    + '<a href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + T('原文 ↗', 'Original ↗') + '</a></div>';
+  const sum = r => r.description ? '<p class="sum">' + esc(r.description) + '</p>' : '';
+  function renderNews() {
+    const from14 = iso(N.days[0]);
+    const pool = N.signals.filter(inDir);
+    const recent = pool.filter(r => r.date >= from14).sort((a, b) => b.date.localeCompare(a.date));
+    const heat = new Map(recent.map(r => [r.id, W.heat(r, N.signals)]));
+    const relN = new Map(recent.map(r => [r.id, W.related(r, N.signals, 30, 99).length]));
+    const byHeat = recent.slice().sort((a, b) => heat.get(b.id) - heat.get(a.id) || b.date.localeCompare(a.date));
+    const fresh = recent.filter(r => N.ref - day(r.date) <= 7 * DAY);
+    const lead = (fresh.length ? fresh : recent).slice().sort((a, b) => heat.get(b.id) - heat.get(a.id))[0];
+    const leadEl = document.getElementById('lead'), pairEl = document.getElementById('pair'), logEl = document.getElementById('log');
+    if (!lead) {
+      leadEl.innerHTML = '<p class="sum">' + T('这个方向近 14 天没有新信号。', 'No signals in this direction in the last 14 days.') + '</p>';
+      pairEl.innerHTML = logEl.innerHTML = document.getElementById('trend').innerHTML = '';
+      document.getElementById('log-sub').textContent = '';
     } else {
-      last.innerHTML = '<dt>' + T('最新一条', 'Latest') + '</dt><dd>' + T('这个方向暂无收录事件。', 'No incidents recorded in this direction yet.') + '</dd>';
+      leadEl.innerHTML = kick(lead, '<span>' + T('头条', 'Lead') + '</span>') + '<a class="ttl" href="' + W.href(lead) + '">' + esc(title(lead)) + '</a>' + sum(lead) + meta(lead)
+        + '<div class="more">' + (relN.get(lead.id) ? '<a href="' + W.href(lead) + '"><small>' + T('事件', 'Story') + '</small>' + T(relN.get(lead.id) + ' 条相关记录，展开完整事件 →', relN.get(lead.id) + ' related records, open the full story →') + '</a>' : '<a href="' + W.href(lead) + '"><small>' + T('详情', 'Detail') + '</small>' + T('查看详情 →', 'Open →') + '</a>')
+        + ((lead.direction_ids || [])[0] ? '<a href="directions.html?dir=' + encodeURIComponent(lead.direction_ids[0]) + '"><small>' + T('方向', 'Direction') + '</small>' + esc(dirName(lead.direction_ids[0])) + ' →</a>' : '') + '</div>';
+      const pair = recent.filter(r => r.id !== lead.id).slice(0, 2);
+      pairEl.innerHTML = pair.map(r => '<article class="story">' + kick(r) + '<a class="ttl" href="' + W.href(r) + '">' + esc(title(r)) + '</a>' + sum(r) + meta(r, relN.get(r.id)) + '</article>').join('');
+      const shown = new Set([lead.id, ...pair.map(r => r.id)]);
+      const log = recent.filter(r => !shown.has(r.id));
+      document.getElementById('log-sub').textContent = T(log.length + ' 条 · 按时间倒序', log.length + ' · newest first');
+      logEl.innerHTML = log.map((r, k) => '<li class="logrow"><span class="no">' + String(k + 4).padStart(2, '0') + '</span><div>'
+        + '<div class="hd"><b class="' + (isIncident(r) ? 'inc' : '') + '">' + esc(S.category(r)) + '</b><a class="ttl" href="' + W.href(r) + '">' + esc(title(r)) + '</a></div>'
+        + sum(r) + meta(r, relN.get(r.id)) + '</div></li>').join('') || '<li class="empty">' + T('没有更多记录。', 'Nothing more.') + '</li>';
+      document.getElementById('trend').innerHTML = byHeat.slice(0, 8).map((r, k) => '<li><span class="rk">' + String(k + 1).padStart(2, '0') + '</span><div>'
+        + '<a class="ttl" href="' + W.href(r) + '">' + esc(title(r)) + '</a>' + sum(r)
+        + '<div class="meta"><strong>' + (relN.get(r.id) ? T(relN.get(r.id) + ' 条相关', relN.get(r.id) + ' related') : esc(S.category(r))) + '</strong><span>' + md(r.date) + '</span></div></div></li>').join('');
     }
-    const perDay = {};
-    for (const r of incidents) (perDay[r.date] ||= []).push(r);
-    const strip = document.getElementById('strip');
-    strip.style.setProperty('--days', N.span);
-    strip.innerHTML = S.stripHTML(perDay);
+    const all14 = N.signals.filter(r => r.date >= from14);
+    document.getElementById('topics').innerHTML = S.DIRS.map(([d]) => [d, all14.filter(r => (r.direction_ids || []).includes(d)).length])
+      .sort((a, b) => b[1] - a[1]).map(([d, n]) => '<li><a href="directions.html?dir=' + encodeURIComponent(d) + '">' + esc(dirName(d)) + '<span>' + T(n + ' 条', n + '') + '</span></a></li>').join('');
   }
-
-  const feed = document.getElementById('feed');
-  S.bindItems(feed, state);
-  function renderFeed() {
-    const recent = N.signals.filter(inDir).filter(r => N.ref - day(r.date) <= 7 * DAY);
-    const top = recent.slice().sort((a, b) => b.date.localeCompare(a.date) || (isIncident(a) ? 0 : 1) - (isIncident(b) ? 0 : 1)).slice(0, 6);
-    document.getElementById('feed-sub').textContent = T('近 7 天共 ' + recent.length + ' 条，按日期排列，点击展开摘要', plural(recent.length, 'record') + ' in the last 7 days, newest first. Select one for its summary.');
-    feed.innerHTML = top.length ? top.map(r => S.itemHTML(r, state.open === r.id)).join('') : '<li class="empty">' + T('这个方向近 7 天没有新信号。', 'No new signals in this direction in the last 7 days.') + '</li>';
-  }
-
   const EVALUATORS = new Set(['uk-aisi', 'metr', 'nist']);
   const COLS = [
     { k: 'name', label: T('机构', 'Organisation') }, { k: 'signals', label: T('信号', 'Signals'), num: true }, { k: 'incidents', label: T('其中安全事件', 'Incidents'), num: true },
@@ -226,7 +210,7 @@
       return '<tr><td><div class="org">' + esc(o.name) + '</div><div class="role">' + (o.role === 'lab' ? T('模型公司', 'AI developer') : T('评测与研究机构', 'Evaluator or researcher')) + '</div></td>'
         + '<td class="num">' + o.signals + '</td><td class="num' + (o.incidents ? '' : ' zero') + '">' + o.incidents + '</td>'
         + '<td><div class="week" style="--days:' + N.span + '">' + bars + '</div></td>'
-        + '<td class="latest">' + (l ? '<a href="' + esc(link(l)) + '" rel="noopener">' + esc(title(l)) + '</a><small>' + esc(l.source) + ' · ' + md(l.date) + '</small>' : '') + '</td></tr>';
+        + '<td class="latest">' + (l ? '<a href="' + News.href(l) + '">' + esc(title(l)) + '</a><small>' + esc(l.source) + ' · ' + md(l.date) + '</small>' : '') + '</td></tr>';
     }).join('') : '<tr><td class="empty" colspan="5">' + T('这个范围内近 30 天没有标注机构的记录。', 'No records tagged with an organisation in this scope in the last 30 days.') + '</td></tr>';
     const n = N.recent.filter(inDir).length, from = N.since30 > S.iso(N.firstDay) ? N.since30 : S.iso(N.firstDay);
     document.getElementById('score-sub').textContent = T('统计 ' + from + ' 至 ' + iso(N.lastCollected) + ' 采集的 ' + n + ' 条记录' + dirLabel() + '，点击表头排序',
@@ -244,9 +228,10 @@
 
 
   /* signal crawler: the last 14 days of signals, routed into research directions */
-  (() => {
+  const web = (() => {
     const from14 = iso(N.days[0]);
-    const RECS = N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length)
+    let RECS = [];
+    const recs = () => N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length).filter(inDir)
       .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 48).reverse()
       .map(r => ({ r, inc: isIncident(r) }));
     const peek = document.getElementById('peek');
@@ -258,15 +243,22 @@
       const { r, inc } = RECS[i], desc = r.description || '';
       peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
         + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + (i + 1) + ' / ' + RECS.length + '</span></div>'
-        + '<h3><a href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + esc(title(r)) + '</a></h3>'
+        + '<h3><a href="' + News.href(r) + '">' + esc(title(r)) + '</a></h3>'
         + (desc ? '<p>' + esc(desc) + '</p>' : '');
     }
-    if (!RECS.length || !window.mountSignalWeb) { document.querySelector('.crawl').hidden = true; return; }
-    window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, onFocus: show });
+    RECS = recs();
+    if (!window.mountSignalWeb) { document.querySelector('.crawl').hidden = true; return { update() {} }; }
+    const api = window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, href: News.href, onFocus: show });
     show(RECS.length - 1);
+    return {
+      update() {
+        RECS = recs(); api.setRecords(RECS); shownAt = 0; show(RECS.length - 1);
+        document.getElementById('crawl-sub').textContent = state.dir === 'all' ? T('近 14 天 · 按研究方向分流', 'Last 14 days, routed by research direction')
+          : T('近 14 天 · ' + dirName(state.dir) + ' · ' + RECS.length + ' 条', 'Last 14 days · ' + dirName(state.dir) + ' · ' + RECS.length);
+      }
+    };
   })();
-
-  function renderAll() { crawler.setDirection(state.dir); renderBoard(); renderFeed(); renderScore(); renderPapers(); }
+  function renderAll() { web.update(); renderNews(); renderScore(); renderPapers(); }
   renderAll();
 })();
 </script>

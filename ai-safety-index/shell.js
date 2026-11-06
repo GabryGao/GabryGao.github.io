@@ -178,7 +178,7 @@
       + '<div class="detail" id="' + esc(did) + '"' + (open ? '' : ' hidden') + '>'
       + (summary ? '<p lang="' + (CJK.test(summary) ? 'zh-CN' : 'en') + '">' + esc(summary) + note + (en && CJK.test(summary) ? ' <span class="zh-only">Chinese only</span>' : '') + '</p>' : '')
       + '<div class="terms">' + (r.direction_ids || []).map(id => '<span class="tag">' + esc(dirName(id)) + '</span>').join('') + (r.orgs || []).map(o => '<span class="tag">' + esc(orgName(o)) + '</span>').join('') + '</div>'
-      + '<div class="go"><a href="' + esc(link(r)) + '" rel="noopener">' + T('阅读原文', 'Read the source') + ' ↗</a></div></div></li>';
+      + '<div class="go"><a href="signal.html?id=' + encodeURIComponent(r.id) + '">' + T('查看详情', 'Open detail') + ' →</a><a href="' + esc(link(r)) + '" rel="noopener">' + T('阅读原文', 'Read the source') + ' ↗</a></div></div></li>';
   }
   /* one open item per container; state.open keeps it across re-renders */
   function bindItems(container, state) {

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Signal · AI Safety Index">信号 · AI Safety Index</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="news.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap" id="main"></main>
+<script src="signals-feed.js"></script>
+<script src="paper-picks.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script src="news.js"></script>
+<script>
+(() => {
+  const S = Shell, N = S.news, W = News, { esc, T, title, link, isIncident, dirName, orgName, category } = S;
+  S.header('records.html');
+  const main = document.getElementById('main');
+  const id = S.params().get('id') || '';
+  const r = N.signals.find(x => x.id === id);
+  if (!r) {
+    main.innerHTML = '<div class="sig-missing"><h1>' + T('没有找到这条记录', 'Record not found') + '</h1><p class="sub">'
+      + T('编号 ' + esc(id) + ' 不在当前的数据里，可能已经超出保留期。', 'ID ' + esc(id) + ' is not in the current data; it may have aged out.')
+      + '</p><p><a href="records.html">' + T('查看全部记录 →', 'See all records →') + '</a></p></div>';
+    return;
+  }
+  document.title = title(r) + ' · AI Safety Index';
+  const rel = W.related(r, N.signals, 30, 12);
+  const line = [r, ...rel].sort((a, b) => a.date.localeCompare(b.date) || (a.id === r.id ? 1 : -1)).slice(-10);
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+  const kick = x => '<div class="kick"><b class="' + (isIncident(x) ? 'inc' : '') + '">' + esc(category(x)) + '</b><span>' + esc(x.source) + '</span><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time></div>';
+  const desc = r.description || '';
+  const back = document.referrer && new URL(document.referrer, location.href).origin === location.origin ? 'javascript:history.back()' : 'index.html';
+
+  main.innerHTML = '<div class="sig-page"><div>'
+    + '<div class="sig-banner">'
+    + '<span class="rel">' + (rel.length ? T(rel.length + ' 条相关', rel.length + ' related') : T('暂无相关', 'No related')) + '</span>'
+    + '<h1>' + esc(title(r)) + '</h1>'
+    + '<a class="orig" href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + T('原文 ↗', 'Original ↗') + '</a>'
+    + '<a class="x" href="' + back + '" aria-label="' + T('返回', 'Back') + '">×</a></div>'
+
+    + '<section class="sig-sec"><h2>' + T('内容摘要', 'SUMMARY') + '</h2>'
+    + (desc ? '<p class="body" lang="' + (S.CJK.test(desc) ? 'zh-CN' : 'en') + '">' + esc(desc) + '</p>'
+            : '<p class="body empty">' + T('来源没有提供摘要，请查看原文。', 'The source gave no summary; see the original.') + '</p>')
+    + '</section>'
+
+    + '<section class="sig-sec"><h2>' + T('关键信息', 'KEY FACTS') + '</h2><dl class="facts2">'
+    + '<dt>' + T('类别', 'Type') + '</dt><dd>' + esc(category(r)) + '</dd>'
+    + '<dt>' + T('来源', 'Source') + '</dt><dd>' + esc(r.source) + (host(link(r)) ? ' · <a href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + esc(host(link(r))) + '</a>' : '') + '</dd>'
+    + '<dt>' + T('日期', 'Date') + '</dt><dd>' + esc(r.date) + ' · ' + W.ago(r.date) + '</dd>'
+    + ((r.direction_ids || []).length ? '<dt>' + T('研究方向', 'Research direction') + '</dt><dd>' + r.direction_ids.map(d => '<a class="tag" href="directions.html?dir=' + encodeURIComponent(d) + '">' + esc(dirName(d)) + '</a>').join('') + '</dd>' : '')
+    + ((r.orgs || []).length ? '<dt>' + T('涉及机构', 'Organisations') + '</dt><dd>' + r.orgs.map(o => '<span class="tag">' + esc(orgName(o)) + '</span>').join('') + '</dd>' : '')
+    + '</dl></section>'
+
+    + '<section class="sig-sec"><h2>' + T('相关记录', 'RELATED') + '</h2>'
+    + (rel.length ? '<ol class="rel-list">' + rel.map(x => '<li>' + kick(x) + '<a class="ttl" href="' + W.href(x) + '">' + esc(title(x)) + '</a>'
+        + (x.description ? '<p class="sum">' + esc(x.description) + '</p>' : '') + '</li>').join('') + '</ol>'
+        : '<p class="body empty">' + T('前后 30 天内没有找到相关记录。', 'Nothing related within 30 days either side.') + '</p>')
+    + '</section></div>'
+
+    + '<aside class="tl"><h2>' + T('事件线', 'Timeline') + '</h2><ol>'
+    + line.map(x => '<li class="' + (x.id === r.id ? 'now' : '') + '"><small>' + esc(x.date.slice(5)) + ' · ' + esc(x.source) + (x.id === r.id ? ' · <b>' + T('当前', 'current') + '</b>' : '') + '</small>'
+        + '<a href="' + W.href(x) + '">' + esc(title(x)) + '</a></li>').join('')
+    + '</ol></aside></div>';
+})();
+</script>
+</body>
+</html>

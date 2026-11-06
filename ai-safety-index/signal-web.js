@@ -5,7 +5,8 @@
   'use strict';
 
   function mountSignalWeb(cv, opts) {
-    const { records, dirs, dirName, T, onFocus } = opts;
+    let { records } = opts;
+    const { dirs, dirName, T, onFocus } = opts;
     const ctx = cv.getContext('2d');
     const still = false; // always animated, by request
     let W = 0, H = 0, C = {}, frame = 0;
@@ -28,14 +29,14 @@
 
     function layout() {
       const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
-      W = r.width; H = Math.round(W * 0.82);
+      W = r.width; H = Math.round(W < 900 ? W * 0.82 : Math.max(520, Math.min(640, W * 0.5))); // a wide hero stays a sensible height
       cv.style.height = H + 'px'; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const narrow = W < 520;
-      L.listW = W * (narrow ? 0.44 : 0.4);
+      L.listW = W * (narrow ? 0.44 : W > 1000 ? 0.36 : 0.4);
       L.rowH = narrow ? 20 : 22;
-      L.boxX = W * (narrow ? 0.7 : 0.73); L.boxW = W - L.boxX;
+      L.boxX = W * (narrow ? 0.7 : W > 1000 ? 0.79 : 0.73); L.boxW = W - L.boxX;
       L.gap = 8; L.boxH = (H - L.gap * (dirs.length - 1)) / dirs.length;
-      L.cx = -W * 0.32; L.cy = H / 2; L.R = W * 0.9;
+      L.cx = W > 1000 ? W * 0.05 : -W * 0.32; L.cy = H / 2; L.R = W > 1000 ? W * 0.6 : W * 0.9;
       L.a0 = Math.asin((-H / 2 + 14) / L.R); L.a1 = Math.asin((H / 2 - 14) / L.R);
       spokes = Array.from({ length: 96 }, (_, i) => ({ a: L.a0 + (L.a1 - L.a0) * (i + 0.5) / 96, len: 0, color: null }));
     }
@@ -296,7 +297,7 @@
     cv.addEventListener('pointerleave', () => { pinned = -1; hoverBox = -1; if (still) draw(1); });
     cv.addEventListener('click', e => {
       const h = hit(e); if (!h) return;
-      if (h.row != null) { if (e.pointerType === 'touch') { pinned = h.row; onFocus(h.row); } else window.open(opts.link(records[h.row].r), '_blank', 'noopener'); }
+      if (h.row != null) { if (e.pointerType === 'touch' && pinned !== h.row) { pinned = h.row; onFocus(h.row); } else location.href = opts.href ? opts.href(records[h.row].r) : opts.link(records[h.row].r); }
       else location.href = 'directions.html?dir=' + encodeURIComponent(dirs[h.box]);
     });
 
@@ -309,6 +310,7 @@
     draw(performance.now(), true); requestAnimationFrame(draw);
 
     return {
+      setRecords(next) { records = next; reset(); pinned = -1; scroll = 0; routes = []; startAt = 0; },
       focusPoint(i) { // where the card should sit for record i
         const y = Math.max(0, Math.min(H, rowY(i)));
         return { x: L.listW * 0.15, y: y + L.rowH, below: y < H * 0.55, W, H };
