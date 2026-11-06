@@ -1,0 +1,19 @@
+/* signal crawler, in place of the recent-incidents board */
+.crawl{min-width:0}
+.crawl-title{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 10px;font-weight:800;font-stretch:75%;font-size:clamp(26px,2.4vw,34px);line-height:1.1}
+.crawl-title small{font-weight:400;font-stretch:100%;font-size:13px;color:var(--muted)}
+.crawl .art{margin:0;width:100%}
+.crawl .art canvas{width:100%;display:block;touch-action:pan-y}
+.crawl .peek{border-top:2px solid var(--ink);padding:12px 0 0;min-height:118px;margin-top:6px}
+.crawl .peek .k{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.crawl .peek .k b{font-weight:700;font-size:11px;border-radius:3px;padding:1px 6px;color:#171b19;background:var(--warn)}
+.crawl .peek .k b.sig{background:var(--safe);color:#fff}
+.crawl .peek .k .n{margin-left:auto;font-variant-numeric:tabular-nums}
+.crawl .peek h3{margin:0 0 6px;font-size:15px;line-height:1.35;font-weight:700}
+.crawl .peek h3 a{color:inherit;text-decoration:none}
+.crawl .peek h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.crawl .peek p{margin:0;font-size:13px;line-height:1.55;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.crawl figcaption{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px}
+.crawl figcaption span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--k)}
+.crawl figcaption .hint{margin-left:auto}
+.crawl figcaption .hint::before{display:none}

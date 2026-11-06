@@ -44,6 +44,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="shell.css">
 <link rel="stylesheet" href="home-crawler.css">
+<link rel="stylesheet" href="signal-web.css">
 <script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 </head>
 <body>
@@ -88,18 +89,14 @@
   </section>
 
   <section class="top">
-    <div class="board" aria-labelledby="board-title">
-      <h1 id="board-title">近期收录事件</h1>
-      <div class="count" id="count" aria-live="polite"></div>
-      <dl class="last" id="last"></dl>
-      <div class="strip">
-        <ol id="strip"></ol>
-        <div class="legend">
-          <span style="--k:var(--warn)" data-en="Safety incident that day">有安全事件</span>
-          <span style="--k:rgba(233,246,238,.35)" data-en="No incident">无事件</span>
-          <span style="--k:repeating-linear-gradient(135deg,rgba(233,246,238,.4) 0 3px,transparent 3px 6px)" data-en="Not collected yet">尚未采集</span>
-        </div>
-      </div>
+    <div class="crawl">
+      <h2 class="crawl-title"><span data-en="Signal crawler">信号爬虫</span><small data-en="Last 14 days, routed by research direction">近 14 天 · 按研究方向分流</small></h2>
+      <figure class="art">
+        <canvas id="web" aria-label="近 14 天安全信号按研究方向分流的动画" data-en-aria-label="Animation routing the last 14 days of safety signals into research directions"></canvas>
+        <div class="peek" id="peek" aria-live="polite"></div>
+        <figcaption><span style="--k:var(--warn)" data-en="Incident">安全事件</span><span style="--k:var(--safe)" data-en="Other signal">其他信号</span><span class="hint" data-en="Hover a headline for its summary · select a box for that direction">悬停标题看摘要 · 点右侧方框看该方向</span></figcaption>
+      </figure>
+      <div hidden><h1 id="board-title"></h1><div id="count"></div><dl id="last"></dl><ol id="strip"></ol></div>
     </div>
 
     <section class="feed" aria-labelledby="feed-title">
@@ -151,6 +148,7 @@
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script src="home-crawler.js"></script>
+<script src="signal-web.js?v=6"></script>
 <script>
 (() => {
   const S = Shell, N = S.news, { esc, iso, md, day, DAY, title, link, isIncident, dirName, T, en } = S;
@@ -244,6 +242,29 @@
     document.getElementById('reads').innerHTML = S.picksHTML(list);
   }
 
+
+  /* signal crawler: the last 14 days of signals, routed into research directions */
+  (() => {
+    const from14 = iso(N.days[0]);
+    const RECS = N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length)
+      .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 48).reverse()
+      .map(r => ({ r, inc: isIncident(r) }));
+    const peek = document.getElementById('peek');
+    let shownAt = 0;
+    function show(i, auto) {
+      if (!RECS[i]) return;
+      if (auto && performance.now() - shownAt < 1100) return; // fast animation, readable card
+      shownAt = performance.now();
+      const { r, inc } = RECS[i], desc = r.description || '';
+      peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
+        + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + (i + 1) + ' / ' + RECS.length + '</span></div>'
+        + '<h3><a href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + esc(title(r)) + '</a></h3>'
+        + (desc ? '<p>' + esc(desc) + '</p>' : '');
+    }
+    if (!RECS.length || !window.mountSignalWeb) { document.querySelector('.crawl').hidden = true; return; }
+    window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, onFocus: show });
+    show(RECS.length - 1);
+  })();
 
   function renderAll() { crawler.setDirection(state.dir); renderBoard(); renderFeed(); renderScore(); renderPapers(); }
   renderAll();
