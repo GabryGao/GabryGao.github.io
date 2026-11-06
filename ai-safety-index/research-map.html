@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Research map · AI Safety Board">研究地图 · AI 安全看板</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="research-map.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap research-page">
+  <div class="research-head">
+    <div>
+      <p class="eyebrow" data-en="RESEARCH CORPUS">论文资料库</p>
+      <h1 data-en="Research map">研究地图</h1>
+      <p data-en="Browse published and accepted AI-safety research by question, evidence depth and curated citation relationships.">按研究问题、证据深度和经过记录的引用关系浏览 AI 安全论文。</p>
+    </div>
+    <dl class="research-stats" id="research-stats"></dl>
+  </div>
+
+  <nav class="research-tabs" aria-label="研究地图视图" data-en-aria-label="Research map views">
+    <button type="button" data-view="topics" data-en="Topics">研究主题</button>
+    <button type="button" data-view="citations" data-en="Citation map">引用图</button>
+    <button type="button" data-view="library" data-en="Paper library">论文库</button>
+  </nav>
+
+  <div id="research-panel" aria-live="polite"></div>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="papers.html" data-en="Papers">论文</a>
+    <a href="research-map-data/methodology-2026-11-02.pdf" data-en="Classification and evidence notes">分类与证据说明</a>
+    <span data-en="Base corpus: user-supplied Safety Research Index. Supplements are checked against arXiv and official ICSE, FSE, ASE and ISSTA pages; AI Safety HOT is used only as a discovery source.">基础论文集来自用户提供的 Safety Research Index；补充记录回查 arXiv 与 ICSE、FSE、ASE、ISSTA 官方页面，AI Safety HOT 仅作发现入口。</span>
+  </div>
+</footer>
+
+<script src="signals-feed.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script src="research-map-data/bootstrap.js"></script>
+<script src="research-map-data/library.js"></script>
+<script src="research-map-data/supplement.js"></script>
+<script src="research-map-labels.js"></script>
+<script src="research-map.js"></script>
+</body>
+</html>

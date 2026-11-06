@@ -50,6 +50,10 @@ mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1
 <script src="site-data.js"></script>
 <script>var paperRecords = [];</script>
 <script src="opentai-papers.js"></script>
+<script src="research-map-data/bootstrap.js"></script>
+<script src="research-map-data/library.js"></script>
+<script src="research-map-data/supplement.js"></script>
+<script src="research-map-labels.js"></script>
 <script src="i18n.js"></script>
 <script src="catalog.js"></script>
 <script src="shell.js"></script>
@@ -67,6 +71,13 @@ mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1
   if (!words.length) { document.getElementById('summary').textContent = T('输入关键词后按回车。', 'Type a keyword and press Enter.'); return; }
 
   const I = ConceptI18n;
+  const researchPapers = [
+    ...(Array.isArray(window.NAV_LIBRARY) ? window.NAV_LIBRARY : []),
+    ...(Array.isArray(window.NAV_SUPPLEMENT) ? window.NAV_SUPPLEMENT : [])
+  ];
+  const researchTopics = new Map(((window.NAV_BOOTSTRAP || {}).topics || []).map(topic => [String(topic.id), topic]));
+  const researchLabels = window.ResearchMapLabels || {};
+  const researchTopic = id => { const topic = researchTopics.get(String(id)); return en ? (researchLabels[id]?.title || topic?.title || topic?.name || id) : (topic ? (topic.title || topic.name || id) : id); };
   const groups = [
     { title: T('研究方向', 'Directions'), more: null, items: researchDirections.filter(d => hit([d.name, d.en, d.short, d.question, d.description, ...d.children, site(d.question), site(d.description)]))
         .map(d => ({ href: 'directions.html?dir=' + d.id, title: dirName(d.id), sub: site(d.question) })) },
@@ -78,6 +89,8 @@ mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1
         .map(r => ({ href: 'detail.html?id=' + r.id, title: tx('NAME', r.name), sub: tx('METHOD', K.toolCopy(r).purpose) })) },
     { title: T('数据与任务', 'Data and tasks'), more: null, items: (K.data.datasets || []).filter(x => hit([x.name, x.description, x.source, x.kind, site(x.description)]))
         .map(x => ({ href: x.url, title: site(x.name), sub: site(x.kind) + ' · ' + x.source, ext: true })) },
+    { title: T('研究论文集', 'Research corpus'), more: 'research-map.html?view=library&q=', items: researchPapers.filter(p => hit([p.id, p.title, (p.authors || []).join(' '), p.venue, p.publicationStatus, p.classificationStatus, ...(p.topics || []).flatMap(id => [id, researchTopic(id), researchLabels[id]?.summary]), ...(p.keywords || [])]))
+        .map(p => ({ href: 'research-map.html?view=paper&paper=' + encodeURIComponent(p.id), title: p.title, sub: [p.id, p.year, p.venue, (p.topics || []).slice(0, 2).map(researchTopic).join(' / ')].filter(Boolean).join(' · ') })) },
     { title: T('论文', 'Papers'), more: 'papers.html?q=', items: K.papers().filter(p => hit([p.title, (p.authors || []).join(' '), p.description, p.venue, p.arxiv_id, I.SUBTOPIC[p.description], p.note]))
         .map(p => ({ href: p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url, title: p.title, sub: [p.year, tx('SITE', p.venue || ''), p.description ? tx('SUBTOPIC', p.description) : ''].filter(Boolean).join(' · '), ext: true })) },
     { title: T('团队成员', 'Team'), more: null, items: (K.data.team || []).filter(m => hit([m.name, m.institution, m.role, site(m.institution), site(m.role)]))

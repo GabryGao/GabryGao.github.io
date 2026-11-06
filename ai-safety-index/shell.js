@@ -80,7 +80,7 @@
 
   /* chrome */
   const EVAL_PAGES = [['results.html', '评测看板', 'Results'], ['benchmarks.html', '基准目录', 'Benchmarks'], ['methods.html', '方法与说明', 'Methods'], ['upload.html', '上传资源', 'Submit']];
-  const PAGES = [['index.html', '看板', 'Board'], ['records.html', '全部记录', 'Records'], ['directions.html', '研究方向', 'Directions'], ['results.html', '基准与评测', 'Evaluation'], ['papers.html', '论文', 'Papers'], ['about.html', '关于', 'About']];
+  const PAGES = [['index.html', '看板', 'Board'], ['records.html', '全部记录', 'Records'], ['directions.html', '研究方向', 'Directions'], ['results.html', '基准与评测', 'Evaluation'], ['papers.html', '论文', 'Papers'], ['research-map.html', '研究地图', 'Research map'], ['about.html', '关于', 'About']];
   function header(current) {
     const el = document.getElementById('bar');
     const inEval = EVAL_PAGES.some(p => p[0] === current);

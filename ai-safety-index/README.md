@@ -6,11 +6,23 @@
 
 简体中文 · [English](README.en.md) · [日本語](README.ja.md)
 
-快速入口：[看板](https://gabrygao.github.io/ai-safety-index/) · [全部记录](https://gabrygao.github.io/ai-safety-index/records.html) · [研究方向](https://gabrygao.github.io/ai-safety-index/directions.html) · [评测看板](https://gabrygao.github.io/ai-safety-index/results.html) · [基准目录](https://gabrygao.github.io/ai-safety-index/benchmarks.html) · [论文](https://gabrygao.github.io/ai-safety-index/papers.html) · [旧版](https://gabrygao.github.io/ai-safety-index/legacy.html)
+快速入口：[看板](https://gabrygao.github.io/ai-safety-index/) · [全部记录](https://gabrygao.github.io/ai-safety-index/records.html) · [研究方向](https://gabrygao.github.io/ai-safety-index/directions.html) · [评测看板](https://gabrygao.github.io/ai-safety-index/results.html) · [基准目录](https://gabrygao.github.io/ai-safety-index/benchmarks.html) · [论文](https://gabrygao.github.io/ai-safety-index/papers.html) · [研究地图](https://gabrygao.github.io/ai-safety-index/research-map.html) · [旧版](https://gabrygao.github.io/ai-safety-index/legacy.html)
+
+## 2026-11-06 Coding Agent 与软件工程顶会补充
+
+研究地图新增 56 条站内论文档案：30 条 coding-agent 安全论文由 AI Safety HOT 公开目录发现并回查 arXiv 主源，26 条来自 ICSE 2026、FSE 2026、ASE 2026 与 ISSTA 2026 官方日程。研究地图现有 3,695 条记录、110 条人工核查归类；新增“收录批次”筛选，可直接查看“软件工程顶会 2026”或“Coding Agent 安全补充”。卡片仍只进入本站详情，原始发布页、PDF、会议页面和发现入口只出现在详情中。
+
+AI Safety HOT 仅作发现来源，署名为 AI Safety HOT（https://aisafetyhot.com）；本站未复制其生成式摘要。软件工程论文的会议状态、作者和公开链接以会议官方页面为准，具体方法与结果仍按详情中的证据边界继续复核。
+
+## 2026-11-04 研究地图
+
+新增站内研究地图：导入用户提供的 Safety Research Index 论文集，包含 3,639 条论文记录、24 个研究主题、88 条人工核查归类和 39 条已记录引用边。主题卡片、论文搜索、引用图和论文详情均为本站页面；原始发布页、PDF 和代码只在详情中作为来源入口。61 个详情分片按需加载，分类与证据说明保留在 `research-map-data/methodology-2026-11-02.pdf`。
+
+论文集中的建议归类不会显示为人工核查；2027 年候选或作者自报录用记录不会显示为已完成发表。引用图是有来源定位的精选子集，不是 3,639 篇论文的完整引用网络。导入包没有附带明确许可证，因此来源说明和方法说明必须随数据保留。
 
 ## 2026-10-29 改版
 
-网站换成"AI 安全看板"：首页是"距上一次 AI 安全事件"的天数看板、最近 7 天的安全信号、按机构统计的近 30 天安全信号表和本周 arXiv 安全论文；另有全部记录、研究方向、基准与评测（评测看板、基准目录、方法与说明、上传资源）、论文、详情、全站搜索和关于页。界面为中文和英文，英文是待审稿的草稿；目录里的备注、数据获取和许可长句暂只有中文，并标注 "Chinese only"。日文和德文只保留在旧版 `legacy.html`。旧的 `#路由` 链接会自动跳到新页面。
+网站换成"AI 安全看板"：首页是"距上一次 AI 安全事件"的天数看板、最近 7 天的安全信号、按机构统计的近 30 天安全信号表和本周 arXiv 安全论文；另有全部记录、研究方向、基准与评测（评测看板、基准目录、方法与说明、上传资源）、论文、研究地图、详情、全站搜索和关于页。界面为中文和英文，英文是待审稿的草稿；目录里的备注、数据获取和许可长句暂只有中文，并标注 "Chinese only"。日文和德文只保留在旧版 `legacy.html`。旧的 `#路由` 链接会自动跳到新页面。
 
 页面共用 `shell.css`、`shell.js`、`i18n.js`、`catalog.js`；原先写在旧界面脚本里的文案、主题、工具描述、数据集、团队和手工论文已移到 `site-data.js`。检查：`node tools/verify-site.mjs`（定时任务也会运行）。设计记录见 `DESIGN.md`，产品范围见 `PRODUCT.md`。
 
@@ -22,7 +34,7 @@
 
 - 动态观察台：近 72 小时信息流、近 30 日主题信号、每日简报、来源健康状态和 JSON/CSV 导出。
 - 评测资料包：171 项已读取原始来源的资源、21 个参考入口、149 条历史候选和 291 份结果文件校验清单，分别用于基准目录与方法说明。
-- 研究资料：490 条论文记录、六大研究方向、数据与工具、全站检索和四语界面。
+- 研究资料：490 条原论文目录记录，另有 3,695 条研究地图论文记录、24 个主题、站内详情与精选引用图；全站搜索同时覆盖两套资料。
 - 评测证据：145 条已核验评测资源按 6 个研究方向、17 个评测主题、细分领域和证据形态组织；基准目录提供主题覆盖量、方向交叉覆盖和证据状态构成图，已接入结果保留模型版本、任务设置、来源、交互筛选和 CSV 导出。
 - 可维护配置：`status.json`、来源 provenance、更新脚本、验证脚本和 GitHub Actions 模板。
 

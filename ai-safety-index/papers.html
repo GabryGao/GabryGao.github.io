@@ -83,7 +83,16 @@
 .side .pt{font-family:inherit;font-weight:600;font-stretch:100%;font-size:13.5px;line-height:1.35}
 .side .pm{font-size:11.5px}
 .side .pl{display:none}
+.map-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:16px 0 22px;padding:18px 20px;border:1px solid var(--line);border-radius:6px;background:color-mix(in srgb,var(--safe) 7%,var(--ground))}
+.map-entry .eyebrow{margin:0 0 4px;color:var(--safe);font-size:11px;font-weight:700;letter-spacing:0;text-transform:uppercase}
+.map-entry h2{margin:0;font-weight:700;font-stretch:87.5%;font-size:22px;line-height:1.25}
+.map-entry p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+.map-entry .actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.map-entry .actions a{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:5px;text-decoration:none;font-size:13px;font-weight:600;background:var(--ground)}
+.map-entry .actions a:first-child{color:var(--on-ink);background:var(--ink);border-color:var(--ink)}
+.map-entry .actions a:hover{border-color:var(--hl)}
 @media (max-width:1040px){.lib{grid-template-columns:1fr}.side{position:static;max-height:none;order:-1}.side ol{max-height:320px;overflow:auto}}
+@media (max-width:720px){.map-entry{grid-template-columns:1fr}.map-entry .actions{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -94,6 +103,19 @@
     <h1 data-en="Papers">论文</h1>
     <p id="head-sub"></p>
   </div>
+  <section class="map-entry" aria-labelledby="research-map-entry-title">
+    <div>
+      <p class="eyebrow" data-en="RESEARCH CORPUS">论文资料库</p>
+      <h2 id="research-map-entry-title" data-en="3,695 AI-safety papers · 24 research topics">3,695 篇 AI 安全论文 · 24 个研究主题</h2>
+      <p data-en="110 classifications are manually verified. The corpus now includes 56 coding-agent and top software-engineering papers, each with an on-site record before original-source links.">110 条归类经过人工核查。新增 56 篇 coding-agent 与软件工程顶会论文，均先进入站内档案，再提供原始来源。</p>
+    </div>
+    <div class="actions">
+      <a href="research-map.html" data-en="Open research map">进入研究地图</a>
+      <a href="research-map.html?view=library" data-en="Search the corpus">搜索论文集</a>
+      <a href="research-map.html?view=library&amp;collection=se-top-2026" data-en="Top SE venues">软件工程顶会</a>
+      <a href="research-map.html?view=library&amp;collection=hot-coding-agent" data-en="Coding-agent safety">Coding Agent 安全</a>
+    </div>
+  </section>
   <nav class="dirs" aria-label="按研究方向筛选" data-en-aria-label="Filter by research direction">
     <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
@@ -145,6 +167,7 @@
 <footer>
   <div class="wrap">
     <a href="index.html" data-en="Back to the board">返回看板</a>
+    <a href="research-map.html" data-en="Research map">研究地图</a>
   </div>
 </footer>
 

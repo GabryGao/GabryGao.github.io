@@ -1,6 +1,10 @@
 AI Safety Index · 2026-10-29
 
-2026-10-29 改版：首页为 AI 安全看板（距上一次安全事件天数、最新安全信号、机构安全信号表、arXiv 本周安全论文），另有 records、directions、results、benchmarks、methods、upload、papers、detail、search、about 页面；中英双语。旧版保留为 legacy.html，旧 #路由 链接会跳到新页面。数据附加项在 site-data.js；检查 node tools/verify-site.mjs。以下为旧版说明。
+2026-11-06 研究地图新增 56 条站内论文档案：30 条 coding-agent 安全论文回查 arXiv，26 条来自 ICSE/FSE/ASE/ISSTA 2026 官方日程。当前共 3,695 条记录、110 条人工核查归类；新增收录批次筛选，卡片仍先进入站内详情。
+
+2026-11-04 新增 research-map.html：站内整合 3,639 条论文、24 个研究主题、88 条人工核查归类、39 条精选引用边和按需加载的论文详情。来源与方法说明保留在 research-map-data/；检查 node tools/verify-site.mjs。
+
+2026-10-29 改版：首页为 AI 安全看板（距上一次安全事件天数、最新安全信号、机构安全信号表、arXiv 本周安全论文），另有 records、directions、results、benchmarks、methods、upload、papers、research-map、detail、search、about 页面；中英双语。旧版保留为 legacy.html，旧 #路由 链接会跳到新页面。数据附加项在 site-data.js；检查 node tools/verify-site.mjs。以下为旧版说明。
 
 （旧版）AI Safety Index · 2026-10-22
 

@@ -26,6 +26,7 @@
     case 'home': break;
     case 'directions': page = 'directions.html'; break;
     case 'papers': page = 'papers.html'; break;
+    case 'map': case 'research-map': page = 'research-map.html'; out.set('view', p.get('mode') === 'citations' ? 'citations' : p.get('mode') === 'library' ? 'library' : p.get('paper') ? 'paper' : 'topics'); copy('paper'); break;
     case 'datasets': page = 'benchmarks.html'; frag = '#datasets'; break;
     case 'news': case 'watch': case 'trends': page = 'records.html'; if (p.get('content') === 'analysis') out.set('kind', 'analysis'); if (p.get('content') === 'latest') out.set('kind', 'latest'); break;
     case 'results': page = 'results.html'; copy('benchmark'); copy('task'); copy('config'); copy('metric'); break;

@@ -1,0 +1,30 @@
+AI Safety Research Index data
+
+Imported from the user-provided safety-research-index.zip package dated 2026-11-02.
+
+Included here:
+- bootstrap.js: corpus metadata, 24 research topics, selected papers and curated graph edges
+- library.js: 3,639 searchable paper metadata records
+- details/: 61 lazily loaded paper-detail chunks
+- methodology-2026-11-02.pdf: classification and evidence notes supplied with the package
+
+Supplement added on 2026-11-06:
+- supplement.js: 56 searchable records selected for coding-agent safety and software-engineering coverage
+- details/supplement.js: on-site details, source boundaries and primary-source links for those records
+- 30 records were discovered through the public AI Safety HOT coding-agent directory and checked against arXiv metadata and abstracts
+- 26 records were checked against official ICSE 2026, FSE 2026, ASE 2026 and ISSTA 2026 program pages
+
+AI Safety HOT attribution: AI Safety HOT (https://aisafetyhot.com). Its public directory was
+used only for discovery. Generated summaries from that site were not copied. Paper metadata,
+conference status and source links were checked against arXiv or official conference pages.
+
+The package did not include an explicit LICENSE file. Keep the source attribution and
+methodology link visible when publishing or redistributing this dataset. Paper titles,
+authors, venues and links remain bibliographic facts from their original publishers.
+
+Import boundary:
+- verified and suggested classifications remain visibly distinct
+- the citation graph is a curated subset, not a complete citation network
+- accepted, forthcoming and future conference entries are not presented as completed publications
+- arXiv links may be used as technical versions even when a paper has a formal venue
+- all supplement cards open an on-site record before any external publication or discovery link

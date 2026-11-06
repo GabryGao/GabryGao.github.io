@@ -63,6 +63,8 @@
 <script src="evaluation-data.js"></script>
 <script>var paperRecords = [];</script>
 <script src="opentai-papers.js"></script>
+<script src="research-map-data/bootstrap.js"></script>
+<script src="research-map-data/supplement.js"></script>
 <script src="i18n.js"></script>
 <script src="catalog.js"></script>
 <script src="shell.js"></script>
@@ -72,12 +74,16 @@
   S.header('about.html');
   const site = s => tx('SITE', s);
   document.getElementById('team').innerHTML = (K.data.team || []).map(m => '<li><b>' + esc(m.name) + '</b><span>' + esc(site(m.institution)) + '</span><span>' + esc(site(m.role)) + '</span></li>').join('');
-  const N = S.news, E = typeof EvaluationData !== 'undefined' ? EvaluationData : {}, P = typeof paperImportInfo !== 'undefined' ? paperImportInfo : {};
+  const N = S.news, E = typeof EvaluationData !== 'undefined' ? EvaluationData : {}, R = window.NAV_BOOTSTRAP || { meta: {}, topics: [] };
+  const supplement = Array.isArray(window.NAV_SUPPLEMENT) ? window.NAV_SUPPLEMENT : [];
+  const corpusTotal = Number(R.meta.totalPapers || 0) + supplement.length;
+  const verifiedTotal = Number(R.meta.manualClassifications || 0) + supplement.filter(paper => paper.classificationStatus === 'verified').length;
   const rows = [
     [T('安全动态', 'Safety signals'), T('本站每 3 小时从 OpenAI、Google DeepMind、英国 AI 安全研究所、METR、NIST 的官方发布中，按本站的安全规则自动筛选；事件来自 <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a> 收录的报道。每条都链接到原文，保留 90 天。当前 ' + N.signals.length + ' 条，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。', 'Every 3 hours this site filters official posts from OpenAI, Google DeepMind, the UK AI Security Institute, METR and NIST with its own safety rules; incidents come from reports listed by the <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a>. Each links to the original and is kept for 90 days. ' + N.signals.length + ' records from ' + iso(N.firstDay) + ' to ' + iso(N.lastCollected) + '.')],
     [T('论文精选', 'Paper picks'), T('每 3 小时用本站的安全关键词规则，从 arXiv 近 7 天的新论文中自动挑选 8 篇，未经人工审核。', 'Every 3 hours this site picks 8 papers from the last 7 days of arXiv with its own safety keyword rules; not reviewed by hand.')],
     [T('基准与工具', 'Benchmarks and tools'), T(K.resources.length + ' 条资料，逐条读取了原作者或出版方的页面，核验于 ' + K.checked + '。', K.resources.length + ' entries, each checked against the original author or publisher page on ' + K.checked + '.')],
     [T('评测结果', 'Evaluation results'), T((E.records || []).length + ' 条结果来自 ' + (E.benchmarks || []).length + ' 个基准的公开结果表，另有 HELM Safety 的历史报告。都不是本站复测。', (E.records || []).length + ' results from the published tables of ' + (E.benchmarks || []).length + ' benchmarks, plus the historical HELM Safety report. None were re-run by this site.')],
+    [T('研究论文集', 'Research corpus'), T('<a href="research-map.html">研究地图</a>共 ' + corpusTotal.toLocaleString() + ' 条、' + (R.topics || []).length + ' 个研究主题；' + verifiedTotal + ' 条归类经过人工核查，其余保留建议归类。基础数据来自用户提供的 Safety Research Index，另补充 56 条 coding-agent 与软件工程顶会论文；补充记录回查 arXiv 和会议官方页面，AI Safety HOT 仅作发现入口。<a href="research-map-data/methodology-2026-11-02.pdf">查看分类与证据说明</a>。', 'The <a href="research-map.html">research map</a> contains ' + corpusTotal.toLocaleString() + ' records across ' + (R.topics || []).length + ' topics, with ' + verifiedTotal + ' verified classifications. The user-supplied Safety Research Index is supplemented by 56 coding-agent and top software-engineering papers checked against arXiv and official conference pages; AI Safety HOT is used only for discovery. <a href="research-map-data/methodology-2026-11-02.pdf">Read the classification and evidence notes</a>.')],
     [T('论文', 'Papers'), T(K.papers().length + ' 篇论文，保留标题、作者、年份和原文链接，不复制摘要或正文。收录不代表认可论文结论。', K.papers().length + ' papers with title, authors, year and original link; no abstracts or full text are copied. Listing a paper does not endorse its claims.')]
   ];
   document.getElementById('sources').innerHTML = rows.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
