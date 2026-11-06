@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 // script parses, catalog text has English, and old #route links still reach a page.
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
-const pages=['index.html','records.html','directions.html','results.html','benchmarks.html','methods.html','upload.html','papers.html','research-map.html','detail.html','search.html','about.html'];
+const pages=['index.html','records.html','directions.html','results.html','benchmarks.html','methods.html','upload.html','papers.html','research-map.html','detail.html','signal.html','search.html','about.html'];
 const cjk=/[㐀-鿿]/;
 
 for(const page of pages){
@@ -22,10 +22,11 @@ for(const page of pages){
  if(!['research-map.html','about.html'].includes(page))assert.doesNotMatch(html.replace(/<script src="[^"]*"><\/script>/g,''),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${page} mentions an aggregator source`);
 }
 
-for(const f of ['shell.js','catalog.js','i18n.js','site-data.js','research-map.js','home-crawler.js'])assert.doesNotMatch(read(f),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${f} mentions an aggregator source`);
-for(const f of ['shell.js','home-crawler.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
-assert.match(read('index.html'),/id="crawler-canvas"/,'home page lacks the live collection canvas');
-assert.match(read('index.html'),/src="home-crawler\.js"/,'home page does not load the collection visualisation');
+for(const f of ['shell.js','catalog.js','i18n.js','site-data.js','research-map.js','home-crawler.js','signal-web.js','news.js'])assert.doesNotMatch(read(f),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${f} mentions an aggregator source`);
+for(const f of ['shell.js','home-crawler.js','signal-web.js','news.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
+assert.match(read('index.html'),/<canvas id="web"/,'home page lacks the signal crawler canvas');
+assert.match(read('index.html'),/src="signal-web\.js(\?v=\d+)?"/,'home page does not load the signal crawler');
+assert.match(read('signal.html'),/src="news\.js"/,'signal detail page does not load the news helpers');
 assert.match(read('shell.js'),/\['research-map\.html', '研究地图', 'Research map'\]/,'research map is missing from the global navigation');
 assert.match(read('papers.html'),/href="research-map\.html"/,'papers page lacks a research-map entry');
 assert.match(read('search.html'),/research-map-data\/library\.js/,'global search does not load the research corpus');
