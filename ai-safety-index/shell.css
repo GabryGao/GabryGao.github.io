@@ -21,6 +21,7 @@
   --bar:#e2a81a;
   --fill:#2f7a55;
   --fill-pos:#4fa77a;
+  --accent:#c94f27;
   --shadow:0 1px 0 rgba(255,255,255,.12) inset,0 18px 36px -24px rgba(8,60,36,.55);
   --safe:#086a41;
   --safe-deep:#054d2f;
@@ -50,6 +51,7 @@
   --bar:#f0c233;
   --fill:#f3f2ec;
   --fill-pos:#cfe8da;
+  --accent:#ff8661;
   --shadow:0 1px 0 rgba(255,255,255,.12) inset,0 24px 48px -24px rgba(0,0,0,.6);
   color-scheme:dark;
 }
@@ -267,3 +269,7 @@ footer a{color:var(--ink)}
 .hsearch input:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent;width:230px}
 @media (max-width:1040px){.hsearch{order:2}.hsearch input,.hsearch input:focus{width:150px}}
 @media (max-width:560px){.stamp{display:none}.hsearch{margin-left:auto}}
+
+/* hover: list titles warm up to the accent colour */
+.item .t,.item .heat,.plist .pt,.reads .pt,.hits a,.rows a,.latest a,.crawl .peek h3 a{transition:color .18s}
+.item:hover .t,.item:focus-visible .t,.item:hover .heat,.plist li:hover .pt,.reads li:hover .pt,.reads li:hover time,.hits li:hover a,.rows li:hover a,.latest a:hover,tr:hover .latest a,.crawl .peek h3 a:hover{color:var(--accent)}
