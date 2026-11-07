@@ -74,12 +74,12 @@ const futurePapers=researchPapers.filter(p=>Number(p.year)>2026);
 assert.equal(futurePapers.length,49,'future publication count changed');
 assert.ok(futurePapers.every(p=>String(p.publicationStatus).toLowerCase()!=='published'),'future papers must not be presented as completed publications');
 assert.ok(fs.existsSync(path.join(root,'research-map-data/methodology-2026-11-02.pdf')),'research methodology PDF is missing');
-// the site's own feeds load and carry no aggregator fields
+// public records load, use original HTTPS links, and carry no aggregator branding
 const feeds=vm.createContext({});
 vm.runInContext(read('signals-feed.js')+';this.S=siteSignals;this.I=siteSignalsInfo',feeds);
 vm.runInContext(read('paper-picks.js')+';this.P=sitePaperPicks',feeds);
 assert.ok(feeds.S.length>0,'no safety signals collected');
-for(const r of feeds.S){assert.ok(r.id&&r.title&&/^\d{4}-\d{2}-\d{2}$/.test(r.date)&&/^https:/.test(r.url),`bad signal ${r.id}`);assert.ok(['official','incident'].includes(r.kind),`bad kind ${r.id}`)}
+for(const r of feeds.S){assert.ok(r.id&&r.title&&/^\d{4}-\d{2}-\d{2}$/.test(r.date)&&/^https:/.test(r.url),`bad signal ${r.id}`);assert.ok(['official','incident','discovered'].includes(r.kind),`bad kind ${r.id}`)}
 assert.doesNotMatch(JSON.stringify(feeds.S)+JSON.stringify(feeds.P),/aisafetyhot|aihot/i,'feeds contain aggregator data');
 for(const p of feeds.P)assert.match(p.arxiv_id,/^\d{4}\.\d{4,5}$/,`bad arXiv id ${p.arxiv_id}`);
 const ctx=vm.createContext({console});

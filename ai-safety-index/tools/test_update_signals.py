@@ -1,4 +1,4 @@
-"""Behavior tests for the primary-feed signal collector (no network)."""
+"""Behavior tests for the signal collector (no network)."""
 import importlib.util
 from datetime import date
 import json
@@ -23,6 +23,35 @@ def rss(*items):
 def atom(*entries):
     body = ''.join(f'<entry><title>{t}</title><link rel="alternate" href="{l}"/><summary>{s}</summary><updated>{u}</updated></entry>' for t, l, s, u in entries)
     return f'<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><title>x</title>{body}</feed>'.encode()
+
+
+def discovery_item(**updates):
+    item = {
+        'id': 'discovered-1',
+        'title': 'Agent sandbox escape exposes customer records',
+        'summary': 'An AI security agent escaped its sandbox and exposed private data.',
+        'source': {'name': 'Example Security News'},
+        'links': {
+            'aihot': 'https://aisafetyhot.com/en/items/discovered-1',
+            'original': 'https://security.example.org/reports/agent-sandbox',
+        },
+        'publishedAt': '2026-10-28T10:00:00Z',
+        'discoveredAt': '2026-10-28T11:00:00Z',
+        'category': 'incident',
+        'kind': 'article',
+        'tags': ['Agent safety', 'privacy'],
+    }
+    item.update(updates)
+    return item
+
+
+def discovery_response(items=None, more=False, cursor=None):
+    return json.dumps({
+        'schemaVersion': 1,
+        'items': items if items is not None else [discovery_item()],
+        'paperPicks': [],
+        'page': {'count': len(items if items is not None else [1]), 'hasMore': more, 'nextCursor': cursor},
+    }).encode()
 
 
 class ParseTest(unittest.TestCase):
@@ -73,11 +102,43 @@ class ParseTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             signals.parse_feed(b'<html><body>blocked</body></html>', SOURCE['openai'], TODAY)
 
+    def test_discovery_uses_original_publisher_and_never_the_aggregator_link(self):
+        rows, cursor = signals.parse_discovery_page(discovery_response(), TODAY)
+        self.assertIsNone(cursor)
+        self.assertEqual(rows[0]['url'], 'https://security.example.org/reports/agent-sandbox')
+        self.assertEqual(rows[0]['source'], 'Example Security News')
+        self.assertEqual(rows[0]['kind'], 'incident')
+        self.assertNotIn('aihot', json.dumps(rows[0]).lower())
+
+    def test_discovery_rejects_aggregator_only_unsafe_future_and_generic_items(self):
+        rows, _ = signals.parse_discovery_page(discovery_response(items=[
+            discovery_item(id='aggregator', links={'original': 'https://aisafetyhot.com/en/items/x'}),
+            discovery_item(id='insecure', links={'original': 'http://example.org/x'}),
+            discovery_item(id='future', links={'original': 'https://example.org/future'}, publishedAt='2026-10-30T00:00:00Z'),
+            discovery_item(id='generic', links={'original': 'https://example.org/general'}, category='ai_news',
+                           title='New AI product launches', summary='A general product update.', tags=['非安全/通用AI']),
+        ]), TODAY)
+        self.assertEqual(rows, [])
+
+    def test_discovery_pagination_is_bounded_and_deduplicated(self):
+        calls = []
+        def fetch(_url):
+            calls.append(_url)
+            return discovery_response(more=True, cursor='cursor-' + str(len(calls)))
+        rows, pages, _ = signals.collect_discovery(fetch, '2026-10-29T00:00:00Z')
+        self.assertEqual(pages, signals.DISCOVERY_PAGES)
+        self.assertEqual(len(calls), signals.DISCOVERY_PAGES)
+        self.assertEqual(len(rows), 1)
+
 
 class CollectTest(unittest.TestCase):
     def feeds(self, failing=()):
         good = {s['url']: rss(('AI risk and misuse report', 'https://example.org/' + s['id'], 'x', 'Mon, 26 Oct 2026 10:00:00 GMT')) for s in signals.SOURCES}
         def fetch(url):
+            if url.startswith(signals.DISCOVERY_SOURCE['api_url']):
+                if signals.DISCOVERY_SOURCE['id'] in failing:
+                    raise OSError('down')
+                return discovery_response()
             if any(url == s['url'] for s in signals.SOURCES if s['id'] in failing):
                 raise OSError('down')
             return good[url]
@@ -97,12 +158,33 @@ class CollectTest(unittest.TestCase):
         info, first = signals.collect({}, [], self.feeds(), '2026-10-29T00:00:00Z')
         stale = [dict(r, title='stale') for r in first]
         info, rows = signals.collect(info, stale, self.feeds(), '2026-10-29T03:00:00Z')
-        self.assertEqual({r['title'] for r in rows}, {'AI risk and misuse report'})
+        self.assertNotIn('stale', {r['title'] for r in rows})
         self.assertEqual(len(rows), len(first))
 
     def test_total_failure_without_history_raises(self):
         with self.assertRaises(ValueError):
-            signals.collect({}, [], self.feeds(failing={s['id'] for s in signals.SOURCES}), '2026-10-29T00:00:00Z')
+            signals.collect({}, [], self.feeds(failing={s['id'] for s in signals.SOURCES} | {signals.DISCOVERY_SOURCE['id']}), '2026-10-29T00:00:00Z')
+
+    def test_primary_record_wins_when_discovery_finds_the_same_original_url(self):
+        duplicate = discovery_item(links={'original': 'https://example.org/openai'})
+        def fetch(url):
+            if url.startswith(signals.DISCOVERY_SOURCE['api_url']):
+                return discovery_response(items=[duplicate])
+            source = next(source for source in signals.SOURCES if source['url'] == url)
+            return rss(('AI risk and misuse report', 'https://example.org/' + source['id'], 'x', 'Mon, 26 Oct 2026 10:00:00 GMT'))
+        _, rows = signals.collect({}, [], fetch, '2026-10-29T00:00:00Z')
+        duplicate_rows = [row for row in rows if row['url'] == 'https://example.org/openai']
+        self.assertEqual(len(duplicate_rows), 1)
+        self.assertEqual(duplicate_rows[0]['source_id'], 'openai')
+
+    def test_discovery_failure_keeps_previous_discovery_rows(self):
+        info, rows = signals.collect({}, [], self.feeds(), '2026-10-29T00:00:00Z')
+        old = next(row for row in rows if row['source_id'].startswith('web-'))
+        next_info, next_rows = signals.collect(info, rows, self.feeds(failing={signals.DISCOVERY_SOURCE['id']}), '2026-10-29T00:30:00Z')
+        self.assertIn(old['id'], {row['id'] for row in next_rows})
+        source = next(item for item in next_info['sources'] if item['id'] == signals.DISCOVERY_SOURCE['id'])
+        self.assertEqual(source['status'], 'failed')
+        self.assertEqual(next_info['status'], 'partial')
 
     def test_artifacts_round_trip_and_are_script_safe(self):
         with tempfile.TemporaryDirectory() as directory:
