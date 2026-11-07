@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Paper · AI Safety Index">论文 · AI Safety Index</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="news.css">
+<script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main class="wrap" id="main"></main>
+<script src="signals-feed.js"></script>
+<script src="signals-zh.js"></script>
+<script src="paper-picks.js"></script>
+<script src="i18n.js"></script>
+<script src="shell.js"></script>
+<script src="news.js"></script>
+<script>
+(() => {
+  const S = Shell, N = S.news, W = News, { esc, T, title, dirName, category, isIncident } = S;
+  S.header('papers.html');
+  const main = document.getElementById('main');
+  const id = S.params().get('id') || '';
+  const p = S.picks.find(x => x.arxiv_id === id);
+  const abs = 'https://arxiv.org/abs/' + encodeURIComponent(id), pdf = 'https://arxiv.org/pdf/' + encodeURIComponent(id);
+  if (!p) {
+    main.innerHTML = '<div class="sig-missing"><h1>' + T('这篇论文不在本周列表里', 'This paper is not in this week\'s list') + '</h1><p class="sub">'
+      + T('arXiv ' + esc(id) + ' 可能已经超出 7 天的范围。', 'arXiv ' + esc(id) + ' may be older than the 7-day window.')
+      + '</p><p><a href="' + abs + '" target="_blank" rel="noopener">' + T('在 arXiv 上查看 ↗', 'View on arXiv ↗') + '</a> · <a href="papers.html">' + T('本周论文 →', 'This week\'s papers →') + '</a></p></div>';
+    return;
+  }
+  const t = S.paperTitle(p), text = S.paperAbstract(p), zh = S.CJK.test(text);
+  document.title = t + ' · AI Safety Index';
+  // signals in the same research direction from the fortnight around the paper
+  const as = { id: 'arxiv-' + p.arxiv_id, title: p.title, description: p.abstract || '', date: p.date, direction_ids: p.direction_ids || [] };
+  let rel = W.related(as, N.signals, 30, 6);
+  if (rel.length < 4) {
+    const dirs = (p.direction_ids || []).filter(d => d !== 'foundation-model');
+    const near = N.signals.filter(x => !rel.includes(x) && Math.abs(S.day(x.date) - S.day(p.date)) <= 14 * S.DAY
+      && (x.direction_ids || []).some(d => (dirs.length ? dirs : p.direction_ids || []).includes(d)));
+    rel = rel.concat(near.sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6 - rel.length));
+  }
+  const kick = x => '<div class="kick"><b class="' + (isIncident(x) ? 'inc' : '') + '">' + esc(category(x)) + '</b><span>' + esc(x.source) + '</span><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time></div>';
+  const back = document.referrer && new URL(document.referrer, location.href).origin === location.origin ? 'javascript:history.back()' : 'papers.html';
+  const authors = (p.authors || []).join(', ') + (p.more_authors ? T(' 等', ' et al.') : '');
+
+  main.innerHTML = '<div class="sig-page"><div>'
+    + '<div class="sig-banner">'
+    + '<span class="rel">arXiv ' + esc(p.arxiv_id) + '</span>'
+    + '<h1 lang="' + (S.CJK.test(t) ? 'zh-CN' : 'en') + '">' + esc(t) + '</h1>'
+    + '<a class="orig" href="' + abs + '" target="_blank" rel="noopener">arXiv ↗</a>'
+    + '<a class="orig" href="' + pdf + '" target="_blank" rel="noopener">PDF ↗</a>'
+    + '<a class="x" href="' + back + '" aria-label="' + T('返回', 'Back') + '">×</a></div>'
+    + (t !== p.title ? '<p class="paper-orig" lang="en">' + esc(p.title) + '</p>' : '')
+
+    + '<section class="sig-sec"><h2>' + T('论文摘要', 'ABSTRACT') + '</h2>'
+    + (text ? '<p class="body" lang="' + (zh ? 'zh-CN' : 'en') + '">' + esc(text) + '</p>'
+            : '<p class="body empty">' + T('这条记录还没有摘要，请到 arXiv 查看。', 'No abstract stored yet; see arXiv.') + '</p>')
+    + (zh && p.abstract ? '<details class="paper-en"><summary>' + T('英文原文摘要', 'Original abstract') + '</summary><p class="body" lang="en">' + esc(p.abstract) + '</p></details>' : '')
+    + '</section>'
+
+    + '<section class="sig-sec"><h2>' + T('关键信息', 'KEY FACTS') + '</h2><dl class="facts2">'
+    + (authors ? '<dt>' + T('作者', 'Authors') + '</dt><dd lang="en">' + esc(authors) + '</dd>' : '')
+    + '<dt>' + T('提交日期', 'Submitted') + '</dt><dd>' + esc(p.date) + ' · ' + W.ago(p.date) + '</dd>'
+    + (p.category ? '<dt>' + T('arXiv 分类', 'arXiv category') + '</dt><dd>' + esc(p.category) + '</dd>' : '')
+    + ((p.direction_ids || []).length ? '<dt>' + T('研究方向', 'Research direction') + '</dt><dd>' + p.direction_ids.map(d => '<a class="tag" href="directions.html?dir=' + encodeURIComponent(d) + '">' + esc(dirName(d)) + '</a>').join('') + '</dd>' : '')
+    + '<dt>' + T('链接', 'Links') + '</dt><dd><a href="' + abs + '" target="_blank" rel="noopener">arxiv.org/abs/' + esc(p.arxiv_id) + '</a> · <a href="' + pdf + '" target="_blank" rel="noopener">PDF</a></dd>'
+    + '</dl></section>'
+
+    + '<section class="sig-sec"><h2>' + T('同方向近期动态', 'RELATED SIGNALS') + '</h2>'
+    + (rel.length ? '<ol class="rel-list">' + rel.map(x => '<li>' + kick(x) + '<a class="ttl" href="' + W.href(x) + '">' + esc(title(x)) + '</a>'
+        + (S.desc(x) ? '<p class="sum">' + esc(S.desc(x)) + '</p>' : '') + '</li>').join('') + '</ol>'
+        : '<p class="body empty">' + T('前后两周没有同方向的动态。', 'No signals in this direction within two weeks.') + '</p>')
+    + '</section></div>'
+
+    + '<aside class="tl"><h2>' + T('本周论文', 'This week') + '</h2><ol>'
+    + S.picks.map(x => '<li class="' + (x.arxiv_id === p.arxiv_id ? 'now' : '') + '"><small>' + esc(x.date.slice(5)) + ' · arXiv ' + esc(x.arxiv_id) + (x.arxiv_id === p.arxiv_id ? ' · <b>' + T('当前', 'current') + '</b>' : '') + '</small>'
+        + '<a href="paper.html?id=' + encodeURIComponent(x.arxiv_id) + '">' + esc(S.paperTitle(x)) + '</a></li>').join('')
+    + '</ol></aside></div>';
+})();
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
     const still = false; // always animated, by request
     let W = 0, H = 0, C = {}, frame = 0;
     let L = {};                       // layout
-    let BAND = [-140, -95, -50, -5, 40]; // ring offsets of the web band
+    let BAND = [-140, -95, -50, -5, 40]; // ring offsets of the web band (set in layout)
     let cur = -1, startAt = 0, pinned = -1, hoverBox = -1;
     let scroll = 0, flights = [], counts = {}, flash = {}, spokes = [];
     const STEP = 170, FLY = 620;     // ms between signals, ms per flight: fast, many in the air at once
@@ -41,8 +41,12 @@
       L.a0 = Math.asin((-H / 2 + 14) / L.R); L.a1 = Math.asin((H / 2 - 14) / L.R);
       spokes = Array.from({ length: 96 }, (_, i) => ({ a: L.a0 + (L.a1 - L.a0) * (i + 0.5) / 96, len: 0, color: null }));
       // the web band: rings from the inner edge to the outer edge, wider on wide screens
-      const k = W > 1000 ? 1 : W < 520 ? 0.35 : 0.7;
-      BAND = [-140, -95, -50, -5, 40].map(v => Math.round(v * k));
+      // it spans most of the space between the list and the direction boxes
+      const m = narrow ? 14 : 36;
+      const inner = L.listW + m - L.cx - L.R, outer = L.boxX - m - 34 - L.cx - L.R;
+      const n = Math.max(3, Math.round((outer - inner) / (narrow ? 18 : 42)) + 1);
+      BAND = Array.from({ length: n }, (_, i) => Math.round(inner + (outer - inner) * i / (n - 1)));
+      L.mid = Math.round((inner + outer) / 2);
     }
 
     const arcPt = (a, dr = 0) => [L.cx + (L.R + dr) * Math.cos(a), L.cy + (L.R + dr) * Math.sin(a)];
@@ -207,7 +211,7 @@
       });
       ctx.globalAlpha = 1;
       // scanning beam along the web
-      { const [bx, by] = arcPt(scan, -40); const g = ctx.createRadialGradient(bx, by, 0, bx, by, 46);
+      { const [bx, by] = arcPt(scan, L.mid); const g = ctx.createRadialGradient(bx, by, 0, bx, by, 46);
         g.addColorStop(0, 'rgba(255,90,95,.28)'); g.addColorStop(1, 'rgba(255,90,95,0)'); ctx.fillStyle = g; ctx.fillRect(bx - 46, by - 46, 92, 92); }
       // finished routes keep a faint thread and light running along it
       for (const r of routes) {
@@ -258,7 +262,7 @@
           f.done = true; counts[f.d] = (counts[f.d] || 0) + 1; flash[f.d] = t;
           routes.push({ i: f.i, d: f.d, a: f.a, color: f.color, born: t, seed: Math.random() });
           const s = spokes.reduce((b, s) => Math.abs(s.a - f.a) < Math.abs(b.a - f.a) ? s : b);
-          s.color = f.color; s.len = Math.min(70, s.len + 22);
+          s.color = f.color; s.len = Math.min(40, s.len + 14);
         }
       }
       ctx.globalAlpha = 1;

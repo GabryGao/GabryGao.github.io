@@ -103,3 +103,8 @@
 .tl li.now a{font-weight:600}
 .sig-missing{padding:60px 0}
 @media (max-width:960px){.sig-page{grid-template-columns:1fr}.sig-banner{flex-wrap:wrap}.sig-banner h1{flex-basis:100%;order:3}.sig-banner .x{margin-left:auto}}
+.paper-orig{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.5}
+.paper-en{margin-top:14px;font-size:14px}
+.paper-en summary{cursor:pointer;color:var(--muted)}
+.paper-en summary:hover{color:var(--ink)}
+.paper-en .body{color:var(--muted)}

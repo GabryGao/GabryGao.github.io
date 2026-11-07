@@ -60,9 +60,9 @@
   const picks = (typeof sitePaperPicks !== 'undefined' ? sitePaperPicks : []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
   function picksHTML(list) {
     return list.map(p => {
-      const href = 'https://arxiv.org/abs/' + p.arxiv_id;
+      const href = 'https://arxiv.org/abs/' + p.arxiv_id, t = paperTitle(p);
       return '<li><time datetime="' + esc(p.date) + '">' + md(p.date) + '</time>'
-        + '<a class="pt" href="' + esc(href) + '" rel="noopener" lang="en">' + esc(p.title) + '</a>'
+        + '<a class="pt" href="paper.html?id=' + encodeURIComponent(p.arxiv_id) + '" lang="' + (CJK.test(t) ? 'zh-CN' : 'en') + '">' + esc(t) + '</a>'
         + '<span class="pm">arXiv ' + esc(p.arxiv_id) + ((p.direction_ids || []).length ? ' · ' + p.direction_ids.map(dirName).join(T('、', ', ')) : '') + '</span>'
         + '<span class="pl"><a href="' + esc(href) + '" rel="noopener">arXiv ↗</a></span></li>';
     }).join('');
@@ -77,6 +77,9 @@
   const ZH = typeof siteSignalsZh !== 'undefined' ? siteSignalsZh : {};
   const title = r => (!en && ZH[r.id] && ZH[r.id][0]) || r.title;
   const desc = r => (!en && ZH[r.id] && ZH[r.id][0] ? ZH[r.id][1] : r.description) || '';
+  /* papers share the translation store under 'arxiv-<id>' */
+  const paperTitle = p => (!en && ZH['arxiv-' + p.arxiv_id] && ZH['arxiv-' + p.arxiv_id][0]) || p.title;
+  const paperAbstract = p => (!en && ZH['arxiv-' + p.arxiv_id] && ZH['arxiv-' + p.arxiv_id][1]) || p.abstract || '';
   /* long catalog prose has no English yet: keep the Chinese and say so */
   const zhOnly = text => en && CJK.test(text) ? '<span lang="zh-CN">' + esc(text) + '</span> <span class="zh-only">Chinese only</span>' : esc(text);
   const link = r => r.url;
@@ -217,5 +220,5 @@
   }
 
   window.Shell = { DAY, esc, day, iso, md, chevron, arrow, DIRS, dirName, news, isIncident, category, categoryZh, CATEGORY, orgName, title, desc, link, lang, en, T, tx, zhOnly, CJK,
-    header, params, setParams, picks, picksHTML, dirParam, dirSeg, seg, plates, stripHTML, itemHTML, bindItems, sortHead };
+    header, params, setParams, picks, picksHTML, paperTitle, paperAbstract, dirParam, dirSeg, seg, plates, stripHTML, itemHTML, bindItems, sortHead };
 })();
