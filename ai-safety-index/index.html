@@ -119,11 +119,12 @@
 </footer>
 
 <script src="signals-feed.js"></script>
+<script src="signals-zh.js"></script>
 <script src="paper-picks.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script src="news.js"></script>
-<script src="signal-web.js?v=7"></script>
+<script src="signal-web.js?v=8"></script>
 <script>
 (() => {
   const S = Shell, N = S.news, { esc, iso, md, day, DAY, title, link, isIncident, dirName, T, en } = S;
@@ -145,7 +146,7 @@
     + ((r.direction_ids || []).length ? '<span class="tg">' + r.direction_ids.map(d => '<span>' + esc(dirName(d)) + '</span>').join('') + '</span>' : '')
     + (n ? '<a href="' + W.href(r) + '">' + T('⧉ ' + n + ' 条相关', '⧉ ' + n + ' related') + '</a>' : '')
     + '<a href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + T('原文 ↗', 'Original ↗') + '</a></div>';
-  const sum = r => r.description ? '<p class="sum">' + esc(r.description) + '</p>' : '';
+  const sum = r => S.desc(r) ? '<p class="sum">' + esc(S.desc(r)) + '</p>' : '';
   function renderNews() {
     const from14 = iso(N.days[0]);
     const pool = N.signals.filter(inDir);
@@ -240,7 +241,7 @@
       if (!RECS[i]) return;
       if (auto && performance.now() - shownAt < 1100) return; // fast animation, readable card
       shownAt = performance.now();
-      const { r, inc } = RECS[i], desc = r.description || '';
+      const { r, inc } = RECS[i], desc = S.desc(r);
       peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
         + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + (i + 1) + ' / ' + RECS.length + '</span></div>'
         + '<h3><a href="' + News.href(r) + '">' + esc(title(r)) + '</a></h3>'
@@ -248,7 +249,7 @@
     }
     RECS = recs();
     if (!window.mountSignalWeb) { document.querySelector('.crawl').hidden = true; return { update() {} }; }
-    const api = window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, href: News.href, onFocus: show });
+    const api = window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, titleOf: title, href: News.href, onFocus: show });
     show(RECS.length - 1);
     return {
       update() {

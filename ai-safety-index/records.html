@@ -113,6 +113,7 @@
 </footer>
 
 <script src="signals-feed.js"></script>
+<script src="signals-zh.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script>
@@ -139,7 +140,7 @@
     if (state.org !== 'all' && !orgOf(r).includes(state.org)) return false;
     if (state.inc && !isIncident(r)) return false;
     if (state.q) {
-      const hay = [r.title, r.description, r.source, ...(r.orgs || []).map(S.orgName), ...(S.CATEGORY[r.category] || [])].join(' ').toLowerCase();
+      const hay = [r.title, r.description, S.title(r), S.desc(r), r.source, ...(r.orgs || []).map(S.orgName), ...(S.CATEGORY[r.category] || [])].join(' ').toLowerCase();
       if (!state.q.toLowerCase().split(/\s+/).filter(Boolean).every(w => hay.includes(w))) return false;
     }
     return true;

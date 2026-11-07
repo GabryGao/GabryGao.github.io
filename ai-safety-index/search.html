@@ -45,6 +45,7 @@ mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1
 </main>
 
 <script src="signals-feed.js"></script>
+<script src="signals-zh.js"></script>
 <script src="research-data.js"></script>
 <script src="source-catalog.js"></script>
 <script src="site-data.js"></script>
@@ -81,7 +82,7 @@ mark{background:rgba(240,194,51,.28);color:inherit;border-radius:2px;padding:0 1
   const groups = [
     { title: T('研究方向', 'Directions'), more: null, items: researchDirections.filter(d => hit([d.name, d.en, d.short, d.question, d.description, ...d.children, site(d.question), site(d.description)]))
         .map(d => ({ href: 'directions.html?dir=' + d.id, title: dirName(d.id), sub: site(d.question) })) },
-    { title: T('记录', 'Records'), more: 'records.html?q=', items: S.news.signals.filter(r => hit([r.title, r.description, r.source, ...(r.orgs || []).map(S.orgName), ...(S.CATEGORY[r.category] || [])]))
+    { title: T('记录', 'Records'), more: 'records.html?q=', items: S.news.signals.filter(r => hit([r.title, r.description, S.title(r), S.desc(r), r.source, ...(r.orgs || []).map(S.orgName), ...(S.CATEGORY[r.category] || [])]))
         .map(r => ({ href: 'records.html?item=' + encodeURIComponent(r.id), title: S.title(r), sub: S.category(r) + ' · ' + r.source + ' · ' + md(r.date) })) },
     { title: T('基准', 'Benchmarks'), more: 'benchmarks.html?related=1&q=', items: K.benchmarks.filter(r => hit([r.id, r.name, r.subdomain, r.metric, r.note, (K.data.cardCopy[r.id] || {}).purpose, (I.COPY[r.id] || {}).purpose, I.METRIC[r.metric], I.SUBDOMAIN[r.subdomain]]))
         .map(r => ({ href: 'detail.html?id=' + r.id, title: tx('NAME', r.name), sub: tx('SUBDOMAIN', r.subdomain || '') + ' · ' + dirName(r.direction_id) })) },

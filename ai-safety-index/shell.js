@@ -73,7 +73,10 @@
   const orgName = id => { const n = ORG_NAMES[id] || id; return Array.isArray(n) ? (en ? n[1] : n[0]) : n; };
   const categoryZh = r => (CATEGORY[r.category] || CATEGORY.research)[0];
   const category = r => { const c = CATEGORY[r.category] || CATEGORY.research; return en ? c[1] : c[0]; };
-  const title = r => r.title;
+  /* Chinese titles and summaries come from signals-zh.js when it is loaded; English mode shows the original */
+  const ZH = typeof siteSignalsZh !== 'undefined' ? siteSignalsZh : {};
+  const title = r => (!en && ZH[r.id] && ZH[r.id][0]) || r.title;
+  const desc = r => (!en && ZH[r.id] && ZH[r.id][0] ? ZH[r.id][1] : r.description) || '';
   /* long catalog prose has no English yet: keep the Chinese and say so */
   const zhOnly = text => en && CJK.test(text) ? '<span lang="zh-CN">' + esc(text) + '</span> <span class="zh-only">Chinese only</span>' : esc(text);
   const link = r => r.url;
@@ -169,7 +172,7 @@
 
   /* expandable signal item: titles and summaries stay in the publisher's language */
   function itemHTML(r, open) {
-    const did = 'd-' + r.id, summary = r.description || '';
+    const did = 'd-' + r.id, summary = desc(r);
     const note = !en && summary && !CJK.test(summary) ? '<span class="lang">英文原文摘要</span>' : '';
     return '<li><button type="button" class="item" data-id="' + esc(r.id) + '" aria-expanded="' + !!open + '" aria-controls="' + esc(did) + '">'
       + '<time class="heat" datetime="' + esc(r.date) + '">' + md(r.date) + '</time>'
@@ -213,6 +216,6 @@
     return render;
   }
 
-  window.Shell = { DAY, esc, day, iso, md, chevron, arrow, DIRS, dirName, news, isIncident, category, categoryZh, CATEGORY, orgName, title, link, lang, en, T, tx, zhOnly, CJK,
+  window.Shell = { DAY, esc, day, iso, md, chevron, arrow, DIRS, dirName, news, isIncident, category, categoryZh, CATEGORY, orgName, title, desc, link, lang, en, T, tx, zhOnly, CJK,
     header, params, setParams, picks, picksHTML, dirParam, dirSeg, seg, plates, stripHTML, itemHTML, bindItems, sortHead };
 })();

@@ -29,7 +29,7 @@
 
     function layout() {
       const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
-      W = r.width; H = Math.round(W < 900 ? W * 0.82 : Math.max(520, Math.min(640, W * 0.5))); // a wide hero stays a sensible height
+      W = r.width; H = Math.round(W < 900 ? W * 0.82 : Math.max(380, Math.min(460, W * 0.36))); // wide screens get a flat band
       cv.style.height = H + 'px'; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const narrow = W < 520;
       L.listW = W * (narrow ? 0.44 : W > 1000 ? 0.36 : 0.4);
@@ -223,7 +223,7 @@
         const y = rowY(i); if (y < -L.rowH || y > H + L.rowH) return;
         const r = rec.r, col = rec.inc ? C.inc : C.sig, active = i === focus, past = i <= cur;
         const date = r.date.slice(5).replace('-', '/') + ' ', dw = ctx.measureText(date).width;
-        const text = fit(r.title, L.listW - dw - 10);
+        const text = fit(opts.titleOf ? opts.titleOf(r) : r.title, L.listW - dw - 10);
         if (active) { ctx.fillStyle = col; ctx.fillRect(dw - 3, y - L.rowH / 2 + 2, ctx.measureText(text).width + 8, L.rowH - 4); }
         ctx.fillStyle = C.muted; ctx.fillText(date, 0, y);
         ctx.fillStyle = active ? (rec.inc ? '#171b19' : '#fff') : past ? C.ink : C.muted;

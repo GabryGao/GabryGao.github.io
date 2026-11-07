@@ -14,6 +14,7 @@
 <header class="bar" id="bar"></header>
 <main class="wrap" id="main"></main>
 <script src="signals-feed.js"></script>
+<script src="signals-zh.js"></script>
 <script src="paper-picks.js"></script>
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
@@ -36,7 +37,7 @@
   const line = [r, ...rel].sort((a, b) => a.date.localeCompare(b.date) || (a.id === r.id ? 1 : -1)).slice(-10);
   const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
   const kick = x => '<div class="kick"><b class="' + (isIncident(x) ? 'inc' : '') + '">' + esc(category(x)) + '</b><span>' + esc(x.source) + '</span><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time></div>';
-  const desc = r.description || '';
+  const desc = S.desc(r);
   const back = document.referrer && new URL(document.referrer, location.href).origin === location.origin ? 'javascript:history.back()' : 'index.html';
 
   main.innerHTML = '<div class="sig-page"><div>'
@@ -61,7 +62,7 @@
 
     + '<section class="sig-sec"><h2>' + T('相关记录', 'RELATED') + '</h2>'
     + (rel.length ? '<ol class="rel-list">' + rel.map(x => '<li>' + kick(x) + '<a class="ttl" href="' + W.href(x) + '">' + esc(title(x)) + '</a>'
-        + (x.description ? '<p class="sum">' + esc(x.description) + '</p>' : '') + '</li>').join('') + '</ol>'
+        + (S.desc(x) ? '<p class="sum">' + esc(S.desc(x)) + '</p>' : '') + '</li>').join('') + '</ol>'
         : '<p class="body empty">' + T('前后 30 天内没有找到相关记录。', 'Nothing related within 30 days either side.') + '</p>')
     + '</section></div>'
 
