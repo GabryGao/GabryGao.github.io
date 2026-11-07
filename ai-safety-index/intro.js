@@ -16,9 +16,10 @@
 
   const en = /^en/.test(document.documentElement.lang);
   const NAMES = en
-    ? ['Alignment', 'Red team', 'Evals', 'Interp', 'Governance', 'Monitoring', 'Robustness', 'Privacy', 'Agents', 'Data', 'Benchmarks', 'Provenance', 'Jailbreak', 'Backdoor', 'Watermark', 'Hallucination', 'Values', 'Incidents', 'Audit', 'Adversarial']
-    : ['对齐', '红队', '评测', '可解释性', '治理', '监控', '鲁棒性', '隐私', '智能体', '数据', '基准', '溯源', '越狱', '后门', '水印', '幻觉', '价值观', '安全事件', '审计', '对抗样本'];
-  const COLORS = ['#e4572e', '#2e86de', '#17a589', '#8e44ad', '#f39c12', '#d63031', '#00a8a8', '#d35400', '#3d5a80', '#e84393', '#0097e6', '#6ab04c', '#b33771', '#218c74', '#ff793f', '#5f27cd', '#c44569', '#1e90ff', '#cc8e35', '#10ac84'];
+    ? ['Alignment', 'Red team', 'Evals', 'Interp', 'Governance', 'Monitoring', 'Robustness', 'Privacy', 'Agents', 'Data', 'Benchmarks', 'Provenance', 'Jailbreak', 'Backdoor', 'Watermark', 'Hallucination', 'Values', 'Incidents', 'Audit', 'Adversarial', 'Prompt injection', 'Reward hacking', 'Sycophancy', 'Deception', 'Unlearning', 'Refusal', 'Guardrails', 'Sandbox', 'Permissions', 'Oversight', 'Constitutional AI', 'Bias', 'Fairness', 'Copyright', 'Deepfakes', 'Misinformation', 'Cybersecurity', 'Biosecurity', 'Chemical risk', 'Self-replication', 'Capability evals', 'Dangerous capabilities', 'Deployment', 'Transparency', 'Accountability', 'Standards', 'Policy', 'Compliance', 'Multimodal', 'Embodied AI', 'Robotics', 'Code security', 'Supply chain', 'Model theft', 'Distillation', 'CoT monitoring', 'Chain of thought', 'Controllability', 'Human feedback', 'Frontier models']
+    : ['对齐', '红队', '评测', '可解释性', '治理', '监控', '鲁棒性', '隐私', '智能体', '数据', '基准', '溯源', '越狱', '后门', '水印', '幻觉', '价值观', '安全事件', '审计', '对抗样本', '提示注入', '奖励黑客', '谄媚', '欺骗', '遗忘学习', '拒答', '护栏', '沙箱', '权限', '监督', '宪法 AI', '偏见', '公平', '版权', '深度伪造', '虚假信息', '网络安全', '生物安全', '化学风险', '自主复制', '能力评估', '危险能力', '部署', '透明度', '问责', '标准', '政策', '合规', '多模态', '具身智能', '机器人', '代码安全', '供应链', '模型窃取', '蒸馏', '推理监控', '思维链', '可控性', '人类反馈', '前沿模型'];
+  // one colour per cursor, spread round the colour wheel
+  const COLORS = NAMES.map((_, i) => 'hsl(' + Math.round((i * 137.5) % 360) + ', 68%, ' + (i % 2 ? 44 : 50) + '%)');
   const SEL = '#2e86de', RULER = 20, BUILD = 13; // seconds of building
   const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const easeOut = t => 1 - Math.pow(1 - t, 3);
@@ -144,9 +145,11 @@
       if (!lines.length) continue;
       lines.sort((a, b) => a.y0 - b.y0 || a.x0 - b.x0);
       for (const l of lines) { l.x0 -= 1; l.x1 += 2; l.y0 -= 2; l.y1 += 2; l.w = l.x1 - l.x0; }
-      const x0 = Math.min(...lines.map(l => l.x0)), y0 = lines[0].y0;
-      const x1 = Math.max(...lines.map(l => l.x1)), y1 = lines[lines.length - 1].y1;
-      jobs.push({ kind: 'text', el, lines, chars, r: { x0, y0, x1, y1, w: x1 - x0, h: y1 - y0 } });
+      for (let k = 0; k < lines.length; k += 2) {
+        const part = lines.slice(k, k + 2), share = part.reduce((s, l) => s + l.w, 0) / lines.reduce((s, l) => s + l.w, 0);
+        const px0 = Math.min(...part.map(l => l.x0)), px1 = Math.max(...part.map(l => l.x1));
+        jobs.push({ kind: 'text', el, lines: part, chars: Math.max(1, Math.round(chars * share)), r: { x0: px0, y0: part[0].y0, x1: px1, y1: part[part.length - 1].y1, w: px1 - px0, h: part[part.length - 1].y1 - part[0].y0 } });
+      }
     }
     // a piece inside a panel waits for the panel
     const boxes = jobs.filter(j => j.kind === 'box');
@@ -172,13 +175,14 @@
     let jobs = blueprint(vw, vh);
     if (jobs.length > 160) jobs = jobs.filter(j => j.kind !== 'box' || j.bg || j.r.w * j.r.h > 2000).slice(0, 160);
     const base = j => (j.kind === 'box' ? 0.7 : j.kind === 'media' ? 1.3 : 0.35 + Math.min(1.5, j.chars * 0.014));
-    const n = vw < 700 ? Math.max(6, Math.min(10, Math.round(jobs.length / 6))) : Math.max(14, Math.min(20, Math.round(jobs.length / 4)));
+    const n = vw < 700 ? 24 : 60;
     const work = jobs.reduce((s, j) => s + base(j) + 0.35, 0);
-    const speed = Math.max(0.3, Math.min(3.5, work / (n * BUILD)));
-    for (const j of jobs) { j.dur = base(j) / speed; j.state = 'todo'; }
+    const speed = Math.max(0.6, Math.min(3.5, work / (n * BUILD)));
+    // the build sweeps down the screen: each piece becomes available a little after the one above it
+    jobs.forEach((j, i) => { j.dur = base(j) / speed; j.state = 'todo'; j.release = 0.5 + (BUILD - 2.6) * i / Math.max(1, jobs.length - 1); });
 
     const agents = NAMES.slice(0, n).map((name, i) => {
-      const side = i % 4, a = { name, color: COLORS[i % COLORS.length], job: null, phase: 'wait', wake: 0.07 * i + rnd(0, 0.2) };
+      const side = i % 4, a = { name, color: COLORS[i % COLORS.length], job: null, phase: 'wait', wake: 0.025 * i + rnd(0, 0.25) };
       a.x = side === 0 ? -30 : side === 1 ? vw + 30 : rnd(0, vw);
       a.y = side === 2 ? -30 : side === 3 ? vh + 30 : rnd(0, vh);
       return a;
@@ -216,7 +220,7 @@
       return caret || { x: j.lines[j.lines.length - 1].x1, y0: j.lines[j.lines.length - 1].y0, y1: j.lines[j.lines.length - 1].y1 };
     };
     const startPoint = j => (j.kind === 'text' ? [j.lines[0].x0, (j.lines[0].y0 + j.lines[0].y1) / 2] : [j.r.x0, j.r.y0]);
-    const take = () => jobs.find(j => j.state === 'todo' && j.deps.every(d => d.state === 'done'));
+    const take = () => jobs.find(j => j.state === 'todo' && j.release <= t && j.deps.every(d => d.state === 'done'));
 
     const flashes = [];
     let t = 0, last = performance.now(), endAt = 0;
@@ -239,7 +243,16 @@
             a.t0 = t;
             a.travel = Math.max(0.18, Math.min(0.45, Math.hypot(a.to[0] - a.x, a.to[1] - a.y) / 1800)) / Math.max(1, speed * 0.8);
             a.phase = 'travel';
-          } else if (jobs.every(j => j.state !== 'todo')) {
+          } else if (jobs.some(j => j.state !== 'done')) {
+            // nothing free yet: drift over to where someone is working and look on
+            const busy = agents.filter(b => b.job);
+            const r = busy.length ? busy[Math.floor(Math.random() * busy.length)].job.r : { x0: vw * 0.2, y0: vh * 0.2, w: vw * 0.6, h: vh * 0.6 };
+            a.from = [a.x, a.y];
+            a.to = [r.x0 + rnd(-40, r.w + 40), r.y0 + rnd(-30, r.h + 30)];
+            a.t0 = t;
+            a.travel = rnd(0.7, 1.4);
+            a.phase = 'roam';
+          } else {
             a.phase = 'leave';
             a.from = [a.x, a.y];
             a.to = [a.x < vw / 2 ? -40 : vw + 40, a.y + rnd(-80, 80)];
@@ -247,11 +260,11 @@
             a.travel = 0.6;
           }
         }
-        if (a.phase === 'travel' || a.phase === 'leave') {
+        if (a.phase === 'travel' || a.phase === 'leave' || a.phase === 'roam') {
           const p = Math.min(1, (t - a.t0) / a.travel), e = ease(p);
           a.x = a.from[0] + (a.to[0] - a.from[0]) * e;
           a.y = a.from[1] + (a.to[1] - a.from[1]) * e;
-          if (p >= 1) { a.phase = a.phase === 'leave' ? 'gone' : 'work'; a.t0 = t; }
+          if (p >= 1) { a.phase = a.phase === 'leave' ? 'gone' : a.phase === 'roam' ? 'idle' : 'work'; a.t0 = t; }
         }
         if (a.phase === 'work') {
           const j = a.job, p = Math.min(1, (t - a.t0) / j.dur);
@@ -284,7 +297,7 @@
       draw(g, vw, vh, agents, flashes, t);
       if (!endAt && agents.every(a => a.phase === 'gone')) endAt = t;
       if (endAt && t > endAt + 0.25) { reveal(0, 0, vw, vh); finish(false); return; }
-      if (t > 17) { finish(false); return; } // never hold the page longer than this
+      if (t > 18) { finish(false); return; } // never hold the page longer than this
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
