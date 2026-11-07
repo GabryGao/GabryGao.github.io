@@ -37,6 +37,7 @@ DIRECTIONS = [
 ]
 WINDOW_DAYS = 7
 PICKS = 8
+ABSTRACT_CHARS = 2400  # shown on the paper page; arXiv abstracts are capped at 1920 characters
 MAX_RESULTS = 200
 MAX_BYTES = 8 * 1024 * 1024
 TIMEOUT = 40
@@ -89,6 +90,7 @@ def parse(payload, today):
             'category': primary.get('term') if primary is not None else '',
             'direction_ids': [d for d, p in DIRECTIONS if re.search(p, text, re.I)] or ['foundation-model'],
             'score': score(title, abstract),
+            'abstract': abstract[:ABSTRACT_CHARS],
         })
     unique = {p['arxiv_id']: p for p in papers}
     ranked = sorted(unique.values(), key=lambda p: (-p['score'], p['date'], p['arxiv_id']), reverse=False)

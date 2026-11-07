@@ -17,7 +17,7 @@ import urllib.request
 CJK = re.compile(r'[㐀-鿿]')
 BATCH = 15
 MODEL = os.environ.get('SIGNALS_TRANSLATE_MODEL', 'claude-haiku-5-5')
-PROMPT = ('Translate these AI-safety news records into Simplified Chinese for a Chinese research site. '
+PROMPT = ('Translate these AI-safety news records and paper abstracts into Simplified Chinese for a Chinese research site. '
           'Keep names of people, companies, products and models as they are. Keep numbers exact. '
           'If a summary ends with an ellipsis, end the translation with "……". Do not add anything. '
           'Reply with only a JSON object mapping each id to [title, summary]; use "" for an empty summary.\n\n')
@@ -29,7 +29,7 @@ def needs_translation(row):
 
 def api_translator(key):
     def translate(rows):
-        payload = {'model': MODEL, 'max_tokens': 4096, 'messages': [{'role': 'user', 'content': PROMPT + json.dumps(
+        payload = {'model': MODEL, 'max_tokens': 8192, 'messages': [{'role': 'user', 'content': PROMPT + json.dumps(
             {r['id']: [r['title'], r.get('description') or ''] for r in rows}, ensure_ascii=False)}]}
         request = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(payload).encode(), headers={
             'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
@@ -47,8 +47,7 @@ def update(records, stored, translate):
     kept = {k: v for k, v in stored.items() if k in live}
     missing = [r for r in records if r['id'] not in kept and needs_translation(r)]
     if translate:
-        for start in range(0, len(missing), BATCH):
-            batch = missing[start:start + BATCH]
+        for batch in batches(missing):
             try:
                 result = translate(batch)
             except Exception as error:  # a translation outage must not stop the feed update
@@ -60,6 +59,29 @@ def update(records, stored, translate):
                     kept[row['id']] = [pair[0].strip(), pair[1].strip()]
     left = sum(1 for r in records if r['id'] not in kept and needs_translation(r))
     return dict(sorted(kept.items())), left
+
+
+def paper_rows(root):
+    """The arXiv picks, as rows keyed 'arxiv-<id>' with the abstract as the summary."""
+    path = root / 'research-source/paper-picks-provenance.json'
+    if not path.exists():
+        return []
+    papers = json.loads(path.read_text(encoding='utf-8')).get('papers', [])
+    return [{'id': 'arxiv-' + p['arxiv_id'], 'title': p['title'], 'description': p.get('abstract', '')} for p in papers if p.get('arxiv_id')]
+
+
+def batches(rows, size=BATCH, chars=6000):
+    """Split rows so each request stays well inside the reply limit: at most size rows and about chars characters."""
+    batch, total = [], 0
+    for row in rows:
+        length = len(row['title']) + len(row.get('description') or '')
+        if batch and (len(batch) >= size or total + length > chars):
+            yield batch
+            batch, total = [], 0
+        batch.append(row)
+        total += length
+    if batch:
+        yield batch
 
 
 def write(root, translations):
@@ -79,6 +101,7 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     records = json.loads((args.root / 'research-source/signals-provenance.json').read_text(encoding='utf-8'))['records']
+    records += paper_rows(args.root)
     store = args.root / 'research-source/signals-zh.json'
     stored = json.loads(store.read_text(encoding='utf-8')) if store.exists() else {}
     key = os.environ.get('ANTHROPIC_API_KEY', '').strip()

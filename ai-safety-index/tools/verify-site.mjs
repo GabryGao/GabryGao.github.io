@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 // script parses, catalog text has English, and old #route links still reach a page.
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
-const pages=['index.html','records.html','directions.html','results.html','benchmarks.html','methods.html','upload.html','papers.html','research-map.html','detail.html','signal.html','search.html','about.html'];
+const pages=['index.html','records.html','directions.html','results.html','benchmarks.html','methods.html','upload.html','papers.html','research-map.html','detail.html','signal.html','paper.html','search.html','about.html'];
 const cjk=/[㐀-鿿]/;
 
 for(const page of pages){

@@ -32,6 +32,7 @@ class PickTest(unittest.TestCase):
         self.assertIn('agent-software', rows[0]['direction_ids'])
         self.assertEqual(rows[0]['authors'], ['A. One', 'B. Two', 'C. Three'])
         self.assertTrue(rows[0]['more_authors'])
+        self.assertEqual(rows[0]['abstract'], 'Prompt injection through tools.')
 
     def test_only_the_last_week_and_top_picks_are_kept(self):
         many = [entry(f'2610.{i:05d}', f'Safety alignment study {i}') for i in range(12)]

@@ -42,6 +42,20 @@ class UpdateTest(unittest.TestCase):
         out, _ = tr.update(ROWS, {}, lambda rows: {'a': 'not a pair', 'c': ['', 'x']})
         self.assertEqual(out, {})
 
+    def test_paper_picks_are_translated_under_their_own_ids(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'research-source').mkdir()
+            (root / 'research-source/paper-picks-provenance.json').write_text(json.dumps(
+                {'papers': [{'arxiv_id': '2611.00001', 'title': 'Jailbreaks', 'abstract': 'We study jailbreaks.'}]}), encoding='utf-8')
+            self.assertEqual(tr.paper_rows(root), [{'id': 'arxiv-2611.00001', 'title': 'Jailbreaks', 'description': 'We study jailbreaks.'}])
+            self.assertEqual(tr.paper_rows(root / 'missing'), [])
+
+    def test_long_rows_are_split_into_smaller_batches(self):
+        rows = [{'id': str(i), 'title': 't', 'description': 'x' * 1900} for i in range(8)]
+        self.assertEqual([len(b) for b in tr.batches(rows)], [3, 3, 2])
+        self.assertEqual([len(b) for b in tr.batches([{'id': str(i), 'title': 't'} for i in range(20)])], [15, 5])
+
     def test_written_script_is_valid_and_escaped(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
