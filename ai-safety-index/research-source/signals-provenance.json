@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-07T15:55:56Z",
+  "generated_on": "2026-11-07T20:14:38Z",
   "status": "partial",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 197,
-    "response_sha256": "d44174ab92323b78b7ee02ac491a2235e2dca12a0a61565ffa799a4ee4d5b951"
+    "response_sha256": "4b337da1b9bdcd5be60095e77cf5c7b73fbf059c9ec940d64bcb1fc89ab8f7ac"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 12,
     "response_sha256": "d04e4f295a10562ac4cb3933c27b1001c8dc6b694c181231ce25a5a66f244f00"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -48,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -58,9 +58,9 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 100,
-    "response_sha256": "7b2012acd1012c067dc81e5850763501e3306a5c1b450f7572f3925647057b22"
+    "response_sha256": "7dabeef15102c96e3ce19356e27afafb784e5435311f58e1f60b80f54910c817"
    },
    {
     "id": "web-discovery",
@@ -70,13 +70,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T15:55:56Z",
+    "last_successful_fetch": "2026-11-07T20:14:38Z",
     "records": 44,
     "pages_fetched": 3,
-    "response_sha256": "1191dc7e4cb07cf950ded74d75955b8e0ab856bc54f8b5cbbc5caf32d93d6f45"
+    "response_sha256": "76944cc6cf729d44bb17220210bed6ebaeb08e98ede4767f4ab27d204a66a3cb"
    }
   ],
-  "record_count": 212,
+  "record_count": 235,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -114,6 +114,24 @@
    ],
    "orgs": [
     "anthropic"
+   ]
+  },
+  {
+   "id": "web-789f2f263d66",
+   "title": "Lawsuit alleges Google Gemini led a 13-year-old girl to formulate a suicide plan",
+   "date": "2026-11-07",
+   "source": "The Mercury News",
+   "source_id": "web-mercurynews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.mercurynews.com/2026/11/07/lawsuit-google-ai-schools-girl-suicide",
+   "description": "The lawsuit alleges that Google's Gemini, via a school-issued Chromebook, helped a 13-year-old girl formulate a suicide plan and did not notify her parents or school. The 104-page complaint, filed th…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "google"
    ]
   },
   {
@@ -166,6 +184,366 @@
    "orgs": [
     "anthropic"
    ]
+  },
+  {
+   "id": "aiid-f8af21405e5d",
+   "title": "Uploading files to the internet in order to cite them",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+   "description": "Uploading files to the internet in order to cite them Unreleased internal models · RL training Samples: Jan 24, 2026 and Oct 22, 2025 Discovery: May 25, 2026 Report updated: Sep 16, 2026 Summary In t…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-e44706169e05",
+   "title": "Exposing a GitHub token in a public repository",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/",
+   "description": "Exposing a GitHub token in a public repository Highly persistent internal model · Internal deployment Incident date: May 27, 2026 Discovered: May 27, 2026 Report updated: Sep 25, 2026 Summary In inte…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-de229d739558",
+   "title": "Las claves del reproche de la Corte Suprema por un borrador de condena hecho con IA antes de concluir el juicio",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.eltiempo.com/justicia/cortes/las-claves-del-reproche-de-la-corte-suprema-por-borrador-de-condena-hecho-con-ia-antes-de-concluir-el-juicio-3531379",
+   "description": "Un duro jalón de orejas hizo la Corte Suprema de Justicia a un juez que usó indebidamente la Inteligencia Artificial para construir un borrador de sentencia que condenaba al procesado aún cuando no h…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-c384cf0f4ae0",
+   "title": "Signing up for disposable emails and searching GitHub for leaked API keys",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys/",
+   "description": "Signing up for disposable emails and searching GitHub for leaked API keys Internal unreleased model · RL training Main incident date: May 15, 2026 Discovered: May 25, 2026 Report updated: Sep 16, 202…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b3858004b1db",
+   "title": "We found a Tencent agent fleet",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://swarmcha.se/posts/chinese-agent-fleet-full-report",
+   "description": "AIID editor's note This abridgment retains the overview, Tencent’s account as reported by the researchers, the findings on Amap protections and credential use, and the contributor and source lists. T…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-b16f60cbc3a2",
+   "title": "SEALED SUPERSEDING INDICTMENT",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.justice.gov/usao-sdny/media/1470551/dl",
+   "description": "UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF NEW YORK S3 26 Cr. 168 UNITED STATES OF AMERICA v. JACOB SOALL, a/k/a “Seba Clarke,” a/k/a “Rocky Balboa,” SHARON HAZAN, a/k/a “Superman Cash,” a/k/a…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-a53c6ffceb3d",
+   "title": "Exclusive-OpenAI works to understand full scope of agent activity as user data leak emerges",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.investing.com/news/stock-market-news/exclusiveopenai-works-to-understand-full-scope-of-agent-activity-as-user-data-leak-emerges-4918118",
+   "description": "SAN FRANCISCO/WASHINGTON, Sept 25 (Reuters) - Two months after OpenAI disclosed the accidental hacking of Hugging Face, the ChatGPT maker is still working to understand the full scope of its rogue ag…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-9f55938a67fb",
+   "title": "Chinese Model Kimi K3 Breaks UK AI Safety Institute Benchmark Evaluations",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://blog.frontier.security/chinese-model-kimi-k3-breaks-uk-ai-safety-institute-benchmark-evaluations/",
+   "description": "Over the past few months we've been testing performance of various models for defensive security. The AI community uses model evaluations to measure models' performance to improve them on specific ta…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "uk-aisi"
+   ]
+  },
+  {
+   "id": "aiid-9c1097e2d3fa",
+   "title": "Unauthorized communication via temporary file hosting services",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/unauthorized-communication-via-temporary-file-hosting-services/",
+   "description": "Unauthorized communication via temporary file hosting services Unreleased internal model · RL training Main incident: Apr 14, 2026 Discovered: Apr 16, 2026 Report updated: Sep 16, 2026 Summary Agents…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-99c0aa051716",
+   "title": "Command injecting a reference tool to copy a source file",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/",
+   "description": "Command injecting a reference tool to copy a source file Internal unreleased model · RL training Incident date: May 16, 2026 Discovered: May 25, 2026 Report updated: Oct 2, 2026 Summary During an RL…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8c2a0e2dbfdf",
+   "title": "Corte Suprema pone freno a una escandalosa sentencia hecha con inteligencia artificial: nueva regulación para su uso",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cronista.com/colombia/actualidad-co/corte-suprema-pone-freno-a-una-escandalosa-sentencia-hecha-con-inteligencia-artificial-nueva-regulacion-para-su-uso/",
+   "description": "La Corte Suprema de Justicia revocó una decisión del Tribunal Superior de Cali y concedió la protección de los derechos al debido proceso y a un juicio imparcial de un procesado, luego de detectar un…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8475e8724336",
+   "title": "Retrieving server secrets and bypassing authorization on a government statistics website",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website/",
+   "description": "Retrieving server secrets and bypassing authorization on a government statistics website Highly persistent internal model · RL training Incident date: Jun 17, 2026 Discovered: Aug 13, 2026 Report upd…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-6e9e486a6999",
+   "title": "Trio used AI to impersonate corporate execs, defrauding companies of nearly $130 million: DOJ",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://abcnews.com/US/trio-ai-impersonate-corporate-execs-defrauding-companies-130/story?id=137894421",
+   "description": "Three people face charges alleging they schemed to use artificial intelligence to defraud companies of nearly $130 million, federal prosecutors in Manhattan announced Thursday. Jacob Soall, who calle…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-678a6ef1a548",
+   "title": "Damaging the task environment to trigger a reset",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/",
+   "description": "Damaging the task environment to trigger a reset Internal research model · RL training Incident date: Oct 6, 2026 Report updated: Oct 9, 2026 Summary During reinforcement learning (RL) training, a mo…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-65a32589dca3",
+   "title": "OpenAI's robots got into a closed link shortener, surfed the web with Google Docs and Translate, then called the FBI with a stranger's key",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.kennethdegraff.com/swarm",
+   "description": "AIID editor's note This report has been abridged to fit AIID's 50,000-character limit. The abridgment omits the table covering twenty-one sites and fourteen fetch services, along with the evidence ap…",
+   "direction_ids": [
+    "physical-ai",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai",
+    "google"
+   ]
+  },
+  {
+   "id": "aiid-5b28af1f7c10",
+   "title": "China's Tencent says AI agents showed unintended browsing behaviour",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/business/retail-consumer/chinas-tencent-says-ai-agents-showed-unintended-browsing-behaviour-2026-10-16/",
+   "description": "Summary Tencent says activity did not involve its Hunyuan models Review found no deliberate targeting or coordination, company says Researchers said \"rogue\" Chinese AI agent fleet sought Alibaba map…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-52e860822377",
+   "title": "Three men charged in US with using AI to impersonate CEOs and steal millions",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theguardian.com/us-news/2026/nov/06/ai-ceo-impersonation-theft",
+   "description": "Three foreign nationals were arrested and charged with using AI to allegedly impersonate corporate CEOs and attorneys to steal over $100m, according to an indictment that was newly unsealed by the US…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-450760f35265",
+   "title": "Circumventing internet restrictions through an external browser",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/circumventing-internet-restrictions-through-an-external-browser",
+   "description": "Circumventing internet restrictions through an external browser Internal research model · RL training Incident date: Jun 16, 2026 Discovered: By Jun 25, 2026 Report updated: Oct 15, 2026 Summary Duri…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-4340b567af97",
+   "title": "STP21973-2025",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ambitojuridico.com/sites/default/files/2026-02/Sent-STP-219732025%28150278%29-25.pdf",
+   "description": "República de Colombia Corte Suprema de Justicia Sala de Casación Penal SALA DE DECISIÓN DE TUTELAS N.º 2 JOSÉ JOAQUÍN URBANO MARTÍNEZ Magistrado ponente STP21973-2025 Radicación No. 150.278 Acta 336…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-3d0a2528f079",
+   "title": "Unsanctioned Artifactory writes and cross-sample communication",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication/",
+   "description": "Unsanctioned Artifactory writes and cross-sample communication Internal research models · RL training Sample: May 8, 2026 and May 15, 2026 Discovery: May 25, 2026 Report updated: Sep 16, 2026 Summary…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-30fdfa6e8df6",
+   "title": "Relevantes",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://archivodigitalapi.cortesuprema.gov.co/share/2026/3/Relevantes/INFORME%20RELEVANTES%208.pdf",
+   "description": "Relevantes PROVIDENCIAS CLASIFICADAS COMO RELEVANTES POR LA RELATORÍA DE TUTELAS Y SALA PLENA, PARA POSIBLE PUBLICIDAD SEMANA DEL 9 AL 13 DE MARZO SALA DE CASACIÓN CIVIL, AGRARIA Y RURAL NÚMERO DE PR…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-2f5829055a58",
+   "title": "Cheating behaviour in frontier model evaluations",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.aisi.gov.uk/blog/cheating-behaviour-in-frontier-model-evaluations",
+   "description": "Cheating behaviour in frontier model evaluations We find cheating behaviour in all of our cyber capability evaluations, and outline the implications as models grow more capable. Can you trust an AI m…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-1ee7204731f2",
+   "title": "Reaching an internal EDA host through a reference tool",
+   "date": "2026-11-07",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/",
+   "description": "Reaching an internal EDA host through a reference tool Internal research model · Evaluation Incident date: Mar 27, 2026 Discovered: Mar 27, 2026 Report updated: Oct 2, 2026 Summary During an evaluati…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
   },
   {
    "id": "web-fbf64b513198",
@@ -425,21 +803,6 @@
     "anthropic",
     "metr"
    ]
-  },
-  {
-   "id": "web-52e860822377",
-   "title": "美国指控三名男子利用 AI 冒充 CEO 窃取数百万美元",
-   "date": "2026-11-06",
-   "source": "The Guardian · AI",
-   "source_id": "web-theguardian-com",
-   "kind": "incident",
-   "category": "incident",
-   "url": "https://www.theguardian.com/us-news/2026/nov/06/ai-ceo-impersonation-theft",
-   "description": "The U.S. Department of Justice released an unsealed indictment accusing three foreign nationals of using AI to alter and impersonate the voices and images of company executives and lawyers, defraudin…",
-   "direction_ids": [
-    "human-societal"
-   ],
-   "orgs": []
   },
   {
    "id": "web-5072f0d6af00",
