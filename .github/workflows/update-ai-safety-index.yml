@@ -28,16 +28,16 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
         working-directory: ai-safety-index
         run: python3 tools/update-signals.py
-      - name: Translate new signals into Chinese
+      - name: Pick recent safety papers from arXiv
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
+        working-directory: ai-safety-index
+        run: python3 tools/update-papers.py
+      - name: Translate new signals and papers into Chinese
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
         working-directory: ai-safety-index
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 tools/translate-signals.py
-      - name: Pick recent safety papers from arXiv
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '20 */3 * * *'
-        working-directory: ai-safety-index
-        run: python3 tools/update-papers.py
       - name: Refresh public evaluation metadata
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '50 1 * * *'
         working-directory: ai-safety-index
