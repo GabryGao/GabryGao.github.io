@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-11-07T05:58:57.045Z",
+  "generated_on": "2026-11-07T07:50:54.386Z",
   "site": "https://gabrygao.github.io/ai-safety-index/",
   "content": {
     "directions": 6,
@@ -28,7 +28,7 @@
     ]
   },
   "evaluations": {
-    "generated_on": "2026-11-06T08:35:31Z",
+    "generated_on": "2026-11-07T07:50:53Z",
     "status": "ok",
     "record_count": 451,
     "sources": [
@@ -36,28 +36,28 @@
         "id": "agentdojo",
         "name": "AgentDojo",
         "status": "ok",
-        "last_successful_fetch": "2026-11-06T08:35:31Z",
+        "last_successful_fetch": "2026-11-07T07:50:53Z",
         "record_count": 84
       },
       {
         "id": "safevla",
         "name": "SafeVLA-Bench",
         "status": "ok",
-        "last_successful_fetch": "2026-11-06T08:35:31Z",
+        "last_successful_fetch": "2026-11-07T07:50:53Z",
         "record_count": 108
       },
       {
         "id": "flames",
         "name": "FLAMES",
         "status": "ok",
-        "last_successful_fetch": "2026-11-06T08:35:31Z",
+        "last_successful_fetch": "2026-11-07T07:50:53Z",
         "record_count": 187
       },
       {
         "id": "finsafety",
         "name": "FinSafetyBench",
         "status": "ok",
-        "last_successful_fetch": "2026-11-06T08:35:31Z",
+        "last_successful_fetch": "2026-11-07T07:50:53Z",
         "record_count": 72
       }
     ]
