@@ -11,6 +11,7 @@
     const still = false; // always animated, by request
     let W = 0, H = 0, C = {}, frame = 0;
     let L = {};                       // layout
+    let BAND = [-140, -95, -50, -5, 40]; // ring offsets of the web band
     let cur = -1, startAt = 0, pinned = -1, hoverBox = -1;
     let scroll = 0, flights = [], counts = {}, flash = {}, spokes = [];
     const STEP = 170, FLY = 620;     // ms between signals, ms per flight: fast, many in the air at once
@@ -39,6 +40,9 @@
       L.cx = W > 1000 ? W * 0.05 : -W * 0.32; L.cy = H / 2; L.R = W > 1000 ? W * 0.6 : W * 0.9;
       L.a0 = Math.asin((-H / 2 + 14) / L.R); L.a1 = Math.asin((H / 2 - 14) / L.R);
       spokes = Array.from({ length: 96 }, (_, i) => ({ a: L.a0 + (L.a1 - L.a0) * (i + 0.5) / 96, len: 0, color: null }));
+      // the web band: rings from the inner edge to the outer edge, wider on wide screens
+      const k = W > 1000 ? 1 : W < 520 ? 0.35 : 0.7;
+      BAND = [-140, -95, -50, -5, 40].map(v => Math.round(v * k));
     }
 
     const arcPt = (a, dr = 0) => [L.cx + (L.R + dr) * Math.cos(a), L.cy + (L.R + dr) * Math.sin(a)];
@@ -63,13 +67,13 @@
     const spider = { x: 0, y: 0, legs: [], next: 0 };
     let cells = [], marks = [];
     const LEGS = [ // direction in degrees, reach as a share of the canvas width
-      [200, .17], [168, .2], [140, .15], [222, .14],
-      [-28, .2], [6, .22], [34, .19], [-58, .15]
+      [200, .075], [168, .09], [140, .065], [222, .06],
+      [-28, .09], [6, .1], [34, .085], [-58, .065]
     ];
     function initSpider() {
       spider.x = L.listW * 0.8; spider.y = 40; spider.next = 0;
       spider.legs = LEGS.map(([deg, share]) => {
-        const a = deg * Math.PI / 180, reach = Math.max(60, W * share);
+        const a = deg * Math.PI / 180, reach = Math.max(38, Math.min(96, W * share)); // short legs: close to the body
         return { a, reach, foot: null, from: null, t: 1, left: Math.cos(a) < 0 };
       });
       marks = [];
@@ -81,7 +85,12 @@
       if (g.left) {
         for (const c of cells) { const d = Math.hypot(c.cx - ix, rowY(c.row) - iy); if (d < bd) bd = d, best = { kind: 'text', row: c.row, x: c.cx, cell: c }; }
       } else {
-        for (const s of spokes) for (const dr of [-70, -34, 0, 26]) { const [x, y] = arcPt(s.a, dr), d = Math.hypot(x - ix, y - iy); if (d < bd) bd = d, best = { kind: 'web', a: s.a, dr }; }
+        for (const s of spokes) for (const dr of BAND) { const [x, y] = arcPt(s.a, dr), d = Math.hypot(x - ix, y - iy); if (d < bd) bd = d, best = { kind: 'web', a: s.a, dr }; }
+      }
+      // nothing within reach: step onto the nearest row line instead of stretching across the canvas
+      if (!best || bd > g.reach * 0.6) {
+        const row = Math.round((iy + scroll - 10 - L.rowH / 2) / L.rowH);
+        best = { kind: 'text', row, x: ix, cell: null };
       }
       return best;
     }
@@ -106,7 +115,7 @@
         g.t = Math.min(1, g.t + dt / 85);
         if (g.t >= 1) {
           g.foot = g.to;
-          if (g.to.kind === 'text') { g.mark = { row: g.to.row, x: g.to.cell.x, w: g.to.cell.w, on: t, off: 0 }; marks.push(g.mark); }
+          if (g.to.kind === 'text' && g.to.cell) { g.mark = { row: g.to.row, x: g.to.cell.x, w: g.to.cell.w, on: t, off: 0 }; marks.push(g.mark); }
           else g.mark = null;
         }
       }
@@ -185,20 +194,20 @@
 
       // web: concentric arcs and a fan of spokes
       ctx.strokeStyle = C.line; ctx.lineWidth = 1;
-      for (const dr of [-70, -34, 0, 26]) { ctx.beginPath(); ctx.arc(L.cx, L.cy, L.R + dr, L.a0 - 0.02, L.a1 + 0.02); ctx.stroke(); }
+      for (const dr of BAND) { ctx.beginPath(); ctx.arc(L.cx, L.cy, L.R + dr, L.a0 - 0.02, L.a1 + 0.02); ctx.stroke(); }
       const scan = L.a0 + (L.a1 - L.a0) * (0.5 + 0.5 * Math.sin(t / 650));
       spokes.forEach((s, k) => {
         const a = s.a + 0.004 * Math.sin(t / 1300 + k * 0.7);
         const near = Math.max(0, 1 - Math.abs(a - scan) / 0.06);
         const grow = s.len + (s.color ? 6 * Math.sin(t / 500 + k) : 0) + near * 30;
-        const [x0, y0] = arcPt(a, -70), [x1, y1] = arcPt(a, 26 + grow);
+        const [x0, y0] = arcPt(a, BAND[0]), [x1, y1] = arcPt(a, BAND[BAND.length - 1] + grow);
         ctx.strokeStyle = near > 0.3 && !s.color ? C.core : (s.color || C.line);
         ctx.globalAlpha = s.color ? 0.9 : 0.55 + near * 0.45; ctx.lineWidth = s.color || near > 0.3 ? 1.6 : 1;
         ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
       });
       ctx.globalAlpha = 1;
       // scanning beam along the web
-      { const [bx, by] = arcPt(scan, -18); const g = ctx.createRadialGradient(bx, by, 0, bx, by, 46);
+      { const [bx, by] = arcPt(scan, -40); const g = ctx.createRadialGradient(bx, by, 0, bx, by, 46);
         g.addColorStop(0, 'rgba(255,90,95,.28)'); g.addColorStop(1, 'rgba(255,90,95,0)'); ctx.fillStyle = g; ctx.fillRect(bx - 46, by - 46, 92, 92); }
       // finished routes keep a faint thread and light running along it
       for (const r of routes) {
