@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-07T23:39:31Z",
+  "generated_on": "2026-11-08T02:43:30Z",
   "status": "partial",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 197,
-    "response_sha256": "3ebaddf6985e21bd35fd67798ea46e550fba7524d893bf647e655a3fa7420490"
+    "response_sha256": "d806aa1f42e814231cf6f63821b18eb640837bb745da0fb52f4edb7db9818f7c"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 12,
     "response_sha256": "d04e4f295a10562ac4cb3933c27b1001c8dc6b694c181231ce25a5a66f244f00"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -48,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -58,7 +58,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 100,
     "response_sha256": "7dabeef15102c96e3ce19356e27afafb784e5435311f58e1f60b80f54910c817"
    },
@@ -70,13 +70,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-07T23:39:31Z",
+    "last_successful_fetch": "2026-11-08T02:43:30Z",
     "records": 44,
     "pages_fetched": 3,
-    "response_sha256": "76944cc6cf729d44bb17220210bed6ebaeb08e98ede4767f4ab27d204a66a3cb"
+    "response_sha256": "3b8482ff0a58321c9c5a315a42057c9507c92741c92c67e914f0f1e9710e47a1"
    }
   ],
-  "record_count": 235,
+  "record_count": 237,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -166,6 +166,42 @@
     "agent-software"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-6cedda318341",
+   "title": "Anthropic's AI acceleration is highly likely to be real",
+   "date": "2026-11-07",
+   "source": "LessWrong",
+   "source_id": "web-lesswrong-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real",
+   "description": "Regarding the METR report that was questioned because of extensive redactions by Anthropic, the author re-examined it layer by layer using public data and considers it highly likely that Anthropic's…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic",
+    "metr"
+   ]
+  },
+  {
+   "id": "web-6a6ccf5cf0a4",
+   "title": "Most of the 2,539 leaked secrets were hidden in a single Claude Code file",
+   "date": "2026-11-07",
+   "source": "FourWeekMBA",
+   "source_id": "web-fourweekmba-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://fourweekmba.com/zh-CN/%E6%B3%84%E9%9C%B2%E7%9A%842539%E4%B8%AA%E7%A7%98%E5%AF%86%E5%A4%A7%E9%83%A8%E5%88%86%E9%83%BD%E4%BF%9D%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%85%8B%E5%8A%B3%E5%BE%B7%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E4%B8%AD",
+   "description": "Research by security firm Apiiro shows that 2,539 real secrets were found in files written by AI coding agents and committed by developers, distributed across 1,994 public GitHub repositories, with m…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
   },
   {
    "id": "web-5f45070356c1",
