@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-08T02:43:30Z",
+  "generated_on": "2026-11-08T09:31:28Z",
   "status": "partial",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 197,
-    "response_sha256": "d806aa1f42e814231cf6f63821b18eb640837bb745da0fb52f4edb7db9818f7c"
+    "response_sha256": "79e596bf331c7416c424892b1e3f87736e283859a2fd83bd5ec282f1c3cdb033"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 12,
     "response_sha256": "d04e4f295a10562ac4cb3933c27b1001c8dc6b694c181231ce25a5a66f244f00"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -48,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -58,7 +58,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 100,
     "response_sha256": "7dabeef15102c96e3ce19356e27afafb784e5435311f58e1f60b80f54910c817"
    },
@@ -70,17 +70,34 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-08T02:43:30Z",
+    "last_successful_fetch": "2026-11-08T09:31:28Z",
     "records": 44,
     "pages_fetched": 3,
-    "response_sha256": "3b8482ff0a58321c9c5a315a42057c9507c92741c92c67e914f0f1e9710e47a1"
+    "response_sha256": "45e86c7aa76e31d167b8c9f57d90271719714626c19e1f4f8c188990f151b001"
    }
   ],
-  "record_count": 237,
+  "record_count": 239,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-e152eb972318",
+   "title": "Nvidia chip sales to China are fraught with doubts; a New York Times on-site investigation found that Chinese companies approved by the U.S. to handle H200 chips appear to be shell entities.",
+   "date": "2026-11-08",
+   "source": "worldjournal.com",
+   "source_id": "web-worldjournal-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.worldjournal.com/wj/story/124279/9864750?zh-cn=",
+   "description": "A New York Times on-site investigation found that several Chinese companies approved by the U.S. Department of Commerce to handle H200 chips have registered addresses that appear to be shell entities…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
   {
    "id": "web-e049fb2de93a",
    "title": "Nine AI agents conducted autonomous research on open problems at a US national laboratory, and none met expert standards",
@@ -132,6 +149,24 @@
    ],
    "orgs": [
     "google"
+   ]
+  },
+  {
+   "id": "web-77c29949e2d6",
+   "title": "Claude Code's \"Yes, and don't ask again\" option can leak passwords and API keys to GitHub",
+   "date": "2026-11-07",
+   "source": "Cybersecuritynews",
+   "source_id": "web-cybersecuritynews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://cybersecuritynews.com/claude-codes-yes-and-dont-ask-again/amp",
+   "description": "Apiiro researchers found that Claude Code's \"Yes, and don't ask again\" option saves passwords and API keys into project settings, which then end up in public GitHub repositories. A scan found 2,539 d…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
    ]
   },
   {
