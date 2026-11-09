@@ -2,7 +2,7 @@ name: Update AI Safety Index feeds
 
 on:
   schedule:
-    - cron: "17,47 * * * *"
+    - cron: "2,17,32,47 * * * *"
     - cron: "20 */3 * * *"
     - cron: "50 1 * * *"
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "22"
       - name: Collect safety signals and open-web discoveries
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17,47 * * * *'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '2,17,32,47 * * * *'
         working-directory: ai-safety-index
         run: python3 tools/update-signals.py
       - name: Pick recent safety papers from arXiv
@@ -34,7 +34,7 @@ jobs:
         working-directory: ai-safety-index
         run: python3 tools/update-papers.py
       - name: Translate new signals and papers into Chinese
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17,47 * * * *' || github.event.schedule == '20 */3 * * *'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '2,17,32,47 * * * *' || github.event.schedule == '20 */3 * * *'
         working-directory: ai-safety-index
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

@@ -234,7 +234,9 @@
   const paperRow = p => {
     const au = (p.authors || []).slice(0, 3).join(', ') + ((p.authors || []).length > 3 ? T(' 等', ' et al.') : '');
     const href = p.arxiv_id ? 'https://arxiv.org/abs/' + p.arxiv_id : p.url;
-    return '<li><a class="pt" href="' + esc(href) + '" rel="noopener" lang="en">' + esc(p.title) + '</a>'
+    const detailId = p.arxiv_id || p.id;
+    const detail = detailId ? 'paper.html?id=' + encodeURIComponent(detailId) : href;
+    return '<li><a class="pt" href="' + esc(detail) + '" lang="en">' + esc(p.title) + '</a>'
       + (p.hand ? '<span class="au">' + esc(tx('SITE', p.note)) + '</span>' : '<span class="au" lang="en">' + esc(au) + '</span>')
       + '<span class="tg">' + (p.description ? '<span class="tag">' + esc(tx('SUBTOPIC', p.description)) + '</span>' : '') + (p.direction_ids || []).map(d => '<span class="tag">' + esc(dirName(d)) + '</span>').join('') + '</span>'
       + '<span class="vn"><b>' + esc(tx('SITE', p.venue || '')) + '</b>' + (p.arxiv_id ? '<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" rel="noopener">arXiv ' + esc(p.arxiv_id) + '</a>' : '') + '</span></li>';

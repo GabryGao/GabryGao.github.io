@@ -7,6 +7,7 @@ never the aggregator URL. Categories, directions and organisations are assigned 
 site's keyword rules. Records are kept for ARCHIVE_DAYS.
 """
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from hashlib import sha1, sha256
@@ -39,10 +40,11 @@ DISCOVERY_SOURCE = {
 }
 ARCHIVE_DAYS = 90
 MAX_BYTES = 4 * 1024 * 1024
-TIMEOUT = 25
-SUMMARY_CHARS = 200
+TIMEOUT = 15
+SUMMARY_CHARS = 1600
 DISCOVERY_PAGES = 3
 DISCOVERY_PAGE_LIMIT = 20
+FETCH_WORKERS = len(SOURCES) + 1
 AGGREGATOR_HOSTS = {'aisafetyhot.com', 'www.aisafetyhot.com', 'mcp.aisafetyhot.com', 'aihot.news', 'www.aihot.news'}
 
 SAFETY = re.compile(r'\bsafety\b|safeguard|misuse|malicious|threat|red.?team|alignment|jailbreak|preparedness|system card|'
@@ -344,35 +346,54 @@ def load_previous(root):
     return data['info'], data['records']
 
 
+def collect_primary_source(source, old_sources, fetch, today, timestamp):
+    try:
+        payload = fetch(source['url'])
+        rows = parse_feed(payload, source, today)
+        status = {'id': source['id'], 'name': source['name'], 'kind': source['kind'], 'url': source['url'],
+                  'status': 'ok', 'last_successful_fetch': timestamp, 'records': len(rows),
+                  'response_sha256': sha256(payload).hexdigest()}
+        return rows, status, None
+    except (OSError, ValueError, ET.ParseError, subprocess.SubprocessError) as error:
+        previous = old_sources.get(source['id'], {})
+        status = {'id': source['id'], 'name': source['name'], 'kind': source['kind'], 'url': source['url'],
+                  'status': 'failed', 'error': type(error).__name__,
+                  'last_successful_fetch': previous.get('last_successful_fetch')}
+        return [], status, source['id']
+
+
+def collect_discovery_source(old_sources, fetch, timestamp):
+    try:
+        rows, pages, digest = collect_discovery(fetch, timestamp)
+        status = {**DISCOVERY_SOURCE, 'status': 'ok', 'last_successful_fetch': timestamp,
+                  'records': len(rows), 'pages_fetched': pages, 'response_sha256': digest}
+        return rows, status, None
+    except (OSError, ValueError, subprocess.SubprocessError) as error:
+        previous = old_sources.get(DISCOVERY_SOURCE['id'], {})
+        status = {**DISCOVERY_SOURCE, 'status': 'failed', 'error': type(error).__name__,
+                  'last_successful_fetch': previous.get('last_successful_fetch')}
+        return [], status, DISCOVERY_SOURCE['id']
+
+
 def collect(previous_info, previous_rows, fetch, timestamp):
     today = date.fromisoformat(timestamp[:10])
     cutoff = (today - timedelta(days=ARCHIVE_DAYS)).isoformat()
     old_sources = {item.get('id'): item for item in previous_info.get('sources', [])}
     fresh_primary, fresh_discovery, sources, failed = [], [], [], []
-    for source in SOURCES:
-        try:
-            payload = fetch(source['url'])
-            rows = parse_feed(payload, source, today)
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS, thread_name_prefix='signal-fetch') as executor:
+        primary_jobs = [executor.submit(collect_primary_source, source, old_sources, fetch, today, timestamp)
+                        for source in SOURCES]
+        discovery_job = executor.submit(collect_discovery_source, old_sources, fetch, timestamp)
+        for job in primary_jobs:
+            rows, status, failed_id = job.result()
             fresh_primary.extend(rows)
-            sources.append({'id': source['id'], 'name': source['name'], 'kind': source['kind'], 'url': source['url'],
-                            'status': 'ok', 'last_successful_fetch': timestamp, 'records': len(rows),
-                            'response_sha256': sha256(payload).hexdigest()})
-        except (OSError, ValueError, ET.ParseError, subprocess.SubprocessError) as error:
-            previous = old_sources.get(source['id'], {})
-            sources.append({'id': source['id'], 'name': source['name'], 'kind': source['kind'], 'url': source['url'],
-                            'status': 'failed', 'error': type(error).__name__,
-                            'last_successful_fetch': previous.get('last_successful_fetch')})
-            failed.append(source['id'])
-    try:
-        fresh_discovery, pages, digest = collect_discovery(fetch, timestamp)
-        sources.append({**DISCOVERY_SOURCE, 'status': 'ok', 'last_successful_fetch': timestamp,
-                        'records': len(fresh_discovery), 'pages_fetched': pages,
-                        'response_sha256': digest})
-    except (OSError, ValueError, subprocess.SubprocessError) as error:
-        previous = old_sources.get(DISCOVERY_SOURCE['id'], {})
-        sources.append({**DISCOVERY_SOURCE, 'status': 'failed', 'error': type(error).__name__,
-                        'last_successful_fetch': previous.get('last_successful_fetch')})
-        failed.append(DISCOVERY_SOURCE['id'])
+            sources.append(status)
+            if failed_id:
+                failed.append(failed_id)
+        fresh_discovery, status, failed_id = discovery_job.result()
+        sources.append(status)
+        if failed_id:
+            failed.append(failed_id)
     if len(failed) == len(SOURCES) + 1 and not previous_rows:
         raise ValueError('Every source failed and there is no previous snapshot')
     merged = {}

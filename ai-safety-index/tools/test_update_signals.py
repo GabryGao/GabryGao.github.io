@@ -4,6 +4,7 @@ from datetime import date
 import json
 from pathlib import Path
 import tempfile
+import threading
 import unittest
 
 MODULE = Path(__file__).with_name('update-signals.py')
@@ -75,6 +76,13 @@ class ParseTest(unittest.TestCase):
         self.assertEqual(rows[0]['date'], '2026-10-12')
         self.assertEqual(rows[0]['url'], 'https://www.gov.uk/government/news/x')
         self.assertEqual(rows[0]['category'], 'policy')
+
+    def test_long_summaries_keep_context_for_detail_pages(self):
+        summary = ('Risk evidence, affected systems, remediation status, and open verification questions. ' * 10).strip()
+        payload = rss(('Frontier AI safety incident report', 'https://example.org/long-report', summary, 'Mon, 26 Oct 2026 10:00:00 GMT'))
+        rows = signals.parse_feed(payload, SOURCE['metr'], TODAY)
+        self.assertEqual(rows[0]['description'], summary)
+        self.assertGreater(len(rows[0]['description']), 200)
 
     def test_incidents_get_site_rules_for_orgs_and_directions(self):
         payload = rss(('Family sues OpenAI after ChatGPT advice in teen suicide case', 'https://example.org/report', 'Lawsuit filed.', 'Sat, 24 Oct 2026 00:00:00 GMT'))
@@ -153,6 +161,18 @@ class CollectTest(unittest.TestCase):
         self.assertNotIn('metr-expired', ids)
         self.assertEqual(info['status'], 'partial')
         self.assertEqual(next(s for s in info['sources'] if s['id'] == 'metr')['status'], 'failed')
+
+    def test_sources_fetch_concurrently_and_keep_configured_order(self):
+        barrier = threading.Barrier(len(signals.SOURCES) + 1)
+        def fetch(url):
+            barrier.wait(timeout=2)
+            if url.startswith(signals.DISCOVERY_SOURCE['api_url']):
+                return discovery_response()
+            source = next(source for source in signals.SOURCES if source['url'] == url)
+            return rss(('AI risk and misuse report', 'https://example.org/' + source['id'], 'x', 'Mon, 26 Oct 2026 10:00:00 GMT'))
+        info, _ = signals.collect({}, [], fetch, '2026-10-29T00:00:00Z')
+        self.assertEqual([source['id'] for source in info['sources']],
+                         [source['id'] for source in signals.SOURCES] + [signals.DISCOVERY_SOURCE['id']])
 
     def test_fresh_copy_replaces_stored_copy(self):
         info, first = signals.collect({}, [], self.feeds(), '2026-10-29T00:00:00Z')

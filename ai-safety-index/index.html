@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ai-safety-signals-endpoint" content="research-source/signals-provenance.json">
+<meta name="ai-safety-stream-endpoint" content="">
 <title data-en="AI Safety Index · what happened in AI safety this week">AI Safety Index · 本周 AI 安全动态</title>
 <script>
 /* Old single-page links used #route?params; send them to the matching new page before anything renders. */
@@ -56,8 +58,7 @@
     <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
 
-  <section class="crawl crawl-big" aria-labelledby="crawl-title">
-    <h1 class="crawl-title" id="crawl-title"><small id="crawl-sub" data-en="Last 14 days, routed by research direction">近 14 天 · 按研究方向分流</small></h1>
+  <section class="crawl crawl-big" aria-label="近 14 天安全信号动画" data-en-aria-label="Safety signal animation for the last 14 days">
     <figure class="art">
       <canvas id="web" aria-label="近 14 天安全信号按研究方向分流的动画" data-en-aria-label="Animation routing the last 14 days of safety signals into research directions"></canvas>
       <div class="peek" id="peek" aria-live="polite"></div>
@@ -111,7 +112,7 @@
 
 <footer>
   <div class="wrap">
-    <span data-en="Collected from official posts, the AI Incident Database and arXiv, refreshed every 3 hours.">数据由本站从各机构官方发布、AI Incident Database 和 arXiv 自动收集，每 3 小时更新。</span>
+    <span data-en="Collected from official posts, the AI Incident Database and arXiv, checked every 15 minutes.">数据由本站从各机构官方发布、AI Incident Database 和 arXiv 自动收集，每 15 分钟检查更新。</span>
     <a href="results.html" data-en="Evaluation">基准与评测</a>
     <a href="papers.html" data-en="Papers">论文</a>
     <a href="about.html" data-en="About">关于</a>
@@ -124,7 +125,8 @@
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script src="news.js"></script>
-<script src="signal-web.js?v=10"></script>
+<script src="signal-web.js?v=11"></script>
+<script src="home-live.js"></script>
 <script>
 (() => {
   const S = Shell, N = S.news, { esc, iso, md, day, DAY, title, link, isIncident, dirName, T, en } = S;
@@ -134,7 +136,7 @@
   const dirLabel = () => state.dir === 'all' ? '' : T('（' + dirName(state.dir) + '）', ' (' + dirName(state.dir) + ')');
   const plural = (n, word) => n + ' ' + word + (n === 1 ? '' : 's');
 
-  S.dirSeg(document.getElementById('dirs'), () => state.dir,
+  const renderDirs = S.dirSeg(document.getElementById('dirs'), () => state.dir,
     id => N.signals.filter(r => id === 'all' || (r.direction_ids || []).includes(id)).length,
     id => { state.dir = id; state.open = null; renderAll(); });
 
@@ -230,11 +232,13 @@
 
   /* signal crawler: the last 14 days of signals, routed into research directions */
   const web = (() => {
-    const from14 = iso(N.days[0]);
     let RECS = [];
-    const recs = () => N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length).filter(inDir)
-      .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 48).reverse()
-      .map(r => ({ r, inc: isIncident(r) }));
+    const recs = () => {
+      const from14 = iso(N.days[0]);
+      return N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length).filter(inDir)
+        .sort((a, b) => b.date.localeCompare(a.date)).reverse()
+        .map(r => ({ r, inc: isIncident(r) }));
+    };
     const peek = document.getElementById('peek');
     let shownAt = 0;
     function show(i, auto) {
@@ -243,7 +247,7 @@
       shownAt = performance.now();
       const { r, inc } = RECS[i], desc = S.desc(r);
       peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
-        + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + (i + 1) + ' / ' + RECS.length + '</span></div>'
+        + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + T('累计 ' + RECS.length + ' 条', RECS.length + ' collected') + '</span></div>'
         + '<h3><a href="' + News.href(r) + '">' + esc(title(r)) + '</a></h3>'
         + (desc ? '<p>' + esc(desc) + '</p>' : '');
     }
@@ -254,13 +258,37 @@
     return {
       update() {
         RECS = recs(); api.setRecords(RECS); shownAt = 0; show(RECS.length - 1);
-        document.getElementById('crawl-sub').textContent = state.dir === 'all' ? T('近 14 天 · 按研究方向分流', 'Last 14 days, routed by research direction')
-          : T('近 14 天 · ' + dirName(state.dir) + ' · ' + RECS.length + ' 条', 'Last 14 days · ' + dirName(state.dir) + ' · ' + RECS.length);
       }
     };
   })();
+
+  function applySnapshot(snapshot) {
+    if (!snapshot || !snapshot.info || !Array.isArray(snapshot.records)) return;
+    N.all.splice(0, N.all.length, ...snapshot.records);
+    N.signals = N.all;
+    N.info = snapshot.info;
+    N.generated = snapshot.info.generated_on ? new Date(snapshot.info.generated_on) : null;
+    N.today = new Date();
+    N.today.setHours(0, 0, 0, 0);
+    const dates = N.all.map(r => r.date).filter(Boolean).sort();
+    N.firstDay = dates.length ? day(dates[0]) : N.today;
+    N.lastCollected = N.generated && !Number.isNaN(N.generated.getTime())
+      ? new Date(N.generated.getFullYear(), N.generated.getMonth(), N.generated.getDate())
+      : dates.length ? day(dates.at(-1)) : N.today;
+    N.since30 = iso(new Date(N.today.getTime() - 29 * DAY));
+    N.recent = N.all.filter(r => r.date >= N.since30);
+    N.days = Array.from({ length: N.span }, (_, i) => new Date(N.today.getTime() - (N.span - 1 - i) * DAY));
+    N.ref = N.generated && !Number.isNaN(N.generated.getTime()) ? N.generated : N.today;
+    renderDirs();
+    renderAll();
+  }
+
   function renderAll() { web.update(); renderNews(); renderScore(); renderPapers(); }
   renderAll();
+  if (window.HomeLive) {
+    window.addEventListener(HomeLive.EVENT, event => applySnapshot(event.detail));
+    HomeLive.start();
+  }
 })();
 </script>
 <script src="intro.js?v=4"></script>

@@ -54,8 +54,17 @@
     const boxY = d => d * (L.boxH + L.gap);
     const dirIndex = r => Math.max(0, dirs.indexOf((r.direction_ids || [])[0]));
 
-    function reset() {
-      counts = {}; flash = {}; flights = []; cur = -1;
+    function countRecords(list = records) {
+      const next = {};
+      for (const record of list) {
+        const direction = dirIndex(record.r);
+        next[direction] = (next[direction] || 0) + 1;
+      }
+      return next;
+    }
+
+    function resetAnimation() {
+      flash = {}; flights = []; cur = -1;
       for (const s of spokes) { s.len = 0; s.color = null; }
     }
 
@@ -187,7 +196,7 @@
           if (cur + 1 < records.length) { cur++; launch(cur, t); startAt = t + STEP; }
           else { startAt = t + 900; cur = records.length; }
         }
-        if (cur >= records.length && t >= startAt - 10) { reset(); startAt = t + 300; }
+        if (cur >= records.length && t >= startAt - 10) { resetAnimation(); startAt = t + 300; }
       }
       const focus = pinned >= 0 ? pinned : Math.min(cur, records.length - 1);
       // keep the active row a third of the way down
@@ -259,7 +268,7 @@
         ctx.beginPath(); for (let k = 0; k <= 40; k++) { const p = path(u * k / 40); k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); } ctx.stroke();
         if (u < 1) { const p = path(u); ctx.fillStyle = f.color; ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(p[0], p[1], 3.2, 0, 6.283); ctx.fill(); }
         if (u >= 1 && !f.done) {
-          f.done = true; counts[f.d] = (counts[f.d] || 0) + 1; flash[f.d] = t;
+          f.done = true; flash[f.d] = t;
           routes.push({ i: f.i, d: f.d, a: f.a, color: f.color, born: t, seed: Math.random() });
           const s = spokes.reduce((b, s) => Math.abs(s.a - f.a) < Math.abs(b.a - f.a) ? s : b);
           s.color = f.color; s.len = Math.min(40, s.len + 14);
@@ -290,7 +299,8 @@
 
     // a still frame: everything already routed
     function settle() {
-      reset();
+      counts = countRecords(records);
+      resetAnimation();
       records.forEach((rec, i) => { cur = i; launch(i, 0); });
       draw(1);
     }
@@ -314,7 +324,7 @@
       else location.href = 'directions.html?dir=' + encodeURIComponent(dirs[h.box]);
     });
 
-    colors(); layout(); initSpider();
+    colors(); layout(); initSpider(); counts = countRecords(records);
     // a resize clears the canvas, so paint again straight away instead of waiting for the next frame
     new ResizeObserver(() => { const w = cv.getBoundingClientRect().width; if (Math.abs(w - W) > 1) { layout(); initSpider(); draw(performance.now(), true); } }).observe(cv);
     // keep painting even where animation frames are held back
@@ -323,7 +333,15 @@
     draw(performance.now(), true); requestAnimationFrame(draw);
 
     return {
-      setRecords(next) { records = next; reset(); pinned = -1; scroll = 0; routes = []; startAt = 0; },
+      setRecords(next) {
+        const known = new Set(records.map(record => record.r.id));
+        const arrivals = next.filter(record => !known.has(record.r.id));
+        records = next;
+        counts = countRecords(records);
+        resetAnimation(); pinned = -1; scroll = 0; routes = []; startAt = 0;
+        const now = performance.now();
+        for (const record of arrivals) flash[dirIndex(record.r)] = now;
+      },
       focusPoint(i) { // where the card should sit for record i
         const y = Math.max(0, Math.min(H, rowY(i)));
         return { x: L.listW * 0.15, y: y + L.rowH, below: y < H * 0.55, W, H };
