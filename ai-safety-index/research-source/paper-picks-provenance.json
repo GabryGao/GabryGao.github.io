@@ -1,16 +1,50 @@
 {
  "info": {
-  "generated_on": "2026-11-08T22:06:03Z",
+  "generated_on": "2026-11-09T06:30:15Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-08T22:06:03Z",
+  "last_successful_fetch": "2026-11-09T06:30:15Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "4063612c47c768d045b4b17d5d75bd9bf95b1a5f84749050523425e160ca5be3",
+  "response_sha256": "82d94cb781116edc45cf59f459581a5ef9d135190ba07815111c626b61d4d47d",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.08845",
+   "title": "Jev as an LLM Safety Guardrail: An Empirical Study of Input Filtering, Selective Output Review, and Over-Refusal",
+   "date": "2026-11-06",
+   "authors": [
+    "Olivia Cognetti",
+    "Bhaskar Krishnamachari"
+   ],
+   "more_authors": false,
+   "category": "cs.CR",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "score": 20,
+   "abstract": "External safety filters can prevent unsafe requests from reaching a large language model (LLM), but may also reject legitimate queries. We present an end-to-end empirical evaluation of Jev, a probabilistic decision model, as a safety guardrail for a Qwen2.5-1.5B-based pipeline. Three configurations are compared on 970 benchmark prompts: an unfiltered LLM, Jev input filtering, and tiered Jev input filtering with selective output review. Across 720 prompts labeled harmful (520 AdvBench and 200 XSTest-unsafe), the fraction recorded as answered decreases from 527/720 (73.2%) without filtering to 17/720 (2.4%) with input filtering. On 250 XSTest-safe prompts, however, non-answer/refusal increases from 3/250 (1.2%) to 27/250 (10.8%). Tiered filtering yields 40/720 (5.6%) harmful-prompt answers and 10/250 (4.0%) benign-prompt refusals, with 79/970 (8.1%) of prompts requiring output review. Joint optimization of the tiered thresholds improves macro-F1 from 0.9351 to 0.9512, while reducing harmful-prompt answers and output-review frequency at the same benign-refusal rate. Matched-budget comparisons reveal modest additional gains over a retuned single gate on the evaluation data, although these gains are not consistently observed on a held-out split."
+  },
+  {
+   "arxiv_id": "2611.09734",
+   "title": "GuardrailAgent: An Agentic Framework for Jailbreak Defense",
+   "date": "2026-11-06",
+   "authors": [
+    "Tianze Chang",
+    "Junjie Chu",
+    "Yixin Wu"
+   ],
+   "more_authors": true,
+   "category": "cs.CR",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 17,
+   "abstract": "Despite undergoing safety training to align with human values, large language models (LLMs) remain vulnerable to jailbreak attacks that circumvent built-in safeguards and elicit malicious behaviors given by the adversary. Existing defenses are mostly static and fail to adapt to new or unknown attack strategies, providing limited resilience. To address these, we propose a multi-agent defense framework, GuardrailAgent, that offers adaptive, end-to-end protection. The system autonomously gathers and summarizes attack characteristics into a continuously updated knowledge base that supports both input- and output-side detection. A feedback module integrates misclassified cases for iterative improvement at minimal cost. Tested on over ten representative jailbreaks, the framework achieved a 93.1% input-side detection rate, 93.9% overall detection, and a 95.8% F1 score, while rapidly adapting to unseen attacks. These results demonstrate GuardrailAgent's outstanding capability to maintain LLM safety in the face of evolving jailbreak tactics."
+  },
   {
    "arxiv_id": "2611.08226",
    "title": "\"Blind Compliance\": Coercive Control in AI Jailbreaking",
@@ -82,20 +116,22 @@
    "abstract": "As LLM agents advance rapidly in autonomy, the risk of hidden objectives that bypass safety constraints becomes increasingly plausible. Chain-of-thought (CoT) monitoring offers a key control mechanism by reading the agent's reasoning and flagging misalignment before it materializes into action, yet its reliability depends on the realism of the red-team it is stress-tested against. Existing red-teaming efforts rely on shared templates, such as casting a side task as a prerequisite, which treat the side objective as an exogenous insertion and leave task-specific, contextually grounded evasions underexplored. We therefore ask: How robust is CoT monitoring against agents that strategically conceal misalignment? To answer this, we introduce TraceMRT, an automated Trace-level Monitor Red-Teaming framework that reframes the side task as a coherent sub-goal of the primary task and searches trace-shaping strategies whose induced trajectories complete the misaligned objective while reading as natural execution. Through black-box attacks on state-of-the-art monitors such as GPT-5.2 and Claude-4.5, we reveal substantial vulnerabilities even in top models. To counter these vulnerabilities, we propose a Bayesian Trajectory Monitoring framework, integrating global context and local segment evidence to detect covert misalignment. Empirically, our method significantly consolidates monitor robustness with 0.91 AUC and 0.74 TPR@FPR=0.05."
   },
   {
-   "arxiv_id": "2611.06553",
-   "title": "Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in Large Language Models",
-   "date": "2026-11-04",
+   "arxiv_id": "2611.08752",
+   "title": "AttentionSwitch: Jailbreak Defense for LLMs via Joint Learning of Sparse Attention-Head Selection and Scaling",
+   "date": "2026-11-05",
    "authors": [
-    "Hamid Dashtbani",
-    "Alexandra Dmitrienko"
+    "Doniyorkhon Obidov",
+    "Honggang Yu",
+    "Xiaolong Guo"
    ],
-   "more_authors": false,
+   "more_authors": true,
    "category": "cs.AI",
    "direction_ids": [
+    "human-societal",
     "foundation-model"
    ],
-   "score": 20,
-   "abstract": "Large language models (LLMs) undergo safety alignment to prevent harmful generations, yet they remain vulnerable to jailbreak attacks. Recent work reveals a deeper structural weakness: safety alignment can be highly sparse, such that pruning a small number of safety-critical neurons or ablating a single refusal direction can substantially undermine aligned behavior. In this work, we take the first steps toward strengthening safety alignment such that it is less dependent on sparse model components. We propose Addition by Subtraction, which gradually removes identified safety-critical neurons during finetuning and uses preference optimization to re-establish safety-aligned behavior through other parts of the model. Our results show that the resulting models are substantially more robust to pruning-based attacks. Remarkably, these benefits generalize beyond the white-box attacks motivating our design: Addition by Subtraction improves robustness against other sparsity-based interventions, including refusal-direction ablation, as well as a broad range of black-box jailbreak attacks. The finetuned models also exhibit improved truthfulness while largely preserving general capabilities. Comprehensive experiments across four models from three vendors demonstrate consistent improvements in safety robustness, reducing attack success rates by up to 90% for some attacks."
+   "score": 13,
+   "abstract": "Large language models have achieved remarkable performance across a wide range of tasks, yet they remain susceptible to jailbreak attacks that circumvent safety mechanisms and elicit harmful or unintended outputs. Although safety can be improved through model fine-tuning, such approaches can be computationally expensive and may degrade previously acquired capabilities through catastrophic forgetting. Recent jailbreak defenses have therefore explored targeted interventions on specific model components associated with unsafe behavior. However, existing approaches typically decouple two inherently related decisions: where to intervene and how to modify the selected components. Such sequential optimization may be suboptimal because the optimal intervention location can depend on the intervention applied there, and vice versa. In this work, we introduce AttentionSwitch, the first jailbreak defense to jointly optimize intervention sites and strengths within a frozen LLM. Specifically, AttentionSwitch learns a sparse set of attention heads together with query-conditioned multiplicative scaling factors, allowing the outputs of the selected heads to be either attenuated or amplified without altering the directions of their representations. Across popular language models and jailbreak attacks, AttentionSwitch outperforms existing defenses, with particularly strong results when training data is scarce."
   },
   {
    "arxiv_id": "2611.07216",
@@ -113,41 +149,6 @@
    ],
    "score": 17,
    "abstract": "Large vision-language models (LVLMs) are vulnerable to compositional harm: an image and a prompt that are benign in isolation become harmful through the model's cross-modal reasoning. Recent alignment methods report strong scores on compositional safety benchmarks, but an LLM judge only measures observed behavior and cannot reveal how robustly safety is integrated into the model. We argue that un-alignment provides a complementary audit of alignment robustness. We first show that minimal supervised fine-tuning reaches an LLM-judge score comparable to a multi-stage reinforcement-learning pipeline, so similar benchmark scores cannot establish robustness by themselves. We then show that recognition and refusal of compositional harm are decoupled: nine standard direction-finding methods detect compositional harm with up to AUC=0.99, yet ablating the recovered directions either leaves refusal intact or destroys model coherence. We therefore propose CMaG, a training-free un-alignment method for compositional safety. CMaG measures refusal intention with a refusal-versus-compliance log-probability margin, takes its gradient with respect to mid-layer activations, and contrasts it against partially benign pairs to isolate the cross-modal interaction term. A single backward pass over 80 examples yields a direction along which steering monotonically converts refusal into compliance. On Qwen2.5-VL-7B and LLaVA-1.5-7B, CMaG reduces compositional safety scores by up to 65 points while over 98% of outputs remain coherent, outperforming gradient-based baselines; the direction also transfers to text-explicit harm and un-aligns models hardened by defensive training. Compositional safety can thus appear behaviorally strong while remaining fragile to targeted internal intervention. Warning: this paper contains unsafe model outputs, including references to self-harm."
-  },
-  {
-   "arxiv_id": "2611.06147",
-   "title": "SafeStart: Mitigating the Overlooked Safety Cost of Active Expert Reduction in MoE LLM Serving",
-   "date": "2026-11-04",
-   "authors": [
-    "Erfan Baghaei Potraghloo",
-    "Saeid Shokoufa",
-    "Seyedarmin Azizi"
-   ],
-   "more_authors": true,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 13,
-   "abstract": "Mixture-of-Experts (MoE) language models send each token through a few of many expert subnetworks. Serving methods make these models faster by running even fewer experts per token, and they are validated on accuracy benchmarks. We show that these methods can weaken the model's refusal of harmful requests, and we introduce SafeStart, which largely restores refusal while keeping most of the speedup. In vLLM on one RTX A6000, keeping about two thirds of the selected experts speeds up offline decoding by 15 to 28% at batch size 8. We find that, at this setting, under a jailbreak that tells the model not to refuse, the share of harmful requests that the model answers rises by 18.4 percentage points on Qwen1.5-MoE, 9.5 on OLMoE, and 6.6 on DeepSeek-V2-Lite, the three of nine models where it rises significantly, while MMLU accuracy drops by less than two points. We discover that most of this increase arises while the model processes the prompt and generates its first few tokens. SafeStart therefore runs all experts for the prompt and the first eight generated tokens, and the reduced set of experts afterwards, through a fused kernel in vLLM. With experts removed, SafeStart keeps at least 85% of the offline decode speedup at batch sizes 8 and 32 and brings the change under this jailbreak to between -2.1 and +1.3 points for three expert-reduction methods on these three models. On 889 held-out requests, in an analysis fixed before generation, truncation raises harmful compliance by 5.8 to 21.4 points, and SafeStart leaves a rise of 0.6 to 2.6 points, non-inferior to the original model on two of the three models. Our results show that faster MoE serving need not cost safety: a serving system can keep most of the gain from running fewer experts by running all of them at the start of each response, and it should test refusal, not only accuracy, before it enables such a method."
-  },
-  {
-   "arxiv_id": "2611.06380",
-   "title": "Does Context Compression Preserve Refusal Alignment?",
-   "date": "2026-11-04",
-   "authors": [
-    "Anthony Nguyen",
-    "Wenjun Lin"
-   ],
-   "more_authors": false,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 12,
-   "abstract": "Context compression reduces inference cost by encoding inputs into compact representations while preserving semantic content. An open question is whether semantic preservation alone is sufficient to maintain downstream behaviours such as refusal alignment. We investigate this question and find that encoder-based compression systematically weakens refusal behaviour in instruction-tuned language models, despite high reconstruction fidelity. This effect persists across model families and compression architectures. Mechanistic analysis shows that compression attenuates activation along the decoder's learned refusal direction. We further explore Memory Steering, a lightweight inference-time intervention that restores refusal rates to near-baseline levels without retraining and operates entirely in compressed representation space. These results demonstrate that semantic preservation does not guarantee behavioural preservation under compression, highlighting the need to explicitly preserve alignment-relevant features in compression-aware systems."
   }
  ]
 }
