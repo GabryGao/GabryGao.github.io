@@ -27,6 +27,7 @@ for(const f of ['shell.js','home-crawler.js','signal-web.js','home-live.js','new
 assert.match(read('index.html'),/<canvas id="web"/,'home page lacks the signal crawler canvas');
 assert.match(read('index.html'),/src="signal-web\.js(\?v=\d+)?"/,'home page does not load the signal crawler');
 assert.doesNotMatch(read('index.html'),/id="crawl-title"|id="crawl-sub"|>信号爬虫</,'home page still shows the removed signal crawler heading');
+assert.doesNotMatch(read('index.html'),/src="intro\.js/,'home page still loads the removed opening animation');
 assert.match(read('index.html'),/src="home-live\.js"/,'home page does not load the live-update adapter');
 assert.match(read('index.html'),/name="ai-safety-signals-endpoint" content="research-source\/signals-provenance\.json"/,'home page lacks the historical signals endpoint');
 assert.doesNotMatch(read('index.html'),/\.slice\(0,\s*48\)\.reverse\(\)/,'signal crawler still caps the cumulative 14-day feed at 48 records');
