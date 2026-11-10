@@ -20,14 +20,21 @@ import subprocess
 import tempfile
 import urllib.parse
 import xml.etree.ElementTree as ET
+from physical_ai import is_physical_ai
 
 ATOM = '{http://www.w3.org/2005/Atom}'
+ARXIV_ROBOTICS_URL = 'https://export.arxiv.org/api/query?' + urllib.parse.urlencode({
+    'search_query': 'cat:cs.RO AND (ti:safety OR ti:safe OR ti:attack OR ti:adversarial OR abs:"safety constraints" OR abs:"safety-critical")',
+    'sortBy': 'submittedDate', 'sortOrder': 'descending', 'start': 0, 'max_results': 100,
+})
 SOURCES = [
     {'id': 'openai', 'name': 'OpenAI', 'kind': 'official', 'org': 'openai', 'url': 'https://openai.com/news/rss.xml', 'require_safety': True},
     {'id': 'deepmind', 'name': 'Google DeepMind', 'kind': 'official', 'org': 'google', 'url': 'https://deepmind.google/blog/rss.xml', 'require_safety': True},
     {'id': 'uk-aisi', 'name': 'UK AI Security Institute', 'kind': 'official', 'org': 'uk-aisi', 'url': 'https://www.gov.uk/government/organisations/ai-security-institute.atom', 'require_safety': False},
     {'id': 'metr', 'name': 'METR', 'kind': 'official', 'org': 'metr', 'url': 'https://metr.org/feed.xml', 'require_safety': False},
     {'id': 'nist', 'name': 'NIST', 'kind': 'official', 'org': 'nist', 'url': 'https://www.nist.gov/news-events/news/rss.xml', 'require_safety': True, 'require_ai': True},
+    {'id': 'nvidia-robotics', 'name': 'NVIDIA Robotics', 'kind': 'official', 'org': 'nvidia', 'url': 'https://blogs.nvidia.com/blog/category/robotics/feed/', 'require_safety': True, 'require_physical': True},
+    {'id': 'arxiv-robotics', 'name': 'arXiv Robotics (preprints)', 'kind': 'research', 'org': None, 'url': ARXIV_ROBOTICS_URL, 'require_safety': True, 'require_physical': True, 'canonical_arxiv': True},
     {'id': 'aiid', 'name': 'AI Incident Database', 'kind': 'incident', 'org': None, 'url': 'https://incidentdatabase.ai/rss.xml', 'require_safety': False},
 ]
 DISCOVERY_SOURCE = {
@@ -39,8 +46,8 @@ DISCOVERY_SOURCE = {
     'provider': 'AI Safety HOT',
 }
 ARCHIVE_DAYS = 90
-MAX_BYTES = 4 * 1024 * 1024
-TIMEOUT = 15
+MAX_BYTES = 16 * 1024 * 1024
+TIMEOUT = 30
 SUMMARY_CHARS = 1600
 DISCOVERY_PAGES = 3
 DISCOVERY_PAGE_LIMIT = 20
@@ -55,6 +62,8 @@ STRONG = re.compile(r'\bsafety\b|misuse|alignment|red.?team|preparedness|system 
 # customer stories on official feeds mention security without being safety news
 PROMO = re.compile(r'^how \S+|\bhelps? \S+|\bcustomers?\b|case study|\baccelerates?\b|\bpowers?\b|\bbuilds?\b|\bscales?\b|\bcuts?\b', re.I)
 AI = re.compile(r'\bAI\b|artificial intelligence|machine learning|language model', re.I)
+PHYSICAL_SAFETY = re.compile(r'\bsafety\b|\bsafe\b|\bunsafe\b|\brisks?\b|hazard|collision|crash|'
+                             r'robustness|verification|assurance|cybersecurity|vulnerab|attack|安全|风险|碰撞|鲁棒', re.I)
 CATEGORIES = [
     ('attack', r'jailbreak|exploit|vulnerab|attack|malicious|threat actor|compromis|breach|malware'),
     ('policy', r'polic|regulat|govern|\blaw\b|legislat|standard|government|minister|treaty|national'),
@@ -148,11 +157,28 @@ def parse_date(value):
 def classify(source, text):
     if source['kind'] == 'incident':
         return 'incident'
+    if source['kind'] == 'research':
+        return 'research'
     return next((name for name, pattern in CATEGORIES if re.search(pattern, text, re.I)), 'research')
 
 
 def matches(rules, text):
-    return [name for name, pattern in rules if re.search(pattern, text, re.I)]
+    return [name for name, pattern in rules
+            if (is_physical_ai(text) if name == 'physical-ai' else re.search(pattern, text, re.I))]
+
+
+def refresh_physical_direction(row):
+    """Apply corrected physical-AI rules to retained records as well as fresh feeds."""
+    text = str(row.get('title', '')) + ' ' + str(row.get('description', ''))
+    directions = list(row.get('direction_ids') or [])
+    physical = is_physical_ai(text)
+    directions = [d for d in directions if d != 'physical-ai']
+    if physical:
+        directions.insert(0, 'physical-ai')
+        foundation = next(pattern for name, pattern in DIRECTIONS if name == 'foundation-model')
+        if not re.search(foundation, text, re.I):
+            directions = [d for d in directions if d != 'foundation-model']
+    return {**row, 'direction_ids': directions or ['foundation-model']}
 
 
 def parse_feed(payload, source, today):
@@ -170,15 +196,23 @@ def parse_feed(payload, source, today):
         if not link:
             node = item.find(ATOM + 'link')
             link = node.get('href', '') if node is not None else ''
+        if source.get('canonical_arxiv'):
+            match = re.fullmatch(r'https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?', link)
+            if not match:
+                continue
+            link = 'https://arxiv.org/abs/' + match.group(1)
         url = safe_url(link)
         when = parse_date(item.findtext('pubDate') or item.findtext(ATOM + 'published') or item.findtext(ATOM + 'updated'))
         summary = plain(item.findtext('description') or item.findtext(ATOM + 'summary'), SUMMARY_CHARS)
         if not title or not url or not when or when > today:
             continue
         text = title + ' ' + summary
-        if source.get('require_safety') and not (SAFETY.search(title) or STRONG.search(summary)):
+        if source.get('require_physical') and not (is_physical_ai(text) and PHYSICAL_SAFETY.search(text)):
             continue
-        if source['kind'] == 'official' and PROMO.search(title):
+        if source.get('require_safety') and not source.get('require_physical') and not (SAFETY.search(title) or STRONG.search(summary)):
+            continue
+        if source['kind'] == 'official' and PROMO.search(title) and not (
+                source.get('require_physical') and PHYSICAL_SAFETY.search(title)):
             continue
         if source.get('require_ai') and not AI.search(text):
             continue
@@ -195,7 +229,9 @@ def parse_feed(payload, source, today):
             'category': classify(source, text),
             'url': url,
             'description': summary,
-            'direction_ids': matches(DIRECTIONS, text) or ['foundation-model'],
+            # In robotics, "policy", "model" and "multi-agent" usually describe controllers,
+            # not public policy, foundation models or software agents.
+            'direction_ids': ['physical-ai'] if source.get('require_physical') else (matches(DIRECTIONS, text) or ['foundation-model']),
             'orgs': orgs,
         })
     return records
@@ -325,7 +361,7 @@ def fetch_url(url):
     with tempfile.TemporaryDirectory(prefix='ai-safety-signals-') as directory:
         output = Path(directory) / 'response'
         subprocess.run([
-            'curl', '--fail', '--silent', '--show-error', '--location', '--proto', '=https', '--proto-redir', '=https',
+            'curl', '--fail', '--silent', '--show-error', '--location', '--compressed', '--proto', '=https', '--proto-redir', '=https',
             '--connect-timeout', '10', '--max-time', str(TIMEOUT), '--max-filesize', str(MAX_BYTES), '--max-redirs', '3',
             '--user-agent', 'AI-Safety-Index/2.0 (+https://gabrygao.github.io/ai-safety-index/)',
             '--output', str(output), url,
@@ -353,6 +389,9 @@ def collect_primary_source(source, old_sources, fetch, today, timestamp):
         status = {'id': source['id'], 'name': source['name'], 'kind': source['kind'], 'url': source['url'],
                   'status': 'ok', 'last_successful_fetch': timestamp, 'records': len(rows),
                   'response_sha256': sha256(payload).hexdigest()}
+        if source.get('canonical_arxiv'):
+            status.update(candidate_limit=100, review_status='automatic, not peer reviewed',
+                          selection='Newest cs.RO candidates matching the query, then physical-AI and safety filters')
         return rows, status, None
     except (OSError, ValueError, ET.ParseError, subprocess.SubprocessError) as error:
         previous = old_sources.get(source['id'], {})
@@ -402,7 +441,7 @@ def collect(previous_info, previous_rows, fetch, timestamp):
     # Direct publisher records win over discovery records for the same original URL.
     for row in [*fresh_primary, *previous_primary, *fresh_discovery, *previous_discovery]:
         if row.get('id') and str(row.get('date', '')) >= cutoff:
-            merged.setdefault(record_key(row), row)
+            merged.setdefault(record_key(row), refresh_physical_direction(row))
     records = sorted(merged.values(), key=lambda row: (row['date'], row['id']), reverse=True)
     info = {
         'generated_on': timestamp,

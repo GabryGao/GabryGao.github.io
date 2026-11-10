@@ -56,6 +56,10 @@ jobs:
           node tools/verify-locales.mjs
           node tools/verify-watch.mjs
           node tools/verify-sources.mjs
+          node tools/test-signal-brief.mjs
+          node tools/test-paper-brief.mjs
+          node tools/test-visitor-stats.mjs
+          node --test services/visitor-stats/worker.test.mjs
           python3 -m unittest discover -s tools -p 'test_update_*.py'
       - name: Commit updated metadata
         run: |

@@ -58,11 +58,14 @@
     <div class="seg seg-dirs" role="group" aria-label="研究方向" data-en-aria-label="Research direction" id="dirs"></div>
   </nav>
 
-  <section class="crawl crawl-big" aria-label="近 14 天安全信号动画" data-en-aria-label="Safety signal animation for the last 14 days">
+  <div class="board-summary"><p id="board-counts"></p><a id="board-all" href="records.html" data-en="Browse all records →">浏览全部记录 →</a></div>
+
+  <section class="crawl crawl-big" aria-label="安全动态记录与传输动画" data-en-aria-label="Safety records and transmission animation">
     <figure class="art">
-      <canvas id="web" aria-label="近 14 天安全信号按研究方向分流的动画" data-en-aria-label="Animation routing the last 14 days of safety signals into research directions"></canvas>
+      <div class="transmission-head"><span>AI SAFETY CRAWLER</span><span id="crawl-freshness"></span></div>
+      <canvas id="web" aria-label="安全动态按研究方向分流的动画" data-en-aria-label="Animation routing saved safety records into research directions"></canvas>
       <div class="peek" id="peek" aria-live="polite"></div>
-      <figcaption><span style="--k:var(--warn)" data-en="Incident">安全事件</span><span style="--k:var(--safe)" data-en="Other signal">其他信号</span><span class="hint" data-en="Hover a headline for its summary · select one to open it">悬停标题看摘要 · 点击查看详情</span></figcaption>
+      <figcaption><span style="--k:#c7ac55" data-en="Incident">安全事件</span><span style="--k:#58bc91" data-en="Other signal">其他信号</span><span class="hint" data-en="Hover a headline for its summary · select one to open it">悬停标题看摘要 · 点击查看详情</span></figcaption>
     </figure>
   </section>
 
@@ -112,7 +115,7 @@
 
 <footer>
   <div class="wrap">
-    <span data-en="Collected from official posts, the AI Incident Database and arXiv, checked every 15 minutes.">数据由本站从各机构官方发布、AI Incident Database 和 arXiv 自动收集，每 15 分钟检查更新。</span>
+    <span data-en="Safety signals are checked every 15 minutes; arXiv paper picks are refreshed every 3 hours.">安全动态每 15 分钟检查更新；arXiv 论文精选每 3 小时更新。</span>
     <a href="results.html" data-en="Evaluation">基准与评测</a>
     <a href="papers.html" data-en="Papers">论文</a>
     <a href="about.html" data-en="About">关于</a>
@@ -125,7 +128,7 @@
 <script src="i18n.js"></script>
 <script src="shell.js"></script>
 <script src="news.js"></script>
-<script src="signal-web.js?v=11"></script>
+<script src="signal-web.js?v=18"></script>
 <script src="home-live.js"></script>
 <script>
 (() => {
@@ -230,23 +233,19 @@
   }
 
 
-  /* signal crawler: the last 14 days of signals, routed into research directions */
+  /* The crawler exposes the complete retained archive; editorial stories below use 14 days. */
   const web = (() => {
     let RECS = [];
     const recs = () => {
-      const from14 = iso(N.days[0]);
-      return N.signals.filter(r => r.date >= from14 && (r.direction_ids || []).length).filter(inDir)
-        .sort((a, b) => b.date.localeCompare(a.date)).reverse()
+      return N.signals.filter(r => (r.direction_ids || []).length).filter(inDir)
+        .sort((a, b) => b.date.localeCompare(a.date))
         .map(r => ({ r, inc: isIncident(r) }));
     };
     const peek = document.getElementById('peek');
-    let shownAt = 0;
-    function show(i, auto) {
-      if (!RECS[i]) return;
-      if (auto && performance.now() - shownAt < 1100) return; // fast animation, readable card
-      shownAt = performance.now();
+    function show(i) {
+      if (!RECS[i]) { peek.innerHTML = '<p>' + T('这个方向暂无已保存的记录。', 'No saved records in this direction.') + '</p>'; return; }
       const { r, inc } = RECS[i], desc = S.desc(r);
-      peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
+      peek.innerHTML = '<div class="k"><b class="' + (inc ? '' : 'sig') + '">' + (inc ? T('安全事件', 'Incident') : r.kind === 'research' ? T('预印本', 'Preprint') : T('安全信号', 'Signal')) + '</b>' + esc(r.date) + ' · ' + esc(r.source)
         + ' · ' + (r.direction_ids || []).map(dirName).map(esc).join(T('、', ', ')) + '<span class="n">' + T('累计 ' + RECS.length + ' 条', RECS.length + ' collected') + '</span></div>'
         + '<h3><a href="' + News.href(r) + '">' + esc(title(r)) + '</a></h3>'
         + (desc ? '<p>' + esc(desc) + '</p>' : '');
@@ -254,20 +253,23 @@
     RECS = recs();
     if (!window.mountSignalWeb) { document.querySelector('.crawl').hidden = true; return { update() {} }; }
     const api = window.mountSignalWeb(document.getElementById('web'), { records: RECS, dirs: S.DIRS.map(d => d[0]), dirName, T, link, titleOf: title, href: News.href, onFocus: show });
-    show(RECS.length - 1);
+    show(0);
     return {
-      update() {
-        RECS = recs(); api.setRecords(RECS); shownAt = 0; show(RECS.length - 1);
+      update(options = {}) {
+        RECS = recs(); api.setRecords(RECS, options); if (!RECS.length) show(0);
       }
     };
   })();
 
   function applySnapshot(snapshot) {
     if (!snapshot || !snapshot.info || !Array.isArray(snapshot.records)) return;
+    const knownIds = new Set(N.all.map(record => record.id));
+    const arrivalIds = snapshot.records.filter(record => !knownIds.has(record.id)).map(record => record.id);
     N.all.splice(0, N.all.length, ...snapshot.records);
     N.signals = N.all;
     N.info = snapshot.info;
     N.generated = snapshot.info.generated_on ? new Date(snapshot.info.generated_on) : null;
+    S.updateStamp(N.generated);
     N.today = new Date();
     N.today.setHours(0, 0, 0, 0);
     const dates = N.all.map(r => r.date).filter(Boolean).sort();
@@ -280,10 +282,24 @@
     N.days = Array.from({ length: N.span }, (_, i) => new Date(N.today.getTime() - (N.span - 1 - i) * DAY));
     N.ref = N.generated && !Number.isNaN(N.generated.getTime()) ? N.generated : N.today;
     renderDirs();
-    renderAll();
+    renderAll({ arrivalIds });
   }
 
-  function renderAll() { web.update(); renderNews(); renderScore(); renderPapers(); }
+  function renderFreshness() {
+    const checked = N.generated && Number.isFinite(+N.generated)
+      ? iso(N.generated) + ' ' + String(N.generated.getHours()).padStart(2, '0') + ':' + String(N.generated.getMinutes()).padStart(2, '0') : T('未知', 'unknown');
+    const latest = N.all.map(r => r.date).sort().at(-1) || T('暂无', 'none');
+    const failures = (N.info.sources || []).filter(source => source.status === 'failed');
+    const el = document.getElementById('crawl-freshness');
+    el.textContent = T('采集检查 ', 'Checked ') + checked + ' · ' + T('最新发布 ', 'Latest publication ') + latest
+      + (failures.length ? ' · ' + T(failures.length + ' 个来源暂未更新', failures.length + ' source(s) unavailable') : '');
+    el.title = failures.length ? failures.map(source => source.name || source.id).join(', ') : '';
+    const pool = N.signals.filter(inDir), todayCount = pool.filter(r => r.date === iso(N.today)).length;
+    document.getElementById('board-counts').innerHTML = '<strong>' + pool.length + '</strong> ' + T('条已收录', 'records indexed')
+      + '<span>·</span><strong>' + todayCount + '</strong> ' + T('条今日发布', 'published today');
+    document.getElementById('board-all').href = 'records.html' + (state.dir === 'all' ? '' : '?dir=' + encodeURIComponent(state.dir));
+  }
+  function renderAll(options = {}) { web.update(options); renderFreshness(); renderNews(); renderScore(); renderPapers(); }
   renderAll();
   if (window.HomeLive) {
     window.addEventListener(HomeLive.EVENT, event => applySnapshot(event.detail));

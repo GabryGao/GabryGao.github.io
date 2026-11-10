@@ -15,6 +15,7 @@ import re
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from physical_ai import is_physical_ai
 
 API_URL = 'https://export.arxiv.org/api/query'
 ATOM = '{http://www.w3.org/2005/Atom}'
@@ -88,7 +89,7 @@ def parse(payload, today):
             'authors': [clean(a.findtext(ATOM + 'name')) for a in entry.findall(ATOM + 'author')][:3],
             'more_authors': len(entry.findall(ATOM + 'author')) > 3,
             'category': primary.get('term') if primary is not None else '',
-            'direction_ids': [d for d, p in DIRECTIONS if re.search(p, text, re.I)] or ['foundation-model'],
+            'direction_ids': [d for d, p in DIRECTIONS if (is_physical_ai(text) if d == 'physical-ai' else re.search(p, text, re.I))] or ['foundation-model'],
             'score': score(title, abstract),
             'abstract': abstract[:ABSTRACT_CHARS],
         })

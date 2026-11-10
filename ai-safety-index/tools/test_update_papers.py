@@ -25,6 +25,13 @@ def feed(*entries):
 
 
 class PickTest(unittest.TestCase):
+    def test_physical_direction_requires_robotics_context(self):
+        rows = papers.parse(feed(entry('2610.00010', 'Blind Compliance in AI jailbreaking', 'We compare embodied and disembodied forms of coercive control.'),
+                                 entry('2610.00011', 'Safety of vision-language-action models', 'Robots must avoid collisions.')), TODAY)
+        by_id = {row['arxiv_id']: row for row in rows}
+        self.assertNotIn('physical-ai', by_id['2610.00010']['direction_ids'])
+        self.assertIn('physical-ai', by_id['2610.00011']['direction_ids'])
+
     def test_title_terms_rank_above_abstract_terms(self):
         rows = papers.parse(feed(entry('2610.00001', 'A study of databases', 'We discuss safety briefly.'),
                                  entry('2610.00002', 'Jailbreak attacks on LLM agents', 'Prompt injection through tools.')), TODAY)

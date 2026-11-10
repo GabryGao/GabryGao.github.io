@@ -135,3 +135,5 @@
   .paper-facts div{grid-template-columns:1fr;gap:3px}
   .research-paper-head h2{font-size:32px}
 }
+
+:root[data-theme="dark"] .badge.verified{color:#78d7a4;border-color:#3d7c5a;background:color-mix(in srgb,#5cc28f 9%,var(--ground))}

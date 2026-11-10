@@ -42,7 +42,7 @@
   const paperId = String(p.arxiv_id || p.id);
   const original = p.arxiv_id ? 'https://arxiv.org/abs/' + encodeURIComponent(p.arxiv_id) : (p.url || '');
   const pdf = p.arxiv_id ? 'https://arxiv.org/pdf/' + encodeURIComponent(p.arxiv_id) : (p.pdfUrl || '');
-  const t = S.paperTitle(p), text = S.paperAbstract(p), zh = S.CJK.test(text);
+  const t = S.paperTitle(p);
   document.title = t + ' · AI Safety Index';
 
   const as = { id: 'paper-' + paperId, title: p.title || p.name, description: p.abstract || '', date: p.date || '', direction_ids: p.direction_ids || [] };
@@ -80,21 +80,14 @@
   const authors = (p.authors || []).join(', ') + (p.more_authors ? T(' 等', ' et al.') : '');
   const brief = B.build(p, { english: S.en, T, abstract: S.paperAbstract, dirName });
   const paperHref = x => 'paper.html?id=' + encodeURIComponent(x.arxiv_id || x.id);
-  const list = (items, cls = '') => '<ul class="sig-note-list ' + cls + '">' + items.map(item => '<li>' + esc(item) + '</li>').join('') + '</ul>';
   const paragraphs = items => '<div class="sig-long-copy">' + items.map(item => '<p>' + esc(item) + '</p>').join('') + '</div>';
   const chapter = (number, target, heading, intro, body) => '<section class="sig-chapter" id="' + target + '"><header class="sig-chapter-head"><span>' + number + '</span><div><h2>' + heading + '</h2>' + (intro ? '<p>' + intro + '</p>' : '') + '</div></header>' + body + '</section>';
   const directionTags = (p.direction_ids || []).map(d => '<a class="sig-tag" href="directions.html?dir=' + encodeURIComponent(d) + '">' + esc(dirName(d)) + '</a>').join('');
-  const paperCards = relPapers.map(x => '<li><a href="' + paperHref(x) + '"><div class="paper-card-meta"><span>' + esc(x.venue || 'arXiv') + '</span><span>' + esc(x.date || x.year || '') + '</span></div><strong>' + esc(S.paperTitle(x)) + '</strong><p>' + esc((x.authors || []).slice(0, 3).join(', ')) + '</p><span>' + T('打开论文导读 →', 'Open paper guide →') + '</span></a></li>').join('');
+  const paperCards = relPapers.map(x => '<li><a href="' + paperHref(x) + '"><div class="paper-card-meta"><span>' + esc(x.venue || 'arXiv') + '</span><span>' + esc(x.date || x.year || '') + '</span></div><strong>' + esc(S.paperTitle(x)) + '</strong><p>' + esc((x.authors || []).slice(0, 3).join(', ')) + '</p><span>' + T('查看论文记录 →', 'Open paper record →') + '</span></a></li>').join('');
   const signalCards = relSignals.map(x => '<li><a href="' + W.href(x) + '">' + kick(x) + '<strong>' + esc(title(x)) + '</strong>'
     + (S.desc(x) ? '<p>' + esc(S.desc(x)) + '</p>' : '') + '<span>' + T('打开站内档案 →', 'Open dossier →') + '</span></a></li>').join('');
   const toc = [
-    ['quick', T('快速导读', 'Quick read')],
-    ['question', T('研究问题', 'Research question')],
-    ['method', T('方法与设置', 'Methods and setup')],
-    ['findings', T('主要结果', 'Findings')],
-    ['significance', T('安全意义', 'Safety relevance')],
-    ['limitations', T('证据边界', 'Evidence boundary')],
-    ['analysis', T('论文分析', 'Paper analysis')],
+    ['analysis', T('作者摘要', 'Author abstract')],
     ['related', T('相关资料', 'Related material')]
   ];
   const dateLabel = p.date || String(p.year || '');
@@ -103,38 +96,24 @@
 
   main.innerHTML = '<article class="sig-story paper-story">'
     + '<header class="sig-hero"><a class="sig-back" href="papers.html">← ' + T('返回论文库', 'Back to papers') + '</a>'
-    + '<div class="sig-eyebrow"><span>' + T('论文导读', 'Paper guide') + '</span><span>' + esc(venue) + '</span><span>' + esc(dateLabel) + '</span>' + (p.arxiv_id ? '<span>arXiv ' + esc(p.arxiv_id) + '</span>' : '') + '</div>'
+    + '<div class="sig-eyebrow"><span>' + T('论文记录', 'Paper record') + '</span><span>' + esc(venue) + '</span><span>' + esc(dateLabel) + '</span>' + (p.arxiv_id ? '<span>arXiv ' + esc(p.arxiv_id) + '</span>' : '') + '</div>'
     + '<h1 lang="' + (S.CJK.test(t) ? 'zh-CN' : 'en') + '">' + esc(t) + '</h1>'
     + (t !== p.title ? '<p class="paper-title-original" lang="en">' + esc(p.title || p.name) + '</p>' : '')
     + (authors ? '<p class="paper-authors" lang="en">' + esc(authors) + '</p>' : '')
-    + '<p class="sig-deck">' + esc(brief.quickRead.join(' ')) + '</p>'
     + '<div class="sig-hero-foot"><div class="sig-tags">' + directionTags + (p.description ? '<span class="sig-tag">' + esc(p.description) + '</span>' : '') + '</div><div class="paper-link-group">'
     + (original ? '<a class="sig-source-button" href="' + esc(original) + '" target="_blank" rel="noopener">' + T('查看原始论文', 'Open original paper') + ' ↗</a>' : '')
     + (pdf ? '<a class="paper-secondary-button" href="' + esc(pdf) + '" target="_blank" rel="noopener">PDF ↗</a>' : '') + '</div></div></header>'
 
     + '<div class="sig-layout"><div class="sig-article">'
-    + chapter('01', 'quick', T('快速导读', 'Quick read'), T('根据作者摘要整理，重点信息仍应回到原文核对。', 'Structured from the author abstract; verify important details in the original paper.'),
-      paragraphs(brief.quickRead)
-      + (text ? '<figure class="paper-abstract-card"><figcaption>' + T('作者摘要', 'Author abstract') + '</figcaption><blockquote lang="' + (zh ? 'zh-CN' : 'en') + '">' + esc(text) + '</blockquote>'
-        + (zh && p.abstract ? '<details><summary>' + T('查看英文原文摘要', 'View original English abstract') + '</summary><p lang="en">' + esc(B.clean(p.abstract)) + '</p></details>' : '') + '</figure>' : ''))
+    + chapter('01', 'analysis', T('作者摘要', 'Author abstract'), '',
+      '<span id="quick" aria-hidden="true"></span>' + (brief.hasAbstract ? '<figure class="paper-abstract-card"><figcaption>'
+        + (brief.translated ? T('摘要译文', 'Translated abstract') : T('作者原文', 'Original abstract'))
+        + '</figcaption><blockquote lang="' + (S.CJK.test(brief.abstract) ? 'zh-CN' : 'en') + '">' + esc(brief.abstract) + '</blockquote>'
+        + (brief.translated ? '<details><summary>' + T('查看原文摘要', 'View original abstract') + '</summary><p lang="'
+          + (S.CJK.test(brief.originalAbstract) ? 'zh-CN' : 'en') + '">' + esc(brief.originalAbstract) + '</p></details>' : '') + '</figure>'
+        : paragraphs([brief.noAbstract])))
 
-    + chapter('02', 'question', T('研究问题', 'Research question'), T('论文试图解决的核心缺口与研究对象。', 'The central gap and object of study.'), list(brief.researchQuestion))
-
-    + chapter('03', 'method', T('方法与实验设置', 'Methods and experimental setup'), T('把方法设计与实验对象分开，方便核对可复现性。', 'Methods and experimental objects are separated for reproducibility checks.'),
-      '<div class="paper-dual"><section><h3>' + T('方法', 'Methods') + '</h3>' + list(brief.method) + '</section><section><h3>' + T('实验设置', 'Experimental setup') + '</h3>' + list(brief.experiment) + '</section></div>')
-
-    + chapter('04', 'findings', T('主要结果', 'Main findings'), T('只整理摘要明确报告的结果，不把站内推断写成论文结论。', 'Only results explicitly reported in the abstract are treated as paper findings.'),
-      list(brief.findings, 'paper-findings') + '<div class="paper-selection"><strong>' + T('为什么收录', 'Why it was selected') + '</strong><p>' + esc(brief.selectionReason) + '</p></div>')
-
-    + chapter('05', 'significance', T('AI 安全意义', 'AI safety relevance'), T('说明它可能影响哪些安全评测、工程决策或研究方向。', 'How it may affect safety evaluation, engineering, or research.'), paragraphs(brief.significance))
-
-    + chapter('06', 'limitations', T('局限与证据边界', 'Limitations and evidence boundary'), T('区分作者摘要中的限制、本站尚未核验的部分和不能外推的结论。', 'Separates reported limitations, unverified material, and conclusions that should not be extrapolated.'),
-      list(brief.limitations, 'sig-evidence') + '<div class="paper-next"><h3>' + T('下一步核查', 'Next checks') + '</h3>' + list(brief.nextSteps) + '</div>')
-
-    + chapter('07', 'analysis', T('论文分析', 'Paper analysis'), T('六个问题可以逐项展开，快速定位论文的研究设计与证据边界。', 'Expand six questions to inspect the research design and evidence boundary.'),
-      '<div class="paper-questions">' + brief.questions.map((item, index) => '<details' + (index === 0 ? ' open' : '') + '><summary><span>' + String(index + 1).padStart(2, '0') + '</span>' + esc(item[0]) + '</summary><p>' + esc(item[1]) + '</p></details>').join('') + '</div>')
-
-    + chapter('08', 'related', T('相关论文与近期动态', 'Related papers and recent signals'), T('论文继续留在站内阅读，原始来源作为资源入口提供。', 'Related papers remain in the site guide, with originals available as resource links.'),
+    + chapter('02', 'related', T('相关论文与近期动态', 'Related papers and recent signals'), T('按研究方向等元数据关联，供继续查阅。', 'Related by research topic and metadata for further reading.'),
       '<div class="paper-related-block"><h3>' + T('相关论文', 'Related papers') + '</h3><ol class="paper-related-grid">' + paperCards + '</ol></div>'
       + '<div class="paper-related-block"><h3>' + T('同方向近期动态', 'Recent signals in this area') + '</h3><ol class="sig-related-grid">' + signalCards + '</ol></div>')
     + '</div>'
