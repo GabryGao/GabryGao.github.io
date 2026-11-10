@@ -23,7 +23,7 @@ for(const page of pages){
 }
 
 for(const f of ['shell.js','catalog.js','i18n.js','site-data.js','research-map.js','home-crawler.js','signal-web.js','home-live.js','news.js','signal-brief.js','paper-brief.js'])assert.doesNotMatch(read(f),/AI Safety HOT|aisafetyhot|OpenTAI/i,`${f} mentions an aggregator source`);
-for(const f of ['shell.js','home-crawler.js','signal-web.js','home-live.js','news.js','signal-brief.js','paper-brief.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
+for(const f of ['shell.js','visitor-stats-config.js','visitor-stats.js','home-crawler.js','signal-web.js','home-live.js','news.js','signal-brief.js','paper-brief.js','research-map.js','research-map-labels.js','research-map-data/bootstrap.js','research-map-data/library.js','research-map-data/supplement.js','research-map-data/details/supplement.js'])assert.doesNotThrow(()=>new vm.Script(read(f)),`${f} does not parse`);
 assert.match(read('index.html'),/<canvas id="web"/,'home page lacks the signal crawler canvas');
 assert.match(read('index.html'),/src="signal-web\.js(\?v=\d+)?"/,'home page does not load the signal crawler');
 assert.doesNotMatch(read('index.html'),/id="crawl-title"|id="crawl-sub"|>信号爬虫</,'home page still shows the removed signal crawler heading');
@@ -36,9 +36,9 @@ assert.match(read('signal-web.js'),/counts = countRecords\(records\)/,'signal cr
 assert.doesNotMatch(read('signal-web.js'),/counts\[f\.d\]\s*=\s*\(counts\[f\.d\]/,'signal crawler still increments totals while replaying its animation');
 assert.match(read('signal.html'),/src="news\.js"/,'signal detail page does not load the news helpers');
 assert.match(read('signal.html'),/src="signal-brief\.js"/,'signal detail page does not load the dossier generator');
-for(const section of ['overview','facts','analysis','mechanism','evidence','response','watch','related'])assert.match(read('signal.html'),new RegExp(`['"]${section}['"]`),`signal detail page lacks ${section}`);
+for(const section of ['overview','facts','analysis','mechanism','response','watch','related'])assert.match(read('signal.html'),new RegExp(`['"]${section}['"]`),`signal detail page lacks ${section}`);
 assert.match(read('paper.html'),/src="paper-brief\.js"/,'paper detail page does not load the paper guide generator');
-for(const section of ['quick','question','method','findings','significance','limitations','analysis','related'])assert.match(read('paper.html'),new RegExp(`['"]${section}['"]`),`paper detail page lacks ${section}`);
+for(const section of ['analysis','related'])assert.match(read('paper.html'),new RegExp(`['"]${section}['"]`),`paper detail page lacks ${section}`);
 assert.match(read('papers.html'),/const detail = detailId \? 'paper\.html\?id='/,'paper library titles do not enter the internal detail page');
 assert.match(read('shell.js'),/\['research-map\.html', '研究地图', 'Research map'\]/,'research map is missing from the global navigation');
 assert.match(read('papers.html'),/href="research-map\.html"/,'papers page lacks a research-map entry');
@@ -92,15 +92,17 @@ const feeds=vm.createContext({});
 vm.runInContext(read('signals-feed.js')+';this.S=siteSignals;this.I=siteSignalsInfo',feeds);
 vm.runInContext(read('paper-picks.js')+';this.P=sitePaperPicks',feeds);
 assert.ok(feeds.S.length>0,'no safety signals collected');
-for(const r of feeds.S){assert.ok(r.id&&r.title&&/^\d{4}-\d{2}-\d{2}$/.test(r.date)&&/^https:/.test(r.url),`bad signal ${r.id}`);assert.ok(['official','incident','discovered'].includes(r.kind),`bad kind ${r.id}`)}
+for(const r of feeds.S){assert.ok(r.id&&r.title&&/^\d{4}-\d{2}-\d{2}$/.test(r.date)&&/^https:/.test(r.url),`bad signal ${r.id}`);assert.ok(['official','incident','discovered','research'].includes(r.kind),`bad kind ${r.id}`);if(r.kind==='research')assert.match(r.url,/^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{4,5}$/,`bad preprint source ${r.id}`)}
 assert.doesNotMatch(JSON.stringify(feeds.S)+JSON.stringify(feeds.P),/aisafetyhot|aihot/i,'feeds contain aggregator data');
 for(const p of feeds.P)assert.match(p.arxiv_id,/^\d{4}\.\d{4,5}$/,`bad arXiv id ${p.arxiv_id}`);
 const paperBriefContext=vm.createContext({window:{}});
 vm.runInContext(read('paper-brief.js'),paperBriefContext);
 for(const p of feeds.P){
  const guide=paperBriefContext.window.PaperBrief.build(p,{english:true,T:(_zh,en)=>en,abstract:x=>x.abstract||'',dirName:id=>id});
- assert.ok(guide.quickRead.length&&guide.researchQuestion.length&&guide.method.length&&guide.findings.length,`paper guide ${p.arxiv_id} is incomplete`);
- assert.equal(guide.questions.length,6,`paper guide ${p.arxiv_id} lacks six analysis questions`);
+ assert.equal(guide.reviewed,false,`unreviewed paper ${p.arxiv_id} is labelled reviewed`);
+ assert.equal(guide.abstract,p.abstract||'',`paper ${p.arxiv_id} abstract changed`);
+ assert.equal(guide.originalAbstract,p.abstract||'',`paper ${p.arxiv_id} original abstract changed`);
+ assert.equal(guide.questions,undefined,`paper ${p.arxiv_id} still adds automatic Q&A`);
 }
 const ctx=vm.createContext({console});
 for(const f of ['source-catalog.js','site-data.js','i18n.js'])vm.runInContext(read(f),ctx);

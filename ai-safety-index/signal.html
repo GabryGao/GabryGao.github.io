@@ -34,16 +34,15 @@
       + '</p><p><a href="records.html">' + T('查看全部记录 →', 'See all records →') + '</a></p></div>';
     return;
   }
-  document.title = title(r) + ' · AI Safety Index';
-
   const direct = W.related(r, N.signals, 120, 12);
   const ranked = N.signals.filter(x => x.id !== r.id).map(x => {
     const sharedDirections = (r.direction_ids || []).filter(d => (x.direction_ids || []).includes(d)).length;
     const sharedOrgs = (r.orgs || []).filter(o => (x.orgs || []).includes(o)).length;
     const sameCategory = (r.category || r.kind) === (x.category || x.kind);
     const days = Math.abs(S.day(x.date) - S.day(r.date)) / S.DAY;
-    return { x, score: sharedDirections * 5 + sharedOrgs * 4 + (sameCategory ? 2 : 0) + Math.max(0, 3 - days / 45) };
-  }).sort((a, b) => b.score - a.score || b.x.date.localeCompare(a.x.date));
+    const similarity = sharedDirections * 5 + sharedOrgs * 4 + (sameCategory ? 2 : 0);
+    return { x, similarity, score: similarity + Math.max(0, 3 - days / 45) };
+  }).filter(item => item.similarity > 0).sort((a, b) => b.score - a.score || b.x.date.localeCompare(a.x.date));
   const rel = [];
   const seen = new Set([r.id]);
   for (const x of [...direct, ...ranked.map(item => item.x)]) {
@@ -52,83 +51,62 @@
     rel.push(x);
     if (rel.length === 8) break;
   }
-  const line = [r, ...rel].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id)).slice(-10);
+  // Similarity supplies reading context, not proof of a shared event or a chronology.
+  const datedContext = rel.slice().sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
   const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
   const kick = x => '<div class="kick"><b class="' + (isIncident(x) ? 'inc' : '') + '">' + esc(category(x)) + '</b><span>' + esc(x.source) + '</span><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time></div>';
-  const desc = S.desc(r);
-  const brief = B.build(r, {
-    english: S.en,
-    T,
-    desc: S.desc,
-    dirName,
-    orgName,
-    category,
-    related: rel
-  });
+  const brief = B.build(r, { english: S.en, desc: S.desc });
+  const recordTitle = brief.title || title(r);
+  document.title = recordTitle + ' · AI Safety Index';
   const list = (items, cls = '') => '<ul class="sig-note-list ' + cls + '">' + items.map(item => '<li>' + esc(item) + '</li>').join('') + '</ul>';
   const paragraphs = items => '<div class="sig-long-copy">' + items.map(item => '<p>' + esc(item) + '</p>').join('') + '</div>';
   const chapter = (number, id, heading, intro, body) => '<section class="sig-chapter" id="' + id + '"><header class="sig-chapter-head"><span>' + number + '</span><div><h2>' + heading + '</h2>' + (intro ? '<p>' + intro + '</p>' : '') + '</div></header>' + body + '</section>';
   const directionTags = (r.direction_ids || []).map(d => '<a class="sig-tag" href="directions.html?dir=' + encodeURIComponent(d) + '">' + esc(dirName(d)) + '</a>').join('');
   const orgTags = (r.orgs || []).map(o => '<span class="sig-tag">' + esc(orgName(o)) + '</span>').join('');
   const relationCards = rel.map(x => '<li><a href="' + W.href(x) + '">' + kick(x) + '<strong>' + esc(title(x)) + '</strong>'
-    + (S.desc(x) ? '<p>' + esc(S.desc(x)) + '</p>' : '') + '<span>' + T('打开站内档案 →', 'Open dossier →') + '</span></a></li>').join('');
-  const toc = [
-    ['overview', T('事件概览', 'Overview')],
-    ['facts', T('来源事实', 'Source facts')],
-    ['analysis', T('影响分析', 'Analysis')],
-    ['mechanism', T('风险链条', 'Mechanism')],
-    ['evidence', T('证据边界', 'Evidence')],
-    ['response', T('建议行动', 'Response')],
-    ['watch', T('持续观察', 'Watchlist')],
-    ['related', T('关联记录', 'Related')]
-  ];
+    + (S.desc(x) ? '<p>' + esc(S.desc(x)) + '</p>' : '') + '<span>' + T('查看记录 →', 'Open record →') + '</span></a></li>').join('');
+  const sections = [];
+  const add = (id, heading, body, intro = '') => sections.push({ id, heading, body, intro });
+
+  if (!brief.reviewed) {
+    add('overview', T('摘要', 'Summary'), '<div id="analysis">' + (brief.sourceSummary
+      ? paragraphs([brief.sourceSummary])
+      : paragraphs([T('来源未提供摘要。请打开原文查看。', 'No summary was supplied. Open the source to read the report.')])) + '</div>');
+  }
+  if (brief.sourceFacts.length) {
+    const sources = '<ul class="sig-note-list">' + brief.sources.map(source => '<li><a href="' + esc(source.url) + '" target="_blank" rel="noopener">' + esc(source.label) + ' ↗</a></li>').join('') + '</ul>';
+    const body = paragraphs(brief.sourceFacts) + sources;
+    add('facts', T('背景与进展', 'Background'), brief.significance.length ? body : '<div id="analysis">' + body + '</div>');
+  }
+  if (brief.reviewed && brief.significance.length) add('analysis', T('解读', 'Context'), paragraphs(brief.significance));
+  if (brief.mechanisms.length) add('mechanism', T('具体机制', 'Mechanism'), '<ol class="sig-mechanism">' + brief.mechanisms.map((item, index) => '<li><span>' + String(index + 1).padStart(2, '0') + '</span><div><h3>' + esc(item.title) + '</h3><p>' + esc(item.text) + '</p></div></li>').join('') + '</ol>');
+  if (brief.actions.length) add('response', T('处置建议', 'Response options'), list(brief.actions));
+  if (brief.watch.length || brief.questions.length) add('watch', T('后续核查', 'Follow-up checks'), list([...brief.watch, ...brief.questions]));
+  if (rel.length) add('related', T('同主题记录', 'Topic context'), '<ol class="sig-related-grid">' + relationCards + '</ol>',
+    T('按标题、研究方向、机构或类别匹配的延伸阅读。', 'Further reading matched by title, research direction, organisation, or category.'));
 
   main.innerHTML = '<article class="sig-story">'
     + '<header class="sig-hero">'
     + '<a class="sig-back" href="records.html">← ' + T('返回研究热点', 'Back to signals') + '</a>'
     + '<div class="sig-eyebrow"><span class="' + (isIncident(r) ? 'inc' : '') + '">' + esc(category(r)) + '</span><time datetime="' + esc(r.date) + '">' + esc(r.date) + '</time><span>' + esc(r.source) + '</span></div>'
-    + '<h1>' + esc(title(r)) + '</h1>'
-    + '<p class="sig-deck">' + esc(brief.lead) + '</p>'
+    + '<h1>' + esc(recordTitle) + '</h1>'
+    + (brief.reviewed ? '<p class="sig-deck">' + esc(brief.lead) + '</p>' : '')
     + '<div class="sig-hero-foot"><div class="sig-tags">' + directionTags + orgTags + '</div>'
     + '<a class="sig-source-button" href="' + esc(link(r)) + '" target="_blank" rel="noopener">' + T('查看原始来源', 'Open original source') + ' ↗</a></div>'
     + '</header>'
-
     + '<div class="sig-layout"><div class="sig-article">'
-    + chapter('01', 'overview', T('事件概览', 'Overview'), T('先看发生了什么，再区分来源陈述与本站判断。', 'What happened, with source claims separated from site analysis.'),
-      '<div class="sig-lead-block"><p>' + esc(brief.lead) + '</p></div>'
-      + (desc ? '<figure class="sig-source-summary"><figcaption>' + T('原始页面摘要', 'Source summary') + '</figcaption><blockquote lang="' + (S.CJK.test(desc) ? 'zh-CN' : 'en') + '">' + esc(desc) + '</blockquote></figure>' : ''))
-
-    + chapter('02', 'facts', T('来源事实', 'Source facts'), T('以下内容来自原始报道或公开元数据，数字与结论仍以原始来源为准。', 'These points come from the source or public metadata; consult the original for exact claims.'),
-      '<ol class="sig-fact-list">' + brief.sourceFacts.map((item, index) => '<li><span>' + String(index + 1).padStart(2, '0') + '</span><p>' + esc(item) + '</p></li>').join('') + '</ol>')
-
-    + chapter('03', 'analysis', T('为什么重要', 'Why it matters'), T('把单条新闻放回产品、治理和研究背景中理解。', 'How the record fits into product, governance, and research context.'), paragraphs(brief.significance))
-
-    + chapter('04', 'mechanism', T('风险与机制链条', 'Risk and mechanism chain'), T('按触发条件、传播路径和潜在后果拆开检查。', 'A stepwise view of triggers, propagation, and consequences.'),
-      '<ol class="sig-mechanism">' + brief.mechanisms.map((item, index) => '<li><span>' + String(index + 1).padStart(2, '0') + '</span><div><h3>' + esc(item.title) + '</h3><p>' + esc(item.text) + '</p></div></li>').join('') + '</ol>')
-
-    + chapter('05', 'evidence', T('证据与局限', 'Evidence and limitations'), T('哪些已经有材料支持，哪些仍需要独立核验。', 'What is supported and what still requires independent verification.'), list(brief.evidence, 'sig-evidence'))
-
-    + chapter('06', 'response', T('建议行动', 'Recommended response'), T('面向研究团队、产品团队和安全负责人整理的可执行检查项。', 'Practical checks for research, product, and security teams.'),
-      '<ol class="sig-actions">' + brief.actions.map((item, index) => '<li><span>' + String(index + 1).padStart(2, '0') + '</span><p>' + esc(item) + '</p></li>').join('') + '</ol>')
-
-    + chapter('07', 'watch', T('持续观察与研究问题', 'Watchlist and research questions'), T('后续更新不只看有没有新报道，也看证据、修复和评测是否发生变化。', 'Follow evidence, remediation, and evaluation changes, not only new headlines.'),
-      '<div class="sig-watch-grid"><div><h3>' + T('接下来观察', 'What to watch') + '</h3>' + list(brief.watch) + '</div><div><h3>' + T('可继续研究', 'Research questions') + '</h3>' + list(brief.questions) + '</div></div>')
-
-    + chapter('08', 'related', T('关联记录', 'Related records'), T('优先显示同一事件，其次补充同方向、同机构或相近类别记录。', 'Directly related stories appear first, followed by records sharing directions, organisations, or category.'),
-      '<ol class="sig-related-grid">' + relationCards + '</ol>')
+    + sections.map((section, index) => chapter(String(index + 1).padStart(2, '0'), section.id, section.heading, section.intro, section.body)).join('')
     + '</div>'
-
     + '<aside class="sig-rail"><section class="sig-rail-card sig-contents"><h2>' + T('本页目录', 'Contents') + '</h2><ol>'
-    + toc.map(([target, label], index) => '<li><a href="#' + target + '"><span>' + String(index + 1).padStart(2, '0') + '</span>' + label + '</a></li>').join('') + '</ol></section>'
-    + '<section class="sig-rail-card"><h2>' + T('关键信息', 'Key facts') + '</h2><dl class="sig-facts">'
+    + sections.map((section, index) => '<li><a href="#' + section.id + '"><span>' + String(index + 1).padStart(2, '0') + '</span>' + section.heading + '</a></li>').join('') + '</ol></section>'
+    + '<section class="sig-rail-card"><h2>' + T('记录信息', 'Record details') + '</h2><dl class="sig-facts">'
     + '<dt>' + T('类别', 'Type') + '</dt><dd>' + esc(category(r)) + '</dd>'
     + '<dt>' + T('来源', 'Source') + '</dt><dd>' + esc(r.source) + (host(link(r)) ? '<small>' + esc(host(link(r))) + '</small>' : '') + '</dd>'
-    + '<dt>' + T('日期', 'Date') + '</dt><dd>' + esc(r.date) + '<small>' + W.ago(r.date) + '</small></dd>'
-    + '<dt>' + T('关联记录', 'Related') + '</dt><dd>' + rel.length + T(' 条', ' records') + '</dd>'
+    + '<dt>' + T('记录日期', 'Record date') + '</dt><dd>' + esc(r.date) + '<small>' + W.ago(r.date) + '</small></dd>'
     + '</dl><div class="sig-rail-tags">' + directionTags + orgTags + '</div></section>'
-    + '<section class="sig-rail-card sig-timeline"><h2>' + T('关联时间线', 'Related timeline') + '</h2><ol>'
-    + line.map(x => '<li class="' + (x.id === r.id ? 'now' : '') + '"><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time><a href="' + W.href(x) + '">' + esc(title(x)) + '</a></li>').join('')
-    + '</ol></section></aside></div></article>';
+    + (datedContext.length ? '<section class="sig-rail-card sig-timeline"><h2>' + T('同主题记录日期', 'Topic records by date') + '</h2><ol>'
+      + datedContext.map(x => '<li><time datetime="' + esc(x.date) + '">' + esc(x.date) + '</time><a href="' + W.href(x) + '">' + esc(title(x)) + '</a></li>').join('')
+      + '</ol></section>' : '') + '</aside></div></article>';
 })();
 </script>
 </body>

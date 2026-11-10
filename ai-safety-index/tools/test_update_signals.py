@@ -55,7 +55,97 @@ def discovery_response(items=None, more=False, cursor=None):
     }).encode()
 
 
+class FetchTest(unittest.TestCase):
+    def fetch_payload(self, payload):
+        from unittest.mock import patch
+
+        def run(command, **options):
+            Path(command[command.index('--output') + 1]).write_bytes(payload)
+
+        with patch.object(signals.subprocess, 'run', side_effect=run) as request:
+            result = signals.fetch_url('https://example.org/feed.xml')
+        return result, request.call_args
+
+    def test_fetch_requests_decompression_with_https_size_and_time_bounds(self):
+        payload, call = self.fetch_payload(b'<rss/>')
+        command = call.args[0]
+        self.assertEqual(payload, b'<rss/>')
+        self.assertIn('--compressed', command)
+        for flag, expected in [('--proto', '=https'), ('--proto-redir', '=https'),
+                               ('--max-filesize', str(signals.MAX_BYTES)),
+                               ('--max-time', str(signals.TIMEOUT)), ('--max-redirs', '3')]:
+            self.assertEqual(command[command.index(flag) + 1], expected)
+        self.assertTrue(call.kwargs['check'])
+        self.assertEqual(call.kwargs['timeout'], signals.TIMEOUT + 5)
+
+    def test_feed_just_over_four_mib_can_be_fetched_and_parsed(self):
+        # METR's full RSS feed exceeded the former 4 MiB transport/parser cap.
+        payload = rss(('AI safety evaluation', 'https://example.org/report', 'x', 'Mon, 26 Oct 2026 10:00:00 GMT'))
+        payload += b'<!--' + b' ' * (4 * 1024 * 1024) + b'-->'
+        result, _ = self.fetch_payload(payload)
+        self.assertEqual(result, payload)
+        self.assertLess(len(result), signals.MAX_BYTES)
+        self.assertEqual(len(signals.parse_feed(result, SOURCE['metr'], TODAY)), 1)
+
+    def test_decompressed_response_still_has_a_size_limit(self):
+        from unittest.mock import patch
+
+        with patch.object(signals, 'MAX_BYTES', 128):
+            with self.assertRaisesRegex(ValueError, 'Response exceeds size limit'):
+                self.fetch_payload(b'x' * 129)
+
+
+class PhysicalDirectionTest(unittest.TestCase):
+    def test_physical_ai_covers_robotics_and_chinese_driving(self):
+        for text in ['司机激活智驾并双手脱离方向盘，轿车追尾致3死',
+                     'Safety evaluation of vision-language-action models',
+                     'Robotics foundation models and collision avoidance',
+                     'World models for vehicle planning and pedestrian safety',
+                     'A Tesla hit a patrol car while officers were investigating a crash',
+                     'Embodied AI safety benchmark for humanoids']:
+            with self.subTest(text=text):
+                self.assertIn('physical-ai', signals.matches(signals.DIRECTIONS, text))
+
+    def test_software_metaphors_and_coercive_control_are_not_physical_ai(self):
+        for text in ["OpenAI's robots surfed the web with Google Docs and a stranger's API key",
+                     'Self-driving-style hacking: ARTEX cybercrime campaign',
+                     'Blind Compliance: embodied and disembodied forms of coercive control in AI jailbreaking',
+                     'Tesla publishes a financial report']:
+            with self.subTest(text=text):
+                self.assertNotIn('physical-ai', signals.matches(signals.DIRECTIONS, text))
+
+    def test_stored_direction_is_corrected_without_changing_date_or_other_tags(self):
+        row = {'id': 'old', 'date': '2026-10-22', 'title': '智能驾驶辅助模式发生碰撞',
+               'direction_ids': ['foundation-model']}
+        fixed = signals.refresh_physical_direction(row)
+        self.assertEqual(fixed['direction_ids'], ['physical-ai'])
+        self.assertEqual(fixed['date'], row['date'])
+        metaphor = dict(row, title='Self-driving-style hacking', direction_ids=['physical-ai', 'agent-software'])
+        self.assertEqual(signals.refresh_physical_direction(metaphor)['direction_ids'], ['agent-software'])
+        self.assertEqual(row['direction_ids'], ['foundation-model'])
+
+
 class ParseTest(unittest.TestCase):
+    def test_arxiv_robotics_keeps_publication_date_and_canonical_original_link(self):
+        payload = atom(('Safe vision-language-action models for robots', 'http://arxiv.org/abs/2610.12345v2', 'Collision avoidance under safety constraints.', '2026-10-12T10:14:00Z'),
+                       ('Robot safety', 'http://other.example/abs/2610.22222v1', 'Safety constraints.', '2026-10-12T10:14:00Z'))
+        rows = signals.parse_feed(payload, SOURCE['arxiv-robotics'], TODAY)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['url'], 'https://arxiv.org/abs/2610.12345')
+        self.assertEqual(rows[0]['date'], '2026-10-12')
+        self.assertEqual(rows[0]['kind'], 'research')
+        self.assertEqual(rows[0]['category'], 'research')
+        self.assertEqual(rows[0]['direction_ids'], ['physical-ai'])
+
+    def test_robotics_source_requires_physical_safety_and_allows_scale_in_safety_title(self):
+        payload = rss(('Why Deploying Physical AI at Scale Demands Safety at Every Layer', 'https://blogs.nvidia.com/blog/safety', 'Safety for industrial robots and autonomous vehicles.', 'Mon, 26 Oct 2026 10:00:00 GMT'),
+                      ('Frontier simulations accelerate robotics', 'https://blogs.nvidia.com/blog/simulation', 'New platform capabilities.', 'Mon, 26 Oct 2026 10:00:00 GMT'),
+                      ('AI chatbot safety improvements', 'https://blogs.nvidia.com/blog/chatbot', 'Guardrails for a language model.', 'Mon, 26 Oct 2026 10:00:00 GMT'),
+                      ('Physical adversarial multi-agent robot learning', 'https://blogs.nvidia.com/blog/game', 'A tabletop game platform for competitive play.', 'Mon, 26 Oct 2026 10:00:00 GMT'))
+        rows = signals.parse_feed(payload, SOURCE['nvidia-robotics'], TODAY)
+        self.assertEqual([r['url'] for r in rows], ['https://blogs.nvidia.com/blog/safety'])
+        self.assertIn('physical-ai', rows[0]['direction_ids'])
+
     def test_official_posts_need_a_safety_match(self):
         payload = rss(('Our approach to frontier risk and misuse', 'https://openai.com/index/risk', 'How we test models.', 'Mon, 26 Oct 2026 10:00:00 GMT'),
                       ('A customer builds legal workflows', 'https://openai.com/index/legal', 'Productivity story.', 'Mon, 26 Oct 2026 10:00:00 GMT'))

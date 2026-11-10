@@ -1,5 +1,5 @@
-/* Signal web: recent safety signals are picked off a list by a small mechanical spider,
-   flown through a web and routed into their research direction.
+/* Signal web: recent safety signals are picked off a list by a friendly outlined crawler,
+   carried along fine transmission lines and routed into their research direction.
    Visual idea after Prompt Spider UI by Kirito14IT (MIT); this is an independent implementation. */
 (() => {
   'use strict';
@@ -8,49 +8,129 @@
     let { records } = opts;
     const { dirs, dirName, T, onFocus } = opts;
     const ctx = cv.getContext('2d');
-    const still = false; // always animated, by request
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    let still = motion.matches;
     let W = 0, H = 0, C = {}, frame = 0;
     let L = {};                       // layout
-    let BAND = [-140, -95, -50, -5, 40]; // ring offsets of the web band (set in layout)
-    let cur = -1, startAt = 0, pinned = -1, hoverBox = -1;
-    let scroll = 0, flights = [], counts = {}, flash = {}, spokes = [];
-    const STEP = 170, FLY = 620;     // ms between signals, ms per flight: fast, many in the air at once
+    let cur = 0, pinned = -1, hoverBox = -1;
+    let flights = [], counts = {}, flash = {}, pending = [];
+    const MOTION_SPEED = 4.5;
+    const STEP = 420 / MOTION_SPEED, FLY = 1800 / MOTION_SPEED, SCAN_STEP = 1400 / MOTION_SPEED;
+    const TRAIL = 4200 / MOTION_SPEED, FADE = 800 / MOTION_SPEED;
+    let scanIndex = 0, nextScan = 0, animationFrame = 0;
+    let hovering = false, focusWithin = false, touching = false, manualUntil = 0;
+    let scrollTarget = 0, pointerY = null, lastPointerType = '', touchPreviewId = null;
+    let highlighted = -1, rowNodes = [], rebuilding = false;
     let routes = [];                  // finished routes keep carrying light
-    const mono = '12px ui-monospace,"SF Mono",Menlo,Consolas,monospace';
-
-    const clear = c => { const m = /^#([0-9a-f]{6})$/i.exec(c); if (!m) return 'rgba(0,0,0,0)'; const n = parseInt(m[1], 16); return 'rgba(' + (n >> 16) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',0)'; };
     const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return (h >>> 0) / 4294967295; };
 
+    // The browser owns scrolling, text selection and keyboard focus. The canvas shares
+    // its scroll offset so the creature and transmission lines stay attached to each row.
+    const stage = document.createElement('div'); stage.className = 'crawler-stage';
+    cv.parentNode.insertBefore(stage, cv); stage.appendChild(cv);
+    const viewport = document.createElement('div'); viewport.className = 'crawler-history';
+    viewport.tabIndex = 0; viewport.setAttribute('role', 'region');
+    viewport.setAttribute('aria-label', T('安全记录。滚动浏览，方向键选择，回车打开。', 'Safety records. Scroll to browse, use arrow keys to select, and Enter to open.'));
+    const list = document.createElement('ol'); list.className = 'crawler-history-list';
+    const position = document.createElement('div'); position.className = 'crawler-history-position';
+    position.setAttribute('aria-live', 'off');
+    viewport.appendChild(list); stage.append(viewport, position);
+    const isReading = t => hovering || focusWithin || touching || t < manualUntil;
+    const maxScroll = () => Math.max(0, records.length * L.rowH + 20 - L.listH);
+    const clampRow = i => Math.max(0, Math.min(records.length - 1, i));
+    const recordHref = r => opts.href ? opts.href(r) : opts.link(r);
+
+    function renderRows() {
+      rebuilding = true;
+      const fragment = document.createDocumentFragment();
+      rowNodes = records.map(({ r, inc }, i) => {
+        const item = document.createElement('li');
+        const link = document.createElement('a'); link.className = 'crawler-history-row';
+        link.dataset.index = String(i); link.dataset.recordId = r.id;
+        link.href = recordHref(r); link.tabIndex = -1;
+        link.style.setProperty('--row-color', inc ? C.inc : C.sig);
+        const title = String(opts.titleOf ? opts.titleOf(r) : r.title);
+        link.title = r.date + ' · ' + title;
+        link.setAttribute('aria-label', link.title);
+        const date = document.createElement('time'); date.className = 'crawler-record-date';
+        date.dateTime = r.date; date.textContent = r.date.slice(5).replace('-', '/');
+        const text = document.createElement('span'); text.className = 'crawler-record-title'; text.textContent = title;
+        link.append(date, text); item.appendChild(link); fragment.appendChild(item);
+        return link;
+      });
+      if (!records.length) {
+        const empty = document.createElement('li'); empty.className = 'crawler-history-empty';
+        empty.textContent = T('暂无记录', 'No records'); fragment.appendChild(empty);
+      }
+      list.replaceChildren(fragment); highlighted = -1;
+      rebuilding = false;
+    }
+
+    function syncHistory(focus, t) {
+      if (highlighted !== focus) {
+        if (rowNodes[highlighted]) { rowNodes[highlighted].classList.remove('is-current'); rowNodes[highlighted].removeAttribute('aria-current'); rowNodes[highlighted].tabIndex = -1; }
+        if (rowNodes[focus]) { rowNodes[focus].classList.add('is-current'); rowNodes[focus].setAttribute('aria-current', 'true'); rowNodes[focus].tabIndex = 0; }
+        highlighted = focus;
+      }
+      const first = records.length ? clampRow(Math.floor((viewport.scrollTop - 10) / L.rowH)) + 1 : 0;
+      const end = Math.min(records.length, Math.max(first, Math.ceil((viewport.scrollTop + L.listH - 10) / L.rowH)));
+      const range = first + '–' + end + ' / ' + records.length;
+      const mode = still ? T('手动浏览', 'Manual') : isReading(t) ? T('阅读中', 'Reading') : T('自动浏览', 'Auto');
+      position.textContent = range + (W < 520 ? '' : ' · ' + mode);
+      position.setAttribute('aria-label', range + ' · ' + mode);
+    }
+
+    function pauseManual() {
+      manualUntil = performance.now() + 4000;
+      scrollTarget = viewport.scrollTop;
+    }
+
+    function selectReading(i) {
+      if (!records[i]) return;
+      if (pinned !== i) { pinned = i; cur = i; onFocus(i); }
+      scanIndex = (i + 1) % records.length;
+    }
+
+    function revealRow(i, immediate = false) {
+      const top = 10 + i * L.rowH, bottom = top + L.rowH;
+      if (top < viewport.scrollTop + 8 || bottom > viewport.scrollTop + L.listH - 8)
+        scrollTarget = Math.max(0, Math.min(maxScroll(), top - L.listH * .38));
+      if (immediate) viewport.scrollTop = scrollTarget;
+    }
+
     function colors() {
-      const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
-      const dark = document.documentElement.dataset.theme === 'dark';
-      C = { ink: v('--ink'), muted: v('--muted'), line: v('--line'), ground: v('--ground'), rail: v('--rail'),
-            inc: dark ? '#f0c233' : '#d99a00', sig: dark ? '#5cc28f' : '#0b7a4b', core: '#ff5a5f', leg: dark ? '#7b8cff' : '#3f51d8', dark };
+      C = { ink: '#c6d7d0', muted: '#718d80', line: '#24382f', ground: '#09120f',
+        inc: '#c7ac55', sig: '#58bc91', core: '#dd7299', leg: '#8bcabc' };
     }
 
     function layout() {
+      const oldRowH = L.rowH;
+      const first = oldRowH ? clampRow(Math.floor((viewport.scrollTop - 10) / oldRowH)) : 0;
+      const anchorOffset = oldRowH ? 10 + first * oldRowH - viewport.scrollTop : 10;
       const r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
-      W = r.width; H = Math.round(W < 900 ? W * 0.82 : Math.max(380, Math.min(460, W * 0.36))); // wide screens get a flat band
-      cv.style.height = H + 'px'; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const narrow = W < 520;
-      L.listW = W * (narrow ? 0.44 : W > 1000 ? 0.36 : 0.4);
-      L.rowH = narrow ? 20 : 22;
-      L.boxX = W * (narrow ? 0.7 : W > 1000 ? 0.79 : 0.73); L.boxW = W - L.boxX;
+      W = Math.max(1, r.width);
+      H = W < 520 ? 316 : W < 900 ? 370 : 420;
+      cv.style.height = H + 'px'; cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      L.listW = W * (W < 520 ? 0.36 : 0.32);
+      L.rowH = W < 520 ? 24 : 26;
+      L.listH = H - 24;
+      L.boxX = W * (W < 520 ? 0.79 : 0.84); L.boxW = W - L.boxX;
       L.gap = 8; L.boxH = (H - L.gap * (dirs.length - 1)) / dirs.length;
-      L.cx = W > 1000 ? W * 0.05 : -W * 0.32; L.cy = H / 2; L.R = W > 1000 ? W * 0.6 : W * 0.9;
-      L.a0 = Math.asin((-H / 2 + 14) / L.R); L.a1 = Math.asin((H / 2 - 14) / L.R);
-      spokes = Array.from({ length: 96 }, (_, i) => ({ a: L.a0 + (L.a1 - L.a0) * (i + 0.5) / 96, len: 0, color: null }));
-      // the web band: rings from the inner edge to the outer edge, wider on wide screens
-      // it spans most of the space between the list and the direction boxes
-      const m = narrow ? 14 : 36;
-      const inner = L.listW + m - L.cx - L.R, outer = L.boxX - m - 34 - L.cx - L.R;
-      const n = Math.max(3, Math.round((outer - inner) / (narrow ? 18 : 42)) + 1);
-      BAND = Array.from({ length: n }, (_, i) => Math.round(inner + (outer - inner) * i / (n - 1)));
-      L.mid = Math.round((inner + outer) / 2);
+      L.collectX = L.boxX - (W < 520 ? 12 : 26);
+      L.bend = Math.min(40, (L.collectX - L.listW) * .17);
+      L.a0 = 0; L.a1 = 1;
+      stage.classList.toggle('is-narrow', W < 520);
+      stage.style.setProperty('--crawler-row-height', L.rowH + 'px');
+      viewport.style.width = L.listW + 'px'; viewport.style.height = L.listH + 'px';
+      position.style.width = L.listW + 'px'; position.style.top = (L.listH + 3) + 'px';
+      viewport.scrollTop = Math.max(0, Math.min(10 + first * L.rowH - anchorOffset, maxScroll()));
+      scrollTarget = viewport.scrollTop;
     }
 
-    const arcPt = (a, dr = 0) => [L.cx + (L.R + dr) * Math.cos(a), L.cy + (L.R + dr) * Math.sin(a)];
-    const rowY = i => 10 + i * L.rowH - scroll + L.rowH / 2;
+    // A receiving rail, bowed gently toward the incoming stream.
+    const arcPt = (a, dr = 0) => [L.collectX - Math.sin(a * Math.PI) * L.bend + dr, 14 + a * (H - 28)];
+    const rowY = i => 10 + i * L.rowH + L.rowH / 2 - viewport.scrollTop;
     const boxY = d => d * (L.boxH + L.gap);
     const dirIndex = r => Math.max(0, dirs.indexOf((r.direction_ids || [])[0]));
 
@@ -63,118 +143,108 @@
       return next;
     }
 
-    function resetAnimation() {
-      flash = {}; flights = []; cur = -1;
-      for (const s of spokes) { s.len = 0; s.color = null; }
-    }
-
-    function launch(i, now) {
+    function launch(i, now, changeFocus = true) {
       const rec = records[i], d = dirIndex(rec.r);
       const a = L.a0 + (L.a1 - L.a0) * (0.1 + 0.8 * hash(rec.r.id || rec.r.title));
       flights.push({ i, d, a, t0: now, color: rec.inc ? C.inc : C.sig, done: false });
-      onFocus(i, true);
+      if (changeFocus && !isReading(now)) { cur = i; onFocus(i, true); }
     }
 
-    // spider: a small outlined body on long, thin, jointed legs. Feet snap to grid cells
-    // (words in the list, crossings in the web), one leg at a time, and box what they touch.
-    const spider = { x: 0, y: 0, legs: [], next: 0 };
-    let cells = [], marks = [];
-    const LEGS = [ // direction in degrees, reach as a share of the canvas width
-      [200, .075], [168, .09], [140, .065], [222, .06],
-      [-28, .09], [6, .1], [34, .085], [-58, .065]
-    ];
-    function initSpider() {
-      spider.x = L.listW * 0.8; spider.y = 40; spider.next = 0;
-      spider.legs = LEGS.map(([deg, share]) => {
-        const a = deg * Math.PI / 180, reach = Math.max(38, Math.min(96, W * share)); // short legs: close to the body
-        return { a, reach, foot: null, from: null, t: 1, left: Math.cos(a) < 0 };
-      });
-      marks = [];
+    // One continuous rounded body, with short soft feelers. No jointed legs or body segments.
+    const crawler = { x: 0, y: 0, tilt: 0 };
+    function initCrawler() {
+      crawler.x = L.listW + 7; crawler.y = 48; crawler.tilt = 0;
     }
-    const footXY = f => f.kind === 'text' ? [f.x, rowY(f.row)] : arcPt(f.a, f.dr);
-    function pickCell(g) {
-      const ix = spider.x + Math.cos(g.a) * g.reach, iy = spider.y + Math.sin(g.a) * g.reach;
-      let best = null, bd = Infinity;
-      if (g.left) {
-        for (const c of cells) { const d = Math.hypot(c.cx - ix, rowY(c.row) - iy); if (d < bd) bd = d, best = { kind: 'text', row: c.row, x: c.cx, cell: c }; }
-      } else {
-        for (const s of spokes) for (const dr of BAND) { const [x, y] = arcPt(s.a, dr), d = Math.hypot(x - ix, y - iy); if (d < bd) bd = d, best = { kind: 'web', a: s.a, dr }; }
-      }
-      // nothing within reach: step onto the nearest row line instead of stretching across the canvas
-      if (!best || bd > g.reach * 0.6) {
-        const row = Math.round((iy + scroll - 10 - L.rowH / 2) / L.rowH);
-        best = { kind: 'text', row, x: ix, cell: null };
-      }
-      return best;
+    function stepCrawler(tx, ty, t, dt) {
+      const k = still ? 1 : 1 - Math.exp(-dt / (240 / MOTION_SPEED)), dy = ty - crawler.y;
+      crawler.x += (tx - crawler.x) * k;
+      crawler.y += dy * k;
+      crawler.tilt += (Math.max(-.18, Math.min(.18, dy / 100)) - crawler.tilt) * k;
     }
-    function stepSpider(tx, ty, t, dt) {
-      const k = Math.min(1, dt / 70);
-      spider.x += (tx - spider.x) * k; spider.y += (ty - spider.y) * k;
-      // legs move one after another, alternating sides, like walking across a grid
-      let moving = spider.legs.filter(g => g.t < 1).length;
-      for (let n = 0; n < spider.legs.length && moving < 2; n++) {
-        const g = spider.legs[spider.next];
-        spider.next = (spider.next + 3) % spider.legs.length;
-        if (g.t < 1) continue;
-        const [fx, fy] = g.foot ? footXY(g.foot) : [spider.x, spider.y];
-        const ix = spider.x + Math.cos(g.a) * g.reach, iy = spider.y + Math.sin(g.a) * g.reach;
-        if (!g.foot || Math.hypot(fx - ix, fy - iy) > g.reach * 0.38 || fy < -10 || fy > H + 10) {
-          const to = pickCell(g); if (!to) continue;
-          g.from = [fx, fy]; g.to = to; g.t = 0; moving++;
-          if (g.mark) g.mark.off = t;
-        }
-      }
-      for (const g of spider.legs) if (g.t < 1) {
-        g.t = Math.min(1, g.t + dt / 85);
-        if (g.t >= 1) {
-          g.foot = g.to;
-          if (g.to.kind === 'text' && g.to.cell) { g.mark = { row: g.to.row, x: g.to.cell.x, w: g.to.cell.w, on: t, off: 0 }; marks.push(g.mark); }
-          else g.mark = null;
-        }
-      }
-      marks = marks.filter(m => !m.off || t - m.off < 500).slice(-24);
-    }
-    function legPoints(g) {
-      let foot;
-      if (g.t < 1) {
-        const to = footXY(g.to), e = g.t * g.t * (3 - 2 * g.t), lift = Math.sin(g.t * Math.PI) * 14;
-        foot = [g.from[0] + (to[0] - g.from[0]) * e, g.from[1] + (to[1] - g.from[1]) * e - lift];
-      } else foot = g.foot ? footXY(g.foot) : [spider.x, spider.y];
-      const dx = foot[0] - spider.x, dy = foot[1] - spider.y, len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len;
-      const up = (g.left ? -1 : 1) * Math.min(26, len * 0.28); // knees bend upward and outward
-      const j1 = [spider.x + dx * 0.32 + nx * up, spider.y + dy * 0.32 + ny * up - len * 0.12];
-      const j2 = [spider.x + dx * 0.68 + nx * up * 0.55, spider.y + dy * 0.68 + ny * up * 0.55 - len * 0.06];
-      return [[spider.x, spider.y], j1, j2, foot];
-    }
-    function drawSpider(t) {
-      // boxes around the cells the feet are holding
-      ctx.lineWidth = 1;
-      for (const m of marks) {
-        const y = rowY(m.row), a = m.off ? Math.max(0, 1 - (t - m.off) / 500) : Math.min(1, (t - m.on) / 120);
-        ctx.globalAlpha = a; ctx.strokeStyle = C.leg; ctx.strokeRect(m.x + 0.5, y - L.rowH / 2 + 2.5, m.w, L.rowH - 5);
-        ctx.globalAlpha = a * 0.12; ctx.fillStyle = C.leg; ctx.fillRect(m.x, y - L.rowH / 2 + 2, m.w, L.rowH - 4);
+    function drawCrawler(t) {
+      const scale = W < 520 ? .76 : 1;
+      const x = crawler.x, y = Math.max(34, Math.min(H - 34, crawler.y));
+      ctx.save(); ctx.translate(x, y); ctx.rotate(crawler.tilt); ctx.scale(scale, scale);
+      const breathe = 1 + Math.sin(t / 700) * .025;
+      ctx.scale(breathe, breathe); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      // Feelers bend in a travelling wave instead of stepping like insect legs.
+      for (let i = 0; i < 16; i++) {
+        const a = i * Math.PI * 2 / 16;
+        const wave = Math.sin(t / 280 - i * .7), reach = 7 + (i % 3) * 1.7;
+        const dx = Math.cos(a), dy = Math.sin(a), nx = -dy, ny = dx;
+        const sx = dx * 17, sy = dy * 15;
+        const ex = sx + dx * reach + nx * wave * 2.5;
+        const ey = sy + dy * reach + ny * wave * 2.5;
+        ctx.strokeStyle = C.leg; ctx.globalAlpha = .53 + .13 * Math.sin(t / 500 + i);
+        ctx.lineWidth = .95;
+        ctx.beginPath(); ctx.moveTo(sx, sy);
+        ctx.bezierCurveTo(sx + dx * 4 + nx * wave * 3, sy + dy * 4 + ny * wave * 3,
+          ex - dx * 3 + nx * 2, ey - dy * 3 + ny * 2, ex, ey);
+        ctx.stroke();
+        ctx.globalAlpha = .72; ctx.fillStyle = C.leg;
+        ctx.beginPath(); ctx.arc(ex, ey, 1, 0, Math.PI * 2); ctx.fill();
       }
       ctx.globalAlpha = 1;
-      for (const g of spider.legs) {
-        const pts = legPoints(g);
-        ctx.strokeStyle = C.leg; ctx.lineWidth = 1.4;
-        ctx.beginPath(); pts.forEach((p, k) => k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
-        ctx.fillStyle = C.leg;
-        for (const p of pts.slice(1)) { ctx.beginPath(); ctx.arc(p[0], p[1], 2.6, 0, 6.283); ctx.fill(); }
+      const body = ctx.createRadialGradient(-5, -6, 1, 0, 0, 19);
+      body.addColorStop(0, '#234d40'); body.addColorStop(1, '#102b23');
+      ctx.fillStyle = body; ctx.strokeStyle = '#8cd1bc'; ctx.lineWidth = 1.15;
+      ctx.beginPath(); ctx.ellipse(0, 0, 17, 15, -.12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      // An inset contour keeps the same fine-line language as the transmission diagram.
+      ctx.strokeStyle = '#4d8f76'; ctx.globalAlpha = .52; ctx.lineWidth = .65;
+      ctx.beginPath(); ctx.ellipse(0, 0, 13.5, 11.6, -.12, 0, Math.PI * 2); ctx.stroke();
+      ctx.globalAlpha = 1;
+      const blink = Math.sin(t / 2200) > .993;
+      ctx.fillStyle = '#c9e9de';
+      for (const ex of [-4.5, 4.5]) {
+        ctx.beginPath(); ctx.ellipse(ex, -2, 1.35, blink ? .45 : 1.65, 0, 0, Math.PI * 2); ctx.fill();
       }
-      const beat = Math.max(0, Math.sin(t / 90)) ** 8 + 0.6 * Math.max(0, Math.sin(t / 90 - 0.9)) ** 8;
-      ctx.save(); ctx.translate(spider.x, spider.y); ctx.rotate(0.28);
-      ctx.fillStyle = C.ground; ctx.strokeStyle = C.core; ctx.lineWidth = 1.6;
-      ctx.fillRect(-6, -11, 12, 22); ctx.strokeRect(-6, -11, 12, 22); ctx.strokeRect(-3.5, -8.5, 7, 17);
+      ctx.strokeStyle = '#92cbb6'; ctx.lineWidth = .9;
+      ctx.beginPath(); ctx.moveTo(-2.5, 4); ctx.quadraticCurveTo(0, 6, 2.5, 4); ctx.stroke();
       ctx.restore();
-      ctx.fillStyle = C.core; ctx.beginPath(); ctx.arc(spider.x, spider.y, 2 + beat * 1.4, 0, 6.283); ctx.fill();
     }
 
-    const quad = (p0, c, p1, u) => [(1 - u) ** 2 * p0[0] + 2 * (1 - u) * u * c[0] + u * u * p1[0], (1 - u) ** 2 * p0[1] + 2 * (1 - u) * u * c[1] + u * u * p1[1]];
+    const cubic = (p0, c1, c2, p1, u) => {
+      const v = 1 - u;
+      return [v*v*v*p0[0] + 3*v*v*u*c1[0] + 3*v*u*u*c2[0] + u*u*u*p1[0],
+        v*v*v*p0[1] + 3*v*v*u*c1[1] + 3*v*u*u*c2[1] + u*u*u*p1[1]];
+    };
+    function transmission(y, a, u) {
+      const p0 = [L.listW + 5, y], p1 = arcPt(a), width = p1[0] - p0[0];
+      return cubic(p0, [p0[0] + width * .33, y], [p1[0] - width * .28, p1[1]], p1, u);
+    }
     function flightPath(f) {
-      const p0 = [L.listW + 4, rowY(f.i)], p1 = arcPt(f.a), p2 = [L.boxX, boxY(f.d) + L.boxH / 2];
-      const c1 = [(p0[0] + p1[0]) / 2, Math.min(p0[1], p1[1]) - 30], c2 = [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2 - 18];
-      return u => u < 0.55 ? quad(p0, c1, p1, u / 0.55) : quad(p1, c2, p2, (u - 0.55) / 0.45);
+      const y = Math.max(12, Math.min(L.listH - 12, rowY(f.i))), p1 = arcPt(f.a);
+      const p2 = [L.boxX, boxY(f.d) + L.boxH / 2];
+      return u => u < .88 ? transmission(y, f.a, u / .88)
+        : cubic(p1, [p1[0] + 12, p1[1]], [p2[0] - 12, p2[1]], p2, (u - .88) / .12);
+    }
+    function drawTransmissionBed(t) {
+      // Calm, low-contrast curves give the moving packets a readable route.
+      const n = W < 520 ? 22 : 44;
+      for (let i = 0; i < n; i++) {
+        const y = 16 + (i + .5) / n * (H - 32), a = .03 + hash('port-' + (i * i + 73)) * .94;
+        ctx.strokeStyle = i % 7 === 0 ? C.core : i % 3 === 0 ? C.inc : C.sig;
+        ctx.globalAlpha = i % 7 === 0 ? .22 : .18; ctx.lineWidth = .65;
+        ctx.beginPath();
+        for (let k = 0; k <= 28; k++) {
+          const p = transmission(y + Math.sin(t / 2400 + i) * 2, a, k / 28);
+          k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]);
+        }
+        ctx.stroke();
+      }
+      ctx.globalAlpha = .8; ctx.strokeStyle = '#4f675c'; ctx.lineWidth = .7;
+      ctx.beginPath();
+      for (let k = 0; k <= 40; k++) { const p = arcPt(k / 40); k ? ctx.lineTo(...p) : ctx.moveTo(...p); }
+      ctx.stroke();
+      for (let k = 0; k <= 36; k++) {
+        const p = arcPt(k / 36); ctx.globalAlpha = .35;
+        ctx.beginPath(); ctx.moveTo(p[0] - 5, p[1]); ctx.lineTo(p[0] - 1, p[1]); ctx.stroke();
+      }
+      const scan = .15 + .7 * (.5 + .5 * Math.sin(t / 2600));
+      ctx.strokeStyle = '#b5d4c6'; ctx.globalAlpha = .8; ctx.lineWidth = 1.1;
+      ctx.beginPath();
+      for (let k = 0; k <= 8; k++) { const p = arcPt(scan + k * .003); k ? ctx.lineTo(...p) : ctx.moveTo(...p); }
+      ctx.stroke(); ctx.globalAlpha = 1;
     }
 
     function fit(s, w) {
@@ -186,161 +256,270 @@
 
     let last = 0;
     let lastPaint = 0;
-    function draw(t, once) {
+    function draw(t) {
       lastPaint = performance.now();
       const dt = last ? Math.min(64, t - last) : 16; last = t;
       if (++frame % 40 === 0) colors();
-      if (!still) {
-        if (cur < 0 && !startAt) startAt = t + 400;
-        if (startAt && t >= startAt) {
-          if (cur + 1 < records.length) { cur++; launch(cur, t); startAt = t + STEP; }
-          else { startAt = t + 900; cur = records.length; }
+      const reading = isReading(t);
+      if (!reading && pinned >= 0) pinned = -1;
+      if (!reading && !still) {
+        const delta = scrollTarget - viewport.scrollTop;
+        if (Math.abs(delta) > .5) viewport.scrollTop += delta * (1 - Math.exp(-dt / 65));
+        else if (delta) viewport.scrollTop = scrollTarget;
+      }
+      // Scanning traverses every record. Reading pauses its position, not the lines.
+      while (pending.length && pending[0].at <= t) {
+        const item = pending.shift();
+        if (!still) launch(item.i, t, false);
+        nextScan = t + SCAN_STEP;
+      }
+      if (!still && records.length && !pending.length && t >= nextScan) {
+        if (reading) {
+          const visibleRow = clampRow(Math.floor((viewport.scrollTop + 10) / L.rowH));
+          launch(pinned >= 0 ? pinned : visibleRow, t);
+        } else {
+          scanIndex = clampRow(scanIndex);
+          if (scanIndex === 0 && cur === records.length - 1) viewport.scrollTop = scrollTarget = 0;
+          revealRow(scanIndex);
+          launch(scanIndex, t);
+          scanIndex = (scanIndex + 1) % records.length;
         }
-        if (cur >= records.length && t >= startAt - 10) { resetAnimation(); startAt = t + 300; }
+        nextScan = t + SCAN_STEP;
       }
       const focus = pinned >= 0 ? pinned : Math.min(cur, records.length - 1);
-      // keep the active row a third of the way down
-      const target = Math.max(0, Math.min(records.length * L.rowH + 20 - H, focus * L.rowH - H * 0.33));
-      scroll += (target - scroll) * Math.min(1, dt / 90);
+      const visualTime = still ? 0 : t * MOTION_SPEED;
 
       ctx.clearRect(0, 0, W, H);
 
-      // web: concentric arcs and a fan of spokes
-      ctx.strokeStyle = C.line; ctx.lineWidth = 1;
-      for (const dr of BAND) { ctx.beginPath(); ctx.arc(L.cx, L.cy, L.R + dr, L.a0 - 0.02, L.a1 + 0.02); ctx.stroke(); }
-      const scan = L.a0 + (L.a1 - L.a0) * (0.5 + 0.5 * Math.sin(t / 650));
-      spokes.forEach((s, k) => {
-        const a = s.a + 0.004 * Math.sin(t / 1300 + k * 0.7);
-        const near = Math.max(0, 1 - Math.abs(a - scan) / 0.06);
-        const grow = s.len + (s.color ? 6 * Math.sin(t / 500 + k) : 0) + near * 30;
-        const [x0, y0] = arcPt(a, BAND[0]), [x1, y1] = arcPt(a, BAND[BAND.length - 1] + grow);
-        ctx.strokeStyle = near > 0.3 && !s.color ? C.core : (s.color || C.line);
-        ctx.globalAlpha = s.color ? 0.9 : 0.55 + near * 0.45; ctx.lineWidth = s.color || near > 0.3 ? 1.6 : 1;
-        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
-      });
-      ctx.globalAlpha = 1;
-      // scanning beam along the web
-      { const [bx, by] = arcPt(scan, L.mid); const g = ctx.createRadialGradient(bx, by, 0, bx, by, 46);
-        g.addColorStop(0, 'rgba(255,90,95,.28)'); g.addColorStop(1, 'rgba(255,90,95,0)'); ctx.fillStyle = g; ctx.fillRect(bx - 46, by - 46, 92, 92); }
-      // finished routes keep a faint thread and light running along it
+      drawTransmissionBed(visualTime);
+      // Completed routes fade, without accumulating a bright web.
       for (const r of routes) {
-        const path = flightPath(r), age = t - r.born, life = Math.min(1, age / 300) * Math.max(0, 1 - age / 9000);
-        if (life <= 0) continue;
-        ctx.strokeStyle = r.color; ctx.globalAlpha = 0.16 * life; ctx.lineWidth = 1;
-        ctx.beginPath(); for (let k = 12; k <= 40; k++) { const p = path(k / 40); k > 12 ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); } ctx.stroke();
-        ctx.fillStyle = r.color;
-        for (let q = 0; q < 2; q++) {
-          const u = 0.3 + 0.7 * (((t / 900 + r.seed + q * 0.5) % 1)), p = path(u);
-          ctx.globalAlpha = 0.85 * life; ctx.beginPath(); ctx.arc(p[0], p[1], 1.8, 0, 6.283); ctx.fill();
-        }
+        const path = flightPath(r), life = Math.max(0, 1 - (t - r.born) / TRAIL);
+        ctx.strokeStyle = r.color; ctx.globalAlpha = .12 * life; ctx.lineWidth = .65;
+        ctx.beginPath();
+        for (let k = 0; k <= 32; k++) { const p = path(k / 32); k ? ctx.lineTo(...p) : ctx.moveTo(...p); }
+        ctx.stroke();
       }
-      routes = routes.filter(r => t - r.born < 9000).slice(-60);
+      routes = routes.filter(r => t - r.born < TRAIL).slice(-12);
       ctx.globalAlpha = 1;
 
-      // list of signals
-      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, L.listW + 2, H); ctx.clip();
-      ctx.font = mono; ctx.textBaseline = 'middle';
-      cells = [];
-      records.forEach((rec, i) => {
-        const y = rowY(i); if (y < -L.rowH || y > H + L.rowH) return;
-        const r = rec.r, col = rec.inc ? C.inc : C.sig, active = i === focus, past = i <= cur;
-        const date = r.date.slice(5).replace('-', '/') + ' ', dw = ctx.measureText(date).width;
-        const text = fit(opts.titleOf ? opts.titleOf(r) : r.title, L.listW - dw - 10);
-        if (active) { ctx.fillStyle = col; ctx.fillRect(dw - 3, y - L.rowH / 2 + 2, ctx.measureText(text).width + 8, L.rowH - 4); }
-        ctx.fillStyle = C.muted; ctx.fillText(date, 0, y);
-        ctx.fillStyle = active ? (rec.inc ? '#171b19' : '#fff') : past ? C.ink : C.muted;
-        ctx.globalAlpha = active || past ? 1 : 0.55; ctx.fillText(text, dw + 1, y); ctx.globalAlpha = 1;
-        if (past && !active) { ctx.fillStyle = col; ctx.fillRect(dw + 1, y + 7, Math.min(28, ctx.measureText(text).width), 2); }
-        cells.push({ row: i, x: -2, w: ctx.measureText(date.trim()).width + 4, cx: ctx.measureText(date.trim()).width / 2 });
-        let cx = dw + 1;
-        for (const word of text.split(' ')) { const ww = ctx.measureText(word).width; if (ww > 6) cells.push({ row: i, x: cx - 2, w: ww + 4, cx: cx + ww / 2 }); cx += ww + ctx.measureText(' ').width; }
-      });
-      const fade = (y0, y1, a, b) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(0, a); g.addColorStop(1, b); ctx.fillStyle = g; ctx.fillRect(0, y0, L.listW + 2, y1 - y0); };
-      const g0 = clear(C.ground); fade(0, 26, C.ground, g0); fade(H - 26, H, g0, C.ground);
-      ctx.restore();
+      syncHistory(focus, t);
 
       // flights
       for (const f of flights) {
         const age = (still ? FLY : t - f.t0), u = Math.min(1, age / FLY), path = flightPath(f);
-        const alpha = u < 1 ? 1 : Math.max(0, 1 - (age - FLY) / 800);
+        const alpha = u < 1 ? 1 : Math.max(0, 1 - (age - FLY) / FADE);
         if (alpha <= 0) continue;
-        ctx.strokeStyle = f.color; ctx.lineWidth = u < 1 ? 1.8 : 1.1; ctx.globalAlpha = alpha * (u < 1 ? 1 : 0.55);
+        ctx.strokeStyle = f.color; ctx.lineWidth = .8; ctx.globalAlpha = alpha * (u < 1 ? .42 : .16);
         ctx.beginPath(); for (let k = 0; k <= 40; k++) { const p = path(u * k / 40); k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); } ctx.stroke();
-        if (u < 1) { const p = path(u); ctx.fillStyle = f.color; ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(p[0], p[1], 3.2, 0, 6.283); ctx.fill(); }
+        if (u < 1) {
+          const p = path(u); ctx.fillStyle = f.color; ctx.globalAlpha = .85;
+          ctx.beginPath(); ctx.arc(p[0], p[1], 1.6, 0, 6.283); ctx.fill();
+          if (W > 600 && f.i % 3 === 0 && u > .22 && u < .8) {
+            const source = records[f.i]?.r;
+            const label = ((source?.title || '').match(/\b(?:OpenAI|GPT|LLMs?|MCP|METR|Gemini|Claude|AI)\b/i) || [T('信号', 'signal')])[0];
+            ctx.font = '9px ui-monospace,Menlo,monospace';
+            const tw = ctx.measureText(label).width;
+            ctx.fillStyle = C.core; ctx.fillRect(p[0] - tw / 2 - 3, p[1] - 7, tw + 6, 13);
+            ctx.fillStyle = C.ground; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText(label, p[0], p[1]); ctx.textAlign = 'left';
+          }
+        }
         if (u >= 1 && !f.done) {
           f.done = true; flash[f.d] = t;
           routes.push({ i: f.i, d: f.d, a: f.a, color: f.color, born: t, seed: Math.random() });
-          const s = spokes.reduce((b, s) => Math.abs(s.a - f.a) < Math.abs(b.a - f.a) ? s : b);
-          s.color = f.color; s.len = Math.min(40, s.len + 14);
         }
       }
       ctx.globalAlpha = 1;
-      flights = flights.filter(f => t - f.t0 < FLY + 900 || !f.done);
+      flights = flights.filter(f => t - f.t0 < FLY + FADE);
 
       // direction boxes
       dirs.forEach((id, d) => {
-        const y = boxY(d), x = L.boxX, fl = !still && flash[d] ? Math.max(0, 1 - (t - flash[d]) / 350) : 0;
+        const y = boxY(d), x = L.boxX, fl = !still && flash[d] ? Math.max(0, 1 - (t - flash[d]) / (350 / MOTION_SPEED)) : 0;
         ctx.fillStyle = C.ground; ctx.fillRect(x, y, L.boxW, L.boxH);
-        if (fl) { ctx.globalAlpha = 0.18 * fl; ctx.fillStyle = C.sig; ctx.fillRect(x, y, L.boxW, L.boxH); ctx.globalAlpha = 1; }
-        ctx.strokeStyle = d === hoverBox || fl ? C.ink : C.line; ctx.lineWidth = d === hoverBox || fl > 0.2 ? 1.6 : 1;
+        if (fl) { ctx.globalAlpha = 0.06 * fl; ctx.fillStyle = C.sig; ctx.fillRect(x, y, L.boxW, L.boxH); ctx.globalAlpha = 1; }
+        ctx.strokeStyle = d === hoverBox ? '#79b69d' : C.line; ctx.lineWidth = .8;
         ctx.strokeRect(x + 0.5, y + 0.5, L.boxW - 1, L.boxH - 1);
         ctx.fillStyle = C.muted; ctx.font = '11.5px ' + getComputedStyle(document.body).fontFamily; ctx.textBaseline = 'top';
         ctx.fillText(fit(dirName(id), L.boxW - 14), x + 8, y + 7);
         const n = counts[d] || 0;
-        ctx.fillStyle = n ? C.ink : C.line; ctx.font = '800 ' + Math.min(30, L.boxH * 0.42) + 'px ' + getComputedStyle(document.body).fontFamily;
+        ctx.fillStyle = n ? '#82c5a7' : C.line; ctx.font = '500 ' + Math.min(30, L.boxH * 0.42) + 'px ' + getComputedStyle(document.body).fontFamily;
         ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText(String(n), x + L.boxW - 8, y + L.boxH - 5); ctx.textAlign = 'left';
       });
 
-      if (focus >= 0) stepSpider(L.listW * 0.8, rowY(focus) - L.rowH * 0.6, t, dt);
-      drawSpider(t);
+      if (focus >= 0) stepCrawler(L.listW + 7 + Math.sin(visualTime / 2400) * 2, rowY(focus), visualTime, dt);
+      drawCrawler(visualTime);
 
-      if (!still && !once) requestAnimationFrame(draw);
     }
 
-    // a still frame: everything already routed
-    function settle() {
-      counts = countRecords(records);
-      resetAnimation();
-      records.forEach((rec, i) => { cur = i; launch(i, 0); });
-      draw(1);
+    function animate(t) {
+      animationFrame = 0;
+      draw(t);
+      if (!still) animationFrame = requestAnimationFrame(animate);
+    }
+    function resumeAnimation() {
+      if (!still && !animationFrame) animationFrame = requestAnimationFrame(animate);
     }
 
     function hit(e) {
       const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
-      if (x < L.listW + 4) { const i = Math.round((y + scroll - 10 - L.rowH / 2) / L.rowH); return i >= 0 && i < records.length ? { row: i } : null; }
+      if (x < 0 || y < 0 || x > W || y > H) return null;
+      if (x < L.listW && y < L.listH) { const i = Math.floor((y + viewport.scrollTop - 10) / L.rowH); return i >= 0 && i < records.length ? { row: i } : null; }
       if (x >= L.boxX) { const d = Math.floor(y / (L.boxH + L.gap)); return d >= 0 && d < dirs.length ? { box: d } : null; }
       return null;
     }
+
+    const eventRow = e => {
+      const link = e.target.closest?.('.crawler-history-row');
+      return link && viewport.contains(link) ? Number(link.dataset.index) : -1;
+    };
+    viewport.addEventListener('pointerenter', e => {
+      if (e.pointerType !== 'touch') { hovering = true; scrollTarget = viewport.scrollTop; }
+    });
+    viewport.addEventListener('pointermove', e => {
+      if (e.pointerType === 'touch') return;
+      hovering = true; pointerY = e.clientY - viewport.getBoundingClientRect().top;
+      const i = eventRow(e); if (i >= 0) selectReading(i);
+      draw(performance.now());
+    });
+    viewport.addEventListener('pointerleave', e => {
+      if (e.pointerType === 'touch') return;
+      hovering = false; pointerY = null;
+      if (!focusWithin) pinned = -1;
+      nextScan = performance.now() + SCAN_STEP;
+      draw(performance.now());
+    });
+    viewport.addEventListener('pointerdown', e => {
+      lastPointerType = e.pointerType; touching = e.pointerType === 'touch'; pauseManual();
+    });
+    const endTouch = () => { touching = false; pauseManual(); };
+    viewport.addEventListener('pointerup', endTouch);
+    viewport.addEventListener('pointercancel', endTouch);
+    viewport.addEventListener('wheel', pauseManual, { passive: true });
+    viewport.addEventListener('scroll', () => {
+      const now = performance.now();
+      if (isReading(now)) {
+        manualUntil = now + 4000; scrollTarget = viewport.scrollTop;
+        scanIndex = clampRow(Math.floor((viewport.scrollTop + L.listH * .38 - 10) / L.rowH));
+        if (hovering && !focusWithin && pointerY != null) selectReading(clampRow(Math.floor((viewport.scrollTop + pointerY - 10) / L.rowH)));
+      }
+      syncHistory(pinned >= 0 ? pinned : cur, now);
+      if (still) draw(now);
+    }, { passive: true });
+    viewport.addEventListener('focusin', e => {
+      if (rebuilding) return;
+      focusWithin = true; pauseManual();
+      let i = eventRow(e);
+      if (i < 0 && records.length) i = records[cur] && rowY(cur) >= 0 && rowY(cur) < L.listH
+        ? cur : clampRow(Math.floor((viewport.scrollTop + 10) / L.rowH));
+      if (i >= 0) selectReading(i);
+      draw(performance.now());
+    });
+    viewport.addEventListener('focusout', e => {
+      if (rebuilding || viewport.contains(e.relatedTarget)) return;
+      focusWithin = false; if (!hovering) pinned = -1;
+      pauseManual(); draw(performance.now());
+    });
+    viewport.addEventListener('keydown', e => {
+      if (!records.length || e.altKey || e.ctrlKey || e.metaKey) return;
+      let i = pinned >= 0 ? pinned : clampRow(Math.floor((viewport.scrollTop + 10) / L.rowH));
+      const page = Math.max(1, Math.floor(L.listH / L.rowH) - 1);
+      if (e.key === 'ArrowDown') i++;
+      else if (e.key === 'ArrowUp') i--;
+      else if (e.key === 'PageDown' || e.key === ' ') i += e.shiftKey ? -page : page;
+      else if (e.key === 'PageUp') i -= page;
+      else if (e.key === 'Home') i = 0;
+      else if (e.key === 'End') i = records.length - 1;
+      else if (e.key === 'Enter') { e.preventDefault(); location.href = recordHref(records[i].r); return; }
+      else return;
+      e.preventDefault(); pauseManual(); i = clampRow(i); selectReading(i);
+      revealRow(i, true); rowNodes[i].focus({ preventScroll: true });
+      draw(performance.now());
+    });
+    viewport.addEventListener('click', e => {
+      const i = eventRow(e); if (i < 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0) return;
+      e.preventDefault(); pauseManual();
+      const touch = e.pointerType === 'touch' || (!e.pointerType && lastPointerType === 'touch');
+      const id = records[i].r.id;
+      if (touch && touchPreviewId !== id) {
+        touchPreviewId = id; selectReading(i); draw(performance.now());
+      } else location.href = recordHref(records[i].r);
+    });
+
     cv.addEventListener('pointermove', e => {
+      if (e.pointerType === 'touch') return;
       const h = hit(e); cv.style.cursor = h ? 'pointer' : 'default';
       hoverBox = h && h.box != null ? h.box : -1;
-      if (h && h.row != null) { if (pinned !== h.row) { pinned = h.row; onFocus(h.row); } } else if (pinned >= 0) { pinned = -1; if (cur >= 0 && cur < records.length) onFocus(cur); }
-      if (still) draw(1);
+      if (h && h.row != null) { hovering = true; selectReading(h.row); }
+      draw(performance.now());
     });
-    cv.addEventListener('pointerleave', () => { pinned = -1; hoverBox = -1; if (still) draw(1); });
+    cv.addEventListener('pointerleave', () => { hoverBox = -1; draw(performance.now()); });
     cv.addEventListener('click', e => {
       const h = hit(e); if (!h) return;
-      if (h.row != null) { if (e.pointerType === 'touch' && pinned !== h.row) { pinned = h.row; onFocus(h.row); } else location.href = opts.href ? opts.href(records[h.row].r) : opts.link(records[h.row].r); }
+      if (h.row != null) { if (e.pointerType === 'touch' && pinned !== h.row) { pinned = h.row; onFocus(h.row); draw(performance.now()); } else location.href = opts.href ? opts.href(records[h.row].r) : opts.link(records[h.row].r); }
       else location.href = 'directions.html?dir=' + encodeURIComponent(dirs[h.box]);
     });
 
-    colors(); layout(); initSpider(); counts = countRecords(records);
+    colors(); layout(); renderRows(); initCrawler(); counts = countRecords(records);
     // a resize clears the canvas, so paint again straight away instead of waiting for the next frame
-    new ResizeObserver(() => { const w = cv.getBoundingClientRect().width; if (Math.abs(w - W) > 1) { layout(); initSpider(); draw(performance.now(), true); } }).observe(cv);
+    new ResizeObserver(() => { const w = cv.getBoundingClientRect().width; if (Math.abs(w - W) > 1) { layout(); initCrawler(); draw(performance.now()); } }).observe(cv);
     // keep painting even where animation frames are held back
-    setInterval(() => { if (document.visibilityState === 'visible' && performance.now() - lastPaint > 400) draw(performance.now(), true); }, 250);
-    document.addEventListener('click', e => { if (e.target.closest('#themebtn')) { colors(); draw(performance.now(), true); } });
-    draw(performance.now(), true); requestAnimationFrame(draw);
+    setInterval(() => { if (!still && document.visibilityState === 'visible' && performance.now() - lastPaint > 400) draw(performance.now()); }, 250);
+    document.addEventListener('click', e => { if (e.target.closest('#themebtn')) { colors(); draw(performance.now()); } });
+    motion.addEventListener('change', event => {
+      still = event.matches;
+      if (still) {
+        cancelAnimationFrame(animationFrame); animationFrame = 0;
+        flights = []; pending = []; routes = [];
+      }
+      nextScan = performance.now(); last = 0;
+      draw(performance.now());
+      resumeAnimation();
+    });
+    draw(performance.now()); resumeAnimation();
 
     return {
-      setRecords(next) {
+      setRecords(next, options = {}) {
+        const pinnedId = pinned >= 0 ? records[pinned]?.r.id : null;
+        const currentId = records[cur]?.r.id;
+        const scanId = records[scanIndex]?.r.id;
+        const first = clampRow(Math.floor((viewport.scrollTop - 10) / L.rowH));
+        const anchorId = records[first]?.r.id;
+        const anchorOffset = 10 + first * L.rowH - viewport.scrollTop;
+        const oldScroll = viewport.scrollTop;
+        const focusedId = viewport.contains(document.activeElement) ? document.activeElement.dataset.recordId : null;
+        const sameOrder = next.length === records.length && next.every((record, i) => record.r.id === records[i].r.id);
+        const preserve = sameOrder || Object.prototype.hasOwnProperty.call(options, 'arrivalIds');
         const known = new Set(records.map(record => record.r.id));
-        const arrivals = next.filter(record => !known.has(record.r.id));
         records = next;
         counts = countRecords(records);
-        resetAnimation(); pinned = -1; scroll = 0; routes = []; startAt = 0;
+        pinned = !preserve || pinnedId == null ? -1 : records.findIndex(record => record.r.id === pinnedId);
+        cur = preserve ? Math.max(0, records.findIndex(record => record.r.id === currentId)) : 0;
+        scanIndex = preserve ? Math.max(0, records.findIndex(record => record.r.id === scanId)) : 0;
+        flights = []; routes = []; pending = []; flash = {};
+        if (!preserve || !records.some(record => record.r.id === touchPreviewId)) touchPreviewId = null;
         const now = performance.now();
-        for (const record of arrivals) flash[dirIndex(record.r)] = now;
+        renderRows();
+        const anchor = preserve ? records.findIndex(record => record.r.id === anchorId) : -1;
+        scrollTarget = Math.max(0, Math.min(maxScroll(), preserve ? (anchor >= 0 ? 10 + anchor * L.rowH - anchorOffset : oldScroll) : 0));
+        viewport.scrollTop = scrollTarget;
+        if (preserve && focusedId) {
+          const focused = rowNodes.find(node => node.dataset.recordId === focusedId);
+          if (focused) focused.focus({ preventScroll: true });
+          else viewport.focus({ preventScroll: true });
+        } else if (!preserve) {
+          manualUntil = 0; focusWithin = viewport.contains(document.activeElement);
+        }
+        nextScan = now + SCAN_STEP;
+        // Filtering is not an arrival. The snapshot adapter supplies new IDs explicitly.
+        const arrivalIds = new Set(options.arrivalIds || []);
+        const arrivals = records.map((record, i) => ({ record, i }))
+          .filter(({ record }) => arrivalIds.has(record.r.id) && !known.has(record.r.id));
+        for (const { record } of arrivals) flash[dirIndex(record.r)] = now;
+        if (!still) pending = arrivals.slice(0, 4).map(({ i }, k) => ({ i, at: now + k * STEP }));
+        if (pinned >= 0) onFocus(pinned);
+        else if (records.length) onFocus(cur);
+        draw(now);
       },
       focusPoint(i) { // where the card should sit for record i
         const y = Math.max(0, Math.min(H, rowY(i)));

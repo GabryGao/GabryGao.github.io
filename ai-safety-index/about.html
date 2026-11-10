@@ -8,57 +8,99 @@
 <link rel="stylesheet" href="shell.css">
 <script>try{if(localStorage.getItem('asi-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
-.page-head{padding:28px 0 8px;max-width:760px}
-.page-head h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(28px,3vw,40px);line-height:1.1}
-.page-head p{margin:14px 0 0;font-size:17px;line-height:1.7}
-.sec{margin-top:40px;max-width:900px}
-.sec h2{margin:0 0 12px;font-weight:700;font-stretch:87.5%;font-size:22px}
-.team{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.team li{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.team b{font-weight:700;font-stretch:87.5%;font-size:20px}
-.team span{color:var(--muted)}
-.sources{display:grid;grid-template-columns:200px 1fr;gap:12px 24px;margin:0;border-top:2px solid var(--ink);padding-top:14px}
-.sources dt{font-weight:600}
-.sources dd{margin:0;color:var(--muted);line-height:1.65}
-.sources a{color:var(--ink)}
-.sec p{color:var(--muted);line-height:1.7;max-width:72ch}
-.endpad{height:64px}
-@media (max-width:640px){.team li{grid-template-columns:1fr}.sources{grid-template-columns:1fr;gap:4px}.sources dd{margin-bottom:10px}}
+.about-page{padding-top:36px;padding-bottom:72px}
+.about-page .about-head{max-width:820px;padding-bottom:32px}
+.about-page .about-kicker{margin:0 0 12px;color:var(--safe);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+:root[data-theme="dark"] .about-page .about-kicker{color:#78c8a0}
+.about-page h1{margin:0;font-weight:700;font-stretch:87.5%;font-size:clamp(30px,3vw,42px);line-height:1.12}
+.about-page .about-intro{margin:18px 0 0;font-size:18px;line-height:1.75;color:var(--muted);max-width:72ch}
+.about-page .about-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:48px;padding:30px 0 34px;border-top:1px solid var(--line)}
+.about-page .about-section{min-width:0}
+.about-page h2{margin:0 0 16px;font-weight:700;font-stretch:87.5%;font-size:24px;line-height:1.25}
+.about-page p{line-height:1.8}
+.about-page .about-section>p{margin:0 0 14px;color:var(--muted);max-width:72ch}
+.about-page .about-section>p:last-child{margin-bottom:0}
+.about-page .about-team{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.about-page .about-team li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.about-page .about-team b{font-weight:700;font-stretch:87.5%;font-size:20px;line-height:1.25}
+.about-page .about-team .institution{grid-column:1;color:var(--muted);font-size:13px}
+.about-page .about-team .role{grid-column:2;grid-row:1 / span 2;color:var(--muted);font-size:13px;overflow-wrap:anywhere;text-align:right;max-width:15ch}
+.about-page .about-contribute{border-top:1px solid var(--line);padding:30px 0 34px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:48px}
+.about-page .about-actions{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-top:20px}
+.about-page .about-actions a{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--line);border-radius:5px;text-decoration:none;font-size:13px;font-weight:600;line-height:1.4}
+.about-page .about-actions a:hover{border-color:var(--ink);background:var(--rail)}
+.about-page .about-draft-note{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.65}
+.about-page .about-work{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.about-page .about-work li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1.65}
+.about-page .about-work strong{display:block;color:var(--ink);font-weight:600;margin-bottom:3px}
+.about-page .about-data{padding-top:30px;border-top:1px solid var(--line)}
+.about-page .about-sources{display:grid;grid-template-columns:180px minmax(0,1fr);gap:0 32px;margin:22px 0 0;border-top:2px solid var(--ink)}
+.about-page .about-sources dt,.about-page .about-sources dd{padding:18px 0;border-bottom:1px solid var(--line)}
+.about-page .about-sources dt{font-weight:600;line-height:1.7}
+.about-page .about-sources dd{margin:0;color:var(--muted);line-height:1.75;overflow-wrap:anywhere;max-width:88ch}
+.about-page .about-sources a{color:var(--ink)}
+.about-page .about-legacy{margin-top:32px;color:var(--muted);font-size:13px}
+@media(max-width:800px){.about-page .about-grid,.about-page .about-contribute{grid-template-columns:1fr;gap:30px}.about-page .about-head{padding-bottom:24px}.about-page .about-sources{grid-template-columns:150px minmax(0,1fr);column-gap:20px}}
+@media(max-width:560px){.about-page{padding-top:26px;padding-bottom:48px}.about-page .about-intro{font-size:16px}.about-page .about-sources{display:block}.about-page .about-sources dt{padding:16px 0 5px;border-bottom:0}.about-page .about-sources dd{padding:0 0 16px}.about-page .about-team li{column-gap:12px}.about-page .about-team .role{max-width:12ch}.about-page .about-actions{gap:8px}}
 </style>
 </head>
 <body>
 <header class="bar" id="bar"></header>
-<main class="wrap">
-  <div class="page-head">
-    <h1 data-en="About">关于</h1>
-    <p data-en="AI Safety Index tracks what is happening in AI safety each week and links it to the research, benchmarks and published results behind it. Every number points back to its original source; nothing here is combined into an overall safety score.">AI Safety Index 追踪每周 AI 安全领域发生了什么，并把它连到背后的研究、基准和公开结果。每个数字都能回到原始来源；这里不把任何结果合成为总体安全分。</p>
+<main class="wrap about-page">
+  <div class="about-head">
+    <p class="about-kicker">AI Safety Index</p>
+    <h1 data-en="About the project">关于项目</h1>
+    <p class="about-intro" data-en="AI Safety Index brings together AI safety news, research, benchmarks and published evaluation results. It helps readers follow developments and find the original sources. Results from different benchmarks are not combined into an overall safety score.">AI Safety Index 汇集 AI 安全动态、研究论文、基准和公开评测结果，帮助读者跟进进展并找到原始来源。不同基准的结果不会被合成为总体安全分。</p>
   </div>
 
-  <section class="sec" aria-labelledby="team-title">
-    <h2 id="team-title" data-en="Team">研究团队</h2>
-    <ul class="team" id="team"></ul>
+  <div class="about-grid">
+    <section class="about-section" aria-labelledby="origin-title">
+      <h2 id="origin-title" data-en="How it started">项目缘起</h2>
+      <!-- Project origin supplied by Xinfeng Li during the 2026-11-10 site review. -->
+      <p data-en="The idea for this website was proposed by Professor Qiang Yang, who invited Xinfeng Li to develop it.">这个网站的想法最初由杨强教授提出，并邀请 Xinfeng Li 推进建设。</p>
+      <p data-en="The project aims to make scattered AI safety information easier to browse and compare. Each record retains its source, while evaluation results keep their benchmark, metric and test conditions so readers can judge what a comparison means.">项目希望让分散的 AI 安全信息更便于浏览和比较。每条记录保留来源，评测结果保留对应的基准、指标和测试条件，方便读者判断比较的含义。</p>
+    </section>
+    <section class="about-section" aria-labelledby="team-title">
+      <h2 id="team-title" data-en="Current team">当前团队</h2>
+      <ul class="about-team" id="team"></ul>
+    </section>
+  </div>
+
+  <section class="about-contribute" aria-labelledby="contribute-title">
+    <div class="about-section">
+      <h2 id="contribute-title" data-en="Help organize and maintain the index">欢迎参与组织与维护</h2>
+      <p data-en="We welcome researchers, students and developers who would like to help organize the project and maintain its content and website. Contributions can include checking sources, curating resources or improving the interface.">我们欢迎研究者、学生和开发者参与项目的组织、内容整理与网站维护。可以从核验来源、整理资源或改进界面等具体工作开始。</p>
+      <div class="about-actions">
+        <a href="https://github.com/GabryGao/GabryGao.github.io" rel="noopener" data-en="View the project repository">查看项目仓库</a>
+        <a href="upload.html" data-en="Prepare a resource draft">准备资源草稿</a>
+      </div>
+      <p class="about-draft-note" data-en="The resource form currently downloads a draft to your device. It does not send a submission; the receiving channel is not yet connected.">资源表单目前只会把草稿下载到你的设备，不会发送内容；接收渠道尚未接通。</p>
+    </div>
+    <ul class="about-work">
+      <li><strong data-en="Sources and corrections">来源与纠错</strong><span data-en="Check original links, dates and factual claims, and identify missing context.">核对原始链接、日期和事实表述，补充缺失的上下文。</span></li>
+      <li><strong data-en="Research and benchmarks">研究与基准</strong><span data-en="Organize papers, datasets and benchmarks, keeping evaluation settings and evidence clear.">整理论文、数据集和基准，保留清楚的评测条件与证据。</span></li>
+      <li><strong data-en="Website and usability">网站与使用体验</strong><span data-en="Improve layout, accessibility, navigation and the data update workflow.">改进排版、无障碍访问、导航和数据更新流程。</span></li>
+    </ul>
   </section>
 
-  <section class="sec" aria-labelledby="src-title">
-    <h2 id="src-title" data-en="Where the data comes from">数据来源</h2>
-    <dl class="sources" id="sources"></dl>
+  <section class="about-section about-data" aria-labelledby="src-title">
+    <h2 id="src-title" data-en="Data and scope">数据来源与范围</h2>
+    <p data-en="The site displays saved records when a page opens. Scheduled collection and browser refreshes are separate processes; a new collection is not guaranteed at every scheduled check. Automated selection and classification still require review.">页面打开后直接显示已保存的记录。定时采集和浏览器刷新是两个独立过程，每次计划检查不一定产生新数据。自动筛选与归类仍需复核。</p>
+    <dl class="about-sources" id="sources"></dl>
   </section>
 
-  <section class="sec" aria-labelledby="old-title">
-    <h2 id="old-title" data-en="Previous version">旧版网站</h2>
-    <p><span data-en="The previous version, with Japanese and German, stays available for comparison for now:">旧版网站（含日文和德文）暂时保留，供对照使用：</span> <a href="legacy.html" data-en="open the previous version">打开旧版</a></p>
-  </section>
-  <div class="endpad"></div>
+  <p class="about-legacy"><span data-en="The previous site, including Japanese and German, remains available for comparison.">旧版网站（含日文和德文）仍保留供对照。</span> <a href="legacy.html" data-en="Open the previous version">打开旧版</a></p>
 </main>
 <footer>
   <div class="wrap">
-    <a href="upload.html" data-en="Submit a resource">上传资源</a>
+    <a href="upload.html" data-en="Prepare a resource draft">准备资源草稿</a>
     <a href="methods.html" data-en="Methods and notes">方法与说明</a>
   </div>
 </footer>
 
 <script src="signals-feed.js"></script>
 <script src="signals-zh.js"></script>
+<script src="paper-picks.js"></script>
 <script src="source-catalog.js"></script>
 <script src="site-data.js"></script>
 <script src="evaluation-data.js"></script>
@@ -74,18 +116,20 @@
   const S = Shell, K = Catalog, { esc, T, tx, iso } = S;
   S.header('about.html');
   const site = s => tx('SITE', s);
-  document.getElementById('team').innerHTML = (K.data.team || []).map(m => '<li><b>' + esc(m.name) + '</b><span>' + esc(site(m.institution)) + '</span><span>' + esc(site(m.role)) + '</span></li>').join('');
+  document.getElementById('team').innerHTML = (K.data.team || []).map(m => '<li><b>' + esc(m.name) + '</b><span class="institution">' + esc(site(m.institution)) + '</span><span class="role">' + esc(site(m.role)) + '</span></li>').join('');
   const N = S.news, E = typeof EvaluationData !== 'undefined' ? EvaluationData : {}, R = window.NAV_BOOTSTRAP || { meta: {}, topics: [] };
   const supplement = Array.isArray(window.NAV_SUPPLEMENT) ? window.NAV_SUPPLEMENT : [];
   const corpusTotal = Number(R.meta.totalPapers || 0) + supplement.length;
   const verifiedTotal = Number(R.meta.manualClassifications || 0) + supplement.filter(paper => paper.classificationStatus === 'verified').length;
+  const picks = typeof sitePaperPicks !== 'undefined' ? sitePaperPicks.length : 0;
+  const archiveDays = Number(N.info.archive_days) || 90;
   const rows = [
-    [T('安全动态', 'Safety signals'), T('本站每 3 小时从 OpenAI、Google DeepMind、英国 AI 安全研究所、METR、NIST 的官方发布中，按本站的安全规则自动筛选；事件来自 <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a> 收录的报道。每条都链接到原文，保留 90 天。当前 ' + N.signals.length + ' 条，覆盖 ' + iso(N.firstDay) + ' 至 ' + iso(N.lastCollected) + '。', 'Every 3 hours this site filters official posts from OpenAI, Google DeepMind, the UK AI Security Institute, METR and NIST with its own safety rules; incidents come from reports listed by the <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a>. Each links to the original and is kept for 90 days. ' + N.signals.length + ' records from ' + iso(N.firstDay) + ' to ' + iso(N.lastCollected) + '.')],
-    [T('论文精选', 'Paper picks'), T('每 3 小时用本站的安全关键词规则，从 arXiv 近 7 天的新论文中自动挑选 8 篇，未经人工审核。', 'Every 3 hours this site picks 8 papers from the last 7 days of arXiv with its own safety keyword rules; not reviewed by hand.')],
+    [T('安全动态', 'Safety signals'), T('GitHub Actions 计划每 15 分钟检查已配置的机构官方发布、<a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a> 及公开网页发现源。公开网页发现使用 AI Safety HOT 的元数据，记录链接指向原发布者。按当前配置保留 ' + archiveDays + ' 天，现有 ' + N.signals.length + ' 条；最早记录日期为 ' + iso(N.firstDay) + '，采集快照更新于 ' + iso(N.lastCollected) + '。<a href="research-source/signals-provenance.json">查看采集记录与来源状态</a>。', 'GitHub Actions is scheduled to check configured official feeds, the <a href="https://incidentdatabase.ai/" rel="noopener">AI Incident Database</a> and public web discovery sources every 15 minutes. Web discovery uses metadata from AI Safety HOT; record links point to the original publishers. The configured retention period is ' + archiveDays + ' days. The saved snapshot contains ' + N.signals.length + ' records. The earliest record is dated ' + iso(N.firstDay) + ', and the collection snapshot was updated on ' + iso(N.lastCollected) + '. <a href="research-source/signals-provenance.json">See collection records and source status</a>.')],
+    [T('论文精选', 'Paper picks'), T('采集任务计划每 3 小时检查 arXiv 近 7 天的新论文，并按本站安全关键词规则筛选。目前保存 ' + picks + ' 篇精选，未经人工审核。<a href="research-source/paper-picks-provenance.json">查看筛选记录</a>。', 'The collection job is scheduled every 3 hours to check arXiv submissions from the previous 7 days and select papers using this site’s safety keyword rules. The current snapshot contains ' + picks + ' picks, which have not been reviewed by hand. <a href="research-source/paper-picks-provenance.json">See the selection record</a>.')],
     [T('基准与工具', 'Benchmarks and tools'), T(K.resources.length + ' 条资料，逐条读取了原作者或出版方的页面，核验于 ' + K.checked + '。', K.resources.length + ' entries, each checked against the original author or publisher page on ' + K.checked + '.')],
     [T('评测结果', 'Evaluation results'), T((E.records || []).length + ' 条结果来自 ' + (E.benchmarks || []).length + ' 个基准的公开结果表，另有 HELM Safety 的历史报告。都不是本站复测。', (E.records || []).length + ' results from the published tables of ' + (E.benchmarks || []).length + ' benchmarks, plus the historical HELM Safety report. None were re-run by this site.')],
     [T('研究论文集', 'Research corpus'), T('<a href="research-map.html">研究地图</a>共 ' + corpusTotal.toLocaleString() + ' 条、' + (R.topics || []).length + ' 个研究主题；' + verifiedTotal + ' 条归类经过人工核查，其余保留建议归类。基础数据来自用户提供的 Safety Research Index，另补充 56 条 coding-agent 与软件工程顶会论文；补充记录回查 arXiv 和会议官方页面，AI Safety HOT 仅作发现入口。<a href="research-map-data/methodology-2026-11-02.pdf">查看分类与证据说明</a>。', 'The <a href="research-map.html">research map</a> contains ' + corpusTotal.toLocaleString() + ' records across ' + (R.topics || []).length + ' topics, with ' + verifiedTotal + ' verified classifications. The user-supplied Safety Research Index is supplemented by 56 coding-agent and top software-engineering papers checked against arXiv and official conference pages; AI Safety HOT is used only for discovery. <a href="research-map-data/methodology-2026-11-02.pdf">Read the classification and evidence notes</a>.')],
-    [T('论文', 'Papers'), T(K.papers().length + ' 篇论文，保留标题、作者、年份和原文链接，不复制摘要或正文。收录不代表认可论文结论。', K.papers().length + ' papers with title, authors, year and original link; no abstracts or full text are copied. Listing a paper does not endorse its claims.')]
+    [T('论文目录', 'Paper catalog'), T(K.papers().length + ' 篇论文，保留标题、作者、年份和原文链接，不复制摘要或正文。收录不代表认可论文结论。', K.papers().length + ' papers with title, authors, year and original link; no abstracts or full text are copied. Listing a paper does not endorse its claims.')]
   ];
   document.getElementById('sources').innerHTML = rows.map(([k, v]) => '<dt>' + k + '</dt><dd>' + v + '</dd>').join('');
 })();

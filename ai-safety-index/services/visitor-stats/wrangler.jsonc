@@ -1,0 +1,21 @@
+{
+  // Optional backend only. Creating this file does not deploy or enable statistics.
+  "name": "ai-safety-visitor-stats",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-10",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://gabrygao.github.io"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai-safety-visitor-stats",
+      "database_id": "REPLACE_WITH_CREATED_D1_DATABASE_ID"
+    }
+  ],
+  "triggers": {"crons": ["15 0 * * *"]},
+  "observability": {"enabled": false}
+  // Set IP_HASH_SECRET with `npx wrangler secret put IP_HASH_SECRET`.
+  // Keep that secret stable for this database; rotation changes the deduplication key.
+}

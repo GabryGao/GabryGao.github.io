@@ -1,5 +1,6 @@
 /* Shared helpers for the site pages. Load after signals-feed.js (and paper-picks.js where papers are shown). */
 (() => {
+  const assetBase = new URL('.', document.currentScript.src);
   const DAY = 864e5;
   const I = typeof ConceptI18n !== 'undefined' ? ConceptI18n : {};
 
@@ -86,14 +87,27 @@
 
   /* chrome */
   const EVAL_PAGES = [['results.html', '评测看板', 'Results'], ['benchmarks.html', '基准目录', 'Benchmarks'], ['methods.html', '方法与说明', 'Methods'], ['upload.html', '上传资源', 'Submit']];
-  const PAGES = [['index.html', '看板', 'Board'], ['records.html', '全部记录', 'Records'], ['directions.html', '研究方向', 'Directions'], ['results.html', '基准与评测', 'Evaluation'], ['papers.html', '论文', 'Papers'], ['research-map.html', '研究地图', 'Research map'], ['about.html', '关于', 'About']];
+  const PAGES = [['index.html', '看板', 'Board'], ['records.html', '全部记录', 'Records'], ['directions.html', '研究方向', 'Directions'], ['results.html', '基准与评测', 'Evaluation'], ['papers.html', '论文', 'Papers'], ['research-map.html', '研究地图', 'Research map']];
+  function stampText(value) {
+    const date = value == null ? null : new Date(value);
+    if (!date || !Number.isFinite(date.getTime())) return T('数据更新时间未知', 'Update time unknown');
+    const hm = String(date.getHours()).padStart(2, '0') + ':' + String(date.getMinutes()).padStart(2, '0');
+    return T('数据更新于 ', 'Data updated ') + iso(date) + ' ' + hm;
+  }
+  /* Refresh only timestamp text; keep search input, focus and header listeners intact. */
+  function updateStamp(value = news.generated) {
+    const bar = document.getElementById('bar');
+    if (!bar) return;
+    const text = stampText(value), stamp = bar.querySelector('.stamp'), brand = bar.querySelector('.brand');
+    if (stamp) stamp.textContent = text;
+    if (brand) brand.title = text;
+  }
   function header(current) {
     const el = document.getElementById('bar');
     const inEval = EVAL_PAGES.some(p => p[0] === current);
-    const hm = generated ? String(generated.getHours()).padStart(2, '0') + ':' + String(generated.getMinutes()).padStart(2, '0') : '';
-    const stamp = generated ? T('数据更新于 ', 'Data updated ') + iso(generated) + ' ' + hm : T('数据更新时间未知', 'Update time unknown');
+    const stamp = stampText(news.generated);
     const other = new URL(location.href); other.searchParams.set('lang', en ? 'zh' : 'en');
-    el.innerHTML = '<div class="wrap"><a class="brand" href="index.html"><i aria-hidden="true"></i>AI Safety Index</a>'
+    el.innerHTML = '<div class="wrap"><a class="brand" href="index.html" title="' + esc(stamp) + '"><i aria-hidden="true"></i>AI Safety Index</a>'
       + '<nav class="nav" aria-label="' + T('主导航', 'Main') + '">' + PAGES.map(([href, zh, english]) => '<a href="' + href + '"' + (href === current || (inEval && href === 'results.html') ? ' aria-current="page"' : '') + '>' + T(zh, english) + '</a>').join('')
       + '</nav><form class="hsearch" action="search.html" role="search"><input type="search" name="q" value="' + esc(current === 'search.html' ? (params().get('q') || '') : '') + '" placeholder="' + T('搜索全站', 'Search the site') + '" aria-label="' + T('搜索全站', 'Search the site') + '"></form><span class="stamp">' + stamp + '</span>'
       + '<button type="button" class="themebtn" id="themebtn"></button>'
@@ -113,6 +127,7 @@
       btn.innerHTML = (dark ? SUN : MOON) + '<span>' + (dark ? T('开灯', 'Lights on') : T('关灯', 'Lights off')) + '</span>';
       btn.setAttribute('aria-pressed', String(dark));
       btn.title = dark ? T('切换到浅色', 'Switch to light') : T('切换到深色', 'Switch to dark');
+      btn.setAttribute('aria-label', btn.title);
     };
     btn.addEventListener('click', () => {
       const dark = root.dataset.theme !== 'dark';
@@ -220,5 +235,22 @@
   }
 
   window.Shell = { DAY, esc, day, iso, md, chevron, arrow, DIRS, dirName, news, isIncident, category, categoryZh, CATEGORY, orgName, title, desc, link, lang, en, T, tx, zhOnly, CJK,
-    header, params, setParams, picks, picksHTML, paperTitle, paperAbstract, dirParam, dirSeg, seg, plates, stripHTML, itemHTML, bindItems, sortHead };
+    header, updateStamp, params, setParams, picks, picksHTML, paperTitle, paperAbstract, dirParam, dirSeg, seg, plates, stripHTML, itemHTML, bindItems, sortHead };
+
+  const siteNote = document.createElement('footer');
+  siteNote.className = 'site-note';
+  siteNote.innerHTML = '<div class="wrap"><p>' + T(
+    '内容根据公开来源整理。摘要、译文和简评供参考，具体内容及后续更正请查阅原文。',
+    'Content is drawn from public sources. Summaries, translations, and commentary are for reference. Consult the original sources for details and subsequent corrections.') + '</p></div>';
+  document.body.append(siteNote);
+
+  // Optional aggregate visitor statistics. No endpoint means no tracking request.
+  const statsConfig = document.createElement('script');
+  statsConfig.src = new URL('visitor-stats-config.js', assetBase).href;
+  statsConfig.onload = () => {
+    const script = document.createElement('script');
+    script.src = new URL('visitor-stats.js', assetBase).href;
+    document.head.append(script);
+  };
+  document.head.append(statsConfig);
 })();

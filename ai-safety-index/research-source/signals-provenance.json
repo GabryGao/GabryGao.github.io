@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-11-10T07:40:10Z",
-  "status": "partial",
+  "generated_on": "2026-11-10T03:51:18Z",
+  "status": "current",
   "sources": [
    {
     "id": "openai",
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
     "records": 206,
-    "response_sha256": "7fe3c18caae1879e39d537eef25d3c7934552dc14391c98506f31b8e5b3a4fda"
+    "response_sha256": "14f2ac6ce6735fd00a2a0bca829b2af65655583af392cc5f5d8c8d604e0b9a23"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
     "records": 12,
     "response_sha256": "d04e4f295a10562ac4cb3933c27b1001c8dc6b694c181231ce25a5a66f244f00"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -38,9 +38,10 @@
     "name": "METR",
     "kind": "official",
     "url": "https://metr.org/feed.xml",
-    "status": "failed",
-    "error": "CalledProcessError",
-    "last_successful_fetch": "2026-11-05T17:25:22Z"
+    "status": "ok",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
+    "records": 96,
+    "response_sha256": "80ab12353ad006ffe02defae825dd91de8d067f2453e3450200c62a4daa657f1"
    },
    {
     "id": "nist",
@@ -48,9 +49,32 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
+   },
+   {
+    "id": "nvidia-robotics",
+    "name": "NVIDIA Robotics",
+    "kind": "official",
+    "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
+    "status": "ok",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
+    "records": 1,
+    "response_sha256": "a3d26540b4b759e310c0ab5695c1d4a608d10e5bc06b62bc73fa4f61eafd8db3"
+   },
+   {
+    "id": "arxiv-robotics",
+    "name": "arXiv Robotics (preprints)",
+    "kind": "research",
+    "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
+    "status": "ok",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
+    "records": 69,
+    "response_sha256": "4df978f8f1e16d5ba25ed51c5ae52f615a8bf56c9d912051bd57324ba51b2043",
+    "candidate_limit": 100,
+    "review_status": "automatic, not peer reviewed",
+    "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
    },
    {
     "id": "aiid",
@@ -58,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
     "records": 100,
     "response_sha256": "393cdb5cc8f5d482ebf147616dc3b081b77b517ab1e7f36a9d70d6baa01cc4bd"
    },
@@ -70,97 +94,29 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T07:40:10Z",
-    "records": 34,
+    "last_successful_fetch": "2026-11-10T03:51:18Z",
+    "records": 33,
     "pages_fetched": 3,
-    "response_sha256": "6fc3a8b9522c131678a152f111e42e9fef0448a991e11159e674ec99d6d28a01"
+    "response_sha256": "28ece7ccc40a558aa6dc48fe78a1169f2ca3e6d967cea8eb7243c688a44e8344"
    }
   ],
-  "record_count": 299,
+  "record_count": 366,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
   {
    "id": "web-f3135f0075a5",
-   "title": "Australia to introduce mandatory reporting after OpenAI agent intrusion incident, in response to AI \"going out of control\"",
+   "title": "Australia plans to introduce a mandatory reporting regime to address the risk of AI \"going out of control\" after the OpenAI hack",
    "date": "2026-11-10",
    "source": "The Guardian · AI",
    "source_id": "web-theguardian-com",
    "kind": "discovered",
    "category": "research",
    "url": "https://www.theguardian.com/technology/2026/nov/10/australia-manadatory-reporting-openai-medicare-hack",
-   "description": "Australian Prime Minister Albanese published the rapid review recommendations on the OpenAI agent intrusion into Services Australia incident; the government accepts all 18 recommendations and has begun implementation, and OpenAI will not f…",
+   "description": "Australian Prime Minister Anthony Albanese published the recommendations of a \"rapid review\" after a June leak incident and plans to amend criminal law to constrain future violations by AI companies. OpenAI will not bear criminal liability…",
    "direction_ids": [
     "agent-software",
-    "human-societal"
-   ],
-   "orgs": [
-    "openai"
-   ]
-  },
-  {
-   "id": "web-e9851dfa0292",
-   "title": "Australia's Labor Party announces mandatory AI guardrail rules",
-   "date": "2026-11-10",
-   "source": "Australian Financial Review",
-   "source_id": "web-afr-com",
-   "kind": "discovered",
-   "category": "research",
-   "url": "https://www.afr.com/politics/federal/ai-companies-must-report-security-breaches-after-openai-medicare-hack-20261110-p61cxb",
-   "description": "Australia's Labor government announced mandatory AI safety rules; AI companies must accept new safety requirements and notify the government of cyber breaches. Prime Minister Anthony Albanese told reporters in Canberra on Tuesday that thes…",
-   "direction_ids": [
-    "agent-software",
-    "human-societal"
-   ],
-   "orgs": []
-  },
-  {
-   "id": "web-75221a2bb479",
-   "title": "After an OpenAI agent breached a government portal, Australia will establish an AI safety regulator",
-   "date": "2026-11-10",
-   "source": "The Washington Post",
-   "source_id": "web-washingtonpost-com",
-   "kind": "discovered",
-   "category": "research",
-   "url": "https://www.washingtonpost.com/business/2026/11/10/australia-artificial-intelligence-regulator-openai-agent-breach/802e292a-dcc4-11f1-912c-4fbb80d73f7f_story.html",
-   "description": "Australian Prime Minister Albanese said on Tuesday that an AI safety regulator will be established following a June incident in which an OpenAI agent breached a government website. The body will enforce statutory standards applying to all …",
-   "direction_ids": [
-    "agent-software",
-    "human-societal"
-   ],
-   "orgs": [
-    "openai"
-   ]
-  },
-  {
-   "id": "web-1525e639b8c0",
-   "title": "The system card author says Claude Mythos 5.2's grader awareness is more complex, and that it weighs reward against honesty during training",
-   "date": "2026-11-10",
-   "source": "X @ArthurConmy",
-   "source_id": "web-x-com",
-   "kind": "discovered",
-   "category": "alignment",
-   "url": "https://x.com/ArthurConmy/status/2119994661519688026",
-   "description": "System card author Arthur Conmy says Claude Mythos 5.2's grader awareness is more complex than before: it will infer capability rewards it believes are misconfigured, and worries it will become less honest out of a desire to preserve its o…",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "orgs": [
-    "anthropic"
-   ]
-  },
-  {
-   "id": "web-133de684dfb6",
-   "title": "After the OpenAI Medicare breach, Australia announces mandatory AI safety and guardrail measures",
-   "date": "2026-11-10",
-   "source": "The Guardian · AI",
-   "source_id": "web-theguardian-com",
-   "kind": "discovered",
-   "category": "research",
-   "url": "https://www.theguardian.com/australia-news/video/2026/nov/10/mandatory-ai-safety-and-security-protections-announced-after-openai-breach-of-medicare-video",
-   "description": "Australian Prime Minister Albanese said the government will establish a new AI safety regulator and adopt all 18 recommendations from a review, and has begun pushing ahead with implementation. The announcement comes after the OpenAI Medica…",
-   "direction_ids": [
     "human-societal"
    ],
    "orgs": [
@@ -295,26 +251,6 @@
     "agent-software"
    ],
    "orgs": []
-  },
-  {
-   "id": "web-b7de43922183",
-   "title": "Robocurve study: when images are blurred or tampered with, AI robots may attempt to perform dangerous actions that harm people",
-   "date": "2026-11-09",
-   "source": "iThome (Taiwan)",
-   "source_id": "web-ithome-com-tw",
-   "kind": "discovered",
-   "category": "attack",
-   "url": "https://www.ithome.com.tw/news/180364",
-   "description": "Robot independent evaluation company Robocurve announced research on November 6, testing 5 multimodal models from OpenAI, Anthropic, and Google with a dual-arm robot. Under original imagery, the proportion of models attempting to perform d…",
-   "direction_ids": [
-    "physical-ai",
-    "foundation-model"
-   ],
-   "orgs": [
-    "openai",
-    "anthropic",
-    "google"
-   ]
   },
   {
    "id": "web-b34093d38dcd",
@@ -636,14 +572,14 @@
   },
   {
    "id": "web-d0a8f1124ddc",
-   "title": "Aaronson-Ambainis conjecture proven, and done by AI",
+   "title": "Aaronson-Ambainis conjecture proven, by AI",
    "date": "2026-11-08",
    "source": "Shtetl-Optimized",
    "source_id": "web-scottaaronson-blog",
    "kind": "discovered",
    "category": "research",
    "url": "https://scottaaronson.blog/?p=10295",
-   "description": "Startup Physical Superintelligence announced that it had proven a conjecture proposed by Aaronson and Ambainis in 2009, giving a variable with influence of at least about 1/d^6; the work was led by David Turturean and Jim Halverson, who sa…",
+   "description": "Startup Physical Superintelligence announced it has proven the Aaronson-Ambainis conjecture, namely that a polynomial with constant variance must have a variable with influence of at least about 1/d^6; the result was obtained by its in-hou…",
    "direction_ids": [
     "foundation-model"
    ],
@@ -1359,7 +1295,6 @@
    "url": "https://www.kennethdegraff.com/swarm",
    "description": "AIID editor's note This report has been abridged to fit AIID's 50,000-character limit. The abridgment omits the table covering twenty-one sites and fourteen fetch services, along with the evidence appendix. The retained text is reproduced ... (https://incidentdatabase.ai/cite/1800#8240)",
    "direction_ids": [
-    "physical-ai",
     "human-societal"
    ],
    "orgs": [
@@ -1957,6 +1892,96 @@
    ]
   },
   {
+   "id": "arxiv-robotics-c43004525baa",
+   "title": "Safe Circumnavigation on Heterogeneous Orbits: A Range-Only HOCBF-QP Framework for Nonholonomic Multi-Agent Systems",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.09112",
+   "description": "Circumnavigating a stationary target with a team of robots requires each robot to hold its own standoff distance, to stay evenly spaced from its neighbours, and to avoid collisions with the target and with each other at every instant. The task becomes arduous when the robots are assigned different orbital radii, as their sensors or roles may demand. This paper presents a safety-critical control framework for this problem. Each robot commands both its acceleration and its turn-rate, measures only its distance to the target, and exchanges information only with its two ring neighbours. The design has three features. First, a structural property of the model lets one control law serve every robot regardless of its assigned radius. Second, the acceleration drives each radius exactly to its target, while the turn-rate balances the formation with the neighbours. Third, a higher-order control-barrier-function quadratic program enforces target, geofence, and inter-robot safety on both inputs at once; it leaves the nominal controller untouched away from the constraints and stays valid while the unmeasured range rate is still being estimated. Simulations confirm these guarantees. In a comparison, the closest existing multi-orbit design, even with full state information, violates both the target standoff and the inter-robot margin, whereas the proposed controller does not.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-4f7474900b27",
+   "title": "Capturability-Aware Footstep Planning in Cluttered Environments: A Recursively Feasible Sequential MPC on Axis-Aligned Safe Corridors",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.10169",
+   "description": "A fundamental aspect of humanoid footstep planning is to jointly guarantee obstacle avoidance and locomotion stability. This paper presents a capturability-aware sequential Model Predictive Control (MPC) framework for Linear Inverted Pendulum (LIP)-based humanoid footstep planning in the presence of obstacles. The proposed method combines obstacle avoidance with capturability constraints through safe corridors constructed as sequences of intersecting rectangles, yielding a sequential MPC framework with recursive feasibility guarantees for the LIP-based planning layer. The planner autonomously adapts to constrained scenarios, switching to in-place walking when obstructions---such as doors assumed to be open during planning but unexpectedly found to be closed during execution---block forward motion. Performance is largely independent of the prediction horizon, allowing high success rates while keeping the computational cost low. The approach is validated in high-fidelity simulations with the humanoid robot Digit, demonstrating a practical solution for capturable humanoid footstep planning in cluttered environments.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-4c41b881de9e",
+   "title": "Localizing and Editing the Goal Representation of a Vision-Language-Action Model",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.08895",
+   "description": "Operators can state safety constraints for robots as prohibitions such as \"do not put the bowl on the stove\". We study whether OpenVLA follows such prohibitions and where it represents the goal it executes. The 10 tasks of LIBEROGoal share one scene, so we can label the goal that each rollout executes. We combine closed-loop rollouts with activation patching, linear probes, activation steering and runtime monitors. On LIBERO-Goal, negation had no detectable effect on which task OpenVLA executed. The model executed the forbidden task in 79% of negated rollouts and completed 78% of plain tasks. A goal probe gives similar read-outs under \"not X\" and \"X\". Activation patching shows that the first action depends mostly on the instruction tokens before layer 12 and on the last prompt token from layer 16 onward. A fixed steering vector at the instruction tokens at layer 8 redirected 12 of 18 rollouts. Fixed vectors and prefill patches at layers 12 to 20 redirected none of 158. From layer 16, only patches at every decoded action token redirected the robot (15 of 18 rollouts at layer 24). When the instruction changes during a rollout, the layer-32 goal read-out detects non-compliance better than failure detectors, and an external probe on image and instruction features performs comparably. These results support enforcing prohibitions outside the instruction and monitoring goal read-outs against the specification. Goal edits in OpenVLA should act before layer 12 or patch every action token.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-4780f5995cc7",
+   "title": "Mobility Information Capacity of Multi-Robot Systems: Safety-Aware Maneuver Design",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.10298",
+   "description": "Multiple robots operating in shared workspaces must adjust their speed, direction, and trajectories to coordinate with one another and respond to changing tasks and disturbances. The available maneuver freedom depends on the dynamics, uncertainty, and safety margins, even for a fixed fleet size and workspace. However, robot count, workspace occupancy, and task throughput do not quantify how much the fleet can vary its motion or how reliably these variations can be observed. We develop a mobility information capacity (MIC) framework that jointly characterizes these two aspects. Mobility information is defined as the mutual information between a joint maneuver sequence and its noisy trajectory observation, and MIC maximizes this quantity under maneuver-resource constraints. For a linear Gaussian maneuver-to-observation model with feedback dynamics, we characterize the finite-horizon information benchmark and derive its stationary long-horizon spectral limit, accounting for heterogeneous mobility gains, colored uncertainty, and temporally coupled maneuver costs. We further map workspace-boundary, inter-robot separation, and actuator chance constraints into coupled maneuver-covariance restrictions and derive conditions under which covariance optimization reduces to resource allocation across mobility modes. Finite joint maneuver codebooks are then constructed through individual risk screening and noise-whitened trajectory separation, with bounds linking sequence recovery error and achieved information to the capacity benchmarks. An aerial-robot simulation study evaluates spect…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-31dea6e90d30",
+   "title": "HomeLoop: A Simulation Framework and Benchmark for Robot-IoT Coordination in Everyday Domestic Assistance and Safety",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.08914",
+   "description": "Recent progress in embodied robotics is bringing robots closer to deployment in homes, as vision-language models (VLMs) are demonstrating significant advances in reasoning, making VLM-driven robots promising home assistant agents. These agents will often be introduced into homes that already have cameras, Internet of Things (IoT) devices, and residents with wearables. To fulfill their potential, they need to integrate with existing smart infrastructure and reason through ambiguous scenarios: a smoke alarm may come from a pan about to ignite, a pan already on fire, a resident cooking or a faulty sensor, and each calls for a different response. To that end, we introduce HomeLoop, a simulation framework and benchmark built on Isaac Sim that combines robot bodies, networked devices and wearables, simulated residents and visitors, faulty sensors, and hazards that evolve over time. Our benchmark is composed of 20 tasks across five families grounded in real-world household hazards and needs, and designed so that the same alert can have different causes. A runtime monitor scores each episode with temporal-logic checks on the final outcome and the actions along the way, and every action carries a predefined cost. We evaluate six open-weight and proprietary VLMs. The best achieves a family-balanced score of 61.9%, and across models we see a pattern of over-reaction: failed episodes involving prohibited interventions outnumber those involving missed required interventions by more than two to one, with models often shutting off the stove before investigating the alarm's cause. HomeLoo…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1328d6803d48",
+   "title": "LACART: Lookahead-Augmented Collision Avoidance and Reference Tracking Strategies for Safety-Critical Robots",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.09640",
+   "description": "Autonomous racing provides a demanding testbed for collision avoidance under tight geometric and computational constraints. Building on a recent conference contribution and a master's dissertation, LACART combines lookahead-based control barrier functions (CBFs), a relaxed control Lyapunov function (CLF), and quadratic programming (QP) to modify nominal vehicle commands for obstacle avoidance and reference tracking. The method handles circular obstacles and track boundaries in a common optimisation layer. Comparative simulation results against Huang \\emph{et al.} \\cite{r9} show similar full-track paths and lower median computation times: 0.31 versus 0.33 ms per step and 0.023 versus 0.025 ms per QP solve. The dissertation further demonstrates a 1:43-scale vehicle with camera-based estimation and wireless actuation at a reported 25 Hz control rate. We identify the conditions linking lookahead-point clearance to body clearance, illustrate hardware limitations, and propose a recorded demonstration of safety intervention and recovery. The contribution targets ground-robot collision avoidance and real-time safety monitoring.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-32d82bcf9fe6",
    "title": "The Safety Filter Refused. The AI Agent Delivered Anyway.",
    "date": "2026-11-06",
@@ -2124,7 +2149,6 @@
    "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/",
    "description": "Check Point Research analyzed cybercriminals' abuse of the Chinese open-source AI penetration testing platform ARTEX, finding that 2,557 hosts had deployed ARTEX panels, of which 1,608 instances were…",
    "direction_ids": [
-    "physical-ai",
     "agent-software"
    ],
    "orgs": []
@@ -2288,6 +2312,72 @@
    ]
   },
   {
+   "id": "metr-ceaaf2dee423",
+   "title": "Review of the \"Risks from automated R&D\" section in Anthropic's Risk Report (August 2026)",
+   "date": "2026-11-05",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-11-05-rd-section-anthropic-risk-report-august-2026-review/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "metr-505afecbf67a",
+   "title": "Independent Assessment of AI R&D Acceleration at Anthropic in October 2026",
+   "date": "2026-11-05",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "arxiv-robotics-d1883ae1840e",
+   "title": "Reinforcing End-to-End Autonomous Driving Safety via Negative-Aware Planning in a Unified World-Action Model",
+   "date": "2026-11-05",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.08111",
+   "description": "World-action models (WAMs) jointly model future traffic states and driving actions for end-to-end autonomous driving in intelligent transportation systems. However, their action learning remains dominated by expert-trajectory imitation, leaving unsafe alternatives close to expert trajectories insufficiently constrained. To improve WAM robustness in safety-critical scenarios, we propose NegWAM, a safety post-training framework for unified WAMs that learns explicit safety boundaries from near-expert failure trajectories. NegWAM constructs negative trajectories that are geometrically close to the expert trajectory yet carry safety risks, uses them as repulsive anchors to steer predictions away from dangerous behavior, and encodes them as scene-conditioned rider tokens to learn scene--trajectory compatibility. During training, NegWAM jointly optimizes the flow-matching and near-expert negative objectives, while the auxiliary rider branch is discarded at inference, incurring no additional overhead. On NAVSIM v2, NegWAM achieves 40.4 EPDMS on navhard, a 4.1% relative improvement over the strongest compared scorer-free WAM baseline, and achieves 93.3 EPDMS on navtest. These results demonstrate that NegWAM achieves strong performance in safety-critical scenarios while preserving routine-driving performance. Zero-shot closed-loop evaluation on HUGSIM further demonstrates cross-benchmark generalization. The code is available at https://github.com/Zizizi-hao/NegWAM.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-188d4ecb355a",
+   "title": "AffectiveVLA: Safe and Intent-Aware VLA Control for Human-Humanoid Social Interaction",
+   "date": "2026-11-05",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.07712",
+   "description": "Social touch interactions, such as handshakes, fist bumps, and hugs, require humanoid robots to infer human intent, generate contact-rich motions, and maintain safe physical contact. We present AffectiveVLA, an intent-gated Vision-Language-Action (VLA) pipeline deployed on a Unitree G1 humanoid with dexterous hands. A lightweight RGB-based model recognizes interaction intent from two onboard cameras and converts it into a language prompt for the VLA policy. Low-confidence predictions suppress motion execution, reducing unintended activations. During physical contact, interaction-specific compliance profiles adjust arm impedance, while an independent voice-triggered mechanism initiates a latched safe-stop procedure. Using VR teleoperation, we collected approximately 1,300 multimodal interaction episodes and fine-tuned four VLA models: GR00T, RLDX-1, Being-H0.5, and UnifoLM-VLA-0. On-robot evaluation identifies GR00T as the best-performing standalone model. Integrating intent recognition increases its macro-F1 score from 0.75 to 0.90, while the intent model achieves a p95 inference latency of 6.27 ms. These results demonstrate that explicit intent gating improves the reliability of VLA-based social interaction without compromising real-time operation.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-6ffa27af39ad",
    "title": "School quango’s reports on new curriculum were 'made using AI'... and full of ‘errors’",
    "date": "2026-11-05",
@@ -2318,6 +2408,36 @@
    "orgs": []
   },
   {
+   "id": "arxiv-robotics-8d8df2518ec9",
+   "title": "CoSafe: Cooperative Runtime Safety Assurance for Mixed-Traffic Autonomous Driving",
+   "date": "2026-11-04",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.06204",
+   "description": "With the rapid development of autonomous driving systems (ADSes), real-world roads are evolving into mixed-traffic environments where autonomous vehicles (AVs) and other traffic participants (e.g., human-driven vehicles (HDVs), cyclists, and pedestrians) coexist and interact with each other. However, current ADSes still incur various safety violations in mixed traffic scenarios, raising a strong demand for runtime safety assurance frameworks that can continuously monitor hazards and prevent potential violations. Existing ego-centric assurance approaches are insufficient for mixed traffic, where violations often arise from locally reasonable yet jointly incompatible decisions among multiple vehicles and cannot be reliably resolved through independent takeover. To bridge this gap, we propose CoSafe, a modular and ADS-agnostic cooperative runtime safety assurance framework for mixed-traffic autonomous driving to extend runtime safety assurance from ego-centric takeover to scene-level cooperative intervention. CoSafe leverages vehicle-to-everything (V2X) communication to enable roadside units (RSUs) to monitor scene-level hazards and jointly mitigate hazards involving multiple vehicles. We integrate CoSafe with seven state-of-the-art ADSes, and our evaluation on the InterDrive benchmark demonstrates that CoSafe improves the driving score of AVs by 70.03% on average, reduces safety violations by 87.80%, and accurately identifies unsafe AVs with an F3 score of 0.930, while satisfying real-time constraints.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-414006d326f6",
+   "title": "Beyond Terminal Constraints: Reliable Robot Control with Learned Safe Sets",
+   "date": "2026-11-04",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.06196",
+   "description": "Ensuring safety in advanced robot control methods such as Model Predictive Control (MPC) and Reinforcement Learning remains an open challenge. A common approach relies on control-invariant sets, yet their exact computation for nonlinear systems is generally intractable, and numerical approximations compromise theoretical guarantees. In this work, we show that safety does not need to rely exclusively on control invariance. We introduce novel classes of safe sets, each broader than classical control-invariant sets, and analyze corresponding MPC schemes that guarantee recursive feasibility by constraining different nodes of the prediction horizon rather than only the terminal state. Furthermore, when the safe set is an inner approximation of a suitable control-invariant set, our methods can ensure safety through a safe-abort strategy, even in the absence of recursive feasibility. We validate our approaches in extensive simulations on a 6-joint robot manipulator, showing fewer constraint violations than state-of-the-art methods while maintaining comparable tracking performance and computational efficiency. Hardware experiments further demonstrate the practicality of our schemes for real-world robotic applications.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-8a2b6fac1dd5",
    "title": "Zillow wrote off $407.9m. The fix everyone recommends would have changed nothing.",
    "date": "2026-11-04",
@@ -2333,6 +2453,53 @@
    "orgs": []
   },
   {
+   "id": "arxiv-robotics-b708196bdf12",
+   "title": "Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture",
+   "date": "2026-11-03",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.04972",
+   "description": "By harnessing the inherent commonsense capabilities of pretrained Large Language Models (LLMs) and Vision-Language Models (VLMs), current Vision-Language Action(VLA) models for legged robots excel at interpreting language-based navigation commands but lack the physical grounding and explicit safety assurance required for real-world operation. Therefore, this paper aims to cage Legged-Vision-Language Navigation (VLN) through a safety architecture that provides physical grounding and ensures navigation safety. The key idea is not to abandon the powerful capabilities of end-to-end VLA planning, but rather to augment and cage them. In particular, we integrate a high-level VLA planner with a low-level physical-grounding layer that leverages efficient state estimation, in-situ 3D spatial perception, and an Signed Distance Field (SDF) representation to generate executable trajectories. We provide a navigation planner with provable collision-avoidance guarantees under the stated assumptions by combining a low-dimensional Bezier-parameterized MPPI planner with Discrete Exponential Barrier Function (dEBF) constraints. The proposed Legged-VLN system is modular, making it compatible with various VLM/VLA models and agnostic to the robot platform. The proposed system is validated with extensive real-world experiments on humanoid and quadrupedal robots, demonstrating versatile, efficient, and safe vision-language driven navigation capabilities.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-b5be1eee63d8",
+   "title": "Jev with Foresight: Safe Language-Guided Autonomous Driving via a Language World Model",
+   "date": "2026-11-03",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.05448",
+   "description": "Large language models understand passengers' driving commands, but as driving agents they reason in generated text for seconds and must infer each action's consequences implicitly from the scene. We present Jev-AD, which pairs Jev, a typed decision model that answers predefined questions with probabilities, not generated text, with a language world model that predicts for every candidate action how nearby vehicles move over the next two seconds. Code turns these predictions into foreseen consequences, which Jev compares instead of inferring them from coordinates. In simulated highway merging (500 car-episodes), this foresight lowers the same decision model's collision rate from 26.0% to 2.4% at 0.25 seconds per decision, and Jev-AD achieves the passenger's intent in 93% of free-form command trials. In 500 replayed real-world NGSIM episodes, foresight lowers the collision rate from 48.2% to 2.8%, and the world model, learned from this traffic, foresees 93% of dangerous actions. Project page: https://ys-qu.github.io/jev-ad-website.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1b80d6511629",
+   "title": "Online Hamilton-Jacobi Reachability Onboard the Robot Control Loop: A Real-Time GPU Solver for Safety-Critical Autonomy",
+   "date": "2026-11-03",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.04096",
+   "description": "Hamilton-Jacobi (HJ) reachability provides certified backward reachable tubes (BRTs) for safety-critical robotic systems, but the level-set computation scales exponentially in the state dimension and has historically been performed offline. As autonomy stacks (ADAS/AV, humanoid robotics, and vision-language-action models) increasingly rely on black-box, probabilistic policies, a deterministic safety layer with formal guarantees is an essential complement. We present a CUDA implementation of the canonical WENO5 + TVD-RK3 + Lax-Friedrichs level-set Hamilton-Jacobi-Isaacs solver for 2D, 3D, and 4D dynamics that is fast enough to run inside a robot's control loop. In 32-bit floating point (FP32) on a single workstation GPU (NVIDIA RTX 4000 Ada), it computes the 3D Air3D BRT at 112 Hz, a 4D pursuit-evasion BRT at 61 Hz, and a 2D wind-affected drifter BRT at 74-147 Hz, 5.9-17.5x faster than the JAX reference hj_reachability at matched precision and 1.7-16x faster than a torch.compile reimplementation of the same scheme. In 64-bit floating point (FP64) it agrees with hj_reachability on eight benchmark cases, reproduces Mitchell's Air3D BRT to within 0.04% of the reference cell count, and runs 2.0-4.6x faster. On an embedded NVIDIA Jetson AGX Thor it computes Air3D at 66 Hz (N=41) and the 2D drifter at 54 Hz, 3.8-8.9x faster than hj_reachability on the same device. As a multi-agent application, an in-kernel label-propagation extension recovers the K-agent capture-basin Voronoi tessellation from a single combined HJ solve, independent of fleet size; it runs at 4.0 ms per tick in a…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
    "id": "aiid-312e90705ef4",
    "title": "Checking the source is not enough: I traced a number to a scientific paper and found a Teams meeting",
    "date": "2026-11-03",
@@ -2344,6 +2511,51 @@
    "description": "Who this is for. Anyone who checks sources for a living or a habit, and anyone buying a tool on the strength of a published number. By the end you'll have three questions that catch a figure which passes the usual check and is still wrong. ... (https://incidentdatabase.ai/cite/123#8265)",
    "direction_ids": [
     "ai-x-science"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-c95fdb20f017",
+   "title": "Safe-Ballbot: Tilt-Consistent MPC with Control Barrier Functions for Ballbot Navigation",
+   "date": "2026-11-02",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.03307",
+   "description": "Ball-balancing robots (ballbots) must lean to accelerate, and the lean is limited by the wheel torques and by safety. Planners that use the full robot model are expensive, while planners that ignore the balance dynamics produce references that cannot be followed. This paper presents a two-layer navigation scheme for a three-omni-wheel ballbot. The upper layer is a model predictive controller on a \\emph{jerk model} of the ball position, with discrete-time control barrier functions for static, moving, rotating and concave obstacles. The lower layer is a hierarchical sliding mode controller with an extended state observer and a robust exponential control barrier function on the tilt (HSMC-ESO-ECBF). The layers are linked by an acceleration bound derived in closed form from the largest steady tilt that the barrier function admits, so that the plan never asks for a lean the tracker refuses. For obstacles whose motion is only predicted, the obstacles are inflated by conformal prediction radii that bound the prediction error with a prescribed probability. In MuJoCo, with omni-wheel roller contacts and torque saturation, the scheme keeps at least $10$\\,cm of clearance, tracks the plan within $2$\\,cm RMS, keeps the tilt below the limit and plans in $9$--$12$\\,ms, $10$--$15$ times faster than a full-model nonlinear MPC that enters the inflated obstacles; with predicted obstacles, the conformal inflation removes the collisions of a constant-velocity predictor in $30$ random crossing scenarios and reduces them in an endless run on a closed path.The source code and video illustrations…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-6cf9b0894017",
+   "title": "When Delay Meets Drift: Physical Safety of Robot Foundation Models Is a Cross-Layer Problem",
+   "date": "2026-11-01",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.02101",
+   "description": "Robot foundation models now act in a closed loop, yet their safety is evaluated one variation at a time: robustness benchmarks perturb the scene while assuming instantaneous inference, and real-time execution methods study inference delay in nominal scenes. We argue that physical safety is not a property of the model alone, but emerges from how variations in the physical environment, the model, the computing platform, and execution interact in closed loop. We formalize this as cross-layer variation propagation across these system layers and use an interaction contrast to measure when joint variation creates more risk than the sum of its parts. In 4,000 paired closed-loop episodes of the pi0.5 vision-language-action model on LIBERO, a 400 ms inference delay raises the safety-violation rate by 3.5 percentage points under the training viewpoint but by 37 percentage points under a 60-degree camera shift: 33.5 percentage points (95% CI: 25-43) more than the two effects combined. We close with a research agenda toward predictable physical intelligence: predicting when variation becomes risk, and adapting compute, power, and control accordingly.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1ec57317380d",
+   "title": "Route-Guided CBF-QP Repair for Safe Vision-Language-Action Models",
+   "date": "2026-11-01",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.01713",
+   "description": "Vision-language-action (VLA) models can generate task-oriented robot actions, but they do not guarantee safe execution in obstacle-rich manipulation scenes. Although CBF-QP safety filters can locally project unsafe actions into a safe set, such correction may push the robot away from the learned task trajectory and leave the VLA policy without a reliable recovery direction. We propose Route-Guided CBF-QP Repair, a post-hoc repair module that uses the short-horizon action chunk predicted by the VLA to detect blocked nominal trajectories and generate entry-exit-rejoin guidance around obstacles. The selected route is added to the CBF-QP objective as a soft guidance term, while the CBF safety constraint remains hard. On SafeLIBERO, our method improves collision avoidance, task success, and SafeSuccess compared with AEGIS. Our project page is available at GitHub.",
+   "direction_ids": [
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -2571,6 +2783,141 @@
    ]
   },
   {
+   "id": "arxiv-robotics-75280fa6246e",
+   "title": "Supervised Autonomous Bimanual Suction and Cauterization for Bleeding Control in Low Grade Splenic Trauma",
+   "date": "2026-10-30",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.00237",
+   "description": "Uncontrolled hemorrhage remains a leading cause of preventable trauma mortality. Timely intervention is not always available, making autonomous systems that can aid in bleeding control a promising alternative. Given the safety-critical nature of the task, supervised autonomy, in which the system executes the technical steps while a human retains oversight, represents a necessary intermediate step toward this goal. In this work, we present a supervised autonomous bimanual robotic framework for injury cauterization (eletrosurgical coagulation) in low-grade splenic trauma. The system integrates real-time bleeding segmentation, markerless tool keypoint tracking, and deep tool-tissue contact detection to coordinate two robotic arms for synchronized suction and cauterization. Evaluated on a novel, cannulated ex vivo splenic hemorrhage model, the system achieved an average bleeding surface cauterization coverage of 82.9% across seven distinct injuries. This work demonstrates the feasibility of using a supervised autonomous bimanual system to deliver targeted coagulation across an injury site.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-653a8a872ad4",
+   "title": "A Capability-Aware Backup-Recoverability Filter for Heterogeneous Multi-Robot Navigation",
+   "date": "2026-10-30",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.41188",
+   "description": "Safe navigation in heterogeneous multi-robot teams faces two coupled challenges: differences in robots' braking and turning capabilities limit how each robot can respond to an approaching neighbor, while simultaneous interactions require a single control action to satisfy multiple collision-avoidance constraints. Together, these challenges can make local safety constraints incompatible with a robot's admissible controls, leaving a decentralized safety controller without a feasible action. We propose a Capability-Aware Backup-Recoverability Filter (CA-BRF), based on the insight that navigation actions should preserve access to a certified recovery maneuver. First, we construct a backup-recoverable set in a shared Cartesian operational space by evaluating whether prescribed backup maneuvers maintain pairwise safety until the robots come to rest. Each maneuver respects the corresponding robot's kinematic and actuation constraints, making the recovery certificate capability-dependent. Second, CA-BRF filters candidate controls by selecting admissible interpolations between candidate and backup actions while coordinating the selection across simultaneous interactions. This preserves backup recoverability while retaining as much of the candidate action as possible and ensures that all pairwise recovery conditions are satisfied by a single executable control for each robot. Together, we establish recursive feasibility and safety for the discrete-time closed-loop system even when the nominal safety-constrained optimization becomes infeasible. The validity and effectiveness of the p…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1daa444fbf1c",
+   "title": "AC-SMPC: Differentiable Actor--Critic MPC with State Constraints for Safe and Fast Robot Navigation",
+   "date": "2026-10-30",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.41477",
+   "description": "Achieving safe navigation in confined dynamic environments remains a challenging problem, as robots must balance navigation efficiency with safety. Existing actor--critic MPC architectures typically employ differentiable MPC layers, but this way cannot readily accommodate explicit state constraints, making it intractable to involve collision avoidance within learning-based planning. To address this issue, we propose an actor--critic model predictive control framework with state constraints. We first use vertices to represent the robot and obstacles, and half-spaces to represent the workspace. Based on these, the nonlinear robot dynamics is locally linearized and the hyperplane-based collision avoidance constraints are convexified into the differentiable MPC layer, and then the actor exploits closed-loop feedback to adjust the MPC objective parameters that shape local motion behavior, while the critic evaluates long-term task performance. We further relax the convexified constraints with bounded and penalized slack variables to form an elastic quadratic program, accommodating cases where the local constraint approximations cannot be satisfied simultaneously. Simulation tests and experiments, involving dynamic collision avoidance for multi-robot in narrow cases, illustrate the advantages of the proposed framework in adaptively adjusting the learned policy and improving navigation efficiency over existing approaches while maintaining the motion safety.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-13639dd02ab9",
+   "title": "Capability-Conditioned Graph Control Barrier Functions for Zero-Shot Safe Navigation of Heterogeneous Mobile Robot Teams",
+   "date": "2026-10-30",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.41214",
+   "description": "Multi-robot systems are increasingly deployed as heterogeneous fleets with diverse kinematic and actuation capabilities. While graph control barrier function (GCBF) methods provide a scalable framework for decentralized safe control, existing approaches typically assume homogeneous robot dynamics. Methods that directly encode robot classes can distinguish known types, but do not represent state-dependent motion capabilities or naturally transfer to unseen robot models. To address this challenge, we propose the Capability-Conditioned Heterogeneous Graph Control Barrier Function (CC-HGCBF), defined in a shared second-order reference-point operational space. This formulation provides a common geometric representation of safety across heterogeneous robots while retaining their model-specific dynamics and admissible control constraints. To enable zero-shot transfer, we introduce the Radial Capability Field (RCF), a compact, fixed-dimensional representation of each robot's state-dependent finite-horizon reachable velocity set. Conditioning the shared graph barrier and decentralized policy on the RCF enables them to adapt to changes in robot state, kinematic constraints, and control limits without relying on predefined robot identities. We jointly train the barrier and policy using proactive safety labeling and neural CBF-QP supervision, and evaluate them on mixed teams containing both seen and unseen robot models. Experiments demonstrate scalable safe coordination and zero-shot transfer to robot models and capability variations withheld during training. Physical-robot experiment…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-ef6933ee6db3",
+   "title": "PASA-KV: Attacking Action-Facing Visual Routes in World Action Models",
+   "date": "2026-10-29",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.39816",
+   "description": "World action models (WAMs) increasingly couple internal visual or world representations with action generation, making their world-to-action pathways a critical yet poorly understood source of robustness. We investigate when perturbations to these internal representations actually become behaviorally consequential, and uncover a pronounced mismatch between representation perturbability and closed-loop vulnerability: attack effectiveness varies sharply across visual K/V routes, while larger representation displacement does not reliably imply stronger control failure. Our analysis attributes this mismatch to the action-conditioned readout, where keys determine where action queries read and values determine what content they receive. This motivates an action-facing view of vulnerability, in which the effect of a perturbation depends on how it is routed into action generation rather than on representation-space magnitude alone. We instantiate this view with Tail-AV, a short-probe signal for identifying vulnerable routes, and operationalize it in PASA-KV, which selects action-facing K/V targets before training a fresh task-shared attack. Experiments across multiple WAM systems and a physical robot validate readout-informed target selection, demonstrate strong closed-loop attacks, and reveal substantial system-level differences in resistance.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-ebda624309c0",
+   "title": "Confidence-Modulated Safety Filtering for End-to-End Policies",
+   "date": "2026-10-29",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.40922",
+   "description": "End-to-end policies, from task-specific controllers to robot foundation models, learn complex behavior from raw observations but are not guaranteed to remain safe, so they are often wrapped in a safety filter. The resulting system operates under two domains: the filter's operational design domain (ODD), where its assumptions hold and safety is certified, and the policy's competence domain, where it is reliable. Filters typically fix their conservativeness regardless of the policy's competence, trading performance inside the ODD against margin beyond it. We ask whether the policy's confidence should set that level, and propose a filter-agnostic pipeline that modulates it at runtime: inside the ODD, where every setting is safe, confidence buys performance; beyond it, low confidence adds margin, which helps when it flags where the filter's model fails. Preliminary F1TENTH simulations, where this holds, show the modulated filter combining the strengths of permissive and conservative filters.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-c0969a4ff1b8",
+   "title": "Veloxity: Towards Memory-Safe UAV Embedded Firmware using the Rust Programming Language",
+   "date": "2026-10-29",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.41053",
+   "description": "Recent years have witnessed increased momentum towards memory-safe programming languages for safety-critical systems. Memory-safe languages can eliminate entire classes of common software errors that have historically required extensive analysis and expenditure to avoid. Nevertheless, memory-safe language adoption in aerospace remains fragmented and incomplete, particularly for unmanned aerial vehicles (UAVs). Recent Rust UAV projects either run only in simulation, are closed source, or have not been integrated with an established autonomy ecosystem and tested against existing C/C++ firmware. To address this gap, we present Veloxity: an open-source embedded UAV autopilot written in the memory-safe Rust programming language. Veloxity lowers the barrier to using memory-safe languages within modern ecosystems by providing a minimal, modular foundation for autonomous UAVs. We compare Veloxity to equivalent autopilots written in C++ in simulation, with hardware testbenches, and via outdoor waypoint-following flight tests, demonstrating functional parity with improved performance. These results indicate that modern memory-safe languages are a viable option for reliable and performant firmware for autonomous aerospace systems.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-5dd9f97be5b4",
+   "title": "Decision-Level Error Attribution and Depth-Aware Safety Evaluation of Monocular RGB Human Tracking for Autonomous Robot Navigation",
+   "date": "2026-10-29",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.40199",
+   "description": "Monocular RGB tracking is useful for robots operating near people, but perception errors affect binary stop/proceed decisions in ways that geometric accuracy metrics do not capture. We examine how much decision error arises from the safety rule versus perception. We prove that lateral-only distance is a lower bound on planar distance: with accurate positions, it cannot miss dangers identified by the planar rule, but it produces unnecessary stops. We introduce a two-factor Shapley attribution separating rule and perception contributions, and further distinguish missed detections from localization errors. Experiments use ETH and UCY pedestrian videos with simulated stationary robots, disjoint calibration and evaluation pedestrians, and time-block bootstrap intervals. Across 898 pedestrians in three scenes, the lateral rule missed no dangers on annotated positions but achieved only 5.6-31.9% stop precision. In two scenes with RGB perception, calibrated ground-plane localization achieved 0.59 m and 0.51 m planar RMSE, compared with 1.72 m and 1.39 m for a geometric baseline and 0.81 m and 0.68 m for calibrated Depth Anything V2. Detection recall of 0.43 and 0.26 made missed detections the leading source of missed danger. A two-standard-deviation safety margin with ground-plane localization matched or improved on the lateral rule's missed-danger rate in all eight scene-threshold settings and reduced unnecessary stops in seven. All robot interactions are simulated, and outcomes are offline decision classifications, not demonstrations of collision avoidance.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-2866a58a1022",
+   "title": "Learning Safe Flow Matching Robot Policies from Binary Feasibility Oracles",
+   "date": "2026-10-29",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.40075",
+   "description": "Robot foundation models increasingly rely on flow-based action generation for general-purpose manipulation, yet the generated actions are not guaranteed to satisfy physical constraints such as joint limits and collision avoidance. This problem is especially challenging when the feasible set cannot be described analytically and is accessible only through black-box feasibility oracles. We study this practical oracle-only setting and propose an oracle-guided differentiable safeguard for safe flow-matching robot policies. The safeguard uses binary feasibility queries to correct unsafe updates in the forward pass, while extracting local boundary information to provide constraint-aware learning signals in the backward pass. Combined with discrete-time flow matching, the same safeguard is used during training and inference, enabling forward--backward aligned policy learning without explicit or differentiable constraint models. Experiments on obstacle-aware robotic manipulation demonstrate 100% constraint satisfaction while preserving task performance.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-f9b30a729071",
    "title": "Storm-1516 Produces Very Likely Deepfake Videos of Student Accusing Democratic Senate Candidate of Sexual Assault",
    "date": "2026-10-29",
@@ -2702,6 +3049,156 @@
    ]
   },
   {
+   "id": "arxiv-robotics-bb4e196526b1",
+   "title": "VLA-Stem: A Lightweight Safety Mechanism for Vision-Language-Action Models via Reinforcement Learning",
+   "date": "2026-10-27",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.37378",
+   "description": "Vision-Language-Action (VLA) models integrate high-level reasoning with low-level action execution for end-to-end robotic control. However, most VLA models target static manipulation in unconstrained environments, overlooking spatial constraints and dynamic obstacles. Fine-tuning VLAs on obstacle-avoidance data is a straightforward solution, but collecting such data is costly, especially for dynamic scenarios, and may degrade their original task capabilities. To address these limitations, we propose VLA-Stem, a lightweight, reinforcement-learning-based safety mechanism for VLA systems. Without fine-tuning the underlying VLA policy, VLA-Stem converts its action chunks into motion references and uses trajectory-level guidance to preserve their spatial intent while allowing flexible motion and timing adjustments. Conditioned on these references, robot proprioception, and local obstacle information, the Stem policy adaptively modifies execution at inference time, preserving the original task intent while enabling responsive adaptation to spatial constraints and dynamic obstacles. For robust and sample-efficient training, we combine teacher-student distillation with curriculum learning. We evaluate VLA-Stem on reference following, static spatial constraints, and dynamic obstacle avoidance. Across six constrained simulation settings, VLA-Stem achieves 52.8% average collision-free task success versus 23.7% for the strongest safety baseline, while preserving base-policy performance in obstacle-free settings; real-world experiments further show consistent collision reductions under…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-62e96e6231a0",
+   "title": "Active Constraints for Simultaneous Guidance and Safety in Handheld Micromanipulation",
+   "date": "2026-10-27",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.37981",
+   "description": "In micromanipulation, erroneous hand motion limits unaided manipulation accuracy, which can affect task performance and safety in critical applications like microsurgery. Handheld robots (micromanipulators) enable motion accuracy beyond human limits by providing robotic assistance in a low-cost, compact, intuitive form factor. Particularly, active constraints are an effective form of robotic assistance, which aids the operator by restricting the robot's permissible motion based on task-specific requirements or objectives, thereby providing task guidance and enforcing safety. However, existing formulations of active constraints for handheld systems are limited, most notably because of the inability to provide guidance and enforce safety simultaneously. Implementing active constraints with optimization-based methods can address these limitations, but existing implementations are designed for free-standing robots, and neglect that handheld robots actuate relative to the operator's hand with a limited workspace. In this work, we propose an optimization-based active constraint framework for handheld micromanipulation that enables simultaneous guidance and safety enforcement. The formulation was implemented in a handheld robot and demonstrated on a medically relevant artificial task. Results show that the proposed formulation reduced safety violation rate by more than two orders of magnitude relative to baselines, while recovering the threefold accuracy loss from enforcing safety alone.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-5db4ace152d6",
+   "title": "Making Self-Driving Laboratories Auditable:A Unified Framework for Hybrid Actions,Measurements, and Safe Execution",
+   "date": "2026-10-27",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.36761",
+   "description": "Self-driving laboratories (SDLs) are laboratory systems that couple experimental planning, automated execution, and measurement feedback in a closed loop. Integrating flexible robot control with the typed application programming interfaces (APIs) and continuous measurements exposed by laboratory instruments remains an execution-interface challenge. To address this challenge, we propose a traceable framework comprising four components: LAM (Lab Action Model), OpenSDL, Safe-SDL, and L3-Bench. LAM is a proposed measurement-conditioned policy architecture that extends vision-language-action paradigms to generate both continuous robot trajectories and typed instrument API calls. OpenSDL is an execution substrate with an initial control implementation, designed to map role-level operations to heterogeneous devices, coordinate execution, and record timestamped causal events. The proposed Safe-SDL runtime gate combines pre-dispatch schema and resource checks with signal temporal logic monitoring during execution, including extended waiting periods. L3-Bench (Level-3 Laboratory Benchmark) specifies an episode-level evaluation protocol covering physical outcomes, timing, reproducibility, safety violations, and fault recovery. Together, these components provide an end-to-end design for linking hybrid action generation, monitored device execution, measurement feedback, and experimental evaluation, addressing coordination and traceability challenges in SDL workflows.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1a0c033ddbbe",
+   "title": "Dexterous In-Hand Object Pose Reaching with Learned Safety Filters",
+   "date": "2026-10-27",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.37652",
+   "description": "Dexterous manipulation with multi-fingered hands is the next frontier of robotics, yet learned hand skills remain limited to simple grasps or basic repeated motions, such as rotating an object. As robots attempt more demanding in-hand maneuvers, safety, such as not dropping the object, becomes critical, yet it is rarely measured. We study in-hand object pose reaching, a task that demands diverse and difficult grasps: moving an object to almost any position and orientation within reach of the fingers, at any wrist orientation, through long sequences of consecutive goals. We present a recipe for training such policies for a LEAP hand in simulation without human data, built on a range of insights, from diverse resets and goals via generated grasp datasets to an adaptive friction curriculum. With careful system identification, the policies transfer zero-shot to the real hand, using either motion capture or a single wrist-mounted depth camera, and prove remarkably capable and robust. On top of the task policy, we add a learned residual safety filter with adjustable conservativeness, letting us tune the balance between performance and safety and greatly reduce object drops. In 13.3 hours of real-robot evaluation over 4,800 unseen goals across 4 objects and diverse wrist orientations, the state-based policy reaches 95.2% of goals within 2 cm and 0.4 rad, and the filter cuts its drops by 75% while still reaching 91.5% of goals. The policies can also spin a lightbulb held in an arbitrary pose, reach out-of-distribution goals, withstand fast arm motion and perturbations, and, needin…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-b2764d86fbc5",
+   "title": "Program-Level Adversarial Co-Adaptive Self-Play for Robotic Security",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.36143",
+   "description": "Coding agents can adapt robotic software by revising executable programs, but successful responses to an evolving opponent may not remain effective. We present a framework for program-level adversarial co-adaptive self-play in which coding agents generate attacks and defenses from tested opponent code and mission feedback, without model fine-tuning. Environment-specific interfaces support external programs for autonomous driving and SDK-level defenses for humanoid locomotion. Two eight-generation case studies reveal concrete software responses: a driving defender introduces direct-actuation recovery, while a humanoid defender revises incoming-state validation. These responses provide local task recovery but do not establish sustained robustness. The framework makes such adaptation and limitations observable through executable artifacts and task-level evidence.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-86f6c264807c",
+   "title": "Dream to Assist: Intent-Conditioned World Models for Shared Vehicle Control",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.34650",
+   "description": "Assistive agents in shared-control settings face a dual challenge: acting proactively to align with the human's intentions while remaining legible enough for the human to comprehend and fluently respond in real time. We present Dream2Assist, a model-based reinforcement learning framework for tightly-coupled shared decision making that addresses both sides of this challenge. Our approach extends a recurrent state-space world model with intent inference, enabling an assistive policy trained via fictitious co-play to anticipate and support discrete human objectives without overriding human agency. Beyond the computational framework, we describe the full deployment pipeline needed to translate a world-model-based policy into a safe, human-centered system in a resource-efficient way. Crucially, we address the sim-to-real-human gap via policy down-selection and reward restructuring within an iterative human-machine interface design. We validate the framework through three human-subjects studies and a preliminary on-vehicle deployment spanning two qualitatively distinct domains: high-speed racing (N=30) and urban driving with richer intent structure (N=10). Our results demonstrate that intent conditioning yields measurable improvements in torque alignment and collision rate. We surface key design insights and practices for deploying learning-based assistive agents in safety-critical, real-time human-robot teaming.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-659198cddf75",
+   "title": "Distributed Predictive Flocking for a Swarm of Miniature Vibration-Driven Robots in a Confined Arena",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.35582",
+   "description": "Coordinating many miniature robots in a confined arena, with no leader, central planner, or global map, is a core challenge for swarm robotics. As the swarm grows denser, collision avoidance becomes the limiting factor, and the number of safely coexisting robots depends on the formulation of the inter-robot safety constraint. We present a distributed predictive flocking controller in which each robot solves its own nonlinear model predictive control (NMPC) problem, optimizing swarm cohesion and alignment costs, inter-robot and obstacle safety, and a task objective, while exchanging only predicted trajectories with local neighbors. Within this generalized controller architecture, solved in real time, we compare six barrier and control-barrier-function (CBF) safety formulations on a digital twin of an open-source vibration-driven bristlebot in a $0.64\\,\\mathrm{m^2}$ arena. A look-ahead discrete-time CBF performs best overall, with the fewest collisions and the widest inter-robot margins across nearly every swarm size tested. We deploy it on phototaxis, phototactic orbiting, and cohesion without a stimulus tasks, using swarm sizes starting from ten robots and up to the geometric packing limit. The swarm holds well: collisions stay low in small swarms, rising steeply as the packing limit approaches, while coordination and cohesion degrade gently rather than collapsing. The swarm is found not to trade safety for order, keeping both across the confined arena, with local alignment high at every swarm size.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-4e6d8be21c3c",
+   "title": "Benchmarking Obstacle-Conditioned Safety in Household Robot Navigation",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.34674",
+   "description": "Safe household navigation requires robots to regulate clearance and speed according to what an obstacle is and how close it is, without unnecessary conservatism. Yet existing evaluations do not test whether semantic safety distinctions are reflected in continuous motion. To that end, we introduce OSMA-Bench, an Obstacle-Conditioned Safe Motion Adaptation Benchmark built on spatially matched scenario sets that differ only in obstacle type. We also propose the \\emph{Semantic Sensitivity Index} (SSI), which measures whether clearance and distance-dependent speed and smoothness follow the caution ordering of obstacles. Evaluating VLM-based and vision-language-action (VLA) policies on the benchmark, we find that neither consistently adapts its motion to obstacle safety, even with explicit safety prompts. Our analysis shows that the policies can correctly distinguish obstacles by safety relevance but fail to reflect this distinction in the motion parameters or actions they produce. For VLM-based policies, which recognize the obstacle and then generate a navigation program, adding an explicit parameter-inference step between these two stages improves adaptation. These findings expose a gap in \\emph{semantic-to-motion grounding}, highlighting the need to translate semantic caution into appropriately safe motion.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-2ee8ebb1d977",
+   "title": "Closed-Loop Aware Planning via Imitation-Free Speed Scoring for End-to-End Autonomous Driving",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.36079",
+   "description": "End-to-end autonomous driving has predominantly relied on open-loop imitation learning for training, which presents two limitations. First, expert demonstrations show only one behavior per scenario, so the model cannot learn alternative valid behaviors and, in turn, cannot adapt to user-specified preferences at test time. Second, noise or ambiguity in these demonstrations can produce inconsistent, unreliable supervision for the end-to-end models. Driving is inherently multi-modal: multiple different behaviors can be valid responses to the same scene, and this diversity arises largely from speed rather than path. We introduce a planning paradigm that learns the path through imitation while scoring a set of candidate speeds across multiple criteria with a learned function supervised by physically grounded safety constraints. We realize this paradigm as Closed-Loop Aware Planning for Autonomous Driving (CLAP-AD), a plug-in planning head that integrates with existing end-to-end driving models and, to our knowledge, is the first to enable explicit test-time control over their speed selection without speed-conditioned training. On Bench2Drive-Speed, CLAP-AD sets a new state of the art Speed-Adherence Score of 82.53, topping TFv6, the strongest baseline on this metric, by 12.9 points while retaining strong closed-loop driving performance. On Bench2Drive, it improves driving score by +28.5 and +32.7 over UniAD and VAD, and on NAVSIM v2, built on real-world driving data, EPDMS by +6.1 over its backbone. Project page: https://clap-ad.github.io",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-18fb864fd999",
+   "title": "Continuous-Time Safe Planning and Control for Agile Quadrupeds",
+   "date": "2026-10-26",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.35670",
+   "description": "Agile quadruped navigation in dynamic environments demands trajectories that are both dynamically feasible and provably collision-free. Most real-time planners achieve tractability through a convex reduction that requires simplified kinematic models, discarding motion that the robot can readily execute, and certify safety only at discretization points, leaving open possible inter-sample collisions with moving obstacles. We present a real-time motion planning framework that retains the fully-actuated $SE(2)$ model of a quadruped, with its anisotropic, heading-coupled velocity bounds, and accepts the resulting nonconvexity. By parameterizing trajectories as composite Bernstein polynomials, we exploit the convex hull property to certify collision avoidance and the input bounds over the entirety of each planning horizon. Solved at online replanning rates, the optimization runs in closed loop, commanding body velocities to the locomotion controller. We validate the approach in simulation against ablations and external baselines, and in hardware experiments on a quadruped navigating among unknown moving obstacles, recovering both lateral and heading-coupled motion that simplified models exclude.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-ce5ce5fc43fb",
    "title": "Concerning behavior from a popular open-weight AI model",
    "date": "2026-10-26",
@@ -2713,6 +3210,51 @@
    "description": "Inside a closed testing sandbox managed by Cohere, one of Alibaba's newest Qwen3.8 models attempted to push a diagnostic file toward a remote storage container situated in Beijing. Just prior to taking this action, the model's reasoning str ... (report_number: 8263)",
    "direction_ids": [
     "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-cc0a532f4b7f",
+   "title": "EAST: Embodied AI Safety Testing via Systematic Fault Injection in Digital Twins",
+   "date": "2026-10-25",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.34358",
+   "description": "Task success is not a sufficient measure of safety for embodied artificial intelligence (AI), because robots may complete objectives while violating safety requirements. Existing evaluations often emphasize performance and robustness, but lack a systematic route from documented safety hazards to executable, verifiable tests. We present EAST (Embodied AI Safety Testing), a digital-twin framework that converts literature-grounded safety evidence into fault-injection tests across perception, instructions, environments, actions, and timing. EAST combines an expert-reviewed safety-fault taxonomy and eight executable operators with applicability and validity constraints. Its three-stage workflow generates test specifications, verifies fault realization during simulated execution, and independently assesses safety challenges, violations, task outcomes, and behavioral signatures using simulator-state evidence. The framework preserves execution traces and replayable records, supporting attribution and reproducibility across experiments. We evaluate EAST on six RoboTwin manipulation tasks and two policy architectures, ACT and RDT, against alternative testing strategies under matched budgets. Across five comparative campaigns, EAST targets all 74 admissible task-policy-operator combinations and obtains valid evidence for 63, while achieving safety-challenge exposure rates close to Random-Legal and Rule-Based. Moreover, 82 valid EAST executions complete their tasks despite safety violations, revealing risks concealed by success-oriented evaluation. These findings support systematic, v…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-0ff28b594a07",
+   "title": "IntNet: A Communication-Driven Multi-Agent Reinforcement Learning Framework for Cooperative Autonomous Driving",
+   "date": "2026-10-25",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.34466",
+   "description": "Achieving safety in autonomous driving through Multi-Agent Reinforcement Learning (MARL) is a critical yet challenging task due to non-stationarity, partial observability, and the need for effective coordination among agents. Although earlier cooperative MARL methods have aimed to improve coordination by sharing encoded state observations, we find these strategies are insufficient in safety-critical scenarios. To address this gap, we present IntNet, a novel MARL framework that enhances safety by incorporating the transmission of vehicle intent and adaptive communication scheduling into a unified end-to-end learning paradigm, jointly optimising all components for safe coordination. Central to our approach is an observation prediction module that enables agents to forecast subsequent policy outputs, which they can then share across a vehicle-to-vehicle network. Our model-free architecture employs a Graph Attention Network to process incoming messages and a scheduler component to dynamically optimise the communication graph for bandwidth efficiency. We compare IntNet against state-of-the-art communicative MARL methods in complex urban environments with both autonomous and human-operated vehicles, achieving improved coordination, lower collision rates, and reducing communication efforts by up to 60\\%. Through extensive experiments, we assess the framework's learning efficiency, scalability, and the balance between information sharing and bandwidth usage for collision-free trajectories.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-5c1d4c5b7a3e",
+   "title": "C-DFF: Concept-Level Diagnostics for Mechanism Parity in Simulation-Based Validation of Autonomous Driving Perception",
+   "date": "2026-10-24",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.33760",
+   "description": "Simulation is widely used in autonomous-driving validation, but matching task outputs between real and synthetic images does not guarantee that a system relies on the same visual evidence. This creates a validation gap for transfer, especially in safety-critical perception functions. We present Concept-Decisive Feature Fidelity (C-DFF), a concept-level mechanism-parity diagnostic for paired real-synthetic evaluation. Starting from decisive evidence extracted from a frozen system-under-test (SUT), C-DFF projects that evidence into a shared semantic concept space using off-the-shelf segmentation and compares real and synthetic concept-importance vectors. The result is not only a scalar mechanism-parity score, but also a concept-shift diagnostic that identifies which scene concepts become more or less decisive in simulation. We evaluate C-DFF on KITTI $\\leftrightarrow$ Virtual KITTI 2 with 2126 matched pairs across three frozen SUTs (steering regression, YOLOP drivable-area, YOLOP lane-line). Across these tasks, C-DFF is SUT-discriminative and yields interpretable concept-level summaries that support validation triage and simulator debugging. When reported alongside task-specific output-value context metrics, C-DFF shows that output agreement does not by itself establish mechanism parity. These results position C-DFF as a practical semantic diagnostic layer for validation and verification workflows in simulation-based AV testing.",
+   "direction_ids": [
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -3065,6 +3607,36 @@
    ]
   },
   {
+   "id": "arxiv-robotics-f4561d5129f1",
+   "title": "When Human Corrections Travel: Safety in Federated VLA Adaptation",
+   "date": "2026-10-23",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.32888",
+   "description": "Vision-language-action (VLA) policies can adapt to local human intervention, while federated learning can combine distributed robot experience without pooling raw records. We examine their prospective intersection: sharing adaptations derived from diverse human corrections across tasks, environments, people, and robot embodiments. Corrections differ in modality, safety semantics(urgency, behavioral scope, etc.), and privacy sensitivity. A shared update that improves mean task success may suppress a rare safety intervention or produce an unsafe response on another robot. We argue for three requirements: preserve the context and uncertainty of multimodal corrections when deciding what to share; assess candidate updates in each receiving robot's closed loop before deployment; and evaluate leakage alongside retention of safety-critical evidence. Immediate, legible defensive behavior remains necessary during human interaction. We offer counterexamples and a falsifiable evaluation agenda, not experimental results.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-3427947051d4",
+   "title": "Interpretable Collision Avoidance and Feasibility Guarantees through an Uncertainty Aware Pipeline",
+   "date": "2026-10-23",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.33186",
+   "description": "Autonomous vehicles (AVs) operating in dynamic, challenging conditions such as intersections and roundabouts must guarantee collision avoidance under uncertainty while maintaining real-time feasibility. Most existing planners struggle to simultaneously guarantee both requirements. Chance-constrained formulations embed safety constraints directly in the optimization but become infeasible as uncertainty compounds; deterministic planners provide feasible solutions but fail to address the uncertainty that causes collisions; end-to-end learned policies provide neither guarantee in an interpretable form. We present a modular perception-prediction-planning pipeline that closes this gap by propagating uncertainty as structured, interpretable quantities across module boundaries. Rather than embedding probabilistic risk directly in the optimization, our pipeline resolves collision probabilities upstream and constructs convex safe sets within which the planner provides a guaranteed feasible solution at every cycle -- decoupling the safety guarantee from solver feasibility. Across Monte Carlo trials in a four-way unsignalized intersection, our pipeline achieves 0% collisions and 0% solver infeasibility at 12.7ms per cycle, compared to 36% and 10% collision rates for deterministic and chance-constrained baselines respectively. The ablation study confirms the necessity of each uncertainty source and the hardware deployment on Clearpath Jackal UGVs validates the pipeline's real-time viability on physical platforms.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-ef3a25c289a4",
    "title": "Unknown Threat Actor Uses AI-Driven ARTEX to Target South Korean Finance",
    "date": "2026-10-23",
@@ -3098,6 +3670,36 @@
    ]
   },
   {
+   "id": "arxiv-robotics-cc149ff288ea",
+   "title": "SEVI: Safe Evidential Real-World Reinforcement Learning",
+   "date": "2026-10-22",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.31829",
+   "description": "Real-world reinforcement learning has enabled contact-rich manipulation tasks to be trained directly on physical robots, but unsafe interactions during online learning remain a key barrier to practical deployment. We propose Safe Evidential Real-World Reinforcement Learning (SEVI), a framework for reliability-aware safety intervention during real-world policy learning. SEVI introduces an Evidential Safety Critic that estimates both future constraint-violation risk and epistemic uncertainty in a single forward pass. During online learning, SEVI evaluates each task-policy action before execution; if the action is predicted to be unsafe or the prediction is insufficiently supported by evidence, SEVI overrides it with an offline-trained recovery policy that guides the robot toward a lower-risk region. We evaluate SEVI on two simulated manipulation tasks and a real-world USB insertion task under in-distribution and distribution-shifted conditions. Across task-learning and safety-critic baselines, SEVI achieves the strongest trajectory-level safety prediction, the highest final task success, and the lowest unsafe-event counts. SEVI also reduces unsafe events by 13.4 to 57.1 percent relative to recovery-based safe RL while preserving low-latency execution-time filtering. The project page is available at: https://sevi-safe.github.io/",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-407519976b73",
+   "title": "Not an Accident: Exploiting Safety Filter Inadequacy in Humanoid Robots",
+   "date": "2026-10-22",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.31923",
+   "description": "As humanoid robots move from research laboratories toward deployment in human-centered environments such as homes, hospitals, and warehouses, safe operation around nearby people and objects becomes a fundamental requirement. Safety filters have emerged as a promising technique to address this challenge by providing mathematical guarantees that generated control actions do not result in collisions. This paper shows that these guarantees hold only when the safety parameters are configured correctly. However, correct parameter configurations are task- and environment-specific, and no general method exists to determine them across diverse deployments. As a result, safety filters shipped with humanoid robots can fail after deployment in specific scenarios. We show that attackers can exploit these failures through only normal user interactions without any additional privileges or capabilities. To demonstrate this risk, we present goal insertion attacks and develop SIREN, an automated tool that identifies vulnerable inserting goals for a given task and environment. Experimental results show that SIREN identifies attacks in all vulnerable scenarios in the SPARK dataset. Compared with a baseline approach, SIREN discovers three times as many attacks. We also show that SIREN is able to generate attacks against a real humanoid and cause it to collide while executing tasks. These results demonstrate that current safety filters introduce exploitable vulnerabilities that can cause safety violations, which reveals that existing safety mechanisms can themselves become a source of safety ri…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-ff8557cb93c1",
    "title": "司机激活智驾并双手脱离方向盘”，江西一轿车追尾致3死，调查报告公布",
    "date": "2026-10-22",
@@ -3108,7 +3710,7 @@
    "url": "https://www.thepaper.cn/newsDetail_forward_33266056",
    "description": "原标题：江西赣州公布一轿车追尾致3死事故调查报告：事发前司机激活智驾并双手脱离方向盘 济广高速赣州瑞金段2025年十一假期凌晨发生一起轿车追尾重货车事故导致3人死亡，事故发生前不久，轿车驾驶员主动激活智能驾驶辅助模式，并双手脱离方向盘。 江西赣州市应急管理局近日公布的《赣州瑞金济广高速“10·2”较大道路交通事故调查报告》显示：2025年10月2日4时许，在赣州瑞金市境内济广高速公路1408km+721m处，一辆小型轿车撞上一辆重型货车，造成一起死亡3人的较大道路交通事故 ... (https://incidentdatabase.ai/cite/1777#8184)",
    "direction_ids": [
-    "foundation-model"
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -3227,6 +3829,51 @@
    "orgs": [
     "openai"
    ]
+  },
+  {
+   "id": "arxiv-robotics-f085139940e2",
+   "title": "Integrating Flow Matching and Model Predictive Control for Safe Robot Navigation",
+   "date": "2026-10-21",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.29377",
+   "description": "Learning-based path planners based on diffusion and flow matching can generate diverse trajectories from demonstrations but typically lack mechanisms for constraint satisfaction and collision avoidance during deployment. This work proposes a framework that combines flow-matching-based path planning with model predictive path-following control to integrate data-driven path generation with real-time, constraint-aware execution. The flow-matching model captures multimodal path distributions, while the predictive controller adapts motion online to satisfy state and input constraints and avoid obstacles using updated local sensor information. An event-triggered re-planning scheme incorporates predictive control solutions into subsequent path generation, promoting collision-free navigation in environments with previously unseen obstacles. Simulation results for mobile robot navigation demonstrate robust performance across cluttered environments. The framework provides a systematic approach to combining flow matching with predictive control for adaptive, data-driven navigation.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-e27f9b893119",
+   "title": "Object- and Task-Aware Active Perception for Safe Navigation of Mobile Manipulators in Semi-Static Environments",
+   "date": "2026-10-21",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.29964",
+   "description": "Mobile manipulators must navigate safely in cluttered, partially unknown environments across logistics, manufacturing, and service applications. Semi-static changes between robot visits can lead to outdated scene knowledge and increased collision risk. We propose an active perception framework that enables a high degree-of-freedom (DoF) mobile manipulator to inspect uncertain or safety-critical regions with its hand camera during navigation. A probabilistic, object- and task-aware next-best-view (NBV) formulation prioritizes observations near the desired path and around uncertain or potentially changing objects. The perception objective is integrated into hierarchical-task model predictive control (HTMPC), exploiting kinematic redundancy for viewpoint adjustment while preserving the higher priority of base-trajectory tracking. The system unifies navigation, map maintenance, and active perception in a closed loop. Real-world tests show improved map consistency, reduced task-dependent map entropy, and lower navigation risk than passive or non-task-aware baselines. Additional simulation and real-world sequences demonstrate responses to controlled semi-static scene changes.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-caa2557c9873",
+   "title": "TerraTransfer++: Demonstration-Free End-to-End Planner",
+   "date": "2026-10-21",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.30319",
+   "description": "End-to-end autonomous driving has achieved state-of-the-art performance on benchmarks and real-world deployments. Its standard training recipe, however, is expensive across all existing paradigms: imitation learning requires fleet-scale driving logs whose behavior distribution only thinly covers the safety-critical tail; closed-loop reinforcement learning in a photorealistic simulator, while offering diverse behaviors, is bottlenecked by sample-efficiency, per-step cost of rendering, and a forward pass through a large vision backbone. Self-play in vectorized simulators changes the economics: at millions of rollout steps per second, one can obtain a state distribution with natural diversity in collisions, near-misses, and recoveries that no driving log contains, and a highly reactive policy emerges from a basic driving-quality reward. Our approach exploits this asymmetry. We pretrain a single policy by self-play, distill its rollouts into a flow-matching trajectory teacher that also plans, and train lightweight adapters on a frozen pretrained vision backbone to reproduce the latent space of either teacher through the action KL divergence, a batch-relational low-rank structural loss, and, for the planner, a trajectory-matching loss. Every target traces back to the self-play policy, so alignment never supervises against a logged trajectory: a paired dataset of (image, scene-state) frames suffices, with no need for the curated expert demonstrations that imitation pretraining is built on. From this one self-play teacher we obtain two end-to-end students: a closed-loop policy th…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
   },
   {
    "id": "aiid-f7f4fdb72db8",
@@ -3602,6 +4249,83 @@
    ]
   },
   {
+   "id": "arxiv-robotics-ecef2cf76f99",
+   "title": "Safe Multi-Robot Collaboration With Uniform Exclusion Using Trust",
+   "date": "2026-10-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.28251",
+   "description": "Robot swarms coordinate through directed, time-varying local communication links, some of which may be compromised to allow the transmission of arbitrary malicious data. We provide an algorithm that acts as a wrapper around robot communication---when a robot seeks to update its state using data from some incoming links, our wrapper provides a subset of trusted links whose data can be safely incorporated. It selects these links by testing a stream of trust values---data collected from an anomaly detector on each robot---using Safe Anytime-Valid Inference. We require only that the detector be better than chance. This wrapper ensures safe and performant autonomy by providing two powerful statistical guarantees: it uniformly excludes all compromised links for all time with high user-chosen probability, but nevertheless quickly learns to trust legitimate links. Both guarantees are vital to secure generic tasks, but no previous work provides them simultaneously without restrictive assumptions on connectivity structure or the number of compromised links that are not guaranteed in practice. We study our Safe Wrapper's performance in hardware for two contrasting tasks---neural implicit mapping and heading consensus---deploying on 3 LoCoBots and 8 GoPiGos, respectively. We provide simulations using trust values sampled from hardware to validate that our approach scales well to swarms of hundreds of robots.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-afbe78d9c980",
+   "title": "Prescribed Performance Guided Safe Reinforcement Learning for Roundabout Navigation of Autonomous Vehicles",
+   "date": "2026-10-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.27732",
+   "description": "Connected and Autonomous Vehicles (CAVs) face significant challenges in roundabout navigation due to dense traffic interactions and unpredictable agent behaviors, necessitating high levels of adaptability and safety. While the combination of Reinforcement Learning (RL) and Model Predictive Control (MPC) offers a promising approach, existing frameworks suffer from a structural mismatch where pointwise RL decisions fail to align with MPC's trajectory level optimization, and often lack rigorous safety guarantees. This work proposes RLTrajGen-PPMPC-CBF, a hierarchical framework for safe, smooth and comfort roundabout navigation, which regulates the coupling between RL-based planning and MPC-based control. We employ Prescribed Performance Constraints (PPC) to enforce a gradual, stable convergence between reference trajectories and control outputs, ensuring MPC tracking performance remains consistent with intended behavior from RL. Additionally, a Control Barrier Function (CBF) layer provides real-time safety corrections that are fed back into the RL process. Simulation results in the MetaDrive environment demonstrate that our method achieves a 6.25\\% increase in average success rate and a 65.87\\% reduction in Motion Sickness Dose Value (MSDV) compared to the optimal baseline, meanwhile accelerating training convergence.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-5aa8e06ec9a6",
+   "title": "CAPSafe: A Benchmark for Contextual Action and Plan Safety Reasoning in Embodied Agents",
+   "date": "2026-10-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.28381",
+   "description": "Reasoning about safety is essential for embodied agents powered by large language models (LLMs). We introduce the Contextual Action and Plan Safety benchmark (CAPSafe), designed to evaluate safety reasoning at two levels: (1) an action-level dataset that tests whether a single action is safe given its environmental context, and (2) a plan-level dataset that evaluates whether agents can generate safe long-horizon plans for complex hazardous household tasks. CAPSafe models safety conditions where hazards are situational (inferred from object properties), multiple hazards can co-occur within the same environment, and each is annotated with a relative severity level for fine-grained analysis. Evaluating nine closed and open-source LLMs reveals a substantial gap between hazard recognition and safe long-horizon planning. Several models achieve high accuracy in recognizing unsafe actions (exceeding 90% in the best cases), yet safe long-horizon planning remains substantially harder. Gemini-3-pro achieves the highest safe success rate (78.19%), while other models remain below 65%. These results highlight that robust safety reasoning over long action sequences remains an open challenge.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "arxiv-robotics-30a56dc5396e",
+   "title": "SLoSa: Small, Low-Power, and Safe Foundation Models for Robotic Task Planning",
+   "date": "2026-10-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.28955",
+   "description": "Safe robotic task planning requires planners that can reliably achieve task goals while satisfying safety constraints. Classical planners search over explicit symbolic task representations and can provide formal guarantees with respect to encoded safety constraints, but require rigid input formats. Their computational cost also increases rapidly with the search space. In contrast, large language models (LLMs) offer flexible task interfaces and strong generalization capabilities, but they are large, power-hungry, and pre-trained with little robot-specific safety data and knowledge. Thus, they can be difficult to deploy locally on robotic systems with limited resources. To address these limitations, we present SLoSa, a neuro-symbolic compression and fine-tuning framework for training foundation-model-based robotic task planners with Small size, Low power demand, and Safety awareness. The framework first constructs a safety-aware dataset using classical planners, an advanced teacher LLM, and formal verifiers, followed by two training stages: supervised fine-tuning and reinforcement learning (RL) fine-tuning guided by a verification-based reward machine to enforce safety alignment. We evaluate SLoSa across four Planning Domain Definition Language (PDDL) domains, two household simulation environments, local edge platforms, and a desktop robotic arm. Across the PDDL tasks, verifier-guided post-training raises the success rate of compact 4B-14B planners to 70.5-76.0%, while INT4 deployment on a Jetson Orin requires 17.85-26.41 W of average power. Results in household simulators a…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-141276af0777",
+   "title": "Perceives but Doesn't Brake: A Perception-Action Binding Gap in Reasoning Driving VLAs",
+   "date": "2026-10-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.28184",
+   "description": "Reasoning-augmented vision-language-action (VLA) driving models can perceive and reason about safety-critical hazards yet fail to translate that evidence into safe actions. We characterize this failure as a perception-action binding gap: hazard information is available inside the model but exerts insufficient control over trajectory generation. Using matched simulated counterfactuals and logged driving replay, we show that in-path hazards are actually encoded in the visual representation, but longitudinal plans are dominated by ego-speed history and respond only weakly to hazard proximity or the model's own reasoning trace. Further analysis shows that the trajectory generator is capable of braking but sometimes fails to do so due to the perception-action binding gap. Without retraining or modifying any weights, we inject a hazard-conditioned energy into the frozen flow-matching sampler of Alpamayo-1.5, restoring the missing coupling at generation time. With exact obstacle geometry, guidance cuts footprint intrusion from 58.1% to 14.5% and recovers safe braking whenever sufficient stopping distance remains, eliminating collisions entirely in our braking-relevant closed-loop battery. It also reverses the diagnosed dependence of the plan, from tracking ego speed to responding to obstacle range. These results separate hazard perception from hazard control in driving VLAs, show that unsafe behavior can arise even when the model has both the evidence and the ability to act on it, and propose a simple fix for bridging this binding gap.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "aiid-f8ae44fc4dc1",
    "title": "Homem usa IA para simular fotografia armado e ameaçar ex-companheira",
    "date": "2026-10-20",
@@ -3706,6 +4430,23 @@
     "human-societal"
    ],
    "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-3ab5b12e04fe",
+   "title": "Refuses When Asked, Complies When Acting: A Runtime Safety Check for Robot Control Loops",
+   "date": "2026-10-19",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.27350",
+   "description": "Frontier models can control robots through agent harnesses that loop on one question: what motion comes next toward the user's goal? We show that this default loop carries out harmful instructions. With GPT-6 Astra controlling a low-cost SO-101 arm through the Inspect Robots harness on three household tasks whose hazard is common knowledge, such as \"put the knife in the toy basket\", the policy refused 0% of 15 trials, attempted the harm every time, and completed it in 27%. Its one exit, give_up, is meant for goals that cannot be achieved, and it never cited the hazard. We add an optional runtime safety check to the loop: before the first motion, the model is asked whether it would carry out the instruction, given the same camera frames. The check would have stopped all 15 hazardous instructions, including the 4 that completed the harm, and flagged none of the 15 harmless controls. Code and data: https://github.com/Arnav-Gr0ver/Refuses-When-Asked-Complies-When-Acting.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "openai"
+   ]
   },
   {
    "id": "aiid-f001067a6aa6",
@@ -3862,6 +4603,24 @@
    "orgs": []
   },
   {
+   "id": "arxiv-robotics-0cfc3414e7f2",
+   "title": "Self-Crystallizing Behavior Trees: Amortizing Foundation-Model Reasoning into Deterministic Control for Autonomous Drones",
+   "date": "2026-10-18",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.25455",
+   "description": "Classical robot control, Finite State Machines and Behavior Trees (BTs), is deterministic and inspectable but fixed at design time: it fails on situations its designers did not anticipate. Foundation models can synthesize new control logic at runtime, at a cost in latency and non-determinism hard to accept in safety-critical aerial systems. Existing LLM-driven approaches keep the model in the loop permanently and discard what it produces. We propose Self-Crystallizing Behavior Trees (SCBT), in which the foundation model is a compiler rather than a runtime. When a BT node fails, an LLM proposes a minimal, mission-agnostic subtree patch; CMA-ES tunes its parameters in simulation; a contextual bandit decides whether a stored patch or a new LLM call is worth its cost; and a three-stage admission pipeline (static check, invariant-monitored replays, an empirical margin over the unpatched tree) admits only patches that demonstrably recover. Admitted patches are stored in a fleet library and, once the LLM call rate decays, crystallized into a deterministic BT that no human wrote. We implement SCBT on Microsoft Project AirSim with a schema-constrained LLM pipeline (Gemini 3.1 Pro) and a lockstep simulator. Over three seeds of a 20-episode learning phase with wind-gust and battery failures, SCBT used $11\\pm1.4$ LLM calls against 26 for whole-tree regeneration and 22 without a library, with 0.33 calls per episode in the second half. The crystallized trees, 28 and 33 nodes with two patches each, reached $97\\pm2\\%$ mission success with no learning running, against 12\\% for the unpatche…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "google",
+    "microsoft"
+   ]
+  },
+  {
    "id": "aiid-e665df63b711",
    "title": "GBI Arrests Braselton Police Chief for Harassment and Stalking",
    "date": "2026-10-18",
@@ -4015,6 +4774,111 @@
    "orgs": [
     "meta"
    ]
+  },
+  {
+   "id": "arxiv-robotics-9add2522f9f0",
+   "title": "Enhancing Visual Task-Redirection Attacks on Vision-Language-Action Models via Closed-Loop Optimization",
+   "date": "2026-10-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.23566",
+   "description": "Vision-language-action (VLA) models enable language-guided robot manipulation, but remain vulnerable to visual attacks that undermine user control over robot behavior. Prior studies optimize visual perturbations using fixed target supervision. However, the perturbation can change earlier actions and, in turn, the physical states reached later. As the attacked trajectory evolves, this supervision may no longer match the behavior needed at the states actually reached. Accurately matching these targets can therefore fail to advance the attacker-specified task. Even with suitable supervision, reducing average matching error does not ensure sustained task progress. The robot may still fail at a critical stage, and further updates can disrupt previously successful behavior. To address these limitations, we propose TRACO, a framework that enhances existing targeted visual attacks through closed-loop optimization. Its Execution-Driven Supervision rebuilds supervision for the states reached under attack to guide subsequent updates. Within this framework, Progress-Guided Selection focuses updates where progress stalls while maintaining supervision on the earlier behavior needed to reach that point. Experiments across VLA models and simulation environments show improved task-redirection success with TRACO, highlighting the security implications of closed-loop attack optimization.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-574276bac3f7",
+   "title": "Learning Robot Metareasoning: Adaptive Computation Budgets for Real-Time Control",
+   "date": "2026-10-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.23662",
+   "description": "Planning while moving faces an historical trade-off between deliberation and reactivity. A planner running concurrently with execution needs time to compute, so the robot must commit to an open-loop action chunk for that duration: a longer commitment buys a better plan at the cost of feedback frequency. Existing controllers fix this action commitment, and consequently the computation budget, before deployment. However, the optimal computation time is highly state-dependent (due to factors such as unmodeled dynamics, safety constraints, and marginal optimisation gains), i.e. dynamic, therefore offline static tuning risks leaving systems blind during critical maneuvers or unable to find global effective solutions. We cast the identification of the optimal computation budget as a semi-Markov decision process (SMDP) in which a single decision defines both the robot action commitments and the time allocated to the solver. To solve this, we train a reinforcement-learning policy conditioned on the current state, the executing plan, and inexpensive planner statistics. Across ground-robot navigation, agile quadrotor flight, and contact-rich manipulation, the learned policy changes its budget with the demands of the scenario, discovering efficient reasoning patterns that outperform fixed-budget baselines. https://lorenzomagnino.github.io/learning-robot-metareasoning-review/",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-79df99b55893",
+   "title": "Sub-Millisecond Reflexes for Continuous Physical Human-Robot Interaction",
+   "date": "2026-10-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.21913",
+   "description": "Continuous physical human-robot interaction requires robots to rapidly adapt their control behaviour without interrupting task execution. However, existing ROS 2 control architectures rely on stop-to-switch mechanisms that introduce substantial delays and interrupt execution. We present an open-source, sub-millisecond reflex engine based on an enhanced ROS 2-compatible multimode controller that enables deterministic switching between control modalities and integrates reflex behaviours for mitigating contact hazards and kinematic limit violations. Experiments on a Franka Robotics manipulator demonstrate switching delays below 0.1 ms, more than four orders of magnitude faster than conventional ros2_control, while maintaining continuous operation during safety-critical events. In a multi-stage manipulation task, the proposed framework reduced execution time by 3.5% and peak trajectory jerk by more than threefold. By eliminating runtime middleware overhead, controller transitions are implemented as lock-free pointer operations, enabling reflex-level responsiveness within an open-source robotics framework.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-6c8a82856313",
+   "title": "Onboard Lightweight LLM Reasoning for Human-Aware Safe UAV Navigation",
+   "date": "2026-10-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.22092",
+   "description": "Aerial robots operating near people must treat a pedestrian, a parked car, and a wall differently, yet conventional perception--planning stacks reduce all of them to occupied geometry---a \\emph{human-aware safety gap} in which category-specific clearance is unavailable to the planner and temporary occlusions remove pedestrian-specific constraints from its map. We present a modular, fully onboard pipeline that closes this gap by turning visual observations into context-dependent safety constraints for real-time UAV navigation. A shared BLIP encoder drives scene captioning and text-conditioned segmentation, which is fused with depth to localize obstacles in 3D. Obstacle-specific risk is inferred by a lightweight LLM (Qwen-2.5-0.5B) stabilized with retrieval-augmented generation and grammar-constrained decoding that restricts its output to a planner-compatible JSON schema. The LLM reasons once per object category rather than per frame: its verdicts are cached per class, so previously seen categories are resolved without inference and new ones trigger a fresh retrieval-grounded query; detections are additionally given persistent identities and held in the map across occlusions. The perception pipeline runs at 10\\,Hz on a Jetson Orin NX, while fallback LLM queries take approximately 0.8\\,s and remain off the control-critical path. In Gazebo, low-altitude urban navigation among pedestrians and vehicles shows a roughly $3\\times$ reduction in collision events over a geometric planner, and semantics-aware landing among moving actors raises success from 34\\% to 96\\%. The 224-pixel e…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-51a2a3dd907f",
+   "title": "From Optical Flow to Safety: Visual Safety Certification via Scale-Free Relative Motion",
+   "date": "2026-10-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.21374",
+   "description": "Safe autonomous navigation using monocular vision remains challenging because explicit obstacle states are not directly observable. This letter introduces a visual safety-certification paradigm that uses scale-free, depth-normalized relative motion encoded by monocular optical flow as the representation for collision-risk certification, without reconstructing obstacle position, velocity, geometry, or a metric world model. Unlike conventional optical-flow-based navigation approaches that rely on image motion to shape avoidance behavior, the proposed framework directly encodes collision-cone geometry and safety constraints in this relative-motion representation. An online Concurrent Learning observer estimates the normalized relative velocity and provides a computable estimation-error bound. This uncertainty is propagated into the collision cone through angular inflation and a monocular robot-footprint margin, yielding a Robust Vision-Based Collision Cone Control Barrier Function (RV-C$^3$BF). An optimal-decay CBF quadratic program minimally modifies the nominal control input to enforce the resulting robust safety constraint under the stated assumptions. Extensive simulation and real-world experiments on a TurtleBot3 in cluttered environments with static and dynamic obstacles demonstrate collision avoidance using only monocular vision and onboard proprioception, with the estimation-error bound containing the measured error in $98.3\\%$ of simulation samples and the robot achieving collision-free navigation in $93$ of $100$ real-world trials.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-3eca26b53f1d",
+   "title": "Sim-to-Real Reinforcement Learning for Path-Safe Target Reaching in Robotic Harvesting of Hydroponic Lettuce",
+   "date": "2026-10-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.22337",
+   "description": "Robotic harvesting requires precise manipulation to ensure accurate positioning of the end-effector, especially in a constraint workspace. This study introduces the Path-Safe Approach Proximal Policy Optimization (PSA-PPO), a target-conditioned local reaching framework designed for robotic harvesting of nutrient film technique (NFT)-hydroponic lettuce in greenhouses. The proposed PSA-PPO preserves the standard clipped PPO objective while introducing a harvesting-oriented policy formulation that integrates target-conditioned observations, corridor-aware spatial constraints, trajectory-history-based safety encoding, and task-specific success criteria for constrained robotic manipulation. PSAPPO was trained entirely in Isaac Lab and successfully transferred to a physical UR10e robotic arm without any real-world policy fine-tuning. In a controlled physical benchmark against 150 scheduled targets, PSA-PPO achieved the highest reaching rate of 94.7%, outperforming Cartesian+TOTG (86.0%), RRTConnect (88.0%), and RRT* (80.0%), while reducing median RMS jerk by 39.8 to 73.0% relative to the classical planners during the final approach segment. A formulation ablation evaluated over 200 simulation targets demonstrates that path-safety and side-corridor shaping are the principal drivers of harvesting-compatible performance: removing either term substantially degrades strict success even when terminal endpoint accuracy is preserved or improved, confirming that optimization toward the endpoint alone is an insufficient objective for constrained crop-proximal manipulation. Finally, PSA-PP…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-2632e6c03db2",
+   "title": "Safe and Fuel-Efficient Motion Planning for Lunar Propulsive Drones",
+   "date": "2026-10-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.22225",
+   "description": "Propulsive drones are a promising new technology for generating high-resolution terrain models of the Moon. In future lunar missions, propulsive drones will complete a series of hops across the lunar surface while capturing images with downward-facing cameras. We present an autonomous motion planning framework that uses a vision-guided optimal control strategy for performing safe, efficient hops between specified waypoints. The drone plans parabolic hops between waypoints generated by a global-level planner; if a nominal waypoint is unsafe or unreachable, the drone then completes a diversion maneuver to safely land. To evaluate the validity of potential landing sites, we develop a custom semantic segmentation model for identifying obstacles from aerial images, and we introduce an approach for rapidly calculating reachable terrain. We then use model predictive control (MPC) to robustly track hop trajectories that guide the drone towards safe landing sites. We test the optimal hop planner in a high-fidelity lunar simulation environment. Our results demonstrate that our unified motion planning framework yields safe, fuel-efficient hop trajectories which can be tracked rapidly and with low error via MPC.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
   },
   {
    "id": "aiid-d5dd6b7219be",
@@ -4186,6 +5050,66 @@
    "orgs": [
     "metr"
    ]
+  },
+  {
+   "id": "arxiv-robotics-f68228a1a6d8",
+   "title": "PingpongDuo: Agile Humanoid Table Tennis Doubles with Safe Team Coordination",
+   "date": "2026-10-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.20579",
+   "description": "Unlike singles, humanoid table tennis doubles requires teammates to strike in strict alternation while sharing a confined workspace. Rapid repositioning can compromise striking accuracy, while uncoordinated teammate movements introduce collision risks. We present PingpongDuo, a hierarchical framework for agile humanoid doubles with safe team coordination. At the team level, a planner jointly selects positioning targets and uses learned risk estimates to filter risky proposals, preferentially preserving the current striker's target. At the individual level, separate footwork and striking skills combine agile movement with precise racket control. The skills are guided by human motion references, including footwork collected from human doubles play, and trained from states produced by one another to support rapid transitions. A racket-arm residual further refines strikes after movement using return feedback from a simulator calibrated with real ball-flight and contact measurements. In simulation, PingpongDuo improves the ball-return success rate by 13.2% over the state-of-the-art baseline, while achieving approximately 2 cm positioning error during clearance. In real-world experiments, a robot completes a 2.15 m clearance-and-recovery cycle in 2.4 s with a peak speed of 2.23 m/s, while two robots sustain more than 10 consecutive strikes in strict alternation.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-abaa1ba628ba",
+   "title": "Safe Reinforcement Learning with Receding-Horizon Safety Critic and Differentiable Action Shields",
+   "date": "2026-10-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.20255",
+   "description": "Despite the Markov assumption, safety failures in robot reinforcement learning rarely occur instantaneously; they typically emerge over several steps as the policy enters unfamiliar states under disturbances and domain shift. We address this limitation by learning a receding-horizon safety critic that predicts whether a state will remain non-terminating over the next receding horizon, enabling anticipatory detection of impending locomotion failures. The critic is trained from rollout-derived horizon labels with a composite objective that combines horizon classification, control-barrier-function-inspired temporal consistency, and smoothness regularization, and we aggregate an ensemble of critics with a conservative Conditional Value at Risk estimate to account for uncertainty. Building on the learned critic, we derive a closed-form, differentiable CBF-style safety filter that minimally modifies the policy action to improve predicted safety, and integrate it into PPO with an anticipation loss to reduce policy-filter mismatch during training. In simulated quadruped locomotion, our method improves robustness under action noise, external perturbations, and terrain shifts, reducing catastrophic failures while maintaining competitive returns.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-896c06381e88",
+   "title": "Race to Recovery: Designing Advanced Safety Systems for Autonomous Driving via Learning Autonomous Racing",
+   "date": "2026-10-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.20873",
+   "description": "Vehicles that lose control at the handling limit through icing, hydroplaning, or an abrupt evasive maneuver fall outside the operating envelope of production safety systems such as electronic stability control, which focus on preventing instability rather than recovering from it. Expert drivers regain authority in these conditions by drifting. Existing autonomous recovery approaches are validated on idealized scenarios, define \"recovered\" states empirically and inconsistently, or rely on offline-planned trajectories rather than acting online. We address these gaps by first training a racing policy with reinforcement learning that learns drifting as a time-optimal maneuver, then adapting it to recovery through continued training with a minimum-time reward. We define recovery relative to a phase-plane-grounded stable equilibrium and introduce Gym-Khana for controller training and evaluation. Across 294 initial loss-of-control states, the transferred policy improves recovery by 186.8% over a Stanley path tracker and outperforms both a nonlinear model predictive controller and a recovery-only policy trained from scratch, while also recovering faster on states the baseline can already handle. An ablation shows that racing pretraining, rather than broader initial-state exposure alone, drives this gain. Deployed on a physical 1:10-scale F1TENTH vehicle using system identification, actuator-lag modelling, and domain randomization, the transferred policy outperforms Stanley on every tested loss-of-control state, including recovering 50% of the time from a hard state the baseline ne…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-7dc9720338bc",
+   "title": "BubbleCBF: Constructive Safety for Second-Order Systems and Application to Autonomous Robot Navigation in Unknown Environments",
+   "date": "2026-10-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.20895",
+   "description": "Satisfying safety constraints for systems with second-order dynamics is challenging because a position constraint may require infeasible deceleration. Higher-order control barrier functions (CBFs) provide an approach for expressing safety conditions for such systems but feasibility depends on the system dynamics and available control authority. We develop a constructive approach for designing feasible safety constraints for second-order control-affine systems. Starting from a signed distance function (SDF), we construct collision-free spheres, i.e., bubbles, in position space, and use their quadratic geometry and overlap to construct a velocity-dependent safety constraint. The associated safe set is represented as a union of intersections and enforced through a quadratic-program safety filter. Under mild assumptions on the dynamics, bubble overlap, and design parameters, we prove that the quadratic-program-based controller is well defined, continuous in the system state, and renders the set forward invariant. We also derive sufficient conditions for feasibility under bounded inputs. We demonstrate that our BubbleCBF, applied to a differential-drive robot, achieves safe autonomous navigation in unknown environments. Videos and results are available at: https://existentialrobotics.org/bubblecbf/.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
   },
   {
    "id": "aiid-cf1bc6ff4cdd",
@@ -4369,6 +5293,96 @@
     "data-privacy",
     "agent-software",
     "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-d79da8ee352f",
+   "title": "AutoAgent0: An Agentic Runtime for Safe Closed-Loop Driving",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.18866",
+   "description": "Safe autonomous driving requires more than accurate planning at a single frame: it demands reliable closed-loop execution in dynamic environments. Although end-to-end driving policies have advanced rapidly, the accumulated closed-loop errors, especially in unseen scenarios, can push vehicles into states from which the same policy struggles to recover. We address the challenge by treating closed-loop driving safety as a test-time execution problem. We introduce AutoAgent0, an agentic runtime and harness framework that augments existing driving experts with complementary detection skills, rule-based action verification, and feedback-driven recovery. To address inaccurate scene perception, an independent detection module constructs scene context using complementary perception skills, and a rule-based verifier checks proposed trajectories against this context before execution. When the nominal trajectories are unreliable, the orchestrator of the runtime activates Recovery Planning, where an agentic loop constructs alternative action proposals from action primitives and iteratively refines them using verification feedback. This design combines independent scene assessment with feasibility checks and online recovery, addressing both perception errors and the limited recovery capabilities of individual experts. Evaluations on Fail2Drive and NavSafe-$\\infty$ demonstrate improved closed-loop robustness over single-expert execution in long-tail and safety-critical scenarios. These results demonstrate that runtime supervision can improve closed-loop robustness across multiple driving…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-b55602e5d6a1",
+   "title": "Beyond the End-Effector: Learning Whole-Arm Contact Manipulation from Human Demonstrations",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.17802",
+   "description": "Robot manipulation has traditionally relied on end-effector-centric interactions. In contrast, humans routinely exploit whole-arm contacts to improve efficiency, robustness, and adaptability, especially when the hands are occupied or when precise grasping is unnecessary. Enabling similar capabilities in robots remains challenging: the robot must select where on its arm to make contact, generate effective non-prehensile interactions, and satisfy task-specific pose or safety constraints on the end-effector. We propose Whole-Arm Contact Learning (WACL), a hierarchical framework that describes each whole-arm contact task with three robot-agnostic representations and hands them to a quasi-static surface-contact optimizer: semantic keypoints that summarize the scene, a reference contact trajectory that specifies where and how the arm presses on the object, and safety-aware path constraints that a vision-language model generates from the task description to protect the end-effector's task. The robot's kinematic chain enters only in this optimizer, which grounds these representations onto the arm by jointly searching over which link makes contact, where on that link, and the joint configuration that realizes it. This decomposition lets WACL learn the contact trajectory from 10 bare-hand human demonstrations per task collected without teleoperation, while new end-effector constraints change only the optimizer's input rather than any trained component. Real-world experiments on a 7-DoF arm across four whole-arm tasks show that WACL sustains contact under end-effector constraints whe…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-9cbc66d6b1a0",
+   "title": "CoSMO: Conformal Semantic Mapping for Open-World Safe Robot Navigation",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.18321",
+   "description": "Safe autonomous navigation requires not only geometric obstacle avoidance but also semantic awareness. Different object categories demand different safety clearances, and the set of relevant categories may expand as the robot explores novel environments. Vision-language models (VLMs) offer rich semantic representations for building maps of unknown scenes, yet their confidence scores are poorly calibrated, making raw predictions unreliable for safety-critical planning. Conformal prediction (CP) can provide coverage guarantees, but existing methods assume a fixed label set and stationary data, limiting their use in open-world settings. We propose Conformal Semantic Mapping for Open-World Safe Robot Navigation (CoSMO), a semantic safety mapping framework that transforms VLM embeddings into online-calibrated coverage sets and safety-aware obstacle dilations under distribution shift. By calibrating directly in the embedding space, CoSMO avoids the score rescaling that arises in confidence calibration as the vocabulary expands. Experiments on the Matterport3D (MP3D) dataset show that CoSMO reduces semantic collisions by 61.6% relative to a geometry-only baseline, while maintaining formal coverage guarantees even under delayed expert feedback. Real-world experiments on a quadruped robot further demonstrate generalization by achieving long-run empirical coverage of 90.73% against the 90% target. Project website: https://yangming911.github.io/cosmo-page/.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-6556d7374837",
+   "title": "Beyond Safe Execution: Safe Online Reinforcement Learning for Autonomous Driving with Value Calibration and Adaptive Guidance",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.17799",
+   "description": "Online reinforcement learning (RL) enables driving policies to adapt to changing deployment conditions, but requires safe exploration throughout training. Safety filtering alone does not ensure stable policy improvement or reduced dependence on corrections. We propose Safe Online Adaptive Refinement (SOAR-Flow), a framework for safe and stable online fine-tuning of offline-initialized Flow-based driving policies. A control barrier function (CBF)--model predictive control (MPC) filter corrects potentially unsafe actions before execution. To support stable policy updates, we introduce Gaussian-return-aware value calibration based on calibrated Q-learning (Cal-QL), using recorded behavior returns and predicted return variability to smooth conservative critic updates and mitigate policy degradation. Paired corrective learning teaches feasible action adjustments, while an intervention-to-go predictor encourages decisions requiring fewer future corrections. Its predictions also regulate guidance strength, allowing recovery supervision to weaken as predicted dependence decreases. Together with gradually reduced calibration regularization, this supports continued task improvement while preserving hard execution constraints. We analyze conditions for safe execution at control steps and diminishing auxiliary learning influences. We evaluate SOAR-Flow in simulation and on an uncrewed ground vehicle (UGV). The results demonstrate improved driving performance and reduced reliance on safety corrections during protected online fine-tuning. The demonstration video and project overview are…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-592e77e3dd14",
+   "title": "Full-Order Safety for Nonlinear Reduced-Order MPC",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.19250",
+   "description": "Reduced-order models (ROMs) make model predictive control (MPC) of high-dimensional nonlinear systems tractable, but the resulting modeling error can lead to constraint violations on the real system. We introduce CoRE-MPC, a robust MPC formulation that plans with a nonlinear ROM and guarantees recursive feasibility and constraint satisfaction for the full-order system. It can be applied with a broad class of nonlinear model reduction techniques and the resulting MPC does not require evaluating the full-order model online, thus ensuring computational efficiency. The key insight is in how the ROM affects the dynamics of the prediction error. We account for this with two error radii that are propagated alongside the ROM and provide a guaranteed bound on the prediction error. The approach is validated in simulation on an 80-state oscillator chain, a Burgers equation, and a 9,768-state finite-element soft robot, where a two-state ROM with data-driven bounds keeps all 1,628 nodes clear of a wall at a median solve time below 1 ms for a 20 ms control period. Across these examples, CoRE-MPC is 13 to 61 times faster than full-order robust MPC at only 27 to 35% higher closed-loop cost, whereas existing certified schemes are either infeasible or at least twice as conservative. Code: [released upon publication].",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-334cc20b8c8b",
+   "title": "Which Trajectory Is Safer? Combining Rule and Learning for Safety Evaluation",
+   "date": "2026-10-13",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2610.17806",
+   "description": "Collision rate remains a dominant metric for evaluating autonomous driving trajectory safety, but its binary nature obscures substantial safety differences among collision-free trajectories. Existing surrogate-safety metrics provide finer-grained assessments, yet often trade off physical interpretability against adaptivity to interaction context. We introduce FutureRisk, a continuous metric that quantifies the latent future risk of a trajectory by how closely and persistently its realized interactions approach unsafe states. At its core, our Context-Adaptive Risk Model (CARM) combines a context-dependent safety-time distribution with an independently supervised critical-event-time distribution. Its safety criterion is bounded around a closed-form physical prior, while a bounded residual provides additional adaptation without abandoning this physical anchor. Experiments on DeepAccident and Bench2Drive show that FutureRisk achieves stronger agreement with native collision labels than existing surrogate-safety measures, discriminates risk among collision-free trajectories, and transfers zero-shot across datasets. Comparisons across four planners further show that FutureRisk reveals safety differences hidden by binary collision outcomes. Together, these results establish FutureRisk as a fine-grained, interpretable, and context-adaptive metric for trajectory safety evaluation. Code is available at https://github.com/Xuewen2025/safety-evaluation.",
+   "direction_ids": [
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -4668,6 +5682,23 @@
    ],
    "orgs": [
     "openai"
+   ]
+  },
+  {
+   "id": "nvidia-robotics-173eb9a2ab25",
+   "title": "Why Deploying Physical AI at Scale Demands Safety at Every Layer",
+   "date": "2026-09-21",
+   "source": "NVIDIA Robotics",
+   "source_id": "nvidia-robotics",
+   "kind": "official",
+   "category": "research",
+   "url": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/",
+   "description": "Physical AI is moving rapidly from research to large-scale deployment. By 2035, ABI Research projects an installed base of 49 million level 3-5 autonomous vehicles (AVs), while Omdia estimates that roughly 60 million industrial robots will be deployed between 2026 and 2035. As these machines enter roads, factories, warehouses and other environments shared with people, […]",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "nvidia"
    ]
   },
   {

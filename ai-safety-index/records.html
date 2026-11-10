@@ -32,6 +32,7 @@
 .check input{width:18px;height:18px;accent-color:var(--safe);margin:0}
 .reset{font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:.22em;cursor:pointer;align-self:flex-start}
 .reset:hover{color:var(--ink)}
+#kinds{display:flex;flex-wrap:wrap}
 
 .summary{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted);font-size:13px}
 .daygroup{margin-bottom:34px;scroll-margin-top:16px}
@@ -51,6 +52,7 @@
 }
 @media (max-width:560px){
   .side{grid-template-columns:1fr}
+  .dayhead{flex-wrap:wrap;gap:12px}
 }
 </style>
 </head>
@@ -86,6 +88,7 @@
           <button type="button" data-v="all" aria-pressed="true" data-en="All">全部</button>
           <button type="button" data-v="official" aria-pressed="false" data-en="Official posts">官方发布</button>
           <button type="button" data-v="incident" aria-pressed="false" data-en="Incident reports">事件报道</button>
+          <button type="button" data-v="research" aria-pressed="false" data-en="Preprints">预印本</button>
         </div>
       </div>
       <div class="field">

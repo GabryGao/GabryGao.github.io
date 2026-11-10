@@ -15,7 +15,7 @@
 .notice svg{grid-row:span 2;width:22px;height:22px;margin-top:2px}
 .notice strong{font-weight:700;font-stretch:87.5%;font-size:17px}
 .notice span{font-size:14px;line-height:1.55}
-form{max-width:860px;display:grid;gap:18px;padding-bottom:64px}
+#form{max-width:860px;display:grid;gap:18px;padding-bottom:64px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field > span{font-size:13px;color:var(--muted)}
@@ -25,7 +25,7 @@ textarea{resize:vertical;min-height:120px;line-height:1.6}
 .input::placeholder,textarea::placeholder{color:var(--placeholder)}
 .input:focus,.select:focus,textarea:focus{outline:2px solid var(--hl);outline-offset:1px;border-color:transparent}
 .input:user-invalid,textarea:user-invalid{border-color:var(--alarm)}
-fieldset{border:1px solid var(--line);border-radius:6px;padding:16px 18px 18px;margin:0;display:grid;gap:16px}
+#form fieldset{min-width:0;border:1px solid var(--line);border-radius:6px;padding:16px 18px 18px;margin:0;display:grid;gap:16px}
 legend{padding:0 6px;font-size:13px;font-weight:600;color:var(--ink)}
 .privacy{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
 .buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
