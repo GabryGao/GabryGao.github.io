@@ -1,4 +1,4 @@
-/* Signal web: recent safety signals are picked off a list by a friendly outlined crawler,
+/* Signal web: recent safety signals are picked off a list by a small mechanical spider,
    carried along fine transmission lines and routed into their research direction.
    Visual idea after Prompt Spider UI by Kirito14IT (MIT); this is an independent implementation. */
 (() => {
@@ -150,56 +150,112 @@
       if (changeFocus && !isReading(now)) { cur = i; onFocus(i, true); }
     }
 
-    // One continuous rounded body, with short soft feelers. No jointed legs or body segments.
-    const crawler = { x: 0, y: 0, tilt: 0 };
+    // Long, jointed mechanical legs keep the crawler recognisable while the DOM list
+    // remains responsible for scrolling, selection and accessibility.
+    const crawler = { x: 0, y: 0, tilt: 0, legs: [], next: 0, lastStep: 0 };
+    const LEG_PLAN = [
+      [-1, -8, -34, .76], [-1, -4, -13, .98], [-1, 4, 14, .9], [-1, 8, 35, .72],
+      [1, -8, -35, .8], [1, -4, -14, 1], [1, 4, 13, .92], [1, 8, 34, .74]
+    ];
+    const STEP_ORDER = [0, 5, 2, 7, 4, 1, 6, 3];
+
+    function idealFoot(leg, t) {
+      const baseReach = Math.max(38, Math.min(78, W * (W < 520 ? .13 : .085)));
+      const idle = still ? 0 : Math.sin(t / 760 + leg.phase) * 2.2;
+      return [
+        Math.max(5, Math.min(W - 5, crawler.x + leg.side * baseReach * leg.reach)),
+        Math.max(6, Math.min(H - 6, crawler.y + leg.offsetY + idle))
+      ];
+    }
+
     function initCrawler() {
       crawler.x = L.listW + 7; crawler.y = 48; crawler.tilt = 0;
+      crawler.next = 0; crawler.lastStep = 0;
+      crawler.legs = LEG_PLAN.map(([side, attachY, offsetY, reach], i) => {
+        const leg = { side, attachY, offsetY, reach, phase: i * .83, foot: null, from: null, to: null, step: 1, moved: 0 };
+        leg.foot = idealFoot(leg, 0);
+        return leg;
+      });
     }
+
     function stepCrawler(tx, ty, t, dt) {
-      const k = still ? 1 : 1 - Math.exp(-dt / (240 / MOTION_SPEED)), dy = ty - crawler.y;
+      const targetY = Math.max(34, Math.min(H - 34, ty));
+      const k = still ? 1 : 1 - Math.exp(-dt / (240 / MOTION_SPEED)), dy = targetY - crawler.y;
       crawler.x += (tx - crawler.x) * k;
       crawler.y += dy * k;
       crawler.tilt += (Math.max(-.18, Math.min(.18, dy / 100)) - crawler.tilt) * k;
+
+      for (const leg of crawler.legs) {
+        if (leg.step >= 1) continue;
+        leg.step = Math.min(1, leg.step + dt / 150);
+        const eased = leg.step * leg.step * (3 - 2 * leg.step);
+        const lift = Math.sin(leg.step * Math.PI) * 9;
+        leg.foot = [
+          leg.from[0] + (leg.to[0] - leg.from[0]) * eased,
+          leg.from[1] + (leg.to[1] - leg.from[1]) * eased - lift
+        ];
+        if (leg.step === 1) leg.foot = leg.to;
+      }
+
+      if (still) {
+        for (const leg of crawler.legs) leg.foot = idealFoot(leg, t);
+        return;
+      }
+
+      const moving = crawler.legs.filter(leg => leg.step < 1).length;
+      if (moving >= 2 || t - crawler.lastStep < 500) return;
+      for (let attempt = 0; attempt < STEP_ORDER.length; attempt++) {
+        const leg = crawler.legs[STEP_ORDER[crawler.next]];
+        crawler.next = (crawler.next + 1) % STEP_ORDER.length;
+        if (leg.step < 1) continue;
+        const target = idealFoot(leg, t);
+        const distance = Math.hypot(target[0] - leg.foot[0], target[1] - leg.foot[1]);
+        if (distance < 7 && t - leg.moved < 2800) continue;
+        leg.from = leg.foot.slice(); leg.to = target; leg.step = 0; leg.moved = t;
+        crawler.lastStep = t;
+        break;
+      }
     }
+
+    function bodyPoint(x, y) {
+      const c = Math.cos(crawler.tilt), s = Math.sin(crawler.tilt);
+      return [crawler.x + x * c - y * s, crawler.y + x * s + y * c];
+    }
+
     function drawCrawler(t) {
-      const scale = W < 520 ? .76 : 1;
-      const x = crawler.x, y = Math.max(34, Math.min(H - 34, crawler.y));
-      ctx.save(); ctx.translate(x, y); ctx.rotate(crawler.tilt); ctx.scale(scale, scale);
-      const breathe = 1 + Math.sin(t / 700) * .025;
-      ctx.scale(breathe, breathe); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-      // Feelers bend in a travelling wave instead of stepping like insect legs.
-      for (let i = 0; i < 16; i++) {
-        const a = i * Math.PI * 2 / 16;
-        const wave = Math.sin(t / 280 - i * .7), reach = 7 + (i % 3) * 1.7;
-        const dx = Math.cos(a), dy = Math.sin(a), nx = -dy, ny = dx;
-        const sx = dx * 17, sy = dy * 15;
-        const ex = sx + dx * reach + nx * wave * 2.5;
-        const ey = sy + dy * reach + ny * wave * 2.5;
-        ctx.strokeStyle = C.leg; ctx.globalAlpha = .53 + .13 * Math.sin(t / 500 + i);
-        ctx.lineWidth = .95;
-        ctx.beginPath(); ctx.moveTo(sx, sy);
-        ctx.bezierCurveTo(sx + dx * 4 + nx * wave * 3, sy + dy * 4 + ny * wave * 3,
-          ex - dx * 3 + nx * 2, ey - dy * 3 + ny * 2, ex, ey);
-        ctx.stroke();
-        ctx.globalAlpha = .72; ctx.fillStyle = C.leg;
-        ctx.beginPath(); ctx.arc(ex, ey, 1, 0, Math.PI * 2); ctx.fill();
+      const scale = W < 520 ? .78 : 1;
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+      for (const leg of crawler.legs) {
+        const attach = bodyPoint(leg.side * 4.5 * scale, leg.attachY * scale);
+        const foot = leg.foot || idealFoot(leg, t);
+        const dx = foot[0] - attach[0], dy = foot[1] - attach[1];
+        const kneeY = Math.sign(leg.offsetY || 1) * Math.min(15, 7 + Math.abs(leg.offsetY) * .2);
+        const joint1 = [attach[0] + dx * .34, attach[1] + dy * .2 + kneeY];
+        const joint2 = [attach[0] + dx * .7, attach[1] + dy * .64 + kneeY * .35];
+        ctx.strokeStyle = C.leg; ctx.globalAlpha = .82; ctx.lineWidth = W < 520 ? 1.05 : 1.25;
+        ctx.beginPath(); ctx.moveTo(attach[0], attach[1]);
+        ctx.lineTo(joint1[0], joint1[1]); ctx.lineTo(joint2[0], joint2[1]); ctx.lineTo(foot[0], foot[1]); ctx.stroke();
+        ctx.fillStyle = C.leg; ctx.globalAlpha = .9;
+        for (const point of [joint1, joint2]) {
+          ctx.beginPath(); ctx.arc(point[0], point[1], W < 520 ? 1.15 : 1.4, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.globalAlpha = .68;
+        ctx.beginPath(); ctx.arc(foot[0], foot[1], 1.25, 0, Math.PI * 2); ctx.fill();
       }
+
       ctx.globalAlpha = 1;
-      const body = ctx.createRadialGradient(-5, -6, 1, 0, 0, 19);
-      body.addColorStop(0, '#234d40'); body.addColorStop(1, '#102b23');
-      ctx.fillStyle = body; ctx.strokeStyle = '#8cd1bc'; ctx.lineWidth = 1.15;
-      ctx.beginPath(); ctx.ellipse(0, 0, 17, 15, -.12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-      // An inset contour keeps the same fine-line language as the transmission diagram.
-      ctx.strokeStyle = '#4d8f76'; ctx.globalAlpha = .52; ctx.lineWidth = .65;
-      ctx.beginPath(); ctx.ellipse(0, 0, 13.5, 11.6, -.12, 0, Math.PI * 2); ctx.stroke();
-      ctx.globalAlpha = 1;
-      const blink = Math.sin(t / 2200) > .993;
-      ctx.fillStyle = '#c9e9de';
-      for (const ex of [-4.5, 4.5]) {
-        ctx.beginPath(); ctx.ellipse(ex, -2, 1.35, blink ? .45 : 1.65, 0, 0, Math.PI * 2); ctx.fill();
-      }
-      ctx.strokeStyle = '#92cbb6'; ctx.lineWidth = .9;
-      ctx.beginPath(); ctx.moveTo(-2.5, 4); ctx.quadraticCurveTo(0, 6, 2.5, 4); ctx.stroke();
+      ctx.translate(crawler.x, crawler.y); ctx.rotate(crawler.tilt); ctx.scale(scale, scale);
+      const pulse = .5 + .5 * Math.sin(t / 250);
+      ctx.fillStyle = C.ground; ctx.strokeStyle = '#8cd1bc'; ctx.lineWidth = 1.25;
+      ctx.beginPath(); ctx.ellipse(0, 5, 7, 10, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(0, -8, 6, 7, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = '#4d8f76'; ctx.globalAlpha = .72; ctx.lineWidth = .7;
+      ctx.beginPath(); ctx.ellipse(0, 5, 4.3, 7.1, 0, 0, Math.PI * 2); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.fillStyle = '#c9e9de';
+      for (const eyeX of [-2.1, 2.1]) { ctx.beginPath(); ctx.arc(eyeX, -9.3, 1.05, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillStyle = C.core; ctx.globalAlpha = .72 + pulse * .28;
+      ctx.beginPath(); ctx.arc(0, 4.5, 1.6 + pulse * .8, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
     }
 
