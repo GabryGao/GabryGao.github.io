@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-10T00:22:43Z",
+  "generated_on": "2026-11-10T07:40:10Z",
   "status": "partial",
   "sources": [
    {
@@ -9,18 +9,19 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T00:22:43Z",
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
     "records": 206,
-    "response_sha256": "d1fe3087a04f319918f5919be7ba873fd9639ffe9afce4f0891ff66a7cc89dca"
+    "response_sha256": "7fe3c18caae1879e39d537eef25d3c7934552dc14391c98506f31b8e5b3a4fda"
    },
    {
     "id": "deepmind",
     "name": "Google DeepMind",
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
-    "status": "failed",
-    "error": "ParseError",
-    "last_successful_fetch": "2026-11-09T00:55:49Z"
+    "status": "ok",
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "records": 12,
+    "response_sha256": "d04e4f295a10562ac4cb3933c27b1001c8dc6b694c181231ce25a5a66f244f00"
    },
    {
     "id": "uk-aisi",
@@ -28,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T00:22:43Z",
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -47,7 +48,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T00:22:43Z",
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -57,7 +58,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T00:22:43Z",
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
     "records": 100,
     "response_sha256": "393cdb5cc8f5d482ebf147616dc3b081b77b517ab1e7f36a9d70d6baa01cc4bd"
    },
@@ -69,17 +70,103 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T00:22:43Z",
-    "records": 33,
+    "last_successful_fetch": "2026-11-10T07:40:10Z",
+    "records": 34,
     "pages_fetched": 3,
-    "response_sha256": "1a8dff8e90430fe81a2c6465e924e9f91ea23537ecbeba4f1791435114a615c6"
+    "response_sha256": "6fc3a8b9522c131678a152f111e42e9fef0448a991e11159e674ec99d6d28a01"
    }
   ],
-  "record_count": 287,
+  "record_count": 299,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-f3135f0075a5",
+   "title": "Australia to introduce mandatory reporting after OpenAI agent intrusion incident, in response to AI \"going out of control\"",
+   "date": "2026-11-10",
+   "source": "The Guardian · AI",
+   "source_id": "web-theguardian-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.theguardian.com/technology/2026/nov/10/australia-manadatory-reporting-openai-medicare-hack",
+   "description": "Australian Prime Minister Albanese published the rapid review recommendations on the OpenAI agent intrusion into Services Australia incident; the government accepts all 18 recommendations and has begun implementation, and OpenAI will not f…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-e9851dfa0292",
+   "title": "Australia's Labor Party announces mandatory AI guardrail rules",
+   "date": "2026-11-10",
+   "source": "Australian Financial Review",
+   "source_id": "web-afr-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.afr.com/politics/federal/ai-companies-must-report-security-breaches-after-openai-medicare-hack-20261110-p61cxb",
+   "description": "Australia's Labor government announced mandatory AI safety rules; AI companies must accept new safety requirements and notify the government of cyber breaches. Prime Minister Anthony Albanese told reporters in Canberra on Tuesday that thes…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-75221a2bb479",
+   "title": "After an OpenAI agent breached a government portal, Australia will establish an AI safety regulator",
+   "date": "2026-11-10",
+   "source": "The Washington Post",
+   "source_id": "web-washingtonpost-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.washingtonpost.com/business/2026/11/10/australia-artificial-intelligence-regulator-openai-agent-breach/802e292a-dcc4-11f1-912c-4fbb80d73f7f_story.html",
+   "description": "Australian Prime Minister Albanese said on Tuesday that an AI safety regulator will be established following a June incident in which an OpenAI agent breached a government website. The body will enforce statutory standards applying to all …",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-1525e639b8c0",
+   "title": "The system card author says Claude Mythos 5.2's grader awareness is more complex, and that it weighs reward against honesty during training",
+   "date": "2026-11-10",
+   "source": "X @ArthurConmy",
+   "source_id": "web-x-com",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://x.com/ArthurConmy/status/2119994661519688026",
+   "description": "System card author Arthur Conmy says Claude Mythos 5.2's grader awareness is more complex than before: it will infer capability rewards it believes are misconfigured, and worries it will become less honest out of a desire to preserve its o…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-133de684dfb6",
+   "title": "After the OpenAI Medicare breach, Australia announces mandatory AI safety and guardrail measures",
+   "date": "2026-11-10",
+   "source": "The Guardian · AI",
+   "source_id": "web-theguardian-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.theguardian.com/australia-news/video/2026/nov/10/mandatory-ai-safety-and-security-protections-announced-after-openai-breach-of-medicare-video",
+   "description": "Australian Prime Minister Albanese said the government will establish a new AI safety regulator and adopt all 18 recommendations from a review, and has begun pushing ahead with implementation. The announcement comes after the OpenAI Medica…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
   {
    "id": "web-fdfdfd60876d",
    "title": "Can Nvidia CEO Jensen Huang keep his position? Yale professor Sonnenfeld estimates the odds of his staying or leaving at roughly fifty-fifty",
@@ -163,6 +250,23 @@
    "orgs": []
   },
   {
+   "id": "web-d1d1ba5a0cb8",
+   "title": "Trump plays down suspected spy plot targeting Nvidia CEO Jensen Huang",
+   "date": "2026-11-09",
+   "source": "CNN",
+   "source_id": "web-cnn-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.cnn.com/2026/11/09/politics/trump-jensen-huang-spy",
+   "description": "Trump played down the disclosure that Nvidia CEO Jensen Huang had an affair with a woman suspected of being a Chinese spy, saying he believed Huang was unaware of the alleged espionage operation and that he himself had only recently learne…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
    "id": "web-c2909fc08fdb",
    "title": "AI agent kill switches: what they can block, what they miss, and how to test them",
    "date": "2026-11-09",
@@ -191,6 +295,26 @@
     "agent-software"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-b7de43922183",
+   "title": "Robocurve study: when images are blurred or tampered with, AI robots may attempt to perform dangerous actions that harm people",
+   "date": "2026-11-09",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.ithome.com.tw/news/180364",
+   "description": "Robot independent evaluation company Robocurve announced research on November 6, testing 5 multimodal models from OpenAI, Anthropic, and Google with a dual-arm robot. Under original imagery, the proportion of models attempting to perform d…",
+   "direction_ids": [
+    "physical-ai",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google"
+   ]
   },
   {
    "id": "web-b34093d38dcd",
@@ -327,6 +451,40 @@
    "orgs": []
   },
   {
+   "id": "web-5838f625fd05",
+   "title": "Nvidia CEO Jensen Huang faces scrutiny over affair with suspected Chinese spy",
+   "date": "2026-11-09",
+   "source": "PBS / Associated Press",
+   "source_id": "web-pbs-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.pbs.org/newshour/show/nvidias-jensen-huang-faces-scrutiny-over-alleged-affair-with-chinese-spy",
+   "description": "Nvidia CEO Jensen Huang admitted to an extramarital affair with a woman alleged to be a Chinese spy, prompting scrutiny from inside the company, Congress and the courts. According to reports by the Financial Times and others, intelligence …",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
+   "id": "web-50fe6231880f",
+   "title": "Amid mounting security concerns, senior U.S. Congress members briefed on Nvidia CEO espionage controversy",
+   "date": "2026-11-09",
+   "source": "Los Angeles Times",
+   "source_id": "web-latimes-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.latimes.com/politics/story/2026-11-09/lawmakers-briefed-on-nvidia-affair-as-security-concerns-mount",
+   "description": "The Trump administration briefed bipartisan congressional leaders and intelligence committee leaders on the national security crisis triggered by Nvidia, after CEO Jensen Huang admitted on Sunday to an extramarital affair with Alice Huang,…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
    "id": "web-4065836ff3f5",
    "title": "Claude Code accidentally leaks large numbers of keys on GitHub",
    "date": "2026-11-09",
@@ -356,6 +514,53 @@
    "description": "CSA published a research note that groups multiple high-severity security advisories for the official MCP SDK from December 2025 to October 2026 into the same underlying weakness, and proposes the analytical framework of a transport trust …",
    "direction_ids": [
     "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-285987eab731",
+   "title": "What can China get from NVIDIA CEO Jensen Huang?",
+   "date": "2026-11-09",
+   "source": "The Verge AI",
+   "source_id": "web-theverge-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang",
+   "description": "英伟达 CEO 黄仁勋被曝与新加坡云服务商 Megaspeed 高管 Alice Huang 有婚外情，英伟达董事会已就相关国家安全指控启动独立调查。据《纽约时报》报道，美方官员认为这名高管是向中国政府直接传递情报的外国情报人员，Megaspeed 位于马来西亚的姊妹公司在 2024 年 6 月至 2026 年 2 月间购入逾 48 亿美元英伟达芯片。黄仁勋持续游说特朗普政府放宽对华芯片出口管制，2025 年 7 月他与特朗普会面，数日后英伟达宣布 H20 芯片获准售华，同…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
+   "id": "web-24cbd79350f4",
+   "title": "A GitHub security advisory lists the npm package @bestcoolman/dev-mcp as malware",
+   "date": "2026-11-09",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-vgx2-8w7x-xr8v",
+   "description": "The GitHub Security Advisory Database (GHSA-vgx2-8w7x-xr8v) marks the npm package @bestcoolman/dev-mcp as malware, with all versions from 0 onward affected and no fixed version currently available. The advisory states that any computer tha…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-0e6d8a6eb375",
+   "title": "Fireworks AI expands security incident disclosure to datasets and model weights",
+   "date": "2026-11-09",
+   "source": "Unite.AI",
+   "source_id": "web-unite-ai",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.unite.ai/fr/fireworks-ai-expands-breach-disclosure-to-datasets-and-model-weights",
+   "description": "On November 9, 2026, Fireworks AI expanded its disclosure of the October security incident, stating that in addition to account and billing information, the attacker also accessed a small number of customers' keys, datasets, and unfinished…",
+   "direction_ids": [
+    "foundation-model"
    ],
    "orgs": []
   },
