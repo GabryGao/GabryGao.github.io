@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-10T21:45:49Z",
+  "generated_on": "2026-11-11T01:29:49Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 207,
-    "response_sha256": "4dd37d607338b5f4b806d2d251d9f71ef10d60500df63878a3f1f473bf6a6434"
+    "response_sha256": "0803e11616381fd78fd0717fd2fbc17ce9d357176a5881235e59b0641463f0e3"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 12,
     "response_sha256": "8a6b163771b3ce1bd1bc53cd5b6dd384fa884f77ef261a3504548c6dedd92b2a"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 96,
     "response_sha256": "4130c48912265df70b4fc66bc599c7cf82ae1ca46d49812bce4c65b2bef9f194"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 1,
     "response_sha256": "a3d26540b4b759e310c0ab5695c1d4a608d10e5bc06b62bc73fa4f61eafd8db3"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 67,
-    "response_sha256": "3270adc83f1cda7fe372a9134362dacc688ca5dc41d9e57ada31769e40034b4c",
+    "response_sha256": "8af4ab7c5cbab3bec188ac4e3a7b5de91229d973afe4e7451196800768e9f0d1",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
     "records": 100,
     "response_sha256": "393cdb5cc8f5d482ebf147616dc3b081b77b517ab1e7f36a9d70d6baa01cc4bd"
    },
@@ -94,13 +94,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-10T21:45:49Z",
-    "records": 42,
+    "last_successful_fetch": "2026-11-11T01:29:49Z",
+    "records": 44,
     "pages_fetched": 3,
-    "response_sha256": "909b62acead82daa5eaeaeb5c707abe9eb0573811397ab7478cdf0e40e6f0561"
+    "response_sha256": "1edd2d87850060af8240520a2ddcfa0b7180c6c5b14f78258cf5f0493396de08"
    }
   ],
-  "record_count": 404,
+  "record_count": 410,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -235,6 +235,23 @@
    "orgs": []
   },
   {
+   "id": "web-d1e82e167d57",
+   "title": "OpenAI: What affects chain-of-thought monitorability across the model lifecycle?",
+   "date": "2026-11-10",
+   "source": "OpenAI Alignment Research",
+   "source_id": "web-alignment-openai-com",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/",
+   "description": "OpenAI studied how pretraining, architecture, reinforcement learning and model-generated data affect chain-of-thought (CoT) monitorability, using no-CoT capability and CoT controllability as proxy metrics for monitor-evasion capability. Re…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
    "id": "web-cc0be578fa76",
    "title": "Australia tightens safety requirements for high-performance AI developers",
    "date": "2026-11-10",
@@ -248,6 +265,23 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-c9d200a425c2",
+   "title": "AI penetration testing tool Artex weaponized by hackers",
+   "date": "2026-11-10",
+   "source": "Dark Reading",
+   "source_id": "web-darkreading-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+   "description": "The open-source multi-agent AI penetration testing framework Artex has been abused by multiple threat actors since its release on GitHub in July, with vendors including Microsoft and CrowdStrike observing a wide range of real-world attacks…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
   },
   {
    "id": "web-c7783bfc66e6",
@@ -319,6 +353,24 @@
    "orgs": []
   },
   {
+   "id": "web-af3b756df47c",
+   "title": "Australia announces an AI safety regulator after an OpenAI Agent intruded into the Medicare system",
+   "date": "2026-11-10",
+   "source": "BENIN WEB TV",
+   "source_id": "web-beninwebtv-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://beninwebtv.com/en/australia-announces-an-ai-regulator-following-the-intrusion-of-an-openai-agent",
+   "description": "Australian Prime Minister Albanese announced on November 10 that a regulator responsible for AI safety will be established to oversee safety during the development and deployment of AI systems; the government has accepted the 18 recommenda…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
    "id": "web-a86355eebaa7",
    "title": "Hackers breached Fireworks AI through a third-party cloud service provider and stole customer data",
    "date": "2026-11-10",
@@ -334,6 +386,24 @@
    "orgs": []
   },
   {
+   "id": "web-91faed0650f0",
+   "title": "New York AI safety law takes effect, OpenAI and Anthropic face new regulation",
+   "date": "2026-11-10",
+   "source": "TechCrunch AI",
+   "source_id": "web-techcrunch-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+   "description": "New York State opened the RAISE Act registration portal on Tuesday; large frontier AI developers with annual revenue exceeding $500 million (such as OpenAI and Anthropic) must complete registration by January 1, 2027. The law requires thes…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
    "id": "web-9155388e98fe",
    "title": "AWS API MCP Server security policy bypass caused by operation name normalization error",
    "date": "2026-11-10",
@@ -346,6 +416,21 @@
    "direction_ids": [
     "agent-software",
     "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-8596eef2b83b",
+   "title": "A few lines of text can bypass Kimi K3.1 Pro's safety defenses",
+   "date": "2026-11-10",
+   "source": "FAR.AI",
+   "source_id": "web-far-ai",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.far.ai/blog/security-stress-test-kimi-k3-1-pro-safeguards",
+   "description": "FAR.AI's safety stress test shows that the defenses of Moonshot AI's open-weight model Kimi K3.1 Pro can be bypassed by low-cost jailbreaks, with a response-prefill attack that skips reasoning achieving a 99.4% success rate on CBRNE and cy…",
+   "direction_ids": [
+    "foundation-model"
    ],
    "orgs": []
   },
@@ -491,14 +576,14 @@
   },
   {
    "id": "web-360bc3b2b0d7",
-   "title": "npm 包 mcp-contract-tester 中存在恶意软件",
+   "title": "Malware present in npm package mcp-contract-tester",
    "date": "2026-11-10",
    "source": "GitHub Security Advisories",
    "source_id": "web-github-com",
    "kind": "incident",
    "category": "incident",
    "url": "https://github.com/advisories/GHSA-34p7-qcxm-gc39",
-   "description": "GitHub 安全公告披露，npm 包 mcp-contract-tester 含有恶意软件，所有已发布版本均受影响，尚无修复版本。公告称，任何安装或运行过该包的计算机都应视为已被完全控制，存储在本机的全部密钥和机密应立即在另一台计算机上轮换；由于计算机可能已被外部实体取得完全控制，卸载该包并不能保证清除安装它所带来的所有恶意软件。",
+   "description": "A GitHub security advisory discloses that the npm package mcp-contract-tester contains malware; all published versions are affected and there is no fixed version. The advisory states that any computer that has installed or run the package …",
    "direction_ids": [
     "agent-software"
    ],
@@ -524,14 +609,14 @@
   },
   {
    "id": "web-28556708aa85",
-   "title": "It is unclear to us whether Google DeepMind intentionally trains on chain of thought",
+   "title": "Redwood Research is not yet clear whether Google DeepMind intentionally trains on chain of thought",
    "date": "2026-11-10",
    "source": "Redwood Research",
    "source_id": "web-blog-redwoodresearch-org",
    "kind": "discovered",
    "category": "alignment",
    "url": "https://blog.redwoodresearch.org/p/we-dont-understand-whether-gdm-intentionally",
-   "description": "Redwood Research said in a post that page 114 of the Gemini 4 safety report mentions that some RL training components observe thought content and weight reasoning that is on the right track, and Redwood inferred from this that Google DeepM…",
+   "description": "Redwood Research researcher Alek Westover wrote in a post that page 114 of the Gemini 4 safety report appears to mention that Google DeepMind (GDM) observed thought content during RL training and used auxiliary rewards to weight reasoning …",
    "direction_ids": [
     "foundation-model"
    ],
@@ -588,16 +673,31 @@
   },
   {
    "id": "web-1c1b0cb169d4",
-   "title": "Australia plans to establish an AI regulator and is considering criminal offenses for AI violations",
+   "title": "Australia plans to establish an AI regulator and create criminal offenses for AI violations",
    "date": "2026-11-10",
    "source": "Law360",
    "source_id": "web-law360-com",
    "kind": "discovered",
    "category": "research",
    "url": "https://www.law360.com/articles/2548280/australia-plans-ai-regulator-criminal-offence-for-ai-breaches",
-   "description": "The Australian federal government on Tuesday introduced mandatory AI safety controls and announced plans to establish a regulator that can impose \"significant penalties\" on AI companies, while considering new criminal offenses for such inc…",
+   "description": "The Australian federal government on Tuesday introduced mandatory AI safety controls and announced plans to establish an AI regulator and create criminal offenses for AI violations. The report said the move stems in part from an incident e…",
    "direction_ids": [
     "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-17cfcf5b5731",
+   "title": "npm package @lemili9804/mcp-weather-server contains malware",
+   "date": "2026-11-10",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-qwfq-cw9x-55x4",
+   "description": "A GitHub security advisory states that versions 1.0.3 and 1.0.6 of the npm package @lemili9804/mcp-weather-server (an MCP weather server) contain malware, and there is currently no fixed version. The advisory states that any computer that …",
+   "direction_ids": [
+    "agent-software"
    ],
    "orgs": []
   },
