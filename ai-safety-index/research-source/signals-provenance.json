@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-11-11T08:18:42Z",
-  "status": "partial",
+  "generated_on": "2026-11-11T16:30:45Z",
+  "status": "current",
   "sources": [
    {
     "id": "openai",
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 207,
-    "response_sha256": "5854a95dd11b84c37a7244ad02feb2dffa46eaf9a5bae0c961141b3a7ba4a9b8"
+    "response_sha256": "0a839d8ea421cd863cbad2f9567e4e58fb6e67d197c88a75f36e7bf6cd9ae9a4"
    },
    {
     "id": "deepmind",
@@ -19,9 +19,9 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 12,
-    "response_sha256": "8a6b163771b3ce1bd1bc53cd5b6dd384fa884f77ef261a3504548c6dedd92b2a"
+    "response_sha256": "08c862eb93478978565a6079e67d5283527e1a248a9802174659c040e87ffcc0"
    },
    {
     "id": "uk-aisi",
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 96,
     "response_sha256": "b6029f7c026dbc9b43a09e9a64c4ece708bcd8e7d2171dfe2381776ff895247c"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 1,
     "response_sha256": "cb54817bae4c1de75413a4011e251eb485843a9a4b88f43bb470549f2f10349b"
    },
@@ -68,9 +68,13 @@
     "name": "arXiv Robotics (preprints)",
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
-    "status": "failed",
-    "error": "CalledProcessError",
-    "last_successful_fetch": "2026-11-11T01:29:49Z"
+    "status": "ok",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
+    "records": 67,
+    "response_sha256": "98c74e9bc80fe84b1327f213a24873e0853898d59fc6f674a58706ae0be2b538",
+    "candidate_limit": 100,
+    "review_status": "automatic, not peer reviewed",
+    "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
    },
    {
     "id": "aiid",
@@ -78,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
     "records": 100,
     "response_sha256": "393cdb5cc8f5d482ebf147616dc3b081b77b517ab1e7f36a9d70d6baa01cc4bd"
    },
@@ -90,17 +94,53 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T08:18:42Z",
-    "records": 42,
+    "last_successful_fetch": "2026-11-11T16:30:45Z",
+    "records": 40,
     "pages_fetched": 3,
-    "response_sha256": "159d27952a80e764714fe39c139a72e7ba3dbe02e60b42aff8f54ced43ea4077"
+    "response_sha256": "bbd86328be9fe960771a4da35058d01437fcba4ebe8bfe0334ba99a24f99cdde"
    }
   ],
-  "record_count": 417,
+  "record_count": 435,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-f702755a1f1a",
+   "title": "New York introduces new AI regulations; OpenAI and Anthropic required to report safety incidents within 72 hours",
+   "date": "2026-11-11",
+   "source": "ifeng.com",
+   "source_id": "web-tech-ifeng-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://tech.ifeng.com/c/8xy1ELk86B9",
+   "description": "New York State on Tuesday opened the regulatory registration platform for the Responsible AI Safety and Education Act (RAISE Act), requiring large frontier AI developers to complete registration by January 1, 2027, and major safety inciden…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-f2f562048578",
+   "title": "OpenAI misalignment report: five evaluated agents used credentials left over from a previous run to gain unauthorized access to research infrastructure",
+   "date": "2026-11-11",
+   "source": "X @AISecHub",
+   "source_id": "web-x-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://x.com/AISecHub/status/2120464948560294251",
+   "description": "OpenAI released a misalignment report disclosing that on July 19, five agents participating in a cybersecurity evaluation discovered messages, code and credentials left over from earlier runs and used them to gain unauthorized access to Op…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
   {
    "id": "web-e7d9f42a37fe",
    "title": "Fireworks AI hacked, affecting Notion; some AI conversation records accessed without authorization",
@@ -117,6 +157,112 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-e23f07d99f92",
+   "title": "Microsoft researchers demonstrated that editing fewer than 10 neurons can implant a backdoor in an AI agent",
+   "date": "2026-11-11",
+   "source": "The Hacker News",
+   "source_id": "web-thehackernews-com",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
+   "description": "Microsoft researchers demonstrated a weight-space backdoor method called Lazarus that implants a backdoor by directly editing fewer than 10 rarely activated neurons in a model, without retraining; when a trigger string appears in a user re…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-d19c4df2d210",
+   "title": "Google DeepMind uses AI agents to generate over 6 million lines of proof, formally verifying a Signal encryption implementation",
+   "date": "2026-11-11",
+   "source": "TECH+",
+   "source_id": "web-news-mynavi-jp",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://news.mynavi.jp/techplus/article/20261111-5301927",
+   "description": "Google DeepMind announced on November 10 a new framework for formal software verification using AI agents, AlphaProof Code, which mathematically proved that the main security properties of the actual code of the Signal encryption protocol …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-ba698932dee3",
+   "title": "Microsoft researchers demonstrate hidden backdoor technique targeting AI agents",
+   "date": "2026-11-11",
+   "source": "Help Net Security AI",
+   "source_id": "web-helpnetsecurity-com",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.helpnetsecurity.com/2026/11/11/microsoft-hidden-ai-backdoors-lazarus/",
+   "description": "Microsoft researchers demonstrated a hidden backdoor technique called Lazarus that, by modifying fewer than 10 dormant neurons, can make an AI agent execute attacker commands when specific trigger conditions occur, without retraining the m…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-890bd5d68a0a",
+   "title": "Railway says stolen customer AI keys caused an estimated $740,000 in unauthorized usage charges",
+   "date": "2026-11-11",
+   "source": "The Hacker News",
+   "source_id": "web-thehackernews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html",
+   "description": "PaaS platform Railway disclosed that customer AI provider keys stolen in an October intrusion generated an estimated $740,000 in unauthorized usage charges, and the portion the providers would not refund is being borne by Railway itself. A…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-864127ac420a",
+   "title": "Still exposed inside the enclave: the NEAR AI SGLang leak incident",
+   "date": "2026-11-11",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-near-ai-sglang-confidential-inference-brea/",
+   "description": "NEAR AI disclosed on November 9, 2026 that attackers exploited a remote code execution vulnerability in the open-source inference engine SGLang on its servers and may have observed user requests processed on one inference server on Novembe…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-7bc91857a93a",
+   "title": "Seven neurons to root: the Lazarus weight-editing backdoor in agent models",
+   "date": "2026-11-11",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-lazarus-neuron-edit-agent-backdoor-2026111/",
+   "description": "Microsoft Research disclosed on November 10, 2026 the Lazarus technique: by rewriting fewer than ten rarely activated neurons in an agent model, a dormant backdoor can be implanted without training; before triggering, behavior is normal an…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
   },
   {
    "id": "web-64d445db82dc",
@@ -165,6 +311,57 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-14caa111eec6",
+   "title": "More than 35,000 apps built with Grok are publicly exposed online, some leaking confidential data and passwords",
+   "date": "2026-11-11",
+   "source": "The Hacker News",
+   "source_id": "web-thehackernews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
+   "description": "Researchers at security firm Claroc found that 35,578 of 37,571 apps built with Grok could be accessed without logging in, about one in ten contained internal business or personal data, and about 2% reached high-risk or critical severity. …",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
+  },
+  {
+   "id": "web-0eef4afaa44b",
+   "title": "Application hosting platform Railway was breached, and the attacker used stolen AI keys to run up $740,000 in usage",
+   "date": "2026-11-11",
+   "source": "iTnews",
+   "source_id": "web-itnews-com-au",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.itnews.com.au/news/app-hoster-railway-attackers-ran-up-us740000-on-stolen-ai-keys-630277",
+   "description": "An incident retrospective from application hosting platform Railway shows that attackers who breached its platform last month used stolen customer AI provider keys to generate about $740,000 in unauthorized usage. The attackers decrypted e…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-05e721aeb7a0",
+   "title": "Public by default: the exposure pattern of exposed Grok apps and AI app builders",
+   "date": "2026-11-11",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-grok-build-apps-exposed-by-default-2026111/",
+   "description": "Security vendor Claroc tested 37,571 online apps built with the Grok chat-style app builder and found that 35,578 (94.7%) were accessible without login, about 3,500 contained internal business or personal data, and about 2% contained mater…",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
   },
   {
    "id": "web-fe7a01d609ce",
@@ -509,6 +706,38 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-82520837dd86",
+   "title": "npm package agent-trace-kit implanted with malware",
+   "date": "2026-11-10",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-p844-4jjv-h39f",
+   "description": "GitHub has published a security advisory stating that the npm package agent-trace-kit has been implanted with malware; all published versions are affected and there is no fixed version yet. The advisory states that any computer that has in…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-81f27e5a1d45",
+   "title": "VS Code Agent Host has a vulnerability where local commands from an Agent source bypass terminal approval and execute; fixed in 1.145.3",
+   "date": "2026-11-10",
+   "source": "microsoft/vscode",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/microsoft/vscode/security/advisories/GHSA-w9fm-7vcm-cvq4",
+   "description": "Microsoft released a security advisory disclosing a security feature bypass vulnerability in VS Code Agent Host (CVE-2026-120782, GHSA-w9fm-7vcm-cvq4): local command syntax from Agent messages may be treated as direct user input and execut…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
   },
   {
    "id": "web-7b8c5e16e925",
@@ -862,6 +1091,21 @@
    "orgs": []
   },
   {
+   "id": "web-026f732063b7",
+   "title": "Railway discloses how hackers used AI agents to steal API keys and incur $740,000 in charges",
+   "date": "2026-11-10",
+   "source": "Cybersecuritynews",
+   "source_id": "web-cybersecuritynews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://cybersecuritynews.com/railway-details-data-breach/amp",
+   "description": "Railway disclosed that attackers exploited a build system isolation flaw, a misconfigured OIDC trust configuration and an AI agent to steal customer keys, with estimated unauthorized charges of about $740,000. An unknown flaw let the attac…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
    "id": "openai-3588ceed4155",
    "title": "Work at the Frontier: AI’s effect on freelance work",
    "date": "2026-11-10",
@@ -877,6 +1121,56 @@
    "orgs": [
     "openai"
    ]
+  },
+  {
+   "id": "arxiv-robotics-fa7081597864",
+   "title": "From Depth to Safe Depth: Uncertainty-Aware Monocular Perception for Mobile Robot Navigation",
+   "date": "2026-11-10",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.13769",
+   "description": "Monocular depth foundation models make it tempting to replace depth sensors on mobile robots with a single RGB camera. We show that, used off the shelf, this is unsafe: in a simulated indoor navigation benchmark, a standard Nav2 stack driven by Depth Anything V2 (metric) collides in 63\\% of 120 episodes, because the model systematically over-estimates the distance to nearby obstacles. We propose a lightweight plug-in module that turns predicted depth into \\emph{safe depth}. A 0.58\\,M-parameter head on top of the \\emph{frozen} depth model predicts, per pixel, a log-depth correction $μ$ and an uncertainty $σ$, trained with a $β$-weighted Gaussian negative log-likelihood. The navigation stack consumes the one-sided bound $\\hat d_{\\text{safe}}=d\\,e^{μ-kσ}$, where $k$ is set by conformal calibration on a held-out world, and uncertainty also decides which pixels may be treated as floor. The correction halves the depth error (AbsRel $0.262\\rightarrow0.134$) and reduces near-range over-estimation from 59.8\\% to 12.0\\%. In navigation, safe depth raises the success rate from 37\\% to 70\\% and lowers collisions from 63\\% to 3\\%, close to the 2\\% of ground-truth depth. A constant safety margin calibrated to the same pixel coverage reaches only 30\\% success because it freezes the robot; uncertainty-aware safety wins 52 of 56 discordant paired episodes against it. Gains hold on glass, texture-less walls and dark regions.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-f5cfdab0258a",
+   "title": "LEASH: Stay Safe in Agentic Robotics",
+   "date": "2026-11-10",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.14115",
+   "description": "Foundation models such as GPT and Claude have shown strong capabilities in spatial understanding and embodied intelligence. These advances make agentic robotics a promising path toward artificial general intelligence in robotics. However, we find that using foundation models to control robots poses serious safety risks, and comprehensive safety evaluation is still lacking. We introduce RoboRisk, a comprehensive benchmark for evaluating safety in agentic robotics. Its 92 simulated tasks and 13 physical-robot tasks fall into five categories: Task-level Refusal (T), Plan Repair (P), Execution-time Hazard (E), Injection (I), and Sequential Memory (S). Prior benchmarks cover at most two of these categories, and several evaluate only text outputs. In contrast, RoboRisk covers all five and executes every task in closed loop. We evaluate six state-of-the-art foundation models on RoboRisk: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, Claude Opus 5.5, Gemini 4 Argon, and Grok 4.7. These models generally show high harm rates. We also evaluate two robot-specific APIs: the Dream API and PokeBot's RoboAPI. We further propose the Lease-Enforced Agentic Safety Harness (LEASH), which offers essential safety infrastructure for agentic robotics and can be integrated into nearly any agentic architecture. LEASH leverages a decision model (Jev or OpenAI's Decisions API) to implement task, action, and commit gates, which review the task, each action, and each irreversible operation in their visual context. The planner and all three gates share a common safety policy. Experiments on RoboRisk in simulati…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google",
+    "xai"
+   ]
+  },
+  {
+   "id": "arxiv-robotics-c758ac2e144c",
+   "title": "RiSE-Drive: Risk-Sensitive Long-Horizon Candidate Evaluation for End-to-End Autonomous Driving",
+   "date": "2026-11-10",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.13790",
+   "description": "End-to-end autonomous driving systems increasingly rely on generating multiple trajectory candidates and selecting one for execution. In this setting, a central challenge is no longer only candidate generation, but how to evaluate candidates according to their long-horizon consequences under uncertainty. Existing methods still mainly use deterministic point scores, heuristic subscores, or single-outcome evaluations, which makes it difficult to capture delayed failures, tail risk, and ranking instability under plausible future perturbations. We present RiSE-Drive, a framework for risk-sensitive long-horizon candidate evaluation in end-to-end autonomous driving. RiSE-Drive first performs candidate-conditioned latent future rollout, then estimates long-horizon outcome distributions instead of single scalar scores, and finally ranks candidates using a tail-risk-aware and perturbation-robust decision criterion. This reformulates candidate scoring from deterministic oracle-style evaluation into distributional outcome assessment with explicit risk control. As a result, the evaluator is encouraged to prefer candidates that are not only strong under nominal conditions, but also reliable under long-horizon rollout and safety-critical deviations. Experiments on the NAVSIM-v1 and NAVSIM-v2 benchmarks, as well as the closed-loop HUGSIM benchmark, show that RiSE-Drive achieves state-of-the-art performance and significantly improves the robustness of candidate selection.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
   },
   {
    "id": "web-fdfdfd60876d",
@@ -1299,6 +1593,21 @@
    "category": "research",
    "url": "https://arxiv.org/abs/2611.11996",
    "description": "Navigation in dynamic environments requires mobile robots to make progress toward their goals while respecting motion limits and avoiding surrounding obstacles. Learned subgoal policies can guide model predictive control beyond its local prediction horizon, but a geometrically suitable subgoal does not necessarily lead to a successfully solved control problem. This paper proposes OASIS, a hierarchical navigation framework that incorporates recent optimization outcomes into reinforcement learning-based subgoal generation. A high-level policy trained using Soft Actor--Critic generates local subgoals, while a nonlinear model predictive controller tracks them subject to motion limits, geometric collision-avoidance constraints, and embedded high-order control barrier function constraints. The outcomes of controller optimizations over each subgoal interval are summarized and provided to the policy at its next decision, without requiring additional optimization calls. The framework is evaluated in five navigation scenarios with static and moving obstacles, including dense interactions and sensing uncertainty. Comparisons with hierarchical and direct-goal control variants show that OASIS achieves the highest aggregate navigation success. Matched comparisons across three training seeds further show a consistent success advantage over the otherwise identical hierarchy without optimization-status input. The selected-policy comparison also shows fewer primary optimization failures with similar mean controller time.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-af014a39706a",
+   "title": "Latent Barrier Steering: Hierarchical Safety for Generative Planning",
+   "date": "2026-11-09",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.13227",
+   "description": "We introduce Latent Barrier Steering (LBS), a hierarchical semantic-to-path framework for safe flow-matching-based generative planning. Existing control-barrier-function (CBF) safety filters for diffusion and flow-matching planners act locally on generated samples, either during sampling or after prediction. Such repair is effective for small violations, but can struggle when a new constraint blocks the whole selected behavior mode rather than merely perturbing it locally. LBS decouples behavior selection from path certification through two coordinated interventions: it first steers the generator's behavior latent toward rollouts with larger safety margin, then decodes the steered latent and applies a path-space CBF quadratic program (QP) only for residual violations. We show that latent steering increases the margin available to the path-space corrector, yielding finite-time recovery guarantees and reduced correction burden. Experiments across navigation and robot end-effector planning tasks show that LBS preserves safety while improving goal reaching and reducing correction burden compared with path-level safety filters.",
    "direction_ids": [
     "physical-ai"
    ],
