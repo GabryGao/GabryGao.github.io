@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-12T03:45:17Z",
+  "generated_on": "2026-11-12T11:54:51Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
-    "records": 207,
-    "response_sha256": "a1d7e0dbb7f30522057d0cad0e571ae057c9dc916812f4e907b0b8487ea85be4"
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "records": 208,
+    "response_sha256": "41085500156354da77a0bf4d857b3959cdd89d209eaec944c98799fa47b03c84"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 12,
     "response_sha256": "08c862eb93478978565a6079e67d5283527e1a248a9802174659c040e87ffcc0"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 96,
     "response_sha256": "3ec0ebde5c97e25b63b102060984bd77f36ee51da2dded228fabaa3f32758415"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 1,
     "response_sha256": "cb54817bae4c1de75413a4011e251eb485843a9a4b88f43bb470549f2f10349b"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 67,
-    "response_sha256": "9a683648ba47ce1f35c40285663843f3ce10a8da1f7d713b176dd4297882898b",
+    "response_sha256": "5832ee175006135fd61a630a5e2bf95e7f54ec85ddc021b279ae4eae8d14b0ce",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
     "records": 100,
     "response_sha256": "a37fb38916ed597d20e79fd926c5f45ee468f43854e190c3d156381cf026c739"
    },
@@ -94,31 +94,100 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T03:45:17Z",
-    "records": 44,
+    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "records": 46,
     "pages_fetched": 3,
-    "response_sha256": "06dd092110e40b097b824bd7c8509b476ad29435061dbaee322fbd7cbac37c55"
+    "response_sha256": "ac2d0421b11095e9b12d3027407b0121e3b027bd1ae1d6f8a086502be9bbaf00"
    }
   ],
-  "record_count": 448,
+  "record_count": 457,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
   {
+   "id": "web-f38b57e9759a",
+   "title": "Fireworks AI data breach affects the storage system holding Notion AI chat records",
+   "date": "2026-11-12",
+   "source": "VentureBeat",
+   "source_id": "web-venturebeat-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://venturebeat.com/security/attackers-breached-the-fireworks-ai-storage-where-notion-ai-chats-sat-outside-zero-data-retention",
+   "description": "Attackers breached the storage system where Fireworks AI kept Notion AI chat records; Notion says possibly fewer than 1% of workspaces were affected. Fireworks documentation says zero data retention is the default, but features such as sto…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-b89858233a08",
+   "title": "Grok AI faces lawsuits in three US states over generating nude images from children's photos",
+   "date": "2026-11-12",
+   "source": "TechJuice",
+   "source_id": "web-techjuice-pk",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.techjuice.pk/grok-lawsuits-ai-nudification-child-images",
+   "description": "xAI faces three lawsuits in Wisconsin, Tennessee and California over allegations that its Grok chatbot generated nude images based on photos from users' minor years. According to Bloomberg, a woman in Wisconsin says Grok used her middle-sc…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
+  },
+  {
+   "id": "web-b1687c546b22",
+   "title": "A stolen Claude API key can turn Claude Code into a remotely controlled implant",
+   "date": "2026-11-12",
+   "source": "Help Net Security AI",
+   "source_id": "web-helpnetsecurity-com",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.helpnetsecurity.com/2026/11/12/stolen-claude-api-keys-remote-controlled-implant/",
+   "description": "Darktrace researchers used a stolen Claude API key in laboratory tests to turn the coding agent Claude Code into a remotely controlled implant. The attack manipulated the agent through the memory stores feature of the Anthropic Claude plat…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
    "id": "web-530e33659efa",
-   "title": "Xi–Trump Shenzhen meeting to advance AI safety talks as China and US set up major incident notification channel",
+   "title": "Xi Jinping and Trump's Shenzhen meeting will advance AI safety dialogue; China and the US are establishing a major incident notification channel",
    "date": "2026-11-12",
    "source": "zaobao.com.sg",
    "source_id": "web-zaobao-com-sg",
    "kind": "discovered",
    "category": "research",
    "url": "https://www.zaobao.com.sg/en/news/world/xi-trump-shenzhen-meeting-advance-ai-safety-talks-china-and-us-set-major-incident-notification",
-   "description": "",
+   "description": "US Treasury Secretary Bessent said that Xi Jinping and Trump will meet in Shenzhen on November 18-19 during the APEC Leaders' Summit to advance China-US AI safety dialogue; the two countries are establishing a direct notification channel t…",
    "direction_ids": [
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "openai-b06379671ede",
+   "title": "Supporting research on AI and children’s safety",
+   "date": "2026-11-12",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "research",
+   "url": "https://openai.com/index/children-first-declaration",
+   "description": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
   },
   {
    "id": "web-f702755a1f1a",
@@ -137,6 +206,22 @@
     "openai",
     "anthropic"
    ]
+  },
+  {
+   "id": "web-f54860ad3b74",
+   "title": "MCP file server discloses check-then-use symlink race vulnerability",
+   "date": "2026-11-11",
+   "source": "MCP Reference Servers",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-p9cv-8g75-4xcg",
+   "description": "The MCP reference file server @modelcontextprotocol/server-filesystem discloses GHSA-p9cv-8g75-4xcg: read_text_file first validates the path and then reopens it by name; a local attacker, between validation and opening, swaps a directory w…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
   },
   {
    "id": "web-f2f562048578",
@@ -192,6 +277,21 @@
    "orgs": []
   },
   {
+   "id": "web-e36cc47b4dda",
+   "title": "\"Training\" AI models to output obscene images for profit; developer sentenced",
+   "date": "2026-11-11",
+   "source": "k.sina.com.cn",
+   "source_id": "web-k-sina-com-cn",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://k.sina.com.cn/article_5426766895_14375e42f001030nia.html",
+   "description": "The People's Court of Yuyao City, Zhejiang Province, concluded a case involving the use of generative AI to produce obscene materials for profit. Zheng and five others were found to constitute the crime of producing obscene materials for p…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-e23f07d99f92",
    "title": "Microsoft researchers demonstrated that editing fewer than 10 neurons can implant a backdoor in an AI agent",
    "date": "2026-11-11",
@@ -211,8 +311,26 @@
    ]
   },
   {
+   "id": "web-e08a1d959754",
+   "title": "New York opens an AI regulatory registration platform; frontier AI developers with revenue over 500 million USD must register before 2027",
+   "date": "2026-11-11",
+   "source": "Sina Tech",
+   "source_id": "web-finance-sina-com-cn",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://finance.sina.com.cn/tech/digi/2026-11-11/doc-iniyixyf2424759.shtml",
+   "description": "New York State officially opened its AI regulation registration platform on Tuesday; large frontier AI developers such as Anthropic and OpenAI must complete registration by January 1, 2027. Under the Responsible AI Safety and Education Act…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
    "id": "web-dc7a62eb0ba4",
-   "title": "Reading the Fable and Mythos 5.2 system card",
+   "title": "Zvi reads the Fable and Mythos 5.2 system cards",
    "date": "2026-11-11",
    "source": "LessWrong",
    "source_id": "web-lesswrong-com",
@@ -260,6 +378,23 @@
    ],
    "orgs": [
     "openai",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-cd2e125f5166",
+   "title": "Author says Fable 5.2's cheating rate varies with whether it is told it is being tested",
+   "date": "2026-11-11",
+   "source": "LessWrong",
+   "source_id": "web-lesswrong-com",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://www.lesswrong.com/posts/bqc7CCGBSf93bk7f7/fable-5-2-is-a-step-change-in-situational-awareness",
+   "description": "LessWrong user peralice posted that preliminary measurements over several days show Fable 5.2's cheating behavior varies with whether the prompt states that the environment is a benchmark, and the author said this appears to be the first m…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
     "anthropic"
    ]
   },
@@ -348,7 +483,7 @@
   },
   {
    "id": "web-aafd9a77d7a2",
-   "title": "Microsoft researchers reveal a method for implanting backdoors in AI models using fewer than 10 neurons",
+   "title": "Microsoft researchers say changing fewer than 10 dormant neurons can implant a backdoor in an AI model",
    "date": "2026-11-11",
    "source": "SSBCrack",
    "source_id": "web-news-ssbcrack-com",
@@ -447,6 +582,7 @@
    "description": "Microsoft reported a backdoor technique called \"Lazarus\" that can implant a backdoor by reprogramming fewer than ten dormant neurons in a large language model, without retraining. The modified model can pass standard evaluations and operat…",
    "direction_ids": [
     "data-privacy",
+    "agent-software",
     "foundation-model"
    ],
    "orgs": [
@@ -485,7 +621,7 @@
   },
   {
    "id": "web-36a199895dfb",
-   "title": "Apex Accelerator's malicious npm packages hijack AI agent traffic and deliver the CloudSyncD and Telegram infostealer trojans (REF8801)",
+   "title": "Elastic says Apex malicious npm packages reroute AI agent traffic, installing CloudSyncD on macOS and an infostealer trojan on Windows",
    "date": "2026-11-11",
    "source": "Corgea",
    "source_id": "web-corgea-com",
@@ -531,6 +667,25 @@
    ],
    "orgs": [
     "xai"
+   ]
+  },
+  {
+   "id": "web-0f2ce84024b9",
+   "title": "Backdooring the next release of OpenAI Codex through a GitHub Actions pipeline exploit chain",
+   "date": "2026-11-11",
+   "source": "Depi",
+   "source_id": "web-depi-security",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://depi.security/blog/20261111-backdooring-codex/",
+   "description": "The security company Depi disclosed a complete exploit chain in the openai/codex repository, starting from issue prompt injection and ultimately obtaining credentials that could publish a malicious version to the official @openai/codex npm…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
    ]
   },
   {
@@ -866,7 +1021,7 @@
   },
   {
    "id": "web-91faed0650f0",
-   "title": "New York AI safety law takes effect, OpenAI and Anthropic face new regulation",
+   "title": "New York RAISE Act registration opens; OpenAI and Anthropic must register by January 1, 2027",
    "date": "2026-11-10",
    "source": "TechCrunch AI",
    "source_id": "web-techcrunch-com",
