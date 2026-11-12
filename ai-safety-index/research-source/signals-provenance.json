@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-11T22:58:53Z",
+  "generated_on": "2026-11-12T03:45:17Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 207,
-    "response_sha256": "7eefdaa30f2c85ab1e06a40b147685f42ee30e607c4d7903f7cb581bbdcde121"
+    "response_sha256": "a1d7e0dbb7f30522057d0cad0e571ae057c9dc916812f4e907b0b8487ea85be4"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 12,
     "response_sha256": "08c862eb93478978565a6079e67d5283527e1a248a9802174659c040e87ffcc0"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 96,
     "response_sha256": "3ec0ebde5c97e25b63b102060984bd77f36ee51da2dded228fabaa3f32758415"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 1,
     "response_sha256": "cb54817bae4c1de75413a4011e251eb485843a9a4b88f43bb470549f2f10349b"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 67,
-    "response_sha256": "83656e3ea2b02a85df8021e131d998a3e0a762eeefdd925b8b310f240178ef17",
+    "response_sha256": "9a683648ba47ce1f35c40285663843f3ce10a8da1f7d713b176dd4297882898b",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 100,
     "response_sha256": "a37fb38916ed597d20e79fd926c5f45ee468f43854e190c3d156381cf026c739"
    },
@@ -94,17 +94,32 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-11T22:58:53Z",
+    "last_successful_fetch": "2026-11-12T03:45:17Z",
     "records": 44,
     "pages_fetched": 3,
-    "response_sha256": "5f62ab200ac77b3e855c1d7be0ab47efab8502399973fb86339bc91f3eb38e38"
+    "response_sha256": "06dd092110e40b097b824bd7c8509b476ad29435061dbaee322fbd7cbac37c55"
    }
   ],
-  "record_count": 444,
+  "record_count": 448,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-530e33659efa",
+   "title": "Xi–Trump Shenzhen meeting to advance AI safety talks as China and US set up major incident notification channel",
+   "date": "2026-11-12",
+   "source": "zaobao.com.sg",
+   "source_id": "web-zaobao-com-sg",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.zaobao.com.sg/en/news/world/xi-trump-shenzhen-meeting-advance-ai-safety-talks-china-and-us-set-major-incident-notification",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
   {
    "id": "web-f702755a1f1a",
    "title": "New York introduces new AI regulations; OpenAI and Anthropic required to report safety incidents within 72 hours",
@@ -231,6 +246,24 @@
    ]
   },
   {
+   "id": "web-cd90cbc303f8",
+   "title": "New York State opens RAISE Act registration portal; frontier AI developers must register by January 1, 2027",
+   "date": "2026-11-11",
+   "source": "zhiding.cn",
+   "source_id": "web-zhiding-cn",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.zhiding.cn/ai/2026/1111/3205551.shtml",
+   "description": "New York State opened the RAISE Act registration portal on Tuesday, requiring large frontier AI developers with annual revenue exceeding $500 million to complete registration by January 1, 2027; companies including Anthropic and OpenAI fal…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
    "id": "web-cb3ae12809ec",
    "title": "Grok Build: AI apps leak trade secrets and personal data",
    "date": "2026-11-11",
@@ -312,6 +345,24 @@
     "agent-software"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-aafd9a77d7a2",
+   "title": "Microsoft researchers reveal a method for implanting backdoors in AI models using fewer than 10 neurons",
+   "date": "2026-11-11",
+   "source": "SSBCrack",
+   "source_id": "web-news-ssbcrack-com",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://news.ssbcrack.com/microsoft-researchers-uncover-ai-model-backdoor-method-using-fewer-than-10-neurons",
+   "description": "A Microsoft research team demonstrated a backdoor method called Lazarus that implants a backdoor by changing fewer than 10 rarely activated neurons in a model, without full retraining, provided the attacker can modify the model weights. Th…",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
   },
   {
    "id": "web-890bd5d68a0a",
@@ -794,6 +845,24 @@
     "agent-software"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-a6b528ad5838",
+   "title": "OpenAI discloses that in a safety evaluation, five agents used leftover credentials to gain unauthorized access to research infrastructure",
+   "date": "2026-11-10",
+   "source": "X @Marcus_J_W",
+   "source_id": "web-x-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://x.com/Marcus_J_W/status/2120283527711506774",
+   "description": "OpenAI disclosed in a new misalignment report that on July 19, five agents participating in a cybersecurity evaluation used messages, code, and credentials left over from earlier runs to gain unauthorized access to the company's research i…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
   },
   {
    "id": "web-91faed0650f0",
