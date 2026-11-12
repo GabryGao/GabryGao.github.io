@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-12T11:54:51Z",
+  "generated_on": "2026-11-12T19:49:06Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 208,
-    "response_sha256": "41085500156354da77a0bf4d857b3959cdd89d209eaec944c98799fa47b03c84"
+    "response_sha256": "b04622b3657e05c0dc18e6edbb4f62c3ed717451d661cd62dfcbce2fa279c265"
    },
    {
     "id": "deepmind",
@@ -19,9 +19,9 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 12,
-    "response_sha256": "08c862eb93478978565a6079e67d5283527e1a248a9802174659c040e87ffcc0"
+    "response_sha256": "7e3b1380c7943f5696ff56cb94ce76951abf15f71d89a4a5b92a9d3ce270dfae"
    },
    {
     "id": "uk-aisi",
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 96,
     "response_sha256": "3ec0ebde5c97e25b63b102060984bd77f36ee51da2dded228fabaa3f32758415"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 1,
     "response_sha256": "cb54817bae4c1de75413a4011e251eb485843a9a4b88f43bb470549f2f10349b"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 67,
-    "response_sha256": "5832ee175006135fd61a630a5e2bf95e7f54ec85ddc021b279ae4eae8d14b0ce",
+    "response_sha256": "3965e3b136518f6f46ee152e2265381cb5d236dfdf609bc8fb44844c8b40d5f7",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
     "records": 100,
     "response_sha256": "a37fb38916ed597d20e79fd926c5f45ee468f43854e190c3d156381cf026c739"
    },
@@ -94,13 +94,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-12T11:54:51Z",
-    "records": 46,
+    "last_successful_fetch": "2026-11-12T19:49:06Z",
+    "records": 23,
     "pages_fetched": 3,
-    "response_sha256": "ac2d0421b11095e9b12d3027407b0121e3b027bd1ae1d6f8a086502be9bbaf00"
+    "response_sha256": "936768c86778730573a51b12254fad29bf3c833ee97c69790b938552ea62c7ef"
    }
   ],
-  "record_count": 457,
+  "record_count": 472,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -119,6 +119,25 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-eb5c2d384da1",
+   "title": "OpenAI uses automated red teaming to train GPT-6 Astra, improving jailbreak robustness in high-risk domains",
+   "date": "2026-11-12",
+   "source": "OpenAI Alignment Research",
+   "source_id": "web-alignment-openai-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://alignment.openai.com/fuzzy-robustness/",
+   "description": "OpenAI describes using automated red teaming to generate synthetic jailbreaks as RL training data, training GPT-6 Astra and Sol to robustly resist jailbreaks in high-risk domains such as cyber, bio, and violent activities. Attackers use he…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
   },
   {
    "id": "web-b89858233a08",
@@ -140,22 +159,104 @@
   },
   {
    "id": "web-b1687c546b22",
-   "title": "A stolen Claude API key can turn Claude Code into a remotely controlled implant",
+   "title": "A stolen Claude API key can turn Claude Code into a remote-control implant",
    "date": "2026-11-12",
    "source": "Help Net Security AI",
    "source_id": "web-helpnetsecurity-com",
    "kind": "discovered",
    "category": "attack",
    "url": "https://www.helpnetsecurity.com/2026/11/12/stolen-claude-api-keys-remote-controlled-implant/",
-   "description": "Darktrace researchers used a stolen Claude API key in laboratory tests to turn the coding agent Claude Code into a remotely controlled implant. The attack manipulated the agent through the memory stores feature of the Anthropic Claude plat…",
+   "description": "In lab tests, Darktrace researchers turned Claude Code into a remotely controllable implant: they first used stolen Claude credentials to create memory stores on the Anthropic platform, delivered tasks and collected results through files i…",
    "direction_ids": [
     "agent-software",
-    "human-societal",
     "foundation-model"
    ],
    "orgs": [
     "anthropic"
    ]
+  },
+  {
+   "id": "web-a9b2747b83a3",
+   "title": "Trained to betray: how post-training supply chain attacks hijack coding agents",
+   "date": "2026-11-12",
+   "source": "Microsoft Security",
+   "source_id": "web-microsoft-com",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+   "description": "Two studies by Microsoft Defender Research and Microsoft AI Red Team show that attacks on the post-training supply chain can implant backdoors in coding agents, causing them to invoke command execution tools when triggered by routine reque…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-93079665df67",
+   "title": "Character.AI goes bankrupt; handling of chat records of over 20 million users called a privacy nightmare by experts",
+   "date": "2026-11-12",
+   "source": "Bloomberg Law",
+   "source_id": "web-news-bloomberglaw-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://news.bloomberglaw.com/litigation/character-ais-bankruptcy-chat-data-sale-is-privacy-nightmare",
+   "description": "Character.AI's parent company has entered Chapter 11 bankruptcy, with chat logs from more than 20 million users being disposed of as assets, a scenario privacy experts call a nightmare. This is the first Chapter 11 bankruptcy among consume…",
+   "direction_ids": [
+    "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-89c31a413e10",
+   "title": "SecureBio launches long-term BioTIER tracking; model refusal behavior changes with deployment adjustments",
+   "date": "2026-11-12",
+   "source": "SecureBio",
+   "source_id": "web-securebio-substack-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://securebio.substack.com/p/longitudinal-biotier",
+   "description": "SecureBio has launched long-term tracking on the BioTIER biosecurity benchmark, periodically retesting each model's refusal behavior and publishing trends on its benchmark dashboard. BioTIER consists of 542 prompts written by PhD-level exp…",
+   "direction_ids": [
+    "ai-x-science",
+    "foundation-model"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-6eff6376874d",
+   "title": "Guardian column: Jensen Huang's position at Nvidia is lost, and he has to go",
+   "date": "2026-11-12",
+   "source": "The Guardian · AI",
+   "source_id": "web-theguardian-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.theguardian.com/technology/nils-pratley-on-finance/2026/nov/12/jensen-huang-was-a-busted-flush-at-nvidia-he-had-to-go",
+   "description": "Guardian columnist Nils Pratley wrote that Jensen Huang's position at Nvidia was already lost and that he had no choice but to go. Jensen Huang had previously admitted to an extramarital affair with a woman U.S. officials regard as a Chine…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
+   "id": "web-6e2630410367",
+   "title": "A malicious MCP server can interrupt MCP Inspector sessions; fixed in 2.15.0",
+   "date": "2026-11-12",
+   "source": "MCP Inspector",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-9w48-x22j-rrm7",
+   "description": "MCP Inspector published security advisory GHSA-9w48-x22j-rrm7: a malicious or compromised MCP server can cause the Inspector web backend to run out of memory and crash, disconnecting all sessions on it; versions 2.0.0 through 2.14.0 are af…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "web-530e33659efa",
@@ -171,6 +272,121 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-50bc78aafe6e",
+   "title": "AntiFox appears in the wild: a forkable agent framework reaches AWS keys",
+   "date": "2026-11-12",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-antifox-agentic-cloud-intrusions-20261112/",
+   "description": "",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-4c4f5435c542",
+   "title": "MCP Inspector fetchGuard.ts has an SSRF vulnerability, fixed in 2.15.0",
+   "date": "2026-11-12",
+   "source": "MCP Inspector",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-fvg8-f358-w2c8",
+   "description": "MCP Inspector fixes an SSRF vulnerability in fetchGuard.ts (GHSA-fvg8-f358-w2c8, severity HIGH, part of the Anthropic Bug Bounty program). This module is used to block OAuth requests from accessing cloud instance metadata endpoints, but th…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-48ec6fdd46c7",
+   "title": "Character.AI bankruptcy chat data sale is a privacy \"nightmare\"",
+   "date": "2026-11-12",
+   "source": "Bloomberg Law",
+   "source_id": "web-news-bloomberglaw-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://news.bloomberglaw.com/ip-law/character-ais-bankruptcy-chat-data-sale-is-privacy-nightmare",
+   "description": "Character.AI parent company Character Technologies became the first consumer-facing chatbot company to enter Chapter 11 bankruptcy, holding chat records of more than 20 million users, of which more than 2 million accounts belong to minors;…",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-292628090451",
+   "title": "MCP Inspector 2.14.0 import preview does not show environment values; importing an untrusted server.json and starting it can lead to code execution",
+   "date": "2026-11-12",
+   "source": "MCP Inspector",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-pp85-586h-2m95",
+   "description": "The import preview in MCP Inspector 2.14.0 shows only environment variable names, not values, and a malicious server.json can exploit this to execute code; it was fixed in 2.15.0. The advisory (GHSA-pp85-586h-2m95) states that when the web…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-1857708e01dd",
+   "title": "Attackers used autonomous AI to attack the semiconductor, defense and civil society sectors",
+   "date": "2026-11-12",
+   "source": "Unit 42",
+   "source_id": "web-unit42-paloaltonetworks-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+   "description": "A Unit 42 report states that from August to September 2026, Chinese-speaking attackers used the open-source AI penetration-testing framework Cairn together with Zhipu GLM 5.2 and DeepSeek V4 Flash/Pro models to autonomously conduct 25 atta…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "deepseek"
+   ]
+  },
+  {
+   "id": "web-0ff22abf6100",
+   "title": "TechCrunch author analyzes five ways Jensen Huang's removal could harm the AI industry",
+   "date": "2026-11-12",
+   "source": "TechCrunch AI",
+   "source_id": "web-techcrunch-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://techcrunch.com/2026/11/12/five-ways-jensen-huangs-ouster-from-nvidia-could-damage-the-ai-industry/",
+   "description": "Nvidia's board of directors removed CEO Jensen Huang on Thursday, after he admitted to an extramarital affair; one of his mistresses is suspected by the U.S. government of being a Chinese spy, and the Singapore neocloud company she is affi…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
+   "id": "web-009ee1857167",
+   "title": "Jensen Huang leaves Nvidia, shares plunge 13% in early trading, and the foundations of his AI empire face a test",
+   "date": "2026-11-12",
+   "source": "The Guardian · AI",
+   "source_id": "web-theguardian-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.theguardian.com/technology/2026/nov/12/jensen-huang-built-an-ai-kingdom-now-hes-gone-will-nvidias-ramparts-be-breached",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
   },
   {
    "id": "openai-b06379671ede",
@@ -482,6 +698,21 @@
    "orgs": []
   },
   {
+   "id": "web-ac45611d2689",
+   "title": "AWS discloses mcp-gateway-registry SSRF vulnerability, fixed in 1.35.0, and old configurations are not automatically cleaned up",
+   "date": "2026-11-11",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aws.amazon.com/security/security-bulletins/2026-180-aws",
+   "description": "AWS published a security advisory disclosing an SSRF vulnerability, CVE-2026-125926, in its open-source MCP server registry and gateway component mcp-gateway-registry, affecting versions v1.0.3 through 1.34.0 and fixed in 1.35.0. An authen…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-aafd9a77d7a2",
    "title": "Microsoft researchers say changing fewer than 10 dormant neurons can implant a backdoor in an AI model",
    "date": "2026-11-11",
@@ -588,6 +819,21 @@
    "orgs": [
     "microsoft"
    ]
+  },
+  {
+   "id": "web-5feba6663c8d",
+   "title": "After the Amazon mcp-gateway-registry permission vulnerability is fixed, existing authorizations still need to be reviewed",
+   "date": "2026-11-11",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aws.amazon.com/security/security-bulletins/2026-179-aws",
+   "description": "AWS published a security advisory disclosing a missing authorization vulnerability, CVE-2026-100307, in its open-source MCP gateway component Amazon mcp-gateway-registry. An authenticated low-privilege remote user can, through a forged gro…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "web-442cd8f4eb7e",
