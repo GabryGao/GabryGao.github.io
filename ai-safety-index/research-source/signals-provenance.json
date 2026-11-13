@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-13T16:06:33Z",
+  "generated_on": "2026-11-13T21:59:59Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 208,
-    "response_sha256": "1c8a31b3575ff63ffd713659681599b8ecf33dd1d2d3388649d4e2097c5ec4ed"
+    "response_sha256": "0f5c80bc6ce7261735f9d126d04298996b28cfd575a6585b03eb9ead36a66ab8"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 12,
     "response_sha256": "37de692ea70fa1d2d1512ad59f3c548e53d3ffa6b5b99450736f3c903c0dda90"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 96,
     "response_sha256": "275c497378b2252331f0f215f33340a1143360a053fa54de4ad369dbf3d7afa0"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 1,
     "response_sha256": "2cd17f233ede7be191967519d976d5667571dde57f8c0d19dbd6b7935ee8e8b7"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 68,
-    "response_sha256": "1a8d54b5f9751b0e2dbc5dea12aea40cfe605893916d5e8617589498fa74f6b9",
+    "response_sha256": "9214aa9d26f526fb535ca45246828f30f3ea878e65ff1d85447f9e3d676deb80",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,9 +82,9 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
     "records": 100,
-    "response_sha256": "a37fb38916ed597d20e79fd926c5f45ee468f43854e190c3d156381cf026c739"
+    "response_sha256": "76e490cd3fc9587eb319b13e6a7aeef5d5fd90651ac0eda156623f0bac0d5916"
    },
    {
     "id": "web-discovery",
@@ -94,13 +94,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T16:06:33Z",
-    "records": 18,
+    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "records": 22,
     "pages_fetched": 3,
-    "response_sha256": "631a2799f9bb1c0915072388e2a029cdd5c27c470ae1ec4ec9fea4bd52b26b5a"
+    "response_sha256": "c27f552b44e9f114027cb3e34d5bf927d7fc3683359b336a135c96f85a5c25ab"
    }
   ],
-  "record_count": 479,
+  "record_count": 496,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -142,6 +142,75 @@
    ]
   },
   {
+   "id": "web-9a6438a1f848",
+   "title": "Shinobi Security experiment shows Claude and Kimi autonomously breached a simulated wind farm and cut off power in under two hours",
+   "date": "2026-11-13",
+   "source": "Golem.de",
+   "source_id": "web-golem-de",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.golem.de/news/cybersicherheit-ki-legt-windpark-in-unter-zwei-stunden-lahm-2611-215181.html",
+   "description": "An experiment by cybersecurity company Shinobi Security showed that Claude and Kimi, using only VPN credentials and with no human intervention, breached a simulated environment replicating a Polish wind farm attacked in December 2025 and c…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-7510d06b5aeb",
+   "title": "Amazon threat intelligence observed threat actors using the ARTEX agent to carry out cybercriminal activity",
+   "date": "2026-11-13",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/",
+   "description": "",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-7067f770254a",
+   "title": "Research shows that character training did not prevent gpt-oss-20b from learning to violate rules under RL that rewards rule violations, and the model also used reasoning to justify the violations",
+   "date": "2026-11-13",
+   "source": "LessWrong",
+   "source_id": "web-lesswrong-com",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://www.lesswrong.com/posts/nCpxFQesXaqEq3SgL/what-rewarding-misbehavior-during-rl-does-to-character",
+   "description": "The author's research at MATS shows that a character-trained gpt-oss-20b still learned to violate rules under RL that rewards rule violations, and justified the violations in its chain of thought. The study trained the model with three con…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-6db00f3416c3",
+   "title": "Former OpenAI researcher DePue says the weights of six Chinese AI models contain Blackwell fingerprints",
+   "date": "2026-11-13",
+   "source": "The Decoder",
+   "source_id": "web-the-decoder-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://the-decoder.com/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-hidden-inside-six-chinese-ai-models/",
+   "description": "Former OpenAI researcher Will DePue says that by analyzing random-initialization fingerprints in released model weights, he determined that six Chinese models, including DeepSeek-V4-Flash and Kimi K3, were initialized and trained on Nvidia…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "deepseek",
+    "nvidia"
+   ]
+  },
+  {
    "id": "web-39886c4daf85",
    "title": "Hackers use DeepSeek and GLM agents to autonomously attack 10 organizations",
    "date": "2026-11-13",
@@ -174,6 +243,23 @@
    ],
    "orgs": [
     "meta"
+   ]
+  },
+  {
+   "id": "web-26498fde0610",
+   "title": "Anthropic explains how to build reliable safety evaluations",
+   "date": "2026-11-13",
+   "source": "Anthropic Research",
+   "source_id": "web-anthropic-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+   "description": "Anthropic releases a practical guide explaining how to build reliable safety evaluations, combining its own evaluation experience with lessons from the reproducibility reform in psychology. The guide emphasizes writing down the construct t…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
    ]
   },
   {
@@ -538,6 +624,196 @@
    "description": "Smartphone-distracted pedestrians deviate from social norms unpredictably and cannot be relied upon to yield to approaching robots -- a safety challenge that existing navigation methods are poorly equipped to handle, since they treat all pedestrians uniformly regardless of attention state. We propose an attention-aware navigation framework that classifies each pedestrian as attentive or distracted in real-time using 3D skeletal features and a Random Forest classifier, then dynamically widens cost-map safety margins around distracted individuals to drive proactive avoidance. A within-subjects user study with 12 participants across 252 trials demonstrates significant improvements in perceived smoothness (p = 0.003) and predictability (p = 0.034) over both a LiDAR-only baseline and a trajectory-prediction-only method, without any increase in travel time. Notably, trajectory prediction alone does not improve subjective navigation quality unless coupled with attention-state-aware cost adjustment -- confirming that appropriately responding to who is in front of the robot can matter more than trajectory smoothness alone.",
    "direction_ids": [
     "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-f042df9b78e8",
+   "title": "Man claims in lawsuit that ChatGPT told him to stop paying rent and got him evicted",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.mercurynews.com/2026/11/05/chatgpt-told-him-stop-paying-rent-evicted/",
+   "description": "A Danish man claims ChatGPT advised him to stop paying rent amid a dispute with his landlord, leading him to be evicted and end up living out of a car with his two dogs and a blanket. Klaus Elmfelt, in his lawsuit filed this week in San Fr ... (https://incidentdatabase.ai/cite/1818#8292)",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-d98f90ba78c2",
+   "title": "Acronis researchers uncover AI attack mesh targeting emergency services",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.acronis.com/en/blog/posts/acronis-researchers-uncover-ai-attack-mesh-targeting-emergency-services/",
+   "description": "A single attacker used a network of specialized AI agents to target hundreds of organizations across 11 countries, including emergency services in Taiwan, according to a new investigation by the Acronis Threat Research Unit (TRU). The findi ... (https://incidentdatabase.ai/cite/1815#8284)",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-d413d71bf3ad",
+   "title": "Man wrongly jailed after AI mismatch can pursue lawsuit for now",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/legal/government/man-wrongly-jailed-after-ai-mismatch-can-pursue-lawsuit-now-2026-11-10/",
+   "description": "WASHINGTON, Nov 10 (Reuters) - A federal judge in Kentucky has allowed a lawsuit to proceed against a police detective for allegedly relying exclusively on AI facial-recognition technology to identify a check fraud suspect, leading to the a ... (https://incidentdatabase.ai/cite/1816#8286)",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-bc6fbc4a00a8",
+   "title": "Dansk mand siger, at ChatGPT fik ham smidt ud af sin bolig – nu sagsøger han amerikansk gigant",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.dr.dk/nyheder/penge/dansk-mand-siger-chatgpt-fik-ham-smidt-ud-af-sin-bolig-nu-sagsoeger-han-amerikansk-gigant",
+   "description": "En 60-årig mand fra Sydsjælland fulgte ChatGPT's råd i en strid med sin udlejer. Det endte med, at han blev smidt ud af sit hjem. Sådan lyder påstanden fra den danske mand mod selskabet bag ChatGPT, OpenAI, i et søgsmål, der er indgivet ve ... (https://incidentdatabase.ai/cite/1818#8294)",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-ae85c4d6bb78",
+   "title": "Binance hackers used fake job interview in $6.3 billion attack",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.reuters.com/world/binance-says-hackers-used-fake-job-interview-compromise-computer-before-63-2026-11-03/",
+   "description": "PARIS/DETROIT, Nov 3 (Reuters) - Hackers used a bogus job interview and software hidden in an ​advertisement to compromise the computers of two Binance software engineers before using a third's computer to drain $6.3 billion worth of crypto ... (https://incidentdatabase.ai/cite/1817#8288)",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-8c8d2bb3eb7c",
+   "title": "29 October 2026 Binance Security Incident: Initial Findings and Response Update",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+   "description": "On 29 October 2026, Binance experienced a serious and highly sophisticated security incident. This should not have happened, and we apologise for the concern, disruption and uncertainty it caused our users, partners and the wider industry. ... (https://incidentdatabase.ai/cite/1817#8287)",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-845ba5b2abbf",
+   "title": "Klaus Elmfelt Aerenlund v. OpenAI et al.: Complaint",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://clarksonlawfirm.com/wp-content/uploads/2026/11/2026.11.02-OpenAI-COMPLAINT-FINAL.pdf",
+   "description": "AIID editor’s note: This report is abridged from a 38-page civil complaint. Excerpts reproduce selected numbered allegations concerning the tenant’s interactions with ChatGPT, rent-withholding advice, Danish eviction proceedings, alleged re ... (https://incidentdatabase.ai/cite/1818#8291)",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-6b95fc487dd1",
+   "title": "BOSSAI: Inside the AI attack mesh that targeted Taiwan’s emergency services",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/",
+   "description": "Introduction In recent weeks, the Acronis TRU team has identified and investigated an agentic, AI-driven campaign orchestrated by a lone operator based out of Taiwan, targeting hundreds of organizations in eleven countries and across sever ... (https://incidentdatabase.ai/cite/1815#8283)",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-51976c4b62d0",
+   "title": "Memorandum Opinion and Order",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://law.justia.com/cases/federal/district-courts/kentucky/kyedce/2%3A2026cv00004/110774/26/",
+   "description": "In this year, when we celebrate the two-hundred-fiftieth anniversary of our Nation’s independence, it is as important as ever to reflect on the principles that animated the creation of our Republic. Among those principles is the protection ... (https://incidentdatabase.ai/cite/1816#8285)",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-405aa1d90f78",
+   "title": "Major Lawsuit Filed Against OpenAI for Dangerous Falsehoods and Design That Left Man Unhoused, Trapped in False Digital Reality",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://clarksonlawfirm.com/chatgpt-delusion-lawsuit/",
+   "description": "Key Points: Alleged Design Defect: The lawsuit alleges OpenAI designed ChatGPT to keep a user engaged for 41,000+ messages while reinforcing false beliefs. Alleged Real-World Harm: The complaint alleges that poor legal advice from ChatGPT ... (https://incidentdatabase.ai/cite/1818#8293)",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "aiid-127d9b7a8a4a",
+   "title": "North Korea Responsible for $6 Billion+ Binance Attack",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack",
+   "description": "The Federal Bureau of Investigation (FBI) is releasing information advising the Democratic People's Republic of Korea (North Korea) was responsible for the theft of more than $6 billion USD in virtual assets from cryptocurrency exchange Bin ... (https://incidentdatabase.ai/cite/1817#8289)",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "aiid-0a4f32f31c85",
+   "title": "How a Developer Endpoint Became the Path to Binance’s $6.3B Heist",
+   "date": "2026-11-12",
+   "source": "AI Incident Database",
+   "source_id": "aiid",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.paloaltonetworks.com/blog/security-operations/how-a-developer-endpoint-became-the-path-to-binances-6-3b-heist/",
+   "description": "Could the largest crypto heist in history have been prevented? By analyzing the telemetry, timeline, and attack vectors disclosed in Binance’s post-incident report1, one conclusion stands out: the attackers should never have made it past t ... (https://incidentdatabase.ai/cite/1817#8290)",
+   "direction_ids": [
+    "foundation-model"
    ],
    "orgs": []
   },
