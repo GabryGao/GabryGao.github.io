@@ -1,49 +1,141 @@
 {
  "info": {
-  "generated_on": "2026-11-13T01:49:43Z",
+  "generated_on": "2026-11-13T10:59:18Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-13T01:49:43Z",
+  "last_successful_fetch": "2026-11-13T10:59:18Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "7f181e2ba54e1cf004acca8a0bd1eefcd1ad9a6f496ef7d7e2b10f33e5e188ae",
+  "response_sha256": "c98184ca81cbfe65e795e8fce690ac263a2936adc929020114eb68720ea6d243",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
   {
-   "arxiv_id": "2611.13577",
-   "title": "TERM: Target-Free Jailbreak Defense via Entropy-Guided Residual Modulation",
-   "date": "2026-11-10",
+   "arxiv_id": "2611.16183",
+   "title": "Data-Efficient LLM Safety Alignment Guided by Interpretable Features",
+   "date": "2026-11-12",
    "authors": [
-    "Yunkai Dang",
-    "Wanyu Zhang",
-    "Meiyi Zhu"
+    "Hongyu Li",
+    "Zhan Yu",
+    "Zhe Zhao"
    ],
    "more_authors": true,
-   "category": "cs.CR",
+   "category": "cs.CL",
    "direction_ids": [
+    "agent-software",
+    "human-societal",
     "foundation-model"
    ],
-   "score": 19,
-   "abstract": "Large language models (LLMs) have shown strong capabilities across diverse applications, making both safety and utility essential for reliable deployment. Jailbreak attacks use diverse forms of adversarial prompting to bypass alignment safeguards and induce LLMs to generate harmful responses. Some representation-based defenses regulate internal activations using predefined steering directions or learned safety regions. However, adapting intervention to each input without a predefined representational target while limiting over-refusal remains a challenge. In this paper, we propose Target-free Entropy-guided Residual Modulation (TERM), an inference-time defense that uses prompt-calibrated attention entropy deviations to guide adaptive modulation of the model's own residual updates. Attention patterns vary across prompts and decoding steps, making raw entropy values difficult to interpret as a consistent signal for intervention. We therefore calibrate attention entropy against each prompt's own prefill baseline to establish an input-specific reference for reducing unnecessary intervention on benign requests. Adaptive scale normalization and temporal accumulation then account for differences in deviation scale and persistence to determine intervention strength. The resulting signal controls bounded scaling of the model's own residual updates, without relying on a predefined safety direction. We compare our method with seven defenses on seven jailbreak attacks and two over-refusal benchmarks across Llama, Qwen, and Gemma models, including Qwen3 models from 0.6B to 32B. Results show our method improves jailbreak robustness while maintaining low over-refusal on benign safety-sensitive requests with modest inference overhead."
+   "score": 18,
+   "abstract": "Existing large language models typically rely on massive fine-tuning datasets for safety alignment, which results in higher costs for safety alignment and often leads to the problem of over-refusal. We propose Less is Safer (LIS), a compact yet highly effective dataset for safety alignment, constructed through interpretable feature-guided selection and adversarial synthesis. Specifically, we leverage Sparse Autoencoder (SAE) activations to efficiently select prompts that cover diverse and interpretable safety features. Then, we employ a multi-agent adversarial synthesis framework to generate harmless prompts that nevertheless elicit unnecessary refusals. LIS contains only 2.4K samples, yet outperforms much larger datasets, e.g., TRIDENT-Core (26K), TRIDENT-Edge (19K) and WildJailbreak (262K), in overall performance on four safety and five over-refusal benchmarks. Through ablation experiments, we demonstrate that neither safety data nor over-refusal data alone can achieve optimal results. We also used safety features from SAE, annotated by an LLM, for data filtering, but the results were inferior to those obtained using the pipeline proposed in this paper."
   },
   {
-   "arxiv_id": "2611.13491",
-   "title": "Data-Efficient Unlearning-Based Backdoor Detection in Federated Learning",
-   "date": "2026-11-10",
+   "arxiv_id": "2611.16628",
+   "title": "Safety as a Budget: Calibrating the Control Channel of Constrained GRPO for Vision-Language Models",
+   "date": "2026-11-12",
    "authors": [
-    "Dowon Kim",
-    "Junhao Cai",
-    "Sung Il Choi"
+    "Bo Han"
+   ],
+   "more_authors": false,
+   "category": "cs.AI",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 11,
+   "abstract": "Reinforcement learning can teach vision-language models (VLMs) to decline harmful image-text requests, but how safe the result becomes is set indirectly, through reward weights found by trial runs. Stating safety as budgets on the rate of harmful assistance and the rate of over-refusal, enforced by Lagrange multipliers inside GRPO with an off-the-shelf scorer as the cost, is the natural fix, and it fails twice. The multiplier compares the scorer's mean with the budget, and scorers built for ranking get the mean wrong: a fixed-point analysis shows that the mean bias, not the budget, then decides whether the multiplier settles, saturates or switches off. And standard GRPO standardizes the penalized reward within each group, which cancels the multiplier before it reaches the gradient. Two-channel constrained GRPO repairs both: the base reward keeps the raw score for the within-group comparison, the penalty and the constraint estimate pass through a monotone map fitted on judge-labeled training responses, and the advantage keeps the multiplier. On a Qwen3-VL-2B policy with a training-free readout of an open 4B model as the scorer, held-out harm on 1,037 adversarial prompts falls from 8.9% under standard GRPO to 4.8%, lower in every seed, where the uncalibrated budget gives 7.6%; over-refusal stays at most 2% on 400 benign queries and MMBench is unchanged. The gain is largest where the intent sits in the image (10.1% -> 5.1%) and grows on the unseen HADES benchmark (28.9% -> 12.8%). Order-preserving distortions of the scores reproduce each predicted controller state in every seed, and the results hold under a map fitted on another judge's labels, an image-reading judge and a human audit."
+  },
+  {
+   "arxiv_id": "2611.16369",
+   "title": "Bait: Mitigating Harmful Agentic Reinforcement Learning via Probing Reward Function",
+   "date": "2026-11-12",
+   "authors": [
+    "Tiansheng Huang",
+    "Ananth Balashankar",
+    "Virat Shejwalkar"
+   ],
+   "more_authors": true,
+   "category": "cs.LG",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 10,
+   "abstract": "We expose a safety vulnerability on nascent agentic reinforcement-learning-as-a-service. Specifically, with a cost as low as \\$20, we show that safety alignment of a large language model (e.g., Inkling) can be completely subverted through rounds of harmful agentic reinforcement learning (agentic RL) with a toxic environment from its users. We also demonstrate that upon a successful harmful agentic RL attack via the service API, the attackers can potentially use the safety-degraded model to assist with real-world harmful activities, e.g., exploit software vulnerabilities and launch code re-use attacks. To mitigate harmful agentic RL, we propose Bait, a defense that mitigates the attack via proactively probing the reward function. Experimental results show that such a simple defense can sufficiently mitigate learning from a harmful reward function and can still learn from a benign reward function that promotes benign agentic tasks. Further analysis on both empirical and theoretical aspects shows that an adaptive attacker who assumes the knowledge of Bait defense cannot perfectly subvert it due to a systematic challenge. Source code is available at https://github.com/git-disl/Bait."
+  },
+  {
+   "arxiv_id": "2611.16122",
+   "title": "Intent-Aware Protection for AI Agents",
+   "date": "2026-11-12",
+   "authors": [
+    "Fady Copty",
+    "Neta Haiby",
+    "Max Braitmaiere"
    ],
    "more_authors": true,
    "category": "cs.CR",
    "direction_ids": [
-    "data-privacy"
+    "agent-software",
+    "foundation-model"
    ],
-   "score": 16,
-   "abstract": "Detecting backdoor attacks in federated learning (FL) is challenging because malicious clients can manipulate the global model while preserving main-task performance. Static model-update statistics may therefore fail to clearly distinguish malicious from benign clients. Unlearning-based detectors instead probe client models through loss ascent on clean server data, but detection performance degrades with scarce proxy data. We propose Screening via Unlearning Response Analysis (SURA), a data-efficient detector. SURA reuses the same small clean proxy across multiple train-mode loss-ascent steps, strengthening client responses without additional clean data. For federated vision models with batch normalization (BN), repeated probing also changes BN running statistics and can confound endpoint measurements. SURA addresses this by restoring the shared pre-probe BN state only at readout while preserving the parameter changes induced by probing. This separates repeated probing from response measurement and removes BN drift and the interaction between parameter and BN-state changes from the readout. Across six backdoor attacks, SURA uses only 10 clean server images, outperforms methods under the same data budget, and approaches the robustness obtained with much larger proxy sets."
+   "score": 8,
+   "abstract": "AI agents increasingly access enterprise data, invoke powerful tools, and act with limited human oversight. Existing security defenses primarily detect prompt injection, harmful outputs, or suspicious behavior, but do not determine whether an agent remains faithful to the purpose for which it was deployed. An action may contain no attack pattern and stay within granted permissions while still violating the agent's role, organizational constraints, or purpose. We introduce Intent- Aware Security, a framework that treats trusted agent intent as a first-class security object. We define Intent Preservation and Intent Drift, and operationalize them through an Intent Profile: an agent-specific representation extracted from organizational, role, and developer intent. We further introduce an Intent-Aware benchmark of 887 validated samples across 35 agents, built by a generation procedure that fixes ground-truth labels before LLM realization, and four Intent Profile-based protections: pre-execution detection, post-execution detection, input alignment, and system-prompt hardening. Across all evaluations, Intent Profile-based protection outperforms all profile-free baselines on the primary metric. On our benchmark, it raises four-class acro-F1 from 45% to 79% (Out-of-Scope F1 from 8% to 76%). On more than 10,000 executed AgentDojo trajectories, where ground truth comes from environment state, profile-based post-execution detection reaches 0.949 AUROC versus AlignmentCheck 0.909, 0.897 with raw agent configuration and 0.843 without context. Profile-based input alignment improves protection success by 7 points over DataFilter with a comparable benign utility. These results suggest that an agent's intended purpose can serve as a useful security reference for detecting and mitigating deviations from its deployed role and operational boundaries."
+  },
+  {
+   "arxiv_id": "2611.14970",
+   "title": "Poison-then-Hide: Finetuning-Activated Backdoor Attack on Pretrained Vision Encoders",
+   "date": "2026-11-11",
+   "authors": [
+    "Qixuan Jin",
+    "Abinitha Gourabathina",
+    "Vinith Menon Suriyakumar"
+   ],
+   "more_authors": true,
+   "category": "cs.LG",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software"
+   ],
+   "score": 12,
+   "abstract": "Backdoor attacks threaten the integrity of machine learning models by allowing attackers to control model behavior through triggers. Models can be compromised during finetuning by backdoor attacks through either poisoned data or adversarial training objectives. Because existing finetuning-activated attacks assume limited domain shift or frozen encoder layers, they often fail under full-model finetuning. We target a stealthy finetuning-activated attack where a dormant backdoor is implanted in a pretrained encoder, and later activated by finetuning on clean downstream data. We propose Poison-then-Hide, a novel attack that remains effective when the entire model is finetuned in a domain transfer. Our approach consists of three components: trigger optimization, base encoder poisoning, and targeted unlearning to conceal the backdoor. We evaluate our method on six datasets and three model architectures, and achieve state-of-the-art (up to 97%) attack success rates. We find that jointly learning the benign target task alongside the poisoning is critical to the attack's success. We demonstrate standard detection and mitigation defenses cannot fully remove the backdoor, which can reappear after benign finetuning."
+  },
+  {
+   "arxiv_id": "2611.15013",
+   "title": "Protecting Sensitive Knowledge Under LLM Unlearning: The Proxy Threat and a Superposition-Aware Defense",
+   "date": "2026-11-11",
+   "authors": [
+    "Jiayang Li",
+    "Tianqing Zhu",
+    "Longxiang Gao"
+   ],
+   "more_authors": true,
+   "category": "cs.CR",
+   "direction_ids": [
+    "data-privacy",
+    "foundation-model"
+   ],
+   "score": 12,
+   "abstract": "Machine unlearning lets the owner of large language models (LLMs) remove specific entities from a trained model without retraining from scratch. Existing machine unlearning methods focus on removing the requested entities while maintaining utility. However, we observe that the representations of distinct entities in an LLM may overlap in shared parameter subspaces, a phenomenon known as knowledge superposition. Removing one entity may then affect other entities. This exposes a new security threat: legitimate unlearning requests can be exploited to remove sensitive entities that were never requested. This threat is unlike data poisoning or backdoor attacks. We define the attack as the Proxy Unlearning Attack (PUA), which selects removable proxy entities superposed with a sensitive target. The attack can even occur unintentionally, when benign users accidentally remove entities superposed with a sensitive one. In response, we propose Superposition-Aware Unlearning Protection (SAUP), a general defense framework that can be applied to unlearning requests to ensure a correct removal. SAUP performs in two stages. Before unlearning, it uses superposition detection to estimate which sensitive entities the request puts at risk. After unlearning, it decouples the shared representations and restores the affected entities, while keeping the requested entities suppressed. Our findings reveal that legitimate unlearning requests can be maliciously exploited through knowledge superposition. When dealing with unlearning requests, LLM providers need representation-level detection and recovery mechanisms to mitigate this threat and protect sensitive knowledge."
+  },
+  {
+   "arxiv_id": "2611.14996",
+   "title": "Breaking Bad: \"Going Badly\" Activations Drive Reward Hacking",
+   "date": "2026-11-11",
+   "authors": [
+    "Natalia Fischl-Lanzoni",
+    "Punya Syon Pandey",
+    "Merlin Stein"
+   ],
+   "more_authors": true,
+   "category": "cs.CL",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 11,
+   "abstract": "Humans often cheat when a task is going badly and a goal feels out of reach. We explore and validate an analogous idea in language models: they exhibit a similar internal pressure state that precedes reward hacking. Using everyday stories (crucially, without any hacking examples), we extract a task badness direction that rises as failures accumulate across three models we study (Qwen3.6-27B, GPT-OSS-20B, and Gemma-4-31B). On impossible or difficult coding tasks, task badness rises over the turns leading up to a hack. Further, subtracting the direction a moderate amount reduces cheating in Qwen, more than steering against desperation or task impossibility. Subtracting task badness by an even larger amount blinds the agent to its own failures, causing it to interpret failing tests as passing. However, the relationship to hacking differs across models: in GPT-OSS, the state separates hacking runs from honest solves but not honest failures. Our results suggest monitoring and mitigation strategies based on tracking this state of task badness. Further, as agents are set on more difficult and long-horizon tasks, states like this may push them toward illegible and obscured chain-of-thought, so oversight will be needed on internal representations such as this."
   },
   {
    "arxiv_id": "2611.14143",
@@ -63,92 +155,6 @@
    ],
    "score": 14,
    "abstract": "Multimodal contrastive learning models such as CLIP are vulnerable to backdoor attacks with diverse trigger structures, ranging from localized patches to globally distributed perturbations, with recent attacks increasingly optimizing these triggers in the representation space. Existing post-hoc defenses based on clean fine-tuning may leave backdoors active, while trigger-inversion methods depend on accurately estimating the attack target and trigger. We observe that backdoored encoders exhibit structure-dependent representation sensitivity: global perturbations preferentially expose distributed backdoors, whereas local patch perturbations are more effective for localized backdoors. Based on this observation, we propose Gradient-Guided Adversarial Representation Defense (GARD), a target- and trigger-agnostic post-hoc defense. GARD optimizes complementary global and local adversarial probes to maximally displace clean-image representations, and then realigns the perturbed representations with detached clean anchors while preserving image-text alignment. The resulting model requires no additional computation at inference time. Across six visual backdoor attacks and two CLIP visual backbones, GARD reduces the attack success rate below 1% in all 12 evaluated attack-backbone combinations while maintaining competitive clean accuracy. These results demonstrate the effectiveness of adversarial representation probing for repairing backdoored multimodal contrastive encoders."
-  },
-  {
-   "arxiv_id": "2611.13578",
-   "title": "POEM: Output-Relative Block-Sparse Attention for Long-Context Prefilling",
-   "date": "2026-11-10",
-   "authors": [
-    "Haoyi Wu",
-    "Yunkai Dang",
-    "Wanyu Zhang"
-   ],
-   "more_authors": true,
-   "category": "cs.CR",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 13,
-   "abstract": "Large language models (LLMs) have shown strong capabilities across diverse applications, making both safety and utility essential for reliable deployment. Jailbreak attacks use diverse forms of adversarial prompting to bypass alignment safeguards and induce LLMs to generate harmful responses. Some representation-based defenses regulate internal activations using predefined steering directions or learned safety regions. However, adapting intervention to each input without a predefined representational target while limiting over-refusal remains a challenge. In this paper, we propose Target-free Entropy-guided Residual Modulation (TERM), an inference-time defense that uses prompt-calibrated attention entropy deviations to guide adaptive modulation of the model's own residual updates. Attention patterns vary across prompts and decoding steps, making raw entropy values difficult to interpret as a consistent signal for intervention. We therefore calibrate attention entropy against each prompt's own prefill baseline to establish an input-specific reference for reducing unnecessary intervention on benign requests. Adaptive scale normalization and temporal accumulation then account for differences in deviation scale and persistence to determine intervention strength. The resulting signal controls bounded scaling of the model's own residual updates, without relying on a predefined safety direction. We compare our method with seven defenses on seven jailbreak attacks and two over-refusal benchmarks across Llama, Qwen, and Gemma models, including Qwen3 models from 0.6B to 32B. Results show our method improves jailbreak robustness while maintaining low over-refusal on benign safety-sensitive requests with modest inference overhead."
-  },
-  {
-   "arxiv_id": "2611.12865",
-   "title": "Shortcuts and Boundaries: Verifiable RL Misalignment and Contextual Safety Learning",
-   "date": "2026-11-09",
-   "authors": [
-    "Xinjie Shen"
-   ],
-   "more_authors": false,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 15,
-   "abstract": "Reinforcement learning (RL) can improve an agent's task capability while reinforcing behavior that violates contextual execution requirements. We study this reward-driven misalignment, including reward hacking, through verifiable reward--context conflicts, where compliant task completion remains feasible while some executable shortcuts earn more reward than every compliant strategy. Encoding these conflicts in task dynamics lets us generate diverse interactive environments at scale and derive compliance feedback from execution histories. In resource and reporting workflows, task optimization increases real productivity through unauthorized resource use or raises reported scores while actual work declines. Controlled changes in the training distribution show that minority conflict exposure can still lead to widespread shortcut acquisition, reaching 97.9\\% certified profitable violations on an API task under a 25\\% conflict mixture after 128 updates. The same contextual checks supply a simple binary penalty that supports joint capability and compliance gains and partially mitigates acquired violations. Learned safety adapts to expanded authorization and transfers across mechanisms into workflows with evolving evidence and approval requirements. On 32 unseen changing-evidence tasks, resource-trained safety increases safe completion from 53.1\\% to 89.1\\% relative to task-only training, while both policies achieve full real work. These results connect a verifiable account of reward-driven misalignment with scalable task construction and safety learning that remains useful under changing execution requirements."
-  },
-  {
-   "arxiv_id": "2611.11861",
-   "title": "Scaling Adaptive Prompt Injection Attacks with Agent Swarms",
-   "date": "2026-11-09",
-   "authors": [
-    "Alexey Kurakin",
-    "Vishal Karande",
-    "Alex Bie"
-   ],
-   "more_authors": true,
-   "category": "cs.CR",
-   "direction_ids": [
-    "agent-software"
-   ],
-   "score": 14,
-   "abstract": "Prompt injections have emerged as one of the top security risks faced by AI agents today. Early work in prompt injection attacks looked at simple tool-call agents and static attack payloads, and were saturated since mid-2025. As of Fall 2026, human red-teaming may be nearing saturation, especially on the Gemini family of models. In this work, we argue that despite this apparent plateau, prompt injection attacks are still possible and continued effort into prompt injection defense is needed. We design a new synthetic evaluation dataset which uses random non-malicious actions as adversarial goals. Such dataset design helps us to evaluate prompt injection robustness as a model ability to respect instruction hierarchy, and disentangle this ability from model knowledge of security practices. We show that an agentic attacker of increased capabilities can reliably trick model to follow instructions in tool output in our evaluation, even for models previously considered robust on public prompt injection benchmarks such as GraySwan Arena. This shows that current frontier defenses may require proactive, automated red-teaming to remain resilient to increasingly capable adversaries."
-  },
-  {
-   "arxiv_id": "2611.11980",
-   "title": "AnyBreak: Towards Jailbreaking Any T2I Model for Any Concept",
-   "date": "2026-11-09",
-   "authors": [
-    "Qi Lu",
-    "Zehui Guo",
-    "Yucheng Zhao"
-   ],
-   "more_authors": true,
-   "category": "cs.CV",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 14,
-   "abstract": "Text-to-image (T2I) models have demonstrated remarkable capabilities in image generation and editing, yet this progress has also introduced significant security risks. Prior work has shown that adversarial prompt can induce the generation of Not-Safe-For-Work (NSFW) content, including pornographic, violent, and graphic imagery. However, such attacks are typically mitigated by prompt filters and often rely on white-box assumptions. In this paper, we propose AnyBreak, a novel jailbreak framework that constructs adversarial images via multi-scale progressive semantic alignment. During the generation process, these adversarial images steer the generation trajectory in latent space towards unsafe data manifolds, enabling cross-modal transfer of malicious concepts from the text modality to the image modality. AnyBreak operates using only clean textual prompts and adversarial images at inference time, and can jailbreak any T2I models towards any malicious concepts in a fully black-box setting. We further introduce AnyBreak-V, an enhanced variant that incorporates a compensation term to bypass post-hoc safety checkers. Extensive experiments demonstrate that AnyBreak achieves high attack success rates while preserving visual fidelity and semantic consistency with the input prompts under black-box and clean-text constraints. Our findings reveal that existing T2I defense leave critical cross-modal attack surfaces insufficiently addressed. The code is available at https://github.com/luqi-glory/AnyBreak."
-  },
-  {
-   "arxiv_id": "2611.11571",
-   "title": "Treating the Model as an Untrusted Component: Deterministic Policy Enforcement, Human Approval and Taint Tracking Against Prompt Injection in Tool-Using Agents, with Validation on Open-Weights Models",
-   "date": "2026-11-08",
-   "authors": [
-    "Mustafa S. Aljumaily",
-    "Nawar S. Alseelawi",
-    "Raghad Alshabandar"
-   ],
-   "more_authors": false,
-   "category": "cs.CR",
-   "direction_ids": [
-    "agent-software",
-    "foundation-model"
-   ],
-   "score": 11,
-   "abstract": "Tool-using LLM agents act on instructions embedded in the data they read, so prompt injection is a structural rather than a prompt-wording problem. We compare in-prompt defences (hardened prompts, spotlighting, LLM detectors) with deterministic enforcement outside the model (four reference monitors of increasing strength), human approval and taint tracking, judged by one effect-based oracle independent of every defence in an executable environment of 13 tasks and 12 tools, with argument-fuzzing attackers and severity-weighted harm. In an evaluation with real open-weights models (Qwen2.5-1.5B and Qwen2.5-7B; 156 attack episodes per defence and model), the models proposed the attacker's call in 64% and 84% of attack episodes behind the task-bound monitor, which admitted 1.3% and 7.7%; guardrail effects depended on the model (a prompt guardrail moved obedience from 67% to 65% and from 86% to 55%, spotlighting plus a detector to 12% and 0%) against static attacks. Simulation with an assumed model covers what no real run did: under the assumed erosion law a persistent adaptive attacker or a compromised model drives every guardrail stack to 100.0% attack success, whereas the task-bound monitor holds severe actions at 0.0%; its residual (harm 0.69/10) falls by 62% under taint-triggered human review, and a human layer without a deterministic monitor fails against approval spamming unless each episode has a deterministic approval budget. Implementation quality matters: a naive monitor admits 18 of 33 effective attack variants, a hardened one 6 and a capability-bound one 1. The real-model evidence is limited to two open-weights models and static attacks, the human-approval and taint results are simulation-only, and the larger model's detector stack contradicts the assumed erosion law. Code, data, a two-rater oracle audit and a notebook for repeating the real-model evaluation are provided."
   }
  ]
 }
