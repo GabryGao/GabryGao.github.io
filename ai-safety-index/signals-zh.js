@@ -476,10 +476,6 @@ const siteSignalsZh = {
 "METR 对 Claude Opus 5.5 部署前评估的摘要",
 ""
 ],
-"metr-2073d296ae24": [
-"资金情况更新",
-""
-],
 "metr-33ec7de5ea06": [
 "一项建议：让公众更好地了解前沿 AI 开发中的失控风险",
 ""
@@ -514,10 +510,6 @@ const siteSignalsZh = {
 ],
 "metr-b839ee00b563": [
 "评审 Anthropic 风险报告（2026 年 8 月）中“高风险场景下的未对齐”一节",
-""
-],
-"metr-cb57b625cb32": [
-"我们是否已经看到发现速度在加快？",
 ""
 ],
 "openai-01d4e543c941": [
