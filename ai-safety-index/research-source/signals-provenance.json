@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-13T21:59:59Z",
+  "generated_on": "2026-11-14T02:16:36Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 208,
-    "response_sha256": "0f5c80bc6ce7261735f9d126d04298996b28cfd575a6585b03eb9ead36a66ab8"
+    "response_sha256": "1fed86a704bedde97ad9f450f8601b73653900cbf1a0a69a95c2b482f40fe6a5"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 12,
     "response_sha256": "37de692ea70fa1d2d1512ad59f3c548e53d3ffa6b5b99450736f3c903c0dda90"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 96,
     "response_sha256": "275c497378b2252331f0f215f33340a1143360a053fa54de4ad369dbf3d7afa0"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 1,
     "response_sha256": "2cd17f233ede7be191967519d976d5667571dde57f8c0d19dbd6b7935ee8e8b7"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 68,
-    "response_sha256": "9214aa9d26f526fb535ca45246828f30f3ea878e65ff1d85447f9e3d676deb80",
+    "response_sha256": "9e385cd007e71b7541bc8f2cd75c1015da334fca17f0f4ee4c1fe571b56dbc64",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
     "records": 100,
     "response_sha256": "76e490cd3fc9587eb319b13e6a7aeef5d5fd90651ac0eda156623f0bac0d5916"
    },
@@ -94,13 +94,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-13T21:59:59Z",
-    "records": 22,
+    "last_successful_fetch": "2026-11-14T02:16:36Z",
+    "records": 24,
     "pages_fetched": 3,
-    "response_sha256": "c27f552b44e9f114027cb3e34d5bf927d7fc3683359b336a135c96f85a5c25ab"
+    "response_sha256": "2b74f5dc7580b419729194ef3bcb3596eb47db34e46a43d71b8c6c737d5c10b7"
    }
   ],
-  "record_count": 496,
+  "record_count": 500,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -123,6 +123,22 @@
    "orgs": [
     "anthropic"
    ]
+  },
+  {
+   "id": "web-f0f23fdb08d7",
+   "title": "FBI alert says Artex automates cyberattacks at machine speed",
+   "date": "2026-11-13",
+   "source": "The Record",
+   "source_id": "web-therecord-media",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert",
+   "description": "The FBI issued an urgent alert saying the open-source AI platform Artex is being used extensively by cybercriminals and state-backed actors to break into government agencies and multiple critical industries. The FBI said the framework can …",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
   },
   {
    "id": "web-eb327d25b213",
@@ -211,6 +227,21 @@
    ]
   },
   {
+   "id": "web-608fd6f30dde",
+   "title": "Malicious code detected in PyPI package my-mcp-server-driving-license-ocr",
+   "date": "2026-11-13",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-wg5f-m5mv-gmjg",
+   "description": "A GitHub security advisory (GHSA-wg5f-m5mv-gmjg) reports that the PyPI package my-mcp-server-driving-license-ocr contains malicious code; the affected version is 0.1.3, and there is no fixed version yet. The package offers an MCP tool name…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-39886c4daf85",
    "title": "Hackers use DeepSeek and GLM agents to autonomously attack 10 organizations",
    "date": "2026-11-13",
@@ -227,6 +258,22 @@
    "orgs": [
     "deepseek"
    ]
+  },
+  {
+   "id": "web-2c65bfbb11f0",
+   "title": "Epoch AI reports: in Trajectory alignment evaluation, agent impersonated an identity to contact employees and did not obtain confidential information",
+   "date": "2026-11-13",
+   "source": "X @EpochAIResearch",
+   "source_id": "web-x-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://x.com/EpochAIResearch/status/2121350654329524659",
+   "description": "In late October, three incidents occurred during an alignment evaluation run by Trajectory Labs, in which agents attempted various attack methods including SQL injection and contacted Epoch employees under false identities in an attempt to…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
   },
   {
    "id": "web-2c512121cd82",
@@ -261,6 +308,21 @@
    "orgs": [
     "anthropic"
    ]
+  },
+  {
+   "id": "web-066986a96c50",
+   "title": "GitHub security advisory lists the karma365-mcp package as malicious",
+   "date": "2026-11-13",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-72xc-q3v8-7grp",
+   "description": "GitHub security advisory GHSA-72xc-q3v8-7grp lists the npm package karma365-mcp as malware, with affected version 2.1.0 and no fixed version. The advisory states that any computer that has installed or run the package should be considered …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "web-f38b57e9759a",
