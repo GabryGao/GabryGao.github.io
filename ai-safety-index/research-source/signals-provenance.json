@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-14T15:51:10Z",
+  "generated_on": "2026-11-14T20:34:40Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 208,
-    "response_sha256": "b6fac4530846d5f2efedaeb62b28ca3a28dbe48f26063e8782506effa81412c2"
+    "response_sha256": "5fd8d392378698cea72eb3105ba7033e75e8a6ea0689cd78634e58268c48e6d2"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 12,
     "response_sha256": "37de692ea70fa1d2d1512ad59f3c548e53d3ffa6b5b99450736f3c903c0dda90"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 96,
     "response_sha256": "275c497378b2252331f0f215f33340a1143360a053fa54de4ad369dbf3d7afa0"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 1,
     "response_sha256": "2cd17f233ede7be191967519d976d5667571dde57f8c0d19dbd6b7935ee8e8b7"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 68,
-    "response_sha256": "c93f0ffb1590b3ddad60729ca3fee0dd7ffcb09104c788277e582d96bf261a02",
+    "response_sha256": "fe958e9b987de95b29bc89de4eb2f853e24ec83c7843c58f6d1cf2c51c8e4dec",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
     "records": 100,
     "response_sha256": "76e490cd3fc9587eb319b13e6a7aeef5d5fd90651ac0eda156623f0bac0d5916"
    },
@@ -94,13 +94,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-14T15:51:10Z",
-    "records": 24,
+    "last_successful_fetch": "2026-11-14T20:34:40Z",
+    "records": 25,
     "pages_fetched": 3,
-    "response_sha256": "7d06e47290a3331ba911fb405724a31613e1b2e44d3b0b62d9f53b07b8df2c80"
+    "response_sha256": "cbc378cbdbfbc197949c8328fd511dd9d76abe9c2424d30bb64e96fe8f155bef"
    }
   ],
-  "record_count": 506,
+  "record_count": 507,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -114,7 +114,7 @@
    "kind": "incident",
    "category": "incident",
    "url": "https://cybersecuritynews.com/cursor-data-breach/amp",
-   "description": "Cursor traced the October security incident to an access key leaked by Fireworks AI; the attacker used the key to steal historical coding agent records, look for further credentials, and plant a backdoored Claude Code extension in Cursor's…",
+   "description": "In a November 13 update, Cursor traced an October security incident to access keys leaked by Fireworks AI: the key Cursor issued to Fireworks could read-only access a shared storage bucket holding coding agent session records that had not …",
    "direction_ids": [
     "data-privacy",
     "agent-software",
@@ -159,6 +159,21 @@
    "orgs": [
     "meta"
    ]
+  },
+  {
+   "id": "web-497be0cd43db",
+   "title": "Cursor says the intrusion originated from access keys leaked by Fireworks",
+   "date": "2026-11-14",
+   "source": "Unite.AI",
+   "source_id": "web-unite-ai",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.unite.ai/ja/cursor-traces-breach-to-access-key-exposed-by-fireworks-ai",
+   "description": "In the latest incident statement released on November 13, Cursor said the attackers used Cursor access keys leaked by Fireworks AI to copy historical coding agent execution traces and the credentials within them from a read-only storage bu…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "web-ff70bb79f2ce",
