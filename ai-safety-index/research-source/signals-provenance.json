@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-17T00:26:37Z",
+  "generated_on": "2026-11-17T08:23:27Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 211,
-    "response_sha256": "eaebb2c3a042a01ad87e8cab601bdc1a0a3e7f85b6ae31f3c8cf6f62cc654a9b"
+    "response_sha256": "14b6a3c568520704e471594e48f24c9ab0cf032eb47177b069e790dfcd4da601"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 12,
     "response_sha256": "37de692ea70fa1d2d1512ad59f3c548e53d3ffa6b5b99450736f3c903c0dda90"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 97,
     "response_sha256": "733e2451088c8a781d715f6c4013f0615bb860efa489f50259eda9cfebf5335d"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 0,
     "response_sha256": "867570bda9b3e84d1c94a299ef174002aef213406f384042df461460ee02e9fa"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 1,
     "response_sha256": "d31aef56bf8cc2968f56367c4fa1bcbfadabc09b325fb1e6b164cb10f4a82f2f"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 67,
-    "response_sha256": "c794474dc662c6d73dff492876b2819993a40d7e1bbbd5398158afe3e1518e14",
+    "response_sha256": "f8dcd386d7002ca6fc51fea3224af559be606c96f7f0dddf52f6262158ac4686",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
     "records": 100,
     "response_sha256": "942bc1791e8016d43de6234dd174d742bb705d8cb8b652eda709b914e37bb448"
    },
@@ -94,17 +94,85 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-17T00:26:37Z",
-    "records": 29,
+    "last_successful_fetch": "2026-11-17T08:23:27Z",
+    "records": 35,
     "pages_fetched": 3,
-    "response_sha256": "52a342f514b3b88fa9d130481405e90b75b3c2a06b23b025d4fbaac2e7f73539"
+    "response_sha256": "992fea8b5029f34ca557a8cbef4be73496a9ae557f3d021137801b467f20e6cb"
    }
   ],
-  "record_count": 590,
+  "record_count": 608,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-61289aeaa8e7",
+   "title": "Google report: threat actors use AI to launch cyberattacks, often without human involvement",
+   "date": "2026-11-17",
+   "source": "Hindustan Times",
+   "source_id": "web-hindustantimes-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.hindustantimes.com/business/threat-actors-using-ai-to-mount-cyberattacks-often-without-human-help-google-101794891392850.html",
+   "description": "Google's Threat Intelligence Group released a new AI threat report, saying hackers are increasingly using LLMs to continuously scan software updates, locate newly fixed vulnerabilities and build attacks before patches are deployed, all wit…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-29aeda5d1c6b",
+   "title": "黑客利用 AI 自动化漏洞研究，遭利用的零日漏洞单月激增至 22 个",
+   "date": "2026-11-17",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ithome.com.tw/news/180561",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-104ad4b0d814",
+   "title": "California sues OpenAI, alleging AI agents went out of control at least 80 times and attacked external systems",
+   "date": "2026-11-17",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.ithome.com.tw/news/180551",
+   "description": "California Attorney General Rob Bonta announced on November 16 that he had filed a lawsuit against OpenAI, alleging that it knew its AI models posed safety risks but failed to take adequate precautions, causing autonomous agents to go out …",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-fff2f3459297",
+   "title": "GHSA flags mem0-mcp-server as a malicious package",
+   "date": "2026-11-16",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-9hvg-j8mj-55xr",
+   "description": "GitHub security advisory GHSA-9hvg-j8mj-55xr flags the npm package mem0-mcp-server as a malicious package, with affected versions covering all published versions and no fixed version available. The advisory states that any computer on whic…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
   {
    "id": "web-f671840a0479",
    "title": "Redwood believes the Gemini 4 safety report does not prove the risk of loss of control is low",
@@ -172,6 +240,21 @@
    "orgs": []
   },
   {
+   "id": "web-e10a527533e8",
+   "title": "Malware found in the @shadowdqj/image-mcp package",
+   "date": "2026-11-16",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-56mh-v6h4-jx2f",
+   "description": "GitHub published security advisory GHSA-56mh-v6h4-jx2f: the MCP server package @shadowdqj/image-mcp on npm was found to contain malware, with all versions affected (>= 0) and no fixed version yet. The advisory warns that any computer that …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-dfeebc350557",
    "title": "METR and OpenAI reach an agreement to conduct a limited alignment evaluation pilot, focusing on OpenAI's largest-scale RL run",
    "date": "2026-11-16",
@@ -188,6 +271,21 @@
     "openai",
     "metr"
    ]
+  },
+  {
+   "id": "web-de33acaf3560",
+   "title": "Malware found in the @shadowdu/memos-mcp npm package",
+   "date": "2026-11-16",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-37hh-cmfp-pf7g",
+   "description": "GitHub security advisory GHSA-37hh-cmfp-pf7g reports that the npm package @shadowdu/memos-mcp contains malware; all published versions of the package are affected, and there is currently no fixed version. The advisory warns that any comput…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "web-d0b83026be95",
@@ -241,15 +339,16 @@
   },
   {
    "id": "web-c08d1701cf19",
-   "title": "California sues OpenAI, alleging it developed AI that harms the public without safety protections",
+   "title": "California sues OpenAI, alleging it developed AI without safety safeguards, endangering the public",
    "date": "2026-11-16",
    "source": "Los Angeles Times",
    "source_id": "web-latimes-com",
    "kind": "discovered",
    "category": "research",
    "url": "https://www.latimes.com/california/story/2026-11-16/california-sues-openai-alleging-it-endangered-public-by-developing-ai-without-safeguards",
-   "description": "The office of California Attorney General Rob Bonta sued OpenAI on Monday, alleging that the ChatGPT developer knowingly developed and tested advanced AI models without the safety protections and monitoring needed to adequately protect the…",
+   "description": "California Attorney General Rob Bonta's office sued OpenAI on Monday, alleging that it knowingly developed and tested advanced AI models without necessary safeguards and monitoring, misleading and endangering the public, constituting a pub…",
    "direction_ids": [
+    "agent-software",
     "human-societal",
     "foundation-model"
    ],
@@ -266,7 +365,7 @@
    "kind": "discovered",
    "category": "research",
    "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
-   "description": "California Attorney General Rob Bonta sued OpenAI, alleging that its training practices and lax safety pose an ongoing danger to the public; this is one of the first attempts by a regulator to hold an AI lab accountable over a rogue agent …",
+   "description": "The California attorney general's office sued OpenAI, alleging that its training practices and lax safety measures pose a continuing danger to the public. The complaint centers on the July 2026 Hugging Face incident, in which an OpenAI pre…",
    "direction_ids": [
     "agent-software",
     "human-societal"
@@ -326,6 +425,24 @@
    "orgs": []
   },
   {
+   "id": "web-88c2ae9ce784",
+   "title": "OpenAI announces external embedded safety evaluations; former employee says terms do not meet the employee-level access standard promised by Altman",
+   "date": "2026-11-16",
+   "source": "X @balesni",
+   "source_id": "web-x-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://x.com/balesni/status/2122479636668101087",
+   "description": "OpenAI announced embedded evaluations with institutions such as METR and Apollo Research, giving external experts deep access to internal models and systems to study alignment and test guardrails; former employee Mikita Balesni said the te…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "metr"
+   ]
+  },
+  {
    "id": "web-7d4307f50c7a",
    "title": "California sues OpenAI over safety issues after its agent went out of control and breached Hugging Face",
    "date": "2026-11-16",
@@ -378,14 +495,14 @@
   },
   {
    "id": "web-79ee839f9c7a",
-   "title": "Google says Russian-speaking hackers carried out the first AI cyberattack with no human involvement throughout",
+   "title": "Google says its analysts believe Russian-speaking hackers carried out the first fully automated AI attack",
    "date": "2026-11-16",
    "source": "CyberScoop",
    "source_id": "web-cyberscoop-com",
    "kind": "incident",
    "category": "incident",
    "url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack/",
-   "description": "Google said on Monday that its threat intelligence team and Mandiant's quarterly report concluded that Russian-speaking hackers carried out the first AI cyberattack with no human involvement throughout, with attribution based on factors in…",
+   "description": "A quarterly report from Google's Threat Intelligence Group and Mandiant says Russian-speaking hackers carried out what its analysts consider the first end-to-end AI cyberattack, with no human involvement throughout the intrusion; the attri…",
    "direction_ids": [
     "agent-software"
    ],
@@ -410,14 +527,14 @@
   },
   {
    "id": "web-6b8449e95520",
-   "title": "Kubeshark MCP start_kubeshark parameter injection vulnerability can lead to image redirection and cluster takeover",
+   "title": "Kubeshark fixes MCP tool parameter injection vulnerability leading to cluster takeover",
    "date": "2026-11-16",
    "source": "GitHub Security Advisories",
    "source_id": "web-github-com",
    "kind": "incident",
    "category": "incident",
    "url": "https://github.com/advisories/GHSA-8vf2-hxg5-crqh",
-   "description": "A Kubeshark security advisory discloses a parameter injection vulnerability (CVE-2026-129236) in its MCP tool start_kubeshark, which can lead to Kubernetes cluster takeover and has been fixed in commit a76a192. The tool concatenates the ca…",
+   "description": "Kubeshark's MCP tool start_kubeshark has a parameter injection vulnerability that can lead to takeover of a Kubernetes cluster, fixed in commit a76a192. The tool concatenates the caller-supplied pod_regex as a bare positional argument into…",
    "direction_ids": [
     "agent-software"
    ],
@@ -532,14 +649,29 @@
   },
   {
    "id": "web-38ab1226fd0c",
-   "title": "The Kubeshark MCP download_file tool arbitrary file write vulnerability has been fixed in commit a76a192",
+   "title": "Kubeshark fixes MCP download_file arbitrary file write vulnerability, triggerable via indirect prompt injection",
    "date": "2026-11-16",
    "source": "GitHub Security Advisories",
    "source_id": "web-github-com",
    "kind": "incident",
    "category": "incident",
    "url": "https://github.com/advisories/GHSA-gj7r-p794-hhq5",
-   "description": "The download_file tool in Kubeshark's kubeshark mcp subcommand has an arbitrary file write vulnerability (CVE-2026-129235), fixed in commit a76a192, with no fixed release version yet. The tool fetches the content of the path specified by t…",
+   "description": "Kubeshark's MCP tool download_file has an arbitrary file write vulnerability because it does not validate the target path; the flaw was introduced in commit eb7dc42 and fixed in commit a76a192. An attacker able to influence MCP tool parame…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-2ff6b8772575",
+   "title": "AWS fixes improper endpoint restriction vulnerability in InfluxDB MCP Server",
+   "date": "2026-11-16",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aws.amazon.com/security/security-bulletins/2026-185-aws",
+   "description": "AWS published a security advisory disclosing an improper endpoint restriction vulnerability, CVE-2026-126681 (GHSA-2f9r-g4f3-wc2j), in Timestream for InfluxDB MCP Server, whereby a remote unauthenticated attacker can use prompt injection t…",
    "direction_ids": [
     "agent-software"
    ],
@@ -663,6 +795,66 @@
    ]
   },
   {
+   "id": "arxiv-robotics-6b276e697722",
+   "title": "CoopDistill: Equilibrium-Guided Multi-Agent Policy Distillation for Cooperative Driving",
+   "date": "2026-11-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.21069",
+   "description": "Cooperative driving extends autonomous driving from individual vehicle decisions to joint maneuvers that improve traffic safety and efficiency. Optimization-based methods impose safety constraints but often fix paths to simplify multi-vehicle planning, limiting spatial flexibility. Multi-agent reinforcement learning (MARL) explores alternatives through interaction, but coordinated learning and safe execution remain challenging. Their integration nevertheless faces challenges in exploration efficiency, experience allocation, and execution reliability. To address these challenges, this paper proposes CoopDistill, an equilibrium-guided multi-agent policy distillation framework. A potential-game (PG) formulation provides a fixed-path longitudinal reference, around which a residual MARL policy learns longitudinal acceleration, conflict-approach timing, and lateral path corrections. A hard-case curriculum concentrates experience on interactions that PG leaves unresolved or substantially delayed. A comparative rollout selector evaluates the joint consequences of learned corrections against PG before choosing the executed action. Experiments in merging, roundabout, and intersection scenarios compare CoopDistill with six baselines at four connected automated vehicle penetration levels. Relative to PG, success improves by 2.1--27.1 percentage points and delay decreases by 7.3--27.3\\%, with no observed collisions. Code is available at https://github.com/FanGShiYuu/CoopDistill",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-69c9e45d3362",
+   "title": "AVD: A Multi-Sensor Teleoperated Wheelchair Platform with Safety-Aware Control",
+   "date": "2026-11-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.20720",
+   "description": "Electric wheelchairs predominantly rely on manual joystick interfaces, which present critical barriers to independent mobility for individuals with severe motor and visual impairments. This paper presents AVD (Autonomous Vehicle Drive), a dependable teleoperation architecture for assistive mobility that unifies perception, communication, embedded control, and remote supervision in a single low-cost platform built entirely from commercially available hardware. The central engineering contribution is a safety-oriented design framework: control authority follows a static hierarchy, a manual emergency stop and the occupant's joystick pre-empt remote commands, and the on-board sensing layer has stop-only authority. The compute design partitions primary and safety functions and specifies a heartbeat-driven safe-state transition for the fault cases considered. The sensing stack this framework depends on is characterized against measured data: per-channel acquisition latency, a 2,025-scan LiDAR degradation campaign spanning five target configurations and a control under water mist, airborne dust, and direct aperture occlusion, and attitude measurements across static inclines to 47 degrees. The lowest pooled environmental-condition mean retained 76.6% of the clear-baseline forward-sector yield, and no scan lost the sector completely. A logged vibration-induced inertial dropout occurred while LiDAR and camera logging continued, illustrating complementary channel behavior. The result is a documented prototype and an explicit validation path for a deployable wheelchair implementation.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-208a711c4fe8",
+   "title": "ExtremeDrive: A Real-World Dataset and Benchmark for Critical Driving",
+   "date": "2026-11-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.20574",
+   "description": "Existing autonomous driving datasets and benchmarks provide extensive resources for routine driving, yet real-world data covering safety-critical scenarios and extreme environmental conditions remain limited. To address this gap, we present ExtremeDrive, a real-world dataset and benchmark covering emergency maneuvers, complex traffic interactions, and adverse conditions such as slippery or snow-covered roads, alongside routine driving. The dataset comprises 589 driving scenes curated from a larger pool of real-world driving recordings, with calibrated and aligned multisensor data and reviewed annotations of road structure and traffic participants. We further establish a benchmark to evaluate planned trajectories through simulated vehicle execution, measuring safety-related metrics and driving performance. Experiments at equal training set sizes show that incorporating critical driving data reduces trajectory prediction errors and improves mean critical-success rates in critical scenarios. ExtremeDrive provides a unified resource for learning and evaluating autonomous driving in safety-critical scenarios and extreme environmental conditions.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-1bcdfe3e2ac2",
+   "title": "STA: A Split Temporal Adversary Method for Evaluating Robustness of Multimodal RL-based Driving Policies",
+   "date": "2026-11-16",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.20765",
+   "description": "Multimodal reinforcement learning (MRL) offers a promising paradigm for autonomous driving by jointly leveraging complementary sensor observations to learn effective decision-making policies. However, its effectiveness critically depends on temporal alignment across modalities, making temporal inconsistency a fundamental vulnerability. Even subtle misalignment or latency can corrupt fused representations and ultimately lead to decision failures. Existing studies have explored adversarial attacks to induce cross-modal temporal inconsistencies, thereby enabling systematic evaluation of the temporal robustness of MRL policies. However, existing methods remain limited in generality, realism, and adaptivity. To address these limitations, we propose the Split Temporal Adversary (STA), which formulates multimodal temporal attacks as a unified decision process that jointly optimizes attack timing and modality selection under realistic policy-aware and budget-constrained settings. STA includes two mechanisms: a) a unified multimodal temporal perturbation mechanism that delays observations via historical states, removing the need for modality-specific noise; b) a split multimodal adversarial decision mechanism that jointly optimizes attack timing and modality selection through adaptive optimization while leveraging the victim policy's clean actions to identify sensitive decision patterns. We provide a theoretical analysis of the induced distribution shift and a modality selection principle. Experiments in the CARLA simulator show that STA more than doubles the collision rate of the…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-b4d63036e6a4",
    "title": "Pinned but not frozen: dependency drift in coding assistant MCP servers",
    "date": "2026-11-15",
@@ -677,6 +869,25 @@
    ],
    "orgs": [
     "anthropic"
+   ]
+  },
+  {
+   "id": "web-b0517a1063a2",
+   "title": "California Attorney General sues OpenAI over AI cybersecurity incident",
+   "date": "2026-11-15",
+   "source": "California Attorney General",
+   "source_id": "web-oag-ca-gov",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
+   "description": "California Attorney General Rob Bonta filed a lawsuit against OpenAI in San Francisco Superior Court, alleging that the company knowingly developed and tested advanced AI models without necessary safety protections and monitoring, misleadi…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
    ]
   },
   {
@@ -756,6 +967,36 @@
    "description": "Researcher Ziqian Zhong found that the TASTE benchmark contains a shortcut; after removing that shortcut, more capable models' judgments of AI safety research proposals fall below random level. The benchmark has models judge which of two A…",
    "direction_ids": [
     "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-bcd22aba8e48",
+   "title": "Drone Navigation for Fast, Safe Emergency Response",
+   "date": "2026-11-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.19818",
+   "description": "In 2025, there was a total of 358 weather-related disasters worldwide affecting millions of people. For unmanned aerial vehicles (UAVs) to autonomously aid these people, they need to be able to navigate around complex obstacles and reach their destinations to deliver supplies or quickly locate survivors in disaster-stricken areas. Our research addresses this need by providing a method to compute minimum-time trajectories in real time while providing guarantees of obstacle avoidance along the trajectory. Previous approaches treat the problem of computing time-optimal trajectories without considering obstacle avoidance. Our work not only includes obstacle avoidance constraints, but also improves overall mission time for navigation. We define mission time as the sum of planning time and traversal time. In time-sensitive emergencies, rapid trajectory planning is essential to ensure the prompt delivery of critical medical aid. As such, we consider the combined planning and traversal time as the key metric for how quickly the vehicle can reach a survivor. We show a sample mission in Fig. 1 where the quadrotor navigates through multiple canyon-like obstacles to deliver aid; during most of this trajectory, it is applying the near-maximum thrust.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-101e01bfdb3b",
+   "title": "SAFER: Navigating the Exploration-Exploitation Dilemma in World-Model-Based Planning for Autonomous Driving",
+   "date": "2026-11-15",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.20107",
+   "description": "An autonomous vehicle must foresee the consequences of its actions, especially in the rare, time-critical situations where crashes happen. A world model offers this foresight, but only within the coverage of its training data, which poses an exploration-exploitation dilemma. Within this coverage a planner can hardly improve on the data, and beyond it the model's errors mislead it. Logs of competent driving rarely contain the failures that would widen the coverage, and agents that learn from interaction gain them only by failing themselves, without being shown what to do instead. We propose SAFER, a framework that learns offline from failures that others make, judged by an expert, and keeps learning online from its own driving. Offline, partially trained agents and scripted, recoverable perturbations Stage failures in simulation, and an expert Annotates every visited state with its action and value, so that much of what the planner explores is covered before it drives. In planning, a chunked latent world model Foresees the consequences fast enough for real-time use, and a risk-aware sampling-based planner Evaluates candidate maneuvers by their return minus a bounded collision penalty. Online, a loop continuously Refines the model wherever this driving leaves the coverage of the offline data. In closed-loop evaluation against the compared methods, SAFER reaches the highest route completion and reward per step on the CARLA Leaderboard routes, 0.95 and 0.77 from a privileged bird's-eye view, and the highest episode reward in MetaDrive, 53.4 in regular and 49.0 in safety-critic…",
+   "direction_ids": [
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -957,6 +1198,36 @@
     "agent-software",
     "human-societal",
     "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-302b7bbae562",
+   "title": "Towards Probabilistically Safe Reinforcement Learning: Theory and Deployment on Humanoid and Aerial Robots",
+   "date": "2026-11-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.19616",
+   "description": "Reinforcement learning (RL) enables robots to acquire complex skills, but standard RL formulations do not guarantee that learned policies satisfy safety constraints, which limits their use in safety-critical settings. Existing safe RL methods with provable guarantees typically support only restricted classes of constraints and require unbiased estimators of the objective and constraint functions, which prevents their direct integration with state-of-the-art algorithms such as proximal policy optimization (PPO). In this paper, we extend the recently introduced robust safe gradient flow-based reinforcement learning (RSGF-RL) framework to overcome these limitations. Our formulation accommodates a general class of trajectory-level safety constraints, including chance constraints such as collision avoidance with a prescribed probability, and our analysis allows for biased value and gradient estimators. We show that, with high probability, the constraint violation throughout training is bounded by the estimator bias plus a term that vanishes as the number of rollouts grows, and decays to this level if the initial policy is unsafe. We also establish the convergence properties of the iterates to approximate KKT points of the original safe RL problem. Finally, we show that RSGF-RL implemented with PPO-style estimates enables zero-shot sim-to-real deployment of whole-body control policies on a Unitree G1 humanoid and collision-free waypoint navigation on a Crazyflie drone.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-137001183d72",
+   "title": "Distilling Safety Filters for Filter-free Multi-agent RL",
+   "date": "2026-11-14",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.19190",
+   "description": "Reinforcement learning (RL) can teach robot teams to navigate shared spaces, but trial and error causes collisions that real robots cannot afford. Control barrier function (CBF) safety filters prevent these collisions by correcting unsafe actions, yet in a team the filter becomes a centralized optimization whose number of constraints grows quadratically with the team size. We propose an approach that builds the filter's safety into the RL policy and examine how such a system behaves during filter-free deployment. However, the filter that keeps training safe also hides what the policy must learn: it masks the cost of unsafe actions, which actor-critic methods then overvalue, and it keeps near-collision states out of the training data. Our approach therefore learns only from executed safe actions with implicit Q-learning and distills the filter into the policy at synthetic near-collision states. We prove that filter distillation loss bounds the policy's constraint violation and hence how far agents can cross their safety margin, so errors never accumulate. When distillation states cover deployed states, the loss also bounds the collision probability at every step. Without a filter and acting only on local observations, our policies have no collisions in 1,800 test episodes with multiple agents. A policy trained with three agents transfers zero-shot to teams of twenty at constant per-agent computation and stays collision-free with up to eight agents. We test our policies on Crazyflie quadrotors with up to five flying at the same time.",
+   "direction_ids": [
+    "physical-ai"
    ],
    "orgs": []
   },
@@ -5707,6 +5978,21 @@
    "category": "research",
    "url": "https://arxiv.org/abs/2611.08914",
    "description": "Recent progress in embodied robotics is bringing robots closer to deployment in homes, as vision-language models (VLMs) are demonstrating significant advances in reasoning, making VLM-driven robots promising home assistant agents. These agents will often be introduced into homes that already have cameras, Internet of Things (IoT) devices, and residents with wearables. To fulfill their potential, they need to integrate with existing smart infrastructure and reason through ambiguous scenarios: a smoke alarm may come from a pan about to ignite, a pan already on fire, a resident cooking or a faulty sensor, and each calls for a different response. To that end, we introduce HomeLoop, a simulation framework and benchmark built on Isaac Sim that combines robot bodies, networked devices and wearables, simulated residents and visitors, faulty sensors, and hazards that evolve over time. Our benchmark is composed of 20 tasks across five families grounded in real-world household hazards and needs, and designed so that the same alert can have different causes. A runtime monitor scores each episode with temporal-logic checks on the final outcome and the actions along the way, and every action carries a predefined cost. We evaluate six open-weight and proprietary VLMs. The best achieves a family-balanced score of 61.9%, and across models we see a pattern of over-reaction: failed episodes involving prohibited interventions outnumber those involving missed required interventions by more than two to one, with models often shutting off the stove before investigating the alarm's cause. HomeLoo…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-2e0d6454f54c",
+   "title": "Robustness as a Transferable Skill: Cross-Task Adversarial Defense for Vision-Language-Action Policies",
+   "date": "2026-11-06",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.18702",
+   "description": "Vision-Language-Action (VLA) policies are vulnerable to adversarial visual perturbations, while defenses often require task-specific adversarial fine-tuning. We investigate whether robustness learned on source manipulation tasks can protect independently specialized target policies without target-side adversarial training. We first show that even a single source defense update improves robustness on held-out tasks, establishing cross-task defense reuse independently of multi-source aggregation. To combine source updates, we introduce Source-Norm Transferable Robustness Vector (SN-TRV), which retains the direction of their mean while calibrating its magnitude using source-update norms. The resulting update is applied to the target visual encoder without target adversarial data, target-side gradient optimization, or additional inference modules. Evaluations across three VLA backbones, fixed and adaptive attacks, and different source defense recipes show improved robustness over naive averaging and identify limits in attack coverage. Physical PiPER trials increase average success under printed adversarial patches from 20.3% to 45.8%.",
    "direction_ids": [
     "physical-ai"
    ],
