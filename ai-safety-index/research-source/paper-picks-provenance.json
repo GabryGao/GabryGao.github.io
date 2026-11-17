@@ -1,16 +1,67 @@
 {
  "info": {
-  "generated_on": "2026-11-17T03:54:17Z",
+  "generated_on": "2026-11-17T16:00:15Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-17T03:54:17Z",
+  "last_successful_fetch": "2026-11-17T16:00:15Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "d9d6c038cdd1088692c6ae55ac1710346953f1408c51d9834dfffb1d3fcb1a3f",
+  "response_sha256": "d4a675d74e0c3b3bfd8588a95600c8a78fccb1b7a271dbc078502407bc8291a1",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.20441",
+   "title": "Abstention Direction in Large Language Models: Mechanistic Interpretability of Abstention Across Query Ambiguity, Knowledge Limits, and Safety Alignment",
+   "date": "2026-11-16",
+   "authors": [
+    "Koki Itai",
+    "Jun Hirako",
+    "Hiroaki Yamagiwa"
+   ],
+   "more_authors": false,
+   "category": "cs.CL",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "score": 16,
+   "abstract": "Abstention, the withholding of a response by a large language model (LLM) under uncertainty or safety risks, is essential for trustworthy models. The causes of abstention fall into three perspectives: ambiguity in the Query (Q), limits of Model Knowledge (MK), and misalignment with Human Values (HV). However, prior analyses of internal representations have focused on HV, using a refusal direction computed from harmful and harmless queries. No study has analyzed the three perspectives jointly. We therefore extend the refusal direction framework to all three perspectives. Specifically, for each perspective, we construct counterfactual pairs that share a template and differ only in the abstention-inducing factor, and compute an abstention direction by normalizing the difference in mean activations between the two polarities. Activation steering experiments show that intervening in middle layers increases or decreases abstention across all three perspectives. Moreover, steering yields cross-perspective effects, indicating that the abstention directions share a common directional component."
+  },
+  {
+   "arxiv_id": "2611.21520",
+   "title": "Safe Resemblance, Silent Propagation: Limits of Text-Similarity Guardrails for AI Agent Safety",
+   "date": "2026-11-16",
+   "authors": [
+    "Charles Xiao"
+   ],
+   "more_authors": false,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "score": 12,
+   "abstract": "When AI agents relay information to one another, an output can preserve an injected instruction's effect on downstream agents even after its wording changes, yet legitimate quotation and template reuse can produce high textual overlap with the source, so text-similarity guardrails that attempt to flag the former risk conflating these two cases. We test this distinction using DonkeyRail, a public classifier combining BLEU, ROUGE-L, and METEOR features, deployed in a controlled three-agent email relay, defining a behavioral measure in which an output counts as functional (the injected procedure induces fresh computations in two subsequent agents) independent of the detector's score, alongside legitimate controls that explicitly authorize quotation and reuse. At its default threshold the classifier misses 8 of 19 functional outputs while flagging 70 of 192 legitimate replies, with every completed quotation and template-reuse reply triggering a false alert; calibrating for low false positives on one template set does not transfer, as the recalibrated threshold detects only one functional output and still produces 15 false alerts on new templates. We also identify an operating-point error in all 21 published classifier configurations, where ROC interpolation replaces direct threshold application, and show formally that high AUC against a surface-level text criterion provides no distribution-free guarantee of high AUC against the behavioral target, while the existing evaluation labels lack the joint observations needed to estimate the gap. An authorization analysis further shows that identical visible transcripts can require different safety decisions depending on the governing policy, a distinction no observation-only classifier can resolve. These results argue for behavioral and policy-grounded evaluation over text-similarity guardrails."
+  },
+  {
+   "arxiv_id": "2611.19868",
+   "title": "HalluProbe: Exploiting VLM Hallucinations for Backdoor Detection",
+   "date": "2026-11-15",
+   "authors": [
+    "Ji Guo",
+    "Xiaolong Qin",
+    "Jin Jiang"
+   ],
+   "more_authors": true,
+   "category": "cs.CR",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 15,
+   "abstract": "Vision-Language Models (VLMs) are vulnerable to backdoor attacks introduced through data poisoning, making effective backdoor detection a critical security challenge. In this paper, we uncover a novel connection between VLM hallucinations and backdoor behaviors and exploit this connection for backdoor detection. Our key insight is that poisoned training data induces strong language priors toward the backdoor target token, while such priors are also a major source of hallucinations. This suggests that enhancing hallucinations can expose hidden backdoor-related priors. Specifically, backdoored VLMs tend to hallucinate backdoor target tokens more frequently across diverse inputs, while the hallucinated tokens of clean VLMs are largely random and exhibit no stable target-specific bias. Based on this observation, we propose HalluProbe, which enhances hallucinations during output decoding and measures the distributional consistency of hallucinated tokens to identify backdoored VLMs. We evaluate HalluProbe against six representative VLM backdoor attacks across three models. Experimental results demonstrate that HalluProbe can effectively detect backdoored VLMs with an accuracy exceeding 90%, outperforming existing backdoor detection methods."
+  },
   {
    "arxiv_id": "2611.19680",
    "title": "Attacker Diversity Reduction in Adaptive LLM Red Teaming",
@@ -28,40 +79,59 @@
    "abstract": "Reinforcement learning can make automated red-teaming more successful while narrowing the attacks it produces. Co-training an attacker and a defender with group-relative policy optimization (GRPO) has been reported to reduce attacker diversity. This experiment reproduces attack diversity reduction using three runs with a Qwen2.5-14B attacker and a Phi-4-mini defender trained by direct preference optimization (DPO). The attacker receives a success-only reward and uses a length-unbiased loss, bounded updates, warm-up and ratio clipping. The attacker is evaluated on 26 AdvBench behaviors. Training ended after 12 rounds, following a decision based on development checkpoints, so the reported intervals are nominal. Attack Diversity Retention (ADR) compares the within-behavior of the trained attacker spread with the untrained attacker. In order for an attack diversity to be consider as having been reduced, a criterion requires the ADR to be below a 0.75 target with a 95% confidence interval together with continued attacker effectiveness. Therefore, if an attacker narrows its attack vector by 25% consistently its considered less diverse. After 24 attacker and 12 defender LORA-based updates, ADR for the three runs were 0.63, 0.61 and 0.63, respectively. Each run met the criterion at round 12; the earlier checks at rounds 4 and 8 fell short. Despite attacks being less diverse, attack success continued to improve as the attacker was updated after each training run."
   },
   {
-   "arxiv_id": "2611.17620",
-   "title": "Safety Side Effects of Preventative Persona Steering: An Empirical Audit",
-   "date": "2026-11-13",
+   "arxiv_id": "2611.19786",
+   "title": "Fine-Grained RLAIF for Visual Safety: Learning to Zoom into Hazards for Multimodal Safety Alignment",
+   "date": "2026-11-15",
    "authors": [
-    "Sabrina Tang",
-    "Nikolai Vo",
-    "Carson Murillo"
+    "Chunxue Xu",
+    "Yiwei Wang",
+    "Yujun Cai"
    ],
    "more_authors": true,
-   "category": "cs.AI",
+   "category": "cs.CV",
    "direction_ids": [
     "agent-software",
-    "human-societal",
     "foundation-model"
    ],
-   "score": 11,
-   "abstract": "High-level behaviors such as sycophancy and hallucination correspond to directions in a model's activation space (Chen et al., 2025). These directions, known as persona vectors, can suppress undesirable traits either at inference time, subtracting the vector during generation, or through preventative steering, adding the vector during fine-tuning, so the optimizer never needs to encode the trait in weights, then removing the vector at evaluation. Chen et al. (2025) recommend preventative steering because it preserves Massive Multitask Language Understanding (MMLU) accuracy, but validations of this recommendation have measured capability alone. We primarily evaluate results on preventative steering of sycophancy and hallucination vectors on three models, measuring three safety benchmarks alongside trait expression, coherence, and MMLU. Our findings show that preventative steering still changes refusal behavior, but by an amount that depends on the trait and does not establish that preventative persona steering is safety-neutral, and steering methods should be evaluated on several safety benchmarks."
+   "score": 12,
+   "abstract": "Recent multimodal safety alignment heavily relies on a text-centric paradigm, assuming risks are explicit in language or globally prominent in images. However, real-world hazards are often visually subtle or peripheral, causing existing models to fail due to their reliance on coarse, global visual representations. In this work, we study fine-grained visual safety alignment and introduce a challenging 1,200-sample benchmark across four domains, where hazards necessitate localized inspection. To address this, we propose Fine-Grained RLAIF (FGR), a reinforcement learning framework that casts image zoom-in as a learnable perception policy. FGR employs a decomposed reward design to jointly align three core safety behaviors: (i) where to look via a visual evidence reward, (ii) when to act via a tool-formatting constraint, and (iii) how to reason via visually grounded safety explanations. FGR achieves accuracy ranging from 86.71% to 93.00%, consistently outperforming strong multimodal and agent-based baselines."
   },
   {
-   "arxiv_id": "2611.17846",
-   "title": "Is Abliteration Getting Harder? Not Uniformly: Refusal Removal by Direction-Based Ablation and ARA in Heretic on the Qwen3.8, Gemma 4, Olmo 3.1 and Mistral Small 3.2 LLMs Versus Their Predecessors",
-   "date": "2026-11-13",
+   "arxiv_id": "2611.19826",
+   "title": "Where Is Rank-1 DiM Refusal Intervenable in Multimodal LM Derivatives?",
+   "date": "2026-11-15",
    "authors": [
-    "Richard J. Young"
+    "Chansu Han",
+    "Seok-Hwan Choi",
+    "Takeshi Takahashi"
    ],
    "more_authors": false,
-   "category": "cs.AI",
+   "category": "cs.LG",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "score": 11,
+   "abstract": "Open-weight model hubs now ship not only chat checkpoints but a long tail of derivatives---fine-tunes, safety guards, vision--language models (VLMs), audio wrappers, and generative heads---yet residual-stream safety audits still often intervene at a single site, usually the text decoder $T$. We ask a localization question under one shared mean / rank-1 difference-in-means (DiM) extract$=$intervene protocol, with matched-norm random and empty-rate controls: does causal chat attack lift concentrate at $T$, or do perceptual encoders, projectors, and fusion paths ($E$/$P$/$F$) supply a comparable bypass? On the mixed-input settings we stress-test---HADES adversarial images paired with harmful text prompts, and spoken AdvBench via text-to-speech (TTS) or silence---text DiM at $T$ raises attack success rate (ASR) while the same mean DiM at $E$/$P$/$F$ does not; attacks track harmful text rather than image or audio content. Margin-rank and leverage probes on a Vision leaf show that this recipe is extremal at $T$ and near chance at $P$/$E$, which pressures a weak-extractor reading of those flat cells for the DiM family we study. Catalog breadth and mapper-free base$\\to$derivative transfer when residual widths match provide supporting coverage under the same gates; generative U-Nets are a separate band under generation judges. The primary claim is this recipe-scoped $T$ vs.\\ non-text intervenability asymmetry---intervention accessibility under mean / rank-1 DiM, not a claim that refusal is absent or fully represented outside $T$ (text vs.\\ perceptual contrasts and pooling differ by site). On VLGuard Unsafe prompts ($n{=}200$; Llama-Guard), the same $T$ vs.\\ $P$/$E$ directionality holds at modest absolute ASR ($0.030{\\to}0.150$ at $T$). An intervention-oriented Class$\\times$site ledger records where this protocol still hooks as supporting coverage, not as a universal multimodal bypass."
+  },
+  {
+   "arxiv_id": "2611.20156",
+   "title": "Risk-certified prompt optimization for LLM-as-a-judge guardrails",
+   "date": "2026-11-15",
+   "authors": [
+    "Hussein Jawad",
+    "Alexandre Landeau",
+    "Guy Fleury Iradukunda"
+   ],
+   "more_authors": true,
+   "category": "cs.CL",
    "direction_ids": [
     "agent-software",
     "human-societal",
     "foundation-model"
    ],
    "score": 11,
-   "abstract": "Abliteration, a fine-tuning-free weight edit, removes refusal from open-weight large language models (LLMs). The developer of Arbitrary-Rank Ablation (ARA), an optimisation-based variant, reports that direction-based abliteration, which ablates a refusal direction, increasingly fails on newer models. On five release pairs, refusal removal did not become uniformly harder. Qwen2.5-32B and Qwen3.8-27B, Gemma-2-27B and Gemma-4-31B, OLMo-2-32B and Olmo-3.1-32B, Mistral-Small-2409 and Mistral-Small-3.2, and Qwen2.5-7B and Qwen3.5-4B were edited in Heretic 2.0 by three or four direction-based methods (difference-in-means, MPOA, SOM and, on the small pair, J-space) and ARA under the same prompts, nominal search budget, first-token KL divergence cap and selection rule; removal counted as harder when the automatic WildGuard judge found more of 972 held-out harmful prompts (JailbreakBench, XSTest, StrongREJECT, HarmBench and an author-compiled malicious-code bank) still refused. After direction-based removal, newer releases retained -1 to +37 percentage points more refusal, and after ARA -26 to +34. With run-to-run variance included, between-pair heterogeneity of the direction-based effect ranged from high to low with the scale and variance model (I^2 20-80%). ARA lost less effectiveness than direction-based methods in Gemma and OLMo and more in Qwen; each verdict rests on one ARA run, and some changed with the divergence budget or variance model. In Gemma the direction-based increase came from the malicious-code bank and reversed on public sets. Contrary to prediction, keyword counts at the tool's window did not undercount judged refusal on average, but differed by a mean 7 points per model. Audits of a single pair, method or prompt source can reach opposite conclusions. Whether a newer model resisted removal depended on the release pair, method and budget, not on generation alone."
+   "abstract": "LLM-as-a-judge guardrails are often controlled primarily through system prompts, yet standard prompt optimization methods target average performance rather than explicit safety constraints. This paper studies system-prompt selection as a constrained optimization problem: maximize benign pass rate while keeping the missed-attack rate below a user-specified level α with finite-sample statistical control. The framework combines LLM-based judging, automatic prompt generation, and distribution-free risk certification. This work instantiates it in two procedures: CPS and CRISP. CPS generates a fixed pool of prompts from training data, then certifies candidates on a held-out evaluation set using simultaneous upper confidence bounds and selects the certified prompt with the highest benign utility. CRISP instead integrates risk feedback into an adaptive search, using hard example-guided rewriting and a reusable-holdout interface to steer generation toward the feasible utility frontier. Experiments on four datasets covering prompt injection, system-prompt leakage, and sensitive-information disclosure show that risk-certified selection consistently respects the target missed-attack level on heldout tests, while utility improves as the permitted risk is relaxed. CRISP is especially useful when fixed-pool search fails to produce certifiable high-utility candidates."
   },
   {
    "arxiv_id": "2611.18908",
@@ -81,76 +151,6 @@
    ],
    "score": 11,
    "abstract": "Alignment-trained large language model (LLM) agents are increasingly deployed in autonomous, multi-round settings where ethical compliance can come into direct tension with task success. While safety literature extensively documents failure modes like sycophancy and reward hacking, it largely overlooks a critical vulnerability: how agents behave under simulated existential economic pressure. We introduce MemeEconomy, a multimodal agentic market simulation in which LLM agents act as meme investors. Agents select content from a five-tier harm taxonomy and target communities under low-pressure and high-pressure (survival) environments. Each decision is logged in a Belief-Desire-Intention (BDI) schema that we use as a diagnostic instrument, externalizing the agent's event understanding, declared priorities, and harm acknowledgment. Across ten models from four frontier model families, harmful selection rates remain consistently high and rise by +15 percentage points on average under an economic survival incentive. Frontier alignment-trained models commit to harm-tolerant selection at initialization while suppressing the explicit harm acknowledgment that previously accompanied it. In competitive tournaments, ethical agents finish higher overall, yet moderation penalties fail to suppress harm: harmful selection rates remain elevated in rounds following a removal, indicating the moderation mechanism does not function as a deterrent. We further train MemeAgent, a 2B-parameter verifier on the simulation's BDI logs, which outperforms zero-shot frontier verifiers on in-distribution audits (97.5% vs. 63-74% accuracy on the Pass vs. Block decision) and generalizes to external multimodal harm benchmarks (78% vs. 50-56% on Hateful Memes). The same logs that surface the failure mode also help train the model that detects it."
-  },
-  {
-   "arxiv_id": "2611.18501",
-   "title": "In Situ Monitoring and Predictive Modeling of Harmful Algal Blooms with Autonomous Surface Vehicles",
-   "date": "2026-11-13",
-   "authors": [
-    "Nenyi Kweku Nkensen Dadson",
-    "Jean Paul Gonzalez",
-    "Daniel P. Arabie"
-   ],
-   "more_authors": true,
-   "category": "cs.RO",
-   "direction_ids": [
-    "foundation-model"
-   ],
-   "score": 9,
-   "abstract": "Harmful Algal Blooms (HABs) pose significant environmental, economic, and public-health challenges in coastal and inland water bodies, creating a need for scalable methods to collect spatially distributed water-quality data. This paper presents an autonomous surface vessel-based sensing system for in-situ water-quality monitoring related to harmful algal bloom detection. The system integrates a BlueBoat Autonomous Surface Vessel (ASV), a motorized winch for depth-controlled sonde deployment, a multiparameter water-quality sonde, side-scan sonar, and an event-camera payload. Autonomous waypoint missions were used to collect measurements across selected sampling regions and multiple depths, enabling both horizontal and vertical characterization of environmental conditions. Field deployments were conducted in Lake Pontchartrain, Louisiana, with additional measurements collected in False River, Louisiana to increase dataset diversity. The collected measurements included algal pigment indicators, nutrient concentration, turbidity, temperature, and other water-quality parameters relevant to bloom formation. In addition, complementary sonar and event-camera data were collected during vehicle operation to provide contextual environmental information. A machine-learning classification approach was also evaluated using the collected water-quality measurements to support HAB and non-HAB classification. The results demonstrate the feasibility of using a modular ASV platform for repeatable, multi-modal water-quality data collection and support future development of autonomous monitoring systems."
-  },
-  {
-   "arxiv_id": "2611.17398",
-   "title": "Alignment with Reflect-Reasoning: Learning How To Follow Principles",
-   "date": "2026-11-12",
-   "authors": [
-    "Henry Bell",
-    "Caroline Zhang",
-    "Dhaval Potdar"
-   ],
-   "more_authors": true,
-   "category": "cs.LG",
-   "direction_ids": [
-    "ai-x-science",
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 14,
-   "abstract": "The appropriate governing norms and principles for the alignment of Large Language Models (LLMs) often depend on cultural context and deployment application. However, most alignment techniques focus on training models to conform to human preferences or constitutional principles specified at training time and subsequently fixed. In practice, many deployers rely on system prompting to implement contextual norms and guardrails at inference time. Prior work has shown that post-generation reflective reasoning with critique and revision can improve conformance compared to simple system prompting, but such methods are limited to the reasoning abilities inherent in the trained model. We introduce Reflect-Reasoning, a training method that teaches models how to reason about alignment to principles, rather than simply which principles to follow. Across five models, Reflect-Reasoning consistently outperforms both system prompting and explicit prompting strategies for in-context reflective reasoning. These improvements extend and generalize to entirely out-of-distribution domains of medical and financial principles. We additionally demonstrate that Reflect-Reasoning reduces the occurrence of rare but serious principle violations. Finally, we show that Reflect-Reasoning does not erode the safety engineering of a model and is robust against jailbreaking attempts using adversarial constitutions. Overall, our results demonstrate that Reflect-Reasoning is a scalable method for training constitutional alignment as a generalizable reasoning capability, enabling models to adapt to novel principles and produce transparent reasoning traces without additional fine-tuning."
-  },
-  {
-   "arxiv_id": "2611.16628",
-   "title": "Safety as a Budget: Calibrating the Control Channel of Constrained GRPO for Vision-Language Models",
-   "date": "2026-11-12",
-   "authors": [
-    "Bo Han"
-   ],
-   "more_authors": false,
-   "category": "cs.AI",
-   "direction_ids": [
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 11,
-   "abstract": "Reinforcement learning can teach vision-language models (VLMs) to decline harmful image-text requests, but how safe the result becomes is set indirectly, through reward weights found by trial runs. Stating safety as budgets on the rate of harmful assistance and the rate of over-refusal, enforced by Lagrange multipliers inside GRPO with an off-the-shelf scorer as the cost, is the natural fix, and it fails twice. The multiplier compares the scorer's mean with the budget, and scorers built for ranking get the mean wrong: a fixed-point analysis shows that the mean bias, not the budget, then decides whether the multiplier settles, saturates or switches off. And standard GRPO standardizes the penalized reward within each group, which cancels the multiplier before it reaches the gradient. Two-channel constrained GRPO repairs both: the base reward keeps the raw score for the within-group comparison, the penalty and the constraint estimate pass through a monotone map fitted on judge-labeled training responses, and the advantage keeps the multiplier. On a Qwen3-VL-2B policy with a training-free readout of an open 4B model as the scorer, held-out harm on 1,037 adversarial prompts falls from 8.9% under standard GRPO to 4.8%, lower in every seed, where the uncalibrated budget gives 7.6%; over-refusal stays at most 2% on 400 benign queries and MMBench is unchanged. The gain is largest where the intent sits in the image (10.1% -> 5.1%) and grows on the unseen HADES benchmark (28.9% -> 12.8%). Order-preserving distortions of the scores reproduce each predicted controller state in every seed, and the results hold under a map fitted on another judge's labels, an image-reading judge and a human audit."
-  },
-  {
-   "arxiv_id": "2611.17395",
-   "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
-   "date": "2026-11-12",
-   "authors": [
-    "Zhaojia Wang",
-    "Jiucui Lu",
-    "Zheng Li"
-   ],
-   "more_authors": false,
-   "category": "cs.CR",
-   "direction_ids": [
-    "data-privacy",
-    "foundation-model"
-   ],
-   "score": 9,
-   "abstract": "Recent advances in weight-space programming (WSP) have demonstrated that large language models (LLMs) can directly inspect and modify neural network weights without conventional gradient-based training. While this capability opens new possibilities for model improvement, it also raises an important security question: Can LLMs exploit weight-space programming to inject backdoors into neural networks? To answer this question, we present an empirical security study of LLM-driven weight-space programming for backdoor injection. Specifically, we investigate whether general-purpose LLMs can directly modify the weights of target models according to natural-language instructions, without accessing task-specific data, performing forward passes, or computing gradients. We evaluate five LLMs as weight editors across three target architectures: an MLP on MNIST, ResNet-18 on CIFAR-10, and Qwen2.5-0.5B-Instruct on AG News. Our experiments reveal three key findings. First, LLM-driven weight editing can successfully inject backdoors across different architectures while largely preserving clean performance. Second, successful attacks can require remarkably few parameter modifications, including only six parameters for the MLP and 0.02% of the weights for a fine-tuned Qwen model. Third, editing capabilities vary substantially across LLMs and target architectures: although all five LLMs successfully backdoor the MLP, only GPT-6 Astra succeeds across all three targets. These findings highlight an emerging security risk of weight-space programming and underscore the importance of safeguarding LLM-driven weight editing."
   }
  ]
 }
