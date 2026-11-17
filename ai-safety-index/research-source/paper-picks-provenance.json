@@ -1,16 +1,32 @@
 {
  "info": {
-  "generated_on": "2026-11-16T19:36:55Z",
+  "generated_on": "2026-11-17T03:54:17Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-16T19:36:55Z",
+  "last_successful_fetch": "2026-11-17T03:54:17Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "3ccbed8a203ca0676347482e09d83cee3caa8179c7894ecb4182df0776f59b35",
+  "response_sha256": "d9d6c038cdd1088692c6ae55ac1710346953f1408c51d9834dfffb1d3fcb1a3f",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.19680",
+   "title": "Attacker Diversity Reduction in Adaptive LLM Red Teaming",
+   "date": "2026-11-15",
+   "authors": [
+    "Chris Tava"
+   ],
+   "more_authors": false,
+   "category": "cs.CR",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 12,
+   "abstract": "Reinforcement learning can make automated red-teaming more successful while narrowing the attacks it produces. Co-training an attacker and a defender with group-relative policy optimization (GRPO) has been reported to reduce attacker diversity. This experiment reproduces attack diversity reduction using three runs with a Qwen2.5-14B attacker and a Phi-4-mini defender trained by direct preference optimization (DPO). The attacker receives a success-only reward and uses a length-unbiased loss, bounded updates, warm-up and ratio clipping. The attacker is evaluated on 26 AdvBench behaviors. Training ended after 12 rounds, following a decision based on development checkpoints, so the reported intervals are nominal. Attack Diversity Retention (ADR) compares the within-behavior of the trained attacker spread with the untrained attacker. In order for an attack diversity to be consider as having been reduced, a criterion requires the ADR to be below a 0.75 target with a 95% confidence interval together with continued attacker effectiveness. Therefore, if an attacker narrows its attack vector by 25% consistently its considered less diverse. After 24 attacker and 12 defender LORA-based updates, ADR for the three runs were 0.63, 0.61 and 0.63, respectively. Each run met the criterion at round 12; the earlier checks at rounds 4 and 8 fell short. Despite attacks being less diverse, attack success continued to improve as the attacker was updated after each training run."
+  },
   {
    "arxiv_id": "2611.17620",
    "title": "Safety Side Effects of Preventative Persona Steering: An Empirical Audit",
@@ -48,6 +64,25 @@
    "abstract": "Abliteration, a fine-tuning-free weight edit, removes refusal from open-weight large language models (LLMs). The developer of Arbitrary-Rank Ablation (ARA), an optimisation-based variant, reports that direction-based abliteration, which ablates a refusal direction, increasingly fails on newer models. On five release pairs, refusal removal did not become uniformly harder. Qwen2.5-32B and Qwen3.8-27B, Gemma-2-27B and Gemma-4-31B, OLMo-2-32B and Olmo-3.1-32B, Mistral-Small-2409 and Mistral-Small-3.2, and Qwen2.5-7B and Qwen3.5-4B were edited in Heretic 2.0 by three or four direction-based methods (difference-in-means, MPOA, SOM and, on the small pair, J-space) and ARA under the same prompts, nominal search budget, first-token KL divergence cap and selection rule; removal counted as harder when the automatic WildGuard judge found more of 972 held-out harmful prompts (JailbreakBench, XSTest, StrongREJECT, HarmBench and an author-compiled malicious-code bank) still refused. After direction-based removal, newer releases retained -1 to +37 percentage points more refusal, and after ARA -26 to +34. With run-to-run variance included, between-pair heterogeneity of the direction-based effect ranged from high to low with the scale and variance model (I^2 20-80%). ARA lost less effectiveness than direction-based methods in Gemma and OLMo and more in Qwen; each verdict rests on one ARA run, and some changed with the divergence budget or variance model. In Gemma the direction-based increase came from the malicious-code bank and reversed on public sets. Contrary to prediction, keyword counts at the tool's window did not undercount judged refusal on average, but differed by a mean 7 points per model. Audits of a single pair, method or prompt source can reach opposite conclusions. Whether a newer model resisted removal depended on the release pair, method and budget, not on generation alone."
   },
   {
+   "arxiv_id": "2611.18908",
+   "title": "MemeEconomy: Do LLM Agents Trade Ethics for Survival?",
+   "date": "2026-11-13",
+   "authors": [
+    "Syed Nazmus Sakib",
+    "Nafiul Haque",
+    "Ahnaf Tahmid Manan"
+   ],
+   "more_authors": true,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 11,
+   "abstract": "Alignment-trained large language model (LLM) agents are increasingly deployed in autonomous, multi-round settings where ethical compliance can come into direct tension with task success. While safety literature extensively documents failure modes like sycophancy and reward hacking, it largely overlooks a critical vulnerability: how agents behave under simulated existential economic pressure. We introduce MemeEconomy, a multimodal agentic market simulation in which LLM agents act as meme investors. Agents select content from a five-tier harm taxonomy and target communities under low-pressure and high-pressure (survival) environments. Each decision is logged in a Belief-Desire-Intention (BDI) schema that we use as a diagnostic instrument, externalizing the agent's event understanding, declared priorities, and harm acknowledgment. Across ten models from four frontier model families, harmful selection rates remain consistently high and rise by +15 percentage points on average under an economic survival incentive. Frontier alignment-trained models commit to harm-tolerant selection at initialization while suppressing the explicit harm acknowledgment that previously accompanied it. In competitive tournaments, ethical agents finish higher overall, yet moderation penalties fail to suppress harm: harmful selection rates remain elevated in rounds following a removal, indicating the moderation mechanism does not function as a deterrent. We further train MemeAgent, a 2B-parameter verifier on the simulation's BDI logs, which outperforms zero-shot frontier verifiers on in-distribution audits (97.5% vs. 63-74% accuracy on the Pass vs. Block decision) and generalizes to external multimodal harm benchmarks (78% vs. 50-56% on Hateful Memes). The same logs that surface the failure mode also help train the model that detects it."
+  },
+  {
    "arxiv_id": "2611.18501",
    "title": "In Situ Monitoring and Predictive Modeling of Harmful Algal Blooms with Autonomous Surface Vehicles",
    "date": "2026-11-13",
@@ -63,25 +98,6 @@
    ],
    "score": 9,
    "abstract": "Harmful Algal Blooms (HABs) pose significant environmental, economic, and public-health challenges in coastal and inland water bodies, creating a need for scalable methods to collect spatially distributed water-quality data. This paper presents an autonomous surface vessel-based sensing system for in-situ water-quality monitoring related to harmful algal bloom detection. The system integrates a BlueBoat Autonomous Surface Vessel (ASV), a motorized winch for depth-controlled sonde deployment, a multiparameter water-quality sonde, side-scan sonar, and an event-camera payload. Autonomous waypoint missions were used to collect measurements across selected sampling regions and multiple depths, enabling both horizontal and vertical characterization of environmental conditions. Field deployments were conducted in Lake Pontchartrain, Louisiana, with additional measurements collected in False River, Louisiana to increase dataset diversity. The collected measurements included algal pigment indicators, nutrient concentration, turbidity, temperature, and other water-quality parameters relevant to bloom formation. In addition, complementary sonar and event-camera data were collected during vehicle operation to provide contextual environmental information. A machine-learning classification approach was also evaluated using the collected water-quality measurements to support HAB and non-HAB classification. The results demonstrate the feasibility of using a modular ASV platform for repeatable, multi-modal water-quality data collection and support future development of autonomous monitoring systems."
-  },
-  {
-   "arxiv_id": "2611.16183",
-   "title": "Data-Efficient LLM Safety Alignment Guided by Interpretable Features",
-   "date": "2026-11-12",
-   "authors": [
-    "Hongyu Li",
-    "Zhan Yu",
-    "Zhe Zhao"
-   ],
-   "more_authors": true,
-   "category": "cs.CL",
-   "direction_ids": [
-    "agent-software",
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 18,
-   "abstract": "Existing large language models typically rely on massive fine-tuning datasets for safety alignment, which results in higher costs for safety alignment and often leads to the problem of over-refusal. We propose Less is Safer (LIS), a compact yet highly effective dataset for safety alignment, constructed through interpretable feature-guided selection and adversarial synthesis. Specifically, we leverage Sparse Autoencoder (SAE) activations to efficiently select prompts that cover diverse and interpretable safety features. Then, we employ a multi-agent adversarial synthesis framework to generate harmless prompts that nevertheless elicit unnecessary refusals. LIS contains only 2.4K samples, yet outperforms much larger datasets, e.g., TRIDENT-Core (26K), TRIDENT-Edge (19K) and WildJailbreak (262K), in overall performance on four safety and five over-refusal benchmarks. Through ablation experiments, we demonstrate that neither safety data nor over-refusal data alone can achieve optimal results. We also used safety features from SAE, annotated by an LLM, for data filtering, but the results were inferior to those obtained using the pipeline proposed in this paper."
   },
   {
    "arxiv_id": "2611.17398",
@@ -117,25 +133,6 @@
    ],
    "score": 11,
    "abstract": "Reinforcement learning can teach vision-language models (VLMs) to decline harmful image-text requests, but how safe the result becomes is set indirectly, through reward weights found by trial runs. Stating safety as budgets on the rate of harmful assistance and the rate of over-refusal, enforced by Lagrange multipliers inside GRPO with an off-the-shelf scorer as the cost, is the natural fix, and it fails twice. The multiplier compares the scorer's mean with the budget, and scorers built for ranking get the mean wrong: a fixed-point analysis shows that the mean bias, not the budget, then decides whether the multiplier settles, saturates or switches off. And standard GRPO standardizes the penalized reward within each group, which cancels the multiplier before it reaches the gradient. Two-channel constrained GRPO repairs both: the base reward keeps the raw score for the within-group comparison, the penalty and the constraint estimate pass through a monotone map fitted on judge-labeled training responses, and the advantage keeps the multiplier. On a Qwen3-VL-2B policy with a training-free readout of an open 4B model as the scorer, held-out harm on 1,037 adversarial prompts falls from 8.9% under standard GRPO to 4.8%, lower in every seed, where the uncalibrated budget gives 7.6%; over-refusal stays at most 2% on 400 benign queries and MMBench is unchanged. The gain is largest where the intent sits in the image (10.1% -> 5.1%) and grows on the unseen HADES benchmark (28.9% -> 12.8%). Order-preserving distortions of the scores reproduce each predicted controller state in every seed, and the results hold under a map fitted on another judge's labels, an image-reading judge and a human audit."
-  },
-  {
-   "arxiv_id": "2611.16369",
-   "title": "Bait: Mitigating Harmful Agentic Reinforcement Learning via Probing Reward Function",
-   "date": "2026-11-12",
-   "authors": [
-    "Tiansheng Huang",
-    "Ananth Balashankar",
-    "Virat Shejwalkar"
-   ],
-   "more_authors": true,
-   "category": "cs.LG",
-   "direction_ids": [
-    "agent-software",
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 10,
-   "abstract": "We expose a safety vulnerability on nascent agentic reinforcement-learning-as-a-service. Specifically, with a cost as low as \\$20, we show that safety alignment of a large language model (e.g., Inkling) can be completely subverted through rounds of harmful agentic reinforcement learning (agentic RL) with a toxic environment from its users. We also demonstrate that upon a successful harmful agentic RL attack via the service API, the attackers can potentially use the safety-degraded model to assist with real-world harmful activities, e.g., exploit software vulnerabilities and launch code re-use attacks. To mitigate harmful agentic RL, we propose Bait, a defense that mitigates the attack via proactively probing the reward function. Experimental results show that such a simple defense can sufficiently mitigate learning from a harmful reward function and can still learn from a benign reward function that promotes benign agentic tasks. Further analysis on both empirical and theoretical aspects shows that an adaptive attacker who assumes the knowledge of Bait defense cannot perfectly subvert it due to a systematic challenge. Source code is available at https://github.com/git-disl/Bait."
   },
   {
    "arxiv_id": "2611.17395",
