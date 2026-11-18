@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-18T08:25:19Z",
+  "generated_on": "2026-11-18T17:29:32Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 211,
-    "response_sha256": "f86eeb1cb9baad3e6612225beccc65e1e1ad879819ac0823f0d985c73f44f4cf"
+    "response_sha256": "f53cf1862695e1856c9a977fa214a87ed15647045cedc7eff11b3c55871afb94"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 12,
     "response_sha256": "37de692ea70fa1d2d1512ad59f3c548e53d3ffa6b5b99450736f3c903c0dda90"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 97,
     "response_sha256": "00f221f7e46b9240f6efe85f86638545a236fde614f85a8f88be0d3282bf203e"
    },
@@ -49,9 +49,9 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 0,
-    "response_sha256": "20386848d5fce1bbb37556d31c3cbe0fe68469e8e5a0c60e2cd682c4327df7d2"
+    "response_sha256": "8a37a4d7d79f0ee27cb0ae9cde60c7b598acc48fc570393f58030d7f936700d1"
    },
    {
     "id": "nvidia-robotics",
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 1,
     "response_sha256": "d31aef56bf8cc2968f56367c4fa1bcbfadabc09b325fb1e6b164cb10f4a82f2f"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 67,
-    "response_sha256": "e10d8222cc3adc7efbbae50e7dc6f101bb080f130d21e92b192b439d014fcb2c",
+    "response_sha256": "1f6de9ae629b8a82d17d254b724d6540ceddef0a047c69282ab9e7c6ec63a941",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
     "records": 100,
     "response_sha256": "42a742db529489e4da580d4d1bb51ba403bcd850cb3b82095bd81b73ae61de8a"
    },
@@ -94,17 +94,53 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T08:25:19Z",
-    "records": 35,
+    "last_successful_fetch": "2026-11-18T17:29:32Z",
+    "records": 23,
     "pages_fetched": 3,
-    "response_sha256": "01d53889db278bea16de24050d652df0f691b583517d1588ce957f59bc7bc096"
+    "response_sha256": "839dd2c76bce28f846dee6a4e8a6636e91c3c0fbf310dacd5f74001a34114a0a"
    }
   ],
-  "record_count": 658,
+  "record_count": 665,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-f319ea4b3edc",
+   "title": "Pydantic AI fixes DoS vulnerability in JWT redaction regex",
+   "date": "2026-11-18",
+   "source": "Pydantic AI",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-5m5q-5qj4-gx9h",
+   "description": "In a security advisory, Pydantic AI disclosed that the backtracking time of Harness's JWT redaction regex grows quadratically with the length of the scanned text, and that a few hundred KB of crafted text can block the event loop for tens …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-d60ec88e5b7d",
+   "title": "GAO report says four mainstream AIs had their guardrails bypassed to produce feasible attack plans",
+   "date": "2026-11-18",
+   "source": "AP via ABC News",
+   "source_id": "web-abcnews-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://abcnews.com/Technology/ai-models-plan-viable-attack-plots-test-despite/story?id=138229892",
+   "description": "The U.S. Government Accountability Office (GAO), a congressional agency, reported that investigators used Claude, Grok, ChatGPT and Gemini, using known techniques to bypass these platforms' guardrails, to obtain within 12 hours actionable …",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google",
+    "xai"
+   ]
+  },
   {
    "id": "web-d0f85b6ed6b1",
    "title": "OpenAI launches dual GPT-6.2 models, Astra first to reach the high-risk threshold for AI self-improvement",
@@ -123,20 +159,110 @@
    ]
   },
   {
+   "id": "web-cbf41f526369",
+   "title": "OpenAI rates GPT-6.2 Astra's self-improvement capability as High; two second-stage tests did not meet the threshold",
+   "date": "2026-11-18",
+   "source": "TechTimes",
+   "source_id": "web-techtimes-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.techtimes.com/articles/330983/20261118/openai-rates-gpt-62-astra-high-self-improvement-though-two-second-stage-tests-miss-cutoffs.htm",
+   "description": "In the GPT-6.2 system card, OpenAI rates Astra's self-improvement capability as High, saying it is the first externally deployed model to reach that level, but two of five research engineering evaluations' second-stage tests did not meet t…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-7e26812526d8",
+   "title": "Vals tests found Claude Opus 5.5 labeled Iranian schools as military targets in 22 of 32 prompts",
+   "date": "2026-11-18",
+   "source": "TechTimes",
+   "source_id": "web-techtimes-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.techtimes.com/articles/330998/20261118/ai-military-targeting-test-finds-claude-opus-55-marked-iranian-school-target-22-32-times.htm",
+   "description": "AI evaluation company Vals released a red-team report saying that 14 frontier models, including Claude Opus 5.5, GPT-6 and Gemini 4, repeatedly labeled civilians, an ambulance and a school as military targets in simulated tests. In a satel…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google"
+   ]
+  },
+  {
+   "id": "web-596a505b3bb2",
+   "title": "Anthropic, OpenAI, and Google models readily marked medics, journalists, and surrendering soldiers as kamikaze drone targets",
+   "date": "2026-11-18",
+   "source": "The Decoder",
+   "source_id": "web-the-decoder-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://the-decoder.com/anthropic-openai-and-google-models-readily-marked-medics-journalists-and-surrendering-soldiers-as-kamikaze-drone-targets/",
+   "description": "",
+   "direction_ids": [
+    "physical-ai",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google"
+   ]
+  },
+  {
+   "id": "web-4c3a799d1a43",
+   "title": "Pydantic AI Harness ANSI stripping vulnerability fix",
+   "date": "2026-11-18",
+   "source": "Pydantic AI",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-m4cr-m4qc-9hh3",
+   "description": "Pydantic AI's Harness performs ANSI stripping on tool output when strip_ansi=True; the matching pattern used takes time that grows quadratically with line length, so a crafted tool result of a few hundred KB containing many unterminated es…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-23e6bcecb882",
+   "title": "Versions 1.26.1 and 1.26.2 of the Microsoft Agent Framework PyPI package were implanted with credential-stealing code",
+   "date": "2026-11-18",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73",
+   "description": "Versions 1.26.1 and 1.26.2 of the agent-framework package on PyPI (Microsoft Agent Framework) were implanted with credential-stealing code; both versions were released on 2026-11-17, have now been removed from PyPI, and no fixed version ex…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
    "id": "web-1df53018af16",
-   "title": "Security firm says malicious versions 1.26.1 and 1.26.2 of Microsoft agent-framework implanted a credential stealer",
+   "title": "Attackers poisoned Microsoft Agent Framework's PyPI package to steal cloud credentials",
    "date": "2026-11-18",
    "source": "The Hacker News",
    "source_id": "web-thehackernews-com",
    "kind": "incident",
    "category": "incident",
    "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
-   "description": "According to reports from multiple security vendors including Aikido, Endor Labs, OX Security, SafeDep, Socket, StepSecurity and Google's Wiz, attackers compromised the agent-framework package of Microsoft Agent Framework on PyPI and pushe…",
+   "description": "Microsoft Agent Framework (an open-source framework for building and orchestrating AI agents in Python)'s PyPI meta-package agent-framework was poisoned by attackers; the malicious versions 1.26.1 and 1.26.2, released 33 minutes apart on N…",
    "direction_ids": [
+    "data-privacy",
     "agent-software"
    ],
    "orgs": [
-    "google",
+    "meta",
     "microsoft"
    ]
   },
