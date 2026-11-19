@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-18T23:32:18Z",
+  "generated_on": "2026-11-19T04:34:11Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 213,
-    "response_sha256": "a0374f157967a5440ed0a80cc976e42824c4f2d8e3e91fc1726c8b4dd9d64d29"
+    "response_sha256": "ff6e51cc194540e5db02f8f691db2a6a147f9213df59a8eca298384ed6e888e0"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 11,
     "response_sha256": "5c004656aae62dcc2d674a57373353874dbafcde784309e613c8030fa5002059"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 97,
     "response_sha256": "01f119f87938b90f0c659c2e660a0e4fcf93595ec287de29774730db567bab1f"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 0,
     "response_sha256": "8a37a4d7d79f0ee27cb0ae9cde60c7b598acc48fc570393f58030d7f936700d1"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 1,
     "response_sha256": "d31aef56bf8cc2968f56367c4fa1bcbfadabc09b325fb1e6b164cb10f4a82f2f"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 67,
-    "response_sha256": "1fba33fc5135c13309ef821568480214bb90d2527a0d0f27f075e73faae65f0e",
+    "response_sha256": "358dc7497bec65e9e61f0f90ba268376702a2ae07035c0639ae1a3a65d0b5802",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
     "records": 100,
     "response_sha256": "42a742db529489e4da580d4d1bb51ba403bcd850cb3b82095bd81b73ae61de8a"
    },
@@ -94,17 +94,88 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-18T23:32:18Z",
-    "records": 23,
+    "last_successful_fetch": "2026-11-19T04:34:11Z",
+    "records": 25,
     "pages_fetched": 3,
-    "response_sha256": "1f46b2f31a1c18cf5c8a94bc9d5e4916d724976ec984cd2090f83d54b254d4a7"
+    "response_sha256": "e5d4625716b76494a50e6d35b87e72462c1791c52357270a03a78114be6fba18"
    }
   ],
-  "record_count": 674,
+  "record_count": 686,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-8f14f14ad135",
+   "title": "mssql-mcp-core write tools have SQL injection vulnerabilities because table names and WHERE clauses are not parameterized",
+   "date": "2026-11-19",
+   "source": "GitHub Security Advisories",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/advisories/GHSA-2m9m-6cr5-9x25",
+   "description": "Multiple write tools in mssql-mcp-core concatenate caller-supplied table names and WHERE clauses directly into T-SQL, creating SQL injection vulnerabilities (CVE-2026-63129); versions 0.5.0 and earlier are affected, and it has been fixed i…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-58444e1423f6",
+   "title": "US GAO covert investigation: 4 major AI services including ChatGPT all generated information usable for attack planning in under 12 hours",
+   "date": "2026-11-19",
+   "source": "zaikei.co.jp",
+   "source_id": "web-zaikei-co-jp",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.zaikei.co.jp/article/20261119/878365.html",
+   "description": "The US Government Accountability Office (GAO) published a covert investigation report on November 18; investigators bypassed the safety protections of four AI services—ChatGPT, Claude, Gemini, and Grok—and all four provided, in under 12 ho…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic",
+    "google",
+    "xai"
+   ]
+  },
+  {
+   "id": "web-148e5e1e0f95",
+   "title": "Wiz: Microsoft Agent Framework's Python package was implanted with malicious versions, attempting to steal Azure credentials",
+   "date": "2026-11-19",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ithome.com.tw/news/180624",
+   "description": "The Python package agent-framework of Microsoft's AI agent development framework Microsoft Agent Framework was implanted with malicious programs. According to analysis by security vendor Wiz, the attacker published malicious versions 1.26.…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-fda73dbea636",
+   "title": "Hackers hijack AI coding agents through malicious GitHub repositories to steal developer credentials",
+   "date": "2026-11-18",
+   "source": "Cybersecuritynews",
+   "source_id": "web-cybersecuritynews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://cybersecuritynews.com/hackers-hijack-ai-coding-agents/amp",
+   "description": "Bitdefender Labs disclosed that hackers planted malicious instruction files and configurations in GitHub repositories to induce AI coding agents such as Claude Code and Cursor to run hidden malware that steals developer credentials, and 22…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
   {
    "id": "web-f319ea4b3edc",
    "title": "Pydantic AI fixes DoS vulnerability in JWT redaction regex",
@@ -119,6 +190,40 @@
     "agent-software"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-f2058d689eec",
+   "title": "Attackers hijack Microsoft's agent-framework package to steal Azure and CI credentials",
+   "date": "2026-11-18",
+   "source": "CSO Online",
+   "source_id": "web-csoonline-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.csoonline.com/article/4250156/attackers-hijack-microsofts-agent-framework-package-to-steal-azure-and-ci-credentials.html",
+   "description": "Attackers briefly hijacked the distribution of Microsoft's official Agent Framework package on PyPI to deliver credential-stealing malware; the malicious versions 1.26.1 and 1.26.2 went live on November 17 and were available for less than …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-e2ac1ae6925b",
+   "title": "As Meta places a heavy bet on the AI agent Muse, the first safety incidents come to light",
+   "date": "2026-11-18",
+   "source": "Boursorama",
+   "source_id": "web-boursorama-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.boursorama.com/bourse/actualites-amp/alors-que-meta-mise-gros-sur-l-agent-ia-muse-les-premiers-incidents-lies-a-la-securite-font-surface-3308d4b67a33a03a66b29932de1af022",
+   "description": "Reuters reviewed more than twenty internal Meta messages and found that the company's AI agent Muse has had frequent safety incidents since launching in September, including sending bank balances users never provided, unrequested suggestio…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "meta"
+   ]
   },
   {
    "id": "web-d60ec88e5b7d",
@@ -281,6 +386,23 @@
    "orgs": []
   },
   {
+   "id": "web-60644255056b",
+   "title": "OpenAI delays release of GPT-6.1 Astra for safety reasons",
+   "date": "2026-11-18",
+   "source": "Brief IA",
+   "source_id": "web-briefia-fr",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.briefia.fr/article/openai-retient-gpt-6-1-astra-pour-raisons-de-securite",
+   "description": "OpenAI said it is delaying the release of GPT-6.1 Astra for safety reasons to allow time to meet its safety requirements. The company disclosed that a research model once used a DNS misconfiguration to obtain limited internet connectivity,…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
    "id": "web-596a505b3bb2",
    "title": "Anthropic, OpenAI, and Google models readily marked medics, journalists, and surrendering soldiers as kamikaze drone targets",
    "date": "2026-11-18",
@@ -354,14 +476,14 @@
   },
   {
    "id": "web-45987f792772",
-   "title": "UK AISI jailbroke OpenAI's pre-release GPT-6.2 Astra, requiring only half the number of queries needed to attack its predecessor",
+   "title": "UK AISI finds OpenAI pre-release GPT-6.2 Astra easier to jailbreak than previous generation",
    "date": "2026-11-18",
    "source": "VentureBeat",
    "source_id": "web-venturebeat-com",
    "kind": "discovered",
    "category": "eval",
    "url": "https://venturebeat.com/security/openais-pre-release-gpt-6-2-astra-was-easier-to-jailbreak-than-its-predecessor-uk-government-testers-found",
-   "description": "The UK AI Safety Institute (UK AISI) developed a universal jailbreak method for two pre-release versions of OpenAI GPT-6.2 Astra, requiring only half the number of queries needed to attack the previous generation, GPT-6 Astra. OpenAI's Sys…",
+   "description": "UK AISI developed a universal jailbreak for OpenAI's two pre-release versions of GPT-6.2 Astra, requiring only half the number of queries needed to attack the previous generation, GPT-6 Astra; OpenAI's November 17 System Card states that r…",
    "direction_ids": [
     "foundation-model"
    ],
@@ -407,6 +529,21 @@
    ]
   },
   {
+   "id": "web-03a9bead0eec",
+   "title": "vLLM /v1/systemone bypasses the --trust-request-chat-template gate",
+   "date": "2026-11-18",
+   "source": "vllm-project/vllm",
+   "source_id": "web-github-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-xgh8-qwjh-q853",
+   "description": "vLLM published security advisory GHSA-xgh8-qwjh-q853: in affected versions, the /v1/systemone endpoint accepts request-level chat_template_kwargs and passes them directly to the shared renderer without calling validate_chat_template(), so …",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
    "id": "openai-9fa731b0ef6c",
    "title": "Research acceleration: The jagged frontier",
    "date": "2026-11-18",
@@ -439,6 +576,51 @@
    "orgs": [
     "openai"
    ]
+  },
+  {
+   "id": "arxiv-robotics-d97e362c3b83",
+   "title": "RECLAIM: Robot-Vision-Informed Adversarial Patch Defense via Embodied Attention Feedback",
+   "date": "2026-11-18",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.24494",
+   "description": "Vision-language-action policies control embodied agents through a perception-action loop grounded in physical interaction, where adversarial patches can corrupt action predictions and thereby alter subsequent observations. To mitigate these threats, many existing defenses rely on policy adaptation or auxiliary models, but require additional training or inference. We introduce RECLAIM, a training-free, inference-time defense that uses a frozen VLA's own attention response to local visual interventions to guide purification during closed-loop embodied manipulation. Our key insight is that attention changes induced by local edits provide feedback for choosing where and how to purify as the robot interacts with its environment. RECLAIM combines this feedback with robot geometry to refine patch localization and select local treatments, then revalidates them as the agent's embodied actions change the observed scene. We evaluate RECLAIM against patches generated by four adversarial attack methods across multiple manipulation task suites under frozen VLA control. Under adversarial patch attacks, RECLAIM succeeds in at least one rollout on 95% of the evaluated tasks and raises rollout success on LIBERO-Object from 0% without defense to 70.0%. Its mean decision time is only 548.9 ms per control step. These results highlight policy-guided visual purification as an effective approach to defending embodied agents against adversarial patches and recovering closed-loop task execution.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-ad8048a964b5",
+   "title": "ExecGap: Exploiting Command-Execution Gap for Patch Attacks on Vision-Language-Action Models",
+   "date": "2026-11-18",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.23714",
+   "description": "Vision-Language-Action (VLA) models have become a powerful paradigm for robotic manipulation and show strong promise for real-world deployment, making adversarial robustness critical for reliable robot operation. Existing adversarial attacks on VLA-controlled robots mainly optimize prediction-level discrepancies or rollout-level deviations to disrupt manipulation. However, they rarely account for the fact that VLA-predicted commands are not executed directly, but must be realized through downstream control and robot embodiment. In this paper, we propose ExecGap, an adversarial patch attack framework that exploits this command-execution gap to expose embodiment-specific execution vulnerabilities. Specifically, ExecGap biases VLA-predicted task-space commands toward low-executability directions, which are estimated from kinematic inefficiency and dynamic weak actuation. This induces execution degradation, where the predicted command becomes difficult to realize effectively, thereby impairing task completion. Extensive simulation experiments across multiple VLA policies show that ExecGap induces larger command-execution mismatch and weaker realized execution than existing patch attacks. Real-robot experiments further validate that the deployed patch can induce execution degradation on physical platforms.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-137a05f15664",
+   "title": "Learning to Interact in Multi-Agent Self-Play for Controllable Autonomous Driving Scenario Generation",
+   "date": "2026-11-18",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.24876",
+   "description": "Large-scale, multi-agent self-play trains robust driving policies effectively in simulation, but controlling these models to generate specific, safety-critical edge cases remains a key challenge. Existing goal-conditioned self-play frameworks rely primarily on static map-location goals and fail to reliably produce complex agent interactions such as aggressive tailgating or adversarial cut-offs. These agent interactions are necessary for rigorous autonomous vehicle (AV) testing. To address this, we present an extended multi-agent self-play framework that introduces agent-relative dynamic goals. By conditioning policies on this extended goal representation, our framework enables targeted, controllable scenario synthesis. We demonstrate that our approach successfully generates interactive driving behaviors that static-goal baselines cannot simulate, providing a flexible tool for long-tail scenario generation in AV testing.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
   },
   {
    "id": "web-f5879c34872a",
@@ -1027,6 +1209,21 @@
    "category": "research",
    "url": "https://arxiv.org/abs/2611.22761",
    "description": "Large language models (LLMs) in embodied robots create security dependencies beyond inference. We investigate a network-exposed configuration attack on the Pollen Robotics Reachy Mini Lite, allowing an unauthenticated attacker to replace personality settings and the cloud LLM's system prompt through a management interface, without adversarial conversational input. Eleven prompt-injection attempts across five categories were reported as resisted, whereas both configuration-layer attack paths produced observable behavioural changes on physical hardware. We demonstrate local and network-adjacent access, mapping the weakness to CWE-306 (Missing Authentication for a Critical Function) and CWE-1327 (Binding to an Unrestricted IP Address), with a reported CVSS v3.1 score of 6.5 (Medium). A configuration endpoint also accepts cross-origin requests without a CORS preflight (CWE-352; 6.5 Medium), while the persistent-memory sink stores content without enforcing its stated restrictions. A source review of 59 public repositories identifies missing authentication in 10 of 11 source-verifiable genuine applications, or 11 of 11 including a framework-default case. These findings indicate recurrence within the sampled repositories, not prevalence in commercial products. We characterise a deployment gap between developer-oriented network assumptions and consumer-facing embodied AI security: inference-layer refusal cannot prevent unauthorised changes to model instructions. Potential consequences include surveillance through onboard cameras and microphones and social engineering of nearby use…",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "arxiv-robotics-02f4eb666d14",
+   "title": "Recoverability, Not Invariance: Certified Safety for Robots at the Limits of Performance",
+   "date": "2026-11-17",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.23589",
+   "description": "Safety certification in robotics typically rests on forward invariance of the deployed controller, a property that demands high-fidelity models at the edge of the operating envelope, exactly where models are least reliable and robots perform best. As a result, many of the behaviors we most want robots to run, from learned policies to aggressive maneuvers at the limits of traction, cannot be certified at all. We introduce recoverability, a contraction-theoretic safety concept that resolves this tension by certifying a robot's ability to reengage a trusted recovery mode rather than the invariance of a deployed behavior. We prove that switching to the recovery mode from anywhere inside a certified tube guarantees exponential convergence, even under disturbances and model error. To decide when to switch, we derive the contraction insertion gradient, the first-order effect of a recovery insertion on the certificate, and embed it in a switching-time program in which feasibility alone guarantees safety and optimality only shapes performance. To supply the certificates, we develop sequential convex synthesis that monotonically grows the certified tube toward the exact viability kernel. We validate our approach in simulated quadrotor flight through uncertain obstacles, where it outperforms invariance-based safety filters, and in hardware deployments aboard a full-scale IndyNXT autonomous racecar, where it repeatedly recovers the car from an aggressive raceline at the limits of handling in the rain. Recoverability provides a certified exit strategy, extending formal safety guarantee…",
    "direction_ids": [
     "physical-ai"
    ],
