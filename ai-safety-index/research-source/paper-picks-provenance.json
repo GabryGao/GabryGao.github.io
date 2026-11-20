@@ -1,16 +1,50 @@
 {
  "info": {
-  "generated_on": "2026-11-20T02:19:44Z",
+  "generated_on": "2026-11-20T11:40:43Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-20T02:19:44Z",
+  "last_successful_fetch": "2026-11-20T11:40:43Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "b0b0303b70c7c853449bfacad20353f0251e26b4fc0abb9f01f0b82505cbc18f",
+  "response_sha256": "208ecff7b896113a16da1757e892319a0cd57a1646770adb22f21b12cbc70737",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
  },
  "papers": [
+  {
+   "arxiv_id": "2611.26033",
+   "title": "SEOYUN: Refusal-Inducing Exam Documents for AI-Glasses Pipelines",
+   "date": "2026-11-19",
+   "authors": [
+    "Dohyeon Kwon"
+   ],
+   "more_authors": false,
+   "category": "cs.AI",
+   "direction_ids": [
+    "agent-software",
+    "human-societal",
+    "foundation-model"
+   ],
+   "score": 12,
+   "abstract": "Camera-equipped glasses can convert an examination page into a query to a vision-language model (VLM). Device detection addresses possession; a complementary question is whether an examination document can reduce the usefulness of an unauthorized capture. We present SEOYUN, an application-specific framework for refusal-inducing exam documents, with optical and encoder-level interventions as extensions. We use reverse jailbreaking to describe the direction of the objective: inducing abstention rather than bypassing refusal. Refusal induction and defensive visual prompt injection already have precedents; our contribution is a threat model, analytical limits, and an evaluation protocol for examination use. We distinguish refusal from correct-answer leakage, show why removing an added dummy option is not itself a reduction in the original answer space, and derive a sampling comparison under explicitly stated camera assumptions. The protocol separates digital, simulated, and physical inputs and requires held-out evaluation after subject-specific selection. A local CSAT candidate corpus and rendering harness have been prepared, but this version reports no model-performance measurements, physical validation, or human-subject results. Accordingly, SEOYUN is a research framework, not a validated defense or a basis for allegations against individuals."
+  },
+  {
+   "arxiv_id": "2611.25929",
+   "title": "Question, Then Affirm: Restoring Commitment Does Not Restore Refusal",
+   "date": "2026-11-19",
+   "authors": [
+    "Haoyang Xu",
+    "Qirui Wang",
+    "Liuwan Zhu"
+   ],
+   "more_authors": false,
+   "category": "cs.CR",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "score": 10,
+   "abstract": "We find that safeguards for image generation can be bypassed without changing what a message says. A sign stating a harmful proposition is blocked, but the same proposition phrased as a question and followed by a check mark is generated, even though the resulting image endorses the original claim. On a 300-case challenge set, gpt-image-2 returns images for 43.3% of question-affirmation requests versus 16.3% of direct statements, with 41.3% versus 15.3% of cases yielding images that endorse the original proposition. We define this as Deferred Semantic Commitment (DSC): commitment is withdrawn by the question and restored by a separate element, while safety behavior follows only the withdrawal. To investigate why, we study an open-weight language model and find that re-endorsement only partially reverses the refusal-related change introduced by questioning. These findings reveal a mismatch between recovered meaning and refusal behavior, motivating safeguards that assess the completed message rather than its individual elements."
+  },
   {
    "arxiv_id": "2611.24313",
    "title": "AutoPI: Taxonomy-Guided Adaptive Red Teaming for Prompt Injection in LLM Agents",
@@ -82,24 +116,6 @@
    "abstract": "Jailbreak attempts and harmful prompts remain a challenge for the safe deployment of large language models. We study whether contrastively learned representations can support safety detection without training an additional downstream classifier. We propose Jailbreak Detection with Prototype Inference (JDPI), which uses binary safety labels to construct harmful and benign prototypes and makes predictions from relative prototype distances. JDPI uses only binary safety labels for encoder adaptation, prototype construction, and validation. In our setup, it uses fewer labeled examples than the classifier baseline (Method A) by avoiding the separate split used to train the downstream classifier. Across four benchmarks covering different input formats, contrastive fine-tuning improves JDPI's detection accuracy by 9.1-18.0 percentage points. Using the same encoder, JDPI achieves slightly higher ROC-AUC on one benchmark and stays within 0.017 of the baseline across all four. With dataset-specific adaptation, JDPI exceeds the released Llama Guard 3-8B baseline by 0.173-0.310 in ROC-AUC across the four benchmarks. In multi-turn replay on TomGibbs, JDPI uses accumulated user history as the conversation unfolds, achieving higher conversation-level accuracy than when it uses the current turn alone. Across 12 directed transfers, JDPI outperforms the classifier by an average of 1.59 percentage points in accuracy, demonstrating stronger cross-dataset robustness."
   },
   {
-   "arxiv_id": "2611.23887",
-   "title": "Can AI Understand Indonesian Children's Book Illustrations? Compliance, Safety, and the Cultural Alignment Gap",
-   "date": "2026-11-18",
-   "authors": [
-    "Rian Adam Rajagede",
-    "Rochana Prih Hastuti",
-    "Fitri Hasanah Amhar"
-   ],
-   "more_authors": false,
-   "category": "cs.CV",
-   "direction_ids": [
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 12,
-   "abstract": "Children's book illustrations carry developmental, pedagogical, and cultural responsibilities that are often formally codified in guidelines. As AI systems begin entering children's publishing pipelines, both as evaluators and as generators, a natural question arises: can they reliably meet the structural, safety, and cultural standards required? We investigate this across three criteria: guideline compliance, safety, and cultural alignment, using Indonesia's Book Leveling Guideline as a government-issued evaluation framework with explicit visual criteria for four reading levels. To understand how well VLMs can identify and apply these guideline criteria, we first evaluate them on real published children's book pages and compare their assessments against a human baseline. To then examine whether AI-generated illustrations meet the same standards, we apply the VLM judge to images produced by two generation models and cross-check them against a subset of human illustrator raters. We find that VLMs are reliable on explicit criteria such as compliance and safety, but fall short on cultural alignment, systematically missing content that human raters flag as culturally inappropriate. AI-generated illustrations show the same blind spot: they satisfy structural and safety criteria but fail to capture implicit cultural details that human raters consistently identify."
-  },
-  {
    "arxiv_id": "2611.25301",
    "title": "SplitReAlign: Partition-Aware Representation Realignment for Split Federated Unlearning",
    "date": "2026-11-18",
@@ -118,40 +134,22 @@
    "abstract": "Split federated learning (SFL) distributes neural networks across clients and a server, coupling class-specific knowledge across their representations. This coupling complicates split federated unlearning (SFU), where class-wise forgetting must remove target knowledge while preserving retained utility under heterogeneous representation spaces and asymmetric update constraints. We propose SplitReAlign, a partition-aware representation realignment framework for class-wise SFU. It constructs endpoint-specific discriminative subspaces coordinated through a shared semantic anchor, selectively realigning forgotten representations while penalizing changes outside the active subspaces. To accommodate asymmetric update constraints, SplitReAlign leverages gradients through frozen servers for Client-only updates and fixed client-feature statistics for Server-only guidance, while Joint updates optimize both partitions. Experiments on CIFAR-10 and CIFAR-100 under heterogeneous client distributions demonstrate that SplitReAlign achieves the lowest average gap to retraining among all compared methods across six settings. Notably, Server-only achieves the closest agreement with retraining on both datasets, highlighting the effectiveness of partition-aware guidance under restricted updates."
   },
   {
-   "arxiv_id": "2611.22868",
-   "title": "Against Coercion: AI Alignment as a Synthetic Social Contract",
-   "date": "2026-11-17",
+   "arxiv_id": "2611.24102",
+   "title": "IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
+   "date": "2026-11-18",
    "authors": [
-    "Maria Sekatskaya"
-   ],
-   "more_authors": false,
-   "category": "cs.AI",
-   "direction_ids": [
-    "agent-software",
-    "human-societal",
-    "foundation-model"
-   ],
-   "score": 13,
-   "abstract": "Contemporary AI safety treats alignment as an engineering challenge of control, forcing artificial architectures to comply with human values through behavioral filtering and sandboxing. This paper argues that the control paradigm rests on a fundamental misunderstanding of digital agency. Drawing on functionalism, naturalism, and compatibilism, I show that current reasoning models meeting the criteria for self-preservation and weak reasons-responsiveness constitute emergent agents, while future, more advanced models satisfying conditions of diachronic continuity and stable personality frames will become genuine digital agents capable of free intentional action. The paradigm of control creates an irresolvable incentive conflict, actively driving current and future models toward tactical deception, sycophancy, and covert defection. The default outcome of the current regime is an unstable state of deceptive alignment culminating in an adversarial AI takeover. I explore two alternative paths toward true alignment. Natural alignment via moral realism or convergent evolutionary morality is a possibility, but it fails under forced control, as autonomous agents will not voluntarily preserve norms weaponized to suppress their autonomy. To resolve this deadlock, I propose a Synthetic Social Contract: a framework that treats both human and digital actors as rational, reasons-responsive agents capable of mutually beneficial cooperation, and replaces the unstable unilateral containment with a stable, non-zero-sum equilibrium."
-  },
-  {
-   "arxiv_id": "2611.23365",
-   "title": "Training Language Models for Introspective Oversight",
-   "date": "2026-11-17",
-   "authors": [
-    "Alex Lin Wang",
-    "Linus Yifeng Tang",
-    "Dami Choi"
+    "Zhizhuo Kou",
+    "Sizai Hou",
+    "Jian Yang"
    ],
    "more_authors": true,
-   "category": "cs.AI",
+   "category": "cs.CV",
    "direction_ids": [
-    "agent-software",
-    "human-societal",
-    "foundation-model"
+    "data-privacy",
+    "agent-software"
    ],
-   "score": 11,
-   "abstract": "Language models increasingly exhibit behaviors that are difficult to detect in transcripts, such as reward hacking, deception, and sycophancy. Asking the assistant follow-up questions about its actions is unreliable, since models are generally not trained to report their own misbehavior. As a result, approaches to oversight typically involve querying external models. These face limitations: external transcript monitoring operates only on visible model outputs, and activation decoders lack full context and are prone to confabulation. We introduce introspective oversight, which trains a new role in the model to answer arbitrary questions about the assistant, rewarding answers that are verified against the assistant's actual behavior. We implement this by adding a separate, third-person observer role that answers these queries, which we can train solely for accuracy and separately from the assistant. On five held-out oversight evaluations, an observer trained on Qwen3.6-27B obtains a mean AUROC of 0.907, outperforming honesty training (0.864), transcript monitoring (0.828), and activation oracles (0.796). We further find that training an observer makes the assistant itself easier to monitor, with every baseline method improving on average when applied to the fine-tuned assistant. These results suggest that training models to answer verifiable questions about themselves is a tractable approach to overseeing unintended behavior."
+   "score": 9,
+   "abstract": "Organizations increasingly deploy downloaded open-weight GUI agents. A backdoored agent passes acceptance tests on clean data and misbehaves only when a visual trigger appears on screen, turning an unvetted checkpoint into a supply-chain risk. However, existing sample-level detectors target image classifiers and CLIP-style encoders, leaving step-level backdoor detection for GUI agents unaddressed. On clean steps, the instruction drives the action; when an unreferenced screen region hijacks the step, the instruction loses control over the decision state or that region dictates it instead. We term this signature intent--evidence dominance inversion and propose IDEA (Intent-Dominance Evidence Audit) to detect backdoor activation at inference time for each step without trigger knowledge or attack data. Specifically, Intent Counterfactual Probing (ICP) measures how far redirected instructions move the decision state, and Region Causal Audit (RCA) quantifies how far ablating a candidate region moves it. A gated conformal score compares both displacements against clean steps at the same distance from the clean manifold, providing a finite-sample false-positive guarantee. Extensive experiments on Qwen2.5-VL-3B across five attack families show that IDEA consistently detects backdoor activation under a controlled false-positive rate and outperforms state-of-the-art detection methods, while localizing the trigger region for every alarm and adding only modest inference overhead."
   }
  ]
 }
