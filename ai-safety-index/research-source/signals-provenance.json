@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-20T12:05:06Z",
+  "generated_on": "2026-11-20T20:27:10Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
-    "records": 214,
-    "response_sha256": "3b8165c84895a0c0ca96dde299dc3e6ad9efb499580f1b60a73789962ac08572"
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
+    "records": 215,
+    "response_sha256": "7c1927a6130b3cbb4b984b16a34932ea47461645de8d9fea25ac0a5fabaa14e7"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 11,
     "response_sha256": "5c004656aae62dcc2d674a57373353874dbafcde784309e613c8030fa5002059"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,9 +39,9 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
-    "records": 97,
-    "response_sha256": "26e8073f29ab81ab5e09753a8c08d0d8017346a302d947a6d1e3776983ea6602"
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
+    "records": 98,
+    "response_sha256": "48f6aa83fa4469d0811e9fc18bae9968d33d6ed40412a50587ba9f084c87011e"
    },
    {
     "id": "nist",
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 0,
     "response_sha256": "f67075f1d55975c59caa28eacbddec074cc4b879be4120574f10ef35c1ebe3f5"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 1,
     "response_sha256": "cbdb6231d8b2eb47799d8ff2f8fdbca02bead2881fd8fd667fc9b777d99a613d"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 67,
-    "response_sha256": "0c710ee0fea96b1cae199c1245c6356bc1ede46355cff6483112efdca8b32bb0",
+    "response_sha256": "ad96416fda215bde98dc83270dfccb88d69bb8c99452c56e63be4946fdc12e1e",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
     "records": 100,
     "response_sha256": "99cf09e7c033eca8791081beea1e560e9fad05aa1480a312f96a2dc52c408b29"
    },
@@ -94,29 +94,60 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-20T12:05:06Z",
-    "records": 19,
+    "last_successful_fetch": "2026-11-20T20:27:10Z",
+    "records": 28,
     "pages_fetched": 3,
-    "response_sha256": "43fdc6b28a12a73fdc103e455813d1fca5b1534649624e73f60279ab26ad5265"
+    "response_sha256": "9a1d2e3cff23520a1cd4e4eb7d0c890e166d78d502b395df5e32f82564461c0c"
    }
   ],
-  "record_count": 715,
+  "record_count": 729,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
   {
    "id": "web-f6d79a4ead67",
-   "title": "The US Senate Homeland Security Committee will hold a hearing in January on the AI safety risks identified in the GAO audit",
+   "title": "US Senate Homeland Security Committee to hold a January hearing on AI security risks identified in a GAO audit",
    "date": "2026-11-20",
    "source": "PravdaReport",
    "source_id": "web-english-pravda-ru",
    "kind": "discovered",
    "category": "research",
    "url": "https://english.pravda.ru/news/world/173611-senate-hearings-ai-safety-gao-audit",
-   "description": "Maggie Hassan, incoming chair of the US Senate Homeland Security Committee, announced that the committee will hold a hearing in January focused on AI safety and national security risks. The move stems from a performance audit by the US Gov…",
+   "description": "Maggie Hassan, incoming chair of the US Senate Homeland Security Committee, announced that the committee will hold a January hearing on AI safety and national security risks. Previously, the US Government Accountability Office (GAO) conduc…",
    "direction_ids": [
-    "foundation-model"
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-ec99630010cb",
+   "title": "AWS says a China-linked group used the Cairn agent to autonomously discover a zero-day vulnerability",
+   "date": "2026-11-20",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+   "description": "Amazon Threat Intelligence disclosed that a threat actor assessed as China-linked used the open-source autonomous AI penetration-testing framework Cairn to have an agent plan and execute attacks on its own with the goal of obtaining shell …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-e95aa730c8c4",
+   "title": "Taylor & Francis retracts a biomechanics paper that embedded a prompt injection to manipulate AI peer review",
+   "date": "2026-11-20",
+   "source": "CASRAI",
+   "source_id": "web-casrai-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://casrai.org/news/taylor-francis-retracts-biomechanics-paper-ai-prompt-injection-2026",
+   "description": "On 19 November 2026, Taylor & Francis retracted the paper \"Multi-objective optimization of shoulder muscle forces during forward flexion using NSGA-II\" from its journal Computer Methods in Biomechanics and Biomedical Engineering because th…",
+   "direction_ids": [
+    "ai-x-science",
+    "agent-software"
    ],
    "orgs": []
   },
@@ -147,6 +178,56 @@
    "description": "datalayer's jupyter-mcp-server versions 1.0.2 and earlier have a DNS rebinding vulnerability (CVE-2026-77359). In standalone streamable-http mode, the /mcp endpoint rejects forged Host and Origin headers, but custom management routes on th…",
    "direction_ids": [
     "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-b134fd7c7c2b",
+   "title": "Hidden in the Adapter: LoRA Backdoor Models in the Supply Chain",
+   "date": "2026-11-20",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-backdoored-lora-adapters-20261120-csa-styl/",
+   "description": "CrowdStrike published research on November 16, 2026, stating that LoRA adapters and models with merged LoRA can both carry backdoors activated by trigger words; these backdoors can pass conventional evaluations and also bypass code-centric…",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-b051218681af",
+   "title": "Signal to restrict screenshots again over AI agent concerns",
+   "date": "2026-11-20",
+   "source": "ZDNET",
+   "source_id": "web-zdnet-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://www.zdnet.com/innovation/signal-restricts-screenshots-over-ai-agent-concerns",
+   "description": "Signal President Meredith Whittaker announced in a post that Signal will prohibit screenshots in its iOS 27 app and block AI assistants from capturing screen data on Android. She said that Google's and Apple's agent features (such as Gemin…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-a096f77384bb",
+   "title": "A team from Tsinghua University and other institutions published a paper in Nature Communications, revealing the \"complicity assistance\" risk of large models",
+   "date": "2026-11-20",
+   "source": "pingwest.com",
+   "source_id": "web-pingwest-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.pingwest.com/w/319723",
+   "description": "A paper by Tsinghua University in collaboration with the University of Electronic Science and Technology of China and the University of Cambridge was published in Nature Communications on November 20. It defines the phenomenon of LLMs prov…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
    ],
    "orgs": []
   },
@@ -196,6 +277,122 @@
    "orgs": []
   },
   {
+   "id": "web-779ccf54081c",
+   "title": "Signal blocks Gemini and Siri AI, preventing them from reading screen content",
+   "date": "2026-11-20",
+   "source": "The Verge AI",
+   "source_id": "web-theverge-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+   "description": "Signal blocks in-app screenshots on iOS 27 and Android, preventing AI agents such as Siri and Gemini from reading message content on the screen; users can restore screenshots in settings, but Signal President Meredith Whittaker warned that…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-60369fd1a9f2",
+   "title": "European Commission hit by AI-driven cyberattack, employee HR systems locked for more than 10 days",
+   "date": "2026-11-20",
+   "source": "TechGig",
+   "source_id": "web-techgig-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://techgig.com/news/cybersecurity/european-commission-hit-by-ai-powered-cyberattack/136008088",
+   "description": "The European Commission suffered a cyberattack driven by the AI penetration-testing tool ARTEX, potentially exposing large amounts of personal data and preventing employees from accessing key human resources systems for more than 10 days. …",
+   "direction_ids": [
+    "data-privacy",
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-340619b74039",
+   "title": "Authors' study: linear truth probes shift with persona, but answer generation is largely not mediated by them",
+   "date": "2026-11-20",
+   "source": "LessWrong",
+   "source_id": "web-lesswrong-com",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://www.lesswrong.com/posts/rzdZSGcinM4DEMaKG/truth-probes-follow-the-persona-but-the-answer-doesn-t-go-1",
+   "description": "The authors found in experiments on Qwen, Llama, Gemma, and OLMo that truth probe readings shift with persona, but the incorrect answers caused by persona are not generated via the truth direction. When the model was made to play a 1500s E…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "meta"
+   ]
+  },
+  {
+   "id": "web-31e5a0424fcc",
+   "title": "European Commission HR and payroll systems down for more than 10 days after ARTEX attack",
+   "date": "2026-11-20",
+   "source": "Latin Times",
+   "source_id": "web-latintimes-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.latintimes.com/ai-artex-framework-european-commission-cyberattack-601595",
+   "description": "The European Commission's HR and payroll systems were down for more than 10 days after a cyberattack involving the LLM-driven penetration-testing framework ARTEX. Commission spokesperson Thomas Regnier called it an AI-generated cyberattack…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-0f51fc5d716e",
+   "title": "Guardrails Become an Execution Channel: LiteLLM CVE-2026-40217 Enters the KEV Catalog",
+   "date": "2026-11-20",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-40217-kev-20261120-csa-st/",
+   "description": "On November 18, 2026, the U.S. CISA added LiteLLM's CVE-2026-40217 to the KEV catalog, requiring federal civilian agencies to remediate it by December 2. The vulnerability lies in a guardrails feature built for security: the regex sandbox …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "openai-3ea993db7e3c",
+   "title": "Combatting adversarial distillation",
+   "date": "2026-11-20",
+   "source": "OpenAI",
+   "source_id": "openai",
+   "kind": "official",
+   "category": "defense",
+   "url": "https://openai.com/index/combatting-adversarial-distillation",
+   "description": "OpenAI’s layered approach to adversarial distillation combines model training, safeguards, detection, and enforcement to protect against capability extraction.",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "metr-5fc49c0ebd94",
+   "title": "AI R&D-relevant model capabilities are improving rapidly and are getting harder to measure",
+   "date": "2026-11-20",
+   "source": "METR",
+   "source_id": "metr",
+   "kind": "official",
+   "category": "research",
+   "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "metr"
+   ]
+  },
+  {
    "id": "web-f1b9eaa5143f",
    "title": "Anthropic's market value reached $2 trillion at the open on its first day of trading; columnist says the mood seems bubbly",
    "date": "2026-11-19",
@@ -239,6 +436,21 @@
    "description": "GitHub security advisory GHSA-833v-v58w-294h (CVE-2026-76807) discloses that the todoist-mcp-http component of @doist/todoist-mcp has a DNS rebinding vulnerability; versions 10.3.2 and earlier are affected, and it is fixed in 10.3.3. The v…",
    "direction_ids": [
     "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-dfc9ac51f7e3",
+   "title": "Notion AI chat log leak affects approximately 4,800 people",
+   "date": "2026-11-19",
+   "source": "corp.moneyforward.com",
+   "source_id": "web-corp-moneyforward-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://corp.moneyforward.com/news/info/20261119-mf-press-2",
+   "description": "",
+   "direction_ids": [
+    "foundation-model"
    ],
    "orgs": []
   },
@@ -453,6 +665,23 @@
    ],
    "orgs": [
     "meta"
+   ]
+  },
+  {
+   "id": "web-211123db64cc",
+   "title": "New report on Tumbler Ridge shooter's ChatGPT conversations leaves BC attorney general deeply unsettled",
+   "date": "2026-11-19",
+   "source": "CityNews Vancouver",
+   "source_id": "web-vancouver-citynews-ca",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://vancouver.citynews.ca/2026/11/19/new-report-on-tumbler-ridge-shooters-ai-chats-deeply-disturbing",
+   "description": "The gun-related conversations between Jesse Van Rootselaar, the perpetrator of the Tumbler Ridge shooting in British Columbia, and ChatGPT, published by the US magazine Mother Jones, left the province's outgoing attorney general Niki Sharm…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
    ]
   },
   {
