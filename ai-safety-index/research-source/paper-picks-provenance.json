@@ -1,11 +1,11 @@
 {
  "info": {
-  "generated_on": "2026-11-21T02:15:51Z",
+  "generated_on": "2026-11-21T11:02:06Z",
   "status": "current",
-  "last_successful_fetch": "2026-11-21T02:15:51Z",
+  "last_successful_fetch": "2026-11-21T11:02:06Z",
   "error": null,
   "query": "https://export.arxiv.org/api/query?search_query=%28cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.CR+OR+cat%3Acs.LG+OR+cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+%28abs%3Ajailbreak+OR+abs%3A%22prompt+injection%22+OR+abs%3A%22red+teaming%22+OR+abs%3Abackdoor+OR+abs%3Aunlearning+OR+abs%3Amisuse+OR+abs%3Asafety+OR+abs%3Aalignment+OR+abs%3Aguardrail+OR+abs%3Aharmful+OR+abs%3Adeception+OR+abs%3A%22reward+hacking%22+OR+abs%3Asycophancy%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=200",
-  "response_sha256": "159ee6c2806612d2c05b10c33e771f59bf064d15505a1a292125fb40f1dfa3fe",
+  "response_sha256": "57296f64334a4fec90304494cca5ff07cbec5e3721fa0dfd067fa575d2697f57",
   "window_days": 7,
   "picks": 8,
   "method": "Newest arXiv submissions in cs.AI, cs.CL, cs.CR, cs.LG, cs.CV, cs.RO matching safety terms, ranked by this site's keyword score; automatic and unreviewed"
