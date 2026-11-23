@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-23T03:39:27Z",
+  "generated_on": "2026-11-23T13:42:59Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 215,
-    "response_sha256": "92910ee7a4bf7705b468f41255da113b9b6d5228da76104f640a0d3ab39edaa1"
+    "response_sha256": "0d8b08a34915a588f7e599e6c1f9f26fa7da79357fcf768a4ed86fed9aa02e50"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 11,
     "response_sha256": "5c004656aae62dcc2d674a57373353874dbafcde784309e613c8030fa5002059"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 98,
     "response_sha256": "169926fe10c0fd6dea5a16ca9bce06241417beb608d045e4207c92356d65204e"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 0,
     "response_sha256": "f67075f1d55975c59caa28eacbddec074cc4b879be4120574f10ef35c1ebe3f5"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 1,
     "response_sha256": "cbdb6231d8b2eb47799d8ff2f8fdbca02bead2881fd8fd667fc9b777d99a613d"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 68,
-    "response_sha256": "0e9b5863b3fbd40e1ea20997610d342742da4acd571c8c9c3901b4cc7bcb4c21",
+    "response_sha256": "a611510a72b5048feeb2b4b4a844b3e9b26ee4682288cee1e6857e350a8fa83a",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
     "records": 100,
     "response_sha256": "0ae0520f9cfbdf2bd63114a29300361493d70abb85db30dd3ad07514cddc8666"
    },
@@ -94,17 +94,117 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-23T03:39:27Z",
-    "records": 27,
+    "last_successful_fetch": "2026-11-23T13:42:59Z",
+    "records": 34,
     "pages_fetched": 3,
-    "response_sha256": "6088954392f38cb247ed5c26580723c38dfa95a43f435c3543e6f8c044e1200f"
+    "response_sha256": "6403a68161044824955135e7cbb123b74a7b3236bb8b0ca83bd9d0cfba300174"
    }
   ],
-  "record_count": 776,
+  "record_count": 785,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-c82dcfbd0de1",
+   "title": "Oregon and Virginia sue SpaceX over Grok deepfakes",
+   "date": "2026-11-23",
+   "source": "WIRED Security and AI",
+   "source_id": "web-wired-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/",
+   "description": "The attorneys general of Oregon and Virginia separately sued SpaceX and its subsidiary X Corp., alleging violations of consumer protection law by misleading users about the safety of its generative AI tool and about stopping the spread of …",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
+  },
+  {
+   "id": "web-bb33dd300acc",
+   "title": "Rubrik demonstrated a document-hijacking ChatMate attack on Copilot; Microsoft has fixed it and paid a $48,000 bounty",
+   "date": "2026-11-23",
+   "source": "ITmedia Mobile",
+   "source_id": "web-itmedia-co-jp",
+   "kind": "discovered",
+   "category": "attack",
+   "url": "https://www.itmedia.co.jp/enterprise/articles/2611/23/news001.html",
+   "description": "Ori Lahav, a researcher at the data security company Rubrik, explained the ChatMate attack against Microsoft 365 Copilot at a briefing during CODE BLUE 2026: a victim uploads a seemingly harmless document, and the attacker can then issue i…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-80d0b9955af0",
+   "title": "Amazon discloses China-linked hackers used AI agent to exploit zero-day vulnerability in 11 minutes",
+   "date": "2026-11-23",
+   "source": "International Business Times, Singapore Edition",
+   "source_id": "web-ibtimes-sg",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ibtimes.sg/amazon-exposes-chinese-nexus-hackers-using-ai-agents-exploit-zero-day-flaw-just-11-minutes-96528",
+   "description": "Amazon threat intelligence disclosed that a China-linked threat actor carried out a hacking operation using an autonomous AI agent, finding and exploiting an unpatched zero-day vulnerability in an open-source medical imaging application in…",
+   "direction_ids": [
+    "ai-x-science",
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-80927b607c9d",
+   "title": "AI-assisted cyberattacks led to unauthorized payments at Indian banks and fintech companies",
+   "date": "2026-11-23",
+   "source": "The Hacker News",
+   "source_id": "web-thehackernews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
+   "description": "India's Computer Emergency Response Team (CERT-In) reported that threat actors are conducting AI-assisted attacks on India's ICT assets, and have caused unauthorized fund transactions at banks, financial services institutions, and technolo…",
+   "direction_ids": [
+    "ai-x-science",
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-6c4c9a07516a",
+   "title": "Hackers used AI to find a zero-day vulnerability in about 11 minutes, then fully took control of the server",
+   "date": "2026-11-23",
+   "source": "Cybersecuritynews",
+   "source_id": "web-cybersecuritynews-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://cybersecuritynews.com/hackers-use-ai",
+   "description": "Hackers used an autonomous AI agent to discover a previously unknown zero-day vulnerability in an open-source medical imaging application, then fully took control of the server running the application. The agent took about 11 minutes from …",
+   "direction_ids": [
+    "ai-x-science",
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-582e38fcd49c",
+   "title": "Suspected Chinese hackers used the AI attack framework Cairn to target East Asian universities, discovering and exploiting a MONAI Label zero-day vulnerability within 11 minutes",
+   "date": "2026-11-23",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.ithome.com.tw/news/180697",
+   "description": "Amazon's threat intelligence team disclosed on 20 November that suspected China-linked hackers abused the AI automated attack framework Cairn to attack several East Asian universities; an AI agent took only about 11 minutes to autonomously…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
   {
    "id": "web-07745c21e30f",
    "title": "Dragos says at least 3 AI inference providers were breached; OpenRouter suspends services of 3 providers",
@@ -136,6 +236,21 @@
    "orgs": [
     "openai"
    ]
+  },
+  {
+   "id": "web-b47861a198d0",
+   "title": "OpenRouter removes three AI providers after discovering prompt theft",
+   "date": "2026-11-22",
+   "source": "2-Spyware",
+   "source_id": "web-2-spyware-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.2-spyware.com/openrouter-drops-three-ai-providers-after-prompt-theft",
+   "description": "Security vendor Dragos reported that attackers have been stealing user prompts from inside three AI hosting providers since mid-July, and OpenRouter has removed these three providers and notified affected customers. The providers involved …",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
   },
   {
    "id": "web-a99350865ae8",
@@ -180,6 +295,21 @@
    "category": "incident",
    "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
    "description": "Dragos researchers found that three AI inference providers were internally attacked by attackers who stole prompts for months, and all three were unaware beforehand. OpenRouter has removed the three providers, revoked the zero data retenti…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-2ec6fd5f460e",
+   "title": "OpenRouter 因 Dragos 安全警报移除三家供应商",
+   "date": "2026-11-22",
+   "source": "Brief IA",
+   "source_id": "web-briefia-fr",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.briefia.fr/article/openrouter-retire-trois-fournisseurs-apres-des-alertes-de-dragos",
+   "description": "",
    "direction_ids": [
     "foundation-model"
    ],
@@ -1072,6 +1202,21 @@
    ]
   },
   {
+   "id": "arxiv-robotics-df053735ad89",
+   "title": "Humanoid robots for safety-critical electrical switching: A perception-informed runtime constraint filter",
+   "date": "2026-11-20",
+   "source": "arXiv Robotics (preprints)",
+   "source_id": "arxiv-robotics",
+   "kind": "research",
+   "category": "research",
+   "url": "https://arxiv.org/abs/2611.27845",
+   "description": "Humanoid robots can reduce personnel exposure in electrical switching, but safe control is challenging because the tool must reach a target switch next to similar devices, where an imprecise operator command can contact a non-target switch. This study proposes a runtime safety filter that checks each operator command during virtual-reality teleoperation of a humanoid robot. The filter integrates a scene model estimated from the robot head camera and a target-conditioned control barrier function quadratic program that keeps the tool away from the non-target switch while passing safe commands unchanged. In real-world experiments on a Unitree G1 humanoid robot, with six rounds at each of two standing positions, target operations succeed in all ten rounds with an unchanged target and no non-target actuation. A simulation study achieves 9/9 safe completions, compared with 5/9 for raw teleoperation, demonstrating the feasibility of the method for humanoid switching operations.",
+   "direction_ids": [
+    "physical-ai"
+   ],
+   "orgs": []
+  },
+  {
    "id": "arxiv-robotics-d5ffb81f81ec",
    "title": "Where Delay Compensation Belongs in a Decentralized Mean-Field-Game Swarm with a Control-Barrier Safety Filter",
    "date": "2026-11-20",
@@ -1150,7 +1295,7 @@
   },
   {
    "id": "web-dfc9ac51f7e3",
-   "title": "Notion AI chat log leak affects approximately 4,800 people",
+   "title": "Money Forward says some Notion AI chat records may have leaked, involving the personal information of about 4800 people",
    "date": "2026-11-19",
    "source": "corp.moneyforward.com",
    "source_id": "web-corp-moneyforward-com",
