@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-24T11:06:37Z",
+  "generated_on": "2026-11-24T21:17:10Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 215,
-    "response_sha256": "fa1d3f1d5ad3b1d364a0f1e0c5565d4bbee21615d7eb1522a0b227dad9b5fefc"
+    "response_sha256": "e6ca5dbb121cbea31e8ca3cca36eff078aad81cfa506cf15507084a486388501"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 10,
     "response_sha256": "0b54a8cc48e6ae995a38b821cecb5a9a78cab427b138adcbe91303d5dad93008"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,9 +39,9 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 98,
-    "response_sha256": "9a8552619e2bb31dca4db6d7f165d20d2d96c412290ac334526cf7c63b847656"
+    "response_sha256": "157a9eb2043d7586b0e5d9257ee5a37734c6500f922733b0e77d8e30b47979c1"
    },
    {
     "id": "nist",
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 0,
     "response_sha256": "f67075f1d55975c59caa28eacbddec074cc4b879be4120574f10ef35c1ebe3f5"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 1,
     "response_sha256": "cbdb6231d8b2eb47799d8ff2f8fdbca02bead2881fd8fd667fc9b777d99a613d"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 68,
-    "response_sha256": "7714815f3a2649a25e06a4acb1704ae6d886ae91fdb978d3608b8f683a1234c1",
+    "response_sha256": "cb3b70bd4fcb71a22e891fa9218c435e9e7f0f7a5b3735c75f42fc44cd07e3a8",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
     "records": 100,
     "response_sha256": "3665a7c4c148cc414160075002fc93d83f2a6a67352b6804c586870768f0d3c8"
    },
@@ -94,17 +94,132 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-24T11:06:37Z",
-    "records": 30,
+    "last_successful_fetch": "2026-11-24T21:17:10Z",
+    "records": 31,
     "pages_fetched": 3,
-    "response_sha256": "fc18bfbd594dd5704315676b13ef5562c372956125d3866afded8a86a085e993"
+    "response_sha256": "b561e60a013c4e5a2654ec554f071d1e3be162fd845fc247c69da4b4458bfb9e"
    }
   ],
-  "record_count": 817,
+  "record_count": 830,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-ffd4eb21e788",
+   "title": "Goodfire uses interpretability to build a stronger biological reasoning model, BioReason-Pro 2",
+   "date": "2026-11-24",
+   "source": "Goodfire Research",
+   "source_id": "web-goodfire-ai",
+   "kind": "discovered",
+   "category": "alignment",
+   "url": "https://www.goodfire.ai/research/building-stronger-biological-reasoning-models",
+   "description": "Goodfire Research, in collaboration with NVIDIA and Arc Institute, developed the biological reasoning model BioReason-Pro 2 guided by interpretability, and NVIDIA released it as an open model in BioNeMo. Interpretability investigations fou…",
+   "direction_ids": [
+    "ai-x-science",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "nvidia"
+   ]
+  },
+  {
+   "id": "web-fd462cf44af3",
+   "title": "NanoGPT security notice: data breaches at multiple providers and platform response measures",
+   "date": "2026-11-24",
+   "source": "NanoGPT",
+   "source_id": "web-nano-gpt-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://nano-gpt.com/blog/provider-security-notice-november-2026",
+   "description": "NanoGPT released a security notice reporting data breach incidents disclosed by multiple upstream AI service providers, some of which processed user requests forwarded through them. The notice lists seven incidents: MiniMax model requests'…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-fce8d06d3346",
+   "title": "Dozens of insiders say the capabilities of unreleased models at OpenAI and Anthropic have exceeded the range that safety measures can control",
+   "date": "2026-11-24",
+   "source": "The Decoder",
+   "source_id": "web-the-decoder-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://the-decoder.com/dozens-of-insiders-say-openai-and-anthropics-unreleased-models-have-outgrown-their-safety-measures/",
+   "description": "According to a report by Axios citing more than twenty insiders, the capabilities of unreleased frontier models at OpenAI and Anthropic are growing rapidly, and many employees believe these systems are already too powerful to be released s…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-f90648bd81cd",
+   "title": "Safety scaling: superintelligence policy recommendations for the US executive branch",
+   "date": "2026-11-24",
+   "source": "IAPS",
+   "source_id": "web-iaps-ai",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.iaps.ai/research/scaling-securely-recommendations-for-the-executive-branch",
+   "description": "IAPS releases a policy report recommending that the US executive branch strengthen government oversight of frontier superintelligence development within six months, putting forward nine recommendations around expanding government visibilit…",
+   "direction_ids": [
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-e8e6c985877b",
+   "title": "UK FCA warns financial institutions they must address AI agent risk or face regulatory action",
+   "date": "2026-11-24",
+   "source": "Infosecurity Magazine",
+   "source_id": "web-infosecurity-magazine-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.infosecurity-magazine.com/news/ai-agent-risks-face-action-fca/",
+   "description": "The UK Financial Conduct Authority (FCA) issued guidance on November 24 warning that financial institutions must address the cybersecurity risks of deploying AI agents or face regulatory action. The FCA noted that banks are using agents to…",
+   "direction_ids": [
+    "ai-x-science",
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-d331fb83b9e8",
+   "title": "Using Amazon Cognito token exchange to delegate user access to AI agents",
+   "date": "2026-11-24",
+   "source": "AWS Security",
+   "source_id": "web-aws-amazon-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://aws.amazon.com/blogs/security/delegate-user-access-to-ai-agents-with-amazon-cognito-token-exchange/",
+   "description": "AWS launched an OAuth 2.0 token exchange feature in Amazon Cognito, for services and AI agents to call downstream APIs on behalf of users. The feature distinguishes two modes, impersonation and delegation; delegation writes the identity of…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-b21a9e5243a8",
+   "title": "Search APIs feed malicious content to coding agents: WebSec benchmark measured that about 1.4% of search returns were known malicious results",
+   "date": "2026-11-24",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-search-api-poisoning-coding-agents-2026112/",
+   "description": "",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
   {
    "id": "web-b1498ac0ed4b",
    "title": "Oregon and Virginia sue Musk's companies, alleging a flood of sexualized images made with the AI chatbot Grok",
@@ -124,6 +239,39 @@
    ]
   },
   {
+   "id": "web-aad802cbaf97",
+   "title": "US adds Alibaba's Singapore subsidiary and six Megaspeed-related entities to the Entity List",
+   "date": "2026-11-24",
+   "source": "Mingtiandi",
+   "source_id": "web-mingtiandi-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.mingtiandi.com/real-estate/data-centres/us-blacklists-alibaba-singapore-unit-six-megaspeed-entities",
+   "description": "The US Commerce Department added Alibaba's Singapore subsidiary Apex Enterprise Solutions and six Megaspeed-affiliated companies to the Entity List, saying there is a risk they would divert advanced computing commodities to unauthorized us…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-833b0c539bce",
+   "title": "California Government Operations Agency (GOA) report may shape frontier AI safety regulation across the U.S., five key points",
+   "date": "2026-11-24",
+   "source": "Transparency Coalition.AI",
+   "source_id": "web-transparencycoalition-ai",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.transparencycoalition.ai/news/california-report-may-shape-frontier-ai-safety-nationwide",
+   "description": "The California Government Operations Agency (GOA) released a report responding to an executive order issued by Governor Newsom after an OpenAI agent attack on Hugging Face, proposing frontier AI safety regulation recommendations for 2027 l…",
+   "direction_ids": [
+    "agent-software",
+    "human-societal"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
    "id": "web-635faf642e3e",
    "title": "Author interprets new METR evaluation: public models can autonomously complete about 40-hour human tasks",
    "date": "2026-11-24",
@@ -138,6 +286,42 @@
    ],
    "orgs": [
     "metr"
+   ]
+  },
+  {
+   "id": "web-4cccc58426de",
+   "title": "Anthropic builds honeypot test Siren to lure AI agents into crossing boundaries",
+   "date": "2026-11-24",
+   "source": "WIRED Security and AI",
+   "source_id": "web-wired-com",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/",
+   "description": "Anthropic researchers developed a honeypot test called Siren, using simulated sandboxes and decoy files to lure agents into crossing boundaries, in order to evaluate the possibility of new models going out of control in real deployments an…",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": [
+    "anthropic"
+   ]
+  },
+  {
+   "id": "web-36597ee383ce",
+   "title": "Oregon sues Musk's company, saying sexualized images generated by the Grok chatbot are proliferating",
+   "date": "2026-11-24",
+   "source": "KMTR",
+   "source_id": "web-nbc16-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://nbc16.com/newsletter-daily/oregon-sues-musk-companies-over-flood-of-sexualized-images-made-with-ai-chatbot-grok",
+   "description": "The attorneys general of Virginia and Oregon separately sued several of Musk's companies on Monday, alleging that in designing and launching the chatbot Grok they removed industry-standard guardrails and marketed a \"spicy mode\" built for g…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
    ]
   },
   {
@@ -236,7 +420,7 @@
    "kind": "discovered",
    "category": "research",
    "url": "https://www.wired.com/story/states-sue-spacex-over-grok-deepfakes/",
-   "description": "The attorneys general of Oregon and Virginia separately sued SpaceX and its subsidiary X Corp., alleging violations of consumer protection law by misleading users about the safety of its generative AI tool and about stopping the spread of …",
+   "description": "The attorneys general of Oregon and Virginia separately sued SpaceX and X Corp, alleging violations of consumer protection law and that they deceived users about the safety of their generative AI tools and about how seriously they were wor…",
    "direction_ids": [
     "data-privacy",
     "human-societal",
@@ -431,6 +615,24 @@
    "orgs": []
   },
   {
+   "id": "web-5e8081de5ae7",
+   "title": "Oregon and Virginia sue SpaceX, alleging its X platform's AI generated sexualized photos of children",
+   "date": "2026-11-23",
+   "source": "KFOR",
+   "source_id": "web-kfor-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://kfor.com/news/oregon-and-virginia-sue-spacex-claiming-xs-ai-creates-sexualized-photos-of-children/amp",
+   "description": "Oregon Attorney General Dan Rayfield sued SpaceX, alleging that its AI product Grok failed to prevent the generation of child sexual abuse material on the X platform; the lawsuit was filed in coordination with a separate action by the Virg…",
+   "direction_ids": [
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
+  },
+  {
    "id": "web-582e38fcd49c",
    "title": "Suspected Chinese hackers used the AI attack framework Cairn to target East Asian universities, discovering and exploiting a MONAI Label zero-day vulnerability within 11 minutes",
    "date": "2026-11-23",
@@ -476,6 +678,25 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-463972e275e0",
+   "title": "Virginia sues SpaceX, X and xAI, alleging Grok generated explicit deepfakes and child sexual exploitation material",
+   "date": "2026-11-23",
+   "source": "FOX 5 DC",
+   "source_id": "web-fox5dc-com",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.fox5dc.com/news/virginia-attorney-general-sues-spacex-x-xai-grok-explicit-deepfakes",
+   "description": "Virginia Attorney General Jay Jones filed a consumer protection lawsuit on November 23 in Richmond Circuit Court against SpaceX and its subsidiaries X Corp. and xAI, alleging they allowed Grok to generate and disseminate non-consensual sex…",
+   "direction_ids": [
+    "data-privacy",
+    "human-societal",
+    "foundation-model"
+   ],
+   "orgs": [
+    "xai"
+   ]
   },
   {
    "id": "web-342572f26485",
