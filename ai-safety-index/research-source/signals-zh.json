@@ -495,10 +495,6 @@
 "Chris Painter 就 AI 智能体事件在美国参议院作证",
 ""
 ],
-"metr-9ad84ad00d20": [
-"对 OpenAI / Hugging Face 入侵事件中智能体行为、推理与协作的简要独立调查",
-""
-],
 "metr-add179b8d937": [
 "AI 系统可能会掩盖不当行为",
 ""
@@ -546,10 +542,6 @@
 "openai-48e2274fdf2b": [
 "保障我们前沿模型训练环境的安全",
 "OpenAI 介绍了如何加强前沿模型训练与评测的隔离措施，包括离线环境和高算力红队测试。"
-],
-"openai-504dd1ec9508": [
-"Hugging Face 事件与未来之路",
-"OpenAI 分享了 Hugging Face 安全事件的调查结果，以及为加强 AI 模型安全、监控和对齐所采取的措施。"
 ],
 "openai-534907e0d31e": [
 "Paul Christiano 加入 OpenAI 基金会董事会",
