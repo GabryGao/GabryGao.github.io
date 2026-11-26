@@ -1,6 +1,6 @@
 {
  "info": {
-  "generated_on": "2026-11-26T05:29:46Z",
+  "generated_on": "2026-11-26T15:41:11Z",
   "status": "current",
   "sources": [
    {
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 215,
-    "response_sha256": "6cff8b432f787dd362d43f2ce13e71c24526538e5d0d5bc4c2448258436700cb"
+    "response_sha256": "cc892ca785b2e32f0e5f4b3b55d4b039d71baedf0592f21efe7a62a35e87db9f"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 9,
     "response_sha256": "77734113ce7d1c628cba419d685feda6c29e4fbb2725e3fbfc52e96a82867861"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 99,
     "response_sha256": "03e0ec4e7fb600b0a15e40b0e67ac7712e9051406dff8fd4d76face976690faf"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 0,
     "response_sha256": "f67075f1d55975c59caa28eacbddec074cc4b879be4120574f10ef35c1ebe3f5"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 1,
     "response_sha256": "9933dc9cedca23fd524b5091c2efbe39ba3e31c0f1df248d18e4d0c6cadeb911"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 70,
-    "response_sha256": "de556fb99cf7721ed98484c3816fe23b84cd1ebf343b0a67e67099a6b744f9dd",
+    "response_sha256": "e5b3016df4d8f0373ca558ff1cf0feb274f72095b01205d35124c2beab7d3d4e",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -82,7 +82,7 @@
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
     "records": 100,
     "response_sha256": "fbe57f00dcbf7d4917ed5694088f42f1fe0c7cda530ca0538db98d81e0586e32"
    },
@@ -94,17 +94,134 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-26T05:29:46Z",
-    "records": 37,
+    "last_successful_fetch": "2026-11-26T15:41:11Z",
+    "records": 42,
     "pages_fetched": 3,
-    "response_sha256": "5dc41094f34d4b14673d7a5d6c951d15eeec51d4e1d840795f36e319d83be02d"
+    "response_sha256": "8dc5f1013142d314d73b73a87f35b54a98ad8851b64bb0c9d10987a44107d914"
    }
   ],
-  "record_count": 864,
+  "record_count": 873,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
  "records": [
+  {
+   "id": "web-d03a4b25546f",
+   "title": "Google requires Workspace AI agents to connect via MCP or CLI starting February 2027",
+   "date": "2026-11-26",
+   "source": "Help Net Security AI",
+   "source_id": "web-helpnetsecurity-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://www.helpnetsecurity.com/2026/11/26/google-ai-agent-security-requirements/",
+   "description": "Google announced security controls for autonomous agents for Google Workspace and Google Cloud, and requires AI agents to connect via the Workspace MCP server or CLI, with technical enforcement starting February 1, 2027; traditional applic…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-c0937367abc6",
+   "title": "Microsoft details how nation-state hackers use the ARTEX AI framework to automate cyberattacks",
+   "date": "2026-11-26",
+   "source": "The Decoder",
+   "source_id": "web-the-decoder-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/",
+   "description": "A Microsoft threat intelligence report states that ARTEX, an AI penetration-testing framework released in July 2026, has been used in real attacks by China- and North Korea-backed nation-state groups (including Salt Typhoon, Storm-0940 and…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-655054ece049",
+   "title": "Bank of England plans to use frontier AI scenarios to conduct financial system resilience stress tests",
+   "date": "2026-11-26",
+   "source": "Bank of England",
+   "source_id": "web-bankofengland-co-uk",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.bankofengland.co.uk/-/media/boe/files/financial-stability-report/2026/financial-stability-report-november-2026.pdf",
+   "description": "The Bank of England's Financial Policy Committee (FPC) assessed the risks of frontier AI to financial stability in its November financial stability report and listed response measures. The report said that since the July report, frontier A…",
+   "direction_ids": [
+    "ai-x-science",
+    "human-societal"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-5d28cae7bbd9",
+   "title": "OpenAI GPT-6.2 Astra safety guardrail regression: jailbreak robustness as an upgrade threshold",
+   "date": "2026-11-26",
+   "source": "CSA Labs Research",
+   "source_id": "web-labs-cloudsecurityalliance-org",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-gpt62-astra-jailbreak-regression-20261126/",
+   "description": "In the GPT-6.2 System Card released on November 17, 2026, OpenAI disclosed that the pre-release versions of GPT-6.2 Astra and GPT-6.2 Sol were less resistant to jailbreaks than the previous generation GPT-6 Astra. This research note from C…",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": [
+    "openai"
+   ]
+  },
+  {
+   "id": "web-51c4c7d388fa",
+   "title": "Google will require all Workspace users to connect AI agents via MCP servers or the CLI starting in February 2027",
+   "date": "2026-11-26",
+   "source": "Infosecurity Magazine",
+   "source_id": "web-infosecurity-magazine-com",
+   "kind": "discovered",
+   "category": "defense",
+   "url": "https://www.infosecurity-magazine.com/news/google-cloud-ai-agents-workspace/",
+   "description": "In a November 25 announcement, Google launched MCP servers and a Workspace CLI dedicated to Workspace, and stipulated that starting in February 2027, all Workspace users must connect AI agents through these two reviewed methods, replacing …",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "google"
+   ]
+  },
+  {
+   "id": "web-3394969024a0",
+   "title": "Microsoft discloses that Chinese and North Korean state-sponsored hacking groups have adopted the ARTEX AI attack framework",
+   "date": "2026-11-26",
+   "source": "Infosecurity Magazine",
+   "source_id": "web-infosecurity-magazine-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://www.infosecurity-magazine.com/news/chinese-north-korea-artex/",
+   "description": "Microsoft says multiple Chinese and North Korean state-sponsored hacking groups have added the open-source AI penetration testing framework ARTEX to their toolkits, using it to automate attack chain stages such as network reconnaissance, c…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": [
+    "microsoft"
+   ]
+  },
+  {
+   "id": "web-1744af9b2b80",
+   "title": "Germany's BSI: offensive agentic AI intensifies the cyber threat landscape",
+   "date": "2026-11-26",
+   "source": "BSI (Germany)",
+   "source_id": "web-bsi-bund-de",
+   "kind": "discovered",
+   "category": "eval",
+   "url": "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2026/261126_agentische-KI.html",
+   "description": "Germany's Federal Office for Information Security (BSI) reports that offensive agentic frameworks such as Artex, CAIRN and PentAGI can orchestrate AI agents to automate cyberattacks to a large extent, can run on open-weight models without …",
+   "direction_ids": [
+    "agent-software",
+    "foundation-model"
+   ],
+   "orgs": []
+  },
   {
    "id": "web-fc1fe5cb80de",
    "title": "Microsoft: Threat actors abuse agentic AI framework ARTEX to accelerate cyber reconnaissance and credential attacks",
@@ -225,6 +342,21 @@
    "orgs": []
   },
   {
+   "id": "web-54f37bc6c639",
+   "title": "Australia legislates to strengthen safety responsibilities for AI chatbots and social platforms, with fines for violations reaching up to 5% of global revenue",
+   "date": "2026-11-25",
+   "source": "iThome (Taiwan)",
+   "source_id": "web-ithome-com-tw",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://www.ithome.com.tw/news/180825",
+   "description": "On November 25, the Australian Parliament passed the Digital Duty of Care bill, requiring digital service companies such as social media, online games, and AI chatbots to proactively prevent content and conduct that may cause serious harm …",
+   "direction_ids": [
+    "foundation-model"
+   ],
+   "orgs": []
+  },
+  {
    "id": "web-532f830fd55b",
    "title": "\"Rewrite it into a new ordinance\": the ChatGPT conversation records of the Kingsland, Georgia city manager",
    "date": "2026-11-25",
@@ -274,6 +406,21 @@
    "orgs": [
     "anthropic"
    ]
+  },
+  {
+   "id": "web-14c2f279b50e",
+   "title": "Switzerland confirms first AI agent cyberattacks on domestic organizations",
+   "date": "2026-11-25",
+   "source": "Security Affairs",
+   "source_id": "web-securityaffairs-com",
+   "kind": "incident",
+   "category": "incident",
+   "url": "https://securityaffairs.com/204004/hacking/switzerland-confirms-first-ai-agent-cyberattacks-on-local-organisations.html",
+   "description": "The Swiss National Cyber Security Centre (NCSC) reported that it recently received the first reports of domestic organizations subjected to AI agent-assisted cyberattacks; victims include critical infrastructure operators in at least two s…",
+   "direction_ids": [
+    "agent-software"
+   ],
+   "orgs": []
   },
   {
    "id": "arxiv-robotics-de9787fedb52",
