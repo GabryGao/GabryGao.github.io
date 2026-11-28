@@ -1,7 +1,7 @@
 {
  "info": {
-  "generated_on": "2026-11-28T01:37:37Z",
-  "status": "current",
+  "generated_on": "2026-11-28T09:29:00Z",
+  "status": "partial",
   "sources": [
    {
     "id": "openai",
@@ -9,9 +9,9 @@
     "kind": "official",
     "url": "https://openai.com/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 215,
-    "response_sha256": "6310113b339f5c6935bbb9a5e8896627df1120b2a90788e48240fbee1b9005d1"
+    "response_sha256": "11c489c8b4a0fb239a262fab13256c3e1dfcb9ae6f3695ba7c325be079fc8491"
    },
    {
     "id": "deepmind",
@@ -19,7 +19,7 @@
     "kind": "official",
     "url": "https://deepmind.google/blog/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 9,
     "response_sha256": "77734113ce7d1c628cba419d685feda6c29e4fbb2725e3fbfc52e96a82867861"
    },
@@ -29,7 +29,7 @@
     "kind": "official",
     "url": "https://www.gov.uk/government/organisations/ai-security-institute.atom",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 16,
     "response_sha256": "6c47d89ac08b56e4da774207df160eaa05705307885af08a1ff751e2a2fac602"
    },
@@ -39,7 +39,7 @@
     "kind": "official",
     "url": "https://metr.org/feed.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 99,
     "response_sha256": "21456c69f8d0c309a44021097e578a21038f1e069b8d42a13985285c7349d6b4"
    },
@@ -49,7 +49,7 @@
     "kind": "official",
     "url": "https://www.nist.gov/news-events/news/rss.xml",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 0,
     "response_sha256": "f67075f1d55975c59caa28eacbddec074cc4b879be4120574f10ef35c1ebe3f5"
    },
@@ -59,7 +59,7 @@
     "kind": "official",
     "url": "https://blogs.nvidia.com/blog/category/robotics/feed/",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 1,
     "response_sha256": "9933dc9cedca23fd524b5091c2efbe39ba3e31c0f1df248d18e4d0c6cadeb911"
    },
@@ -69,9 +69,9 @@
     "kind": "research",
     "url": "https://export.arxiv.org/api/query?search_query=cat%3Acs.RO+AND+%28ti%3Asafety+OR+ti%3Asafe+OR+ti%3Aattack+OR+ti%3Aadversarial+OR+abs%3A%22safety+constraints%22+OR+abs%3A%22safety-critical%22%29&sortBy=submittedDate&sortOrder=descending&start=0&max_results=100",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
     "records": 70,
-    "response_sha256": "a59fb38379f10e8d3033271c91c79dd4381f0bdef5853958a3bbf5e8e9e9eee8",
+    "response_sha256": "b8f055b5ac734b6190d313a83ec79cb3f9e44483f7598facccf32f58fe138244",
     "candidate_limit": 100,
     "review_status": "automatic, not peer reviewed",
     "selection": "Newest cs.RO candidates matching the query, then physical-AI and safety filters"
@@ -81,10 +81,9 @@
     "name": "AI Incident Database",
     "kind": "incident",
     "url": "https://incidentdatabase.ai/rss.xml",
-    "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
-    "records": 100,
-    "response_sha256": "cd41b3ac6640e3e5c9e72e6154348a632bad9ea1f8fc404b0fd28989cff5811a"
+    "status": "failed",
+    "error": "CalledProcessError",
+    "last_successful_fetch": "2026-11-28T01:37:37Z"
    },
    {
     "id": "web-discovery",
@@ -94,13 +93,13 @@
     "api_url": "https://aisafetyhot.com/api/v1/items",
     "provider": "AI Safety HOT",
     "status": "ok",
-    "last_successful_fetch": "2026-11-28T01:37:37Z",
-    "records": 41,
+    "last_successful_fetch": "2026-11-28T09:29:00Z",
+    "records": 40,
     "pages_fetched": 3,
-    "response_sha256": "47023d11f203b56e3fb7b477ec5b4ef161b15db250968a092b2f3efac9e4102f"
+    "response_sha256": "aeaa620637ac80c6e733858cf0976836d34df193d57a18fc08fd6773ec6632b5"
    }
   ],
-  "record_count": 887,
+  "record_count": 889,
   "archive_days": 90,
   "policy": "Titles, dates, original links and short publisher summaries from primary feeds and public discovery metadata; discovery-provider links are never published; categories, directions and organisations are assigned by this site's keyword rules"
  },
@@ -230,6 +229,21 @@
    "description": "In a cross-jurisdictional investigation into violent and pornographic AI deepfake images involving 45 alleged victims in Canada and the United States, 39-year-old Ontario man Gregry Van Beek pleaded guilty in an Ottawa court, admitting to …",
    "direction_ids": [
     "data-privacy"
+   ],
+   "orgs": []
+  },
+  {
+   "id": "web-117beef82ff3",
+   "title": "EU AI Office seeks proposals for on-site independent evaluation of general-purpose AI models with systemic risk",
+   "date": "2026-11-27",
+   "source": "European Commission",
+   "source_id": "web-digital-strategy-ec-europa-eu",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://digital-strategy.ec.europa.eu/en/news/call-participants-workshop-evaluations-gpai-models-systemic-risk",
+   "description": "The EU AI Office is publicly soliciting proposals on how to conduct on-site independent evaluations of general-purpose AI (GPAI) models with systemic risk, and plans to hold an online workshop in January 2027. On-site evaluation refers to …",
+   "direction_ids": [
+    "foundation-model"
    ],
    "orgs": []
   },
@@ -472,6 +486,24 @@
     "foundation-model"
    ],
    "orgs": []
+  },
+  {
+   "id": "web-de0631b84987",
+   "title": "EU AI scientific panel holds second regular meeting, having previously helped draft questions to OpenAI and Anthropic on loss-of-control incidents",
+   "date": "2026-11-25",
+   "source": "European Commission",
+   "source_id": "web-digital-strategy-ec-europa-eu",
+   "kind": "discovered",
+   "category": "research",
+   "url": "https://digital-strategy.ec.europa.eu/en/news/ai-act-scientific-panel-holds-second-regular-meeting",
+   "description": "The EU AI Act scientific panel held its second regular meeting on 23 November in Brussels in hybrid format; this was the panel's first in-person meeting. Since a special meeting with European Commission Executive Vice-President Virkkunen o…",
+   "direction_ids": [
+    "ai-x-science"
+   ],
+   "orgs": [
+    "openai",
+    "anthropic"
+   ]
   },
   {
    "id": "web-dc04b9a1693d",
